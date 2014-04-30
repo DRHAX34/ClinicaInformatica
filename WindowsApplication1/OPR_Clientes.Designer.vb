@@ -42,6 +42,11 @@ Partial Class OPR_Clientes
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,7 +150,7 @@ Partial Class OPR_Clientes
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(21, 433)
+        Me.RadButton5.Location = New System.Drawing.Point(15, 550)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 21
@@ -153,7 +158,7 @@ Partial Class OPR_Clientes
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(117, 433)
+        Me.RadButton1.Location = New System.Drawing.Point(111, 550)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 22
@@ -161,7 +166,7 @@ Partial Class OPR_Clientes
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(212, 433)
+        Me.RadButton2.Location = New System.Drawing.Point(206, 550)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 23
@@ -169,7 +174,7 @@ Partial Class OPR_Clientes
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(307, 433)
+        Me.RadButton3.Location = New System.Drawing.Point(301, 550)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 24
@@ -178,7 +183,7 @@ Partial Class OPR_Clientes
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(404, 433)
+        Me.RadButton4.Location = New System.Drawing.Point(398, 550)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 25
@@ -188,7 +193,7 @@ Partial Class OPR_Clientes
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(26, 359)
+        Me.Label7.Location = New System.Drawing.Point(26, 467)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 25)
         Me.Label7.TabIndex = 26
@@ -197,7 +202,7 @@ Partial Class OPR_Clientes
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(204, 349)
+        Me.CheckBox1.Location = New System.Drawing.Point(204, 457)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(43, 17)
         Me.CheckBox1.TabIndex = 27
@@ -207,7 +212,7 @@ Partial Class OPR_Clientes
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(204, 383)
+        Me.CheckBox2.Location = New System.Drawing.Point(204, 491)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(46, 17)
         Me.CheckBox2.TabIndex = 28
@@ -217,17 +222,68 @@ Partial Class OPR_Clientes
         'TextBox2
         '
         Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(265, 347)
+        Me.TextBox2.Location = New System.Drawing.Point(265, 455)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(171, 20)
         Me.TextBox2.TabIndex = 29
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(26, 342)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(93, 25)
+        Me.Label8.TabIndex = 30
+        Me.Label8.Text = "Contacto"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(142, 369)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(105, 17)
+        Me.Label9.TabIndex = 31
+        Me.Label9.Text = "Contacto Móvel"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Enabled = False
+        Me.TextBox3.Location = New System.Drawing.Point(265, 366)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox3.TabIndex = 33
+        '
+        'TextBox4
+        '
+        Me.TextBox4.Enabled = False
+        Me.TextBox4.Location = New System.Drawing.Point(265, 398)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(147, 20)
+        Me.TextBox4.TabIndex = 34
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(145, 401)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(93, 17)
+        Me.Label10.TabIndex = 35
+        Me.Label10.Text = "Contacto Fixo"
         '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(508, 508)
+        Me.ClientSize = New System.Drawing.Size(538, 625)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
@@ -279,4 +335,9 @@ Partial Class OPR_Clientes
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
 End Class

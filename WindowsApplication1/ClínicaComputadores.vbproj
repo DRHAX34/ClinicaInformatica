@@ -229,6 +229,12 @@
     <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="OPR_Dispositivos.Designer.vb">
+      <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OPR_Dispositivos.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="OPR_Clientes.Designer.vb">
       <DependentUpon>OPR_Clientes.vb</DependentUpon>
     </Compile>
