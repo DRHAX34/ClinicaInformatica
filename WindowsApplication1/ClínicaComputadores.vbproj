@@ -229,6 +229,12 @@
     <Compile Include="Form2.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="OPR_Clientes.Designer.vb">
+      <DependentUpon>OPR_Clientes.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OPR_Clientes.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Model1.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -277,6 +283,9 @@
     <EmbeddedResource Include="Form2.resx">
       <DependentUpon>Form2.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OPR_Clientes.resx">
+      <DependentUpon>OPR_Clientes.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LoginBox.resx">
       <DependentUpon>LoginBox.vb</DependentUpon>
     </EmbeddedResource>
@@ -286,8 +295,6 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <EmbeddedResource Include="Report2.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Model1.edmx">
