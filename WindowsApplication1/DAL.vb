@@ -2,12 +2,14 @@
 Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Windows.Forms
+Imports System.IO
+Imports System.Drawing.Imaging
 
 Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=G:\Users\Emanuel\Documents\Visual Studio 2013\Projects\WindowsApplication1\WindowsApplication1\Resources\BD-C.Alunos.mdf;Integrated Security=True")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\teste.mdf;Integrated Security=True;Connect Timeout=30")
             Return 0
         Catch e As Exception
             Return -1
@@ -109,6 +111,32 @@ Public Class DAL
             cmdSQL.Dispose()
             CloseConnection()
         End Try
+    End Function
+    Shared Sub store_pic_Sql(ByVal img As Image)
+        'for SQL 
+        Dim sql As String = "insert into picture(id,image) values(1,@imgData)"
+        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+        Dim sqlpara As New SqlParameter("imgData", SqlDbType.Image)
+        Dim mStream As MemoryStream = New MemoryStream()
+        img.Save(mStream, ImageFormat.Png)
+        sqlpara.SqlValue = mStream.GetBuffer
+        command1.Parameters.Add(sqlpara)
+        OpenConnection()
+        command1.ExecuteNonQuery()
+        CloseConnection()
+    End Sub
+
+    Shared Function Load_Pic_Sql(ByVal id As Integer) As Image
+        Dim sql As String = "select image from picture where id = " & id
+        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+        OpenConnection()
+        Dim reader As SqlDataReader = command1.ExecuteReader
+        reader.Read()
+        Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
+        CloseConnection()
+        Dim mStream As MemoryStream = New MemoryStream(bitPic)
+        Dim img As Image = Image.FromStream(mStream)
+        Return img
     End Function
     'Shared Function ExecuteQuery(ByVal SQLText As String, ByRef Params As ArrayList) As DataTable
     '    Dim cmdSQL As New OleDb.OleDbCommand(SQLText, Connection)
