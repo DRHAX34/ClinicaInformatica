@@ -218,22 +218,16 @@
     <Compile Include="BLL.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="DAL.vb" />
-    <Compile Include="Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Menuform.Designer.vb">
+      <DependentUpon>Menuform.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form1.vb">
+    <Compile Include="Menuform.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="ViewForm.Designer.vb">
+      <DependentUpon>ViewForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Form2.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Form3.vb">
+    <Compile Include="ViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="OPR_Dispositivos.Designer.vb">
@@ -290,14 +284,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Menuform.resx">
+      <DependentUpon>Menuform.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <EmbeddedResource Include="ViewForm.resx">
+      <DependentUpon>ViewForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OPR_Clientes.resx">
       <DependentUpon>OPR_Clientes.vb</DependentUpon>

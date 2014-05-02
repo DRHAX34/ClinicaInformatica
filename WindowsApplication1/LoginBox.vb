@@ -1,6 +1,7 @@
 ﻿Public Class LoginForm
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
         ComboBox1.SelectedIndex = 0
         Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width, loginbutton.Height)
@@ -65,6 +66,7 @@
     End Sub
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
-        Form1.Show()
+
+        Menuform.Show()
     End Sub
 End Class

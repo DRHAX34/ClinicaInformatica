@@ -9,7 +9,7 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\teste.mdf;Integrated Security=True;Connect Timeout=30")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30")
             Return 0
         Catch e As Exception
             Return -1
@@ -112,11 +112,12 @@ Public Class DAL
             CloseConnection()
         End Try
     End Function
-    Shared Sub store_pic_Sql(ByVal img As Image)
+    Shared Sub store_pic_Sql(ByVal img As Image, ByVal id As Integer)
         'for SQL 
-        Dim sql As String = "insert into picture(id,image) values(1,@imgData)"
+        Dim sql As String = "insert into picture(id,image) values(@id,@imgData)"
         Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
         Dim sqlpara As New SqlParameter("imgData", SqlDbType.Image)
+        Dim sqlparaid As New SqlParameter("id", id)
         Dim mStream As MemoryStream = New MemoryStream()
         img.Save(mStream, ImageFormat.Png)
         sqlpara.SqlValue = mStream.GetBuffer
