@@ -9,7 +9,7 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\Resources\BD-Alunos.mdf;Integrated Security=True")
             Return 0
         Catch e As Exception
             Return -1
@@ -112,33 +112,33 @@ Public Class DAL
             CloseConnection()
         End Try
     End Function
-    Shared Sub store_pic_Sql(ByVal img As Image, ByVal id As Integer)
-        'for SQL 
-        Dim sql As String = "insert into picture(id,image) values(@id,@imgData)"
-        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
-        Dim sqlpara As New SqlParameter("imgData", SqlDbType.Image)
-        Dim sqlparaid As New SqlParameter("id", id)
-        Dim mStream As MemoryStream = New MemoryStream()
-        img.Save(mStream, ImageFormat.Png)
-        sqlpara.SqlValue = mStream.GetBuffer
-        command1.Parameters.Add(sqlpara)
-        OpenConnection()
-        command1.ExecuteNonQuery()
-        CloseConnection()
-    End Sub
+    'Shared Sub store_pic_Sql(ByVal img As Image, ByVal id As Integer)
+    '    'for SQL 
+    '    Dim sql As String = "insert into picture(id,image) values(@id,@imgData)"
+    '    Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+    '    Dim sqlpara As New SqlParameter("imgData", SqlDbType.Image)
+    '    Dim sqlparaid As New SqlParameter("id", id)
+    '    Dim mStream As MemoryStream = New MemoryStream()
+    '    img.Save(mStream, ImageFormat.Png)
+    '    sqlpara.SqlValue = mStream.GetBuffer
+    '    command1.Parameters.Add(sqlpara)
+    '    OpenConnection()
+    '    command1.ExecuteNonQuery()
+    '    CloseConnection()
+    'End Sub
 
-    Shared Function Load_Pic_Sql(ByVal id As Integer) As Image
-        Dim sql As String = "select image from picture where id = " & id
-        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
-        OpenConnection()
-        Dim reader As SqlDataReader = command1.ExecuteReader
-        reader.Read()
-        Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
-        CloseConnection()
-        Dim mStream As MemoryStream = New MemoryStream(bitPic)
-        Dim img As Image = Image.FromStream(mStream)
-        Return img
-    End Function
+    'Shared Function Load_Pic_Sql(ByVal id As Integer) As Image
+    '    Dim sql As String = "select image from picture where id = " & id
+    '    Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+    '    OpenConnection()
+    '    Dim reader As SqlDataReader = command1.ExecuteReader
+    '    reader.Read()
+    '    Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
+    '    CloseConnection()
+    '    Dim mStream As MemoryStream = New MemoryStream(bitPic)
+    '    Dim img As Image = Image.FromStream(mStream)
+    '    Return img
+    'End Function
     'Shared Function ExecuteQuery(ByVal SQLText As String, ByRef Params As ArrayList) As DataTable
     '    Dim cmdSQL As New OleDb.OleDbCommand(SQLText, Connection)
     '    Dim Result As New DataTable

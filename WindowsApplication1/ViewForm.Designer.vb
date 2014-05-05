@@ -125,7 +125,7 @@ Partial Class ViewForm
         Me.RadButton8.Text = "Outras Funções"
         Me.RadButton8.TextWrap = True
         '
-        'Form2
+        'ViewForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -140,7 +140,7 @@ Partial Class ViewForm
         Me.Controls.Add(Me.RadButton2)
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadGridView1)
-        Me.Name = "Form2"
+        Me.Name = "ViewForm"
         Me.Text = "Form2"
         CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).EndInit()

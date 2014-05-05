@@ -1,7 +1,7 @@
 ﻿Public Class LoginForm
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        DAL.CreateConnection()
         Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
         ComboBox1.SelectedIndex = 0
         Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width, loginbutton.Height)
@@ -66,7 +66,19 @@
     End Sub
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
-
-        Menuform.Show()
+        If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text) = 1 Then
+            Menuform.Show()
+        Else
+            Select Case ComboBox1.SelectedIndex
+                Case 0
+                    MsgBox("Nome de Utilizador/Palavra-Passe errados!")
+                Case 1
+                    MsgBox("Wrong Username/Password!")
+                Case 2
+                    MsgBox("Nom d'utilisateur/Mot de Passe erroné!")
+                Case 3
+                    MsgBox("Nombre de Usuario/Contraseña incorrecto!")
+            End Select
+        End If
     End Sub
 End Class
