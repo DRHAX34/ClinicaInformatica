@@ -278,7 +278,7 @@ Partial Class OPR_Clientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(538, 625)
+        Me.ClientSize = New System.Drawing.Size(505, 628)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.TextBox4)
         Me.Controls.Add(Me.TextBox3)

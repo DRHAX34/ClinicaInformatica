@@ -218,6 +218,18 @@
     <Compile Include="BLL.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="DAL.vb" />
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OPR_Reparações.Designer.vb">
+      <DependentUpon>OPR_Reparações.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OPR_Reparações.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Menuform.Designer.vb">
       <DependentUpon>Menuform.vb</DependentUpon>
     </Compile>
@@ -284,8 +296,17 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPR_Reparações.resx">
+      <DependentUpon>OPR_Reparações.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Menuform.resx">
       <DependentUpon>Menuform.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OPR_Dispositivos.resx">
+      <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewForm.resx">
       <DependentUpon>ViewForm.vb</DependentUpon>
