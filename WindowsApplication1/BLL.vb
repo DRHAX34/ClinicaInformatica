@@ -17,7 +17,7 @@ Public Class BLL
             End If
         End Function
 
-        Shared Function Add_login(ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String)
+        Shared Sub Add_login(ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("n_aluno", num_aluno))
             p.Add(New SqlParameter("n_tecnico", num_tecnico))
@@ -28,6 +28,6 @@ Public Class BLL
             p.Add(New SqlParameter("user", user))
             p.Add(New SqlParameter("password", pass))
             DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,MºTécnico,Fotografia,Nome_Util,Password,Admin,Ativo) VALUES (@n_aluno, @n_tecnico, @fotografia, @user,@pass,@admin,1)", p)
-        End Function
+        End Sub
     End Class
 End Class

@@ -285,7 +285,7 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Label4)
         Me.Name = "OPR_Reparações"
-        Me.Text = "OPR_Reparações"
+        Me.Text = "Operações Reparações"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
