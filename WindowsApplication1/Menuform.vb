@@ -1,5 +1,5 @@
 ﻿Public Class Menuform
-
+    Public modo As Integer
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = "Empresa MUAHAH"
     End Sub

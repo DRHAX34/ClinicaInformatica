@@ -34,7 +34,6 @@ Partial Class OPR_Utilizadores
         Me.Label1 = New System.Windows.Forms.Label()
         Me.emailbox = New System.Windows.Forms.TextBox()
         Me.codpostalbox = New System.Windows.Forms.TextBox()
-        Me.moradabox = New System.Windows.Forms.TextBox()
         Me.nomebox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
@@ -42,6 +41,8 @@ Partial Class OPR_Utilizadores
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,6 +51,7 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.SuspendLayout()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label7
@@ -158,13 +160,6 @@ Partial Class OPR_Utilizadores
         Me.codpostalbox.Size = New System.Drawing.Size(275, 33)
         Me.codpostalbox.TabIndex = 68
         '
-        'moradabox
-        '
-        Me.moradabox.Location = New System.Drawing.Point(130, 194)
-        Me.moradabox.Name = "moradabox"
-        Me.moradabox.Size = New System.Drawing.Size(166, 20)
-        Me.moradabox.TabIndex = 67
-        '
         'nomebox
         '
         Me.nomebox.Location = New System.Drawing.Point(130, 145)
@@ -230,12 +225,30 @@ Partial Class OPR_Utilizadores
         Me.PictureBox1.TabIndex = 81
         Me.PictureBox1.TabStop = False
         '
-        'Form2
+        'ComboBox1
+        '
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Location = New System.Drawing.Point(130, 194)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 84
+        '
+        'RadButton7
+        '
+        Me.RadButton7.Location = New System.Drawing.Point(267, 194)
+        Me.RadButton7.Name = "RadButton7"
+        Me.RadButton7.Size = New System.Drawing.Size(111, 21)
+        Me.RadButton7.TabIndex = 85
+        Me.RadButton7.Text = "Adicionar técnico"
+        '
+        'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(719, 620)
+        Me.Controls.Add(Me.RadButton7)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.PictureBox1)
@@ -248,9 +261,8 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomebox)
-        Me.Name = "Form2"
+        Me.Name = "OPR_Utilizadores"
         Me.Text = "Operações Utilizadores"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -261,6 +273,7 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.PerformLayout()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -277,7 +290,6 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents emailbox As System.Windows.Forms.TextBox
     Friend WithEvents codpostalbox As System.Windows.Forms.TextBox
-    Friend WithEvents moradabox As System.Windows.Forms.TextBox
     Friend WithEvents nomebox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -285,4 +297,6 @@ Partial Class OPR_Utilizadores
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
 End Class

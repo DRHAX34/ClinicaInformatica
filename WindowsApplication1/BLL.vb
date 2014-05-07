@@ -30,4 +30,5 @@ Public Class BLL
             DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,MºTécnico,Fotografia,Nome_Util,Password,Admin,Ativo) VALUES (@n_aluno, @n_tecnico, @fotografia, @user,@pass,@admin,1)", p)
         End Sub
     End Class
+
 End Class
