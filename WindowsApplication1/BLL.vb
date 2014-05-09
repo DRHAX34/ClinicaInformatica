@@ -90,7 +90,7 @@ Public Class BLL
     Shared Sub alterar(ByVal numcliente As Integer, ByVal NIF As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_m As String, ByVal contacto_f As String)
         Dim p As New ArrayList
         Dim c As New ArrayList
-        p.Add(New SqlParameter("NºCliente", numcliente))
+        p.Add(New SqlParameter("@NºCliente", numcliente))
         p.Add(New SqlParameter("@Nome", nome))
         p.Add(New SqlParameter("@Morada", morada))
         p.Add(New SqlParameter("@NIF", NIF))
@@ -108,5 +108,72 @@ Public Class BLL
         Finally
             MsgBox("Cliente editado com sucesso")
         End Try
+    End Sub
+    Shared Sub apagar(ByVal NºCliente As String, ByVal NIF As String)
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NIF", NIF))
+        p.Add(New SqlParameter("@NºCliente", NºCliente))
+        If NIF <> "" Then
+            DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NIF = @NIF", p)
+        ElseIf NºCliente <> "" Then
+            DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NºCliente = @NºCliente", p)
+        End If
+    End Sub
+End Class
+Public Class Dispositivos
+    Shared Function carregar() As DataTable
+        Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie, Observações FROM Dispositivos", Nothing)
+    End Function
+    Shared Function procura_dados_numdispositivo(ByRef NºDispositivo As String) As DataTable
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
+        If NºDispositivo = "" Then
+            Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos", p)
+        Else
+            Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºDispositivo like @NºDispositivo", p)
+        End If
+    End Function
+    Shared Function procura_dados_numcliente(ByRef NºCliente As String) As DataTable
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NºCliente", NºCliente))
+        If NºCliente = "" Then
+            Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos", p)
+        Else
+            Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºCliente=@NºCliente", p)
+        End If
+    End Function
+    Shared Sub inserir(ByVal NºCliente As Integer, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As Integer, ByVal Observações As String)
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NºCliente", NºCliente))
+        p.Add(New SqlParameter("@Marca", Marca))
+        p.Add(New SqlParameter("@Modelo", Modelo))
+        p.Add(New SqlParameter("@NºSérie", NºSérie))
+        p.Add(New SqlParameter("@Observações", Observações))
+        DAL.ExecuteNonQuery("Insert into Dispositivos(NºCliente,Marca,Modelo,NºSérie,Observações) VALUES (@NºCliente, @Marca, @Modelo, @NºSérie,@Observações)", p)
+    End Sub
+    Shared Sub alterar(ByVal NºCliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As Integer, ByVal Observações As String)
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NºCliente", NºCliente))
+        p.Add(New SqlParameter("@Marca", Marca))
+        p.Add(New SqlParameter("@Modelo", Modelo))
+        p.Add(New SqlParameter("@NºSérie", NºSérie))
+        p.Add(New SqlParameter("@Observações", Observações))
+        Try
+            DAL.ExecuteNonQuery("Update Dispositivos set NºCliente = @NºCliente, Marca = @Marca, Modelo= @Modelo, Cod_Postal= @cod_postal, Email= @email where NºCliente=@numcliente", p)
+        Catch e As Exception
+            MsgBox("Erro ao editar os dados: " & e.Message)
+        Finally
+            MsgBox("Dispositivo editado com sucesso")
+        End Try
+    End Sub
+    Shared Sub apagar(ByVal NºCliente As String, ByVal NIF As String)
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NIF", NIF))
+        p.Add(New SqlParameter("@NºCliente", NºCliente))
+        If NIF <> "" Then
+            DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NIF = @NIF", p)
+        ElseIf NºCliente <> "" Then
+            DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NºCliente = @NºCliente", p)
+        End If
     End Sub
 End Class
