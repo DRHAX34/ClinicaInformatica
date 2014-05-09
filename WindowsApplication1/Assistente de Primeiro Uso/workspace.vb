@@ -78,14 +78,14 @@ Public Class Workspace
 
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Cria uma nova instância do formulário filho.
-        if
-            Dim ChildForm As New Passo1
-            ' Torná-lo uma criança deste formulário MDI antes de mostrá-lo.
-            ChildForm.MdiParent = Me
 
-            m_ChildFormNumber += 1
-            ChildForm.Text = "Janela " & m_ChildFormNumber
+        Dim ChildForm As New Passo1
+        ' Torná-lo uma criança deste formulário MDI antes de mostrá-lo.
+        ChildForm.MdiParent = Me
 
-            ChildForm.Show()
+        m_ChildFormNumber += 1
+        ChildForm.Text = "Janela " & m_ChildFormNumber
+
+        ChildForm.Show()
     End Sub
 End Class
