@@ -215,25 +215,43 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assistente de Primeiro Uso\Passo1.Designer.vb">
+      <DependentUpon>Passo1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assistente de Primeiro Uso\Passo1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assistente de Primeiro Uso\Passo2.Designer.vb">
+      <DependentUpon>Passo2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assistente de Primeiro Uso\Passo2.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Assistente de Primeiro Uso\workspace.Designer.vb">
+      <DependentUpon>workspace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assistente de Primeiro Uso\workspace.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BLL.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="DAL.vb" />
-    <Compile Include="OPR_Técnicos.Designer.vb">
+    <Compile Include="Operacoes_Forms\OPR_Técnicos.Designer.vb">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
     </Compile>
-    <Compile Include="OPR_Técnicos.vb">
+    <Compile Include="Operacoes_Forms\OPR_Técnicos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OPR_Utilizadores.Designer.vb">
+    <Compile Include="Operacoes_Forms\OPR_Utilizadores.Designer.vb">
       <DependentUpon>OPR_Utilizadores.vb</DependentUpon>
     </Compile>
-    <Compile Include="OPR_Utilizadores.vb">
+    <Compile Include="Operacoes_Forms\OPR_Utilizadores.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OPR_Reparações.Designer.vb">
+    <Compile Include="Operacoes_Forms\OPR_Reparações.Designer.vb">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </Compile>
-    <Compile Include="OPR_Reparações.vb">
+    <Compile Include="Operacoes_Forms\OPR_Reparações.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menuform.Designer.vb">
@@ -248,16 +266,16 @@
     <Compile Include="ViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OPR_Dispositivos.Designer.vb">
+    <Compile Include="Operacoes_Forms\OPR_Dispositivos.Designer.vb">
       <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
     </Compile>
-    <Compile Include="OPR_Dispositivos.vb">
+    <Compile Include="Operacoes_Forms\OPR_Dispositivos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OPR_Clientes.Designer.vb">
+    <Compile Include="Operacoes_Forms\OPR_Clientes.Designer.vb">
       <DependentUpon>OPR_Clientes.vb</DependentUpon>
     </Compile>
-    <Compile Include="OPR_Clientes.vb">
+    <Compile Include="Operacoes_Forms\OPR_Clientes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Model1.Context.vb">
@@ -302,25 +320,34 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="OPR_Técnicos.resx">
+    <EmbeddedResource Include="Assistente de Primeiro Uso\Passo1.resx">
+      <DependentUpon>Passo1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assistente de Primeiro Uso\Passo2.resx">
+      <DependentUpon>Passo2.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Assistente de Primeiro Uso\workspace.resx">
+      <DependentUpon>workspace.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Técnicos.resx">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OPR_Utilizadores.resx">
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Utilizadores.resx">
       <DependentUpon>OPR_Utilizadores.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OPR_Reparações.resx">
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Reparações.resx">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menuform.resx">
       <DependentUpon>Menuform.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OPR_Dispositivos.resx">
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Dispositivos.resx">
       <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewForm.resx">
       <DependentUpon>ViewForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OPR_Clientes.resx">
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Clientes.resx">
       <DependentUpon>OPR_Clientes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginBox.resx">
