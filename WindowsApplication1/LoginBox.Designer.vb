@@ -195,7 +195,7 @@ Partial Class LoginForm
         Me.Controls.Add(Me.UsernameBox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "LoginForm"
-        Me.Text = "Form1"
+        Me.Text = "LoginBox"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

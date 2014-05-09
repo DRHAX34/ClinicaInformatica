@@ -408,13 +408,6 @@
     <None Include="Resources\BD-Alunos.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\BD-Empresa.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <Content Include="Resources\BD-Empresa_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>BD-Empresa.mdf</DependentUpon>
-    </Content>
     <Content Include="Resources\BD-Alunos_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>BD-Alunos.mdf</DependentUpon>
