@@ -159,21 +159,47 @@ Public Class Dispositivos
         p.Add(New SqlParameter("@NºSérie", NºSérie))
         p.Add(New SqlParameter("@Observações", Observações))
         Try
-            DAL.ExecuteNonQuery("Update Dispositivos set NºCliente = @NºCliente, Marca = @Marca, Modelo= @Modelo, Cod_Postal= @cod_postal, Email= @email where NºCliente=@numcliente", p)
+            DAL.ExecuteNonQuery("Update Dispositivos set NºCliente = @NºCliente, Marca = @Marca, Modelo= @Modelo, NºSérie= @NºSérie, Observações= @Observações where NºCliente=@NºCliente", p)
         Catch e As Exception
             MsgBox("Erro ao editar os dados: " & e.Message)
         Finally
             MsgBox("Dispositivo editado com sucesso")
         End Try
     End Sub
-    Shared Sub apagar(ByVal NºCliente As String, ByVal NIF As String)
+    Shared Sub apagar(ByVal NºDispositivo As String, ByVal NºCliente As String)
         Dim p As New ArrayList
-        p.Add(New SqlParameter("@NIF", NIF))
+        p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
         p.Add(New SqlParameter("@NºCliente", NºCliente))
-        If NIF <> "" Then
-            DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NIF = @NIF", p)
+        If NºDispositivo <> "" Then
+            DAL.ExecuteNonQuery("Update Dispositivos where NºDispositivo = @NºDispositivo", p)
         ElseIf NºCliente <> "" Then
-            DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NºCliente = @NºCliente", p)
+            DAL.ExecuteNonQuery("Update Dispositivos where NºCliente = @NºCliente", p)
         End If
     End Sub
 End Class
+Public Class Reparações
+    Shared Function carregar() As DataTable
+        Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações", Nothing)
+        Return DAL.ExecuteQueryDT("SELECT NºHardware,NºReparação,Tipo From Hardware", Nothing)
+        Return DAL.ExecuteQueryDT("SELECT NºSoftware,NºReparação,Tipo From Software", Nothing)
+    End Function
+    Shared Function procura_dados_numdispositivo(ByRef NºDispositivo As Integer) As DataTable
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
+        If NºDispositivo = "" Then
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações", p)
+        Else
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºDispositivo like @NºDispositivo", p)
+        End If
+    End Function
+    Shared Function procura_dados_numreparação(ByRef NºReparação As Integer) As DataTable
+        Dim p As New ArrayList
+        p.Add(New SqlParameter("@NºReparação", NºReparação))
+        If NºReparação = "" Then
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações", p)
+        Else
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºReparação=@NºReparação", p)
+        End If
+    End Function
+End Class
+
