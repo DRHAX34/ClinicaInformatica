@@ -66,7 +66,7 @@
     End Sub
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
-        If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text) = 1 Then
+        If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, 1) = 1 Then
             Menuform.Show()
         Else
             Select Case ComboBox1.SelectedIndex
