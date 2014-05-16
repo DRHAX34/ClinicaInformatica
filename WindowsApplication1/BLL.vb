@@ -66,27 +66,27 @@ Public Class BLL
                     Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa FROM Clientes where NºCliente=@NºCliente AND Ativo=0", p)
                 End If
             End Function
-            Shared Function procura_dados_nempresa(ByRef n_empresa As String) As DataTable
+            Shared Function procura_dados_nempresa(ByRef empresa As String) As DataTable
                 Dim p As New ArrayList
-                p.Add(New SqlParameter("@NºEmpresa", n_empresa))
+                p.Add(New SqlParameter("@NºEmpresa", empresa))
                 If n_empresa = "" Then
                     Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa FROM Clientes where Ativo=1", p)
                 Else
                     Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa FROM Clientes where NºEmpresa=@Empresa AND Ativo=1", p)
                 End If
             End Function
-            Shared Function procura_dados_nempresa_desativados(ByRef n_empresa As String) As DataTable
+            Shared Function procura_dados_nempresa_desativados(ByRef empresa As String) As DataTable
                 Dim p As New ArrayList
-                p.Add(New SqlParameter("@NºEmpresa", n_empresa))
+                p.Add(New SqlParameter("@NºEmpresa", empresa))
                 If n_empresa = "" Then
                     Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa FROM Clientes where Ativo=0", p)
                 Else
                     Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa FROM Clientes where NºEmpresa=@Empresa AND Ativo=0", p)
                 End If
             End Function
-            Shared Function remover_empresa(ByRef n_empresa As String) As Integer
+            Shared Function remover_empresa(ByRef empresa As String) As Integer
                 Dim p As New ArrayList
-                p.Add(New SqlParameter("n_empresa", n_empresa))
+                p.Add(New SqlParameter("n_empresa", empresa))
                 Return DAL.ExecuteNonQuery("Delete FROM Clientes where NºEmpresa=@n_empresa", p)
                 Return DAL.ExecuteNonQuery("Delete FROM Contactos where NºEmpresa=@n_empresa", p)
             End Function
@@ -98,7 +98,17 @@ Public Class BLL
             Shared Function carregar_users_eliminados() As DataTable
                 Return DAL.ExecuteQueryDT("SELECT NºAluno,MºTécnico,Fotografia,Nome_Util,Password,Admin,NºEmpresa FROM Clientes where Ativo=0", Nothing)
             End Function
-            Shared Function Add_login(ByVal admin_geral As Boolean, ByVal admin As Boolean, ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String, ByVal n_empresa As String)
+            Shared Function carregar_users_empresa(ByRef empresa As Integer) As DataTable
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("n_empresa", empresa))
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            End Function
+            Shared Function carregar_users_eliminados_empresa(ByRef empresa As Integer) As DataTable
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("n_empresa", empresa))
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            End Function
+            Shared Function Add_login(ByVal admin_geral As Boolean, ByVal admin As Boolean, ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String, ByVal empresa As String)
                 Dim p As New ArrayList
                 Dim img_save As New SqlParameter("fotografia", SqlDbType.Image)
                 p.Add(New SqlParameter("n_aluno", num_aluno))
@@ -109,14 +119,14 @@ Public Class BLL
                 p.Add(img_save)
                 p.Add(New SqlParameter("user", user))
                 p.Add(New SqlParameter("password", pass))
-                p.Add(New SqlParameter("n_empresa", n_empresa))
+                p.Add(New SqlParameter("n_empresa", empresa))
                 p.Add(New SqlParameter("admin", admin))
                 p.Add(New SqlParameter("admin_geral", admin_geral))
                 Return DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,MºTécnico,Fotografia,Nome_Util,Password,Admin_Geral,Admin,Ativo,NºEmpresa) VALUES (@n_aluno, @n_tecnico, @fotografia, @user,@pass,@Admin_Geral,@admin,1,NºEmpresa)", p)
             End Function
-            Shared Function remove_login_empresa(ByVal n_empresa As String)
+            Shared Function remove_login_empresa(ByVal empresa As String)
                 Dim p As ArrayList
-                p.Add(New SqlParameter("n_empresa", n_empresa))
+                p.Add(New SqlParameter("n_empresa", empresa))
                 Return DAL.ExecuteNonQuery("Delete From Utilizadores where NºEmpresa=@n_empresa", p)
             End Function
         End Class
@@ -124,19 +134,13 @@ Public Class BLL
     Public Class Login
         Shared Function Verificar_Login(ByRef user As String, ByRef pass As String, ByRef empresa As Integer) As Integer
             Dim sqlparams As New ArrayList
-            Dim data1 As DataTable
             sqlparams.Add(New SqlParameter("user", user))
             sqlparams.Add(New SqlParameter("password", pass))
             sqlparams.Add(New SqlParameter("n_empresa", empresa))
-            data1 = DAL.ExecuteQueryDT("select * from Utilizadores where Nome_util=@user AND Password=@password AND where NºEmpresa=@n_empresa", sqlparams)
-            If data1.Rows.Count <> 0 Then
-                Return 1
-            Else
-                Return 0
-            End If
+            Return = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND where NºEmpresa=@n_empresa", sqlparams)
         End Function
 
-        Shared Function Add_login(ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String, ByRef empresa As String) As Integer
+        Shared Function Add_login(ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
             Dim p As New ArrayList
             Dim img_save As New SqlParameter("fotografia", SqlDbType.Image)
             p.Add(New SqlParameter("n_aluno", num_aluno))
@@ -155,14 +159,14 @@ Public Class BLL
             p.Add(New SqlParameter("n_user", n_user))
             Return DAL.ExecuteNonQuery("Update Utilizadores set Ativo=0 where Cod_Utilizador=@n_user", p)
         End Function
-        Shared Function carregar_users(ByRef empresa As Integer) As DataTable
+        Shared Function carregar_users() As DataTable
             Dim p As New ArrayList
-            p.Add(New SqlParameter("n_empresa", empresa))
+            p.Add(New SqlParameter("n_empresa", n_empresa))
             Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
         End Function
-        Shared Function carregar_users_eliminados(ByRef empresa As Integer) As DataTable
+        Shared Function carregar_users_eliminados() As DataTable
             Dim p As New ArrayList
-            p.Add(New SqlParameter("n_empresa", empresa))
+            p.Add(New SqlParameter("n_empresa", n_empresa))
             Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
         End Function
     End Class
