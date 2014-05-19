@@ -137,7 +137,7 @@ Public Class BLL
             sqlparams.Add(New SqlParameter("user", user))
             sqlparams.Add(New SqlParameter("password", pass))
             sqlparams.Add(New SqlParameter("n_empresa", empresa))
-            Return = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND where NºEmpresa=@n_empresa", sqlparams)
+            Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND where NºEmpresa=@n_empresa", sqlparams)
         End Function
 
         Shared Function Add_login(ByVal img As Image, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
