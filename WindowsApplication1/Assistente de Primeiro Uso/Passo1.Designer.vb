@@ -78,7 +78,8 @@ Partial Class Passo1
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Name = "Passo1"
-        Me.Text = "Passo1"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Assistente de Primeiro Uso"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

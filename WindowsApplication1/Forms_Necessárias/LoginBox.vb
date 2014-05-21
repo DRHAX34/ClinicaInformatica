@@ -1,15 +1,18 @@
 ﻿Public Class LoginForm
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DAL.CreateConnection()
+        Dim p As New ArrayList
+        p = BLL.Login.Carregar_empresas
         Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
-        ComboBox1.SelectedIndex = 0
+        Companybox.SelectedIndex = 0
         Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width, loginbutton.Height)
         Dim sair As New Bitmap(My.Resources.Sair, exitbutton.Width, exitbutton.Height)
         Dim Ajuda As New Bitmap(My.Resources.Ajuda, buttonhelp.Width, buttonhelp.Height)
         loginbutton.Image = login
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
+
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Usernamelabel.Click
@@ -67,7 +70,7 @@
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, 1) = 1 Then
-            Menuform.Show()
+            'menuform.show()
         Else
             Select Case ComboBox1.SelectedIndex
                 Case 0
