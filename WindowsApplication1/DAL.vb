@@ -3,7 +3,6 @@ Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Windows.Forms
 Imports System.IO
-Imports System.Drawing.Imaging
 
 Public Class DAL
     Public Shared Connection As SqlConnection = Nothing

@@ -24,7 +24,9 @@ Public Class Passo1
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
-       
+        Me.WindowState = FormWindowState.Maximized
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
         MaximizeBox = False
         MinimizeBox = False
     End Sub

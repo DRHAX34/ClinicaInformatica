@@ -227,12 +227,6 @@
     <Compile Include="Assistente de Primeiro Uso\Passo2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assistente de Primeiro Uso\workspace.Designer.vb">
-      <DependentUpon>workspace.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assistente de Primeiro Uso\workspace.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="BLL.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="DAL.vb" />
@@ -330,9 +324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo2.resx">
       <DependentUpon>Passo2.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Assistente de Primeiro Uso\workspace.resx">
-      <DependentUpon>workspace.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuform.resx">
       <DependentUpon>menuform.vb</DependentUpon>
