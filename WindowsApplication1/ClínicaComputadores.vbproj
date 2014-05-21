@@ -236,6 +236,12 @@
     <Compile Include="BLL.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="DAL.vb" />
+    <Compile Include="menuform.Designer.vb">
+      <DependentUpon>menuform.vb</DependentUpon>
+    </Compile>
+    <Compile Include="menuform.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Operacoes_Forms\OPR_Técnicos.Designer.vb">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
     </Compile>
@@ -252,12 +258,6 @@
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </Compile>
     <Compile Include="Operacoes_Forms\OPR_Reparações.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Menuform.Designer.vb">
-      <DependentUpon>Menuform.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Menuform.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Resources\_BD_C_IDataSet.Designer.vb">
@@ -334,6 +334,9 @@
     <EmbeddedResource Include="Assistente de Primeiro Uso\workspace.resx">
       <DependentUpon>workspace.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="menuform.resx">
+      <DependentUpon>menuform.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Técnicos.resx">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
     </EmbeddedResource>
@@ -342,9 +345,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Reparações.resx">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Menuform.resx">
-      <DependentUpon>Menuform.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Dispositivos.resx">
       <DependentUpon>OPR_Dispositivos.vb</DependentUpon>

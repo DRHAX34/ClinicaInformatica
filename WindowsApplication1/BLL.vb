@@ -132,6 +132,89 @@ Public Class BLL
         End Class
     End Class
     Public Class Login
+        Shared Function procura_dados_nutilizador_desativados(ByRef Nome_Util As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
+            If Nome_Util = "" Then
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Nome_Util like @Nome_Util AND Ativo=0", p)
+            End If
+        End Function
+        Shared Function procura_dados_nutilizador_ativados(ByRef Nome_Util As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
+            If Nome_Util = "" Then
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Nome_Util like @Nome_Util AND Ativo=1", p)
+            End If
+        End Function
+        Shared Function procura_dados_codutilizador_desativados(ByRef Cod_Utilizador As Integer) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
+            If Cod_Utilizador = "" Then
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador= @Cod_Utilizador AND Ativo=0", p)
+            End If
+        End Function
+        Shared Function procura_dados_codutilizador_ativados(ByRef Cod_Utilizador As Integer) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
+            If Cod_Utilizador = "" Then
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador= @Cod_Utilizador AND Ativo=1", p)
+            End If
+        End Function
+        Shared Function procura_dados_naluno_desativados(ByRef NºAluno As Integer) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@NºAluno", NºAluno))
+            If NºAluno = "" Then
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Ativo=0", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where NºAluno=@NºAluno AND Ativo=0", p)
+            End If
+        End Function
+        Shared Function procura_dados_naluno_ativados(ByRef NºAluno As Integer) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@NºAluno", NºAluno))
+            If NºAluno = "" Then
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Ativo=1", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where NºAluno=@NºAluno AND Ativo=1", p)
+            End If
+        End Function
+        Shared Sub alterar(ByVal Cod_Utilizador As Integer, ByVal NºAluno As Integer, ByVal NºTécnico As Integer, ByVal Fotografia As Image, ByVal Nome_Util As String, ByVal Password As String, ByVal Admin As Boolean, ByVal Admin_Geral As Boolean, ByVal Ativo As Boolean, ByVal NºEmpresa As Integer)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@NºAluno", NºAluno))
+            p.Add(New SqlParameter("@NºTécnico", NºTécnico))
+            p.Add(New SqlParameter("@Fotografia", Fotografia))
+            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
+            p.Add(New SqlParameter("@Password", Password))
+            p.Add(New SqlParameter("@Admin", Admin))
+            p.Add(New SqlParameter("@Admin_Geral", Admin_Geral))
+            p.Add(New SqlParameter("@Ativo", Ativo))
+            p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
+            Try
+                DAL.ExecuteNonQuery("Update Utilizadores set NºAluno = @NºAluno, NºTécnico = @NºTécnico, Fotografia= @Fotografia, Nome_Util= @Nome_Util, Password= @Password. Admin= @Admin, Admin_Geral= @Admin_Geral, Ativo= @Ativo, NºEmpresa= @NºEmpresa where Cod_Utilizador=@Cod_Utilizador", p)
+            Catch e As Exception
+                MsgBox("Erro ao editar os dados: " & e.Message)
+            Finally
+                MsgBox("Utilizador editado com sucesso")
+            End Try
+        End Sub
+        Shared Sub apagar(ByVal Cod_Utilizador As Integer, ByVal Nome_Util As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
+            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
+            If Cod_Utilizador <> "" Then
+                DAL.ExecuteNonQuery("Update Utilizadores set Ativo=0 where Cod_Utilizador = @Cod_Utilizador", p)
+            ElseIf Nome_Util <> "" Then
+                DAL.ExecuteNonQuery("Update Utilizadores set Ativo=0 where Nome_Util = @Nome_Util", p)
+            End If
+        End Sub
         Shared Function Verificar_Login(ByRef user As String, ByRef pass As String, ByRef empresa As Integer) As Integer
             Dim sqlparams As New ArrayList
             sqlparams.Add(New SqlParameter("user", user))
@@ -356,55 +439,60 @@ Public Class BLL
     Public Class Reparações
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
-            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações", Nothing)
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa", p)
             Return DAL.ExecuteQueryDT("SELECT NºHardware,NºReparação,Tipo From Hardware", Nothing)
             Return DAL.ExecuteQueryDT("SELECT NºSoftware,NºReparação,Tipo From Software", Nothing)
         End Function
         Shared Function procura_dados_numdispositivo(ByRef NºDispositivo As Integer) As DataTable
             Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
+            p.Add(New SqlParameter("@n_dispositivo", NºDispositivo))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºDispositivo = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºDispositivo like @NºDispositivo", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºDispositivo like @n_dispositivo AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numreparação(ByRef NºReparação As Integer) As DataTable
             Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºReparação", NºReparação))
+            p.Add(New SqlParameter("@n_reparação", NºReparação))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºReparação = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@NºEmpresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação=@NºReparação AND NºEmpresa=@NºEmpresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºDispositivo,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa", p)
             End If
         End Function
-        Shared Sub inserir(ByVal NºReparação As Integer, ByVal NºDispositivo As Integer, ByVal Categoria As String, ByVal NºTécnico As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal NºEmpresa As Integer, ByVal NºSoftware As Integer, ByVal NºHardware As Integer, ByVal tipo As String)
+        Shared Sub inserir(ByVal n_dispositivo As Integer, ByVal Categoria As String, ByVal n_tecnico As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal n_empresa As Integer, ByVal n_software As Integer, ByVal n_hardware As Integer, ByVal tipo As String)
             Dim p As New ArrayList
             Dim s As New ArrayList
             Dim h As New ArrayList
-            p.Add(New SqlParameter("@NºReparação", NºReparação))
-            p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
+            Dim rtrn As New ArrayList
+            Dim n_reparacao As Integer
+            p.Add(New SqlParameter("@n_dispositivo", n_dispositivo))
             p.Add(New SqlParameter("@Categoria", Categoria))
-            p.Add(New SqlParameter("@NºTécnico", NºTécnico))
+            p.Add(New SqlParameter("@n_tecnico", n_tecnico))
             p.Add(New SqlParameter("@TempoRealReparação", TempoRealReparação))
             p.Add(New SqlParameter("@DescAvaria", DescAvaria))
             p.Add(New SqlParameter("@DIRepar", DIRepar))
             p.Add(New SqlParameter("@DFRepar", DFRepar))
-            p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
-            s.Add(New SqlParameter("@NºSoftware", NºSoftware))
-            s.Add(New SqlParameter("@NºReparação", NºReparação))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            DAL.ExecuteNonQuery("Insert into Reparações(NºDispositivo,Categoria,NºTécnico,TempoRealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa,Ativo) VALUES (@NºReparação, @NºDispositivo, @Categoria, @NºTécnico,@TempoRealReparação,@DIRepar,@DFRepar,@NºEmpresa,1)", p)
+            rtrn = DAL.ExecuteScalar("Select Max(NºReparação) from Reparações", Nothing)
+            n_reparacao = rtrn(0)
+            s.Add(New SqlParameter("@n_reparacao", n_reparacao))
             s.Add(New SqlParameter("@Tipo", tipo))
-            h.Add(New SqlParameter("@NºHardware", NºHardware))
-            h.Add(New SqlParameter("@NºReparação", NºReparação))
+            h.Add(New SqlParameter("@n_reparacao", n_reparacao))
             h.Add(New SqlParameter("@Tipo", tipo))
-            DAL.ExecuteNonQuery("Insert into Reparações(NºReparação,NºDispositivo,Categoria,NºTécnico,TempoRealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa,Ativo) VALUES (@NºReparação, @NºDispositivo, @Categoria, @NºTécnico,@TempoRealReparação,@DIRepar,@DFRepar,@NºEmpresa,1)", p)
-            DAL.ExecuteNonQuery("Insert into Software(NºSoftware,NºReparação,Tipo) VALUES ((Select Max(NºReparação) from Reparações),@NºSoftware,@Tipo", s)
-            DAL.ExecuteNonQuery("Insert into Hardware(NºHardware,NºReparação,Tipo) VALUES ((Select Max(NºReparação) From Reparações),@NºHarware,@Tipo", h)
+            DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo) VALUES (@n_reparacao,@NºSoftware,@Tipo)", s)
+            DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo) VALUES (@n_reparacao,@NºHarware,@Tipo)", h)
         End Sub
-        Shared Sub alterar(ByVal NºReparação As Integer, ByVal NºDispositivo As Integer, ByVal Categoria As String, ByVal NºTécnico As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
+        Shared Function alterar(ByVal NºReparação As Integer, ByVal NºDispositivo As Integer, ByVal Categoria As String, ByVal NºTécnico As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
             Dim p As New ArrayList
             Dim s As New ArrayList
             Dim h As New ArrayList
+            Dim rtrn As New ArrayList
             p.Add(New SqlParameter("@NºReparação", NºReparação))
             p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
             p.Add(New SqlParameter("@Categoria", Categoria))
@@ -417,140 +505,23 @@ Public Class BLL
             s.Add(New SqlParameter("@Tipo_hard", tipo_hard))
             h.Add(New SqlParameter("@NºReparação", NºReparação))
             h.Add(New SqlParameter("@Tipo_soft", tipo_soft))
-            Try
-                DAL.ExecuteNonQuery("Update Reparações set NºDispositivo = @NºDispositivo, Categoria = @Categoria, NºTécnico= @NºTécnico, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar where NºReparação=@NºReparação", p)
-                DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft where NºReparação = @NºReparação", s)
-                DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard where NºReparação = @NºReparação", h)
-            Catch e As Exception
-                MsgBox("Erro ao editar os dados: " & e.Message)
-            Finally
-                MsgBox("Reparação editada com sucesso")
-            End Try
-        End Sub
-        Shared Function apagar(ByVal NºReparação As Integer, ByVal NºDispositivo As Integer) As String
+            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºDispositivo = @NºDispositivo, Categoria = @Categoria, NºTécnico= @NºTécnico, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar where NºReparação=@NºReparação", p))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft where NºReparação = @NºReparação", s))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard where NºReparação = @NºReparação", h))
+            Return rtrn
+        End Function
+        Shared Function apagar(ByVal id As Integer, ByVal modo As String) As String
             Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºReparação", NºReparação))
-            p.Add(New SqlParameter("@NºDispositivo", NºDispositivo))
-            Try
-                If NºReparação <> "" Then
-                    DAL.ExecuteNonQuery("Delete from Reparações where NºReparação = @NºReparação", p)
-                    DAL.ExecuteNonQuery("Delete from Software where NºReparação=@NºReparação", p)
-                    DAL.ExecuteNonQuery("Delete from Hardware where NºReparação=@NºReparação", p)
-                    Return 1
-                ElseIf NºDispositivo <> "" Then
-                    DAL.ExecuteNonQuery("Delete from Reparações where NºDispositivo = @NºDispositivo", p)
-                    Return 1
-                Else
-                    Return "Insira algum dado"
-                End If
-            Catch e As Exception
-                Return "Erro ao Apagar da Base-de-Dados"
-            End Try
-        End Function
-    End Class
-    Public Class Utilizadores
-        Shared Function carregar() As DataTable
-            Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", Nothing)
-        End Function
-        Shared Function carregar_eliminados() As DataTable
-            Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", Nothing)
-        End Function
-        Shared Function procura_dados_nutilizador_desativados(ByRef Nome_Util As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
-            If Nome_Util = "" Then
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Nome_Util like @Nome_Util AND Ativo=0", p)
+            p.Add(New SqlParameter("@id", id))
+            If modo = 1 Then
+                DAL.ExecuteNonQuery("Update Reparações set Ativo=0 where NºReparação = @id", p)
+                Return 1
+            ElseIf modo = 2 Then
+                DAL.ExecuteNonQuery("Update Reparações set Ativo=0 where NºDispositivo = @id", p)
+                Return 1
             End If
+            Return "Erro ao Apagar da Base-de-Dados"
         End Function
-        Shared Function procura_dados_nutilizador_ativados(ByRef Nome_Util As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
-            If Nome_Util = "" Then
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Nome_Util like @Nome_Util AND Ativo=1", p)
-            End If
-        End Function
-        Shared Function procura_dados_codutilizador_desativados(ByRef Cod_Utilizador As Integer) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
-            If Cod_Utilizador = "" Then
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador= @Cod_Utilizador AND Ativo=0", p)
-            End If
-        End Function
-        Shared Function procura_dados_codutilizador_ativados(ByRef Cod_Utilizador As Integer) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
-            If Cod_Utilizador = "" Then
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador= @Cod_Utilizador AND Ativo=1", p)
-            End If
-        End Function
-        Shared Function procura_dados_naluno_desativados(ByRef NºAluno As Integer) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºAluno", NºAluno))
-            If NºAluno = "" Then
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Ativo=0", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where NºAluno=@NºAluno AND Ativo=0", p)
-            End If
-        End Function
-        Shared Function procura_dados_naluno_ativados(ByRef NºAluno As Integer) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºAluno", NºAluno))
-            If NºAluno = "" Then
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Ativo=1", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºAluno, NºTécnico, Fotografia, Nome_Util, Password, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where NºAluno=@NºAluno AND Ativo=1", p)
-            End If
-        End Function
-        Shared Sub inserir(ByVal NºAluno As Integer, ByVal NºTécnico As Integer, ByVal Fotografia As Image, ByVal Nome_Util As String, ByVal Password As String, ByVal Admin As Boolean, ByVal Admin_Geral As Boolean, ByVal Ativo As Boolean, ByVal NºEmpresa As Integer)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºAluno", NºAluno))
-            p.Add(New SqlParameter("@NºTécnico", NºTécnico))
-            p.Add(New SqlParameter("@Fotografia", Fotografia))
-            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
-            p.Add(New SqlParameter("@Password", Password))
-            p.Add(New SqlParameter("@Admin", Admin))
-            p.Add(New SqlParameter("@Admin_Geral", Admin_Geral))
-            p.Add(New SqlParameter("@Ativo", Ativo))
-            p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
-            DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,NºTécnico,Fotografia,Nome_Util,Password,Admin,Admin_Geral,Ativo,NºEmpresa) VALUES (@NºAluno, @NºTécnico, @Fotografia, @Nome_Util,@Password,@Admin,@Admin_Geral,1,@NºEmpresa)", p)
-        End Sub
-        Shared Sub alterar(ByVal Cod_Utilizador As Integer, ByVal NºAluno As Integer, ByVal NºTécnico As Integer, ByVal Fotografia As Image, ByVal Nome_Util As String, ByVal Password As String, ByVal Admin As Boolean, ByVal Admin_Geral As Boolean, ByVal Ativo As Boolean, ByVal NºEmpresa As Integer)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºAluno", NºAluno))
-            p.Add(New SqlParameter("@NºTécnico", NºTécnico))
-            p.Add(New SqlParameter("@Fotografia", Fotografia))
-            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
-            p.Add(New SqlParameter("@Password", Password))
-            p.Add(New SqlParameter("@Admin", Admin))
-            p.Add(New SqlParameter("@Admin_Geral", Admin_Geral))
-            p.Add(New SqlParameter("@Ativo", Ativo))
-            p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
-            Try
-                DAL.ExecuteNonQuery("Update Utilizadores set NºAluno = @NºAluno, NºTécnico = @NºTécnico, Fotografia= @Fotografia, Nome_Util= @Nome_Util, Password= @Password. Admin= @Admin, Admin_Geral= @Admin_Geral, Ativo= @Ativo, NºEmpresa= @NºEmpresa where Cod_Utilizador=@Cod_Utilizador", p)
-            Catch e As Exception
-                MsgBox("Erro ao editar os dados: " & e.Message)
-            Finally
-                MsgBox("Utilizador editado com sucesso")
-            End Try
-        End Sub
-        Shared Sub apagar(ByVal Cod_Utilizador As Integer, ByVal Nome_Util As String)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
-            p.Add(New SqlParameter("@Nome_Util", Nome_Util))
-            If Cod_Utilizador <> "" Then
-                DAL.ExecuteNonQuery("Update Utilizadores set Ativo=0 where Cod_Utilizador = @Cod_Utilizador", p)
-            ElseIf Nome_Util <> "" Then
-                DAL.ExecuteNonQuery("Update Utilizadores set Ativo=0 where Nome_Util = @Nome_Util", p)
-            End If
-        End Sub
     End Class
     Public Class Empresas
         Shared Function carregar() As DataTable
