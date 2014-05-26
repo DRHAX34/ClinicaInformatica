@@ -61,7 +61,7 @@
     End Sub
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
-        Me.Close()
+        Workspace.Close()
     End Sub
 
     Private Sub helpbutton_Click(sender As Object, e As EventArgs) Handles buttonhelp.Click
