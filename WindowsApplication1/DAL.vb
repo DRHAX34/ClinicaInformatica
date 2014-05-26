@@ -8,7 +8,7 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\Resources\BD-C.I.mdf;Integrated Security=True")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\bin\Debug\Resources\BD-C.I.mdf;Integrated Security=True;Connect Timeout=30")
             Return 0
         Catch e As Exception
             Return -1

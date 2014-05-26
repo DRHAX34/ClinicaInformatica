@@ -27,8 +27,6 @@ Partial Class LoginForm
         Me.loginbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.buttonhelp = New System.Windows.Forms.Button()
-        Me.languagelabel = New System.Windows.Forms.Label()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Companybox = New System.Windows.Forms.ComboBox()
         Me.Companylabel = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
@@ -36,6 +34,7 @@ Partial Class LoginForm
         Me.Titlelabel1 = New System.Windows.Forms.Label()
         Me.Passwordbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.UsernameBox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.versionlabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -82,25 +81,6 @@ Partial Class LoginForm
         Me.buttonhelp.Size = New System.Drawing.Size(58, 60)
         Me.buttonhelp.TabIndex = 7
         Me.buttonhelp.UseVisualStyleBackColor = True
-        '
-        'languagelabel
-        '
-        Me.languagelabel.AutoSize = True
-        Me.languagelabel.Location = New System.Drawing.Point(400, 9)
-        Me.languagelabel.Name = "languagelabel"
-        Me.languagelabel.Size = New System.Drawing.Size(62, 13)
-        Me.languagelabel.TabIndex = 8
-        Me.languagelabel.Text = "Linguagem:"
-        '
-        'ComboBox1
-        '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Português", "English", "Français", "Español"})
-        Me.ComboBox1.Location = New System.Drawing.Point(403, 25)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 9
         '
         'Companybox
         '
@@ -174,18 +154,27 @@ Partial Class LoginForm
         Me.UsernameBox.WaterMarkColor = System.Drawing.Color.Gray
         Me.UsernameBox.WaterMarkText = "Nome de Utilizador"
         '
+        'versionlabel
+        '
+        Me.versionlabel.AutoSize = True
+        Me.versionlabel.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.versionlabel.Location = New System.Drawing.Point(376, 9)
+        Me.versionlabel.Name = "versionlabel"
+        Me.versionlabel.Size = New System.Drawing.Size(61, 21)
+        Me.versionlabel.TabIndex = 15
+        Me.versionlabel.Text = "Versão:"
+        '
         'LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(536, 355)
+        Me.Controls.Add(Me.versionlabel)
         Me.Controls.Add(Me.Titlelabel1)
         Me.Controls.Add(Me.Titlelabel2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Companybox)
         Me.Controls.Add(Me.Companylabel)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.languagelabel)
         Me.Controls.Add(Me.buttonhelp)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.loginbutton)
@@ -208,12 +197,11 @@ Partial Class LoginForm
     Friend WithEvents loginbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents buttonhelp As System.Windows.Forms.Button
-    Friend WithEvents languagelabel As System.Windows.Forms.Label
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents Companybox As System.Windows.Forms.ComboBox
     Friend WithEvents Companylabel As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Titlelabel2 As System.Windows.Forms.Label
     Friend WithEvents Titlelabel1 As System.Windows.Forms.Label
+    Friend WithEvents versionlabel As System.Windows.Forms.Label
 
 End Class

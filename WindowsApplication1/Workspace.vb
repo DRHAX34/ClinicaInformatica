@@ -1,7 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class Workspace
-
+    Public config2 As New Passo2
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -74,9 +74,20 @@ Public Class Workspace
         Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
         MenuStrip.Hide()
         StatusStrip.Hide()
-        Dim LoginForm As New LoginForm
-        LoginForm.MdiParent = Me
-        m_ChildFormNumber += 1
-        LoginForm.Show()
+        DAL.CreateConnection()
+        If BLL.Login.Carregar_empresas.Count = 0 Then
+            Dim config As New Passo1
+            config.MdiParent = Me
+            m_ChildFormNumber += 1
+            config.Show()
+            config2.MdiParent = Me
+            m_ChildFormNumber += 1
+            Me.PerformAutoScale()
+        Else
+            Dim LoginForm As New LoginForm
+            LoginForm.MdiParent = Me
+            m_ChildFormNumber += 1
+            LoginForm.Show()
+        End If
     End Sub
 End Class

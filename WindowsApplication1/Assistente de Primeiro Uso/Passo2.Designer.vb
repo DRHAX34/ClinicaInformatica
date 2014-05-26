@@ -71,7 +71,7 @@ Partial Class Passo2
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(248, 92)
+        Me.TextBox1.Location = New System.Drawing.Point(251, 107)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(278, 20)
         Me.TextBox1.TabIndex = 12
