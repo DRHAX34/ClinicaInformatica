@@ -54,8 +54,9 @@ Public Class Passo3
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        If nomebox.Text <> "" & passbox.Text <> "" Then
+        If nomebox.Text <> "" And passbox.Text <> "" Then
             BLL.Admin_only.Login.Add_login(True, True, nomebox.Text, passbox.Text)
+            Workspace.config4.Show()
         End If
     End Sub
 End Class
