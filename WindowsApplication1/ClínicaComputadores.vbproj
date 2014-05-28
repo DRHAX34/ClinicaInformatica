@@ -227,15 +227,15 @@
     <Compile Include="Assistente de Primeiro Uso\Passo2.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Assistente de Primeiro Uso\workspace.Designer.vb">
-      <DependentUpon>workspace.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Assistente de Primeiro Uso\workspace.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="BLL.vb" />
     <Compile Include="Class1.vb" />
     <Compile Include="DAL.vb" />
+    <Compile Include="Workspace.Designer.vb">
+      <DependentUpon>Workspace.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Workspace.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Operacoes_Forms\OPR_Técnicos.Designer.vb">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
     </Compile>
@@ -254,21 +254,15 @@
     <Compile Include="Operacoes_Forms\OPR_Reparações.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menuform.Designer.vb">
-      <DependentUpon>Menuform.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Menuform.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Resources\_BD_C_IDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ViewForm.Designer.vb">
+    <Compile Include="Forms_Necessárias\ViewForm.Designer.vb">
       <DependentUpon>ViewForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="ViewForm.vb">
+    <Compile Include="Forms_Necessárias\ViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Operacoes_Forms\OPR_Dispositivos.Designer.vb">
@@ -301,10 +295,10 @@
     <Compile Include="WaterMarkBox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="LoginBox.vb">
+    <Compile Include="Forms_Necessárias\LoginBox.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LoginBox.Designer.vb">
+    <Compile Include="Forms_Necessárias\LoginBox.Designer.vb">
       <DependentUpon>LoginBox.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -331,8 +325,8 @@
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo2.resx">
       <DependentUpon>Passo2.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Assistente de Primeiro Uso\workspace.resx">
-      <DependentUpon>workspace.vb</DependentUpon>
+    <EmbeddedResource Include="Workspace.resx">
+      <DependentUpon>Workspace.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Técnicos.resx">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
@@ -343,19 +337,16 @@
     <EmbeddedResource Include="Operacoes_Forms\OPR_Reparações.resx">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menuform.resx">
-      <DependentUpon>Menuform.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Dispositivos.resx">
       <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewForm.resx">
+    <EmbeddedResource Include="Forms_Necessárias\ViewForm.resx">
       <DependentUpon>ViewForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Clientes.resx">
       <DependentUpon>OPR_Clientes.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginBox.resx">
+    <EmbeddedResource Include="Forms_Necessárias\LoginBox.resx">
       <DependentUpon>LoginBox.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

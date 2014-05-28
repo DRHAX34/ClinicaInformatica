@@ -24,17 +24,25 @@ Public Class Passo1
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
-       
+        Me.MinimizeBox = False
+        Me.MaximizeBox = False
         MaximizeBox = False
         MinimizeBox = False
     End Sub
-
+    Private Sub passo1_close(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.FormClosing
+        If MsgBox("Tem a certeza que quer sair? Não irá configurar o programa se sair.", MsgBoxStyle.OkCancel) = vbOK Then
+            Workspace.Close()
+        Else
+            Me.Show()
+        End If
+    End Sub
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
         SetBackColor(e.Colorization)
     End Sub
 
     Private Sub SetBackColor(ByVal colorization As Colorization)
-        Me.Text = colorization.Color.ToString & " " & colorization.OpaqueBlend.ToString
+        Dim debug_txt As String
+        debug_txt = colorization.Color.ToString & " " & colorization.OpaqueBlend.ToString
         If colorization.Color.ToArgb <> Color.FromArgb(0, 0, 0, 0).ToArgb Then
             Me.BackColor = colorization.SolidColor ' alpha is set to 255.
         Else
@@ -46,6 +54,11 @@ Public Class Passo1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Workspace.config2.show()
+        Me.Close()
     End Sub
 End Class
 
