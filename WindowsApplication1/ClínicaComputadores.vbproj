@@ -215,6 +215,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assistente de Primeiro Uso\Passo3.Designer.vb">
+      <DependentUpon>Passo3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Assistente de Primeiro Uso\Passo3.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Assistente de Primeiro Uso\Passo1.Designer.vb">
       <DependentUpon>Passo1.vb</DependentUpon>
     </Compile>
@@ -322,6 +328,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Assistente de Primeiro Uso\Passo3.resx">
+      <DependentUpon>Passo3.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo1.resx">
       <DependentUpon>Passo1.vb</DependentUpon>
     </EmbeddedResource>

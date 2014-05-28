@@ -7,7 +7,8 @@ Imports System.Security
 Imports System.CodeDom.Compiler
 
 Public Class Passo2
-
+    Public logo As Image
+    Dim img_caminho As String
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
@@ -36,7 +37,6 @@ Public Class Passo2
     End Sub
 
     Private Sub SetBackColor(ByVal colorization As Colorization)
-        Me.Text = colorization.Color.ToString & " " & colorization.OpaqueBlend.ToString
         If colorization.Color.ToArgb <> Color.FromArgb(0, 0, 0, 0).ToArgb Then
             Me.BackColor = colorization.SolidColor ' alpha is set to 255.
         Else
@@ -55,5 +55,24 @@ Public Class Passo2
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
+    End Sub
+
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles seguintebutton.Click
+        If nomebox.Text <> "" And moradabox.Text <> "" And nifbox.Text <> "" And cod_postalbox.Text <> "" And localidadebox.Text <> "" And img_caminho <> "" Then
+            BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
+            passo3.show()
+        Else
+            MsgBox("Preencha todos os dados!")
+        End If
+    End Sub
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles imagebutton.Click
+        OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
+        img_caminho = OpenFileDialog1.FileName
+        Try
+            logo = Image.FromFile(img_caminho)
+            logobox.Image = logo
+        Catch ex As Exception
+            MsgBox("Erro ao importar a imagem: " & ex.Message)
+        End Try
     End Sub
 End Class
