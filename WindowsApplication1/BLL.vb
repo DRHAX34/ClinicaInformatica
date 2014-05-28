@@ -166,16 +166,13 @@ Public Class BLL
                 p.Add(New SqlParameter("n_empresa", empresa))
                 Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
             End Function
-            Shared Function Add_login(ByVal admin_geral As Boolean, ByVal admin As Boolean, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String, ByVal empresa As String)
+            Shared Function Add_login(ByVal admin_geral As Boolean, ByVal admin As Boolean, ByRef user As String, ByRef pass As String)
                 Dim p As New ArrayList
-                p.Add(New SqlParameter("n_aluno", num_aluno))
-                p.Add(New SqlParameter("n_tecnico", num_tecnico))
-                p.Add(New SqlParameter("user", user))
-                p.Add(New SqlParameter("password", pass))
-                p.Add(New SqlParameter("n_empresa", empresa))
-                p.Add(New SqlParameter("admin", admin))
-                p.Add(New SqlParameter("admin_geral", admin_geral))
-                Return DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,MºTécnico,Fotografia,Nome_Util,Password,Admin_Geral,Admin,Ativo,NºEmpresa) VALUES (@n_aluno, @n_tecnico, @fotografia, @user,@pass,@Admin_Geral,@admin,1,NºEmpresa)", p)
+                p.Add(New SqlParameter("@user", user))
+                p.Add(New SqlParameter("@password", pass))
+                p.Add(New SqlParameter("@admin", admin))
+                p.Add(New SqlParameter("@admin_geral", admin_geral))
+                Return DAL.ExecuteNonQuery("Insert into Utilizadores(Nome_Util,Password,Admin_Geral,Admin,Ativo) VALUES (@user,@password,@Admin_Geral,@admin,1)", p)
             End Function
             Shared Function remove_login_empresa(ByVal empresa As String)
                 Dim p As ArrayList
@@ -308,6 +305,9 @@ Public Class BLL
             End Function
         End Class
         Public Class Empresas
+            Shared Function carregar_max() As Integer
+                Return DAL.ExecuteScalar("Select Max(NºEmpresa) FROM Empresas", Nothing)
+            End Function
             Shared Function carregar() As DataTable
                 Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Logo FROM Empresas where Ativo=1", Nothing)
             End Function
@@ -498,14 +498,15 @@ Public Class BLL
             sqlparams.Add(New SqlParameter("n_empresa", empresa))
             Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND where NºEmpresa=@n_empresa", sqlparams)
         End Function
-        Shared Function Add_login(ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
+        Shared Function Add_login(ByRef admin As Boolean, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
             Dim p As New ArrayList
-            p.Add(New SqlParameter("n_aluno", num_aluno))
-            p.Add(New SqlParameter("n_tecnico", num_tecnico))
-            p.Add(New SqlParameter("user", user))
-            p.Add(New SqlParameter("password", pass))
-            p.Add(New SqlParameter("n_empresa", n_empresa))
-            Return DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,MºTécnico,Nome_Util,Password,Admin,Ativo,NºEmpresa) VALUES (@n_aluno, @n_tecnico, @user,@pass,@admin,1,NºEmpresa)", p)
+            p.Add(New SqlParameter("@Admin", admin))
+            p.Add(New SqlParameter("@n_aluno", num_aluno))
+            p.Add(New SqlParameter("@n_tecnico", num_tecnico))
+            p.Add(New SqlParameter("@user", user))
+            p.Add(New SqlParameter("@password", pass))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            Return DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,NºTécnico,Nome_Util,Password,Admin,Ativo,NºEmpresa) VALUES (@n_aluno, @n_tecnico, @user,@password,@admin,1,NºEmpresa)", p)
         End Function
         Shared Function Remove_Login(ByVal n_user As Integer) As Integer
             Dim p As New ArrayList

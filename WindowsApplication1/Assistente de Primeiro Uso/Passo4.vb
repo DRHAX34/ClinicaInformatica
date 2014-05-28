@@ -1,4 +1,5 @@
-﻿Option Strict On
+﻿
+Option Strict On
 Option Explicit On
 
 Imports System.ComponentModel
@@ -6,7 +7,9 @@ Imports System.Runtime.InteropServices
 Imports System.Security
 Imports System.CodeDom.Compiler
 
-Public Class Passo3
+Public Class Passo4
+    Public logo As Image
+    Dim img_caminho As String
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
@@ -40,9 +43,6 @@ Public Class Passo3
             Me.BackColor = Color.White
         End If
         Label1.ForeColor = colorization.Inversecolor
-        Label2.ForeColor = colorization.Inversecolor
-        passlabel.ForeColor = colorization.Inversecolor
-        nomelabel.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -52,10 +52,7 @@ Public Class Passo3
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
     End Sub
-
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        If nomebox.Text <> "" & passbox.Text <> "" Then
-            BLL.Admin_only.Login.Add_login(True, True, nomebox.Text, passbox.Text)
-        End If
+    Private Sub Passo4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label1.Text = "Parabéns! O seu programa está" & vbNewLine & "agora configurado!"
     End Sub
 End Class

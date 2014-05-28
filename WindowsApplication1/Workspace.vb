@@ -2,6 +2,8 @@
 
 Public Class Workspace
     Public config2 As New Passo2
+    Public config3 As New Passo3
+    Public config4 As New Passo4
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -82,7 +84,10 @@ Public Class Workspace
             config.Show()
             config2.MdiParent = Me
             m_ChildFormNumber += 1
-            Me.PerformAutoScale()
+            config3.MdiParent = Me
+            m_ChildFormNumber += 1
+            config4.MdiParent = Me
+            m_ChildFormNumber += 1
         Else
             Dim LoginForm As New LoginForm
             LoginForm.MdiParent = Me
