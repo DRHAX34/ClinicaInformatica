@@ -9,7 +9,9 @@ Imports System.CodeDom.Compiler
 Public Class Passo1
 
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
+    Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
 
+    End Sub
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
         Const WM_DWMCOLORIZATIONCOLORCHANGED As Integer = 800
         If m.Msg = WM_DWMCOLORIZATIONCOLORCHANGED Then
@@ -24,17 +26,13 @@ Public Class Passo1
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
+        Timer1.Start()
         Me.MinimizeBox = False
+        MinimizeBox = False
         Me.MaximizeBox = False
         MaximizeBox = False
-        MinimizeBox = False
-    End Sub
-    Private Sub passo1_close(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.FormClosing
-        If MsgBox("Tem a certeza que quer sair? Não irá configurar o programa se sair.", MsgBoxStyle.OkCancel) = vbOK Then
-            Workspace.Close()
-        Else
-            Me.Show()
-        End If
+        Me.WindowState = FormWindowState.Minimized
+        Me.WindowState = FormWindowState.Maximized
     End Sub
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
         SetBackColor(e.Colorization)
@@ -59,6 +57,16 @@ Public Class Passo1
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Workspace.config2.show()
         Me.Close()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        If MsgBox("Tem a certeza que deseja cancelar?", MsgBoxStyle.OkCancel) = vbOK Then
+            Workspace.Close()
+        End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
     End Sub
 End Class
 

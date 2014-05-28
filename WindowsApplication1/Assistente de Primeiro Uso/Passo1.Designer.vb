@@ -22,10 +22,12 @@ Partial Class Passo1
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Button2
@@ -68,6 +70,10 @@ Partial Class Passo1
         Me.Label1.TabIndex = 15
         Me.Label1.Text = "Bem-vindo à configuração"
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1
+        '
         'Passo1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -77,6 +83,7 @@ Partial Class Passo1
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Passo1"
         Me.Text = "Assistente de Primeiro Uso"
         Me.ResumeLayout(False)
@@ -87,4 +94,5 @@ Partial Class Passo1
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

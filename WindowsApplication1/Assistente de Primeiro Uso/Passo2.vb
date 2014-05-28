@@ -25,7 +25,8 @@ Public Class Passo2
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
         Label1.Show()
-        Label2.Show()
+        Timer1.Start()
+        Localidadelabel.Show()
         MaximizeBox = False
         MinimizeBox = False
     End Sub
@@ -42,10 +43,17 @@ Public Class Passo2
             Me.BackColor = Color.White
         End If
         Label1.ForeColor = colorization.Inversecolor
-        Label2.ForeColor = colorization.Inversecolor
+        Localidadelabel.ForeColor = colorization.Inversecolor
+        moradalabel.ForeColor = colorization.Inversecolor
+        nomelabel.ForeColor = colorization.Inversecolor
+        cod_postallabel.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
     End Sub
 End Class
