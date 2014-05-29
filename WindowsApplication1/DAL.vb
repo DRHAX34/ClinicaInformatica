@@ -35,7 +35,7 @@ Public Class DAL
             OpenConnection()
             Return cmdSQL.ExecuteScalar
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
             Return -1
         Finally
             cmdSQL.Dispose()
@@ -126,18 +126,17 @@ Public Class DAL
     '    CloseConnection()
     'End Sub
 
-    'Shared Function Load_Pic_Sql(ByVal id As Integer) As Image
-    '    Dim sql As String = "select image from picture where id = " & id
-    '    Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
-    '    OpenConnection()
-    '    Dim reader As SqlDataReader = command1.ExecuteReader
-    '    reader.Read()
-    '    Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
-    '    CloseConnection()
-    '    Dim mStream As MemoryStream = New MemoryStream(bitPic)
-    '    Dim img As Image = Image.FromStream(mStream)
-    '    Return img
-    'End Function
+    Shared Function Load_Pic_Sql(ByVal sql As String) As Image
+        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+        OpenConnection()
+        Dim reader As SqlDataReader = command1.ExecuteReader
+        reader.Read()
+        Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
+        CloseConnection()
+        Dim mStream As MemoryStream = New MemoryStream(bitPic)
+        Dim img As Image = Image.FromStream(mStream)
+        Return img
+    End Function
     'Shared Function ExecuteQuery(ByVal SQLText As String, ByRef Params As ArrayList) As DataTable
     '    Dim cmdSQL As New OleDb.OleDbCommand(SQLText, Connection)
     '    Dim Result As New DataTable

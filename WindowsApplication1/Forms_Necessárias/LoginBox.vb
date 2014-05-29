@@ -14,7 +14,7 @@
         loginbutton.Image = login
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
-
+        Workspace.FormBorderStyle = 2
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Usernamelabel.Click
@@ -30,8 +30,12 @@
     End Sub
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
-        If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, 1) = 1 Then
+        Dim n_empresa As Integer
+        n_empresa = BLL.Login.return_n_empresa(Companybox.Text)
+        If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, n_empresa) = 1 Then
             'menuform.show()
+            Workspace.StatusStrip.Show()
+            Workspace.LoginForm1.Show()
         Else
             MsgBox("Nome de Utilizador/Palavra-Passe errados!")
         End If

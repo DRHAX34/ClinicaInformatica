@@ -59,7 +59,7 @@ Partial Class Passo4
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Passo4"
-        Me.Text = "Passo4"
+        Me.Text = "Assistente de Primeiro Uso"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

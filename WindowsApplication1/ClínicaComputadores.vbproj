@@ -245,6 +245,12 @@
     <Compile Include="MaskedWaterTextBox.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="teste.Designer.vb">
+      <DependentUpon>teste.vb</DependentUpon>
+    </Compile>
+    <Compile Include="teste.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workspace.Designer.vb">
       <DependentUpon>Workspace.vb</DependentUpon>
     </Compile>
@@ -346,6 +352,9 @@
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo4.resx">
       <DependentUpon>Passo4.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="teste.resx">
+      <DependentUpon>teste.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Workspace.resx">
       <DependentUpon>Workspace.vb</DependentUpon>
     </EmbeddedResource>
@@ -435,6 +444,7 @@
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\fundoclinica.png" />
     <None Include="Resources\icone programa.png" />
     <None Include="Resources\Custom-Icon-Design-Pretty-Office-2-FAQ.png" />
     <None Include="Resources\Custom-Icon-Design-Pretty-Office-2-FAQ.ico" />

@@ -8,6 +8,9 @@ Imports System.Security
 Imports System.CodeDom.Compiler
 
 Public Class Passo4
+    Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
+        Button2.Location = New Point((Me.Width - (811 - 629)), (Me.Height - (474 - 364)))
+    End Sub
     Public logo As Image
     Dim img_caminho As String
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
@@ -54,5 +57,10 @@ Public Class Passo4
     End Sub
     Private Sub Passo4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = "Parabéns! O seu programa está" & vbNewLine & "agora configurado!"
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Workspace.MenuStrip.Show()
+        Me.Close()
     End Sub
 End Class

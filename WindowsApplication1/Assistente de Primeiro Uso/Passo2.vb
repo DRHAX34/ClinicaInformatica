@@ -12,20 +12,6 @@ Public Class Passo2
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
     Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
-        nomelabel.Location = New Point((Me.Width - (811 - 21)), (Me.Height - (474 - 115)))
-        nomebox.Location = New Point((Me.Width - (811 - 25)), (Me.Height - (474 - 138)))
-        moradalabel.Location = New Point((Me.Width - (811 - 220)), (Me.Height - (474 - 115)))
-        moradabox.Location = New Point((Me.Width - (811 - 224)), (Me.Height - (474 - 138)))
-        Localidadelabel.Location = New Point((Me.Width - (811 - 21)), (Me.Height - (474 - 168)))
-        localidadebox.Location = New Point((Me.Width - (811 - 25)), (Me.Height - (474 - 191)))
-        cod_postallabel.Location = New Point((Me.Width - (811 - 220)), (Me.Height - (474 - 168)))
-        cod_postalbox.Location = New Point((Me.Width - (811 - 224)), (Me.Height - (474 - 191)))
-        niflabel.Location = New Point((Me.Width - (811 - 119)), (Me.Height - (474 - 226)))
-        nifbox.Location = New Point((Me.Width - (811 - 123)), (Me.Height - (474 - 249)))
-        logolabel.Location = New Point((Me.Width - (811 - 520)), (Me.Height - (474 - 89)))
-        logobox.Location = New Point((Me.Width - (811 - 609)), (Me.Height - (524 - 115)))
-        caminhobox.Location = New Point((Me.Width - (811 - 524)), (Me.Height - (474 - 314)))
-        imagebutton.Location = New Point((Me.Width - (811 - 707)), (Me.Height - (474 - 315)))
         seguintebutton.Location = New Point((Me.Width - (811 - 629)), (Me.Height - (474 - 364)))
         cancelarbutton.Location = New Point((Me.Width - (811 - 486)), (Me.Height - (474 - 376)))
     End Sub
@@ -65,6 +51,8 @@ Public Class Passo2
         moradalabel.ForeColor = colorization.Inversecolor
         nomelabel.ForeColor = colorization.Inversecolor
         cod_postallabel.ForeColor = colorization.Inversecolor
+        logolabel.ForeColor = colorization.Inversecolor
+        niflabel.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -79,13 +67,16 @@ Public Class Passo2
         If nomebox.Text <> "" And moradabox.Text <> "" And nifbox.Text <> "" And cod_postalbox.Text <> "" And localidadebox.Text <> "" And img_caminho <> "" Then
             BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
             Workspace.config3.Show()
+            Me.Close()
         Else
             MsgBox("Preencha todos os dados!")
         End If
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles imagebutton.Click
         OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
+        OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
+        caminhobox.Text = img_caminho
         Try
             logo = Image.FromFile(img_caminho)
             logobox.Image = logo

@@ -1,6 +1,7 @@
 ﻿Imports System.Windows.Forms
 
 Public Class Workspace
+    Public LoginForm1 As New LoginForm
     Public config2 As New Passo2
     Public config3 As New Passo3
     Public config4 As New Passo4
@@ -69,30 +70,38 @@ Public Class Workspace
     '        ChildForm.Close()
     '    Next
     'End Sub
-
     Private m_ChildFormNumber As Integer
+    Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
+        DAL.CloseConnection()
 
+    End Sub
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
         MenuStrip.Hide()
         StatusStrip.Hide()
-        DAL.CreateConnection()
+        Dim estado As Integer = DAL.CreateConnection()
+        LoginForm.MdiParent = Me
+        m_ChildFormNumber += 1
+        Me.FormBorderStyle = 1
         If BLL.Login.Carregar_empresas.Count = 0 Then
             Dim config As New Passo1
             config.MdiParent = Me
             m_ChildFormNumber += 1
+            config.BringToFront()
             config.Show()
             config2.MdiParent = Me
             m_ChildFormNumber += 1
+            config2.BringToFront()
             config3.MdiParent = Me
             m_ChildFormNumber += 1
+            config3.BringToFront()
             config4.MdiParent = Me
             m_ChildFormNumber += 1
+            config4.BringToFront()
         Else
-            Dim LoginForm As New LoginForm
-            LoginForm.MdiParent = Me
-            m_ChildFormNumber += 1
             LoginForm.Show()
+            LoginForm.BringToFront()
         End If
     End Sub
 End Class

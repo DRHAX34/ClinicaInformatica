@@ -7,6 +7,9 @@ Imports System.Security
 Imports System.CodeDom.Compiler
 
 Public Class Passo3
+    Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
+        Button1.Location = New Point((Me.Width - (811 - 629)), (Me.Height - (474 - 364)))
+    End Sub
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
@@ -57,6 +60,7 @@ Public Class Passo3
         If nomebox.Text <> "" And passbox.Text <> "" Then
             BLL.Admin_only.Login.Add_login(True, True, nomebox.Text, passbox.Text)
             Workspace.config4.Show()
+            Me.Close()
         End If
     End Sub
 End Class

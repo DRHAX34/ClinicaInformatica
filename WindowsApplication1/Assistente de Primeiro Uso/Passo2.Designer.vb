@@ -69,7 +69,7 @@ Partial Class Passo2
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 40.0!)
-        Me.Label1.Location = New System.Drawing.Point(13, 17)
+        Me.Label1.Location = New System.Drawing.Point(12, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(776, 72)
         Me.Label1.TabIndex = 8
@@ -195,6 +195,7 @@ Partial Class Passo2
         Me.logobox.Location = New System.Drawing.Point(524, 115)
         Me.logobox.Name = "logobox"
         Me.logobox.Size = New System.Drawing.Size(210, 193)
+        Me.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.logobox.TabIndex = 24
         Me.logobox.TabStop = False
         '
