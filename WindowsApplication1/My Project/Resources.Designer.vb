@@ -103,6 +103,76 @@ Namespace My.Resources
         '''<summary>
         '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property oie_301011418NFe0o9M() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_301011418NFe0o9M", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_301011418NFe0o9M1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_301011418NFe0o9M1", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_30101423KaMIRkur() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_30101423KaMIRkur", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_30101554lClK1zzf() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_30101554lClK1zzf", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_30101754Hz7aSVUe() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_30101754Hz7aSVUe", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_3010633jb6OZwQ5() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_3010633jb6OZwQ5", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_transparent() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_transparent", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Sair() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Sair", resourceCulture)

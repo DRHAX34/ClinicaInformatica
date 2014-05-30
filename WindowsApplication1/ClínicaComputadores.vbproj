@@ -444,6 +444,13 @@
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\oie_30101554lClK1zzf.png" />
+    <None Include="Resources\oie_30101754Hz7aSVUe.png" />
+    <None Include="Resources\oie_30101423KaMIRkur.png" />
+    <None Include="Resources\oie_301011418NFe0o9M1.png" />
+    <None Include="Resources\oie_301011418NFe0o9M.png" />
+    <None Include="Resources\oie_3010633jb6OZwQ5.png" />
+    <None Include="Resources\oie_transparent.png" />
     <None Include="Resources\fundoclinica.png" />
     <None Include="Resources\icone programa.png" />
     <None Include="Resources\Custom-Icon-Design-Pretty-Office-2-FAQ.png" />

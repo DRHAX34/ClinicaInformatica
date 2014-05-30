@@ -8,7 +8,7 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\108005\Documents\GitHub\ClinicaInformatica\WindowsApplication1\Resources\BD-C.I.mdf;Integrated Security=True")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\Base-de-Dados\BD-C.I.mdf;Integrated Security=True;Connect Timeout=30")
             Return 0
         Catch e As Exception
             Return -1
@@ -81,6 +81,8 @@ Public Class DAL
             Return Result
         Catch ex As Exception
             MessageBox.Show(ex.Message)
+            CloseConnection()
+            Workspace.Close()
             Return Nothing
         Finally
             cmdSQL.Dispose()
