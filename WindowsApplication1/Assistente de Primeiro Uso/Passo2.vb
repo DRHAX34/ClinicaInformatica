@@ -77,12 +77,14 @@ Public Class Passo2
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
         caminhobox.Text = img_caminho
-        Try
-            logo = Image.FromFile(img_caminho)
-            logobox.Image = logo
-        Catch ex As Exception
-            MsgBox("Erro ao importar a imagem: " & ex.Message)
-        End Try
+        If img_caminho <> "OpenFileDialog1" Then
+            Try
+                logo = Image.FromFile(img_caminho)
+                logobox.Image = logo
+            Catch ex As Exception
+                MsgBox("Erro ao importar a imagem: " & ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub cancelarbutton_Click(sender As Object, e As EventArgs) Handles cancelarbutton.Click
