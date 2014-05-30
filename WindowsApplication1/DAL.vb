@@ -8,9 +8,11 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\Base-de-Dados\BD-C.I.mdf;Integrated Security=True;Connect Timeout=30")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\ClinicaInformatica\BD-C.I.mdf;Integrated Security=True;Connect Timeout=30")
             Return 0
-        Catch e As Exception
+        Catch ex As Exception
+            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+            Workspace.Close()
             Return -1
         End Try
     End Function
@@ -22,6 +24,11 @@ Public Class DAL
     Shared Sub CloseConnection()
         If Connection.State <> ConnectionState.Closed Then
             Connection.Close()
+        End If
+    End Sub
+    Shared Sub TerminateConnection()
+        If Connection.State <> ConnectionState.Closed Then
+            Connection.Dispose()
         End If
     End Sub
     Shared Function ExecuteScalar(ByVal SQLText As String, ByRef Params As ArrayList) As Object
@@ -36,6 +43,7 @@ Public Class DAL
             Return cmdSQL.ExecuteScalar
         Catch ex As Exception
             MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+            Workspace.Close()
             Return -1
         Finally
             cmdSQL.Dispose()
@@ -53,7 +61,8 @@ Public Class DAL
             OpenConnection()
             Return CInt(cmdSQL.ExecuteNonQuery)
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+            Workspace.Close()
             Return -1
         Finally
             CloseConnection()
@@ -80,8 +89,7 @@ Public Class DAL
             End While
             Return Result
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
-            CloseConnection()
+            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
             Workspace.Close()
             Return Nothing
         Finally
@@ -106,7 +114,8 @@ Public Class DAL
             cmdSQL.Fill(Result)
             Return Result
         Catch ex As Exception
-            MessageBox.Show(ex.Message)
+            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+            Workspace.Close()
             Return Nothing
         Finally
             cmdSQL.Dispose()
@@ -129,15 +138,21 @@ Public Class DAL
     'End Sub
 
     Shared Function Load_Pic_Sql(ByVal sql As String) As Image
-        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
-        OpenConnection()
-        Dim reader As SqlDataReader = command1.ExecuteReader
-        reader.Read()
-        Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
-        CloseConnection()
-        Dim mStream As MemoryStream = New MemoryStream(bitPic)
-        Dim img As Image = Image.FromStream(mStream)
-        Return img
+        Try
+            Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+            OpenConnection()
+            Dim reader As SqlDataReader = command1.ExecuteReader
+            reader.Read()
+            Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
+            CloseConnection()
+            Dim mStream As MemoryStream = New MemoryStream(bitPic)
+            Dim img As Image = Image.FromStream(mStream)
+            Return img
+        Catch ex As Exception
+            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+            Workspace.Close()
+            Return Nothing
+        End Try
     End Function
     'Shared Function ExecuteQuery(ByVal SQLText As String, ByRef Params As ArrayList) As DataTable
     '    Dim cmdSQL As New OleDb.OleDbCommand(SQLText, Connection)

@@ -1,5 +1,5 @@
 ﻿Public Class LoginForm
-
+    Public user As Integer
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim p As New ArrayList
         p = BLL.Login.Carregar_empresas
@@ -33,12 +33,21 @@
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         Dim n_empresa As Integer
         n_empresa = BLL.Login.return_n_empresa(Companybox.Text)
-        If BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, n_empresa) = 1 Then
+        user = BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, n_empresa)
+        If user <> 0 Then
             'menuform.show()
             Workspace.StatusStrip.Show()
-            Workspace.LoginForm1.Show()
+            Workspace.MenuStrip.Show()
+            Me.Hide()
         Else
-            MsgBox("Nome de Utilizador/Palavra-Passe errados!")
+            user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
+            If user = 0 Then
+                MsgBox("Nome de Utilizador/Palavra-Passe errados!")
+            Else
+                Workspace.StatusStrip.Show()
+                Workspace.MenuStrip.Show()
+                Me.Hide()
+            End If
         End If
     End Sub
 End Class

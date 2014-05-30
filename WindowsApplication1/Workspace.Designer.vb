@@ -159,10 +159,12 @@ Partial Class Workspace
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundo_melhorado_960x540
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(847, 468)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
+        Me.DoubleBuffered = True
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.MaximizeBox = False

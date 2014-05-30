@@ -179,18 +179,11 @@ Public Class BLL
                 p.Add(New SqlParameter("n_empresa", empresa))
                 Return DAL.ExecuteNonQuery("Delete From Utilizadores where NºEmpresa=@n_empresa", p)
             End Function
-            Shared Function Verificar_Login_admin(ByRef user As String, ByRef pass As String, ByRef empresa As Integer) As Integer
+            Shared Function Verificar_Login_admin(ByRef user As String, ByRef pass As String) As Integer
                 Dim sqlparams As New ArrayList
                 sqlparams.Add(New SqlParameter("@user", user))
                 sqlparams.Add(New SqlParameter("@password", pass))
-                sqlparams.Add(New SqlParameter("@n_empresa", empresa))
-                Dim resultado As Integer
-                resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND NºEmpresa=@n_empresa", sqlparams)
-                If resultado = 0 Then
-                    Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@utilizador AND Password=@palavra_passe AND Admin_Geral=1", sqlparams)
-                Else
-                    Return resultado
-                End If
+                Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND Admin_Geral=1", sqlparams)
             End Function
         End Class
         Public Class Dispositivos
@@ -519,11 +512,6 @@ Public Class BLL
             sqlparams.Add(New SqlParameter("@n_empresa", empresa))
             Dim resultado As Integer
             resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND NºEmpresa=@n_empresa", sqlparams)
-            If resultado = 0 Then
-                Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@utilizador AND Password=@palavra_passe AND Admin_Geral=1", sqlparams)
-            Else
-                Return resultado
-            End If
         End Function
         Shared Function Add_login(ByRef admin As Boolean, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
             Dim p As New ArrayList

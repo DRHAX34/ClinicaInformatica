@@ -444,6 +444,9 @@
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\fundo_melhorado_960x540.png" />
+    <None Include="Resources\fundo_melhorado.png" />
+    <None Include="Resources\fundo.png" />
     <None Include="Resources\oie_30101554lClK1zzf.png" />
     <None Include="Resources\oie_30101754Hz7aSVUe.png" />
     <None Include="Resources\oie_30101423KaMIRkur.png" />

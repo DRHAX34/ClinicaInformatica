@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms
 
+
 Public Class Workspace
     Public LoginForm1 As New LoginForm
     Public config2 As New Passo2
@@ -73,7 +74,7 @@ Public Class Workspace
     Private m_ChildFormNumber As Integer
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         DAL.CloseConnection()
-
+        DAL.TerminateConnection()
     End Sub
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
