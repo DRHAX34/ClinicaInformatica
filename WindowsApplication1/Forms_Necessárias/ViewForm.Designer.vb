@@ -22,108 +22,108 @@ Partial Class ViewForm
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.RadGridView1 = New Telerik.WinControls.UI.RadGridView()
+        Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
-        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton2 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton8 = New Telerik.WinControls.UI.RadButton()
-        CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.newbutton = New Telerik.WinControls.UI.RadButton()
+        Me.delbutton = New Telerik.WinControls.UI.RadButton()
+        Me.editbutton = New Telerik.WinControls.UI.RadButton()
+        Me.updatebutton = New Telerik.WinControls.UI.RadButton()
+        Me.findbutton = New Telerik.WinControls.UI.RadButton()
+        Me.showbutton = New Telerik.WinControls.UI.RadButton()
+        Me.exitbutton = New Telerik.WinControls.UI.RadButton()
+        Me.othersbutton = New Telerik.WinControls.UI.RadButton()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.newbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.delbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.editbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.updatebutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.findbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.exitbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.othersbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'RadGridView1
+        'showdata
         '
-        Me.RadGridView1.Location = New System.Drawing.Point(13, 13)
+        Me.showdata.Location = New System.Drawing.Point(13, 13)
         '
-        'RadGridView1
+        'showdata
         '
-        Me.RadGridView1.MasterTemplate.AllowAddNewRow = False
-        Me.RadGridView1.Name = "RadGridView1"
-        Me.RadGridView1.Padding = New System.Windows.Forms.Padding(1)
-        Me.RadGridView1.ReadOnly = True
-        Me.RadGridView1.Size = New System.Drawing.Size(709, 335)
-        Me.RadGridView1.TabIndex = 0
-        Me.RadGridView1.Text = "RadGridView1"
-        Me.RadGridView1.ThemeName = "Windows8"
+        Me.showdata.MasterTemplate.AllowAddNewRow = False
+        Me.showdata.Name = "showdata"
+        Me.showdata.Padding = New System.Windows.Forms.Padding(1)
+        Me.showdata.ReadOnly = True
+        Me.showdata.Size = New System.Drawing.Size(709, 335)
+        Me.showdata.TabIndex = 0
+        Me.showdata.Text = "Data"
+        Me.showdata.ThemeName = "Windows8"
         '
-        'RadButton1
+        'newbutton
         '
-        Me.RadButton1.Location = New System.Drawing.Point(13, 364)
-        Me.RadButton1.Name = "RadButton1"
-        Me.RadButton1.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton1.TabIndex = 1
-        Me.RadButton1.Text = "Novo"
+        Me.newbutton.Location = New System.Drawing.Point(13, 364)
+        Me.newbutton.Name = "newbutton"
+        Me.newbutton.Size = New System.Drawing.Size(102, 38)
+        Me.newbutton.TabIndex = 1
+        Me.newbutton.Text = "Novo"
         '
-        'RadButton2
+        'delbutton
         '
-        Me.RadButton2.Location = New System.Drawing.Point(13, 417)
-        Me.RadButton2.Name = "RadButton2"
-        Me.RadButton2.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton2.TabIndex = 2
-        Me.RadButton2.Text = "Eliminar"
+        Me.delbutton.Location = New System.Drawing.Point(13, 417)
+        Me.delbutton.Name = "delbutton"
+        Me.delbutton.Size = New System.Drawing.Size(102, 38)
+        Me.delbutton.TabIndex = 2
+        Me.delbutton.Text = "Eliminar"
         '
-        'RadButton3
+        'editbutton
         '
-        Me.RadButton3.Location = New System.Drawing.Point(137, 364)
-        Me.RadButton3.Name = "RadButton3"
-        Me.RadButton3.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton3.TabIndex = 3
-        Me.RadButton3.Text = "Editar"
+        Me.editbutton.Location = New System.Drawing.Point(137, 364)
+        Me.editbutton.Name = "editbutton"
+        Me.editbutton.Size = New System.Drawing.Size(102, 38)
+        Me.editbutton.TabIndex = 3
+        Me.editbutton.Text = "Editar"
         '
-        'RadButton4
+        'updatebutton
         '
-        Me.RadButton4.Location = New System.Drawing.Point(137, 417)
-        Me.RadButton4.Name = "RadButton4"
-        Me.RadButton4.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton4.TabIndex = 4
-        Me.RadButton4.Text = "Atualizar"
+        Me.updatebutton.Location = New System.Drawing.Point(137, 417)
+        Me.updatebutton.Name = "updatebutton"
+        Me.updatebutton.Size = New System.Drawing.Size(102, 38)
+        Me.updatebutton.TabIndex = 4
+        Me.updatebutton.Text = "Atualizar"
         '
-        'RadButton5
+        'findbutton
         '
-        Me.RadButton5.Location = New System.Drawing.Point(494, 364)
-        Me.RadButton5.Name = "RadButton5"
-        Me.RadButton5.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton5.TabIndex = 5
-        Me.RadButton5.Text = "Localizar"
+        Me.findbutton.Location = New System.Drawing.Point(494, 364)
+        Me.findbutton.Name = "findbutton"
+        Me.findbutton.Size = New System.Drawing.Size(102, 38)
+        Me.findbutton.TabIndex = 5
+        Me.findbutton.Text = "Localizar"
         '
-        'RadButton6
+        'showbutton
         '
-        Me.RadButton6.Location = New System.Drawing.Point(620, 364)
-        Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton6.TabIndex = 6
-        Me.RadButton6.Text = "Mostrar Dados Completos"
-        Me.RadButton6.TextWrap = True
+        Me.showbutton.Location = New System.Drawing.Point(620, 364)
+        Me.showbutton.Name = "showbutton"
+        Me.showbutton.Size = New System.Drawing.Size(102, 38)
+        Me.showbutton.TabIndex = 6
+        Me.showbutton.Text = "Mostrar Dados Completos"
+        Me.showbutton.TextWrap = True
         '
-        'RadButton7
+        'exitbutton
         '
-        Me.RadButton7.Location = New System.Drawing.Point(620, 417)
-        Me.RadButton7.Name = "RadButton7"
-        Me.RadButton7.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton7.TabIndex = 7
-        Me.RadButton7.Text = "Sair"
+        Me.exitbutton.Location = New System.Drawing.Point(620, 417)
+        Me.exitbutton.Name = "exitbutton"
+        Me.exitbutton.Size = New System.Drawing.Size(102, 38)
+        Me.exitbutton.TabIndex = 7
+        Me.exitbutton.Text = "Sair"
         '
-        'RadButton8
+        'othersbutton
         '
-        Me.RadButton8.Location = New System.Drawing.Point(494, 417)
-        Me.RadButton8.Name = "RadButton8"
-        Me.RadButton8.Size = New System.Drawing.Size(102, 38)
-        Me.RadButton8.TabIndex = 8
-        Me.RadButton8.Text = "Outras Funções"
-        Me.RadButton8.TextWrap = True
+        Me.othersbutton.Location = New System.Drawing.Point(494, 417)
+        Me.othersbutton.Name = "othersbutton"
+        Me.othersbutton.Size = New System.Drawing.Size(102, 38)
+        Me.othersbutton.TabIndex = 8
+        Me.othersbutton.Text = "Outras Funções"
+        Me.othersbutton.TextWrap = True
         '
         'ViewForm
         '
@@ -131,38 +131,38 @@ Partial Class ViewForm
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(734, 467)
-        Me.Controls.Add(Me.RadButton8)
-        Me.Controls.Add(Me.RadButton7)
-        Me.Controls.Add(Me.RadButton6)
-        Me.Controls.Add(Me.RadButton5)
-        Me.Controls.Add(Me.RadButton4)
-        Me.Controls.Add(Me.RadButton3)
-        Me.Controls.Add(Me.RadButton2)
-        Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadGridView1)
+        Me.Controls.Add(Me.othersbutton)
+        Me.Controls.Add(Me.exitbutton)
+        Me.Controls.Add(Me.showbutton)
+        Me.Controls.Add(Me.findbutton)
+        Me.Controls.Add(Me.updatebutton)
+        Me.Controls.Add(Me.editbutton)
+        Me.Controls.Add(Me.delbutton)
+        Me.Controls.Add(Me.newbutton)
+        Me.Controls.Add(Me.showdata)
         Me.Name = "ViewForm"
-        Me.Text = "Form2"
-        CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Generic Form"
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.newbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.delbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.editbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.updatebutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.findbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.exitbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.othersbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents RadGridView1 As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
-    Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton2 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton8 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents newbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents delbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents editbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents updatebutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents findbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents showbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents exitbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents othersbutton As Telerik.WinControls.UI.RadButton
 End Class

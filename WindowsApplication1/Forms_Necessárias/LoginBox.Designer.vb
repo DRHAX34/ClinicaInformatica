@@ -29,15 +29,15 @@ Partial Class LoginForm
         Me.buttonhelp = New System.Windows.Forms.Button()
         Me.Companybox = New System.Windows.Forms.ComboBox()
         Me.Companylabel = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Titlelabel2 = New System.Windows.Forms.Label()
         Me.Titlelabel1 = New System.Windows.Forms.Label()
-        Me.Passwordbox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.UsernameBox = New ClinicaInformatica.WaterMarkTextBox()
         Me.datalabel = New System.Windows.Forms.Label()
         Me.RadClock1 = New Telerik.WinControls.UI.RadClock()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Passwordbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.UsernameBox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadClock1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Usernamelabel
@@ -105,16 +105,6 @@ Partial Class LoginForm
         Me.Companylabel.TabIndex = 10
         Me.Companylabel.Text = "Empresa:"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.icone_programa
-        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(83, 80)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 12
-        Me.PictureBox1.TabStop = False
-        '
         'Titlelabel2
         '
         Me.Titlelabel2.AutoSize = True
@@ -134,6 +124,34 @@ Partial Class LoginForm
         Me.Titlelabel1.Size = New System.Drawing.Size(119, 45)
         Me.Titlelabel1.TabIndex = 14
         Me.Titlelabel1.Text = "Gestão"
+        '
+        'datalabel
+        '
+        Me.datalabel.AutoSize = True
+        Me.datalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.datalabel.Location = New System.Drawing.Point(413, 150)
+        Me.datalabel.Name = "datalabel"
+        Me.datalabel.Size = New System.Drawing.Size(36, 21)
+        Me.datalabel.TabIndex = 16
+        Me.datalabel.Text = "Dia:"
+        '
+        'RadClock1
+        '
+        Me.RadClock1.Location = New System.Drawing.Point(390, 12)
+        Me.RadClock1.Name = "RadClock1"
+        Me.RadClock1.Size = New System.Drawing.Size(134, 135)
+        Me.RadClock1.TabIndex = 17
+        Me.RadClock1.Text = "RadClock1"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.icone_programa
+        Me.PictureBox1.Location = New System.Drawing.Point(0, -1)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(83, 80)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 12
+        Me.PictureBox1.TabStop = False
         '
         'Passwordbox
         '
@@ -155,24 +173,6 @@ Partial Class LoginForm
         Me.UsernameBox.TabIndex = 1
         Me.UsernameBox.WaterMarkColor = System.Drawing.Color.Gray
         Me.UsernameBox.WaterMarkText = "Nome de Utilizador"
-        '
-        'datalabel
-        '
-        Me.datalabel.AutoSize = True
-        Me.datalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.datalabel.Location = New System.Drawing.Point(424, 156)
-        Me.datalabel.Name = "datalabel"
-        Me.datalabel.Size = New System.Drawing.Size(36, 21)
-        Me.datalabel.TabIndex = 16
-        Me.datalabel.Text = "Dia:"
-        '
-        'RadClock1
-        '
-        Me.RadClock1.Location = New System.Drawing.Point(390, 12)
-        Me.RadClock1.Name = "RadClock1"
-        Me.RadClock1.Size = New System.Drawing.Size(134, 135)
-        Me.RadClock1.TabIndex = 17
-        Me.RadClock1.Text = "RadClock1"
         '
         'LoginForm
         '
@@ -196,8 +196,8 @@ Partial Class LoginForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "LoginForm"
         Me.Text = "Login - Clínica Informática"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadClock1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

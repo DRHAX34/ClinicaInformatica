@@ -72,7 +72,7 @@ Partial Class Passo3
         Me.passbox.Size = New System.Drawing.Size(183, 27)
         Me.passbox.TabIndex = 25
         Me.passbox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.passbox.WaterMarkText = "Morada"
+        Me.passbox.WaterMarkText = "Palavra-Passe"
         '
         'nomelabel
         '
@@ -92,7 +92,7 @@ Partial Class Passo3
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 23
         Me.nomebox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.nomebox.WaterMarkText = "Nome da Empresa"
+        Me.nomebox.WaterMarkText = "Nome de Utilizador"
         '
         'Label2
         '

@@ -15,7 +15,7 @@
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
         Workspace.FormBorderStyle = 2
-        datalabel.Text = TimeOfDay.Date
+        datalabel.Text = System.DateTime.Now.Date
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Usernamelabel.Click

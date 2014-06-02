@@ -47,7 +47,6 @@ Partial Class Workspace
         'StatusStrip
         '
         Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 446)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(847, 22)
@@ -167,7 +166,6 @@ Partial Class Workspace
         Me.DoubleBuffered = True
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
-        Me.MaximizeBox = False
         Me.MinimumSize = New System.Drawing.Size(863, 506)
         Me.Name = "Workspace"
         Me.Text = "Clínica Informática"

@@ -77,9 +77,9 @@ Public Class Workspace
         DAL.TerminateConnection()
     End Sub
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
         MenuStrip.Hide()
+        Me.BackgroundImageLayout = ImageLayout.Stretch
         StatusStrip.Hide()
         Dim estado As Integer = DAL.CreateConnection()
         LoginForm.MdiParent = Me
@@ -104,5 +104,10 @@ Public Class Workspace
             LoginForm.Show()
             LoginForm.BringToFront()
         End If
+    End Sub
+
+    Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
+        Dim clientesview As New ViewForm
+
     End Sub
 End Class
