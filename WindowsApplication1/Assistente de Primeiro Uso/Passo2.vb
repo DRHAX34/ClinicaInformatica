@@ -13,7 +13,8 @@ Public Class Passo2
 
     Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
         seguintebutton.Location = New Point((Me.Width - (811 - 629)), (Me.Height - (474 - 364)))
-        cancelarbutton.Location = New Point((Me.Width - (811 - 486)), (Me.Height - (474 - 376)))
+        limparbutton.Location = New Point((Me.Width - (811 - 457)), (Me.Height - (474 - 373)))
+        cancelarbutton.Location = New Point((Me.Width - (811 - 314)), (Me.Height - (474 - 376)))
     End Sub
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
         Const WM_DWMCOLORIZATIONCOLORCHANGED As Integer = 800

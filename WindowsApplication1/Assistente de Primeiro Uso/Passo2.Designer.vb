@@ -42,13 +42,14 @@ Partial Class Passo2
         Me.caminhobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.imagebutton = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.limparbutton = New System.Windows.Forms.Button()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cancelarbutton
         '
         Me.cancelarbutton.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.cancelarbutton.Location = New System.Drawing.Point(486, 376)
+        Me.cancelarbutton.Location = New System.Drawing.Point(314, 376)
         Me.cancelarbutton.Name = "cancelarbutton"
         Me.cancelarbutton.Size = New System.Drawing.Size(137, 44)
         Me.cancelarbutton.TabIndex = 11
@@ -222,11 +223,22 @@ Partial Class Passo2
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
+        'limparbutton
+        '
+        Me.limparbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.limparbutton.Location = New System.Drawing.Point(457, 373)
+        Me.limparbutton.Name = "limparbutton"
+        Me.limparbutton.Size = New System.Drawing.Size(166, 47)
+        Me.limparbutton.TabIndex = 35
+        Me.limparbutton.Text = "Limpar"
+        Me.limparbutton.UseVisualStyleBackColor = True
+        '
         'Passo2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 436)
+        Me.Controls.Add(Me.limparbutton)
         Me.Controls.Add(Me.imagebutton)
         Me.Controls.Add(Me.caminhobox)
         Me.Controls.Add(Me.logobox)
@@ -273,4 +285,5 @@ Partial Class Passo2
     Friend WithEvents caminhobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents imagebutton As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents limparbutton As System.Windows.Forms.Button
 End Class

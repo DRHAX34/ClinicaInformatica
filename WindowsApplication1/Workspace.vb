@@ -6,6 +6,7 @@ Public Class Workspace
     Public config2 As New Passo2
     Public config3 As New Passo3
     Public config4 As New Passo4
+    Public modo As Integer
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -79,6 +80,7 @@ Public Class Workspace
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
         MenuStrip.Hide()
+        EmpresasToolStripMenuItem.Visible = False
         Me.BackgroundImageLayout = ImageLayout.Stretch
         StatusStrip.Hide()
         Dim estado As Integer = DAL.CreateConnection()
@@ -89,25 +91,28 @@ Public Class Workspace
             Dim config As New Passo1
             config.MdiParent = Me
             m_ChildFormNumber += 1
-            config.BringToFront()
             config.Show()
             config2.MdiParent = Me
             m_ChildFormNumber += 1
-            config2.BringToFront()
             config3.MdiParent = Me
             m_ChildFormNumber += 1
-            config3.BringToFront()
             config4.MdiParent = Me
             m_ChildFormNumber += 1
-            config4.BringToFront()
         Else
             LoginForm.Show()
-            LoginForm.BringToFront()
+        End If
+        If modo = 1 Then
+            EmpresasToolStripMenuItem.Visible = True
         End If
     End Sub
 
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
         Dim clientesview As New ViewForm
-
+        clientesview.Text = "Clientes"
+        clientesview.MdiParent = Me
+        m_ChildFormNumber += 1
+        clientesview.layout = 1
+        clientesview.data_table = BLL.Clientes.carregar()
+        clientesview.Show()
     End Sub
 End Class

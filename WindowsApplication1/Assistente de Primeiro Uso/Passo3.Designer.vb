@@ -31,6 +31,7 @@ Partial Class Passo3
         Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
@@ -108,11 +109,22 @@ Partial Class Passo3
         '
         Me.Timer1.Interval = 1
         '
+        'Button2
+        '
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(440, 377)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(166, 47)
+        Me.Button2.TabIndex = 34
+        Me.Button2.Text = "Limpar"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'Passo3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 436)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.passlabel)
         Me.Controls.Add(Me.passbox)
@@ -134,4 +146,5 @@ Partial Class Passo3
     Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

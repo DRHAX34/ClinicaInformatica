@@ -25,13 +25,10 @@ Partial Class OPR_Clientes
         Me.Label4 = New System.Windows.Forms.Label()
         Me.nomebox = New System.Windows.Forms.TextBox()
         Me.moradabox = New System.Windows.Forms.TextBox()
-        Me.codpostalbox = New System.Windows.Forms.TextBox()
         Me.emailbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
@@ -41,12 +38,13 @@ Partial Class OPR_Clientes
         Me.Label7 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.numalunobox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.cmovelbox = New System.Windows.Forms.TextBox()
+        Me.cfixobox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
+        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,13 +75,6 @@ Partial Class OPR_Clientes
         Me.moradabox.Name = "moradabox"
         Me.moradabox.Size = New System.Drawing.Size(275, 20)
         Me.moradabox.TabIndex = 7
-        '
-        'codpostalbox
-        '
-        Me.codpostalbox.Location = New System.Drawing.Point(204, 293)
-        Me.codpostalbox.Name = "codpostalbox"
-        Me.codpostalbox.Size = New System.Drawing.Size(61, 20)
-        Me.codpostalbox.TabIndex = 8
         '
         'emailbox
         '
@@ -121,22 +112,6 @@ Partial Class OPR_Clientes
         Me.Label3.Size = New System.Drawing.Size(59, 25)
         Me.Label3.TabIndex = 12
         Me.Label3.Text = "Email"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(287, 293)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(39, 20)
-        Me.TextBox1.TabIndex = 13
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(271, 296)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(10, 13)
-        Me.Label5.TabIndex = 14
-        Me.Label5.Text = "-"
         '
         'Label6
         '
@@ -219,13 +194,13 @@ Partial Class OPR_Clientes
         Me.CheckBox2.Text = "Não"
         Me.CheckBox2.UseVisualStyleBackColor = True
         '
-        'TextBox2
+        'numalunobox
         '
-        Me.TextBox2.Enabled = False
-        Me.TextBox2.Location = New System.Drawing.Point(265, 455)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(171, 20)
-        Me.TextBox2.TabIndex = 29
+        Me.numalunobox.Enabled = False
+        Me.numalunobox.Location = New System.Drawing.Point(265, 455)
+        Me.numalunobox.Name = "numalunobox"
+        Me.numalunobox.Size = New System.Drawing.Size(171, 20)
+        Me.numalunobox.TabIndex = 29
         '
         'Label8
         '
@@ -247,21 +222,21 @@ Partial Class OPR_Clientes
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "Contacto Móvel"
         '
-        'TextBox3
+        'cmovelbox
         '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(265, 366)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox3.TabIndex = 33
+        Me.cmovelbox.Enabled = False
+        Me.cmovelbox.Location = New System.Drawing.Point(265, 366)
+        Me.cmovelbox.Name = "cmovelbox"
+        Me.cmovelbox.Size = New System.Drawing.Size(147, 20)
+        Me.cmovelbox.TabIndex = 33
         '
-        'TextBox4
+        'cfixobox
         '
-        Me.TextBox4.Enabled = False
-        Me.TextBox4.Location = New System.Drawing.Point(265, 398)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(147, 20)
-        Me.TextBox4.TabIndex = 34
+        Me.cfixobox.Enabled = False
+        Me.cfixobox.Location = New System.Drawing.Point(265, 398)
+        Me.cfixobox.Name = "cfixobox"
+        Me.cfixobox.Size = New System.Drawing.Size(147, 20)
+        Me.cfixobox.TabIndex = 34
         '
         'Label10
         '
@@ -273,18 +248,28 @@ Partial Class OPR_Clientes
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Contacto Fixo"
         '
+        'MaskedTextBox1
+        '
+        Me.MaskedTextBox1.Location = New System.Drawing.Point(206, 293)
+        Me.MaskedTextBox1.Mask = "0000-000"
+        Me.MaskedTextBox1.Name = "MaskedTextBox1"
+        Me.MaskedTextBox1.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.MaskedTextBox1.Size = New System.Drawing.Size(67, 20)
+        Me.MaskedTextBox1.TabIndex = 36
+        '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(505, 628)
+        Me.Controls.Add(Me.MaskedTextBox1)
         Me.Controls.Add(Me.Label10)
-        Me.Controls.Add(Me.TextBox4)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.cfixobox)
+        Me.Controls.Add(Me.cmovelbox)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.numalunobox)
         Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label7)
@@ -294,13 +279,10 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.emailbox)
-        Me.Controls.Add(Me.codpostalbox)
         Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Label4)
@@ -318,13 +300,10 @@ Partial Class OPR_Clientes
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents nomebox As System.Windows.Forms.TextBox
     Friend WithEvents moradabox As System.Windows.Forms.TextBox
-    Friend WithEvents codpostalbox As System.Windows.Forms.TextBox
     Friend WithEvents emailbox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
@@ -334,10 +313,11 @@ Partial Class OPR_Clientes
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents numalunobox As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents cmovelbox As System.Windows.Forms.TextBox
+    Friend WithEvents cfixobox As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
 End Class

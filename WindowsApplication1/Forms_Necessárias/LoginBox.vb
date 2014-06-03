@@ -38,16 +38,20 @@
             'menuform.show()
             Workspace.StatusStrip.Show()
             Workspace.MenuStrip.Show()
-            Me.Hide()
-        Else
-            user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
-            If user = 0 Then
-                MsgBox("Nome de Utilizador/Palavra-Passe errados!")
-            Else
-                Workspace.StatusStrip.Show()
-                Workspace.MenuStrip.Show()
+            BLL.n_empresa = n_empresa
+            Dim teste As Object =
+            Workspace.modo = 2
                 Me.Hide()
+            Else
+                user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
+                If user = 0 Then
+                    MsgBox("Nome de Utilizador/Palavra-Passe errados!")
+                Else
+                    Workspace.StatusStrip.Show()
+                    Workspace.MenuStrip.Show()
+                    Workspace.modo = 1
+                    Me.Hide()
+                End If
             End If
-        End If
     End Sub
 End Class
