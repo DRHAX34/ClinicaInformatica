@@ -7,6 +7,11 @@ Public Class Workspace
     Public config3 As New Passo3
     Public config4 As New Passo4
     Public modo As Integer
+    Public opr_clientes As New OPR_Clientes
+    Public opr_dispositivos As New OPR_Dispositivos
+    Public opr_reparacoes As New OPR_Reparações
+    Public opr_tecnicos As New OPR_Técnicos
+    Public opr_utilizadores As New OPR_Utilizadores
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -104,6 +109,16 @@ Public Class Workspace
         If modo = 1 Then
             EmpresasToolStripMenuItem.Visible = True
         End If
+        opr_clientes.MdiParent = Me
+        m_ChildFormNumber += 1
+        opr_dispositivos.MdiParent = Me
+        m_ChildFormNumber += 1
+        opr_reparacoes.MdiParent = Me
+        m_ChildFormNumber += 1
+        opr_tecnicos.MdiParent = Me
+        m_ChildFormNumber += 1
+        opr_utilizadores.MdiParent = Me
+        m_ChildFormNumber += 1
     End Sub
 
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click

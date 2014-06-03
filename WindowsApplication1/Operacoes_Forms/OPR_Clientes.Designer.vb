@@ -36,8 +36,6 @@ Partial Class OPR_Clientes
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.numalunobox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -45,6 +43,8 @@ Partial Class OPR_Clientes
         Me.cfixobox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,26 +174,6 @@ Partial Class OPR_Clientes
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Aluno"
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(204, 457)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(43, 17)
-        Me.CheckBox1.TabIndex = 27
-        Me.CheckBox1.Text = "Sim"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(204, 491)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(46, 17)
-        Me.CheckBox2.TabIndex = 28
-        Me.CheckBox2.Text = "Não"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
         'numalunobox
         '
         Me.numalunobox.Enabled = False
@@ -257,12 +237,36 @@ Partial Class OPR_Clientes
         Me.MaskedTextBox1.Size = New System.Drawing.Size(67, 20)
         Me.MaskedTextBox1.TabIndex = 36
         '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(206, 455)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(49, 21)
+        Me.RadioButton1.TabIndex = 37
+        Me.RadioButton1.Text = "Sim"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.RadioButton2.Location = New System.Drawing.Point(206, 501)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(51, 21)
+        Me.RadioButton2.TabIndex = 38
+        Me.RadioButton2.Text = "Não"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(505, 628)
+        Me.Controls.Add(Me.RadioButton2)
+        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.MaskedTextBox1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cfixobox)
@@ -270,8 +274,6 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.numalunobox)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -311,8 +313,6 @@ Partial Class OPR_Clientes
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents numalunobox As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -320,4 +320,6 @@ Partial Class OPR_Clientes
     Friend WithEvents cfixobox As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
 End Class
