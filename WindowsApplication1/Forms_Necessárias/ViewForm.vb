@@ -19,10 +19,36 @@
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
         Select Case tabela
             Case "Clientes"
+                Workspace.opr_clientes.modo = False
                 Workspace.opr_clientes.Show()
             Case "Dispositivos"
+                Workspace.opr_dispositivos.modo = False
+                Workspace.opr_dispositivos.Show()
             Case "Reparações"
+                Workspace.opr_reparacoes.modo = False
+                Workspace.opr_reparacoes.Show()
             Case "Técnicos"
+                Workspace.opr_tecnicos.modo = False
+                Workspace.opr_tecnicos.Show()
+        End Select
+    End Sub
+
+    Private Sub editbutton_Click(sender As Object, e As EventArgs) Handles editbutton.Click
+        Select Case tabela
+            Case "Clientes"
+                Workspace.opr_clientes.modo = True
+                If Workspace.Aluno = True Then
+                    Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos()
+                    Workspace.opr_clientes.Show()
+            Case "Dispositivos"
+                    Workspace.opr_dispositivos.modo = False
+                    Workspace.opr_dispositivos.Show()
+            Case "Reparações"
+                    Workspace.opr_reparacoes.modo = False
+                    Workspace.opr_reparacoes.Show()
+            Case "Técnicos"
+                    Workspace.opr_tecnicos.modo = False
+                    Workspace.opr_tecnicos.Show()
         End Select
     End Sub
 End Class

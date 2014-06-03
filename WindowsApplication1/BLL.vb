@@ -637,6 +637,11 @@ Public Class BLL
             p.Add(New SqlParameter("@user", id))
             Return DAL.ExecuteScalar("Select Admin FROM Utilizadores where Cod_Utilizador=@user", p)
         End Function
+        Shared Function verificar_aluno(ByVal id As Integer) As Integer
+            Dim p As ArrayList
+            p.Add(New SqlParameter("@user", id))
+            Return DAL.ExecuteScalar("Select Alunos FROM Empresa where NºEmpresa=@user", p)
+        End Function
         Shared Function Carregar_empresas() As ArrayList
             Return DAL.ExecuteQuery("Select Nome From empresas", Nothing)
         End Function

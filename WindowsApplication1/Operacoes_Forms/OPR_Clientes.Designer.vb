@@ -42,9 +42,11 @@ Partial Class OPR_Clientes
         Me.cmovelbox = New System.Windows.Forms.TextBox()
         Me.cfixobox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
+        Me.codpostalbox = New System.Windows.Forms.MaskedTextBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.nifbox = New System.Windows.Forms.TextBox()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,31 +58,34 @@ Partial Class OPR_Clientes
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(26, 289)
+        Me.Label4.Location = New System.Drawing.Point(26, 306)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(109, 25)
+        Me.Label4.Size = New System.Drawing.Size(135, 25)
         Me.Label4.TabIndex = 3
-        Me.Label4.Text = "Cod_Postal"
+        Me.Label4.Text = "Código Postal"
         '
         'nomebox
         '
+        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.nomebox.Location = New System.Drawing.Point(204, 136)
         Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(275, 20)
+        Me.nomebox.Size = New System.Drawing.Size(275, 25)
         Me.nomebox.TabIndex = 6
         '
         'moradabox
         '
-        Me.moradabox.Location = New System.Drawing.Point(204, 193)
+        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.moradabox.Location = New System.Drawing.Point(204, 183)
         Me.moradabox.Name = "moradabox"
-        Me.moradabox.Size = New System.Drawing.Size(275, 20)
+        Me.moradabox.Size = New System.Drawing.Size(275, 25)
         Me.moradabox.TabIndex = 7
         '
         'emailbox
         '
-        Me.emailbox.Location = New System.Drawing.Point(204, 240)
+        Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.emailbox.Location = New System.Drawing.Point(204, 225)
         Me.emailbox.Name = "emailbox"
-        Me.emailbox.Size = New System.Drawing.Size(275, 20)
+        Me.emailbox.Size = New System.Drawing.Size(275, 25)
         Me.emailbox.TabIndex = 9
         '
         'Label1
@@ -97,7 +102,7 @@ Partial Class OPR_Clientes
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(24, 180)
+        Me.Label2.Location = New System.Drawing.Point(23, 178)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 25)
         Me.Label2.TabIndex = 11
@@ -107,7 +112,7 @@ Partial Class OPR_Clientes
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(26, 236)
+        Me.Label3.Location = New System.Drawing.Point(24, 219)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(59, 25)
         Me.Label3.TabIndex = 12
@@ -177,16 +182,17 @@ Partial Class OPR_Clientes
         'numalunobox
         '
         Me.numalunobox.Enabled = False
+        Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.numalunobox.Location = New System.Drawing.Point(265, 455)
         Me.numalunobox.Name = "numalunobox"
-        Me.numalunobox.Size = New System.Drawing.Size(171, 20)
+        Me.numalunobox.Size = New System.Drawing.Size(171, 22)
         Me.numalunobox.TabIndex = 29
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(26, 342)
+        Me.Label8.Location = New System.Drawing.Point(26, 356)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(93, 25)
         Me.Label8.TabIndex = 30
@@ -196,7 +202,7 @@ Partial Class OPR_Clientes
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(142, 369)
+        Me.Label9.Location = New System.Drawing.Point(142, 383)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(105, 17)
         Me.Label9.TabIndex = 31
@@ -205,37 +211,40 @@ Partial Class OPR_Clientes
         'cmovelbox
         '
         Me.cmovelbox.Enabled = False
-        Me.cmovelbox.Location = New System.Drawing.Point(265, 366)
+        Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.cmovelbox.Location = New System.Drawing.Point(265, 380)
         Me.cmovelbox.Name = "cmovelbox"
-        Me.cmovelbox.Size = New System.Drawing.Size(147, 20)
+        Me.cmovelbox.Size = New System.Drawing.Size(147, 22)
         Me.cmovelbox.TabIndex = 33
         '
         'cfixobox
         '
         Me.cfixobox.Enabled = False
-        Me.cfixobox.Location = New System.Drawing.Point(265, 398)
+        Me.cfixobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.cfixobox.Location = New System.Drawing.Point(265, 412)
         Me.cfixobox.Name = "cfixobox"
-        Me.cfixobox.Size = New System.Drawing.Size(147, 20)
+        Me.cfixobox.Size = New System.Drawing.Size(147, 22)
         Me.cfixobox.TabIndex = 34
         '
         'Label10
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(145, 401)
+        Me.Label10.Location = New System.Drawing.Point(145, 415)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(93, 17)
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Contacto Fixo"
         '
-        'MaskedTextBox1
+        'codpostalbox
         '
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(206, 293)
-        Me.MaskedTextBox1.Mask = "0000-000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(67, 20)
-        Me.MaskedTextBox1.TabIndex = 36
+        Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.codpostalbox.Location = New System.Drawing.Point(206, 306)
+        Me.codpostalbox.Mask = "0000-000"
+        Me.codpostalbox.Name = "codpostalbox"
+        Me.codpostalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.codpostalbox.Size = New System.Drawing.Size(67, 25)
+        Me.codpostalbox.TabIndex = 36
         '
         'RadioButton1
         '
@@ -259,15 +268,35 @@ Partial Class OPR_Clientes
         Me.RadioButton2.Text = "Não"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(26, 263)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(43, 25)
+        Me.Label5.TabIndex = 40
+        Me.Label5.Text = "NIF"
+        '
+        'nifbox
+        '
+        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.nifbox.Location = New System.Drawing.Point(204, 269)
+        Me.nifbox.Name = "nifbox"
+        Me.nifbox.Size = New System.Drawing.Size(275, 25)
+        Me.nifbox.TabIndex = 39
+        '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(505, 628)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.nifbox)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
-        Me.Controls.Add(Me.MaskedTextBox1)
+        Me.Controls.Add(Me.codpostalbox)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cfixobox)
         Me.Controls.Add(Me.cmovelbox)
@@ -319,7 +348,9 @@ Partial Class OPR_Clientes
     Friend WithEvents cmovelbox As System.Windows.Forms.TextBox
     Friend WithEvents cfixobox As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents codpostalbox As System.Windows.Forms.MaskedTextBox
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents nifbox As System.Windows.Forms.TextBox
 End Class

@@ -12,6 +12,7 @@ Public Class Workspace
     Public opr_reparacoes As New OPR_Reparações
     Public opr_tecnicos As New OPR_Técnicos
     Public opr_utilizadores As New OPR_Utilizadores
+    Public Aluno As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -119,6 +120,7 @@ Public Class Workspace
         m_ChildFormNumber += 1
         opr_utilizadores.MdiParent = Me
         m_ChildFormNumber += 1
+
     End Sub
 
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click

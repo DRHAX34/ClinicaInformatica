@@ -52,6 +52,9 @@
                     Workspace.modo = 1
                     Me.Hide()
                 End If
-            End If
+        End If
+        If BLL.Login.verificar_aluno(n_empresa) = True Then
+            Workspace.aluno = True
+        End If
     End Sub
 End Class
