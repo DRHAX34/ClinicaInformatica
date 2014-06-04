@@ -19,6 +19,7 @@
                 nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
                 moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
                 emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
+                nifbox.Text = cliente_data.Rows.Item(0).Item("NIF").ToString()
                 codpostalbox.Text = cliente_data.Rows.Item(0).Item("Cod_Postal").ToString()
                 cmovelbox.Text = cliente_data.Rows.Item(0).Item("Contacto Móvel").ToString()
                 cfixobox.Text = cliente_data.Rows.Item(0).Item("Contacto Fixo").ToString()
