@@ -22,7 +22,7 @@ Partial Class OPR_Dispositivos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.observaçoesbox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
@@ -33,10 +33,10 @@ Partial Class OPR_Dispositivos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.emailbox = New System.Windows.Forms.TextBox()
-        Me.codpostalbox = New System.Windows.Forms.TextBox()
-        Me.moradabox = New System.Windows.Forms.TextBox()
-        Me.nomebox = New System.Windows.Forms.TextBox()
+        Me.modelobox = New System.Windows.Forms.TextBox()
+        Me.numseriebox = New System.Windows.Forms.TextBox()
+        Me.marcabox = New System.Windows.Forms.TextBox()
+        Me.numbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,14 +45,14 @@ Partial Class OPR_Dispositivos
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'TextBox3
+        'observaçoesbox
         '
-        Me.TextBox3.Enabled = False
-        Me.TextBox3.Location = New System.Drawing.Point(241, 353)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(345, 114)
-        Me.TextBox3.TabIndex = 58
+        Me.observaçoesbox.Enabled = False
+        Me.observaçoesbox.Location = New System.Drawing.Point(241, 353)
+        Me.observaçoesbox.Multiline = True
+        Me.observaçoesbox.Name = "observaçoesbox"
+        Me.observaçoesbox.Size = New System.Drawing.Size(345, 114)
+        Me.observaçoesbox.TabIndex = 58
         '
         'Label8
         '
@@ -145,33 +145,33 @@ Partial Class OPR_Dispositivos
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "NºCliente"
         '
-        'emailbox
+        'modelobox
         '
-        Me.emailbox.Location = New System.Drawing.Point(239, 245)
-        Me.emailbox.Name = "emailbox"
-        Me.emailbox.Size = New System.Drawing.Size(275, 20)
-        Me.emailbox.TabIndex = 40
+        Me.modelobox.Location = New System.Drawing.Point(239, 245)
+        Me.modelobox.Name = "modelobox"
+        Me.modelobox.Size = New System.Drawing.Size(275, 20)
+        Me.modelobox.TabIndex = 40
         '
-        'codpostalbox
+        'numseriebox
         '
-        Me.codpostalbox.Location = New System.Drawing.Point(239, 298)
-        Me.codpostalbox.Name = "codpostalbox"
-        Me.codpostalbox.Size = New System.Drawing.Size(192, 20)
-        Me.codpostalbox.TabIndex = 39
+        Me.numseriebox.Location = New System.Drawing.Point(239, 298)
+        Me.numseriebox.Name = "numseriebox"
+        Me.numseriebox.Size = New System.Drawing.Size(192, 20)
+        Me.numseriebox.TabIndex = 39
         '
-        'moradabox
+        'marcabox
         '
-        Me.moradabox.Location = New System.Drawing.Point(239, 198)
-        Me.moradabox.Name = "moradabox"
-        Me.moradabox.Size = New System.Drawing.Size(275, 20)
-        Me.moradabox.TabIndex = 38
+        Me.marcabox.Location = New System.Drawing.Point(239, 198)
+        Me.marcabox.Name = "marcabox"
+        Me.marcabox.Size = New System.Drawing.Size(275, 20)
+        Me.marcabox.TabIndex = 38
         '
-        'nomebox
+        'numbox
         '
-        Me.nomebox.Location = New System.Drawing.Point(239, 141)
-        Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(61, 20)
-        Me.nomebox.TabIndex = 37
+        Me.numbox.Location = New System.Drawing.Point(239, 141)
+        Me.numbox.Name = "numbox"
+        Me.numbox.Size = New System.Drawing.Size(61, 20)
+        Me.numbox.TabIndex = 37
         '
         'Label4
         '
@@ -189,7 +189,7 @@ Partial Class OPR_Dispositivos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(613, 632)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.observaçoesbox)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -200,10 +200,10 @@ Partial Class OPR_Dispositivos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.emailbox)
-        Me.Controls.Add(Me.codpostalbox)
-        Me.Controls.Add(Me.moradabox)
-        Me.Controls.Add(Me.nomebox)
+        Me.Controls.Add(Me.modelobox)
+        Me.Controls.Add(Me.numseriebox)
+        Me.Controls.Add(Me.marcabox)
+        Me.Controls.Add(Me.numbox)
         Me.Controls.Add(Me.Label4)
         Me.Name = "OPR_Dispositivos"
         Me.Text = "Operações Dispositivos"
@@ -216,7 +216,7 @@ Partial Class OPR_Dispositivos
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents observaçoesbox As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
@@ -227,9 +227,9 @@ Partial Class OPR_Dispositivos
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents emailbox As System.Windows.Forms.TextBox
-    Friend WithEvents codpostalbox As System.Windows.Forms.TextBox
-    Friend WithEvents moradabox As System.Windows.Forms.TextBox
-    Friend WithEvents nomebox As System.Windows.Forms.TextBox
+    Friend WithEvents modelobox As System.Windows.Forms.TextBox
+    Friend WithEvents numseriebox As System.Windows.Forms.TextBox
+    Friend WithEvents marcabox As System.Windows.Forms.TextBox
+    Friend WithEvents numbox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class
