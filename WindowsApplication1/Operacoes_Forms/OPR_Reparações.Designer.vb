@@ -22,7 +22,7 @@ Partial Class OPR_Reparações
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.descriçaobox = New System.Windows.Forms.TextBox()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
@@ -34,17 +34,17 @@ Partial Class OPR_Reparações
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.categoriabox = New System.Windows.Forms.TextBox()
-        Me.temporealbox = New System.Windows.Forms.TextBox()
-        Me.numdispositivobox = New System.Windows.Forms.TextBox()
+        Me.emailbox = New System.Windows.Forms.TextBox()
+        Me.codpostalbox = New System.Windows.Forms.TextBox()
+        Me.moradabox = New System.Windows.Forms.TextBox()
+        Me.nomebox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.dateinicio = New System.Windows.Forms.DateTimePicker()
-        Me.datefim = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.hardwarebox = New System.Windows.Forms.TextBox()
-        Me.softwarebox = New System.Windows.Forms.TextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,20 +53,20 @@ Partial Class OPR_Reparações
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'descriçaobox
+        'TextBox3
         '
-        Me.descriçaobox.Enabled = False
-        Me.descriçaobox.Location = New System.Drawing.Point(395, 315)
-        Me.descriçaobox.Multiline = True
-        Me.descriçaobox.Name = "descriçaobox"
-        Me.descriçaobox.Size = New System.Drawing.Size(393, 161)
-        Me.descriçaobox.TabIndex = 58
+        Me.TextBox3.Enabled = False
+        Me.TextBox3.Location = New System.Drawing.Point(226, 376)
+        Me.TextBox3.Multiline = True
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(396, 150)
+        Me.TextBox3.TabIndex = 58
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(512, 287)
+        Me.Label8.Location = New System.Drawing.Point(26, 376)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
@@ -75,7 +75,7 @@ Partial Class OPR_Reparações
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 88)
+        Me.CheckBox2.Location = New System.Drawing.Point(6, 82)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(111, 29)
         Me.CheckBox2.TabIndex = 54
@@ -96,7 +96,7 @@ Partial Class OPR_Reparações
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(617, 93)
+        Me.Label7.Location = New System.Drawing.Point(27, 316)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(107, 25)
         Me.Label7.TabIndex = 52
@@ -104,7 +104,7 @@ Partial Class OPR_Reparações
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(699, 527)
+        Me.RadButton4.Location = New System.Drawing.Point(622, 591)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 51
@@ -112,7 +112,7 @@ Partial Class OPR_Reparações
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(529, 527)
+        Me.RadButton3.Location = New System.Drawing.Point(465, 591)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 50
@@ -121,7 +121,7 @@ Partial Class OPR_Reparações
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(361, 527)
+        Me.RadButton2.Location = New System.Drawing.Point(312, 591)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 49
@@ -129,7 +129,7 @@ Partial Class OPR_Reparações
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(196, 527)
+        Me.RadButton1.Location = New System.Drawing.Point(157, 591)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 48
@@ -137,7 +137,7 @@ Partial Class OPR_Reparações
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(32, 527)
+        Me.RadButton5.Location = New System.Drawing.Point(11, 591)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 47
@@ -157,11 +157,21 @@ Partial Class OPR_Reparações
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(27, 182)
+        Me.Label3.Location = New System.Drawing.Point(44, 194)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(98, 25)
         Me.Label3.TabIndex = 43
         Me.Label3.Text = "Categoria"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(396, 133)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(102, 25)
+        Me.Label2.TabIndex = 42
+        Me.Label2.Text = "NºTécnico"
         '
         'Label1
         '
@@ -173,32 +183,39 @@ Partial Class OPR_Reparações
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "NºDispositivo"
         '
-        'categoriabox
+        'emailbox
         '
-        Me.categoriabox.Location = New System.Drawing.Point(196, 188)
-        Me.categoriabox.Name = "categoriabox"
-        Me.categoriabox.Size = New System.Drawing.Size(275, 22)
-        Me.categoriabox.TabIndex = 40
+        Me.emailbox.Location = New System.Drawing.Point(196, 200)
+        Me.emailbox.Name = "emailbox"
+        Me.emailbox.Size = New System.Drawing.Size(275, 20)
+        Me.emailbox.TabIndex = 40
         '
-        'temporealbox
+        'codpostalbox
         '
-        Me.temporealbox.Location = New System.Drawing.Point(196, 242)
-        Me.temporealbox.Name = "temporealbox"
-        Me.temporealbox.Size = New System.Drawing.Size(142, 22)
-        Me.temporealbox.TabIndex = 39
+        Me.codpostalbox.Location = New System.Drawing.Point(210, 261)
+        Me.codpostalbox.Name = "codpostalbox"
+        Me.codpostalbox.Size = New System.Drawing.Size(142, 20)
+        Me.codpostalbox.TabIndex = 39
         '
-        'numdispositivobox
+        'moradabox
         '
-        Me.numdispositivobox.Location = New System.Drawing.Point(196, 127)
-        Me.numdispositivobox.Name = "numdispositivobox"
-        Me.numdispositivobox.Size = New System.Drawing.Size(136, 22)
-        Me.numdispositivobox.TabIndex = 37
+        Me.moradabox.Location = New System.Drawing.Point(531, 139)
+        Me.moradabox.Name = "moradabox"
+        Me.moradabox.Size = New System.Drawing.Size(166, 20)
+        Me.moradabox.TabIndex = 38
+        '
+        'nomebox
+        '
+        Me.nomebox.Location = New System.Drawing.Point(196, 127)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.Size = New System.Drawing.Size(136, 20)
+        Me.nomebox.TabIndex = 37
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(27, 237)
+        Me.Label4.Location = New System.Drawing.Point(35, 256)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 25)
         Me.Label4.TabIndex = 36
@@ -208,67 +225,49 @@ Partial Class OPR_Reparações
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(617, 209)
+        Me.Label11.Location = New System.Drawing.Point(396, 314)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(90, 25)
         Me.Label11.TabIndex = 61
         Me.Label11.Text = "Data Fim"
         '
-        'dateinicio
+        'DateTimePicker1
         '
-        Me.dateinicio.Location = New System.Drawing.Point(560, 127)
-        Me.dateinicio.Name = "dateinicio"
-        Me.dateinicio.Size = New System.Drawing.Size(200, 22)
-        Me.dateinicio.TabIndex = 62
+        Me.DateTimePicker1.Location = New System.Drawing.Point(168, 319)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 62
         '
-        'datefim
+        'DateTimePicker2
         '
-        Me.datefim.Location = New System.Drawing.Point(560, 237)
-        Me.datefim.Name = "datefim"
-        Me.datefim.Size = New System.Drawing.Size(200, 22)
-        Me.datefim.TabIndex = 63
+        Me.DateTimePicker2.Location = New System.Drawing.Point(506, 321)
+        Me.DateTimePicker2.Name = "DateTimePicker2"
+        Me.DateTimePicker2.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker2.TabIndex = 63
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.softwarebox)
-        Me.GroupBox1.Controls.Add(Me.hardwarebox)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(32, 291)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 426)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(270, 150)
+        Me.GroupBox1.Size = New System.Drawing.Size(200, 136)
         Me.GroupBox1.TabIndex = 64
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo"
-        '
-        'hardwarebox
-        '
-        Me.hardwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.hardwarebox.Location = New System.Drawing.Point(131, 33)
-        Me.hardwarebox.Name = "hardwarebox"
-        Me.hardwarebox.Size = New System.Drawing.Size(133, 25)
-        Me.hardwarebox.TabIndex = 55
-        '
-        'softwarebox
-        '
-        Me.softwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.softwarebox.Location = New System.Drawing.Point(131, 84)
-        Me.softwarebox.Name = "softwarebox"
-        Me.softwarebox.Size = New System.Drawing.Size(133, 25)
-        Me.softwarebox.TabIndex = 56
         '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(812, 606)
+        Me.ClientSize = New System.Drawing.Size(709, 666)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.datefim)
-        Me.Controls.Add(Me.dateinicio)
+        Me.Controls.Add(Me.DateTimePicker2)
+        Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.descriçaobox)
+        Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.RadButton4)
@@ -278,14 +277,13 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.categoriabox)
-        Me.Controls.Add(Me.temporealbox)
-        Me.Controls.Add(Me.numdispositivobox)
+        Me.Controls.Add(Me.emailbox)
+        Me.Controls.Add(Me.codpostalbox)
+        Me.Controls.Add(Me.moradabox)
+        Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Label4)
-        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
         Me.Name = "OPR_Reparações"
         Me.Text = "Operações Reparações"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -299,7 +297,7 @@ Partial Class OPR_Reparações
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents descriçaobox As System.Windows.Forms.TextBox
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
@@ -311,15 +309,15 @@ Partial Class OPR_Reparações
     Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents categoriabox As System.Windows.Forms.TextBox
-    Friend WithEvents temporealbox As System.Windows.Forms.TextBox
-    Friend WithEvents numdispositivobox As System.Windows.Forms.TextBox
+    Friend WithEvents emailbox As System.Windows.Forms.TextBox
+    Friend WithEvents codpostalbox As System.Windows.Forms.TextBox
+    Friend WithEvents moradabox As System.Windows.Forms.TextBox
+    Friend WithEvents nomebox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents dateinicio As System.Windows.Forms.DateTimePicker
-    Friend WithEvents datefim As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents softwarebox As System.Windows.Forms.TextBox
-    Friend WithEvents hardwarebox As System.Windows.Forms.TextBox
 End Class

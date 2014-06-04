@@ -32,12 +32,15 @@ Partial Class OPR_Utilizadores
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
-        Me.passwordbox = New System.Windows.Forms.TextBox()
-        Me.numalunobox = New System.Windows.Forms.TextBox()
+        Me.emailbox = New System.Windows.Forms.TextBox()
+        Me.codpostalbox = New System.Windows.Forms.TextBox()
+        Me.nomebox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,6 +49,8 @@ Partial Class OPR_Utilizadores
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -140,27 +145,27 @@ Partial Class OPR_Utilizadores
         Me.Label1.TabIndex = 70
         Me.Label1.Text = "NºAluno"
         '
-        'nomeutilizadorbox
+        'emailbox
         '
-        Me.nomeutilizadorbox.Location = New System.Drawing.Point(22, 71)
-        Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
-        Me.nomeutilizadorbox.Size = New System.Drawing.Size(275, 33)
-        Me.nomeutilizadorbox.TabIndex = 69
+        Me.emailbox.Location = New System.Drawing.Point(22, 71)
+        Me.emailbox.Name = "emailbox"
+        Me.emailbox.Size = New System.Drawing.Size(275, 33)
+        Me.emailbox.TabIndex = 69
         '
-        'passwordbox
+        'codpostalbox
         '
-        Me.passwordbox.Location = New System.Drawing.Point(22, 146)
-        Me.passwordbox.Name = "passwordbox"
-        Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwordbox.Size = New System.Drawing.Size(275, 33)
-        Me.passwordbox.TabIndex = 68
+        Me.codpostalbox.Location = New System.Drawing.Point(22, 146)
+        Me.codpostalbox.Name = "codpostalbox"
+        Me.codpostalbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.codpostalbox.Size = New System.Drawing.Size(275, 33)
+        Me.codpostalbox.TabIndex = 68
         '
-        'numalunobox
+        'nomebox
         '
-        Me.numalunobox.Location = New System.Drawing.Point(130, 145)
-        Me.numalunobox.Name = "numalunobox"
-        Me.numalunobox.Size = New System.Drawing.Size(136, 20)
-        Me.numalunobox.TabIndex = 66
+        Me.nomebox.Location = New System.Drawing.Point(130, 145)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.Size = New System.Drawing.Size(136, 20)
+        Me.nomebox.TabIndex = 66
         '
         'Label4
         '
@@ -175,13 +180,13 @@ Partial Class OPR_Utilizadores
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
-        Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
+        Me.GroupBox1.Controls.Add(Me.emailbox)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.passwordbox)
+        Me.GroupBox1.Controls.Add(Me.codpostalbox)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(220, 257)
+        Me.GroupBox1.Location = New System.Drawing.Point(27, 262)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(318, 250)
         Me.GroupBox1.TabIndex = 80
@@ -196,6 +201,29 @@ Partial Class OPR_Utilizadores
         Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
         Me.CheckBox1.TabIndex = 80
         Me.CheckBox1.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(563, 186)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(141, 20)
+        Me.TextBox1.TabIndex = 83
+        '
+        'RadButton6
+        '
+        Me.RadButton6.Location = New System.Drawing.Point(598, 212)
+        Me.RadButton6.Name = "RadButton6"
+        Me.RadButton6.Size = New System.Drawing.Size(56, 25)
+        Me.RadButton6.TabIndex = 82
+        Me.RadButton6.Text = "Procurar"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Location = New System.Drawing.Point(563, 39)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(141, 141)
+        Me.PictureBox1.TabIndex = 81
+        Me.PictureBox1.TabStop = False
         '
         'ComboBox1
         '
@@ -221,6 +249,9 @@ Partial Class OPR_Utilizadores
         Me.ClientSize = New System.Drawing.Size(719, 620)
         Me.Controls.Add(Me.RadButton7)
         Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.RadButton6)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -230,7 +261,7 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.numalunobox)
+        Me.Controls.Add(Me.nomebox)
         Me.Name = "OPR_Utilizadores"
         Me.Text = "Operações Utilizadores"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -240,6 +271,8 @@ Partial Class OPR_Utilizadores
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -255,12 +288,15 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents nomeutilizadorbox As System.Windows.Forms.TextBox
-    Friend WithEvents passwordbox As System.Windows.Forms.TextBox
-    Friend WithEvents numalunobox As System.Windows.Forms.TextBox
+    Friend WithEvents emailbox As System.Windows.Forms.TextBox
+    Friend WithEvents codpostalbox As System.Windows.Forms.TextBox
+    Friend WithEvents nomebox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
 End Class

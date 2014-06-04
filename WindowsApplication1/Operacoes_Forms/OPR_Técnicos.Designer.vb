@@ -31,9 +31,9 @@ Partial Class OPR_Técnicos
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.turmabox = New System.Windows.Forms.TextBox()
+        Me.emailbox = New System.Windows.Forms.TextBox()
+        Me.moradabox = New System.Windows.Forms.TextBox()
         Me.nomebox = New System.Windows.Forms.TextBox()
-        Me.numalunobox = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -127,26 +127,26 @@ Partial Class OPR_Técnicos
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "NºAluno"
         '
-        'turmabox
+        'emailbox
         '
-        Me.turmabox.Location = New System.Drawing.Point(201, 184)
-        Me.turmabox.Name = "turmabox"
-        Me.turmabox.Size = New System.Drawing.Size(100, 20)
-        Me.turmabox.TabIndex = 40
+        Me.emailbox.Location = New System.Drawing.Point(201, 184)
+        Me.emailbox.Name = "emailbox"
+        Me.emailbox.Size = New System.Drawing.Size(100, 20)
+        Me.emailbox.TabIndex = 40
+        '
+        'moradabox
+        '
+        Me.moradabox.Location = New System.Drawing.Point(32, 266)
+        Me.moradabox.Name = "moradabox"
+        Me.moradabox.Size = New System.Drawing.Size(243, 20)
+        Me.moradabox.TabIndex = 38
         '
         'nomebox
         '
-        Me.nomebox.Location = New System.Drawing.Point(32, 266)
+        Me.nomebox.Location = New System.Drawing.Point(35, 184)
         Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(243, 20)
-        Me.nomebox.TabIndex = 38
-        '
-        'numalunobox
-        '
-        Me.numalunobox.Location = New System.Drawing.Point(35, 184)
-        Me.numalunobox.Name = "numalunobox"
-        Me.numalunobox.Size = New System.Drawing.Size(124, 20)
-        Me.numalunobox.TabIndex = 37
+        Me.nomebox.Size = New System.Drawing.Size(124, 20)
+        Me.nomebox.TabIndex = 37
         '
         'PictureBox1
         '
@@ -171,7 +171,7 @@ Partial Class OPR_Técnicos
         Me.TextBox1.Size = New System.Drawing.Size(141, 20)
         Me.TextBox1.TabIndex = 58
         '
-        'OPR_Técnicos
+        'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -189,10 +189,10 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.turmabox)
+        Me.Controls.Add(Me.emailbox)
+        Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomebox)
-        Me.Controls.Add(Me.numalunobox)
-        Me.Name = "OPR_Técnicos"
+        Me.Name = "Form1"
         Me.Text = "Operações Técnicos"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -214,9 +214,9 @@ Partial Class OPR_Técnicos
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents turmabox As System.Windows.Forms.TextBox
+    Friend WithEvents emailbox As System.Windows.Forms.TextBox
+    Friend WithEvents moradabox As System.Windows.Forms.TextBox
     Friend WithEvents nomebox As System.Windows.Forms.TextBox
-    Friend WithEvents numalunobox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
