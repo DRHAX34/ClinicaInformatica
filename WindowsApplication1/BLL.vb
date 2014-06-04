@@ -1182,6 +1182,11 @@ Public Class BLL
                 End If
             End Sub
         End Class
+        Shared Function carregar_tecnico() As ArrayList
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            Return DAL.ExecuteQuery("SELECT Nome FROM Técnicos where NºEmpresa=@n_empresa", p)
+        End Function
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
