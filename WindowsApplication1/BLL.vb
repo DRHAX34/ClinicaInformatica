@@ -16,6 +16,18 @@ Public Class BLL
             DAL.ExecuteNonQuery("Delete FROM Empresas where NºEmpresa=@n_empresa", p)
         End Sub
         Public Class Cliente
+            Shared Function check_exist(ByVal nome As String, ByVal empresa As Integer) As Object
+                Dim check As Integer
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@nome", nome))
+                p.Add(New SqlParameter("@n_empresa", empresa))
+                check = DAL.ExecuteScalar("Select NºCliente FROM Cliente where Nome=@Nome AND NºEmpresa=@n_empresa", p)
+                If check <> 0 Then
+                    Return 1
+                Else
+                    Return 0
+                End If
+            End Function
             Public Class Alunos
                 Shared Function carregar() As DataTable
                     Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=1", Nothing)
@@ -176,6 +188,17 @@ Public Class BLL
             End Function
         End Class
         Public Class Login
+            Shared Function check_exist(ByVal nome As String) As Object
+                Dim check As Integer
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@nome", nome))
+                check = DAL.ExecuteScalar("Select Cod_Utilizador FROM Utilizadores where Nome_util=@Nome AND Admin_Geral=1", p)
+                If check <> 0 Then
+                    Return 1
+                Else
+                    Return 0
+                End If
+            End Function
             Shared Function procura_dados_nutilizador_desativados(ByRef Nome_Util As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@Nome_Util", Nome_Util))
@@ -391,6 +414,22 @@ Public Class BLL
             End Function
         End Class
         Public Class Empresas
+            Shared Function check_name(ByVal id As Integer) As String
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@n_empresa", id))
+                Return DAL.ExecuteScalar("Select Nome FROM Empresas where NºEmpresa=@n_empresa", p)
+            End Function
+            Shared Function check_exist(ByVal nome As String) As Object
+                Dim check As Integer
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@nome", nome))
+                check = DAL.ExecuteScalar("Select NºEmpresa FROM Empresas where Nome=@Nome", p)
+                If check <> 0 Then
+                    Return 1
+                Else
+                    Return 0
+                End If
+            End Function
             Shared Function carregar_pic(ByVal empresa As Integer) As Object
                 Return DAL.Load_Pic_Sql(("Select Logo FROM Empresas where NºEmpresa=" + empresa.ToString()))
             End Function
@@ -505,6 +544,18 @@ Public Class BLL
             End Sub
         End Class
         Public Class Tecnicos
+            Shared Function check_exist(ByVal nome As String, ByVal empresa As Integer) As Object
+                Dim check As Integer
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@nome", nome))
+                p.Add(New SqlParameter("@n_empresa", empresa))
+                check = DAL.ExecuteScalar("Select NºTécnico FROM Técnicos where Nome=@Nome and NºEmpresa=@n_empresa", p)
+                If check <> 0 Then
+                    Return 1
+                Else
+                    Return 0
+                End If
+            End Function
             Public Class alunos
                 Shared Function carregar() As DataTable
                     Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=1", Nothing)
@@ -632,6 +683,18 @@ Public Class BLL
         End Class
     End Class
     Public Class Login
+        Shared Function check_exist(ByVal nome As String) As Object
+            Dim check As Integer
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@nome", nome))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            check = DAL.ExecuteScalar("Select Cod_Utilizador FROM Utilizadores where Nome_util=@Nome AND NºEmpresa=@n_empresa", p)
+            If check <> 0 Then
+                Return 1
+            Else
+                Return 0
+            End If
+        End Function
         Shared Function verificar_admin(ByVal id As Integer) As Integer
             Dim p As New ArrayList
             p.Add(New SqlParameter("@user", id))
@@ -697,6 +760,18 @@ Public Class BLL
         End Function
     End Class
     Public Class Clientes
+        Shared Function check_exist(ByVal nome As String) As Object
+            Dim check As Integer
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@nome", nome))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            check = DAL.ExecuteScalar("Select NºCliente FROM Cliente where Nome=@Nome and NºEmpresa=@n_empresa", p)
+            If check <> 0 Then
+                Return 1
+            Else
+                Return 0
+            End If
+        End Function
         Shared Function carregar_alunos() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
@@ -1079,6 +1154,18 @@ Public Class BLL
         End Function
     End Class
     Public Class Tecnicos
+        Shared Function check_exist(ByVal nome As String) As Object
+            Dim check As Integer
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@nome", nome))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            check = DAL.ExecuteScalar("Select NºTécnico FROM Técnicos where Nome=@Nome AND NºEmpresa=@n_empresa", p)
+            If check <> 0 Then
+                Return 1
+            Else
+                Return 0
+            End If
+        End Function
         Public Class Alunos
             Shared Function carregar() As DataTable
                 Dim p As New ArrayList

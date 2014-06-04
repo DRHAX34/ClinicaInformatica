@@ -60,6 +60,8 @@
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Try
             BLL.Clientes.inserir(nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+            MsgBox("Inserido com sucesso")
+            Workspace.clientesmenu.PerformClick()
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
         End Try

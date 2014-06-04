@@ -48,7 +48,13 @@
             Case "Técnicos"
                 Workspace.opr_tecnicos.modo = False
                 Workspace.opr_tecnicos.Show()
+            Case "Utilizadores"
+                Workspace.opr_utilizadores.modo = False
+                Workspace.opr_utilizadores.Show()
+            Case "Empresas"
+
         End Select
+        Me.Close()
     End Sub
 
     Private Sub editbutton_Click(sender As Object, e As EventArgs) Handles editbutton.Click
@@ -77,7 +83,30 @@
                 Workspace.opr_tecnicos.modo = False
                 Workspace.opr_tecnicos.Show()
         End Select
+        Me.Close()
     End Sub
 
     
+    Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
+        Me.Close()
+    End Sub
+
+    Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click
+
+    End Sub
+
+    Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
+    End Sub
+
+    Private Sub showbutton_Click(sender As Object, e As EventArgs) Handles showbutton.Click
+        Me.Close()
+    End Sub
+
+    Private Sub othersbutton_Click(sender As Object, e As EventArgs) Handles othersbutton.Click
+
+    End Sub
+
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+        Me.Close()
+    End Sub
 End Class

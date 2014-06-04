@@ -14,7 +14,7 @@ Public Class Workspace
     Public opr_utilizadores As New OPR_Utilizadores
     Public Aluno As Boolean
     Public companyname As String
-    Public check_clientes As Boolean
+    Public check_clientes, check_dispositivos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -105,6 +105,7 @@ Public Class Workspace
             m_ChildFormNumber += 1
             config4.MdiParent = Me
             m_ChildFormNumber += 1
+            Me.WindowState = FormWindowState.Normal
         Else
             LoginForm.Show()
         End If
@@ -118,7 +119,8 @@ Public Class Workspace
         m_ChildFormNumber += 1
         opr_utilizadores.MdiParent = Me
         m_ChildFormNumber += 1
-        
+        Me.DoubleBuffered = True
+
     End Sub
     Shared Sub login_load()
         If Workspace.modo = 1 Then
@@ -130,18 +132,22 @@ Public Class Workspace
         End If
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
-        Dim clientesview As New ViewForm
-        Check_clientes = True
-        clientesview.Text = "Clientes"
-        clientesview.tabela = "Clientes"
-        clientesview.MdiParent = Me
-        m_ChildFormNumber += 1
-        clientesview.layout = 1
-        If Aluno = True Then
-            clientesview.data_table = BLL.Clientes.carregar_alunos()
+        If check_clientes = False Then
+            Dim clientesview As New ViewForm
+            check_clientes = True
+            clientesview.Text = "Clientes"
+            clientesview.tabela = "Clientes"
+            clientesview.MdiParent = Me
+            m_ChildFormNumber += 1
+            clientesview.layout = 1
+            If Aluno = True Then
+                clientesview.data_table = BLL.Clientes.carregar_alunos()
+            Else
+                clientesview.data_table = BLL.Clientes.carregar()
+            End If
+            clientesview.Show()
         Else
-            clientesview.data_table = BLL.Clientes.carregar()
+            MsgBox("Já tem a janela dos Clientes aberta!")
         End If
-        clientesview.Show()
     End Sub
 End Class

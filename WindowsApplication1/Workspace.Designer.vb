@@ -174,7 +174,6 @@ Partial Class Workspace
         Me.MinimumSize = New System.Drawing.Size(863, 506)
         Me.Name = "Workspace"
         Me.Text = "Clínica Informática"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
         Me.ResumeLayout(False)

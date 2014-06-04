@@ -38,8 +38,12 @@ Partial Class OPR_Utilizadores
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.tecnicobox = New System.Windows.Forms.ComboBox()
         Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
+        Me.empresabox = New System.Windows.Forms.ComboBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
+        Me.Label8 = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,9 +130,9 @@ Partial Class OPR_Utilizadores
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(22, 188)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(102, 25)
+        Me.Label2.Size = New System.Drawing.Size(78, 25)
         Me.Label2.TabIndex = 71
-        Me.Label2.Text = "NºTécnico"
+        Me.Label2.Text = "Técnico"
         '
         'Label1
         '
@@ -174,6 +178,8 @@ Partial Class OPR_Utilizadores
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.CheckBox2)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
         Me.GroupBox1.Controls.Add(Me.Label7)
@@ -181,7 +187,7 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.Controls.Add(Me.passwordbox)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(220, 257)
+        Me.GroupBox1.Location = New System.Drawing.Point(229, 249)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(318, 250)
         Me.GroupBox1.TabIndex = 80
@@ -197,21 +203,58 @@ Partial Class OPR_Utilizadores
         Me.CheckBox1.TabIndex = 80
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
-        'ComboBox1
+        'tecnicobox
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Location = New System.Drawing.Point(130, 194)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 84
+        Me.tecnicobox.FormattingEnabled = True
+        Me.tecnicobox.Location = New System.Drawing.Point(130, 194)
+        Me.tecnicobox.Name = "tecnicobox"
+        Me.tecnicobox.Size = New System.Drawing.Size(168, 21)
+        Me.tecnicobox.TabIndex = 84
         '
         'RadButton7
         '
-        Me.RadButton7.Location = New System.Drawing.Point(267, 194)
+        Me.RadButton7.Location = New System.Drawing.Point(321, 194)
         Me.RadButton7.Name = "RadButton7"
         Me.RadButton7.Size = New System.Drawing.Size(111, 21)
         Me.RadButton7.TabIndex = 85
         Me.RadButton7.Text = "Adicionar técnico"
+        '
+        'empresabox
+        '
+        Me.empresabox.FormattingEnabled = True
+        Me.empresabox.Location = New System.Drawing.Point(522, 143)
+        Me.empresabox.Name = "empresabox"
+        Me.empresabox.Size = New System.Drawing.Size(121, 21)
+        Me.empresabox.TabIndex = 87
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(416, 139)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(87, 25)
+        Me.Label5.TabIndex = 86
+        Me.Label5.Text = "Empresa"
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(271, 215)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox2.TabIndex = 82
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 12.25!)
+        Me.Label8.Location = New System.Drawing.Point(160, 206)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(105, 23)
+        Me.Label8.TabIndex = 81
+        Me.Label8.Text = "Admin Geral"
         '
         'OPR_Utilizadores
         '
@@ -219,8 +262,10 @@ Partial Class OPR_Utilizadores
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(719, 620)
+        Me.Controls.Add(Me.empresabox)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.RadButton7)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.tecnicobox)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -261,6 +306,10 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents tecnicobox As System.Windows.Forms.ComboBox
     Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents empresabox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class
