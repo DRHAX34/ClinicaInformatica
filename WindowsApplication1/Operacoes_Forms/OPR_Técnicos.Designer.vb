@@ -37,6 +37,10 @@ Partial Class OPR_Técnicos
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -171,12 +175,50 @@ Partial Class OPR_Técnicos
         Me.TextBox1.Size = New System.Drawing.Size(141, 20)
         Me.TextBox1.TabIndex = 58
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(27, 301)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(153, 25)
+        Me.Label4.TabIndex = 60
+        Me.Label4.Text = "Contacto Móvel"
+        '
+        'TextBox2
+        '
+        Me.TextBox2.Location = New System.Drawing.Point(32, 329)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(243, 20)
+        Me.TextBox2.TabIndex = 59
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(27, 362)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(136, 25)
+        Me.Label5.TabIndex = 62
+        Me.Label5.Text = "Contacto Fixo"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.Location = New System.Drawing.Point(32, 390)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(243, 20)
+        Me.TextBox3.TabIndex = 61
+        '
         'OPR_Técnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(569, 553)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.PictureBox1)
@@ -220,4 +262,8 @@ Partial Class OPR_Técnicos
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
 End Class

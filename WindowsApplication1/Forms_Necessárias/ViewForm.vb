@@ -55,7 +55,7 @@
                 Workspace.opr_reparacoes.modo = False
                 Workspace.opr_reparacoes.Show()
             Case "Técnicos"
-                Workspace.opr_tecnicos.tecnicos_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
+                Workspace.opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
                 Workspace.opr_tecnicos.modo = False
                 Workspace.opr_tecnicos.Show()
         End Select

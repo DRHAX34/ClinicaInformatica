@@ -13,6 +13,7 @@ Public Class Workspace
     Public opr_tecnicos As New OPR_Técnicos
     Public opr_utilizadores As New OPR_Utilizadores
     Public Aluno As Boolean
+    Public companyname As String
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -116,15 +117,17 @@ Public Class Workspace
         m_ChildFormNumber += 1
         opr_utilizadores.MdiParent = Me
         m_ChildFormNumber += 1
-        If modo = 1 Then
-            EmpresasToolStripMenuItem.Text = "Empresas"
-            EmpresasToolStripMenuItem.Enabled = True
+        
+    End Sub
+    Shared Sub login_load()
+        If Workspace.modo = 1 Then
+            Workspace.EmpresasToolStripMenuItem.Text = "Empresas"
+            Workspace.EmpresasToolStripMenuItem.Enabled = True
         Else
-            EmpresasToolStripMenuItem.Text = BLL.Admin_only.Empresas.carregar_pic(BLL.n_empresa)
-            EmpresasToolStripMenuItem.Text= 
+            Workspace.EmpresasToolStripMenuItem.Text = BLL.Admin_only.Empresas.carregar_pic(BLL.n_empresa)
+            Workspace.EmpresasToolStripMenuItem.Text = Workspace.companyname
         End If
     End Sub
-
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
         Dim clientesview As New ViewForm
         clientesview.Text = "Clientes"

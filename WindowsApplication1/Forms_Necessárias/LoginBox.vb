@@ -40,7 +40,7 @@
             Workspace.MenuStrip.Show()
             BLL.n_empresa = n_empresa
             Workspace.modo = 2
-                Me.Hide()
+            Me.Hide()
             Else
                 user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
                 If user = 0 Then
@@ -55,5 +55,7 @@
         If BLL.Login.verificar_aluno(n_empresa) = True Then
             Workspace.aluno = True
         End If
+        Workspace.companyname = Companybox.Text
+        Workspace.login_load()
     End Sub
 End Class

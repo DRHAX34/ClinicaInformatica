@@ -43,6 +43,8 @@ Partial Class Passo2
         Me.imagebutton = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.limparbutton = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -165,7 +167,7 @@ Partial Class Passo2
         '
         Me.niflabel.AutoSize = True
         Me.niflabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.niflabel.Location = New System.Drawing.Point(119, 226)
+        Me.niflabel.Location = New System.Drawing.Point(21, 226)
         Me.niflabel.Name = "niflabel"
         Me.niflabel.Size = New System.Drawing.Size(31, 20)
         Me.niflabel.TabIndex = 22
@@ -174,7 +176,7 @@ Partial Class Passo2
         'nifbox
         '
         Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nifbox.Location = New System.Drawing.Point(123, 249)
+        Me.nifbox.Location = New System.Drawing.Point(24, 249)
         Me.nifbox.Name = "nifbox"
         Me.nifbox.Size = New System.Drawing.Size(183, 27)
         Me.nifbox.TabIndex = 21
@@ -233,11 +235,34 @@ Partial Class Passo2
         Me.limparbutton.Text = "Limpar"
         Me.limparbutton.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label2.Location = New System.Drawing.Point(220, 226)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(94, 20)
+        Me.Label2.TabIndex = 36
+        Me.Label2.Text = "Tem Alunos?"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(224, 250)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(42, 17)
+        Me.RadioButton1.TabIndex = 37
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "Sim"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
         'Passo2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 436)
+        Me.Controls.Add(Me.RadioButton1)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.limparbutton)
         Me.Controls.Add(Me.imagebutton)
         Me.Controls.Add(Me.caminhobox)
@@ -286,4 +311,6 @@ Partial Class Passo2
     Friend WithEvents imagebutton As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents limparbutton As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
 End Class
