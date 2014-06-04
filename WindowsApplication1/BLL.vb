@@ -1182,6 +1182,11 @@ Public Class BLL
                 End If
             End Sub
         End Class
+        Shared Function carregar_tecnico() As ArrayList
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            Return DAL.ExecuteQuery("SELECT Nome FROM Técnicos where NºEmpresa=@n_empresa", p)
+        End Function
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1230,6 +1235,26 @@ Public Class BLL
                 Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
                 Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºAluno= @n_aluno AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_ntecnico_desativados(ByRef n_tecnico As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_tecnico", n_tecnico))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            If n_tecnico = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºTécnico= @n_tecnico AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_ntecnico_ativados(ByRef n_tecnico As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_tecnico", n_tecnico))
+            p.Add(New SqlParameter("@n_empresa", n_empresa))
+            If n_tecnico = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºTécnico=@n_tecnico AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_turma_desativados(ByRef turma As String) As DataTable

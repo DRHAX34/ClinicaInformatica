@@ -86,7 +86,6 @@ Public Class Workspace
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
         MenuStrip.Hide()
-        EmpresasToolStripMenuItem.Visible = False
         Me.BackgroundImageLayout = ImageLayout.Stretch
         StatusStrip.Hide()
         Dim estado As Integer = DAL.CreateConnection()
@@ -107,9 +106,6 @@ Public Class Workspace
         Else
             LoginForm.Show()
         End If
-        If modo = 1 Then
-            EmpresasToolStripMenuItem.Visible = True
-        End If
         opr_clientes.MdiParent = Me
         m_ChildFormNumber += 1
         opr_dispositivos.MdiParent = Me
@@ -120,7 +116,13 @@ Public Class Workspace
         m_ChildFormNumber += 1
         opr_utilizadores.MdiParent = Me
         m_ChildFormNumber += 1
-
+        If modo = 1 Then
+            EmpresasToolStripMenuItem.Text = "Empresas"
+            EmpresasToolStripMenuItem.Enabled = True
+        Else
+            EmpresasToolStripMenuItem.Text = BLL.Admin_only.Empresas.carregar_pic(BLL.n_empresa)
+            EmpresasToolStripMenuItem.Text= 
+        End If
     End Sub
 
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click

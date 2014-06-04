@@ -39,7 +39,6 @@
             Workspace.StatusStrip.Show()
             Workspace.MenuStrip.Show()
             BLL.n_empresa = n_empresa
-            Dim teste As Object =
             Workspace.modo = 2
                 Me.Hide()
             Else
