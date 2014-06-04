@@ -43,8 +43,9 @@ Partial Class Passo2
         Me.imagebutton = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.limparbutton = New System.Windows.Forms.Button()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.alunoslabel = New System.Windows.Forms.Label()
+        Me.simcheck = New System.Windows.Forms.RadioButton()
+        Me.naocheck = New System.Windows.Forms.RadioButton()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -235,34 +236,48 @@ Partial Class Passo2
         Me.limparbutton.Text = "Limpar"
         Me.limparbutton.UseVisualStyleBackColor = True
         '
-        'Label2
+        'alunoslabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.Label2.Location = New System.Drawing.Point(220, 226)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(94, 20)
-        Me.Label2.TabIndex = 36
-        Me.Label2.Text = "Tem Alunos?"
+        Me.alunoslabel.AutoSize = True
+        Me.alunoslabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.alunoslabel.Location = New System.Drawing.Point(220, 226)
+        Me.alunoslabel.Name = "alunoslabel"
+        Me.alunoslabel.Size = New System.Drawing.Size(94, 20)
+        Me.alunoslabel.TabIndex = 36
+        Me.alunoslabel.Text = "Tem Alunos?"
         '
-        'RadioButton1
+        'simcheck
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(224, 250)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(42, 17)
-        Me.RadioButton1.TabIndex = 37
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "Sim"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.simcheck.AutoSize = True
+        Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.simcheck.Location = New System.Drawing.Point(224, 250)
+        Me.simcheck.Name = "simcheck"
+        Me.simcheck.Size = New System.Drawing.Size(47, 21)
+        Me.simcheck.TabIndex = 37
+        Me.simcheck.TabStop = True
+        Me.simcheck.Text = "Sim"
+        Me.simcheck.UseVisualStyleBackColor = True
+        '
+        'naocheck
+        '
+        Me.naocheck.AutoSize = True
+        Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.naocheck.Location = New System.Drawing.Point(224, 273)
+        Me.naocheck.Name = "naocheck"
+        Me.naocheck.Size = New System.Drawing.Size(51, 21)
+        Me.naocheck.TabIndex = 38
+        Me.naocheck.TabStop = True
+        Me.naocheck.Text = "Não"
+        Me.naocheck.UseVisualStyleBackColor = True
         '
         'Passo2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(795, 436)
-        Me.Controls.Add(Me.RadioButton1)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.naocheck)
+        Me.Controls.Add(Me.simcheck)
+        Me.Controls.Add(Me.alunoslabel)
         Me.Controls.Add(Me.limparbutton)
         Me.Controls.Add(Me.imagebutton)
         Me.Controls.Add(Me.caminhobox)
@@ -311,6 +326,7 @@ Partial Class Passo2
     Friend WithEvents imagebutton As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents limparbutton As System.Windows.Forms.Button
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents alunoslabel As System.Windows.Forms.Label
+    Friend WithEvents simcheck As System.Windows.Forms.RadioButton
+    Friend WithEvents naocheck As System.Windows.Forms.RadioButton
 End Class

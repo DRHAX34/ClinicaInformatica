@@ -32,15 +32,16 @@
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         Dim n_empresa As Integer
-        n_empresa = BLL.Login.return_n_empresa(Companybox.Text)
+        Dim check As Boolean = False
+        n_empresa = BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString)
         user = BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, n_empresa)
         If user <> 0 Then
             'menuform.show()
             Workspace.StatusStrip.Show()
             Workspace.MenuStrip.Show()
-            BLL.n_empresa = n_empresa
             Workspace.modo = 2
             Me.Hide()
+            check = True
             Else
                 user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
                 If user = 0 Then
@@ -49,13 +50,17 @@
                     Workspace.StatusStrip.Show()
                     Workspace.MenuStrip.Show()
                     Workspace.modo = 1
-                    Me.Hide()
+                Me.Hide()
+                check = True
                 End If
         End If
-        If BLL.Login.verificar_aluno(n_empresa) = True Then
-            Workspace.aluno = True
+        If Check = True Then
+            If BLL.Login.verificar_aluno(n_empresa) = True Then
+                Workspace.Aluno = True
+            End If
+            Workspace.companyname = Companybox.Text
+            Workspace.login_load()
+            BLL.n_empresa = n_empresa
         End If
-        Workspace.companyname = Companybox.Text
-        Workspace.login_load()
     End Sub
 End Class

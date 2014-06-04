@@ -46,11 +46,14 @@ Partial Class ViewForm
         '
         'showdata
         '
+        Me.showdata.AutoSizeRows = True
         Me.showdata.Location = New System.Drawing.Point(13, 13)
         '
         'showdata
         '
         Me.showdata.MasterTemplate.AllowAddNewRow = False
+        Me.showdata.MasterTemplate.AllowColumnResize = False
+        Me.showdata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
         Me.showdata.Name = "showdata"
         Me.showdata.Padding = New System.Windows.Forms.Padding(1)
         Me.showdata.ReadOnly = True
@@ -130,7 +133,7 @@ Partial Class ViewForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(734, 467)
+        Me.ClientSize = New System.Drawing.Size(741, 464)
         Me.Controls.Add(Me.othersbutton)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.showbutton)
@@ -140,6 +143,7 @@ Partial Class ViewForm
         Me.Controls.Add(Me.delbutton)
         Me.Controls.Add(Me.newbutton)
         Me.Controls.Add(Me.showdata)
+        Me.MinimumSize = New System.Drawing.Size(512, 503)
         Me.Name = "ViewForm"
         Me.Text = "Generic Form"
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()

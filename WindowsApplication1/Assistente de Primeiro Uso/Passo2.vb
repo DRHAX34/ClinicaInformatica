@@ -35,6 +35,7 @@ Public Class Passo2
         Localidadelabel.Show()
         MaximizeBox = False
         MinimizeBox = False
+        caminhobox.Enabled = False
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -54,6 +55,9 @@ Public Class Passo2
         cod_postallabel.ForeColor = colorization.Inversecolor
         logolabel.ForeColor = colorization.Inversecolor
         niflabel.ForeColor = colorization.Inversecolor
+        alunoslabel.ForeColor = colorization.Inversecolor
+        simcheck.ForeColor = colorization.Inversecolor
+        naocheck.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)

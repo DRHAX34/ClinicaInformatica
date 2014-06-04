@@ -34,13 +34,13 @@ Partial Class Workspace
         Me.reparacoesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.tecnicosmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -110,6 +110,12 @@ Partial Class Workspace
         Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(134, 58)
         Me.UtilizadoresToolStripMenuItem.Text = "Utilizadores"
         '
+        'EmpresasToolStripMenuItem
+        '
+        Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
+        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(69, 58)
+        Me.EmpresasToolStripMenuItem.Text = "Empresas"
+        '
         'HelpMenu
         '
         Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
@@ -153,18 +159,11 @@ Partial Class Workspace
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
         Me.AboutToolStripMenuItem.Text = "&Sobre ..."
         '
-        'EmpresasToolStripMenuItem
-        '
-        Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
-        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(69, 58)
-        Me.EmpresasToolStripMenuItem.Text = "Empresas"
-        '
         'Workspace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundo_melhorado_960x540
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(847, 468)
         Me.Controls.Add(Me.MenuStrip)

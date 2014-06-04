@@ -210,7 +210,6 @@ Partial Class OPR_Clientes
         '
         'cmovelbox
         '
-        Me.cmovelbox.Enabled = False
         Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.cmovelbox.Location = New System.Drawing.Point(265, 380)
         Me.cmovelbox.Name = "cmovelbox"
@@ -219,7 +218,6 @@ Partial Class OPR_Clientes
         '
         'cfixobox
         '
-        Me.cfixobox.Enabled = False
         Me.cfixobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.cfixobox.Location = New System.Drawing.Point(265, 412)
         Me.cfixobox.Name = "cfixobox"

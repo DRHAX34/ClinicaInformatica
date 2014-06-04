@@ -2,7 +2,24 @@
     Public data_table As DataTable
     Public layout As Integer
     Public tabela As String
-
+    Private Sub onresize(sender As Object, e As EventArgs) Handles Me.Resize
+        showdata.Width = Me.Width - 50
+        showdata.Height = Me.Height - 200
+        othersbutton.Location = New Point((Me.Width - (750 - 494)), (Me.Height - (506 - 417)))
+        exitbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 417)))
+        delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (506 - 417)))
+        updatebutton.Location = New Point((updatebutton.Location.X), (Me.Height - (506 - 417)))
+        findbutton.Location = New Point((Me.Width - (750 - 494)), (Me.Height - (506 - 364)))
+        showbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 364)))
+        newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (506 - 364)))
+        editbutton.Location = New Point((editbutton.Location.X), (Me.Height - (506 - 364)))
+    End Sub
+    Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
+        Select Case tabela
+            Case "Clientes"
+                Workspace.check_clientes = False
+        End Select
+    End Sub
     Private Sub ViewForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         othersbutton.Enabled = True
         'Se não metermos .Enabled=false ele reverte para o default, que é true
@@ -14,6 +31,7 @@
         'End Select
         Me.Show()
         showdata.DataSource = data_table
+        showdata.AllowAutoSizeColumns = True
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
@@ -60,4 +78,6 @@
                 Workspace.opr_tecnicos.Show()
         End Select
     End Sub
+
+    
 End Class

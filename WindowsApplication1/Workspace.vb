@@ -14,6 +14,7 @@ Public Class Workspace
     Public opr_utilizadores As New OPR_Utilizadores
     Public Aluno As Boolean
     Public companyname As String
+    Public check_clientes As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -130,11 +131,17 @@ Public Class Workspace
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
         Dim clientesview As New ViewForm
+        Check_clientes = True
         clientesview.Text = "Clientes"
+        clientesview.tabela = "Clientes"
         clientesview.MdiParent = Me
         m_ChildFormNumber += 1
         clientesview.layout = 1
-        clientesview.data_table = BLL.Clientes.carregar()
+        If Aluno = True Then
+            clientesview.data_table = BLL.Clientes.carregar_alunos()
+        Else
+            clientesview.data_table = BLL.Clientes.carregar()
+        End If
         clientesview.Show()
     End Sub
 End Class
