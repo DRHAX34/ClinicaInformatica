@@ -70,8 +70,8 @@
                     Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
                     Workspace.opr_clientes.Show()
                 End If
-            Case "Dispositivos"
-                Workspace.opr_dispositivos.dispositivo_data = BLL.Dispositivos.procura_dados_numdispositivo(string_data)
+            Case "Componentes"
+                Workspace.opr_dispositivos.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
                 Workspace.opr_dispositivos.modo = False
                 Workspace.opr_dispositivos.Show()
             Case "Reparações"
