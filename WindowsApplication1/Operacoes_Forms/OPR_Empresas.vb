@@ -4,13 +4,8 @@
     Public img_caminho As String
     Public logo As Image
 
-    Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         naocheck.Checked = True
-        If Workspace.Aluno = False Then
-            Label7.Hide()
-            simcheck.Hide()
-            naocheck.Hide()
-        End If
         If modo = True Then
             RadButton3.PerformClick()
         Else
@@ -33,7 +28,12 @@
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim check_nome, check_morada, check_nif, check_codpostal, check_localidade, checklogo As Boolean
+        Dim check_nome As Boolean = True
+        Dim check_morada As Boolean = True
+        Dim check_nif As Boolean = True
+        Dim check_codpostal As Boolean = True
+        Dim check_localidade As Boolean = True
+        Dim checklogo As Boolean = True
         For i = 0 To nomebox.Text.Count - 1
             If nomebox.Text.Chars(i) <> " " Then
                 check_nome = False
@@ -64,32 +64,32 @@
                 checklogo = False
             End If
         Next
-        If simcheck.Checked = True Or naocheck.Checked = True Then
-            If check_nome = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
-                Try
-                    If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
-                        MsgBox("Esta Empresa já existe!")
-                    Else
-                        BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                        If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
-                            Workspace.opr_utilizadores.modo = False
-                            Workspace.opr_utilizadores.Show()
-                            For i = 0 To Workspace.opr_utilizadores.empresabox.Items.Count - 1
-                                If Workspace.opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
-                                    Workspace.opr_utilizadores.empresabox.SelectedIndex = i
-                                End If
-                            Next
+            If simcheck.Checked = True Or naocheck.Checked = True Then
+                If check_nome = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
+                    Try
+                        If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
+                            MsgBox("Esta Empresa já existe!")
+                        Else
+                            BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
+                            If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
+                                Workspace.opr_utilizadores.modo = False
+                                Workspace.opr_utilizadores.Show()
+                                For i = 0 To Workspace.opr_utilizadores.empresabox.Items.Count - 1
+                                    If Workspace.opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
+                                        Workspace.opr_utilizadores.empresabox.SelectedIndex = i
+                                    End If
+                                Next
+                            End If
                         End If
-                    End If
-                Catch ex As Exception
-                    MsgBox("Ocorreu um erro: " & ex.Message)
-                End Try
+                    Catch ex As Exception
+                        MsgBox("Ocorreu um erro: " & ex.Message)
+                    End Try
+                Else
+                    MsgBox("Insira os dados todos!")
+                End If
             Else
-                MsgBox("Insira os dados todos!")
+                MsgBox("Indique se a Empresa tem alunos ou não!")
             End If
-        Else
-            MsgBox("Indique se a Empresa tem alunos ou não!")
-        End If
     End Sub
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles codpostalbox.MaskInputRejected
