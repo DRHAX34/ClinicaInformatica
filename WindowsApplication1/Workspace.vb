@@ -7,11 +7,6 @@ Public Class Workspace
     Public config3 As New Passo3
     Public config4 As New Passo4
     Public modo As Integer
-    Public opr_clientes As New OPR_Clientes
-    Public opr_dispositivos As New OPR_Dispositivos
-    Public opr_reparacoes As New OPR_Reparações
-    Public opr_tecnicos As New OPR_Técnicos
-    Public opr_utilizadores As New OPR_Utilizadores
     Public Aluno, admin, admin_geral As Boolean
     Public companyname As String
     Public check_clientes, check_dispositivos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas As Boolean
@@ -80,7 +75,7 @@ Public Class Workspace
     '        ChildForm.Close()
     '    Next
     'End Sub
-    Private m_ChildFormNumber As Integer
+    Public m_ChildFormNumber As Integer
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         DAL.CloseConnection()
         DAL.TerminateConnection()
@@ -111,16 +106,6 @@ Public Class Workspace
             LoginForm.Show()
 
         End If
-        opr_clientes.MdiParent = Me
-        m_ChildFormNumber += 1
-        opr_dispositivos.MdiParent = Me
-        m_ChildFormNumber += 1
-        opr_reparacoes.MdiParent = Me
-        m_ChildFormNumber += 1
-        opr_tecnicos.MdiParent = Me
-        m_ChildFormNumber += 1
-        opr_utilizadores.MdiParent = Me
-        m_ChildFormNumber += 1
         Me.DoubleBuffered = True
 
     End Sub

@@ -35,30 +35,56 @@
         showdata.AllowAutoSizeColumns = True
         If removidos = True Then
             delbutton.Text = "Restaurar"
+            newbutton.Enabled = False
         Else
             delbutton.Text = "Eliminar"
+            newbutton.Enabled = True
         End If
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
+
+
+
+
+
         Select Case tabela
             Case "Clientes"
-                Workspace.opr_clientes.modo = False
-                Workspace.opr_clientes.Show()
-            Case "Dispositivos"
-                Workspace.opr_dispositivos.modo = False
-                Workspace.opr_dispositivos.Show()
+                Dim opr_clientes As New OPR_Clientes
+                opr_clientes.modo = False
+                opr_clientes.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_clientes.Show()
+            Case "Componentes"
+                Dim opr_componentes As New OPR_Componentes
+                opr_componentes.modo = False
+                opr_componentes.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_componentes.Show()
             Case "Reparações"
-                Workspace.opr_reparacoes.modo = False
-                Workspace.opr_reparacoes.Show()
+                Dim opr_reparacoes As New OPR_Reparações
+                opr_reparacoes.modo = False
+                opr_reparacoes.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_reparacoes.Show()
             Case "Técnicos"
-                Workspace.opr_tecnicos.modo = False
-                Workspace.opr_tecnicos.Show()
+                Dim opr_tecnicos As New OPR_Técnicos
+                opr_tecnicos.modo = False
+                opr_tecnicos.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_tecnicos.Show()
             Case "Utilizadores"
-                Workspace.opr_utilizadores.modo = False
-                Workspace.opr_utilizadores.Show()
+                Dim opr_utilizadores As New OPR_Utilizadores
+                opr_utilizadores.modo = False
+                opr_utilizadores.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_utilizadores.Show()
             Case "Empresas"
-
+                Dim opr_empresas As New OPR_Empresas
+                opr_empresas.modo = False
+                opr_empresas.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_empresas.Show()
         End Select
         Me.Close()
     End Sub
@@ -68,26 +94,29 @@
         string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
         Select Case tabela
             Case "Clientes"
-                Workspace.opr_clientes.modo = True
+                Dim opr_clientes As New OPR_Clientes
+                opr_clientes.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_clientes.modo = True
                 If removidos = True Then
                     If Workspace.Aluno = True Then
-                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
-                        Workspace.opr_clientes.removidos = True
-                        Workspace.opr_clientes.Show()
+                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
+                        opr_clientes.removidos = True
+                        opr_clientes.Show()
                     Else
-                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
-                        Workspace.opr_clientes.removidos = True
-                        Workspace.opr_clientes.Show()
+                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
+                        opr_clientes.removidos = True
+                        opr_clientes.Show()
                     End If
                 Else
                     If Workspace.Aluno = True Then
-                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
-                        Workspace.opr_clientes.removidos = False
-                        Workspace.opr_clientes.Show()
+                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
+                        opr_clientes.removidos = False
+                        opr_clientes.Show()
                     Else
-                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
-                        Workspace.opr_clientes.removidos = False
-                        Workspace.opr_clientes.Show()
+                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
+                        opr_clientes.removidos = False
+                        opr_clientes.Show()
                     End If
                 End If
             Case "Componentes"

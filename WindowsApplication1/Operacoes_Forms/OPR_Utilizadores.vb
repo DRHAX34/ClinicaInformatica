@@ -9,6 +9,12 @@
             Label1.Show()
             numalunobox.Show()
         End If
+        If Workspace.admin = True Then
+            admgeralcheck.Hide()
+        End If
+        If Workspace.admin_geral = True Then
+            admgeralcheck.Show()
+        End If
         naocheck.PerformClick()
         If modo = True Then
             RadButton3.PerformClick()
@@ -41,65 +47,77 @@
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Dim check_num As Boolean = True
-        Dim check_morada As Boolean = True
-        Dim check_nif As Boolean = True
-        Dim check_codpostal As Boolean = True
-        Dim check_localidade As Boolean = True
-        Dim checklogo As Boolean = True
+        Dim check_tecnico As Boolean = True
+        Dim check_empresa As Boolean = True
+        Dim check_nomutil As Boolean = True
+        Dim check_pass As Boolean = True
         If Workspace.Aluno = True Then
-            For i = 0 To numalunobox.Text.Count - 1
-                If numalunobox.Text.Chars(i) <> " " Then
-                    check_num = False
-                End If
-            Next
+            Try
+                For i = 0 To numalunobox.Text.Count - 1
+                    If numalunobox.Text.Chars(i) <> " " Then
+                        check_num = False
+                    End If
+                Next
+            Catch ex As Exception
+                check_num = True
+            End Try
         Else
             check_num = False
         End If
         If simcheck.Checked = True Then
-            For i = 0 To tecnicobox.Text.Count - 1
-                If tecnicobox.Text.Chars(i) <> " " Then
-                    check_morada = False
-                End If
-            Next
+            Try
+                For i = 0 To tecnicobox.Text.Count - 1
+                    If tecnicobox.Text.Chars(i) <> " " Then
+                        check_tecnico = False
+                    End If
+                Next
+            Catch ex As Exception
+                check_tecnico = True
+            End Try
         Else
-            check_morada = False
+            check_tecnico = False
         End If
         If admgeralcheck.Checked = False Then
-            For i = 0 To empresabox.Text.Count - 1
-                If empresabox.Text.Chars(i) <> " " Then
-                    check_nif = False
+            Try
+                For i = 0 To empresabox.Text.Count - 1
+                    If empresabox.Text.Chars(i) <> " " Then
+                        check_empresa = False
+                    End If
+                Next
+            Catch ex As Exception
+                check_empresa = True
+            End Try
+        Else
+            check_empresa = False
+        End If
+        Try
+            For i = 0 To nomeutilizadorbox.Text.Count - 1
+                If nomeutilizadorbox.Text.Chars(i) <> " " Then
+                    check_nomutil = False
                 End If
             Next
-        Else
-            check_nif = False
-        End If
-        For i = 0 To nomeutilizadorbox.Text.Count - 1
-            If nomeutilizadorbox.Text.Chars(i) <> " " Then
-                check_codpostal = False
-            End If
-        Next
-        For i = 0 To passwordbox.Text.Count - 1
-            If passwordbox.Text.Chars(i) <> " " Then
-                check_localidade = False
-            End If
-        Next
+        Catch ex As Exception
+            check_nomutil = True
+        End Try
+        Try
+            For i = 0 To passwordbox.Text.Count - 1
+                If passwordbox.Text.Chars(i) <> " " Then
+                    check_pass = False
+                End If
+            Next
+        Catch ex As Exception
+            check_pass = True
+        End Try
         If Workspace.admin_geral = True Then
-            If check_num = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
+            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
                 Try
-                    'If BLL.Admin_only.Login.check_exist(nomebox.Text) = 1 Then
-                    '    MsgBox("Esta Empresa já existe!")
-                    'Else
-                    '    'BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                    '    If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
-                    '        Workspace.opr_utilizadores.modo = False
-                    '        Workspace.opr_utilizadores.Show()
-                    '        For i = 0 To Workspace.opr_utilizadores.empresabox.Items.Count - 1
-                    '            If Workspace.opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
-                    '                Workspace.opr_utilizadores.empresabox.SelectedIndex = i
-                    '            End If
-                    '        Next
-                    '    End If
-                    'End If
+                    If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
+                        MsgBox("Este Utilizador já existe!")
+                    Else
+                        BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                        MsgBox("Inserido com sucesso!")
+                        Me.Close()
+                    End If
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro: " & ex.Message)
                 End Try
@@ -107,29 +125,23 @@
                 MsgBox("Insira os dados todos!")
             End If
         ElseIf Workspace.admin = True Then
+            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+                    Try
+                        If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
+                        MsgBox("Esta Utilizador já existe!")
+                        Else
+                            BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                            MsgBox("Inserido com sucesso!")
+                            Me.Close()
+                        End If
+                    Catch ex As Exception
+                        MsgBox("Ocorreu um erro: " & ex.Message)
+                    End Try
+            Else
+                MsgBox("Insira os dados todos!")
+            End If
         End If
-        If check_num = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
-            Try
-                'If BLL.Admin_only.Login.check_exist(nomebox.Text) = 1 Then
-                '    MsgBox("Esta Empresa já existe!")
-                'Else
-                '    BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                '    If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
-                '        Workspace.opr_utilizadores.modo = False
-                '        Workspace.opr_utilizadores.Show()
-                '        For i = 0 To Workspace.opr_utilizadores.empresabox.Items.Count - 1
-                '            If Workspace.opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
-                '                Workspace.opr_utilizadores.empresabox.SelectedIndex = i
-                '            End If
-                '        Next
-                '    End If
-                'End If
-            Catch ex As Exception
-                MsgBox("Ocorreu um erro: " & ex.Message)
-            End Try
-        Else
-            MsgBox("Insira os dados todos!")
-        End If
+        
     End Sub
 
 
@@ -157,5 +169,99 @@
         admgeralcheck.Checked = False
         admincheck.Checked = True
         empresabox.Enabled = admincheck.Checked
+    End Sub
+
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+        Dim check_num As Boolean = True
+        Dim check_tecnico As Boolean = True
+        Dim check_empresa As Boolean = True
+        Dim check_nomutil As Boolean = True
+        Dim check_pass As Boolean = True
+        If Workspace.Aluno = True Then
+            Try
+                For i = 0 To numalunobox.Text.Count - 1
+                    If numalunobox.Text.Chars(i) <> " " Then
+                        check_num = False
+                    End If
+                Next
+            Catch ex As Exception
+                check_num = True
+            End Try
+        Else
+            check_num = False
+        End If
+        If simcheck.Checked = True Then
+            Try
+                For i = 0 To tecnicobox.Text.Count - 1
+                    If tecnicobox.Text.Chars(i) <> " " Then
+                        check_tecnico = False
+                    End If
+                Next
+            Catch ex As Exception
+                check_tecnico = True
+            End Try
+        Else
+            check_tecnico = False
+        End If
+        If admgeralcheck.Checked = False Then
+            Try
+                For i = 0 To empresabox.Text.Count - 1
+                    If empresabox.Text.Chars(i) <> " " Then
+                        check_empresa = False
+                    End If
+                Next
+            Catch ex As Exception
+                check_empresa = True
+            End Try
+        Else
+            check_empresa = False
+        End If
+        Try
+            For i = 0 To nomeutilizadorbox.Text.Count - 1
+                If nomeutilizadorbox.Text.Chars(i) <> " " Then
+                    check_nomutil = False
+                End If
+            Next
+        Catch ex As Exception
+            check_nomutil = True
+        End Try
+        Try
+            For i = 0 To passwordbox.Text.Count - 1
+                If passwordbox.Text.Chars(i) <> " " Then
+                    check_pass = False
+                End If
+            Next
+        Catch ex As Exception
+            check_pass = True
+        End Try
+        If Workspace.admin_geral = True Then
+            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+                Try
+                        BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                        MsgBox("Inserido com sucesso!")
+                        Me.Close()
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+                End Try
+            Else
+                MsgBox("Insira os dados todos!")
+            End If
+        ElseIf Workspace.admin = True Then
+            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+                Try
+                    If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
+                        MsgBox("Esta Utilizador já existe!")
+                    Else
+                        BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                        MsgBox("Inserido com sucesso!")
+                        Me.Close()
+                    End If
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+                End Try
+            Else
+                MsgBox("Insira os dados todos!")
+            End If
+        End If
     End Sub
 End Class

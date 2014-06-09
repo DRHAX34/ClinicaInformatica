@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class OPR_Dispositivos
+Partial Class OPR_Componentes
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -66,7 +66,7 @@ Partial Class OPR_Dispositivos
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(433, 555)
+        Me.RadButton4.Location = New System.Drawing.Point(511, 555)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 51
@@ -74,7 +74,7 @@ Partial Class OPR_Dispositivos
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(336, 555)
+        Me.RadButton3.Location = New System.Drawing.Point(391, 555)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 50
@@ -83,7 +83,7 @@ Partial Class OPR_Dispositivos
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(241, 555)
+        Me.RadButton2.Location = New System.Drawing.Point(271, 555)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 49
@@ -91,7 +91,7 @@ Partial Class OPR_Dispositivos
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(146, 555)
+        Me.RadButton1.Location = New System.Drawing.Point(154, 555)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 48
@@ -99,7 +99,7 @@ Partial Class OPR_Dispositivos
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(50, 555)
+        Me.RadButton5.Location = New System.Drawing.Point(27, 555)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 47
@@ -111,9 +111,9 @@ Partial Class OPR_Dispositivos
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(33, 9)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(378, 86)
+        Me.Label6.Size = New System.Drawing.Size(433, 86)
         Me.Label6.TabIndex = 46
-        Me.Label6.Text = "Dispositivos"
+        Me.Label6.Text = "Componentes"
         '
         'Label3
         '
@@ -183,7 +183,7 @@ Partial Class OPR_Dispositivos
         Me.Label4.TabIndex = 36
         Me.Label4.Text = "NºSérie"
         '
-        'OPR_Dispositivos
+        'OPR_Componentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -205,9 +205,9 @@ Partial Class OPR_Dispositivos
         Me.Controls.Add(Me.marcabox)
         Me.Controls.Add(Me.numbox)
         Me.Controls.Add(Me.Label4)
-        Me.Name = "OPR_Dispositivos"
+        Me.Name = "OPR_Componentes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Operações Dispositivos"
+        Me.Text = "Operações Componentes"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()

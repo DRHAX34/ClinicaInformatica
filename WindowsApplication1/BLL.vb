@@ -942,7 +942,7 @@ Public Class BLL
             p.Add(New SqlParameter("@Contacto_m", contacto_m))
             p.Add(New SqlParameter("@Contacto_f", contacto_f))
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            check(0) = DAL.ExecuteNonQuery("Update Clientes set Contacto_M = @contacto_m, Contacto_F = @contacto_f nome = @nome, morada = @morada, NIF= @NIF, Cod_Postal= @cod_postal, Email= @email where NºCliente=@numcliente AND NºEmpresa=@n_empresa", p)
+            check(0) = DAL.ExecuteNonQuery("Update Clientes set Contacto_M = @contacto_m, Contacto_F = @contacto_f, nome = @nome, morada = @morada, NIF= @NIF, Cod_Postal= @cod_postal, Email= @email, Ativo=@Ativo where NºCliente=@numcliente AND NºEmpresa=@n_empresa", p)
             Return check
         End Function
         Shared Function apagar(ByVal N_Cliente As String, ByVal NIF As String)

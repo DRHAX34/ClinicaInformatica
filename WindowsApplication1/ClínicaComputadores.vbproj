@@ -286,10 +286,10 @@
     <Compile Include="Forms_Necessárias\ViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacoes_Forms\OPR_Dispositivos.Designer.vb">
-      <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
+    <Compile Include="Operacoes_Forms\OPR_Componentes.Designer.vb">
+      <DependentUpon>OPR_Componentes.vb</DependentUpon>
     </Compile>
-    <Compile Include="Operacoes_Forms\OPR_Dispositivos.vb">
+    <Compile Include="Operacoes_Forms\OPR_Componentes.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Operacoes_Forms\OPR_Clientes.Designer.vb">
@@ -367,8 +367,8 @@
     <EmbeddedResource Include="Operacoes_Forms\OPR_Reparações.resx">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacoes_Forms\OPR_Dispositivos.resx">
-      <DependentUpon>OPR_Dispositivos.vb</DependentUpon>
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Componentes.resx">
+      <DependentUpon>OPR_Componentes.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\ViewForm.resx">
       <DependentUpon>ViewForm.vb</DependentUpon>

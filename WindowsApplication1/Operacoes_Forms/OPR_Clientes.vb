@@ -30,14 +30,15 @@
                     Else
                         RadioButton1.Checked = False
                         RadioButton2.Checked = True
-                    End If
+                End If
                 Catch ex As Exception
                     MsgBox("Erro")
-                End Try
+            End Try
+            RadButton5.Enabled = False
             Else
                 RadButton5.Enabled = True
                 RadButton1.Enabled = False
-                RadButton3.Text = "Limpar Tudo"
+            RadButton3.Text = "Limpar Tudo"
             End If
         If removidos = True Then
             RadButton2.Text = "Restaurar"
@@ -77,7 +78,17 @@
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         Try
-            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+            If removidos = True Then
+                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                MsgBox("Editado com sucesso")
+                Workspace.RemovidosToolStripMenuItem.PerformClick()
+                Me.Close()
+            Else
+                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                MsgBox("Editado com sucesso")
+                Workspace.AtivosToolStripMenuItem.PerformClick()
+                Me.Close()
+            End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
         End Try
@@ -88,9 +99,13 @@
             If removidos = True Then
                 BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Restaurado com sucesso")
+                Workspace.RemovidosToolStripMenuItem.PerformClick()
+                Me.Close()
             Else
                 BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text)
                 MsgBox("Removido com sucesso")
+                Workspace.AtivosToolStripMenuItem.PerformClick()
+                Me.Close()
             End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
@@ -99,5 +114,9 @@
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
         Me.Close()
+    End Sub
+
+    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
+
     End Sub
 End Class

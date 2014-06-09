@@ -10,16 +10,17 @@
         End If
         Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width, loginbutton.Height)
         Dim sair As New Bitmap(My.Resources.Sair, exitbutton.Width, exitbutton.Height)
-        Dim button As New Bitmap(My.Resources.Sair, Button1.Width, Button1.Height)
+        'Dim button As New Bitmap(My.Resources.Sair, sairbutton.Width, sairbutton.Height)
         Dim Ajuda As New Bitmap(My.Resources.Ajuda, buttonhelp.Width, buttonhelp.Height)
         loginbutton.Image = login
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
-        Button1.Image = button
+        'sairbutton.Image = button
         Workspace.FormBorderStyle = 2
         datalabel.Text = System.DateTime.Now.Date
+        Me.AcceptButton = Me.loginbutton
     End Sub
-    
+
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Usernamelabel.Click
 
     End Sub
@@ -44,17 +45,17 @@
             Workspace.modo = 2
             Me.Hide()
             check = True
+        Else
+            user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
+            If user = 0 Then
+                MsgBox("Nome de Utilizador/Palavra-Passe errados!")
             Else
-                user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
-                If user = 0 Then
-                    MsgBox("Nome de Utilizador/Palavra-Passe errados!")
-                Else
-                    Workspace.StatusStrip.Show()
-                    Workspace.MenuStrip.Show()
-                    Workspace.modo = 1
+                Workspace.StatusStrip.Show()
+                Workspace.MenuStrip.Show()
+                Workspace.modo = 1
                 Me.Hide()
                 check = True
-                End If
+            End If
         End If
         If Check = True Then
             If BLL.Login.verificar_aluno(n_empresa) = True Then
@@ -66,7 +67,7 @@
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         Workspace.Close()
     End Sub
 End Class

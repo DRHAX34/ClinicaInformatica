@@ -99,7 +99,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(54, 15)
+        Me.Label6.Location = New System.Drawing.Point(11, 18)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(371, 86)
         Me.Label6.TabIndex = 73

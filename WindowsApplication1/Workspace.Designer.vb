@@ -98,8 +98,8 @@ Partial Class Workspace
         Me.dispositivosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101754Hz7aSVUe
         Me.dispositivosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.dispositivosmenu.Name = "dispositivosmenu"
-        Me.dispositivosmenu.Size = New System.Drawing.Size(136, 58)
-        Me.dispositivosmenu.Text = "Dispositivos"
+        Me.dispositivosmenu.Size = New System.Drawing.Size(148, 58)
+        Me.dispositivosmenu.Text = "Componentes"
         '
         'reparacoesmenu
         '

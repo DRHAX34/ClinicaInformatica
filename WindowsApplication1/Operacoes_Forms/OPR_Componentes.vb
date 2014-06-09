@@ -1,4 +1,4 @@
-﻿Public Class OPR_Dispositivos
+﻿Public Class OPR_Componentes
     Public dispositivo_data As New DataTable
     Public modo As Boolean
     Private Sub OPR_Dispositivos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
