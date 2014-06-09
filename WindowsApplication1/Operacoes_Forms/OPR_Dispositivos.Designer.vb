@@ -206,6 +206,7 @@ Partial Class OPR_Dispositivos
         Me.Controls.Add(Me.numbox)
         Me.Controls.Add(Me.Label4)
         Me.Name = "OPR_Dispositivos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Dispositivos"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()

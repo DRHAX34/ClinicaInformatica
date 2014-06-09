@@ -36,6 +36,8 @@ Partial Class OPR_Utilizadores
         Me.numalunobox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.admgeralcheck = New System.Windows.Forms.CheckBox()
+        Me.admincheck = New System.Windows.Forms.CheckBox()
         Me.tecnicobox = New System.Windows.Forms.ComboBox()
         Me.addtecnicobox = New Telerik.WinControls.UI.RadButton()
         Me.empresabox = New System.Windows.Forms.ComboBox()
@@ -43,8 +45,6 @@ Partial Class OPR_Utilizadores
         Me.simcheck = New System.Windows.Forms.RadioButton()
         Me.naocheck = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.admincheck = New System.Windows.Forms.CheckBox()
-        Me.admgeralcheck = New System.Windows.Forms.CheckBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -183,6 +183,28 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informações da Conta"
         '
+        'admgeralcheck
+        '
+        Me.admgeralcheck.AutoSize = True
+        Me.admgeralcheck.Location = New System.Drawing.Point(155, 197)
+        Me.admgeralcheck.Name = "admgeralcheck"
+        Me.admgeralcheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.admgeralcheck.Size = New System.Drawing.Size(142, 29)
+        Me.admgeralcheck.TabIndex = 74
+        Me.admgeralcheck.Text = "Admin Geral"
+        Me.admgeralcheck.UseVisualStyleBackColor = True
+        '
+        'admincheck
+        '
+        Me.admincheck.AutoSize = True
+        Me.admincheck.Location = New System.Drawing.Point(22, 197)
+        Me.admincheck.Name = "admincheck"
+        Me.admincheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.admincheck.Size = New System.Drawing.Size(90, 29)
+        Me.admincheck.TabIndex = 73
+        Me.admincheck.Text = "Admin"
+        Me.admincheck.UseVisualStyleBackColor = True
+        '
         'tecnicobox
         '
         Me.tecnicobox.FormattingEnabled = True
@@ -251,28 +273,6 @@ Partial Class OPR_Utilizadores
         Me.Label9.TabIndex = 90
         Me.Label9.Text = "O Utilizador é Técnico?"
         '
-        'admincheck
-        '
-        Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(22, 197)
-        Me.admincheck.Name = "admincheck"
-        Me.admincheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.admincheck.Size = New System.Drawing.Size(90, 29)
-        Me.admincheck.TabIndex = 73
-        Me.admincheck.Text = "Admin"
-        Me.admincheck.UseVisualStyleBackColor = True
-        '
-        'admgeralcheck
-        '
-        Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(155, 197)
-        Me.admgeralcheck.Name = "admgeralcheck"
-        Me.admgeralcheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.admgeralcheck.Size = New System.Drawing.Size(142, 29)
-        Me.admgeralcheck.TabIndex = 74
-        Me.admgeralcheck.Text = "Admin Geral"
-        Me.admgeralcheck.UseVisualStyleBackColor = True
-        '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -297,6 +297,7 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.numalunobox)
         Me.Name = "OPR_Utilizadores"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Utilizadores"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()

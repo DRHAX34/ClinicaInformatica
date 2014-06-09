@@ -316,6 +316,7 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Label4)
         Me.Name = "OPR_Clientes"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Clientes"
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()

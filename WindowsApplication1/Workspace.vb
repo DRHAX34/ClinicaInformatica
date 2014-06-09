@@ -12,7 +12,7 @@ Public Class Workspace
     Public opr_reparacoes As New OPR_Reparações
     Public opr_tecnicos As New OPR_Técnicos
     Public opr_utilizadores As New OPR_Utilizadores
-    Public Aluno As Boolean
+    Public Aluno, admin, admin_geral As Boolean
     Public companyname As String
     Public check_clientes, check_dispositivos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
@@ -94,6 +94,7 @@ Public Class Workspace
         LoginForm.MdiParent = Me
         m_ChildFormNumber += 1
         Me.FormBorderStyle = 1
+        Me.WindowState = FormWindowState.Maximized
         If BLL.Login.Carregar_empresas.Count = 0 Then
             Dim config As New Passo1
             config.MdiParent = Me
@@ -108,6 +109,7 @@ Public Class Workspace
             Me.WindowState = FormWindowState.Normal
         Else
             LoginForm.Show()
+
         End If
         opr_clientes.MdiParent = Me
         m_ChildFormNumber += 1
@@ -132,6 +134,10 @@ Public Class Workspace
         End If
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
+        
+    End Sub
+
+    Private Sub AtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtivosToolStripMenuItem.Click
         If check_clientes = False Then
             Dim clientesview As New ViewForm
             check_clientes = True
@@ -145,6 +151,28 @@ Public Class Workspace
             Else
                 clientesview.data_table = BLL.Clientes.carregar()
             End If
+            clientesview.removidos = False
+            clientesview.Show()
+        Else
+            MsgBox("Já tem a janela dos Clientes aberta!")
+        End If
+    End Sub
+
+    Private Sub RemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemovidosToolStripMenuItem.Click
+        If check_clientes = False Then
+            Dim clientesview As New ViewForm
+            check_clientes = True
+            clientesview.Text = "Clientes"
+            clientesview.tabela = "Clientes"
+            clientesview.MdiParent = Me
+            m_ChildFormNumber += 1
+            clientesview.layout = 1
+            If Aluno = True Then
+                clientesview.data_table = BLL.Clientes.carregar_eliminados_alunos()
+            Else
+                clientesview.data_table = BLL.Clientes.carregar_eliminados()
+            End If
+            clientesview.removidos = True
             clientesview.Show()
         Else
             MsgBox("Já tem a janela dos Clientes aberta!")

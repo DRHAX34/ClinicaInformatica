@@ -251,12 +251,6 @@
     <Compile Include="Operacoes_Forms\OPR_Empresas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="teste.Designer.vb">
-      <DependentUpon>teste.vb</DependentUpon>
-    </Compile>
-    <Compile Include="teste.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Workspace.Designer.vb">
       <DependentUpon>Workspace.vb</DependentUpon>
     </Compile>
@@ -360,9 +354,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="teste.resx">
-      <DependentUpon>teste.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Workspace.resx">
       <DependentUpon>Workspace.vb</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿Public Class OPR_Clientes
     Public cliente_data As New DataTable
-    Public modo As Boolean
+    Public modo, removidos As Boolean
 
     Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         numalunobox.Hide()
@@ -11,35 +11,39 @@
             RadioButton1.Hide()
             RadioButton2.Hide()
         End If
-        If modo = True Then
-            Try
-                RadButton5.Enabled = False
-                RadButton1.Enabled = True
-                RadButton3.Text = "Restaurar Dados Originais"
-                nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
-                moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
-                emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
-                nifbox.Text = cliente_data.Rows.Item(0).Item("NIF").ToString()
-                codpostalbox.Text = cliente_data.Rows.Item(0).Item("Cod_Postal").ToString()
-                cmovelbox.Text = cliente_data.Rows.Item(0).Item("Contacto Móvel").ToString()
-                cfixobox.Text = cliente_data.Rows.Item(0).Item("Contacto Fixo").ToString()
-                If cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> "" Then
-                    RadioButton1.Checked = True
-                    RadioButton2.Checked = False
-                    numalunobox.Text = cliente_data.Rows.Item(0).Item("NºAluno").ToString()
-                Else
-                    RadioButton1.Checked = False
-                    RadioButton2.Checked = True
-                End If
-            Catch ex As Exception
-                MsgBox("Erro")
-            End Try
+            If modo = True Then
+                Try
+                    RadButton5.Enabled = False
+                    RadButton1.Enabled = True
+                    RadButton3.Text = "Restaurar Dados Originais"
+                    nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
+                    moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
+                    emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
+                    nifbox.Text = cliente_data.Rows.Item(0).Item("NIF").ToString()
+                    codpostalbox.Text = cliente_data.Rows.Item(0).Item("Cod_Postal").ToString()
+                    cmovelbox.Text = cliente_data.Rows.Item(0).Item("Contacto_M").ToString()
+                    cfixobox.Text = cliente_data.Rows.Item(0).Item("Contacto_F").ToString()
+                    If cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> "" Then
+                        RadioButton1.Checked = True
+                        RadioButton2.Checked = False
+                        numalunobox.Text = cliente_data.Rows.Item(0).Item("NºAluno").ToString()
+                    Else
+                        RadioButton1.Checked = False
+                        RadioButton2.Checked = True
+                    End If
+                Catch ex As Exception
+                    MsgBox("Erro")
+                End Try
+            Else
+                RadButton5.Enabled = True
+                RadButton1.Enabled = False
+                RadButton3.Text = "Limpar Tudo"
+            End If
+        If removidos = True Then
+            RadButton2.Text = "Restaurar"
         Else
-            RadButton5.Enabled = True
-            RadButton1.Enabled = False
-            RadButton3.Text = "Limpar Tudo"
+            RadButton2.Text = "Remover"
         End If
-
 
     End Sub
 
@@ -81,7 +85,13 @@
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
         Try
-            BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text)
+            If removidos = True Then
+                BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
+                MsgBox("Restaurado com sucesso")
+            Else
+                BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text)
+                MsgBox("Removido com sucesso")
+            End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
         End Try

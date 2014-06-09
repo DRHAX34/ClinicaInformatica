@@ -30,6 +30,8 @@ Partial Class Workspace
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AtivosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RemovidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dispositivosmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.reparacoesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.tecnicosmenu = New System.Windows.Forms.ToolStripMenuItem()
@@ -72,11 +74,24 @@ Partial Class Workspace
         '
         'clientesmenu
         '
+        Me.clientesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AtivosToolStripMenuItem, Me.RemovidosToolStripMenuItem})
         Me.clientesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
         Me.clientesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.clientesmenu.Name = "clientesmenu"
         Me.clientesmenu.Size = New System.Drawing.Size(115, 58)
         Me.clientesmenu.Text = "Clientes"
+        '
+        'AtivosToolStripMenuItem
+        '
+        Me.AtivosToolStripMenuItem.Name = "AtivosToolStripMenuItem"
+        Me.AtivosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.AtivosToolStripMenuItem.Text = "Ativos"
+        '
+        'RemovidosToolStripMenuItem
+        '
+        Me.RemovidosToolStripMenuItem.Name = "RemovidosToolStripMenuItem"
+        Me.RemovidosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.RemovidosToolStripMenuItem.Text = "Removidos"
         '
         'dispositivosmenu
         '
@@ -164,6 +179,7 @@ Partial Class Workspace
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundoclinica
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(847, 468)
         Me.Controls.Add(Me.MenuStrip)
@@ -173,6 +189,7 @@ Partial Class Workspace
         Me.MainMenuStrip = Me.MenuStrip
         Me.MinimumSize = New System.Drawing.Size(863, 506)
         Me.Name = "Workspace"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clínica Informática"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
@@ -196,5 +213,7 @@ Partial Class Workspace
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents UtilizadoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EmpresasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents AtivosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RemovidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

@@ -34,6 +34,7 @@ Partial Class LoginForm
         Me.datalabel = New System.Windows.Forms.Label()
         Me.RadClock1 = New Telerik.WinControls.UI.RadClock()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.Passwordbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.UsernameBox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadClock1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,7 +130,7 @@ Partial Class LoginForm
         '
         Me.datalabel.AutoSize = True
         Me.datalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.datalabel.Location = New System.Drawing.Point(413, 150)
+        Me.datalabel.Location = New System.Drawing.Point(413, 180)
         Me.datalabel.Name = "datalabel"
         Me.datalabel.Size = New System.Drawing.Size(36, 21)
         Me.datalabel.TabIndex = 16
@@ -137,7 +138,7 @@ Partial Class LoginForm
         '
         'RadClock1
         '
-        Me.RadClock1.Location = New System.Drawing.Point(390, 12)
+        Me.RadClock1.Location = New System.Drawing.Point(390, 28)
         Me.RadClock1.Name = "RadClock1"
         Me.RadClock1.Size = New System.Drawing.Size(134, 135)
         Me.RadClock1.TabIndex = 17
@@ -152,6 +153,15 @@ Partial Class LoginForm
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 12
         Me.PictureBox1.TabStop = False
+        '
+        'Button1
+        '
+        Me.Button1.BackColor = System.Drawing.Color.Transparent
+        Me.Button1.Location = New System.Drawing.Point(502, -1)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(33, 32)
+        Me.Button1.TabIndex = 18
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'Passwordbox
         '
@@ -179,6 +189,7 @@ Partial Class LoginForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(536, 355)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.RadClock1)
         Me.Controls.Add(Me.datalabel)
         Me.Controls.Add(Me.Titlelabel1)
@@ -193,9 +204,12 @@ Partial Class LoginForm
         Me.Controls.Add(Me.Passwordbox)
         Me.Controls.Add(Me.Usernamelabel)
         Me.Controls.Add(Me.UsernameBox)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "LoginForm"
-        Me.Text = "Login - Clínica Informática"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Início de Sessão - Clínica Informática"
         CType(Me.RadClock1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -216,5 +230,6 @@ Partial Class LoginForm
     Friend WithEvents Titlelabel1 As System.Windows.Forms.Label
     Friend WithEvents datalabel As System.Windows.Forms.Label
     Friend WithEvents RadClock1 As Telerik.WinControls.UI.RadClock
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class

@@ -240,6 +240,7 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.numalunobox)
         Me.Name = "OPR_Técnicos"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Técnicos"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()

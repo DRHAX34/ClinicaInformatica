@@ -4,20 +4,22 @@
         Dim p As New ArrayList
         p = BLL.Login.Carregar_empresas
         Companybox.DataSource = p
-        Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
+        'Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
         If Not Companybox.Items.Count = Nothing Then
             Companybox.SelectedIndex = 0
         End If
         Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width, loginbutton.Height)
         Dim sair As New Bitmap(My.Resources.Sair, exitbutton.Width, exitbutton.Height)
+        Dim button As New Bitmap(My.Resources.Sair, Button1.Width, Button1.Height)
         Dim Ajuda As New Bitmap(My.Resources.Ajuda, buttonhelp.Width, buttonhelp.Height)
         loginbutton.Image = login
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
+        Button1.Image = button
         Workspace.FormBorderStyle = 2
         datalabel.Text = System.DateTime.Now.Date
     End Sub
-
+    
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Usernamelabel.Click
 
     End Sub
@@ -62,5 +64,9 @@
             Workspace.login_load()
             BLL.n_empresa = n_empresa
         End If
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Workspace.Close()
     End Sub
 End Class

@@ -2,6 +2,7 @@
     Public data_table As DataTable
     Public layout As Integer
     Public tabela As String
+    Public removidos As Boolean
     Private Sub onresize(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 50
         showdata.Height = Me.Height - 200
@@ -32,6 +33,11 @@
         Me.Show()
         showdata.DataSource = data_table
         showdata.AllowAutoSizeColumns = True
+        If removidos = True Then
+            delbutton.Text = "Restaurar"
+        Else
+            delbutton.Text = "Eliminar"
+        End If
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
@@ -63,12 +69,26 @@
         Select Case tabela
             Case "Clientes"
                 Workspace.opr_clientes.modo = True
-                If Workspace.Aluno = True Then
-                    Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
-                    Workspace.opr_clientes.Show()
+                If removidos = True Then
+                    If Workspace.Aluno = True Then
+                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
+                        Workspace.opr_clientes.removidos = True
+                        Workspace.opr_clientes.Show()
+                    Else
+                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
+                        Workspace.opr_clientes.removidos = True
+                        Workspace.opr_clientes.Show()
+                    End If
                 Else
-                    Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
-                    Workspace.opr_clientes.Show()
+                    If Workspace.Aluno = True Then
+                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
+                        Workspace.opr_clientes.removidos = False
+                        Workspace.opr_clientes.Show()
+                    Else
+                        Workspace.opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
+                        Workspace.opr_clientes.removidos = False
+                        Workspace.opr_clientes.Show()
+                    End If
                 End If
             Case "Componentes"
                 Workspace.opr_dispositivos.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
@@ -88,7 +108,6 @@
 
     
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
-        Me.Close()
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click

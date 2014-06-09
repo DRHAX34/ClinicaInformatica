@@ -43,8 +43,8 @@ Partial Class OPR_Reparações
         Me.dateinicio = New System.Windows.Forms.DateTimePicker()
         Me.datefim = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.hardwarebox = New System.Windows.Forms.TextBox()
         Me.softwarebox = New System.Windows.Forms.TextBox()
+        Me.hardwarebox = New System.Windows.Forms.TextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -242,14 +242,6 @@ Partial Class OPR_Reparações
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo"
         '
-        'hardwarebox
-        '
-        Me.hardwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.hardwarebox.Location = New System.Drawing.Point(131, 33)
-        Me.hardwarebox.Name = "hardwarebox"
-        Me.hardwarebox.Size = New System.Drawing.Size(133, 25)
-        Me.hardwarebox.TabIndex = 55
-        '
         'softwarebox
         '
         Me.softwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -257,6 +249,14 @@ Partial Class OPR_Reparações
         Me.softwarebox.Name = "softwarebox"
         Me.softwarebox.Size = New System.Drawing.Size(133, 25)
         Me.softwarebox.TabIndex = 56
+        '
+        'hardwarebox
+        '
+        Me.hardwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.hardwarebox.Location = New System.Drawing.Point(131, 33)
+        Me.hardwarebox.Name = "hardwarebox"
+        Me.hardwarebox.Size = New System.Drawing.Size(133, 25)
+        Me.hardwarebox.TabIndex = 55
         '
         'OPR_Reparações
         '
@@ -287,6 +287,7 @@ Partial Class OPR_Reparações
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "OPR_Reparações"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Reparações"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
