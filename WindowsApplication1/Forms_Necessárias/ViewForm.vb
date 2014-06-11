@@ -120,13 +120,21 @@
                     End If
                 End If
             Case "Componentes"
-                Workspace.opr_dispositivos.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
-                Workspace.opr_dispositivos.modo = False
-                Workspace.opr_dispositivos.Show()
+                Dim opr_componentes As New OPR_Componentes
+                opr_componentes.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                opr_clientes.modo = True
+                opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
+                opr_componentes.modo = False
+                opr_componentes.Show()
             Case "Reparações"
-                Workspace.opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
-                Workspace.opr_reparacoes.modo = False
-                Workspace.opr_reparacoes.Show()
+                Dim opr_reparacoes As New OPR_Reparações
+                opr_reparacoes.MdiParent = Workspace
+                Workspace.m_ChildFormNumber += 1
+                OPR_Clientes.modo = True
+                opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
+                opr_reparacoes.modo = False
+                opr_reparacoes.Show()
             Case "Técnicos"
                 Workspace.opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
                 Workspace.opr_tecnicos.modo = False
