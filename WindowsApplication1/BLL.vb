@@ -278,7 +278,7 @@ Public Class BLL
                 Return DAL.ExecuteNonQuery("Insert into Utilizadores(Nome_Util,Password,Admin_Geral,Admin,Ativo) VALUES (@user,@password,@Admin_Geral,@admin,1)", p)
             End Function
             Shared Function remove_login_empresa(ByVal empresa As String)
-                Dim p As ArrayList
+                Dim p As New ArrayList
                 p.Add(New SqlParameter("n_empresa", empresa))
                 Return DAL.ExecuteNonQuery("Delete From Utilizadores where NºEmpresa=@n_empresa", p)
             End Function
@@ -732,6 +732,7 @@ Public Class BLL
             sqlparams.Add(New SqlParameter("@n_empresa", empresa))
             Dim resultado As Integer
             resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND NºEmpresa=@n_empresa", sqlparams)
+            Return resultado
         End Function
         Shared Function Add_login(ByRef admin As Boolean, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
             Dim p As New ArrayList
@@ -953,6 +954,8 @@ Public Class BLL
                 Return DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NIF = @NIF", p)
             ElseIf N_Cliente <> "" Then
                 Return DAL.ExecuteNonQuery("Update Clientes set Ativo=0 where NºCliente = @NºCliente", p)
+            Else
+                Return -1
             End If
         End Function
         Shared Function reativar_cliente(ByVal N_Cliente As String)
@@ -1040,6 +1043,8 @@ Public Class BLL
                 Return DAL.ExecuteNonQuery("Update Componentes set Ativo=0 where NºComponente = @NºComponente", p)
             ElseIf NºCliente <> "" Then
                 Return DAL.ExecuteNonQuery("Update Componentes set Ativo=0 where NºCliente = @NºCliente", p)
+            Else
+                Return -1
             End If
         End Function
     End Class

@@ -3,6 +3,7 @@
     Public modo As Boolean
     Public img_caminho As String
     Public logo As Image
+    Public removidos As Boolean
 
     Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         naocheck.Checked = True
@@ -71,15 +72,17 @@
                             MsgBox("Esta Empresa já existe!")
                         Else
                             BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                            If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
-                                Workspace.opr_utilizadores.modo = False
-                                Workspace.opr_utilizadores.Show()
-                                For i = 0 To Workspace.opr_utilizadores.empresabox.Items.Count - 1
-                                    If Workspace.opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
-                                        Workspace.opr_utilizadores.empresabox.SelectedIndex = i
-                                    End If
-                                Next
-                            End If
+                        If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
+                            Dim opr_utilizadores As New OPR_Utilizadores
+                            opr_utilizadores.MdiParent = Workspace
+                            opr_utilizadores.modo = False
+                            opr_utilizadores.Show()
+                            For i = 0 To opr_utilizadores.empresabox.Items.Count - 1
+                                If opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
+                                    opr_utilizadores.empresabox.SelectedIndex = i
+                                End If
+                            Next
+                        End If
                         End If
                     Catch ex As Exception
                         MsgBox("Ocorreu um erro: " & ex.Message)

@@ -8,8 +8,8 @@ Public Class Workspace
     Public config4 As New Passo4
     Public modo As Integer
     Public Aluno, admin, admin_geral As Boolean
-    Public companyname As String
-    Public check_clientes, check_dispositivos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas As Boolean
+    Public companyname1 As String
+    Public check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -130,7 +130,6 @@ Public Class Workspace
             clientesview.tabela = "Clientes"
             clientesview.MdiParent = Me
             m_ChildFormNumber += 1
-            clientesview.layout = 1
             If Aluno = True Then
                 clientesview.data_table = BLL.Clientes.carregar_alunos()
             Else
@@ -151,7 +150,6 @@ Public Class Workspace
             clientesview.tabela = "Clientes"
             clientesview.MdiParent = Me
             m_ChildFormNumber += 1
-            clientesview.layout = 1
             If Aluno = True Then
                 clientesview.data_table = BLL.Clientes.carregar_eliminados_alunos()
             Else

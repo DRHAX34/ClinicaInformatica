@@ -1,6 +1,7 @@
 ﻿Public Class OPR_Utilizadores
     Public modo As Boolean
     Public utilizador_data As New DataTable
+    Public removidos As Boolean
     Private Sub OPR_Utilizadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Workspace.Aluno = False Then
             Label1.Hide()

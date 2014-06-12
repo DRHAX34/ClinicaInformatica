@@ -61,7 +61,7 @@
             If BLL.Login.verificar_aluno(n_empresa) = True Then
                 Workspace.Aluno = True
             End If
-            Workspace.companyname = Companybox.Text
+            Workspace.companyname1 = Companybox.Text
             Workspace.login_load()
             BLL.n_empresa = n_empresa
         End If

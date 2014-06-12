@@ -1,6 +1,7 @@
 ﻿Public Class OPR_Reparações
     Public reparaçao_data As New DataTable
     Public modo As Boolean
+    Public removidos As Boolean
     Private Sub OPR_Reparações_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         numdispositivobox.Text = reparaçao_data.Rows.Item(0).Item("NºDispositivo").ToString()
         categoriabox.Text = reparaçao_data.Rows.Item(0).Item("Categoria").ToString()
