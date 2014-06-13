@@ -546,6 +546,19 @@ Public Class BLL
                 End If
 
             End Sub
+            Shared Sub restaurar(ByVal nºempresa As String, ByVal nif As String)
+                Dim p As New ArrayList
+                Dim data As String
+                p.Add(New SqlParameter("@NIF", nif))
+                p.Add(New SqlParameter("@NºEmpresa", nºempresa))
+
+                If nºempresa <> "" Then
+                    DAL.ExecuteNonQuery("Update Empresas set Ativo=1 where NºEmpresa = @NºEmpresa", p)
+                ElseIf nif <> "" Then
+                    DAL.ExecuteNonQuery("Update Empresas set Ativo=1 where NIF = @NIF", p)
+                    data = DAL.ExecuteScalar("Select NºEmpresa from empresas where NIF=@NIF", p)
+                End If
+            End Sub
         End Class
         Public Class Tecnicos
             Shared Function check_exist(ByVal nome As String, ByVal empresa As Integer) As Object
