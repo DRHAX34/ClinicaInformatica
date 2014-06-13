@@ -208,6 +208,42 @@
 
     
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
+        Dim string_data As String
+        string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+        Select Case tabela
+            Case "Clientes"
+                If removidos = True Then
+                    BLL.Clientes.reativar_cliente(string_data)
+                    MsgBox("Restaurado com sucesso!")
+                    If Workspace.Aluno = True Then
+                        showdata.DataSource = BLL.Clientes.carregar_eliminados_alunos()
+                    Else
+                        showdata.DataSource = BLL.Clientes.carregar_eliminados()
+                    End If
+                Else
+                    BLL.Clientes.apagar(string_data, Nothing)
+                    MsgBox("Eliminado com sucesso!")
+                    If Workspace.Aluno = True Then
+                        showdata.DataSource = BLL.Clientes.carregar_alunos()
+                    Else
+                        showdata.DataSource = BLL.Clientes.carregar()
+                    End If
+                End If
+            Case "Componentes"
+                If removidos = True Then
+                    BLL.Componentes.restaurar(string_data, Nothing)
+                    MsgBox("Restaurado com sucesso!")
+                    showdata.DataSource = BLL.Componentes.carregar_desativos()
+                Else
+                    BLL.Componentes.apagar(string_data, Nothing)
+                    MsgBox("Removido com sucesso!")
+                    showdata.DataSource = BLL.Componentes.carregar()
+                End If
+            Case "Empresas"
+                If removidos = True Then
+                    BLL.Admin_only.Empresas.apagar(string_data, Nothing)
+                End If
+        End Select
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click

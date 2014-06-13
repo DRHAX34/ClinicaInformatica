@@ -534,13 +534,17 @@ Public Class BLL
             End Sub
             Shared Sub apagar(ByVal NºEmpresa As String, ByVal NIF As String)
                 Dim p As New ArrayList
+                Dim data As String
                 p.Add(New SqlParameter("@NIF", NIF))
                 p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
-                If NIF <> "" Then
-                    DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NIF = @NIF", p)
-                ElseIf NºEmpresa <> "" Then
+
+                If NºEmpresa <> "" Then
                     DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NºEmpresa = @NºEmpresa", p)
+                ElseIf NIF <> "" Then
+                    DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NIF = @NIF", p)
+                    data = DAL.ExecuteScalar("Select NºEmpresa from empresas where NIF=@NIF", p)
                 End If
+
             End Sub
         End Class
         Public Class Tecnicos
@@ -683,6 +687,10 @@ Public Class BLL
         End Class
     End Class
     Public Class Login
+        Shared Function apagar_empresa(ByVal empresa As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@empresa", empresa))
+        End Function
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
@@ -698,12 +706,12 @@ Public Class BLL
         Shared Function verificar_admin(ByVal id As Integer) As Integer
             Dim p As New ArrayList
             p.Add(New SqlParameter("@user", id))
-            Return DAL.ExecuteScalar("Select Admin FROM Utilizadores where Cod_Utilizador=@user", p)
+            Return DAL.ExecuteScalar("Select Admin FROM Utilizadores where Cod_Utilizador=@user AND Ativo=1", p)
         End Function
         Shared Function verificar_aluno(ByVal id As Integer) As Boolean
             Dim p As New ArrayList
             p.Add(New SqlParameter("@user", id))
-            Return DAL.ExecuteScalar("Select Alunos FROM Empresas where NºEmpresa=@user", p)
+            Return DAL.ExecuteScalar("Select Alunos FROM Empresas where NºEmpresa=@user AND Ativo=1", p)
         End Function
         Shared Function Carregar_empresas() As ArrayList
             Return DAL.ExecuteQuery("Select Nome From empresas", Nothing)
@@ -731,7 +739,7 @@ Public Class BLL
             sqlparams.Add(New SqlParameter("@password", pass))
             sqlparams.Add(New SqlParameter("@n_empresa", empresa))
             Dim resultado As Integer
-            resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND NºEmpresa=@n_empresa", sqlparams)
+            resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND NºEmpresa=@n_empresa AND Ativo=1", sqlparams)
             Return resultado
         End Function
         Shared Function Add_login(ByRef admin As Boolean, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
@@ -1037,12 +1045,24 @@ Public Class BLL
         End Function
         Shared Function apagar(ByVal NºComponente As String, ByVal NºCliente As String)
             Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºComponenteo", NºComponente))
+            p.Add(New SqlParameter("@NºComponente", NºComponente))
             p.Add(New SqlParameter("@NºCliente", NºCliente))
             If NºComponente <> "" Then
                 Return DAL.ExecuteNonQuery("Update Componentes set Ativo=0 where NºComponente = @NºComponente", p)
             ElseIf NºCliente <> "" Then
                 Return DAL.ExecuteNonQuery("Update Componentes set Ativo=0 where NºCliente = @NºCliente", p)
+            Else
+                Return -1
+            End If
+        End Function
+        Shared Function restaurar(ByVal NºComponente As String, ByVal NºCliente As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@NºComponente", NºComponente))
+            p.Add(New SqlParameter("@NºCliente", NºCliente))
+            If NºComponente <> "" Then
+                Return DAL.ExecuteNonQuery("Update Componentes set Ativo=1 where NºComponente = @NºComponente", p)
+            ElseIf NºCliente <> "" Then
+                Return DAL.ExecuteNonQuery("Update Componentes set Ativo=1 where NºCliente = @NºCliente", p)
             Else
                 Return -1
             End If
