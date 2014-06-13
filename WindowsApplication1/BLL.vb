@@ -690,6 +690,7 @@ Public Class BLL
         Shared Function apagar_empresa(ByVal empresa As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@empresa", empresa))
+            DAL.ExecuteNonQuery("UPDATE Utilizadores set ativo=0 where nºempresa=@empresa", p)
         End Function
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
@@ -769,6 +770,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Clientes
+        Shared Sub remover_empresas(ByVal empresa As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@empresa", empresa))
+            DAL.ExecuteNonQuery("UPDATE Clientes set ativo=0 where nºempresa=@empresa", p)
+        End Sub
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
@@ -973,6 +979,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Componentes
+        Shared Sub remover_empresas(ByVal empresa As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@empresa", empresa))
+            DAL.ExecuteNonQuery("UPDATE Componentes set ativo=0 where nºempresa=@empresa", p)
+        End Sub
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1069,6 +1080,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Reparacoes
+        Shared Sub remover_empresas(ByVal empresa As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@empresa", empresa))
+            DAL.ExecuteNonQuery("UPDATE Reparações set ativo=0 where nºempresa=@empresa", p)
+        End Sub
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1179,6 +1195,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Tecnicos
+        Shared Sub remover_empresas(ByVal empresa As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@empresa", empresa))
+            DAL.ExecuteNonQuery("UPDATE Técnicos set ativo=0 where nºempresa=@empresa", p)
+        End Sub
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
