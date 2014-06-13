@@ -241,7 +241,7 @@
                 End If
             Case "Empresas"
                 If removidos = True Then
-                    BLL.Admin_only.Empresas.apagar(string_data, Nothing)
+                    BLL.Admin_only.Empresas.restaurar(string_data, Nothing)
                 End If
         End Select
     End Sub
