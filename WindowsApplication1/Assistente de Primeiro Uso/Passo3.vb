@@ -9,6 +9,7 @@ Imports System.CodeDom.Compiler
 Public Class Passo3
     Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
         Button1.Location = New Point((Me.Width - (811 - 629)), (Me.Height - (474 - 364)))
+        Button2.Location = New Point((Me.Width - (811 - 440)), (Me.Height - (474 - 377)))
     End Sub
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
