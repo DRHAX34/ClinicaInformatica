@@ -242,8 +242,53 @@
             Case "Empresas"
                 If removidos = True Then
                     BLL.Admin_only.Empresas.restaurar(string_data, Nothing)
+                    MsgBox("Restaurado com sucesso!")
+                    showdata.DataSource = BLL.Admin_only.Empresas.carregar_eliminados
+                Else
+                    BLL.Admin_only.Empresas.apagar(string_data, Nothing)
+                    MsgBox("Removido com sucesso!")
+                    showdata.DataSource = BLL.Admin_only.Empresas.carregar()
+                End If
+            Case "Reparações"
+                If removidos = True Then
+                    BLL.Reparacoes.restaurar(string_data, 1)
+                    MsgBox("Restaurado com sucesso!")
+                    showdata.DataSource = BLL.Reparacoes.carregar_desativos()
+                Else
+                    BLL.Reparacoes.apagar(string_data, 1)
+                    MsgBox("Removido com sucesso!")
+                    showdata.DataSource = BLL.Reparacoes.carregar()
+                End If
+            Case "Técnicos"
+                If removidos = True Then
+                    BLL.Tecnicos.apagar(string_data)
+                    MsgBox("Restaurado com sucesso!")
+                    showdata.DataSource = BLL.Tecnicos.carregar_eliminados
+                Else
+                    BLL.Tecnicos.restaurar(string_data)
+                    MsgBox("Removido com sucesso!")
+                    showdata.DataSource = BLL.Tecnicos.carregar()
+                End If
+            Case "Utilizadores"
+                If removidos = True Then
+                    BLL.Login.Restore_Login(string_data)
+                    MsgBox("Restaurado com sucesso!")
+                    If Workspace.admin_geral = True Then
+                        showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                    Else
+                        showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                    End If
+                Else
+                    BLL.Login.Remove_Login(string_data)
+                    MsgBox("Removido com sucesso!")
+                    If Workspace.admin_geral = True Then
+                        showdata.DataSource = BLL.Admin_only.Login.carregar_users()
+                    Else
+                        showdata.DataSource = BLL.Login.carregar_users()
+                    End If
                 End If
         End Select
+            
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click

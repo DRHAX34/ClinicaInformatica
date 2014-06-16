@@ -30,160 +30,160 @@ Public Class BLL
             End Function
             Public Class Alunos
                 Shared Function carregar() As DataTable
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=1", Nothing)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1", Nothing)
                 End Function
                 Shared Function carregar_eliminados() As DataTable
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=0", Nothing)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0", Nothing)
                 End Function
                 Shared Function procura_dados_nome(ByRef nome As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@Nome", nome))
                     If nome = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where nome like @nome AND Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where nome like @nome AND Ativo=1", p)
                     End If
                 End Function
                 Shared Function procura_dados_nome_desativados(ByRef nome As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@Nome", nome))
                     If nome = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where nome like @nome AND Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where nome like @nome AND Ativo=0", p)
                     End If
                 End Function
                 Shared Function procura_dados_nif(ByRef nif As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@NIF", nif))
                     If nif = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where NIF= @NIF AND Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NIF= @NIF AND Ativo=1", p)
                     End If
                 End Function
                 Shared Function procura_dados_nif_desativados(ByRef nif As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@NIF", nif))
                     If nif = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where NIF like @NIF AND Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NIF like @NIF AND Ativo=0", p)
                     End If
                 End Function
                 Shared Function procura_dados_numcliente(ByRef num_cliente As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@NºCliente", num_cliente))
                     If num_cliente = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where NºCliente=@NºCliente AND Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºCliente=@NºCliente AND Ativo=1", p)
                     End If
                 End Function
                 Shared Function procura_dados_numcliente_desativados(ByRef num_cliente As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@NºCliente", num_cliente))
                     If num_cliente = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where NºCliente=@NºCliente AND Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºCliente=@NºCliente AND Ativo=0", p)
                     End If
                 End Function
                 Shared Function procura_dados_nempresa(ByRef empresa As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@NºEmpresa", empresa))
                     If BLL.n_empresa = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where NºEmpresa=@Empresa AND Ativo=1", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºEmpresa=@Empresa AND Ativo=1", p)
                     End If
                 End Function
                 Shared Function procura_dados_nempresa_desativados(ByRef empresa As String) As DataTable
                     Dim p As New ArrayList
                     p.Add(New SqlParameter("@NºEmpresa", empresa))
                     If n_empresa = "" Then
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0", p)
                     Else
-                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno where NºEmpresa=@Empresa AND Ativo=0", p)
+                        Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºEmpresa=@Empresa AND Ativo=0", p)
                     End If
                 End Function
             End Class
             Shared Function carregar() As DataTable
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=1", Nothing)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1", Nothing)
             End Function
             Shared Function carregar_eliminados() As DataTable
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=0", Nothing)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0", Nothing)
             End Function
             Shared Function procura_dados_nome(ByRef nome As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@Nome", nome))
                 If nome = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto Móvel,Contacto Fixo FROM Clientes where nome like @nome AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where nome like @nome AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_nome_desativados(ByRef nome As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@Nome", nome))
                 If nome = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where nome like @nome AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where nome like @nome AND Ativo=0", p)
                 End If
             End Function
             Shared Function procura_dados_nif(ByRef nif As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NIF", nif))
                 If nif = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where NIF= @NIF AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NIF= @NIF AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_nif_desativados(ByRef nif As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NIF", nif))
                 If nif = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where NIF like @NIF AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NIF like @NIF AND Ativo=0", p)
                 End If
             End Function
             Shared Function procura_dados_numcliente(ByRef num_cliente As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NºCliente", num_cliente))
                 If num_cliente = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where NºCliente=@NºCliente AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºCliente=@NºCliente AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_numcliente_desativados(ByRef num_cliente As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NºCliente", num_cliente))
                 If num_cliente = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where NºCliente=@NºCliente AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºCliente=@NºCliente AND Ativo=0", p)
                 End If
             End Function
             Shared Function procura_dados_nempresa(ByRef empresa As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NºEmpresa", empresa))
                 If n_empresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where NºEmpresa=@Empresa AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºEmpresa=@Empresa AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_nempresa_desativados(ByRef empresa As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NºEmpresa", empresa))
                 If n_empresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,NºEmpresa,Contacto Móvel,Contacto Fixo FROM Clientes where NºEmpresa=@Empresa AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºEmpresa=@Empresa AND Ativo=0", p)
                 End If
             End Function
         End Class
@@ -289,65 +289,65 @@ Public Class BLL
                 Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND Admin_Geral=1", sqlparams)
             End Function
         End Class
-        Public Class Dispositivos
+        Public Class Componentes
             Shared Function carregar() As DataTable
-                Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie, Observações FROM Dispositivos where Ativo=1", Nothing)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1", Nothing)
             End Function
             Shared Function carregar_desativos() As DataTable
-                Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie, Observações FROM Dispositivos where Ativo=1", Nothing)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1", Nothing)
             End Function
             Shared Function procura_dados_numdispositivo_desativo(ByRef NºDispositivo As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_dispositivo", NºDispositivo))
                 If NºDispositivo = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºDispositivo like @n_dispositivo AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where NºComponente=@n_dispositivo AND Ativo=0", p)
                 End If
             End Function
             Shared Function procura_dados_numdispositivo(ByRef NºDispositivo As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_dispositivo", NºDispositivo))
                 If NºDispositivo = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºDispositivo like @n_dispositivo AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where NºComponente=@n_dispositivo AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_numcliente(ByRef NºCliente As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NºCliente", NºCliente))
                 If NºCliente = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºCliente=@NºCliente AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where NºCliente=@NºCliente AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_numcliente_desativo(ByRef NºCliente As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@NºCliente", NºCliente))
                 If NºCliente = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºCliente=@NºCliente AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where NºCliente=@NºCliente AND Ativo=0", p)
                 End If
             End Function
             Shared Function procura_dados_nempresa_desativo(ByRef nempresa As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_empresa", nempresa))
                 If nempresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºEmpresa=@n_empresa AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where NºEmpresa=@n_empresa AND Ativo=0", p)
                 End If
             End Function
             Shared Function procura_dados_nempresa(ByRef nempresa As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_empresa", nempresa))
                 If nempresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºDispositivo,NºCliente,Marca,Modelo,NºSérie,Observações FROM Dispositivos where NºEmpresa=@n_empresa AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where NºEmpresa=@n_empresa AND Ativo=1", p)
                 End If
             End Function
         End Class
@@ -534,17 +534,26 @@ Public Class BLL
             End Sub
             Shared Sub apagar(ByVal NºEmpresa As String, ByVal NIF As String)
                 Dim p As New ArrayList
-                Dim data As String
+                Dim data As String = ""
                 p.Add(New SqlParameter("@NIF", NIF))
                 p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
 
                 If NºEmpresa <> "" Then
                     DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NºEmpresa = @NºEmpresa", p)
+                    'BLL.Login.remover_empresas(NºEmpresa)
+                    'BLL.Clientes.remover_empresas(NºEmpresa)
+                    'BLL.Componentes.remover_empresas(NºEmpresa)
+                    'BLL.Reparacoes.remover_empresas(NºEmpresa)
+                    'BLL.Tecnicos.remover_empresas(NºEmpresa)
                 ElseIf NIF <> "" Then
                     DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NIF = @NIF", p)
-                    data = DAL.ExecuteScalar("Select NºEmpresa from empresas where NIF=@NIF", p)
+                    'data = DAL.ExecuteScalar("Select NºEmpresa from empresas where NIF=@NIF", p)
+                    'BLL.Login.remover_empresas(data)
+                    'BLL.Clientes.remover_empresas(data)
+                    'BLL.Componentes.remover_empresas(data)
+                    'BLL.Reparacoes.remover_empresas(data)
+                    'BLL.Tecnicos.remover_empresas(data)
                 End If
-
             End Sub
             Shared Sub restaurar(ByVal nºempresa As String, ByVal nif As String)
                 Dim p As New ArrayList
@@ -700,11 +709,11 @@ Public Class BLL
         End Class
     End Class
     Public Class Login
-        Shared Function apagar_empresa(ByVal empresa As String)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@empresa", empresa))
-            DAL.ExecuteNonQuery("UPDATE Utilizadores set ativo=0 where nºempresa=@empresa", p)
-        End Function
+        'Shared Function remover_empresas(ByVal empresa As String)
+        '    Dim p As New ArrayList
+        '    p.Add(New SqlParameter("@empresa", empresa))
+        '    DAL.ExecuteNonQuery("UPDATE Utilizadores set ativo=0 where nºempresa=@empresa", p)
+        'End Function
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
@@ -771,6 +780,11 @@ Public Class BLL
             p.Add(New SqlParameter("n_user", n_user))
             Return DAL.ExecuteNonQuery("Update Utilizadores set Ativo=0 where Cod_Utilizador=@n_user", p)
         End Function
+        Shared Function Restore_Login(ByVal n_user As Integer) As Integer
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("n_user", n_user))
+            Return DAL.ExecuteNonQuery("Update Utilizadores set Ativo=1 where Cod_Utilizador=@n_user", p)
+        End Function
         Shared Function carregar_users() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("n_empresa", n_empresa))
@@ -783,11 +797,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Clientes
-        Shared Sub remover_empresas(ByVal empresa As String)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@empresa", empresa))
-            DAL.ExecuteNonQuery("UPDATE Clientes set ativo=0 where nºempresa=@empresa", p)
-        End Sub
+        'Shared Sub remover_empresas(ByVal empresa As String)
+        '    Dim p As New ArrayList
+        '    p.Add(New SqlParameter("@empresa", empresa))
+        '    DAL.ExecuteNonQuery("UPDATE Clientes set ativo=0 where nºempresa=@empresa", p)
+        'End Sub
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
@@ -803,21 +817,21 @@ Public Class BLL
         Shared Function carregar_alunos() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function carregar_eliminados_alunos() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function procura_dados_nome_alunos(ByRef nome As String) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
             p.Add(New SqlParameter("@Nome", nome))
             If nome = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where nome like @nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where nome like @nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_nome_desativados_alunos(ByRef nome As String) As DataTable
@@ -825,9 +839,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
             p.Add(New SqlParameter("@Nome", nome))
             If nome = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where nome like @nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where nome like @nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_nif_alunos(ByRef nif As String) As DataTable
@@ -835,9 +849,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
             p.Add(New SqlParameter("@NIF", nif))
             If nif = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NIF= @NIF AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NIF= @NIF AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_nif_desativados_alunos(ByRef nif As String) As DataTable
@@ -845,9 +859,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
             p.Add(New SqlParameter("@NIF", nif))
             If nif = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NIF= @NIF AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NIF= @NIF AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente_alunos(ByRef num_cliente As String) As DataTable
@@ -855,9 +869,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
             p.Add(New SqlParameter("@NºCliente", num_cliente))
             If num_cliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºCliente=@NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºCliente=@NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente_desativados_alunos(ByRef num_cliente As String) As DataTable
@@ -865,82 +879,12 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
             p.Add(New SqlParameter("@NºCliente", num_cliente))
             If num_cliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºCliente=@NºCliente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where NºCliente=@NºCliente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
-        Shared Function carregar() As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
-        End Function
-        Shared Function carregar_eliminados() As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", Nothing)
-        End Function
-        Shared Function procura_dados_nome(ByRef nome As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            p.Add(New SqlParameter("@Nome", nome))
-            If nome = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where nome like @nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_nome_desativados(ByRef nome As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            p.Add(New SqlParameter("@Nome", nome))
-            If nome = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where nome like @nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_nif(ByRef nif As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            p.Add(New SqlParameter("@NIF", nif))
-            If nif = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NIF= @NIF AND Ativo=1 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_nif_desativados(ByRef nif As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            p.Add(New SqlParameter("@NIF", nif))
-            If nif = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NIF= @NIF AND Ativo=0 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_numcliente(ByRef num_cliente As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            p.Add(New SqlParameter("@NºCliente", num_cliente))
-            If num_cliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºCliente=@NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_numcliente_desativados(ByRef num_cliente As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            p.Add(New SqlParameter("@NºCliente", num_cliente))
-            If num_cliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºCliente=@NºCliente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function inserir(ByVal NIF As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_mov As String, ByVal contacto_fix As String)
+        Shared Function inserir_aluno(ByVal n_aluno As String, ByVal turma As String, ByVal NIF As String, ByVal localidade As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_mov As String, ByVal contacto_fix As String)
             Dim p As New ArrayList
             Dim c As New ArrayList
             Dim check(1) As Integer
@@ -948,15 +892,18 @@ Public Class BLL
             p.Add(New SqlParameter("@Morada", morada))
             p.Add(New SqlParameter("@NIF", NIF))
             p.Add(New SqlParameter("@Cod_Postal", cod_postal))
+            p.Add(New SqlParameter("@Localidade", localidade))
             p.Add(New SqlParameter("@Email", email))
+            p.Add(New SqlParameter("@Ativo", ativo))
+            p.Add(New SqlParameter("@turma", turma))
             p.Add(New SqlParameter("@Ativo", ativo))
             p.Add(New SqlParameter("@contacto_m", contacto_mov))
             p.Add(New SqlParameter("@contacto_f", contacto_fix))
             p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            check(0) = DAL.ExecuteNonQuery("Insert into Clientes(Nome,Morada,NIF,Cod_Postal,Email,Ativo,NºEmpresa,Contacto_M,Contacto_F) VALUES (@nome, @morada, @NIF, @cod_postal,@email,1,@n_empresa,@contacto_m,@contacto_f)", p)
+            check(0) = DAL.ExecuteNonQuery("Insert into Clientes(Nome,Morada,NIF,Localidade,Cod_Postal,Email,Ativo,NºEmpresa,Contacto_M,Contacto_F) VALUES (@nome, @morada, @NIF,@Localidade, @cod_postal,@email,1,@n_empresa,@contacto_m,@contacto_f)", p)
             Return check
         End Function
-        Shared Function alterar(ByVal numcliente As Integer, ByVal NIF As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_m As String, ByVal contacto_f As String)
+        Shared Function alterar_aluno(ByVal n_aluno As String, ByVal turma As String, ByVal numcliente As Integer, ByVal localidade As String, ByVal NIF As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_m As String, ByVal contacto_f As String)
             Dim p As New ArrayList
             Dim c As New ArrayList
             Dim check(1) As Integer
@@ -964,13 +911,119 @@ Public Class BLL
             p.Add(New SqlParameter("@Nome", nome))
             p.Add(New SqlParameter("@Morada", morada))
             p.Add(New SqlParameter("@NIF", NIF))
+            p.Add(New SqlParameter("@Localidade", localidade))
+            p.Add(New SqlParameter("@Cod_Postal", cod_postal))
+            p.Add(New SqlParameter("@Email", email))
+            p.Add(New SqlParameter("@N_Aluno", n_aluno))
+            p.Add(New SqlParameter("@turma", turma))
+            p.Add(New SqlParameter("@Ativo", ativo))
+            p.Add(New SqlParameter("@Contacto_m", contacto_m))
+            p.Add(New SqlParameter("@Contacto_f", contacto_f))
+            check(0) = DAL.ExecuteNonQuery("Update Clientes set Localidade=@Localidade Contacto_M = @contacto_m, Contacto_F = @contacto_f, nome = @nome, morada = @morada, NIF= @NIF, Cod_Postal= @cod_postal, Email= @email, Ativo=@Ativo where NºCliente=@numcliente", p)
+            Return check
+        End Function
+        Shared Function carregar() As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+        End Function
+        Shared Function carregar_eliminados() As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", Nothing)
+        End Function
+        Shared Function procura_dados_nome(ByRef nome As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            p.Add(New SqlParameter("@Nome", nome))
+            If nome = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where nome like @nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_nome_desativados(ByRef nome As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            p.Add(New SqlParameter("@Nome", nome))
+            If nome = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F FROM Clientes where nome like @nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_nif(ByRef nif As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            p.Add(New SqlParameter("@NIF", nif))
+            If nif = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NIF= @NIF AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_nif_desativados(ByRef nif As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            p.Add(New SqlParameter("@NIF", nif))
+            If nif = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NIF= @NIF AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_numcliente(ByRef num_cliente As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            p.Add(New SqlParameter("@NºCliente", num_cliente))
+            If num_cliente = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºCliente=@NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function procura_dados_numcliente_desativados(ByRef num_cliente As String) As DataTable
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            p.Add(New SqlParameter("@NºCliente", num_cliente))
+            If num_cliente = "" Then
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Else
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where NºCliente=@NºCliente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+            End If
+        End Function
+        Shared Function inserir(ByVal NIF As String, ByVal localidade As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_mov As String, ByVal contacto_fix As String)
+            Dim p As New ArrayList
+            Dim c As New ArrayList
+            Dim check(1) As Integer
+            p.Add(New SqlParameter("@Nome", nome))
+            p.Add(New SqlParameter("@Morada", morada))
+            p.Add(New SqlParameter("@NIF", NIF))
+            p.Add(New SqlParameter("@Cod_Postal", cod_postal))
+            p.Add(New SqlParameter("@Localidade", localidade))
+            p.Add(New SqlParameter("@Email", email))
+            p.Add(New SqlParameter("@Ativo", ativo))
+            p.Add(New SqlParameter("@contacto_m", contacto_mov))
+            p.Add(New SqlParameter("@contacto_f", contacto_fix))
+            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+            check(0) = DAL.ExecuteNonQuery("Insert into Clientes(Nome,Morada,NIF,Localidade,Cod_Postal,Email,Ativo,NºEmpresa,Contacto_M,Contacto_F) VALUES (@nome, @morada, @NIF,@Localidade, @cod_postal,@email,1,@n_empresa,@contacto_m,@contacto_f)", p)
+            Return check
+        End Function
+        Shared Function alterar(ByVal numcliente As Integer, ByVal localidade As String, ByVal NIF As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_m As String, ByVal contacto_f As String)
+            Dim p As New ArrayList
+            Dim c As New ArrayList
+            Dim check(1) As Integer
+            p.Add(New SqlParameter("@NºCliente", numcliente))
+            p.Add(New SqlParameter("@Nome", nome))
+            p.Add(New SqlParameter("@Morada", morada))
+            p.Add(New SqlParameter("@NIF", NIF))
+            p.Add(New SqlParameter("@Localidade", localidade))
             p.Add(New SqlParameter("@Cod_Postal", cod_postal))
             p.Add(New SqlParameter("@Email", email))
             p.Add(New SqlParameter("@Ativo", ativo))
             p.Add(New SqlParameter("@Contacto_m", contacto_m))
             p.Add(New SqlParameter("@Contacto_f", contacto_f))
-            p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
-            check(0) = DAL.ExecuteNonQuery("Update Clientes set Contacto_M = @contacto_m, Contacto_F = @contacto_f, nome = @nome, morada = @morada, NIF= @NIF, Cod_Postal= @cod_postal, Email= @email, Ativo=@Ativo where NºCliente=@numcliente AND NºEmpresa=@n_empresa", p)
+            check(0) = DAL.ExecuteNonQuery("Update Clientes set Localidade=@Localidade Contacto_M = @contacto_m, Contacto_F = @contacto_f, nome = @nome, morada = @morada, NIF= @NIF, Cod_Postal= @cod_postal, Email= @email, Ativo=@Ativo where NºCliente=@numcliente", p)
             Return check
         End Function
         Shared Function apagar(ByVal N_Cliente As String, ByVal NIF As String)
@@ -992,11 +1045,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Componentes
-        Shared Sub remover_empresas(ByVal empresa As String)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@empresa", empresa))
-            DAL.ExecuteNonQuery("UPDATE Componentes set ativo=0 where nºempresa=@empresa", p)
-        End Sub
+        'Shared Sub remover_empresas(ByVal empresa As String)
+        '    Dim p As New ArrayList
+        '    p.Add(New SqlParameter("@empresa", empresa))
+        '    DAL.ExecuteNonQuery("UPDATE Componentes set ativo=0 where nºempresa=@empresa", p)
+        'End Sub
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1014,7 +1067,7 @@ Public Class BLL
             If NºComponente = "" Then
                 Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente like @n_componente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente=@n_componente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcomponente(ByRef NºComponente As String) As DataTable
@@ -1024,7 +1077,7 @@ Public Class BLL
             If NºComponente = "" Then
                 Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente like @n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente=@n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente(ByRef NºCliente As String) As DataTable
@@ -1093,11 +1146,11 @@ Public Class BLL
         End Function
     End Class
     Public Class Reparacoes
-        Shared Sub remover_empresas(ByVal empresa As String)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@empresa", empresa))
-            DAL.ExecuteNonQuery("UPDATE Reparações set ativo=0 where nºempresa=@empresa", p)
-        End Sub
+        'Shared Sub remover_empresas(ByVal empresa As String)
+        '    Dim p As New ArrayList
+        '    p.Add(New SqlParameter("@empresa", empresa))
+        '    DAL.ExecuteNonQuery("UPDATE Reparações set ativo=0 where nºempresa=@empresa", p)
+        'End Sub
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1128,7 +1181,7 @@ Public Class BLL
                 Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºComponente like @n_componente AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
-        Shared Function procura_dados_numreparação(ByRef NºReparação As Integer) As DataTable
+        Shared Function procura_dados_numreparação(ByVal modo As Boolean, ByRef NºReparação As Integer) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_reparação", NºReparação))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1148,11 +1201,11 @@ Public Class BLL
                 Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
-        Shared Sub inserir(ByVal NºComponente As Integer, ByVal Categoria As String, ByVal n_tecnico As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal n_empresa As Integer, ByVal n_software As Integer, ByVal n_hardware As Integer, ByVal tipo As String)
+        Shared Sub inserir(ByVal NºComponente As Integer, ByVal Categoria As String, ByVal n_tecnico As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal n_empresa As Integer, ByVal n_software As Integer, ByVal n_hardware As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
             Dim p As New ArrayList
             Dim s As New ArrayList
             Dim h As New ArrayList
-            Dim rtrn As New ArrayList
+            Dim rtrn As String
             Dim n_reparacao As Integer
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@Categoria", Categoria))
@@ -1164,11 +1217,11 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             DAL.ExecuteNonQuery("Insert into Reparações(NºComponente,Categoria,NºTécnico,TempoRealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa,Ativo) VALUES (@NºReparação, @NºComponente, @Categoria, @NºTécnico,@TempoRealReparação,@DIRepar,@DFRepar,@NºEmpresa,1)", p)
             rtrn = DAL.ExecuteScalar("Select Max(NºReparação) from Reparações", Nothing)
-            n_reparacao = rtrn(0)
+            n_reparacao = rtrn
             s.Add(New SqlParameter("@n_reparacao", n_reparacao))
-            s.Add(New SqlParameter("@Tipo", tipo))
+            s.Add(New SqlParameter("@Tipo", tipo_soft))
             h.Add(New SqlParameter("@n_reparacao", n_reparacao))
-            h.Add(New SqlParameter("@Tipo", tipo))
+            h.Add(New SqlParameter("@Tipo", tipo_hard))
             DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo) VALUES (@n_reparacao,@NºSoftware,@Tipo)", s)
             DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo) VALUES (@n_reparacao,@NºHarware,@Tipo)", h)
         End Sub
@@ -1194,7 +1247,7 @@ Public Class BLL
             rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard where NºReparação = @NºReparação", h))
             Return rtrn
         End Function
-        Shared Function apagar(ByVal id As Integer, ByVal modo As String) As String
+        Shared Function apagar(ByVal id As Integer, ByVal modo As Integer) As String
             Dim p As New ArrayList
             p.Add(New SqlParameter("@id", id))
             If modo = 1 Then
@@ -1206,13 +1259,25 @@ Public Class BLL
             End If
             Return "Erro ao Apagar da Base-de-Dados"
         End Function
+        Shared Function restaurar(ByVal id As Integer, ByVal modo As Integer) As String
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@id", id))
+            If modo = 1 Then
+                DAL.ExecuteNonQuery("Update Reparações set Ativo=1 where NºReparação = @id", p)
+                Return 1
+            ElseIf modo = 2 Then
+                DAL.ExecuteNonQuery("Update Reparações set Ativo=1 where NºComponente = @id", p)
+                Return 1
+            End If
+            Return "Erro ao Apagar da Base-de-Dados"
+        End Function
     End Class
     Public Class Tecnicos
-        Shared Sub remover_empresas(ByVal empresa As String)
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@empresa", empresa))
-            DAL.ExecuteNonQuery("UPDATE Técnicos set ativo=0 where nºempresa=@empresa", p)
-        End Sub
+        'Shared Sub remover_empresas(ByVal empresa As String)
+        '    Dim p As New ArrayList
+        '    p.Add(New SqlParameter("@empresa", empresa))
+        '    DAL.ExecuteNonQuery("UPDATE Técnicos set ativo=0 where nºempresa=@empresa", p)
+        'End Sub
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
@@ -1229,21 +1294,21 @@ Public Class BLL
             Shared Function carregar() As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
             End Function
             Shared Function carregar_eliminados() As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
             End Function
             Shared Function procura_dados_Nome_desativados(ByRef Nome As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@Nome", Nome))
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 If Nome = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Nome like @Nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Nome like @Nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
                 End If
             End Function
             Shared Function procura_dados_Nome_ativados(ByRef Nome As String) As DataTable
@@ -1251,9 +1316,9 @@ Public Class BLL
                 p.Add(New SqlParameter("@Nome", Nome))
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 If Nome = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicoswhere Nome like @Nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicoswhere Nome like @Nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
                 End If
             End Function
             Shared Function procura_dados_naluno_desativados(ByRef n_aluno As String) As DataTable
@@ -1261,9 +1326,9 @@ Public Class BLL
                 p.Add(New SqlParameter("@n_aluno", n_aluno))
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 If n_aluno = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where NºAluno= @n_aluno AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where NºAluno= @n_aluno AND Ativo=0 AND NºEmpresa=@n_empresa", p)
                 End If
             End Function
             Shared Function procura_dados_naluno_ativados(ByRef n_aluno As String) As DataTable
@@ -1271,9 +1336,9 @@ Public Class BLL
                 p.Add(New SqlParameter("@n_aluno", n_aluno))
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 If n_aluno = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where NºAluno= @n_aluno AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where NºAluno= @n_aluno AND Ativo=1 AND NºEmpresa=@n_empresa", p)
                 End If
             End Function
             Shared Function procura_dados_turma_desativados(ByRef turma As String) As DataTable
@@ -1281,9 +1346,9 @@ Public Class BLL
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 p.Add(New SqlParameter("@turma", turma))
                 If n_empresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where NºEmpresa=@n_empresa AND Ativo=0 AND Turma=@turma", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where NºEmpresa=@n_empresa AND Ativo=0 AND Turma=@turma", p)
                 End If
             End Function
             Shared Function procura_dados_turma(ByRef turma As String) As DataTable
@@ -1291,15 +1356,20 @@ Public Class BLL
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 p.Add(New SqlParameter("@turma", turma))
                 If n_empresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Turma,NºAluno FROM Técnicos where NºEmpresa=@n_empresa AND Ativo=1 AND Turma=@turma", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno,Fotografia FROM Técnicos where NºEmpresa=@n_empresa AND Ativo=1 AND Turma=@turma", p)
                 End If
             End Function
-            Shared Sub inserir(ByVal Nome As String, ByRef img As Image, ByVal n_aluno As Integer, ByVal turma As String)
+            Shared Sub inserir(ByVal morada As String, ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByRef img As Image, ByVal n_aluno As Integer, ByVal turma As String)
                 Dim p As New ArrayList
                 Dim img_save As New SqlParameter("@fotografia", SqlDbType.Image)
                 p.Add(New SqlParameter("@nome", Nome))
+                p.Add(New SqlParameter("@morada", morada))
+                p.Add(New SqlParameter("@localidade", localidade))
+                p.Add(New SqlParameter("@cod_postal", cod_postal))
+                p.Add(New SqlParameter("@contacto_m", contacto_m))
+                p.Add(New SqlParameter("@contacto_f", contacto_f))
                 p.Add(New SqlParameter("@turma", turma))
                 p.Add(New SqlParameter("@n_aluno", n_aluno))
                 Dim mStream As MemoryStream = New MemoryStream()
@@ -1307,15 +1377,20 @@ Public Class BLL
                 img_save.SqlValue = mStream.GetBuffer
                 p.Add(img_save)
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
-                DAL.ExecuteNonQuery("Insert into Técnico(Nome,Turma,Fotografia,NºAluno,Ativo,NºEmpresa) VALUES (@nome,@turma,@fotografia,@n_aluno,1,@n_empresa)", p)
+                DAL.ExecuteNonQuery("Insert into Técnico(Nome,Morada,Localidade,Cod_Postal,Contacto_M,Contacto_F,Turma,Fotografia,NºAluno,Ativo,NºEmpresa) VALUES (@nome,,@morada,@localidade,@cod_postal,@contacto_m,@contacto_f,@turma,@fotografia,@n_aluno,1,@n_empresa)", p)
             End Sub
-            Shared Sub alterar(ByVal Nome As String, ByVal n_aluno As Integer, ByVal turma As String, ByVal n_tecnico As Integer)
+            Shared Sub alterar(ByVal morada As String, ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByVal n_aluno As Integer, ByVal turma As String, ByVal n_tecnico As Integer)
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@nome", Nome))
+                p.Add(New SqlParameter("@morada", morada))
+                p.Add(New SqlParameter("@localidade", localidade))
+                p.Add(New SqlParameter("@cod_postal", cod_postal))
+                p.Add(New SqlParameter("@contacto_m", contacto_m))
+                p.Add(New SqlParameter("@contacto_f", contacto_f))
                 p.Add(New SqlParameter("@turma", turma))
                 p.Add(New SqlParameter("@n_aluno", n_aluno))
                 p.Add(New SqlParameter("@n_tecnico", n_tecnico))
-                DAL.ExecuteNonQuery("Update Técnico set Nome = @Nome, Turma=@turma, NºAluno=@n_aluno where NºTécnico=@n_tecnico", p)
+                DAL.ExecuteNonQuery("Update Técnico set Morada=@morada, Localidade=@localidade, Cod_Postal=@cod_postal, Contacto_M=@contacto_m, Contacto_F=@contacto_f, Nome = @Nome, Turma=@turma, NºAluno=@n_aluno where NºTécnico=@n_tecnico", p)
             End Sub
             Shared Sub apagar(ByVal n_aluno As String, ByVal n_tecnico As Integer)
                 Dim p As New ArrayList
@@ -1336,21 +1411,21 @@ Public Class BLL
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function carregar_eliminados() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function procura_dados_Nome_desativados(ByRef Nome As String) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@Nome", Nome))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If Nome = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Nome like @Nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Nome like @Nome AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_Nome_ativados(ByRef Nome As String) As DataTable
@@ -1358,29 +1433,9 @@ Public Class BLL
             p.Add(New SqlParameter("@Nome", Nome))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If Nome = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicoswhere Nome like @Nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_naluno_desativados(ByRef n_aluno As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_aluno", n_aluno))
-            p.Add(New SqlParameter("@n_empresa", n_empresa))
-            If n_aluno = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºAluno= @n_aluno AND Ativo=0 AND NºEmpresa=@n_empresa", p)
-            End If
-        End Function
-        Shared Function procura_dados_naluno_ativados(ByRef n_aluno As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_aluno", n_aluno))
-            p.Add(New SqlParameter("@n_empresa", n_empresa))
-            If n_aluno = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºAluno= @n_aluno AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicoswhere Nome like @Nome AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_ntecnico_desativados(ByRef n_tecnico As String) As DataTable
@@ -1388,9 +1443,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_tecnico", n_tecnico))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If n_tecnico = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºTécnico= @n_tecnico AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where NºTécnico= @n_tecnico AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_ntecnico_ativados(ByRef n_tecnico As String) As DataTable
@@ -1398,58 +1453,58 @@ Public Class BLL
             p.Add(New SqlParameter("@n_tecnico", n_tecnico))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If n_tecnico = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºTécnico=@n_tecnico AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Morada,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where NºTécnico=@n_tecnico AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
-        Shared Function procura_dados_turma_desativados(ByRef turma As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", n_empresa))
-            p.Add(New SqlParameter("@turma", turma))
-            If n_empresa = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºEmpresa=@n_empresa AND Ativo=0 AND Turma=@turma", p)
-            End If
-        End Function
-        Shared Function procura_dados_turma(ByRef turma As String) As DataTable
-            Dim p As New ArrayList
-            p.Add(New SqlParameter("@n_empresa", n_empresa))
-            p.Add(New SqlParameter("@turma", turma))
-            If n_empresa = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=1 AND NºEmpresa=@n_empresa", p)
-            Else
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºEmpresa=@n_empresa AND Ativo=1 AND Turma=@turma", p)
-            End If
-        End Function
-        Shared Sub inserir(ByVal Nome As String, ByRef img As Image, ByVal n_aluno As Integer, ByVal turma As String)
+        
+        Shared Sub inserir(ByVal morada As String, ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByRef img As Image, ByVal n_aluno As Integer, ByVal turma As String)
             Dim p As New ArrayList
             Dim img_save As New SqlParameter("@fotografia", SqlDbType.Image)
             p.Add(New SqlParameter("@nome", Nome))
+            p.Add(New SqlParameter("@morada", morada))
+            p.Add(New SqlParameter("@localidade", localidade))
+            p.Add(New SqlParameter("@cod_postal", cod_postal))
+            p.Add(New SqlParameter("@contacto_m", contacto_m))
+            p.Add(New SqlParameter("@contacto_f", contacto_f))
             Dim mStream As MemoryStream = New MemoryStream()
             img.Save(mStream, ImageFormat.Png)
             img_save.SqlValue = mStream.GetBuffer
             p.Add(img_save)
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            DAL.ExecuteNonQuery("Insert into Técnico(Nome,Fotografia,Ativo,NºEmpresa) VALUES (@nome,@fotografia,1,@n_empresa)", p)
+            DAL.ExecuteNonQuery("Insert into Técnico(Nome,Morada,Localidade,Cod_Postal,Contacto_M,Contacto_F,Fotografia,Ativo,NºEmpresa) VALUES (@nome,@localidade,@cod_postal,@contacto_m,@contacto_f,@fotografia,1,@n_empresa)", p)
         End Sub
-        Shared Sub alterar(ByVal Nome As String, ByVal img As Image, ByVal n_tecnico As Integer)
+        Shared Sub alterar(ByVal morada As String, ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByVal img As Image, ByVal n_tecnico As Integer)
             Dim p As New ArrayList
             Dim img_save As New SqlParameter("@Fotografia", SqlDbType.Image)
             p.Add(New SqlParameter("@nome", Nome))
+            p.Add(New SqlParameter("@localidade", localidade))
+            p.Add(New SqlParameter("@cod_postal", cod_postal))
+            p.Add(New SqlParameter("@contacto_m", contacto_m))
+            p.Add(New SqlParameter("@contacto_f", contacto_f))
             Dim mStream As MemoryStream = New MemoryStream()
             img.Save(mStream, ImageFormat.Png)
             img_save.SqlValue = mStream.GetBuffer
             p.Add(img_save)
             p.Add(New SqlParameter("@n_tecnico", n_tecnico))
-            DAL.ExecuteNonQuery("Update Técnico set Nome = @Nome, Fotografia=@Fotografia where NºTécnico=@n_tecnico", p)
+            DAL.ExecuteNonQuery("Update Técnico set Morada=@Morada, Localidade=@localidade, Cod_Postal=@cod_postal, Contacto_M=,@contacto_m, Contacto_F=@contacto_f, Nome = @Nome, Fotografia=@Fotografia where NºTécnico=@n_tecnico", p)
         End Sub
-        Shared Function apagar(ByVal n_aluno As String, ByVal n_tecnico As Integer)
+        Shared Function apagar(ByVal n_tecnico As Integer)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_tecnico", n_tecnico))
             If n_tecnico <> "" Then
                 Return DAL.ExecuteNonQuery("Update Técnico set Ativo=0 where NºTécnico = @n_tecnico", p)
+            Else
+                MsgBox("Insira o ID do Técnico a Eliminar")
+                Return -1
+            End If
+        End Function
+        Shared Function restaurar(ByVal n_tecnico As Integer)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_tecnico", n_tecnico))
+            If n_tecnico <> "" Then
+                Return DAL.ExecuteNonQuery("Update Técnico set Ativo=1 where NºTécnico = @n_tecnico", p)
             Else
                 MsgBox("Insira o ID do Técnico a Eliminar")
                 Return -1
@@ -1478,6 +1533,19 @@ Public Class BLL
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_repar))
             Return DAL.ExecuteQuery("SELECT NºTécnico FROM Participações where NºReparação=@NºReparação", p)
+        End Function
+    End Class
+    Public Class Hardware
+        Shared Function return_hardware(ByVal n_reparacao As String) As String
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@NºReparação", n_reparacao))
+            Return DAL.ExecuteScalar("Select Tipo FROM Hardware where NºReparação=@NºReparação", p)
+        End Function
+    End Class
+    Public Class Software
+        Shared Function return_software(ByVal n_reparacao As String) As StringDim p As New ArrayList
+            p.Add(New SqlParameter("@NºReparação", n_reparacao))
+            Return DAL.ExecuteScalar("Select Tipo FROM Software where NºReparação=@NºReparação", p)
         End Function
     End Class
 End Class
