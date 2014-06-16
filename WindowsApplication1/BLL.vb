@@ -1181,7 +1181,7 @@ Public Class BLL
                 Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,Categoria,NºTécnico,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºComponente like @n_componente AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
-        Shared Function procura_dados_numreparação(ByVal modo As Boolean, ByRef NºReparação As Integer) As DataTable
+        Shared Function procura_dados_numreparação(ByRef NºReparação As Integer) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_reparação", NºReparação))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1459,7 +1459,7 @@ Public Class BLL
             End If
         End Function
         
-        Shared Sub inserir(ByVal morada As String, ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByRef img As Image, ByVal n_aluno As Integer, ByVal turma As String)
+        Shared Sub inserir(ByVal morada As String, ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByRef img As Image)
             Dim p As New ArrayList
             Dim img_save As New SqlParameter("@fotografia", SqlDbType.Image)
             p.Add(New SqlParameter("@nome", Nome))
@@ -1543,7 +1543,8 @@ Public Class BLL
         End Function
     End Class
     Public Class Software
-        Shared Function return_software(ByVal n_reparacao As String) As StringDim p As New ArrayList
+        Shared Function return_software(ByVal n_reparacao As String) As String
+            Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
             Return DAL.ExecuteScalar("Select Tipo FROM Software where NºReparação=@NºReparação", p)
         End Function

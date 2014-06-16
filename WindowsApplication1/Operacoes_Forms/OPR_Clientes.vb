@@ -31,6 +31,15 @@
                         RadioButton1.Checked = False
                         RadioButton2.Checked = True
                 End If
+                If cliente_data.Rows.Item(0).Item("Turma").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("Turma").ToString() <> "" Then
+                    RadioButton1.Checked = True
+                    RadioButton2.Checked = False
+                    .Text = cliente_data.Rows.Item(0).Item("Turma").ToString()
+                Else
+                    RadioButton1.Checked = False
+                    RadioButton2.Checked = True
+                End If
+                localidadebox.Text = cliente_data.Rows.Item(0).Item("Localidade").ToString()
                 Catch ex As Exception
                     MsgBox("Erro")
             End Try
@@ -64,7 +73,7 @@
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Try
-            BLL.Clientes.inserir(nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+            BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
             MsgBox("Inserido com sucesso")
             Workspace.clientesmenu.PerformClick()
         Catch ex As Exception
@@ -79,12 +88,12 @@
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         Try
             If removidos = True Then
-                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
                 MsgBox("Editado com sucesso")
                 Workspace.RemovidosToolStripMenuItem.PerformClick()
                 Me.Close()
             Else
-                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 MsgBox("Editado com sucesso")
                 Workspace.AtivosToolStripMenuItem.PerformClick()
                 Me.Close()
@@ -119,4 +128,6 @@
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
 
     End Sub
+
+    
 End Class
