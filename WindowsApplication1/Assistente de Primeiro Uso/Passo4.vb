@@ -60,7 +60,9 @@ Public Class Passo4
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Workspace.WindowState = FormWindowState.Maximized
         Workspace.LoginForm1.Show()
+        Timer1.Stop()
         Me.Close()
     End Sub
 End Class

@@ -71,7 +71,7 @@
                         If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
                             MsgBox("Esta Empresa já existe!")
                         Else
-                            BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
+                        BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
                         If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
                             Dim opr_utilizadores As New OPR_Utilizadores
                             opr_utilizadores.MdiParent = Workspace

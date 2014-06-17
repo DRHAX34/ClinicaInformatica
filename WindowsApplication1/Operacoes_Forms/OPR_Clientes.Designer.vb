@@ -23,9 +23,6 @@ Partial Class OPR_Clientes
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.nomebox = New System.Windows.Forms.TextBox()
-        Me.moradabox = New System.Windows.Forms.TextBox()
-        Me.emailbox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -36,19 +33,23 @@ Partial Class OPR_Clientes
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.numalunobox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.cmovelbox = New System.Windows.Forms.TextBox()
         Me.cfixobox = New System.Windows.Forms.TextBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.codpostalbox = New System.Windows.Forms.MaskedTextBox()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.nifbox = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.localidadebox = New System.Windows.Forms.TextBox()
+        Me.numalunobox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.turmabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.Obrigatório = New ClinicaInformatica.WaterMarkTextBox()
+        Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.emailbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.codpostalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
+        Me.cmovelbox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,30 +66,6 @@ Partial Class OPR_Clientes
         Me.Label4.Size = New System.Drawing.Size(135, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Código Postal"
-        '
-        'nomebox
-        '
-        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.nomebox.Location = New System.Drawing.Point(204, 112)
-        Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(277, 25)
-        Me.nomebox.TabIndex = 6
-        '
-        'moradabox
-        '
-        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.moradabox.Location = New System.Drawing.Point(204, 151)
-        Me.moradabox.Name = "moradabox"
-        Me.moradabox.Size = New System.Drawing.Size(277, 25)
-        Me.moradabox.TabIndex = 7
-        '
-        'emailbox
-        '
-        Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.emailbox.Location = New System.Drawing.Point(204, 236)
-        Me.emailbox.Name = "emailbox"
-        Me.emailbox.Size = New System.Drawing.Size(275, 25)
-        Me.emailbox.TabIndex = 9
         '
         'Label1
         '
@@ -181,15 +158,6 @@ Partial Class OPR_Clientes
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Aluno"
         '
-        'numalunobox
-        '
-        Me.numalunobox.Enabled = False
-        Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.numalunobox.Location = New System.Drawing.Point(191, 452)
-        Me.numalunobox.Name = "numalunobox"
-        Me.numalunobox.Size = New System.Drawing.Size(171, 22)
-        Me.numalunobox.TabIndex = 29
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -210,14 +178,6 @@ Partial Class OPR_Clientes
         Me.Label9.TabIndex = 31
         Me.Label9.Text = "Contacto Móvel"
         '
-        'cmovelbox
-        '
-        Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.cmovelbox.Location = New System.Drawing.Point(265, 380)
-        Me.cmovelbox.Name = "cmovelbox"
-        Me.cmovelbox.Size = New System.Drawing.Size(147, 22)
-        Me.cmovelbox.TabIndex = 33
-        '
         'cfixobox
         '
         Me.cfixobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
@@ -235,16 +195,6 @@ Partial Class OPR_Clientes
         Me.Label10.Size = New System.Drawing.Size(93, 17)
         Me.Label10.TabIndex = 35
         Me.Label10.Text = "Contacto Fixo"
-        '
-        'codpostalbox
-        '
-        Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.codpostalbox.Location = New System.Drawing.Point(204, 319)
-        Me.codpostalbox.Mask = "0000-000"
-        Me.codpostalbox.Name = "codpostalbox"
-        Me.codpostalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.codpostalbox.Size = New System.Drawing.Size(67, 25)
-        Me.codpostalbox.TabIndex = 36
         '
         'RadioButton1
         '
@@ -278,14 +228,6 @@ Partial Class OPR_Clientes
         Me.Label5.TabIndex = 40
         Me.Label5.Text = "NIF"
         '
-        'nifbox
-        '
-        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.nifbox.Location = New System.Drawing.Point(204, 278)
-        Me.nifbox.Name = "nifbox"
-        Me.nifbox.Size = New System.Drawing.Size(275, 25)
-        Me.nifbox.TabIndex = 39
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -296,13 +238,97 @@ Partial Class OPR_Clientes
         Me.Label11.TabIndex = 42
         Me.Label11.Text = "Localidade"
         '
+        'numalunobox
+        '
+        Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.numalunobox.Location = New System.Drawing.Point(183, 453)
+        Me.numalunobox.Name = "numalunobox"
+        Me.numalunobox.Size = New System.Drawing.Size(109, 22)
+        Me.numalunobox.TabIndex = 43
+        Me.numalunobox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.numalunobox.WaterMarkText = "NºAluno"
+        '
+        'turmabox
+        '
+        Me.turmabox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.turmabox.Location = New System.Drawing.Point(303, 453)
+        Me.turmabox.Name = "turmabox"
+        Me.turmabox.Size = New System.Drawing.Size(109, 22)
+        Me.turmabox.TabIndex = 44
+        Me.turmabox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.turmabox.WaterMarkText = "Turma"
+        '
+        'nomebox
+        '
+        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.nomebox.Location = New System.Drawing.Point(204, 114)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.Size = New System.Drawing.Size(275, 25)
+        Me.nomebox.TabIndex = 45
+        Me.nomebox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nomebox.WaterMarkText = "Obrigatório"
+        '
+        'Obrigatório
+        '
+        Me.Obrigatório.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.Obrigatório.Location = New System.Drawing.Point(204, 148)
+        Me.Obrigatório.Name = "Obrigatório"
+        Me.Obrigatório.Size = New System.Drawing.Size(275, 25)
+        Me.Obrigatório.TabIndex = 46
+        Me.Obrigatório.WaterMarkColor = System.Drawing.Color.Gray
+        Me.Obrigatório.WaterMarkText = "Obrigatório"
+        '
         'localidadebox
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.localidadebox.Location = New System.Drawing.Point(204, 194)
+        Me.localidadebox.Location = New System.Drawing.Point(204, 191)
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(275, 25)
-        Me.localidadebox.TabIndex = 41
+        Me.localidadebox.TabIndex = 47
+        Me.localidadebox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.localidadebox.WaterMarkText = "Obrigatório"
+        '
+        'emailbox
+        '
+        Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.emailbox.Location = New System.Drawing.Point(204, 233)
+        Me.emailbox.Name = "emailbox"
+        Me.emailbox.Size = New System.Drawing.Size(275, 25)
+        Me.emailbox.TabIndex = 48
+        Me.emailbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.emailbox.WaterMarkText = ""
+        '
+        'nifbox
+        '
+        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.nifbox.Location = New System.Drawing.Point(204, 278)
+        Me.nifbox.Name = "nifbox"
+        Me.nifbox.Size = New System.Drawing.Size(275, 25)
+        Me.nifbox.TabIndex = 49
+        Me.nifbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nifbox.WaterMarkText = "Obrigatório"
+        '
+        'codpostalbox
+        '
+        Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.codpostalbox.Location = New System.Drawing.Point(204, 316)
+        Me.codpostalbox.Mask = "0000-000"
+        Me.codpostalbox.Name = "codpostalbox"
+        Me.codpostalbox.Size = New System.Drawing.Size(100, 25)
+        Me.codpostalbox.TabIndex = 50
+        Me.codpostalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        Me.codpostalbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.codpostalbox.WaterMarkText = "Obrigatório"
+        '
+        'cmovelbox
+        '
+        Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.cmovelbox.Location = New System.Drawing.Point(265, 383)
+        Me.cmovelbox.Name = "cmovelbox"
+        Me.cmovelbox.Size = New System.Drawing.Size(147, 22)
+        Me.cmovelbox.TabIndex = 51
+        Me.cmovelbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cmovelbox.WaterMarkText = "Obrigatório"
         '
         'OPR_Clientes
         '
@@ -310,19 +336,23 @@ Partial Class OPR_Clientes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(505, 628)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.localidadebox)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.cmovelbox)
+        Me.Controls.Add(Me.codpostalbox)
         Me.Controls.Add(Me.nifbox)
+        Me.Controls.Add(Me.emailbox)
+        Me.Controls.Add(Me.localidadebox)
+        Me.Controls.Add(Me.Obrigatório)
+        Me.Controls.Add(Me.nomebox)
+        Me.Controls.Add(Me.turmabox)
+        Me.Controls.Add(Me.numalunobox)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
-        Me.Controls.Add(Me.codpostalbox)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.cfixobox)
-        Me.Controls.Add(Me.cmovelbox)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.numalunobox)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -333,9 +363,6 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.emailbox)
-        Me.Controls.Add(Me.moradabox)
-        Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Label4)
         Me.Name = "OPR_Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -350,9 +377,6 @@ Partial Class OPR_Clientes
 
     End Sub
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents nomebox As System.Windows.Forms.TextBox
-    Friend WithEvents moradabox As System.Windows.Forms.TextBox
-    Friend WithEvents emailbox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -363,17 +387,21 @@ Partial Class OPR_Clientes
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents numalunobox As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents cmovelbox As System.Windows.Forms.TextBox
     Friend WithEvents cfixobox As System.Windows.Forms.TextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents codpostalbox As System.Windows.Forms.MaskedTextBox
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents nifbox As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents localidadebox As System.Windows.Forms.TextBox
+    Friend WithEvents numalunobox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents turmabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Obrigatório As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents emailbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents nifbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents codpostalbox As ClinicaInformatica.MaskedWaterMarkTextBox
+    Friend WithEvents cmovelbox As ClinicaInformatica.WaterMarkTextBox
 End Class

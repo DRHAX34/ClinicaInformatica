@@ -89,7 +89,6 @@ Public Class Workspace
         LoginForm.MdiParent = Me
         m_ChildFormNumber += 1
         Me.FormBorderStyle = 1
-        Me.WindowState = FormWindowState.Maximized
         If BLL.Login.Carregar_empresas.Count = 0 Then
             Dim config As New Passo1
             config.MdiParent = Me
@@ -103,8 +102,8 @@ Public Class Workspace
             m_ChildFormNumber += 1
             Me.WindowState = FormWindowState.Normal
         Else
+            Me.WindowState = FormWindowState.Maximized
             LoginForm.Show()
-
         End If
         Me.DoubleBuffered = True
 

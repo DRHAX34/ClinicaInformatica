@@ -36,6 +36,8 @@ Public Class Passo2
         MaximizeBox = False
         MinimizeBox = False
         caminhobox.Enabled = False
+        simcheck.Checked = False
+        naocheck.Checked = True
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -70,7 +72,7 @@ Public Class Passo2
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles seguintebutton.Click
         If nomebox.Text <> "" And moradabox.Text <> "" And nifbox.Text <> "" And cod_postalbox.Text <> "" And localidadebox.Text <> "" And img_caminho <> "" Then
-            BLL.Admin_only.Empresas.inserir(nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
+            BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
             Workspace.config3.Show()
             Me.Close()
         Else

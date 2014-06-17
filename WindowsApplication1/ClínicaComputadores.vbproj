@@ -251,6 +251,12 @@
     <Compile Include="Operacoes_Forms\OPR_Empresas.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SplashAway.Designer.vb">
+      <DependentUpon>SplashAway.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SplashAway.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Workspace.Designer.vb">
       <DependentUpon>Workspace.vb</DependentUpon>
     </Compile>
@@ -354,6 +360,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashAway.resx">
+      <DependentUpon>SplashAway.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Workspace.resx">
       <DependentUpon>Workspace.vb</DependentUpon>
