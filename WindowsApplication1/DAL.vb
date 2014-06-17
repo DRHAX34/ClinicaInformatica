@@ -8,7 +8,7 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\Bases de Dados\Clínica Informática\BD-C.I.mdf;Integrated Security=True")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\Bases de Dados\Clínica Informática\BD-C.I.mdf;Integrated Security=True;Connect Timeout=30")
             Return 0
         Catch ex As Exception
             MessageBox.Show("Erro na base-de-dados: " & ex.Message)
@@ -137,23 +137,21 @@ Public Class DAL
     '    CloseConnection()
     'End Sub
 
-    Shared Function Load_Pic_Sql(ByVal sql As String) As Image
-        Try
-            Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
-            OpenConnection()
-            Dim reader As SqlDataReader = command1.ExecuteReader
-            reader.Read()
-            Dim bitPic() As Byte = CType(reader.GetValue(0), Byte())
-            CloseConnection()
-            Dim mStream As MemoryStream = New MemoryStream(bitPic)
-            Dim img As Image = Image.FromStream(mStream)
-            Return img
-        Catch ex As Exception
-            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            Workspace.Close()
-            Return Nothing
-        End Try
-    End Function
+    'Shared Function Load_Pic_Sql(ByVal sql As String) As Image
+    '    Try
+    '        Dim command1 As SqlCommand = New SqlCommand(sql, Connection)
+    '        command1.Connection.Open()
+    '        Dim reader As SqlDataReader = command1.ExecuteReader
+    '        reader.Read()
+
+    '        command1.Connection.Close()
+    '        Return img
+    '    Catch ex As Exception
+    '        MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+    '        Workspace.Close()
+    '        Return Nothing
+    '    End Try
+    'End Function
     'Shared Function ExecuteQuery(ByVal SQLText As String, ByRef Params As ArrayList) As DataTable
     '    Dim cmdSQL As New OleDb.OleDbCommand(SQLText, Connection)
     '    Dim Result As New DataTable

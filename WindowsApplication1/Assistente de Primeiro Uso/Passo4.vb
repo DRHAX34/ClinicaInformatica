@@ -24,7 +24,10 @@ Public Class Passo4
             Dim args As New ColorizationChangedEventArgs(c)
             RaiseEvent ColourizationChanged(Me, args)
         End If
-        MyBase.WndProc(m)
+        Try
+            MyBase.WndProc(m)
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

@@ -73,6 +73,16 @@ Namespace My.Resources
         '''<summary>
         '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property companyicon() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("companyicon", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Entrar() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Entrar", resourceCulture)
@@ -96,7 +106,7 @@ Namespace My.Resources
         Friend ReadOnly Property fundo_MDI() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("fundo_MDI", resourceCulture)
-                Return CType(obj, System.Drawing.Bitmap)
+                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

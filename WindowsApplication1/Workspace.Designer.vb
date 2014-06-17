@@ -43,7 +43,9 @@ Partial Class Workspace
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
         Me.MenuStrip.SuspendLayout()
+        CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip
@@ -51,7 +53,7 @@ Partial Class Workspace
         Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StatusStrip.Location = New System.Drawing.Point(0, 446)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(847, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1019, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
         '
@@ -68,7 +70,7 @@ Partial Class Workspace
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.tecnicosmenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(847, 62)
+        Me.MenuStrip.Size = New System.Drawing.Size(1019, 62)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
@@ -127,8 +129,10 @@ Partial Class Workspace
         '
         'EmpresasToolStripMenuItem
         '
+        Me.EmpresasToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.companyicon
+        Me.EmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
-        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(69, 58)
+        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(123, 58)
         Me.EmpresasToolStripMenuItem.Text = "Empresas"
         '
         'HelpMenu
@@ -174,13 +178,22 @@ Partial Class Workspace
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
         Me.AboutToolStripMenuItem.Text = "&Sobre ..."
         '
+        'terminarsessaobutton
+        '
+        Me.terminarsessaobutton.Location = New System.Drawing.Point(908, 12)
+        Me.terminarsessaobutton.Name = "terminarsessaobutton"
+        Me.terminarsessaobutton.Size = New System.Drawing.Size(99, 39)
+        Me.terminarsessaobutton.TabIndex = 49
+        Me.terminarsessaobutton.Text = "Terminar Sessão"
+        '
         'Workspace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(847, 468)
+        Me.ClientSize = New System.Drawing.Size(1019, 468)
+        Me.Controls.Add(Me.terminarsessaobutton)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.DoubleBuffered = True
@@ -192,6 +205,7 @@ Partial Class Workspace
         Me.Text = "Clínica Informática"
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
+        CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -214,5 +228,6 @@ Partial Class Workspace
     Friend WithEvents EmpresasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AtivosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RemovidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents terminarsessaobutton As Telerik.WinControls.UI.RadButton
 
 End Class

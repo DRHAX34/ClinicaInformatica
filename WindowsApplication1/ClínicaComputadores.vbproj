@@ -453,6 +453,7 @@
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\companyicon.png" />
     <None Include="Resources\fundo_melhorado.bmp" />
     <None Include="Resources\fundo_melhorado_960x540.png" />
     <None Include="Resources\fundo.png" />

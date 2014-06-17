@@ -44,7 +44,7 @@ Partial Class OPR_Clientes
         Me.numalunobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.turmabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.Obrigatório = New ClinicaInformatica.WaterMarkTextBox()
+        Me.moradabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.emailbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
@@ -268,15 +268,15 @@ Partial Class OPR_Clientes
         Me.nomebox.WaterMarkColor = System.Drawing.Color.Gray
         Me.nomebox.WaterMarkText = "Obrigatório"
         '
-        'Obrigatório
+        'moradabox
         '
-        Me.Obrigatório.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.Obrigatório.Location = New System.Drawing.Point(204, 148)
-        Me.Obrigatório.Name = "Obrigatório"
-        Me.Obrigatório.Size = New System.Drawing.Size(275, 25)
-        Me.Obrigatório.TabIndex = 46
-        Me.Obrigatório.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Obrigatório.WaterMarkText = "Obrigatório"
+        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.moradabox.Location = New System.Drawing.Point(204, 148)
+        Me.moradabox.Name = "moradabox"
+        Me.moradabox.Size = New System.Drawing.Size(275, 25)
+        Me.moradabox.TabIndex = 46
+        Me.moradabox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.moradabox.WaterMarkText = "Obrigatório"
         '
         'localidadebox
         '
@@ -341,7 +341,7 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.nifbox)
         Me.Controls.Add(Me.emailbox)
         Me.Controls.Add(Me.localidadebox)
-        Me.Controls.Add(Me.Obrigatório)
+        Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.turmabox)
         Me.Controls.Add(Me.numalunobox)
@@ -398,7 +398,7 @@ Partial Class OPR_Clientes
     Friend WithEvents numalunobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents turmabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents Obrigatório As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents moradabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents emailbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents nifbox As ClinicaInformatica.WaterMarkTextBox

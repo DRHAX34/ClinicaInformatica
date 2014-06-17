@@ -221,7 +221,7 @@
                         showdata.DataSource = BLL.Clientes.carregar_eliminados()
                     End If
                 Else
-                    BLL.Clientes.apagar(string_data, Nothing)
+                    BLL.Clientes.apagar(string_data)
                     MsgBox("Eliminado com sucesso!")
                     If Workspace.Aluno = True Then
                         showdata.DataSource = BLL.Clientes.carregar_alunos()
@@ -292,7 +292,60 @@
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click
-
+        Select Case tabela
+            Case "Clientes"
+                If removidos = True Then
+                    If Workspace.Aluno = True Then
+                        showdata.DataSource = BLL.Clientes.carregar_eliminados_alunos()
+                    Else
+                        showdata.DataSource = BLL.Clientes.carregar_eliminados()
+                    End If
+                Else
+                    If Workspace.Aluno = True Then
+                        showdata.DataSource = BLL.Clientes.carregar_alunos()
+                    Else
+                        showdata.DataSource = BLL.Clientes.carregar()
+                    End If
+                End If
+            Case "Componentes"
+                If removidos = True Then
+                    showdata.DataSource = BLL.Componentes.carregar_desativos()
+                Else
+                    showdata.DataSource = BLL.Componentes.carregar()
+                End If
+            Case "Empresas"
+                If removidos = True Then
+                    showdata.DataSource = BLL.Admin_only.Empresas.carregar_eliminados
+                Else
+                    showdata.DataSource = BLL.Admin_only.Empresas.carregar()
+                End If
+            Case "Reparações"
+                If removidos = True Then
+                    showdata.DataSource = BLL.Reparacoes.carregar_desativos()
+                Else
+                    showdata.DataSource = BLL.Reparacoes.carregar()
+                End If
+            Case "Técnicos"
+                If removidos = True Then
+                    showdata.DataSource = BLL.Tecnicos.carregar_eliminados
+                Else
+                    showdata.DataSource = BLL.Tecnicos.carregar()
+                End If
+            Case "Utilizadores"
+                If removidos = True Then
+                    If Workspace.admin_geral = True Then
+                        showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                    Else
+                        showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                    End If
+                Else
+                    If Workspace.admin_geral = True Then
+                        showdata.DataSource = BLL.Admin_only.Login.carregar_users()
+                    Else
+                        showdata.DataSource = BLL.Login.carregar_users()
+                    End If
+                End If
+        End Select
     End Sub
 
     Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click

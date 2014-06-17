@@ -76,6 +76,9 @@ Public Class Workspace
     '    Next
     'End Sub
     Public m_ChildFormNumber As Integer
+    Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
+        terminarsessaobutton.Location = New Point((Me.Width - (1035 - 908)), 12)
+    End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         DAL.CloseConnection()
         DAL.TerminateConnection()
@@ -85,11 +88,13 @@ Public Class Workspace
         MenuStrip.Hide()
         Me.BackgroundImageLayout = ImageLayout.Stretch
         StatusStrip.Hide()
+        terminarsessaobutton.Hide()
         Dim estado As Integer = DAL.CreateConnection()
         LoginForm.MdiParent = Me
         m_ChildFormNumber += 1
         Me.FormBorderStyle = 1
         If BLL.Login.Carregar_empresas.Count = 0 Then
+            Me.WindowState = FormWindowState.Normal
             Dim config As New Passo1
             config.MdiParent = Me
             m_ChildFormNumber += 1
@@ -100,7 +105,6 @@ Public Class Workspace
             m_ChildFormNumber += 1
             config4.MdiParent = Me
             m_ChildFormNumber += 1
-            Me.WindowState = FormWindowState.Normal
         Else
             Me.WindowState = FormWindowState.Maximized
             LoginForm.Show()
@@ -112,9 +116,12 @@ Public Class Workspace
         If Workspace.modo = 1 Then
             Workspace.EmpresasToolStripMenuItem.Text = "Empresas"
             Workspace.EmpresasToolStripMenuItem.Enabled = True
+            Workspace.EmpresasToolStripMenuItem.Image = My.Resources.companyicon
         Else
-            Workspace.EmpresasToolStripMenuItem.Text = BLL.Admin_only.Empresas.carregar_pic(BLL.n_empresa)
-            Workspace.EmpresasToolStripMenuItem.Text = Workspace.companyname
+            Dim imagecompany As Image = BLL.Admin_only.Empresas.carregar_pic()
+            Dim companyimage As New Bitmap(imagecompany, 54, 54)
+            Workspace.EmpresasToolStripMenuItem.Image = companyimage
+            Workspace.EmpresasToolStripMenuItem.Text = Workspace.companyname1
         End If
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
@@ -159,5 +166,16 @@ Public Class Workspace
         Else
             MsgBox("Já tem a janela dos Clientes aberta!")
         End If
+    End Sub
+
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles terminarsessaobutton.Click
+        StatusStrip.Hide()
+        MenuStrip.Hide()
+        LoginForm.MdiParent = Me
+        LoginForm1.Show()
+        m_ChildFormNumber += 1
+        Me.FormBorderStyle = 1
+        Me.MaximizeBox = False
+        terminarsessaobutton.Hide()
     End Sub
 End Class

@@ -16,9 +16,11 @@
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
         'sairbutton.Image = button
-        Workspace.FormBorderStyle = 2
+        Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Fixed3D
+        Workspace.MaximizeBox = False
         datalabel.Text = System.DateTime.Now.Date
         Me.AcceptButton = Me.loginbutton
+        DAL.CreateConnection()
     End Sub
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Usernamelabel.Click
@@ -36,12 +38,18 @@
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         Dim n_empresa As Integer
         Dim check As Boolean = False
-        n_empresa = BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString)
+        n_empresa = CInt(BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString))
         user = BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, n_empresa)
         If user <> 0 Then
             'menuform.show()
             Workspace.StatusStrip.Show()
             Workspace.MenuStrip.Show()
+            If BLL.Login.verificar_admin(user) = True Then
+                Workspace.UtilizadoresToolStripMenuItem.Visible = True
+            Else
+                Workspace.UtilizadoresToolStripMenuItem.Visible = False
+            End If
+            Workspace.terminarsessaobutton.Show()
             Workspace.modo = 2
             Me.Hide()
             check = True
@@ -52,6 +60,8 @@
             Else
                 Workspace.StatusStrip.Show()
                 Workspace.MenuStrip.Show()
+                Workspace.UtilizadoresToolStripMenuItem.Visible = True
+                Workspace.terminarsessaobutton.Show()
                 Workspace.modo = 1
                 Me.Hide()
                 check = True
@@ -62,8 +72,10 @@
                 Workspace.Aluno = True
             End If
             Workspace.companyname1 = Companybox.Text
-            Workspace.login_load()
             BLL.n_empresa = n_empresa
+            Workspace.login_load()
+            Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
+            Workspace.MaximizeBox = True
         End If
     End Sub
 

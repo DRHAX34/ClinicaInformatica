@@ -7,6 +7,7 @@
         RadioButton2.Checked = True
         If Workspace.Aluno = False Then
             numalunobox.Hide()
+            turmabox.Hide()
             Label7.Hide()
             RadioButton1.Hide()
             RadioButton2.Hide()
@@ -27,7 +28,7 @@
                     RadButton1.Enabled = True
                     RadButton3.Text = "Restaurar Dados Originais"
                     nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
-                Obrigatório.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
+                moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
                 emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
                 nifbox.Text = cliente_data.Rows.Item(0).Item("NIF").ToString()
                 codpostalbox.Text = cliente_data.Rows.Item(0).Item("Cod_Postal").ToString()
@@ -79,32 +80,39 @@
                 check_nome = False
             End If
         Next
-        For i = 0 To Obrigatório.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
+        For i = 0 To moradabox.Text.Count - 1
+            If moradabox.Text.Chars(i) <> " " Then
                 check_morada = False
             End If
         Next
         For i = 0 To nifbox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
+            If nifbox.Text.Chars(i) <> " " Then
                 check_nif = False
             End If
         Next
         For i = 0 To codpostalbox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
+            If codpostalbox.Text.Chars(i) <> " " Then
                 check_codpostal = False
             End If
         Next
         For i = 0 To localidadebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
+            If localidadebox.Text.Chars(i) <> " " Then
                 check_localidade = False
+            End If
+        Next
+        For i = 0 To cmovelbox.Text.Count - 1
+            If cmovelbox.Text.Chars(i) <> " " Then
+                check_contactom = False
             End If
         Next
         Try
             If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_contactom = False Then
-                BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, Obrigatório.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 MsgBox("Inserido com sucesso")
                 Workspace.AtivosToolStripMenuItem.PerformClick()
                 Me.Close()
+            Else
+                MsgBox("Introduza todos os dados!")
             End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
@@ -117,16 +125,30 @@
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         Try
-            If removidos = True Then
-                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, Obrigatório.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                MsgBox("Editado com sucesso")
-                Workspace.RemovidosToolStripMenuItem.PerformClick()
-                Me.Close()
+            If Workspace.Aluno = False Then
+                If removidos = True Then
+                    BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                    MsgBox("Editado com sucesso")
+                    Workspace.RemovidosToolStripMenuItem.PerformClick()
+                    Me.Close()
+                Else
+                    BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                    MsgBox("Editado com sucesso")
+                    Workspace.AtivosToolStripMenuItem.PerformClick()
+                    Me.Close()
+                End If
             Else
-                BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, Obrigatório.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                MsgBox("Editado com sucesso")
-                Workspace.AtivosToolStripMenuItem.PerformClick()
-                Me.Close()
+                If removidos = True Then
+                    BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                    MsgBox("Editado com sucesso")
+                    Workspace.RemovidosToolStripMenuItem.PerformClick()
+                    Me.Close()
+                Else
+                    BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                    MsgBox("Editado com sucesso")
+                    Workspace.AtivosToolStripMenuItem.PerformClick()
+                    Me.Close()
+                End If
             End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
@@ -141,7 +163,7 @@
                 Workspace.RemovidosToolStripMenuItem.PerformClick()
                 Me.Close()
             Else
-                BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), nifbox.Text)
+                BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Removido com sucesso")
                 Workspace.AtivosToolStripMenuItem.PerformClick()
                 Me.Close()
@@ -177,7 +199,7 @@
                     End If
                 End If
                 nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
-                Obrigatório.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
+                moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
                 emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
                 nifbox.Text = cliente_data.Rows.Item(0).Item("NIF").ToString()
                 codpostalbox.Text = cliente_data.Rows.Item(0).Item("Cod_Postal").ToString()
@@ -186,7 +208,7 @@
                 localidadebox.Text = cliente_data.Rows.Item(0).Item("Localidade").ToString()
             Else
                 nomebox.Text = ""
-                Obrigatório.Text = ""
+                moradabox.Text = ""
                 emailbox.Text = ""
                 nifbox.Text = ""
                 codpostalbox.Text = ""
@@ -200,4 +222,6 @@
             MsgBox("Erro ao restaurar os dados: " & ex.Message)
         End Try
     End Sub
+
+
 End Class
