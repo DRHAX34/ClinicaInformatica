@@ -1,5 +1,4 @@
-﻿
-Option Strict On
+﻿Option Strict On
 Option Explicit On
 
 Imports System.ComponentModel
@@ -7,12 +6,11 @@ Imports System.Runtime.InteropServices
 Imports System.Security
 Imports System.CodeDom.Compiler
 
-Public Class Passo4
+Public Class Passo3emeio
     Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
-        Button2.Location = New Point((Me.Width - (811 - 612)), (Me.Height - (474 - 364)))
+        Button1.Location = New Point((Me.Width - (811 - 612)), (Me.Height - (474 - 364)))
+        Button2.Location = New Point((Me.Width - (811 - 440)), (Me.Height - (474 - 377)))
     End Sub
-    Public logo As Image
-    Dim img_caminho As String
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
@@ -24,10 +22,7 @@ Public Class Passo4
             Dim args As New ColorizationChangedEventArgs(c)
             RaiseEvent ColourizationChanged(Me, args)
         End If
-        Try
-            MyBase.WndProc(m)
-        Catch ex As Exception
-        End Try
+        MyBase.WndProc(m)
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -49,6 +44,9 @@ Public Class Passo4
             Me.BackColor = Color.White
         End If
         Label1.ForeColor = colorization.Inversecolor
+        Label2.ForeColor = colorization.Inversecolor
+        passlabel.ForeColor = colorization.Inversecolor
+        nomelabel.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -58,18 +56,16 @@ Public Class Passo4
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
     End Sub
-    Private Sub Passo4_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label1.Text = "Parabéns! O seu programa está" & vbNewLine & "agora configurado!"
-    End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Workspace.WindowState = FormWindowState.Maximized
-        Dim LoginForm1 As New LoginForm
-        LoginForm1.MdiParent = Workspace
-        Workspace.m_ChildFormNumber += 1
-        LoginForm1.Show()
-        Timer1.Stop()
-        Me.Close()
-        LoginForm1.WindowState = FormWindowState.Normal
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        If nomebox.Text <> "" And passbox.Text <> "" Then
+            Dim password As String = passbox.Text
+            Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+            Dim passencript As String = wrapper.EncryptData(password)
+            BLL.n_empresa = "1"
+            BLL.Login.Add_login(True, 0, 0, nomebox.Text, passencript)
+            Workspace.config4.Show()
+            Me.Close()
+        End If
     End Sub
 End Class

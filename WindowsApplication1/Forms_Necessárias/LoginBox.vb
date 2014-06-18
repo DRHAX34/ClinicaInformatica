@@ -39,7 +39,10 @@
         Dim n_empresa As Integer
         Dim check As Boolean = False
         n_empresa = CInt(BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString))
-        user = BLL.Login.Verificar_Login(UsernameBox.Text, Passwordbox.Text, n_empresa)
+        Dim password As String = Passwordbox.Text
+        Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+        Dim passencript As String = wrapper.EncryptData(password)
+        user = BLL.Login.Verificar_Login(UsernameBox.Text, passencript, n_empresa)
         If user <> 0 Then
             'menuform.show()
             Workspace.StatusStrip.Show()
@@ -51,10 +54,9 @@
             End If
             Workspace.terminarsessaobutton.Show()
             Workspace.modo = 2
-            Me.Hide()
             check = True
         Else
-            user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, Passwordbox.Text)
+            user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, passencript)
             If user = 0 Then
                 MsgBox("Nome de Utilizador/Palavra-Passe errados!")
             Else
@@ -63,11 +65,10 @@
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.terminarsessaobutton.Show()
                 Workspace.modo = 1
-                Me.Hide()
                 check = True
             End If
         End If
-        If Check = True Then
+        If check = True Then
             If BLL.Login.verificar_aluno(n_empresa) = True Then
                 Workspace.Aluno = True
             End If
@@ -76,7 +77,9 @@
             Workspace.login_load()
             Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
             Workspace.MaximizeBox = True
+            Me.Close()
         End If
+
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)

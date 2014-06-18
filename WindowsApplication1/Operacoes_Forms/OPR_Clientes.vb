@@ -11,6 +11,12 @@
             Label7.Hide()
             RadioButton1.Hide()
             RadioButton2.Hide()
+            Me.Size = New Size(Me.Width, Me.Height - 50)
+            adicionarbutton.Location = New Point(adicionarbutton.Location.X, (adicionarbutton.Location.Y - 60))
+            editarbutton.Location = New Point(editarbutton.Location.X, (editarbutton.Location.Y - 60))
+            removerbutton.Location = New Point(removerbutton.Location.X, (removerbutton.Location.Y - 60))
+            restorebutton.Location = New Point(restorebutton.Location.X, (restorebutton.Location.Y - 60))
+            cancelarbutton.Location = New Point(cancelarbutton.Location.X, (cancelarbutton.Location.Y - 60))
         Else
             If cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> "" Then
                 RadioButton1.Checked = True
@@ -24,10 +30,10 @@
         End If
             If modo = True Then
                 Try
-                    RadButton5.Enabled = False
-                    RadButton1.Enabled = True
-                    RadButton3.Text = "Restaurar Dados Originais"
-                    nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
+                adicionarbutton.Enabled = False
+                editarbutton.Enabled = True
+                restorebutton.Text = "Restaurar Dados Originais"
+                nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
                 moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
                 emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
                 nifbox.Text = cliente_data.Rows.Item(0).Item("NIF").ToString()
@@ -38,16 +44,18 @@
             Catch ex As Exception
                 MsgBox("Erro ao carregar os dados: " & ex.Message)
             End Try
-            RadButton5.Enabled = False
+            adicionarbutton.Enabled = False
+            removerbutton.Enabled = True
         Else
-            RadButton5.Enabled = True
-            RadButton1.Enabled = False
-            RadButton3.Text = "Limpar Tudo"
+            adicionarbutton.Enabled = True
+            editarbutton.Enabled = False
+            removerbutton.Enabled = False
+            restorebutton.Text = "Limpar Tudo"
         End If
         If removidos = True Then
-            RadButton2.Text = "Restaurar"
+            removerbutton.Text = "Restaurar"
         Else
-            RadButton2.Text = "Remover"
+            removerbutton.Text = "Remover"
         End If
 
     End Sub
@@ -68,7 +76,7 @@
         turmabox.Hide()
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles adicionarbutton.Click
         Dim check_nome As Boolean = True
         Dim check_morada As Boolean = True
         Dim check_nif As Boolean = True
@@ -105,25 +113,29 @@
                 check_contactom = False
             End If
         Next
-        Try
-            If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_contactom = False Then
-                BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                MsgBox("Inserido com sucesso")
-                Workspace.AtivosToolStripMenuItem.PerformClick()
-                Me.Close()
-            Else
-                MsgBox("Introduza todos os dados!")
-            End If
-        Catch ex As Exception
-            MsgBox("Ocorreu um erro: " & ex.Message)
-        End Try
+        If Not BLL.Clientes.procura_dados_nome(nomebox.Text).Rows.Count <> 0 Then
+            Try
+                If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_contactom = False Then
+                    BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                    MsgBox("Inserido com sucesso")
+                    Workspace.AtivosToolStripMenuItem.PerformClick()
+                    Me.Close()
+                Else
+                    MsgBox("Introduza todos os dados!")
+                End If
+            Catch ex As Exception
+                MsgBox("Ocorreu um erro: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Este nome já existe na base-de-dados! Por favor insira outro nome ou o nome completo!")
+        End If
     End Sub
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
 
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles editarbutton.Click
         Try
             If Workspace.Aluno = False Then
                 If removidos = True Then
@@ -155,7 +167,7 @@
         End Try
     End Sub
 
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
+    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles removerbutton.Click
         Try
             If removidos = True Then
                 BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
@@ -173,11 +185,11 @@
         End Try
     End Sub
 
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles cancelarbutton.Click
         Me.Close()
     End Sub
 
-    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
+    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles restorebutton.Click
         Try
             If modo = True Then
                 If Not Workspace.Aluno = False Then

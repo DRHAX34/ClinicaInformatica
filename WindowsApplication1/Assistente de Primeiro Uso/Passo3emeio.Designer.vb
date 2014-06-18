@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Passo3
+Partial Class Passo3emeio
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -38,16 +38,16 @@ Partial Class Passo3
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 40.0!)
-        Me.Label1.Location = New System.Drawing.Point(149, 9)
+        Me.Label1.Location = New System.Drawing.Point(98, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(726, 72)
+        Me.Label1.Size = New System.Drawing.Size(587, 72)
         Me.Label1.TabIndex = 9
-        Me.Label1.Text = "Crie um Administrador Geral!"
+        Me.Label1.Text = "Crie um Administrador!"
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(836, 388)
+        Me.Button1.Location = New System.Drawing.Point(612, 356)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(171, 68)
         Me.Button1.TabIndex = 10
@@ -58,7 +58,7 @@ Partial Class Passo3
         '
         Me.passlabel.AutoSize = True
         Me.passlabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.passlabel.Location = New System.Drawing.Point(504, 175)
+        Me.passlabel.Location = New System.Drawing.Point(403, 182)
         Me.passlabel.Name = "passlabel"
         Me.passlabel.Size = New System.Drawing.Size(102, 20)
         Me.passlabel.TabIndex = 26
@@ -67,7 +67,7 @@ Partial Class Passo3
         'passbox
         '
         Me.passbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.passbox.Location = New System.Drawing.Point(508, 198)
+        Me.passbox.Location = New System.Drawing.Point(407, 205)
         Me.passbox.Name = "passbox"
         Me.passbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.passbox.Size = New System.Drawing.Size(183, 27)
@@ -79,7 +79,7 @@ Partial Class Passo3
         '
         Me.nomelabel.AutoSize = True
         Me.nomelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.nomelabel.Location = New System.Drawing.Point(305, 175)
+        Me.nomelabel.Location = New System.Drawing.Point(204, 182)
         Me.nomelabel.Name = "nomelabel"
         Me.nomelabel.Size = New System.Drawing.Size(143, 20)
         Me.nomelabel.TabIndex = 24
@@ -88,7 +88,7 @@ Partial Class Passo3
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomebox.Location = New System.Drawing.Point(309, 198)
+        Me.nomebox.Location = New System.Drawing.Point(208, 205)
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 23
@@ -99,11 +99,11 @@ Partial Class Passo3
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(275, 81)
+        Me.Label2.Location = New System.Drawing.Point(177, 81)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(439, 17)
+        Me.Label2.Size = New System.Drawing.Size(474, 17)
         Me.Label2.TabIndex = 33
-        Me.Label2.Text = "Nota: Um Administrador Geral pode alterar qualquer dado no programa."
+        Me.Label2.Text = "Nota: Um Administrador só pode alterar os dados da empresa a que pertence."
         '
         'Timer1
         '
@@ -112,18 +112,18 @@ Partial Class Passo3
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(664, 409)
+        Me.Button2.Location = New System.Drawing.Point(440, 377)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(166, 47)
         Me.Button2.TabIndex = 34
         Me.Button2.Text = "Limpar"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Passo3
+        'Passo3emeio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1019, 468)
+        Me.ClientSize = New System.Drawing.Size(795, 436)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.passlabel)
@@ -132,7 +132,7 @@ Partial Class Passo3
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "Passo3"
+        Me.Name = "Passo3emeio"
         Me.Text = "Assistente de Primeiro Uso"
         Me.ResumeLayout(False)
         Me.PerformLayout()

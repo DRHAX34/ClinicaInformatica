@@ -45,12 +45,14 @@ Partial Class OPR_Reparações
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.softwarebox = New System.Windows.Forms.TextBox()
         Me.hardwarebox = New System.Windows.Forms.TextBox()
+        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'descriçaobox
@@ -66,7 +68,7 @@ Partial Class OPR_Reparações
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(512, 287)
+        Me.Label8.Location = New System.Drawing.Point(505, 287)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
@@ -208,7 +210,7 @@ Partial Class OPR_Reparações
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(617, 209)
+        Me.Label11.Location = New System.Drawing.Point(617, 162)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(90, 25)
         Me.Label11.TabIndex = 61
@@ -223,7 +225,7 @@ Partial Class OPR_Reparações
         '
         'datefim
         '
-        Me.datefim.Location = New System.Drawing.Point(560, 237)
+        Me.datefim.Location = New System.Drawing.Point(560, 190)
         Me.datefim.Name = "datefim"
         Me.datefim.Size = New System.Drawing.Size(200, 22)
         Me.datefim.TabIndex = 63
@@ -258,12 +260,21 @@ Partial Class OPR_Reparações
         Me.hardwarebox.Size = New System.Drawing.Size(133, 25)
         Me.hardwarebox.TabIndex = 55
         '
+        'RadButton6
+        '
+        Me.RadButton6.Location = New System.Drawing.Point(560, 228)
+        Me.RadButton6.Name = "RadButton6"
+        Me.RadButton6.Size = New System.Drawing.Size(200, 47)
+        Me.RadButton6.TabIndex = 65
+        Me.RadButton6.Text = "Técnicos Participantes"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(812, 606)
+        Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.datefim)
         Me.Controls.Add(Me.dateinicio)
@@ -296,6 +307,7 @@ Partial Class OPR_Reparações
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -323,4 +335,5 @@ Partial Class OPR_Reparações
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents softwarebox As System.Windows.Forms.TextBox
     Friend WithEvents hardwarebox As System.Windows.Forms.TextBox
+    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
 End Class

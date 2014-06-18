@@ -59,8 +59,11 @@ Public Class Passo3
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         If nomebox.Text <> "" And passbox.Text <> "" Then
-            BLL.Admin_only.Login.Add_login(True, True, nomebox.Text, passbox.Text)
-            Workspace.config4.Show()
+            Dim password As String = passbox.Text
+            Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+            Dim passencript As String = wrapper.EncryptData(password)
+            BLL.Admin_only.Login.Add_login(True, True, nomebox.Text, passencript)
+            Workspace.config3_5.Show()
             Me.Close()
         End If
     End Sub

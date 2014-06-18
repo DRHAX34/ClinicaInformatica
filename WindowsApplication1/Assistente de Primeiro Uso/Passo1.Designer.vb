@@ -33,7 +33,7 @@ Partial Class Passo1
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Button2.Location = New System.Drawing.Point(466, 351)
+        Me.Button2.Location = New System.Drawing.Point(711, 412)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(137, 44)
         Me.Button2.TabIndex = 14
@@ -43,7 +43,7 @@ Partial Class Passo1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(609, 339)
+        Me.Button1.Location = New System.Drawing.Point(854, 400)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(153, 56)
         Me.Button1.TabIndex = 13
@@ -78,7 +78,7 @@ Partial Class Passo1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(779, 408)
+        Me.ClientSize = New System.Drawing.Size(1019, 468)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)

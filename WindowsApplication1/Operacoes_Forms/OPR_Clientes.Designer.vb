@@ -27,11 +27,11 @@ Partial Class OPR_Clientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton2 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
+        Me.adicionarbutton = New Telerik.WinControls.UI.RadButton()
+        Me.editarbutton = New Telerik.WinControls.UI.RadButton()
+        Me.removerbutton = New Telerik.WinControls.UI.RadButton()
+        Me.restorebutton = New Telerik.WinControls.UI.RadButton()
+        Me.cancelarbutton = New Telerik.WinControls.UI.RadButton()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -50,18 +50,18 @@ Partial Class OPR_Clientes
         Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.codpostalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
         Me.cmovelbox = New ClinicaInformatica.WaterMarkTextBox()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        CType(Me.adicionarbutton,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.editarbutton,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.removerbutton,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.restorebutton,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.cancelarbutton,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'Label4
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(26, 316)
+        Me.Label4.AutoSize = true
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label4.Location = New System.Drawing.Point(306, 173)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(135, 25)
         Me.Label4.TabIndex = 3
@@ -69,9 +69,9 @@ Partial Class OPR_Clientes
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(26, 108)
+        Me.Label1.AutoSize = true
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.Location = New System.Drawing.Point(25, 90)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(66, 25)
         Me.Label1.TabIndex = 10
@@ -79,9 +79,9 @@ Partial Class OPR_Clientes
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(26, 148)
+        Me.Label2.AutoSize = true
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label2.Location = New System.Drawing.Point(25, 130)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(82, 25)
         Me.Label2.TabIndex = 11
@@ -89,9 +89,9 @@ Partial Class OPR_Clientes
         '
         'Label3
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(26, 233)
+        Me.Label3.AutoSize = true
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label3.Location = New System.Drawing.Point(25, 235)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(59, 25)
         Me.Label3.TabIndex = 12
@@ -99,60 +99,60 @@ Partial Class OPR_Clientes
         '
         'Label6
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(13, 13)
+        Me.Label6.AutoSize = true
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label6.Location = New System.Drawing.Point(12, -5)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(260, 86)
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "Clientes"
         '
-        'RadButton5
+        'adicionarbutton
         '
-        Me.RadButton5.Location = New System.Drawing.Point(15, 550)
-        Me.RadButton5.Name = "RadButton5"
-        Me.RadButton5.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton5.TabIndex = 21
-        Me.RadButton5.Text = "Adicionar"
+        Me.adicionarbutton.Location = New System.Drawing.Point(28, 459)
+        Me.adicionarbutton.Name = "adicionarbutton"
+        Me.adicionarbutton.Size = New System.Drawing.Size(75, 63)
+        Me.adicionarbutton.TabIndex = 21
+        Me.adicionarbutton.Text = "Adicionar"
         '
-        'RadButton1
+        'editarbutton
         '
-        Me.RadButton1.Location = New System.Drawing.Point(111, 550)
-        Me.RadButton1.Name = "RadButton1"
-        Me.RadButton1.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton1.TabIndex = 22
-        Me.RadButton1.Text = "Editar"
+        Me.editarbutton.Location = New System.Drawing.Point(124, 459)
+        Me.editarbutton.Name = "editarbutton"
+        Me.editarbutton.Size = New System.Drawing.Size(75, 63)
+        Me.editarbutton.TabIndex = 22
+        Me.editarbutton.Text = "Editar"
         '
-        'RadButton2
+        'removerbutton
         '
-        Me.RadButton2.Location = New System.Drawing.Point(206, 550)
-        Me.RadButton2.Name = "RadButton2"
-        Me.RadButton2.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton2.TabIndex = 23
-        Me.RadButton2.Text = "Remover"
+        Me.removerbutton.Location = New System.Drawing.Point(219, 459)
+        Me.removerbutton.Name = "removerbutton"
+        Me.removerbutton.Size = New System.Drawing.Size(75, 63)
+        Me.removerbutton.TabIndex = 23
+        Me.removerbutton.Text = "Remover"
         '
-        'RadButton3
+        'restorebutton
         '
-        Me.RadButton3.Location = New System.Drawing.Point(301, 550)
-        Me.RadButton3.Name = "RadButton3"
-        Me.RadButton3.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton3.TabIndex = 24
-        Me.RadButton3.Text = "Restaurar Dados Originais"
-        Me.RadButton3.TextWrap = True
+        Me.restorebutton.Location = New System.Drawing.Point(314, 459)
+        Me.restorebutton.Name = "restorebutton"
+        Me.restorebutton.Size = New System.Drawing.Size(75, 63)
+        Me.restorebutton.TabIndex = 24
+        Me.restorebutton.Text = "Restaurar Dados Originais"
+        Me.restorebutton.TextWrap = true
         '
-        'RadButton4
+        'cancelarbutton
         '
-        Me.RadButton4.Location = New System.Drawing.Point(398, 550)
-        Me.RadButton4.Name = "RadButton4"
-        Me.RadButton4.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton4.TabIndex = 25
-        Me.RadButton4.Text = "Cancelar"
+        Me.cancelarbutton.Location = New System.Drawing.Point(411, 459)
+        Me.cancelarbutton.Name = "cancelarbutton"
+        Me.cancelarbutton.Size = New System.Drawing.Size(75, 63)
+        Me.cancelarbutton.TabIndex = 25
+        Me.cancelarbutton.Text = "Cancelar"
         '
         'Label7
         '
-        Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(26, 467)
+        Me.Label7.AutoSize = true
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label7.Location = New System.Drawing.Point(36, 406)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 25)
         Me.Label7.TabIndex = 26
@@ -160,9 +160,9 @@ Partial Class OPR_Clientes
         '
         'Label8
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(26, 356)
+        Me.Label8.AutoSize = true
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label8.Location = New System.Drawing.Point(25, 297)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(93, 25)
         Me.Label8.TabIndex = 30
@@ -170,9 +170,9 @@ Partial Class OPR_Clientes
         '
         'Label9
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(142, 383)
+        Me.Label9.AutoSize = true
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label9.Location = New System.Drawing.Point(141, 324)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(105, 17)
         Me.Label9.TabIndex = 31
@@ -181,16 +181,16 @@ Partial Class OPR_Clientes
         'cfixobox
         '
         Me.cfixobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.cfixobox.Location = New System.Drawing.Point(265, 412)
+        Me.cfixobox.Location = New System.Drawing.Point(264, 353)
         Me.cfixobox.Name = "cfixobox"
         Me.cfixobox.Size = New System.Drawing.Size(147, 22)
         Me.cfixobox.TabIndex = 34
         '
         'Label10
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(145, 415)
+        Me.Label10.AutoSize = true
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label10.Location = New System.Drawing.Point(144, 356)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(93, 17)
         Me.Label10.TabIndex = 35
@@ -198,31 +198,31 @@ Partial Class OPR_Clientes
         '
         'RadioButton1
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadioButton1.Location = New System.Drawing.Point(127, 453)
+        Me.RadioButton1.AutoSize = true
+        Me.RadioButton1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.RadioButton1.Location = New System.Drawing.Point(137, 392)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(49, 21)
         Me.RadioButton1.TabIndex = 37
         Me.RadioButton1.Text = "Sim"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.RadioButton1.UseVisualStyleBackColor = true
         '
         'RadioButton2
         '
-        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.AutoSize = true
         Me.RadioButton2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.RadioButton2.Location = New System.Drawing.Point(127, 499)
+        Me.RadioButton2.Location = New System.Drawing.Point(137, 432)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(51, 21)
         Me.RadioButton2.TabIndex = 38
         Me.RadioButton2.Text = "Não"
-        Me.RadioButton2.UseVisualStyleBackColor = True
+        Me.RadioButton2.UseVisualStyleBackColor = true
         '
         'Label5
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(26, 278)
+        Me.Label5.AutoSize = true
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label5.Location = New System.Drawing.Point(25, 266)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(43, 25)
         Me.Label5.TabIndex = 40
@@ -230,9 +230,9 @@ Partial Class OPR_Clientes
         '
         'Label11
         '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(26, 191)
+        Me.Label11.AutoSize = true
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label11.Location = New System.Drawing.Point(25, 173)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(107, 25)
         Me.Label11.TabIndex = 42
@@ -241,7 +241,7 @@ Partial Class OPR_Clientes
         'numalunobox
         '
         Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.numalunobox.Location = New System.Drawing.Point(183, 453)
+        Me.numalunobox.Location = New System.Drawing.Point(193, 392)
         Me.numalunobox.Name = "numalunobox"
         Me.numalunobox.Size = New System.Drawing.Size(109, 22)
         Me.numalunobox.TabIndex = 43
@@ -251,7 +251,7 @@ Partial Class OPR_Clientes
         'turmabox
         '
         Me.turmabox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.turmabox.Location = New System.Drawing.Point(303, 453)
+        Me.turmabox.Location = New System.Drawing.Point(313, 392)
         Me.turmabox.Name = "turmabox"
         Me.turmabox.Size = New System.Drawing.Size(109, 22)
         Me.turmabox.TabIndex = 44
@@ -261,7 +261,7 @@ Partial Class OPR_Clientes
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.nomebox.Location = New System.Drawing.Point(204, 114)
+        Me.nomebox.Location = New System.Drawing.Point(203, 96)
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(275, 25)
         Me.nomebox.TabIndex = 45
@@ -271,7 +271,7 @@ Partial Class OPR_Clientes
         'moradabox
         '
         Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.moradabox.Location = New System.Drawing.Point(204, 148)
+        Me.moradabox.Location = New System.Drawing.Point(203, 130)
         Me.moradabox.Name = "moradabox"
         Me.moradabox.Size = New System.Drawing.Size(275, 25)
         Me.moradabox.TabIndex = 46
@@ -281,7 +281,7 @@ Partial Class OPR_Clientes
         'localidadebox
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.localidadebox.Location = New System.Drawing.Point(204, 191)
+        Me.localidadebox.Location = New System.Drawing.Point(27, 201)
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(275, 25)
         Me.localidadebox.TabIndex = 47
@@ -291,7 +291,7 @@ Partial Class OPR_Clientes
         'emailbox
         '
         Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.emailbox.Location = New System.Drawing.Point(204, 233)
+        Me.emailbox.Location = New System.Drawing.Point(203, 235)
         Me.emailbox.Name = "emailbox"
         Me.emailbox.Size = New System.Drawing.Size(275, 25)
         Me.emailbox.TabIndex = 48
@@ -301,7 +301,7 @@ Partial Class OPR_Clientes
         'nifbox
         '
         Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.nifbox.Location = New System.Drawing.Point(204, 278)
+        Me.nifbox.Location = New System.Drawing.Point(203, 266)
         Me.nifbox.Name = "nifbox"
         Me.nifbox.Size = New System.Drawing.Size(275, 25)
         Me.nifbox.TabIndex = 49
@@ -311,10 +311,10 @@ Partial Class OPR_Clientes
         'codpostalbox
         '
         Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.codpostalbox.Location = New System.Drawing.Point(204, 316)
+        Me.codpostalbox.Location = New System.Drawing.Point(311, 201)
         Me.codpostalbox.Mask = "0000-000"
         Me.codpostalbox.Name = "codpostalbox"
-        Me.codpostalbox.Size = New System.Drawing.Size(100, 25)
+        Me.codpostalbox.Size = New System.Drawing.Size(167, 25)
         Me.codpostalbox.TabIndex = 50
         Me.codpostalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.codpostalbox.WaterMarkColor = System.Drawing.Color.Gray
@@ -323,7 +323,7 @@ Partial Class OPR_Clientes
         'cmovelbox
         '
         Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.cmovelbox.Location = New System.Drawing.Point(265, 383)
+        Me.cmovelbox.Location = New System.Drawing.Point(264, 324)
         Me.cmovelbox.Name = "cmovelbox"
         Me.cmovelbox.Size = New System.Drawing.Size(147, 22)
         Me.cmovelbox.TabIndex = 51
@@ -332,10 +332,10 @@ Partial Class OPR_Clientes
         '
         'OPR_Clientes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(505, 628)
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191,Byte),Integer), CType(CType(219,Byte),Integer), CType(CType(255,Byte),Integer))
+        Me.ClientSize = New System.Drawing.Size(505, 527)
         Me.Controls.Add(Me.cmovelbox)
         Me.Controls.Add(Me.codpostalbox)
         Me.Controls.Add(Me.nifbox)
@@ -354,38 +354,39 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.RadButton4)
-        Me.Controls.Add(Me.RadButton3)
-        Me.Controls.Add(Me.RadButton2)
-        Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadButton5)
+        Me.Controls.Add(Me.cancelarbutton)
+        Me.Controls.Add(Me.restorebutton)
+        Me.Controls.Add(Me.removerbutton)
+        Me.Controls.Add(Me.editarbutton)
+        Me.Controls.Add(Me.adicionarbutton)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "OPR_Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Clientes"
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        CType(Me.adicionarbutton,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.editarbutton,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.removerbutton,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.restorebutton,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.cancelarbutton,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton2 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents adicionarbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents editarbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents removerbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents restorebutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents cancelarbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label

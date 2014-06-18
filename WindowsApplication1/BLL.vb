@@ -4,6 +4,7 @@ Imports System.Drawing.Imaging
 
 Public Class BLL
     Public Shared n_empresa As String
+
     Public Class Admin_only
         Shared Sub eliminar_empresa(ByVal nempresa As Integer)
             Dim p As New ArrayList
@@ -286,7 +287,7 @@ Public Class BLL
                 Dim sqlparams As New ArrayList
                 sqlparams.Add(New SqlParameter("@user", user))
                 sqlparams.Add(New SqlParameter("@password", pass))
-                Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND Admin_Geral=1", sqlparams)
+                Return DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where convert(varbinary,Nome_Util) = convert(varbinary,@user) AND convert(varbinary,password) = convert(varbinary,@password) AND Admin_Geral=1", sqlparams)
             End Function
         End Class
         Public Class Componentes
@@ -744,7 +745,7 @@ Public Class BLL
             Return DAL.ExecuteScalar("Select Alunos FROM Empresas where NºEmpresa=@user AND Ativo=1", p)
         End Function
         Shared Function Carregar_empresas() As ArrayList
-            Return DAL.ExecuteQuery("Select Nome From empresas", Nothing)
+            Return DAL.ExecuteQuery("Select Nome From empresas where Ativo=1", Nothing)
         End Function
         Shared Function return_n_empresa(ByVal nome As String) As Object
             Dim p As New ArrayList
@@ -771,7 +772,7 @@ Public Class BLL
             sqlparams.Add(New SqlParameter("@password", pass))
             sqlparams.Add(New SqlParameter("@n_empresa", empresa))
             Dim resultado As Integer
-            resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where Nome_util=@user AND Password=@password AND NºEmpresa=@n_empresa AND Ativo=1", sqlparams)
+            resultado = DAL.ExecuteScalar("select Cod_Utilizador from Utilizadores where convert(varbinary,Nome_Util) = convert(varbinary,@user) AND convert(varbinary,password) = convert(varbinary,@password) AND NºEmpresa = @n_empresa AND Ativo=1", sqlparams)
             Return resultado
         End Function
         Shared Function Add_login(ByRef admin As Boolean, ByRef num_tecnico As Integer, ByRef num_aluno As Integer, ByRef user As String, ByRef pass As String) As Integer
@@ -782,7 +783,7 @@ Public Class BLL
             p.Add(New SqlParameter("@user", user))
             p.Add(New SqlParameter("@password", pass))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,NºTécnico,Nome_Util,Password,Admin,Ativo,NºEmpresa) VALUES (@n_aluno, @n_tecnico, @user,@password,@admin,1,NºEmpresa)", p)
+            Return DAL.ExecuteNonQuery("Insert into Utilizadores(NºAluno,NºTécnico,Nome_Util,Password,Admin,Ativo,NºEmpresa) VALUES (@n_aluno, @n_tecnico, @user,@password,@admin,1,@n_empresa)", p)
         End Function
         Shared Function Remove_Login(ByVal n_user As Integer) As Integer
             Dim p As New ArrayList
@@ -811,6 +812,12 @@ Public Class BLL
         '    p.Add(New SqlParameter("@empresa", empresa))
         '    DAL.ExecuteNonQuery("UPDATE Clientes set ativo=0 where nºempresa=@empresa", p)
         'End Sub
+        Shared Function carregar_clientes()
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@num_empresa", n_empresa))
+            Return DAL.ExecuteQuery("Select NºCliente,Nome from clientes where NºEmpresa=@num_empresa and ativo=1", p)
+        End Function
+
         Shared Function check_exist(ByVal nome As String) As Object
             Dim check As Integer
             Dim p As New ArrayList
@@ -1056,6 +1063,11 @@ Public Class BLL
         '    p.Add(New SqlParameter("@empresa", empresa))
         '    DAL.ExecuteNonQuery("UPDATE Componentes set ativo=0 where nºempresa=@empresa", p)
         'End Sub
+        Shared Function carregar_componentes() As ArrayList
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@num_empresa", n_empresa))
+            Return DAL.ExecuteQuery("Select NºCliente,Marca,Modelo,NºSérie from Componentes where NºEmpresa=@num_empresa", p)
+        End Function
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
@@ -1409,10 +1421,10 @@ Public Class BLL
                 End If
             End Sub
         End Class
-        Shared Function carregar_tecnico() As ArrayList
+        Shared Function carregar_tecnico() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQuery("SELECT Nome FROM Técnicos where NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºEmpresa=@n_empresa", p)
         End Function
         Shared Function carregar() As DataTable
             Dim p As New ArrayList

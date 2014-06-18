@@ -2,9 +2,9 @@
 
 
 Public Class Workspace
-    Public LoginForm1 As New LoginForm
     Public config2 As New Passo2
     Public config3 As New Passo3
+    Public config3_5 As New Passo3emeio
     Public config4 As New Passo4
     Public modo As Integer
     Public Aluno, admin, admin_geral As Boolean
@@ -103,6 +103,7 @@ Public Class Workspace
             m_ChildFormNumber += 1
             config3.MdiParent = Me
             m_ChildFormNumber += 1
+            config3_5.MdiParent = Me
             config4.MdiParent = Me
             m_ChildFormNumber += 1
         Else
@@ -169,12 +170,16 @@ Public Class Workspace
     End Sub
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles terminarsessaobutton.Click
+        For Each ChildForm As Form In Me.MdiChildren
+            ChildForm.Close()
+        Next
+        Dim LoginForm1 As New LoginForm
         StatusStrip.Hide()
         MenuStrip.Hide()
-        LoginForm.MdiParent = Me
+        LoginForm1.MdiParent = Me
         LoginForm1.Show()
         m_ChildFormNumber += 1
-        Me.FormBorderStyle = 1
+        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         terminarsessaobutton.Hide()
     End Sub
