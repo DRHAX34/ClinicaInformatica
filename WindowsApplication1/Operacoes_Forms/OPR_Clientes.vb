@@ -118,8 +118,18 @@
                 If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_contactom = False Then
                     BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                     MsgBox("Inserido com sucesso")
-                    Workspace.AtivosToolStripMenuItem.PerformClick()
-                    Me.Close()
+                    If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
+                        Dim opr_componente As New OPR_Componentes
+                        opr_componente.modo = False
+                        opr_componente.numbox.Text = BLL.Clientes.carregar_max()
+                        opr_componente.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_componente.Show()
+                        Me.Close()
+                    Else
+                        Workspace.clientesativos.PerformClick()
+                        Me.Close()
+                    End If
                 Else
                     MsgBox("Introduza todos os dados!")
                 End If
@@ -141,24 +151,24 @@
                 If removidos = True Then
                     BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
                     MsgBox("Editado com sucesso")
-                    Workspace.RemovidosToolStripMenuItem.PerformClick()
+                    Workspace.clientesremovidos.PerformClick()
                     Me.Close()
                 Else
                     BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                     MsgBox("Editado com sucesso")
-                    Workspace.AtivosToolStripMenuItem.PerformClick()
+                    Workspace.clientesativos.PerformClick()
                     Me.Close()
                 End If
             Else
                 If removidos = True Then
                     BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
                     MsgBox("Editado com sucesso")
-                    Workspace.RemovidosToolStripMenuItem.PerformClick()
+                    Workspace.clientesremovidos.PerformClick()
                     Me.Close()
                 Else
                     BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                     MsgBox("Editado com sucesso")
-                    Workspace.AtivosToolStripMenuItem.PerformClick()
+                    Workspace.clientesativos.PerformClick()
                     Me.Close()
                 End If
             End If
@@ -172,12 +182,12 @@
             If removidos = True Then
                 BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Restaurado com sucesso")
-                Workspace.RemovidosToolStripMenuItem.PerformClick()
+                Workspace.clientesremovidos.PerformClick()
                 Me.Close()
             Else
                 BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Removido com sucesso")
-                Workspace.AtivosToolStripMenuItem.PerformClick()
+                Workspace.clientesativos.PerformClick()
                 Me.Close()
             End If
         Catch ex As Exception
@@ -186,6 +196,11 @@
     End Sub
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles cancelarbutton.Click
+        If removidos = False Then
+            Workspace.clientesativos.PerformClick()
+        Else
+            Workspace.clientesremovidos.PerformClick()
+        End If
         Me.Close()
     End Sub
 

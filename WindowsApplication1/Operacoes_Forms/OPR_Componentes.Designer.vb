@@ -22,6 +22,7 @@ Partial Class OPR_Componentes
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.observaçoesbox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
@@ -39,6 +40,7 @@ Partial Class OPR_Componentes
         Me.Label4 = New System.Windows.Forms.Label()
         Me.numbox = New System.Windows.Forms.TextBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,7 +51,6 @@ Partial Class OPR_Componentes
         '
         'observaçoesbox
         '
-        Me.observaçoesbox.Enabled = False
         Me.observaçoesbox.Location = New System.Drawing.Point(17, 250)
         Me.observaçoesbox.Multiline = True
         Me.observaçoesbox.Name = "observaçoesbox"
@@ -196,6 +197,9 @@ Partial Class OPR_Componentes
         Me.RadButton6.TabIndex = 60
         Me.RadButton6.Text = "Selecionar Cliente"
         '
+        'Timer1
+        '
+        '
         'OPR_Componentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -249,4 +253,5 @@ Partial Class OPR_Componentes
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents numbox As System.Windows.Forms.TextBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

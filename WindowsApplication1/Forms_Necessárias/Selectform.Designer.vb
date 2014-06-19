@@ -28,6 +28,7 @@ Partial Class Selectform
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.adicionarbutton = New Telerik.WinControls.UI.RadButton()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,7 +47,7 @@ Partial Class Selectform
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(286, 10)
+        Me.TextBox1.Location = New System.Drawing.Point(396, 10)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(206, 35)
         Me.TextBox1.TabIndex = 1
@@ -54,7 +55,7 @@ Partial Class Selectform
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(127, 12)
+        Me.RadioButton1.Location = New System.Drawing.Point(127, 10)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
         Me.RadioButton1.TabIndex = 2
@@ -65,7 +66,7 @@ Partial Class Selectform
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(127, 28)
+        Me.RadioButton2.Location = New System.Drawing.Point(206, 26)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(90, 17)
         Me.RadioButton2.TabIndex = 3
@@ -76,7 +77,7 @@ Partial Class Selectform
         'showdata
         '
         Me.showdata.AutoSizeRows = True
-        Me.showdata.Location = New System.Drawing.Point(19, 64)
+        Me.showdata.Location = New System.Drawing.Point(19, 71)
         '
         'showdata
         '
@@ -86,25 +87,37 @@ Partial Class Selectform
         Me.showdata.Name = "showdata"
         Me.showdata.Padding = New System.Windows.Forms.Padding(1)
         Me.showdata.ReadOnly = True
-        Me.showdata.Size = New System.Drawing.Size(473, 277)
+        Me.showdata.Size = New System.Drawing.Size(583, 277)
         Me.showdata.TabIndex = 10
         Me.showdata.Text = "Data"
         Me.showdata.ThemeName = "Windows8"
         '
         'adicionarbutton
         '
-        Me.adicionarbutton.Location = New System.Drawing.Point(393, 362)
+        Me.adicionarbutton.Location = New System.Drawing.Point(489, 362)
         Me.adicionarbutton.Name = "adicionarbutton"
         Me.adicionarbutton.Size = New System.Drawing.Size(113, 34)
         Me.adicionarbutton.TabIndex = 22
         Me.adicionarbutton.Text = "Selecionar"
+        '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(282, 39)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(90, 17)
+        Me.RadioButton3.TabIndex = 23
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "RadioButton3"
+        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'Selectform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(518, 408)
+        Me.ClientSize = New System.Drawing.Size(614, 408)
+        Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.adicionarbutton)
         Me.Controls.Add(Me.showdata)
         Me.Controls.Add(Me.RadioButton2)
@@ -126,4 +139,5 @@ Partial Class Selectform
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
     Friend WithEvents adicionarbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
 End Class

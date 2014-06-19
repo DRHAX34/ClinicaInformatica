@@ -9,10 +9,7 @@ Imports System.CodeDom.Compiler
 Public Class Passo1
 
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
-    Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
-        Button1.Location = New Point((Me.Width - (795 - 609)), (Me.Height - (446 - 339)))
-        Button2.Location = New Point((Me.Width - (795 - 466)), (Me.Height - (446 - 351)))
-    End Sub
+    
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
         Const WM_DWMCOLORIZATIONCOLORCHANGED As Integer = 800
         If m.Msg = WM_DWMCOLORIZATIONCOLORCHANGED Then
@@ -22,7 +19,10 @@ Public Class Passo1
             Dim args As New ColorizationChangedEventArgs(c)
             RaiseEvent ColourizationChanged(Me, args)
         End If
-        MyBase.WndProc(m)
+        Try
+            MyBase.WndProc(m)
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load

@@ -31,12 +31,7 @@ Partial Class Passo2
         Me.cod_postallabel = New System.Windows.Forms.Label()
         Me.Localidadelabel = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
-        Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.moradabox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.niflabel = New System.Windows.Forms.Label()
-        Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.logolabel = New System.Windows.Forms.Label()
         Me.logobox = New System.Windows.Forms.PictureBox()
         Me.caminhobox = New ClinicaInformatica.WaterMarkTextBox()
@@ -44,6 +39,11 @@ Partial Class Passo2
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.limparbutton = New System.Windows.Forms.Button()
         Me.alunoslabel = New System.Windows.Forms.Label()
+        Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.moradabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
+        Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.simcheck = New System.Windows.Forms.RadioButton()
         Me.naocheck = New System.Windows.Forms.RadioButton()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,48 +122,6 @@ Partial Class Passo2
         'Timer1
         '
         '
-        'cod_postalbox
-        '
-        Me.cod_postalbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.cod_postalbox.Location = New System.Drawing.Point(224, 191)
-        Me.cod_postalbox.Mask = "0000-000"
-        Me.cod_postalbox.Name = "cod_postalbox"
-        Me.cod_postalbox.Size = New System.Drawing.Size(183, 27)
-        Me.cod_postalbox.TabIndex = 20
-        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
-        Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cod_postalbox.WaterMarkText = "Código Postal"
-        '
-        'localidadebox
-        '
-        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.localidadebox.Location = New System.Drawing.Point(25, 191)
-        Me.localidadebox.Name = "localidadebox"
-        Me.localidadebox.Size = New System.Drawing.Size(183, 27)
-        Me.localidadebox.TabIndex = 18
-        Me.localidadebox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.localidadebox.WaterMarkText = "Localidade"
-        '
-        'moradabox
-        '
-        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.moradabox.Location = New System.Drawing.Point(224, 138)
-        Me.moradabox.Name = "moradabox"
-        Me.moradabox.Size = New System.Drawing.Size(183, 27)
-        Me.moradabox.TabIndex = 14
-        Me.moradabox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.moradabox.WaterMarkText = "Morada"
-        '
-        'nomebox
-        '
-        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomebox.Location = New System.Drawing.Point(25, 138)
-        Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(183, 27)
-        Me.nomebox.TabIndex = 12
-        Me.nomebox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.nomebox.WaterMarkText = "Nome da Empresa"
-        '
         'niflabel
         '
         Me.niflabel.AutoSize = True
@@ -173,16 +131,6 @@ Partial Class Passo2
         Me.niflabel.Size = New System.Drawing.Size(31, 20)
         Me.niflabel.TabIndex = 22
         Me.niflabel.Text = "NIF"
-        '
-        'nifbox
-        '
-        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nifbox.Location = New System.Drawing.Point(24, 249)
-        Me.nifbox.Name = "nifbox"
-        Me.nifbox.Size = New System.Drawing.Size(183, 27)
-        Me.nifbox.TabIndex = 21
-        Me.nifbox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.nifbox.WaterMarkText = "NIF"
         '
         'logolabel
         '
@@ -246,6 +194,58 @@ Partial Class Passo2
         Me.alunoslabel.TabIndex = 36
         Me.alunoslabel.Text = "Tem Alunos?"
         '
+        'nomebox
+        '
+        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nomebox.Location = New System.Drawing.Point(25, 138)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.Size = New System.Drawing.Size(183, 27)
+        Me.nomebox.TabIndex = 39
+        Me.nomebox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.nomebox.WaterMarkText = "Nome da Empresa"
+        '
+        'moradabox
+        '
+        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.moradabox.Location = New System.Drawing.Point(224, 138)
+        Me.moradabox.Name = "moradabox"
+        Me.moradabox.Size = New System.Drawing.Size(183, 27)
+        Me.moradabox.TabIndex = 40
+        Me.moradabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.moradabox.WaterMarkText = "Morada"
+        '
+        'localidadebox
+        '
+        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.localidadebox.Location = New System.Drawing.Point(24, 191)
+        Me.localidadebox.Name = "localidadebox"
+        Me.localidadebox.Size = New System.Drawing.Size(183, 27)
+        Me.localidadebox.TabIndex = 41
+        Me.localidadebox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.localidadebox.WaterMarkText = "Localidade"
+        '
+        'cod_postalbox
+        '
+        Me.cod_postalbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.cod_postalbox.Location = New System.Drawing.Point(224, 191)
+        Me.cod_postalbox.Mask = "0000-000"
+        Me.cod_postalbox.Name = "cod_postalbox"
+        Me.cod_postalbox.Size = New System.Drawing.Size(183, 27)
+        Me.cod_postalbox.TabIndex = 42
+        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cod_postalbox.WaterMarkText = "Código Postal"
+        '
+        'nifbox
+        '
+        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nifbox.Location = New System.Drawing.Point(24, 250)
+        Me.nifbox.Name = "nifbox"
+        Me.nifbox.Size = New System.Drawing.Size(183, 27)
+        Me.nifbox.TabIndex = 43
+        Me.nifbox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.nifbox.WaterMarkText = "NIF"
+        '
         'simcheck
         '
         Me.simcheck.AutoSize = True
@@ -253,7 +253,7 @@ Partial Class Passo2
         Me.simcheck.Location = New System.Drawing.Point(224, 250)
         Me.simcheck.Name = "simcheck"
         Me.simcheck.Size = New System.Drawing.Size(47, 21)
-        Me.simcheck.TabIndex = 37
+        Me.simcheck.TabIndex = 44
         Me.simcheck.TabStop = True
         Me.simcheck.Text = "Sim"
         Me.simcheck.UseVisualStyleBackColor = True
@@ -262,10 +262,10 @@ Partial Class Passo2
         '
         Me.naocheck.AutoSize = True
         Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.naocheck.Location = New System.Drawing.Point(224, 273)
+        Me.naocheck.Location = New System.Drawing.Point(224, 277)
         Me.naocheck.Name = "naocheck"
         Me.naocheck.Size = New System.Drawing.Size(51, 21)
-        Me.naocheck.TabIndex = 38
+        Me.naocheck.TabIndex = 45
         Me.naocheck.TabStop = True
         Me.naocheck.Text = "Não"
         Me.naocheck.UseVisualStyleBackColor = True
@@ -277,6 +277,11 @@ Partial Class Passo2
         Me.ClientSize = New System.Drawing.Size(1019, 468)
         Me.Controls.Add(Me.naocheck)
         Me.Controls.Add(Me.simcheck)
+        Me.Controls.Add(Me.nifbox)
+        Me.Controls.Add(Me.cod_postalbox)
+        Me.Controls.Add(Me.localidadebox)
+        Me.Controls.Add(Me.moradabox)
+        Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.alunoslabel)
         Me.Controls.Add(Me.limparbutton)
         Me.Controls.Add(Me.imagebutton)
@@ -284,15 +289,10 @@ Partial Class Passo2
         Me.Controls.Add(Me.logobox)
         Me.Controls.Add(Me.logolabel)
         Me.Controls.Add(Me.niflabel)
-        Me.Controls.Add(Me.nifbox)
-        Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.Localidadelabel)
-        Me.Controls.Add(Me.localidadebox)
         Me.Controls.Add(Me.cod_postallabel)
         Me.Controls.Add(Me.moradalabel)
-        Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomelabel)
-        Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.cancelarbutton)
         Me.Controls.Add(Me.seguintebutton)
         Me.Controls.Add(Me.Label1)
@@ -309,17 +309,12 @@ Partial Class Passo2
     Friend WithEvents cancelarbutton As System.Windows.Forms.Button
     Friend WithEvents seguintebutton As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents nomelabel As System.Windows.Forms.Label
     Friend WithEvents moradalabel As System.Windows.Forms.Label
-    Friend WithEvents moradabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents cod_postallabel As System.Windows.Forms.Label
     Friend WithEvents Localidadelabel As System.Windows.Forms.Label
-    Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents niflabel As System.Windows.Forms.Label
-    Friend WithEvents nifbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents logolabel As System.Windows.Forms.Label
     Friend WithEvents logobox As System.Windows.Forms.PictureBox
     Friend WithEvents caminhobox As ClinicaInformatica.WaterMarkTextBox
@@ -327,6 +322,11 @@ Partial Class Passo2
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents limparbutton As System.Windows.Forms.Button
     Friend WithEvents alunoslabel As System.Windows.Forms.Label
+    Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents moradabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
+    Friend WithEvents nifbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents simcheck As System.Windows.Forms.RadioButton
     Friend WithEvents naocheck As System.Windows.Forms.RadioButton
 End Class

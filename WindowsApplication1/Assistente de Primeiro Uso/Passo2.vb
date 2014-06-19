@@ -10,12 +10,6 @@ Public Class Passo2
     Public logo As Image
     Dim img_caminho As String
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
-
-    Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
-        seguintebutton.Location = New Point((Me.Width - (811 - 629)), (Me.Height - (474 - 364)))
-        limparbutton.Location = New Point((Me.Width - (811 - 457)), (Me.Height - (474 - 373)))
-        cancelarbutton.Location = New Point((Me.Width - (811 - 314)), (Me.Height - (474 - 376)))
-    End Sub
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
         Const WM_DWMCOLORIZATIONCOLORCHANGED As Integer = 800
         If m.Msg = WM_DWMCOLORIZATIONCOLORCHANGED Then
@@ -25,7 +19,10 @@ Public Class Passo2
             Dim args As New ColorizationChangedEventArgs(c)
             RaiseEvent ColourizationChanged(Me, args)
         End If
-        MyBase.WndProc(m)
+        Try
+            MyBase.WndProc(m)
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -38,6 +35,7 @@ Public Class Passo2
         caminhobox.Enabled = False
         simcheck.Checked = False
         naocheck.Checked = True
+        Me.AcceptButton = seguintebutton
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -71,7 +69,43 @@ Public Class Passo2
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles seguintebutton.Click
-        If nomebox.Text <> "" And moradabox.Text <> "" And nifbox.Text <> "" And cod_postalbox.Text <> "" And localidadebox.Text <> "" And img_caminho <> "" Then
+        Dim check_nome As Boolean = True
+        Dim check_morada As Boolean = True
+        Dim check_nif As Boolean = True
+        Dim check_codpostal As Boolean = True
+        Dim check_localidade As Boolean = True
+        Dim check_logo As Boolean = True
+        For i = 0 To nomebox.Text.Count - 1
+            If nomebox.Text.Chars(i) <> " " Then
+                check_nome = False
+            End If
+        Next
+        For i = 0 To moradabox.Text.Count - 1
+            If moradabox.Text.Chars(i) <> " " Then
+                check_morada = False
+            End If
+        Next
+        For i = 0 To nifbox.Text.Count - 1
+            If nifbox.Text.Chars(i) <> " " Then
+                check_nif = False
+            End If
+        Next
+        For i = 0 To cod_postalbox.Text.Count - 1
+            If cod_postalbox.Text.Chars(i) <> " " Then
+                check_codpostal = False
+            End If
+        Next
+        For i = 0 To localidadebox.Text.Count - 1
+            If localidadebox.Text.Chars(i) <> " " Then
+                check_localidade = False
+            End If
+        Next
+        For i = 0 To logobox.Text.Count - 1
+            If logobox.Text.Chars(i) <> " " Then
+                check_logo = False
+            End If
+        Next
+        If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_logo = False Then
             BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
             Workspace.config3.Show()
             Me.Close()
@@ -98,4 +132,25 @@ Public Class Passo2
         Workspace.Close()
     End Sub
 
+    Private Sub limparbutton_Click(sender As Object, e As EventArgs) Handles limparbutton.Click
+        nomebox.Text = ""
+        moradabox.Text = ""
+        caminhobox.Text = ""
+        logobox.Image = Nothing
+        nifbox.Text = ""
+        cod_postalbox.Text = ""
+        localidadebox.Text = ""
+        naocheck.PerformClick()
+    End Sub
+
+    Private Sub simcheck_CheckedChanged(sender As Object, e As EventArgs) Handles simcheck.Click
+        naocheck.Checked = False
+        simcheck.Checked = True
+
+    End Sub
+    Private Sub naocheck_CheckedChanged(sender As Object, e As EventArgs) Handles naocheck.Click
+        naocheck.Checked = True
+        simcheck.Checked = False
+
+    End Sub
 End Class

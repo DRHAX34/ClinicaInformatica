@@ -1,4 +1,4 @@
-﻿Option Strict On
+﻿
 Option Explicit On
 
 Imports System.ComponentModel
@@ -7,10 +7,7 @@ Imports System.Security
 Imports System.CodeDom.Compiler
 
 Public Class Passo3
-    Private Sub form_resize(ByVal sender As Object, e As EventArgs) Handles Me.Resize
-        Button1.Location = New Point((Me.Width - (811 - 612)), (Me.Height - (474 - 364)))
-        Button2.Location = New Point((Me.Width - (811 - 440)), (Me.Height - (474 - 377)))
-    End Sub
+    
     Public Event ColourizationChanged As EventHandler(Of ColorizationChangedEventArgs)
 
     Protected Overrides Sub WndProc(ByRef m As System.Windows.Forms.Message)
@@ -22,7 +19,10 @@ Public Class Passo3
             Dim args As New ColorizationChangedEventArgs(c)
             RaiseEvent ColourizationChanged(Me, args)
         End If
-        MyBase.WndProc(m)
+        Try
+            MyBase.WndProc(m)
+        Catch ex As Exception
+        End Try
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
@@ -31,6 +31,7 @@ Public Class Passo3
         Timer1.Start()
         MaximizeBox = False
         MinimizeBox = False
+        Me.AcceptButton = Button1
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -58,13 +59,32 @@ Public Class Passo3
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        If nomebox.Text <> "" And passbox.Text <> "" Then
+        Dim check_nome As Boolean = True
+        Dim check_pass As Boolean = True
+        For i = 0 To nomebox.Text.Count - 1
+            If nomebox.Text.Chars(i) <> " " Then
+                check_nome = False
+            End If
+        Next
+        For i = 0 To passbox.Text.Count - 1
+            If passbox.Text.Chars(i) <> " " Then
+                check_pass = False
+            End If
+        Next
+        If check_nome = False And check_pass = False Then
             Dim password As String = passbox.Text
             Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
             Dim passencript As String = wrapper.EncryptData(password)
-            BLL.Admin_only.Login.Add_login(True, True, nomebox.Text, passencript)
+            BLL.Admin_only.Login.Add_login(True, False, nomebox.Text, passencript)
             Workspace.config3_5.Show()
             Me.Close()
+        Else
+            MsgBox("Preencha os dados todos!", vbOK, "Erro")
         End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        nomebox.Text = ""
+        passbox.Text = ""
     End Sub
 End Class

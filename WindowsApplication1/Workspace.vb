@@ -9,7 +9,8 @@ Public Class Workspace
     Public modo As Integer
     Public Aluno, admin, admin_geral As Boolean
     Public companyname1 As String
-    Public check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas As Boolean
+    Public support As Integer
+    Public check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -106,6 +107,7 @@ Public Class Workspace
             config3_5.MdiParent = Me
             config4.MdiParent = Me
             m_ChildFormNumber += 1
+            Me.MaximizeBox = False
         Else
             Me.WindowState = FormWindowState.Maximized
             LoginForm.Show()
@@ -129,7 +131,7 @@ Public Class Workspace
         
     End Sub
 
-    Private Sub AtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AtivosToolStripMenuItem.Click
+    Private Sub AtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles clientesativos.Click
         If check_clientes = False Then
             Dim clientesview As New ViewForm
             check_clientes = True
@@ -149,7 +151,7 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub RemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RemovidosToolStripMenuItem.Click
+    Private Sub RemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles clientesremovidos.Click
         If check_clientes = False Then
             Dim clientesview As New ViewForm
             check_clientes = True
@@ -182,5 +184,58 @@ Public Class Workspace
         Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         terminarsessaobutton.Hide()
+    End Sub
+
+    Private Sub componentesAtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles componentesAtivosToolStripMenuItem.Click
+        If check_componentes = False Then
+            Try
+                If BLL.Clientes.carregar.Rows.Count = 0 Then
+                    If MsgBox("Antes de adicionar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
+                        clientesativos.PerformClick()
+                    Else
+                        MsgBox("Não poderá adicionar um componente até adicionar um cliente!")
+                    End If
+                Else
+                    Dim componentesview As New ViewForm
+                    check_componentes = True
+                    componentesview.Text = "Componentes"
+                    componentesview.tabela = "Componentes"
+                    componentesview.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    componentesview.data_table = BLL.Componentes.carregar
+                    componentesview.removidos = False
+                    componentesview.Show()
+                End If
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Componentes aberta!")
+        End If
+    End Sub
+
+    Private Sub componentesRemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles componentesRemovidosToolStripMenuItem.Click
+        If check_componentes = False Then
+            If BLL.Clientes.carregar.Rows.Count = 0 Then
+                If MsgBox("Antes de adicionar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
+                    clientesativos.PerformClick()
+                Else
+                    MsgBox("Não poderá adicionar um componente até adicionar um cliente!")
+                End If
+            Else
+                Dim componentesview As New ViewForm
+                check_componentes = True
+                componentesview.Text = "Componentes"
+                componentesview.tabela = "Componentes"
+                componentesview.MdiParent = Me
+                m_ChildFormNumber += 1
+                componentesview.data_table = BLL.Componentes.carregar_desativos
+                componentesview.removidos = True
+                componentesview.Show()
+            End If
+        Else
+            MsgBox("Já tem a janela dos Componentes aberta!")
+        End If
     End Sub
 End Class

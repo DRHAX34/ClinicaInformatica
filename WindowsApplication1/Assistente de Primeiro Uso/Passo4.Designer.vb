@@ -40,7 +40,7 @@ Partial Class Passo4
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(612, 356)
+        Me.Button2.Location = New System.Drawing.Point(836, 388)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(171, 68)
         Me.Button2.TabIndex = 36
@@ -55,7 +55,7 @@ Partial Class Passo4
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(795, 436)
+        Me.ClientSize = New System.Drawing.Size(1019, 468)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Passo4"
