@@ -76,7 +76,7 @@ Public Class Passo3emeio
             Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
             Dim passencript As String = wrapper.EncryptData(password)
             BLL.n_empresa = "1"
-            BLL.Admin_only.Login.Add_login(False, True, nomebox.Text, passencript)
+            BLL.Admin_only.Login.Add_login_non_student(True, nomebox.Text, passencript, BLL.n_empresa)
             Workspace.config4.Show()
             Me.Close()
         Else

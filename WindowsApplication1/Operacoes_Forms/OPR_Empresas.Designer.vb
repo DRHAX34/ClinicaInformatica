@@ -135,6 +135,7 @@ Partial Class OPR_Empresas
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 21
         Me.RadButton5.Text = "Adicionar"
+        Me.RadButton5.TextWrap = True
         '
         'RadButton1
         '

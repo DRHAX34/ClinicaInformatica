@@ -100,8 +100,8 @@ Public Class Passo2
                 check_localidade = False
             End If
         Next
-        For i = 0 To logobox.Text.Count - 1
-            If logobox.Text.Chars(i) <> " " Then
+        For i = 0 To caminhobox.Text.Count - 1
+            If caminhobox.Text.Chars(i) <> " " Then
                 check_logo = False
             End If
         Next

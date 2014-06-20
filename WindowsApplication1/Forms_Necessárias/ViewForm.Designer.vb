@@ -22,6 +22,7 @@ Partial Class ViewForm
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.newbutton = New Telerik.WinControls.UI.RadButton()
@@ -32,6 +33,8 @@ Partial Class ViewForm
         Me.showbutton = New Telerik.WinControls.UI.RadButton()
         Me.exitbutton = New Telerik.WinControls.UI.RadButton()
         Me.othersbutton = New Telerik.WinControls.UI.RadButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.newbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -128,12 +131,28 @@ Partial Class ViewForm
         Me.othersbutton.Text = "Outras Funções"
         Me.othersbutton.TextWrap = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(315, 351)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(107, 25)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Atualizado!"
+        '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 5000
+        '
         'ViewForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(741, 464)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.othersbutton)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.showbutton)
@@ -157,6 +176,7 @@ Partial Class ViewForm
         CType(Me.exitbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.othersbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
@@ -169,4 +189,6 @@ Partial Class ViewForm
     Friend WithEvents showbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents exitbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents othersbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

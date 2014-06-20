@@ -2,6 +2,7 @@
     Public data_table As DataTable
     Public tabela As String
     Public removidos As Boolean
+    Dim timer As Integer
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 50
         showdata.Height = Me.Height - 200
@@ -13,6 +14,7 @@
         showbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 364)))
         newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (506 - 364)))
         editbutton.Location = New Point((editbutton.Location.X), (Me.Height - (506 - 364)))
+        Label1.Location = New Point(((Me.Width / 2) - 53), (Me.Height - (506 - 321)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         Select Case tabela
@@ -58,6 +60,7 @@
             delbutton.Text = "Eliminar"
             newbutton.Enabled = True
         End If
+        Label1.Hide()
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
@@ -103,249 +106,291 @@
     End Sub
 
     Private Sub editbutton_Click(sender As Object, e As EventArgs) Handles editbutton.Click
-        Dim string_data As String
-        string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-        Select Case tabela
-            Case "Clientes"
-                Dim opr_clientes As New OPR_Clientes
-                opr_clientes.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_clientes.modo = True
-                If removidos = True Then
-                    If Workspace.Aluno = True Then
-                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
-                        opr_clientes.removidos = True
-                        opr_clientes.Show()
-                    Else
-                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
-                        opr_clientes.removidos = True
-                        opr_clientes.Show()
-                    End If
-                Else
-                    If Workspace.Aluno = True Then
-                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
-                        opr_clientes.removidos = False
-                        opr_clientes.Show()
-                    Else
-                        opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
-                        opr_clientes.removidos = False
-                        opr_clientes.Show()
-                    End If
-                End If
-            Case "Componentes"
-                Dim opr_componentes As New OPR_Componentes
-                opr_componentes.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_componentes.modo = True
-                If removidos = True Then
-                    opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente_desativo(string_data)
-                    opr_componentes.removidos = True
-                    opr_componentes.Show()
-                Else
-                    opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
-                    opr_componentes.removidos = False
-                    opr_componentes.Show()
-                End If
-            Case "Reparações"
-                Dim opr_reparacoes As New OPR_Reparações
-                opr_reparacoes.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_reparacoes.modo = True
-                If removidos = True Then
-                    opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação_desativo(string_data)
-                    opr_reparacoes.removidos = True
-                    opr_reparacoes.Show()
-                Else
-                    opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
-                    opr_reparacoes.removidos = False
-                    opr_reparacoes.Show()
-                End If
-            Case "Técnicos"
-                Dim opr_tecnicos As New OPR_Técnicos
-                opr_tecnicos.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_tecnicos.modo = True
-                If removidos = True Then
-                    opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_desativados(string_data)
-                    opr_tecnicos.removidos = True
-                    opr_tecnicos.Show()
-                Else
-                    opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
-                    opr_tecnicos.removidos = False
-                    opr_tecnicos.Show()
-                End If
-            Case "Empresas"
-                Dim opr_empresas As New OPR_Empresas
-                opr_empresas.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_empresas.modo = True
-                If removidos = True Then
-                    opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa_desativados(string_data)
-                    opr_empresas.removidos = True
-                    opr_empresas.Show()
-                Else
-                    opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa(string_data)
-                    opr_empresas.removidos = True
-                    opr_empresas.Show()
-                End If
-            Case "Utilizadores"
-                Dim opr_utilizadores As New OPR_Utilizadores
-                opr_utilizadores.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_utilizadores.modo = True
-                If removidos = True Then
-                    opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(string_data)
-                    opr_utilizadores.removidos = True
-                    opr_utilizadores.Show()
-                Else
-                    opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(string_data)
-                    opr_utilizadores.removidos = True
-                    opr_utilizadores.Show()
-                End If
-        End Select
-        Me.Close()
+        Try
+            Dim string_data As String
+            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+            Try
+                Select Case tabela
+                    Case "Clientes"
+                        Dim opr_clientes As New OPR_Clientes
+                        opr_clientes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_clientes.modo = True
+                        If removidos = True Then
+                            If Workspace.Aluno = True Then
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
+                                opr_clientes.removidos = True
+                                opr_clientes.Show()
+                            Else
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
+                                opr_clientes.removidos = True
+                                opr_clientes.Show()
+                            End If
+                        Else
+                            If Workspace.Aluno = True Then
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
+                                opr_clientes.removidos = False
+                                opr_clientes.Show()
+                            Else
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
+                                opr_clientes.removidos = False
+                                opr_clientes.Show()
+                            End If
+                        End If
+                    Case "Componentes"
+                        Dim opr_componentes As New OPR_Componentes
+                        opr_componentes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_componentes.modo = True
+                        If removidos = True Then
+                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente_desativo(string_data)
+                            opr_componentes.removidos = True
+                            opr_componentes.Show()
+                        Else
+                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
+                            opr_componentes.removidos = False
+                            opr_componentes.Show()
+                        End If
+                    Case "Reparações"
+                        Dim opr_reparacoes As New OPR_Reparações
+                        opr_reparacoes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_reparacoes.modo = True
+                        If removidos = True Then
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação_desativo(string_data)
+                            opr_reparacoes.removidos = True
+                            opr_reparacoes.Show()
+                        Else
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
+                            opr_reparacoes.removidos = False
+                            opr_reparacoes.Show()
+                        End If
+                    Case "Técnicos"
+                        Dim opr_tecnicos As New OPR_Técnicos
+                        opr_tecnicos.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_tecnicos.modo = True
+                        If removidos = True Then
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_desativados(string_data)
+                            opr_tecnicos.removidos = True
+                            opr_tecnicos.Show()
+                        Else
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
+                            opr_tecnicos.removidos = False
+                            opr_tecnicos.Show()
+                        End If
+                    Case "Empresas"
+                        Dim opr_empresas As New OPR_Empresas
+                        opr_empresas.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_empresas.modo = True
+                        If removidos = True Then
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa_desativados(string_data)
+                            opr_empresas.removidos = True
+                            opr_empresas.Show()
+                        Else
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa(string_data)
+                            opr_empresas.removidos = True
+                            opr_empresas.Show()
+                        End If
+                    Case "Utilizadores"
+                        Dim opr_utilizadores As New OPR_Utilizadores
+                        opr_utilizadores.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_utilizadores.modo = True
+                        If removidos = True Then
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(string_data)
+                            opr_utilizadores.removidos = True
+                            opr_utilizadores.Show()
+                        Else
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(string_data)
+                            opr_utilizadores.removidos = True
+                            opr_utilizadores.Show()
+                        End If
+                End Select
+                Me.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao Editar: " & ex.Message)
+            End Try
+        Catch
+            MsgBox("Selecione algo na tabela primeiro!")
+        End Try
     End Sub
 
     
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
-        Dim string_data As String
-        string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-        Select Case tabela
-            Case "Clientes"
-                If removidos = True Then
-                    BLL.Clientes.reativar_cliente(string_data)
-                    MsgBox("Restaurado com sucesso!")
-                    If Workspace.Aluno = True Then
-                        showdata.DataSource = BLL.Clientes.carregar_eliminados_alunos()
-                    Else
-                        showdata.DataSource = BLL.Clientes.carregar_eliminados()
-                    End If
-                Else
-                    BLL.Clientes.apagar(string_data)
-                    MsgBox("Eliminado com sucesso!")
-                    If Workspace.Aluno = True Then
-                        showdata.DataSource = BLL.Clientes.carregar_alunos()
-                    Else
-                        showdata.DataSource = BLL.Clientes.carregar()
-                    End If
-                End If
-            Case "Componentes"
-                If removidos = True Then
-                    BLL.Componentes.restaurar(string_data, Nothing)
-                    MsgBox("Restaurado com sucesso!")
-                    showdata.DataSource = BLL.Componentes.carregar_desativos()
-                Else
-                    BLL.Componentes.apagar(string_data, Nothing)
-                    MsgBox("Removido com sucesso!")
-                    showdata.DataSource = BLL.Componentes.carregar()
-                End If
-            Case "Empresas"
-                If removidos = True Then
-                    BLL.Admin_only.Empresas.restaurar(string_data, Nothing)
-                    MsgBox("Restaurado com sucesso!")
-                    showdata.DataSource = BLL.Admin_only.Empresas.carregar_eliminados
-                Else
-                    BLL.Admin_only.Empresas.apagar(string_data, Nothing)
-                    MsgBox("Removido com sucesso!")
-                    showdata.DataSource = BLL.Admin_only.Empresas.carregar()
-                End If
-            Case "Reparações"
-                If removidos = True Then
-                    BLL.Reparacoes.restaurar(string_data, 1)
-                    MsgBox("Restaurado com sucesso!")
-                    showdata.DataSource = BLL.Reparacoes.carregar_desativos()
-                Else
-                    BLL.Reparacoes.apagar(string_data, 1)
-                    MsgBox("Removido com sucesso!")
-                    showdata.DataSource = BLL.Reparacoes.carregar()
-                End If
-            Case "Técnicos"
-                If removidos = True Then
-                    BLL.Tecnicos.apagar(string_data)
-                    MsgBox("Restaurado com sucesso!")
-                    showdata.DataSource = BLL.Tecnicos.carregar_eliminados
-                Else
-                    BLL.Tecnicos.restaurar(string_data)
-                    MsgBox("Removido com sucesso!")
-                    showdata.DataSource = BLL.Tecnicos.carregar()
-                End If
-            Case "Utilizadores"
-                If removidos = True Then
-                    BLL.Login.Restore_Login(string_data)
-                    MsgBox("Restaurado com sucesso!")
-                    If Workspace.admin_geral = True Then
-                        showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
-                    Else
-                        showdata.DataSource = BLL.Login.carregar_users_eliminados()
-                    End If
-                Else
-                    BLL.Login.Remove_Login(string_data)
-                    MsgBox("Removido com sucesso!")
-                    If Workspace.admin_geral = True Then
-                        showdata.DataSource = BLL.Admin_only.Login.carregar_users()
-                    Else
-                        showdata.DataSource = BLL.Login.carregar_users()
-                    End If
-                End If
-        End Select
-            
+        Try
+            Dim string_data As String
+            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+            Try
+                Select Case tabela
+                    Case "Clientes"
+                        If removidos = True Then
+                            BLL.Clientes.reativar_cliente(string_data)
+                            MsgBox("Restaurado com sucesso!")
+                            If Workspace.Aluno = True Then
+                                showdata.DataSource = BLL.Clientes.carregar_eliminados_alunos()
+                            Else
+                                showdata.DataSource = BLL.Clientes.carregar_eliminados()
+                            End If
+                        Else
+                            BLL.Clientes.apagar(string_data)
+                            MsgBox("Eliminado com sucesso!")
+                            If Workspace.Aluno = True Then
+                                showdata.DataSource = BLL.Clientes.carregar_alunos()
+                            Else
+                                showdata.DataSource = BLL.Clientes.carregar()
+                            End If
+                        End If
+                    Case "Componentes"
+                        If removidos = True Then
+                            BLL.Componentes.restaurar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
+                            MsgBox("Restaurado com sucesso!")
+                            showdata.DataSource = BLL.Componentes.carregar_desativos()
+                        Else
+                            BLL.Componentes.apagar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
+                            MsgBox("Removido com sucesso!")
+                            showdata.DataSource = BLL.Componentes.carregar()
+                        End If
+                    Case "Empresas"
+                        If removidos = True Then
+                            BLL.Admin_only.Empresas.restaurar(string_data, 0)
+                            MsgBox("Restaurado com sucesso!")
+                            showdata.DataSource = BLL.Admin_only.Empresas.carregar_eliminados
+                        Else
+                            Try
+                                Dim result As Integer
+                                result = MsgBox("Deseja eliminar permanentemente a empresa?", vbYesNoCancel, "Eliminar")
+                                If result = vbYes Then
+                                    BLL.Admin_only.eliminar_empresa(string_data)
+                                    MsgBox("Eliminada com sucesso!")
+                                    Workspace.empresasativas.PerformClick()
+                                    Me.Close()
+                                ElseIf result = vbNo Then
+                                    If MsgBox("Deseja marcar a empresa como inativa?", vbYesNoCancel) = vbYes Then
+                                        BLL.Admin_only.Empresas.apagar(string_data, 0)
+                                        MsgBox("Eliminada com sucesso!")
+                                        Workspace.empresasativas.PerformClick()
+                                        Me.Close()
+                                    Else
+                                        MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Erro, nenhuma opção selecionada")
+                                    End If
+                                Else
+                                    MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Cancelado")
+                                End If
+                            Catch ex As Exception
+                                MsgBox("Ocorreu um erro: " & ex.Message)
+                            End Try
+                        End If
+                    Case "Reparações"
+                        If removidos = True Then
+                            BLL.Reparacoes.restaurar(string_data, 1)
+                            MsgBox("Restaurado com sucesso!")
+                            showdata.DataSource = BLL.Reparacoes.carregar_desativos()
+                        Else
+                            BLL.Reparacoes.apagar(string_data, 1)
+                            MsgBox("Removido com sucesso!")
+                            showdata.DataSource = BLL.Reparacoes.carregar()
+                        End If
+                    Case "Técnicos"
+                        If removidos = True Then
+                            BLL.Tecnicos.apagar(string_data)
+                            MsgBox("Restaurado com sucesso!")
+                            showdata.DataSource = BLL.Tecnicos.carregar_eliminados
+                        Else
+                            BLL.Tecnicos.restaurar(string_data)
+                            MsgBox("Removido com sucesso!")
+                            showdata.DataSource = BLL.Tecnicos.carregar()
+                        End If
+                    Case "Utilizadores"
+                        If removidos = True Then
+                            BLL.Login.Restore_Login(string_data)
+                            MsgBox("Restaurado com sucesso!")
+                            If Workspace.admin_geral = True Then
+                                showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                            Else
+                                showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                            End If
+                        Else
+                            BLL.Login.Remove_Login(string_data)
+                            MsgBox("Removido com sucesso!")
+                            If Workspace.admin_geral = True Then
+                                showdata.DataSource = BLL.Admin_only.Login.carregar_users()
+                            Else
+                                showdata.DataSource = BLL.Login.carregar_users()
+                            End If
+                        End If
+                End Select
+            Catch ex As Exception
+                MsgBox("Ocorreu um erro: " & ex.Message)
+            End Try
+        Catch
+            MsgBox("Selecione algo na tabela primeiro!")
+        End Try
+        
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click
-        Select Case tabela
-            Case "Clientes"
-                If removidos = True Then
-                    If Workspace.Aluno = True Then
-                        showdata.DataSource = BLL.Clientes.carregar_eliminados_alunos()
+        Try
+            Select Case tabela
+                Case "Clientes"
+                    If removidos = True Then
+                        If Workspace.Aluno = True Then
+                            showdata.DataSource = BLL.Clientes.carregar_eliminados_alunos()
+                        Else
+                            showdata.DataSource = BLL.Clientes.carregar_eliminados()
+                        End If
                     Else
-                        showdata.DataSource = BLL.Clientes.carregar_eliminados()
+                        If Workspace.Aluno = True Then
+                            showdata.DataSource = BLL.Clientes.carregar_alunos()
+                        Else
+                            showdata.DataSource = BLL.Clientes.carregar()
+                        End If
                     End If
-                Else
-                    If Workspace.Aluno = True Then
-                        showdata.DataSource = BLL.Clientes.carregar_alunos()
+                Case "Componentes"
+                    If removidos = True Then
+                        showdata.DataSource = BLL.Componentes.carregar_desativos()
                     Else
-                        showdata.DataSource = BLL.Clientes.carregar()
+                        showdata.DataSource = BLL.Componentes.carregar()
                     End If
-                End If
-            Case "Componentes"
-                If removidos = True Then
-                    showdata.DataSource = BLL.Componentes.carregar_desativos()
-                Else
-                    showdata.DataSource = BLL.Componentes.carregar()
-                End If
-            Case "Empresas"
-                If removidos = True Then
-                    showdata.DataSource = BLL.Admin_only.Empresas.carregar_eliminados
-                Else
-                    showdata.DataSource = BLL.Admin_only.Empresas.carregar()
-                End If
-            Case "Reparações"
-                If removidos = True Then
-                    showdata.DataSource = BLL.Reparacoes.carregar_desativos()
-                Else
-                    showdata.DataSource = BLL.Reparacoes.carregar()
-                End If
-            Case "Técnicos"
-                If removidos = True Then
-                    showdata.DataSource = BLL.Tecnicos.carregar_eliminados
-                Else
-                    showdata.DataSource = BLL.Tecnicos.carregar()
-                End If
-            Case "Utilizadores"
-                If removidos = True Then
-                    If Workspace.admin_geral = True Then
-                        showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                Case "Empresas"
+                    If removidos = True Then
+                        showdata.DataSource = BLL.Admin_only.Empresas.carregar_eliminados
                     Else
-                        showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                        showdata.DataSource = BLL.Admin_only.Empresas.carregar()
                     End If
-                Else
-                    If Workspace.admin_geral = True Then
-                        showdata.DataSource = BLL.Admin_only.Login.carregar_users()
+                Case "Reparações"
+                    If removidos = True Then
+                        showdata.DataSource = BLL.Reparacoes.carregar_desativos()
                     Else
-                        showdata.DataSource = BLL.Login.carregar_users()
+                        showdata.DataSource = BLL.Reparacoes.carregar()
                     End If
-                End If
-        End Select
+                Case "Técnicos"
+                    If removidos = True Then
+                        showdata.DataSource = BLL.Tecnicos.carregar_eliminados
+                    Else
+                        showdata.DataSource = BLL.Tecnicos.carregar()
+                    End If
+                Case "Utilizadores"
+                    If removidos = True Then
+                        If Workspace.admin_geral = True Then
+                            showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                        Else
+                            showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                        End If
+                    Else
+                        If Workspace.admin_geral = True Then
+                            showdata.DataSource = BLL.Admin_only.Login.carregar_users()
+                        Else
+                            showdata.DataSource = BLL.Login.carregar_users()
+                        End If
+                    End If
+            End Select
+            Timer1.Start()
+            Label1.Show()
+        Catch ex As Exception
+            MsgBox("Erro ao atualizar: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
@@ -361,5 +406,10 @@
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+            Label1.Hide()
+            Timer1.Stop()
     End Sub
 End Class

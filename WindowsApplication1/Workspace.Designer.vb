@@ -33,10 +33,20 @@ Partial Class Workspace
         Me.clientesativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.dispositivosmenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.componentesAtivosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.componentesRemovidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.reparacoesmenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.reparativos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.reparremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tecnicosmenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tecnicosativos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tecremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.utilativos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.utilremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.empresasativas = New System.Windows.Forms.ToolStripMenuItem()
+        Me.empresasremovidas = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -44,8 +54,6 @@ Partial Class Workspace
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
-        Me.componentesAtivosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.componentesRemovidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -88,13 +96,13 @@ Partial Class Workspace
         'clientesativos
         '
         Me.clientesativos.Name = "clientesativos"
-        Me.clientesativos.Size = New System.Drawing.Size(152, 22)
+        Me.clientesativos.Size = New System.Drawing.Size(133, 22)
         Me.clientesativos.Text = "Ativos"
         '
         'clientesremovidos
         '
         Me.clientesremovidos.Name = "clientesremovidos"
-        Me.clientesremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.clientesremovidos.Size = New System.Drawing.Size(133, 22)
         Me.clientesremovidos.Text = "Removidos"
         '
         'dispositivosmenu
@@ -106,37 +114,101 @@ Partial Class Workspace
         Me.dispositivosmenu.Size = New System.Drawing.Size(148, 58)
         Me.dispositivosmenu.Text = "Componentes"
         '
+        'componentesAtivosToolStripMenuItem
+        '
+        Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
+        '
+        'componentesRemovidosToolStripMenuItem
+        '
+        Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
+        '
         'reparacoesmenu
         '
+        Me.reparacoesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.reparativos, Me.reparremovidos})
         Me.reparacoesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101423KaMIRkur
         Me.reparacoesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.reparacoesmenu.Name = "reparacoesmenu"
         Me.reparacoesmenu.Size = New System.Drawing.Size(133, 58)
         Me.reparacoesmenu.Text = "Reparações"
         '
+        'reparativos
+        '
+        Me.reparativos.Name = "reparativos"
+        Me.reparativos.Size = New System.Drawing.Size(152, 22)
+        Me.reparativos.Text = "Ativos"
+        '
+        'reparremovidos
+        '
+        Me.reparremovidos.Name = "reparremovidos"
+        Me.reparremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.reparremovidos.Text = "Removidos"
+        '
         'tecnicosmenu
         '
+        Me.tecnicosmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tecnicosativos, Me.tecremovidos})
         Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
         Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tecnicosmenu.Name = "tecnicosmenu"
         Me.tecnicosmenu.Size = New System.Drawing.Size(120, 58)
         Me.tecnicosmenu.Text = "Técnicos"
         '
+        'tecnicosativos
+        '
+        Me.tecnicosativos.Name = "tecnicosativos"
+        Me.tecnicosativos.Size = New System.Drawing.Size(152, 22)
+        Me.tecnicosativos.Text = "Ativos"
+        '
+        'tecremovidos
+        '
+        Me.tecremovidos.Name = "tecremovidos"
+        Me.tecremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.tecremovidos.Text = "Removidos"
+        '
         'UtilizadoresToolStripMenuItem
         '
+        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos})
         Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ5
         Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
         Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(134, 58)
         Me.UtilizadoresToolStripMenuItem.Text = "Utilizadores"
         '
+        'utilativos
+        '
+        Me.utilativos.Name = "utilativos"
+        Me.utilativos.Size = New System.Drawing.Size(152, 22)
+        Me.utilativos.Text = "Ativos"
+        '
+        'utilremovidos
+        '
+        Me.utilremovidos.Name = "utilremovidos"
+        Me.utilremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.utilremovidos.Text = "Removidos"
+        '
         'EmpresasToolStripMenuItem
         '
+        Me.EmpresasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.empresasativas, Me.empresasremovidas})
         Me.EmpresasToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.companyicon
         Me.EmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
         Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(123, 58)
         Me.EmpresasToolStripMenuItem.Text = "Empresas"
+        '
+        'empresasativas
+        '
+        Me.empresasativas.Name = "empresasativas"
+        Me.empresasativas.Size = New System.Drawing.Size(132, 22)
+        Me.empresasativas.Text = "Ativas"
+        '
+        'empresasremovidas
+        '
+        Me.empresasremovidas.Name = "empresasremovidas"
+        Me.empresasremovidas.Size = New System.Drawing.Size(132, 22)
+        Me.empresasremovidas.Text = "Removidas"
         '
         'HelpMenu
         '
@@ -146,6 +218,7 @@ Partial Class Workspace
         Me.HelpMenu.Name = "HelpMenu"
         Me.HelpMenu.Size = New System.Drawing.Size(104, 58)
         Me.HelpMenu.Text = "Ajuda"
+        Me.HelpMenu.Visible = False
         '
         'ContentsToolStripMenuItem
         '
@@ -189,23 +262,12 @@ Partial Class Workspace
         Me.terminarsessaobutton.TabIndex = 49
         Me.terminarsessaobutton.Text = "Terminar Sessão"
         '
-        'componentesAtivosToolStripMenuItem
-        '
-        Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
-        '
-        'componentesRemovidosToolStripMenuItem
-        '
-        Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
-        '
         'Workspace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1019, 468)
         Me.Controls.Add(Me.terminarsessaobutton)
@@ -246,5 +308,13 @@ Partial Class Workspace
     Friend WithEvents terminarsessaobutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents componentesAtivosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents componentesRemovidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents reparativos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents reparremovidos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tecnicosativos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents tecremovidos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents utilativos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents utilremovidos As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents empresasativas As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents empresasremovidas As System.Windows.Forms.ToolStripMenuItem
 
 End Class

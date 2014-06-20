@@ -10,7 +10,7 @@ Public Class BLL
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", nempresa))
             DAL.ExecuteNonQuery("Delete FROM Utilizadores where NºEmpresa=@n_empresa", p)
-            DAL.ExecuteNonQuery("Delete FROM Tecnicos where NºEmpresa=@n_empresa", p)
+            DAL.ExecuteNonQuery("Delete FROM Técnicos where NºEmpresa=@n_empresa", p)
             DAL.ExecuteNonQuery("Delete FROM Cliente where NºEmpresa=@n_empresa", p)
             DAL.ExecuteNonQuery("Delete FROM Dispositivos where NºEmpresa=@n_empresa", p)
             DAL.ExecuteNonQuery("Delete FROM Reparações where NºEmpresa=@n_empresa", p)
@@ -277,6 +277,15 @@ Public Class BLL
                 p.Add(New SqlParameter("@admin", admin))
                 p.Add(New SqlParameter("@admin_geral", admin_geral))
                 Return DAL.ExecuteNonQuery("Insert into Utilizadores(Nome_Util,Password,Admin_Geral,Admin,Ativo) VALUES (@user,@password,@Admin_Geral,@admin,1)", p)
+            End Function
+            Shared Function Add_login_non_student(ByVal admin As Boolean, ByRef user As String, ByRef pass As String, ByVal empresa As String)
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@user", user))
+                p.Add(New SqlParameter("@password", pass))
+                p.Add(New SqlParameter("@admin", admin))
+                p.Add(New SqlParameter("@admin_geral", False))
+                p.Add(New SqlParameter("@n_empresa", empresa))
+                Return DAL.ExecuteNonQuery("Insert into Utilizadores(Nome_Util,Password,Admin_Geral,Admin,Ativo,NºEmpresa) VALUES (@user,@password,@Admin_Geral,@admin,1,@n_empresa)", p)
             End Function
             Shared Function remove_login_empresa(ByVal empresa As String)
                 Dim p As New ArrayList
@@ -793,7 +802,7 @@ Public Class BLL
             p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
             DAL.ExecuteNonQuery("Update Utilizadores set NºAluno = @NºAluno, NºTécnico = @NºTécnico, Nome_Util= @Nome_Util, Password= @Password. Admin= @Admin, Admin_Geral= @Admin_Geral, Ativo= @Ativo, NºEmpresa= @NºEmpresa where Cod_Utilizador=@Cod_Utilizador", p)
         End Sub
-        Shared Function Verificar_Login(ByRef user As String, ByRef pass As String, ByRef empresa As Integer) As Integer
+        Shared Function Verificar_Login(ByRef user As String, ByRef pass As String, ByRef empresa As String) As Integer
             Dim sqlparams As New ArrayList
             sqlparams.Add(New SqlParameter("@user", user))
             sqlparams.Add(New SqlParameter("@password", pass))
@@ -1140,7 +1149,7 @@ Public Class BLL
         Shared Function carregar_desativos() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function procura_dados_numcomponente_desativo(ByRef NºComponente As String) As DataTable
             Dim p As New ArrayList
@@ -1212,7 +1221,7 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             Return DAL.ExecuteNonQuery("Insert into Componentes(NºCliente,Marca,Modelo,NºSérie,Observações,NºEmpresa,Ativo) VALUES (@NºCliente, @Marca, @Modelo, @NºSérie,@Observações,@n_empresa,1)", p)
         End Function
-        Shared Function alterar(ByVal NºComponente As String, ByVal n_cliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As Integer, ByVal Observações As String)
+        Shared Function alterar(ByVal NºComponente As String, ByVal n_cliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As String, ByVal Observações As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_cliente", n_cliente))

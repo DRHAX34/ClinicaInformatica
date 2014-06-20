@@ -38,7 +38,7 @@
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         Dim n_empresa As Integer
         Dim check As Boolean = False
-        n_empresa = CInt(BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString))
+        n_empresa = BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString)
         Dim password As String = Passwordbox.Text
         Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
         Dim passencript As String = wrapper.EncryptData(password)
@@ -64,6 +64,10 @@
                 Workspace.MenuStrip.Show()
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.terminarsessaobutton.Show()
+                Workspace.clientesmenu.Enabled = False
+                Workspace.dispositivosmenu.Enabled = False
+                Workspace.reparacoesmenu.Enabled = False
+                Workspace.tecnicosmenu.Enabled = False
                 Workspace.modo = 1
                 check = True
             End If

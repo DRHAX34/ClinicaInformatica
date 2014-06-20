@@ -71,6 +71,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Procura um recurso localizado do tipo System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property BD() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("BD", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property companyicon() As System.Drawing.Bitmap

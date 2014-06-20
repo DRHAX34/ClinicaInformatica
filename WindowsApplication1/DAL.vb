@@ -8,7 +8,7 @@ Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
         Try
-            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Emanuel\Documents\Bases de Dados\Clínica Informática\BD-C.I.mdf;Integrated Security=True;Connect Timeout=30")
+            Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=" & Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf" & ";Integrated Security=True;Connect Timeout=30")
             Return 0
         Catch ex As Exception
             MessageBox.Show("Erro na base-de-dados: " & ex.Message)

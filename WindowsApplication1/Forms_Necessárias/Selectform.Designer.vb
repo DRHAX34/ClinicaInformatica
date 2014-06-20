@@ -55,7 +55,7 @@ Partial Class Selectform
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(127, 10)
+        Me.RadioButton1.Location = New System.Drawing.Point(206, 3)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
         Me.RadioButton1.TabIndex = 2
@@ -103,7 +103,7 @@ Partial Class Selectform
         'RadioButton3
         '
         Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(282, 39)
+        Me.RadioButton3.Location = New System.Drawing.Point(206, 48)
         Me.RadioButton3.Name = "RadioButton3"
         Me.RadioButton3.Size = New System.Drawing.Size(90, 17)
         Me.RadioButton3.TabIndex = 23

@@ -1,4 +1,6 @@
 ﻿Imports System.Windows.Forms
+Imports System.IO
+Imports System.IO.Compression
 
 
 Public Class Workspace
@@ -10,7 +12,7 @@ Public Class Workspace
     Public Aluno, admin, admin_geral As Boolean
     Public companyname1 As String
     Public support As Integer
-    Public check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
+    Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -84,36 +86,52 @@ Public Class Workspace
         DAL.CloseConnection()
         DAL.TerminateConnection()
     End Sub
+    
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
-        MenuStrip.Hide()
-        Me.BackgroundImageLayout = ImageLayout.Stretch
-        StatusStrip.Hide()
-        terminarsessaobutton.Hide()
-        Dim estado As Integer = DAL.CreateConnection()
-        LoginForm.MdiParent = Me
-        m_ChildFormNumber += 1
-        Me.FormBorderStyle = 1
-        If BLL.Login.Carregar_empresas.Count = 0 Then
-            Me.WindowState = FormWindowState.Normal
-            Dim config As New Passo1
-            config.MdiParent = Me
-            m_ChildFormNumber += 1
-            config.Show()
-            config2.MdiParent = Me
-            m_ChildFormNumber += 1
-            config3.MdiParent = Me
-            m_ChildFormNumber += 1
-            config3_5.MdiParent = Me
-            config4.MdiParent = Me
-            m_ChildFormNumber += 1
-            Me.MaximizeBox = False
+        check_bd = False
+        If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf") Then
+            unzip()
+            check_bd = True
         Else
-            Me.WindowState = FormWindowState.Maximized
-            LoginForm.Show()
+            check_bd = True
         End If
-        Me.DoubleBuffered = True
-
+        If check_bd = True Then
+            Try
+                Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
+                MenuStrip.Hide()
+                Me.BackgroundImageLayout = ImageLayout.Stretch
+                StatusStrip.Hide()
+                terminarsessaobutton.Hide()
+                Dim estado As Integer = DAL.CreateConnection()
+                LoginForm.MdiParent = Me
+                m_ChildFormNumber += 1
+                Me.FormBorderStyle = 1
+                If BLL.Login.Carregar_empresas.Count = 0 Then
+                    Me.WindowState = FormWindowState.Normal
+                    Dim config As New Passo1
+                    config.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    config.Show()
+                    config2.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    config3.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    config3_5.MdiParent = Me
+                    config4.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    Me.MaximizeBox = False
+                Else
+                    Me.WindowState = FormWindowState.Maximized
+                    LoginForm.Show()
+                End If
+                Me.DoubleBuffered = True
+            Catch ex As Exception
+                MsgBox("Erro no programa: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Erro ao ligar à base-de-dados!")
+            Application.Exit()
+        End If
     End Sub
     Shared Sub login_load()
         If Workspace.modo = 1 Then
@@ -155,7 +173,7 @@ Public Class Workspace
         If check_clientes = False Then
             Dim clientesview As New ViewForm
             check_clientes = True
-            clientesview.Text = "Clientes"
+            clientesview.Text = "Clientes Removidos"
             clientesview.tabela = "Clientes"
             clientesview.MdiParent = Me
             m_ChildFormNumber += 1
@@ -226,7 +244,7 @@ Public Class Workspace
             Else
                 Dim componentesview As New ViewForm
                 check_componentes = True
-                componentesview.Text = "Componentes"
+                componentesview.Text = "Componentes Removidos"
                 componentesview.tabela = "Componentes"
                 componentesview.MdiParent = Me
                 m_ChildFormNumber += 1
@@ -236,6 +254,186 @@ Public Class Workspace
             End If
         Else
             MsgBox("Já tem a janela dos Componentes aberta!")
+        End If
+    End Sub
+
+    Private Sub empresasativas_Click(sender As Object, e As EventArgs) Handles empresasativas.Click
+        If check_empresas = False Then
+            Try
+                Dim empresasview As New ViewForm
+                check_empresas = True
+                empresasview.Text = "Empresas"
+                empresasview.tabela = "Empresas"
+                empresasview.MdiParent = Me
+                m_ChildFormNumber += 1
+                empresasview.data_table = BLL.Admin_only.Empresas.carregar()
+                empresasview.removidos = False
+                empresasview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela das Empresas abertas!")
+        End If
+    End Sub
+
+    Private Sub empresasremovidas_Click(sender As Object, e As EventArgs) Handles empresasremovidas.Click
+        If check_empresas = False Then
+            Try
+                Dim empresasview As New ViewForm
+                check_empresas = True
+                empresasview.Text = "Empresas"
+                empresasview.tabela = "Empresas"
+                empresasview.MdiParent = Me
+                m_ChildFormNumber += 1
+                empresasview.data_table = BLL.Admin_only.Empresas.carregar_eliminados
+                empresasview.removidos = True
+                empresasview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela das Empresas abertas!")
+        End If
+    End Sub
+
+    Private Sub reparativos_Click(sender As Object, e As EventArgs) Handles reparativos.Click
+        If check_reparacoes = False Then
+            Try
+                Dim repararview As New ViewForm
+                check_reparacoes = True
+                repararview.Text = "Reparações"
+                repararview.tabela = "Reparações"
+                repararview.MdiParent = Me
+                m_ChildFormNumber += 1
+                repararview.data_table = BLL.Reparacoes.carregar()
+                repararview.removidos = False
+                repararview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela das Reparações abertas!")
+        End If
+    End Sub
+
+    Private Sub utilativos_Click(sender As Object, e As EventArgs) Handles utilativos.Click
+        If check_utilizadores = False Then
+            Try
+                Dim utilizadorview As New ViewForm
+                check_utilizadores = True
+                utilizadorview.Text = "Utilizadores"
+                utilizadorview.tabela = "Utilizadores"
+                utilizadorview.MdiParent = Me
+                m_ChildFormNumber += 1
+                If admin_geral = True Then
+                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users()
+                Else
+                    utilizadorview.data_table = BLL.Login.carregar_users()
+                End If
+                utilizadorview.removidos = False
+                utilizadorview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Utilizadores abertas!")
+        End If
+    End Sub
+
+    Private Sub utilremovidos_Click(sender As Object, e As EventArgs) Handles utilremovidos.Click
+        If check_utilizadores = False Then
+            Try
+                Dim utilizadorview As New ViewForm
+                check_utilizadores = True
+                utilizadorview.Text = "Utilizadores"
+                utilizadorview.tabela = "Utilizadores"
+                utilizadorview.MdiParent = Me
+                m_ChildFormNumber += 1
+                If admin_geral = True Then
+                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users()
+                Else
+                    utilizadorview.data_table = BLL.Login.carregar_users()
+                End If
+                utilizadorview.removidos = True
+                utilizadorview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Utilizadores abertas!")
+        End If
+    End Sub
+
+    Private Sub EmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem.Click
+
+    End Sub
+
+    Private Sub reparremovidos_Click(sender As Object, e As EventArgs) Handles reparremovidos.Click
+        If check_reparacoes = False Then
+            Try
+                Dim repararview As New ViewForm
+                check_reparacoes = True
+                repararview.Text = "Reparações Removidas"
+                repararview.tabela = "Reparações"
+                repararview.MdiParent = Me
+                m_ChildFormNumber += 1
+                repararview.data_table = BLL.Reparacoes.carregar_desativos
+                repararview.removidos = True
+                repararview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela das Reparações abertas!")
+        End If
+    End Sub
+
+    Private Sub tecnicosativos_Click(sender As Object, e As EventArgs) Handles tecnicosativos.Click
+        If check_tecnicos = False Then
+            Try
+                Dim tecnicoview As New ViewForm
+                check_tecnicos = True
+                tecnicoview.Text = "Técnicos"
+                tecnicoview.tabela = "Técnicos"
+                tecnicoview.MdiParent = Me
+                m_ChildFormNumber += 1
+                tecnicoview.data_table = BLL.Tecnicos.carregar()
+                tecnicoview.removidos = False
+                tecnicoview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Técnicos abertas!")
+        End If
+    End Sub
+
+    Private Sub tecremovidos_Click(sender As Object, e As EventArgs) Handles tecremovidos.Click
+        If check_tecnicos = False Then
+            Try
+                Dim tecnicoview As New ViewForm
+                check_tecnicos = True
+                tecnicoview.Text = "Técnicos Removidos"
+                tecnicoview.tabela = "Técnicos"
+                tecnicoview.MdiParent = Me
+                m_ChildFormNumber += 1
+                tecnicoview.data_table = BLL.Tecnicos.carregar_eliminados()
+                tecnicoview.removidos = True
+                tecnicoview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Técnicos abertas!")
         End If
     End Sub
 End Class

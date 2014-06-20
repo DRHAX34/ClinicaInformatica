@@ -14,7 +14,11 @@
             RadButton1.Enabled = False
             RadButton3.Text = "Limpar Tudo"
         End If
-
+        If removidos = True Then
+            RadButton5.Text = "Remover Permanentemente"
+        Else
+            RadButton5.Text = "Adicionar"
+        End If
 
     End Sub
 
@@ -29,60 +33,61 @@
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim check_nome As Boolean = True
-        Dim check_morada As Boolean = True
-        Dim check_nif As Boolean = True
-        Dim check_codpostal As Boolean = True
-        Dim check_localidade As Boolean = True
-        Dim checklogo As Boolean = True
-        For i = 0 To nomebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nome = False
-            End If
-        Next
-        For i = 0 To moradabox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_morada = False
-            End If
-        Next
-        For i = 0 To nifbox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nif = False
-            End If
-        Next
-        For i = 0 To codpostalbox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_codpostal = False
-            End If
-        Next
-        For i = 0 To localidadebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_localidade = False
-            End If
-        Next
-        For i = 0 To caminhobox.Text.Count - 1
-            If caminhobox.Text.Chars(i) <> " " Then
-                checklogo = False
-            End If
-        Next
+        If removidos = False Then
+            Dim check_nome As Boolean = True
+            Dim check_morada As Boolean = True
+            Dim check_nif As Boolean = True
+            Dim check_codpostal As Boolean = True
+            Dim check_localidade As Boolean = True
+            Dim checklogo As Boolean = True
+            For i = 0 To nomebox.Text.Count - 1
+                If nomebox.Text.Chars(i) <> " " Then
+                    check_nome = False
+                End If
+            Next
+            For i = 0 To moradabox.Text.Count - 1
+                If nomebox.Text.Chars(i) <> " " Then
+                    check_morada = False
+                End If
+            Next
+            For i = 0 To nifbox.Text.Count - 1
+                If nomebox.Text.Chars(i) <> " " Then
+                    check_nif = False
+                End If
+            Next
+            For i = 0 To codpostalbox.Text.Count - 1
+                If nomebox.Text.Chars(i) <> " " Then
+                    check_codpostal = False
+                End If
+            Next
+            For i = 0 To localidadebox.Text.Count - 1
+                If nomebox.Text.Chars(i) <> " " Then
+                    check_localidade = False
+                End If
+            Next
+            For i = 0 To caminhobox.Text.Count - 1
+                If caminhobox.Text.Chars(i) <> " " Then
+                    checklogo = False
+                End If
+            Next
             If simcheck.Checked = True Or naocheck.Checked = True Then
                 If check_nome = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
                     Try
                         If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
                             MsgBox("Esta Empresa já existe!")
                         Else
-                        BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                        If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbOK Then
-                            Dim opr_utilizadores As New OPR_Utilizadores
-                            opr_utilizadores.MdiParent = Workspace
-                            opr_utilizadores.modo = False
-                            opr_utilizadores.Show()
-                            For i = 0 To opr_utilizadores.empresabox.Items.Count - 1
-                                If opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
-                                    opr_utilizadores.empresabox.SelectedIndex = i
-                                End If
-                            Next
-                        End If
+                            BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
+                            If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
+                                Dim opr_utilizadores As New OPR_Utilizadores
+                                opr_utilizadores.MdiParent = Workspace
+                                opr_utilizadores.modo = False
+                                opr_utilizadores.Show()
+                                For i = 0 To opr_utilizadores.empresabox.Items.Count - 1
+                                    If opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
+                                        opr_utilizadores.empresabox.SelectedIndex = i
+                                    End If
+                                Next
+                            End If
                         End If
                     Catch ex As Exception
                         MsgBox("Ocorreu um erro: " & ex.Message)
@@ -93,6 +98,15 @@
             Else
                 MsgBox("Indique se a Empresa tem alunos ou não!")
             End If
+        Else
+            Try
+                BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
+                MsgBox("Removida com sucesso!")
+                Workspace.empresasremovidas.PerformClick()
+            Catch ex As Exception
+                MsgBox("Erro ao remover: " & ex.Message)
+            End Try
+        End If
     End Sub
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles codpostalbox.MaskInputRejected
@@ -148,13 +162,36 @@
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
         Try
-            BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
+            Dim result As Integer
+            result = MsgBox("Deseja eliminar permanentemente a empresa?", vbYesNoCancel, "Eliminar")
+            If result = vbYes Then
+                BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
+                MsgBox("Eliminada com sucesso!")
+                Workspace.empresasativas.PerformClick()
+                Me.Close()
+            ElseIf result = vbNo Then
+                If MsgBox("Deseja marcar a empresa como inativa?", vbYesNoCancel) = vbYes Then
+                    BLL.Admin_only.Empresas.apagar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString, empresa_data.Rows.Item(0).Item("NIF"))
+                    MsgBox("Eliminada com sucesso!")
+                    Workspace.empresasativas.PerformClick()
+                    Me.Close()
+                Else
+                    MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Erro, nenhuma opção selecionada")
+                End If
+            Else
+                MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Cancelado")
+            End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
         End Try
     End Sub
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
+        If removidos = True Then
+            Workspace.empresasremovidas.PerformClick()
+        Else
+            Workspace.empresasativas.PerformClick()
+        End If
         Me.Close()
     End Sub
 
