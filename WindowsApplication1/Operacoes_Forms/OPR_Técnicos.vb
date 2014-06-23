@@ -7,4 +7,8 @@
         turmabox.Text = tecnico_data.Rows.Item(0).Item("Turma").ToString()
         nomebox.Text = tecnico_data.Rows.Item(0).Item("Nome").ToString()
     End Sub
+
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+
+    End Sub
 End Class

@@ -93,11 +93,15 @@
                 check_morada = False
             End If
         Next
-        For i = 0 To nifbox.Text.Count - 1
-            If nifbox.Text.Chars(i) <> " " Then
-                check_nif = False
-            End If
-        Next
+        If nifbox.Text.Length = 9 Then
+            For i = 0 To nifbox.Text.Count - 1
+                If nifbox.Text.Chars(i) <> " " Then
+                    check_nif = False
+                End If
+            Next
+        Else
+            check_nif = True
+        End If
         For i = 0 To codpostalbox.Text.Count - 1
             If codpostalbox.Text.Chars(i) <> " " Then
                 check_codpostal = False
@@ -108,11 +112,15 @@
                 check_localidade = False
             End If
         Next
-        For i = 0 To cmovelbox.Text.Count - 1
-            If cmovelbox.Text.Chars(i) <> " " Then
-                check_contactom = False
-            End If
-        Next
+        If cmovelbox.Text > 9 Then
+            For i = 0 To cmovelbox.Text.Count - 1
+                If cmovelbox.Text.Chars(i) <> " " Then
+                    check_contactom = False
+                End If
+            Next
+        Else
+            check_contactom = True
+        End If
         If Not BLL.Clientes.procura_dados_nome(nomebox.Text).Rows.Count <> 0 Then
             Try
                 If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_contactom = False Then
@@ -251,4 +259,41 @@
     End Sub
 
 
+    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs) Handles nifbox.TextChanged
+        If Not IsNumeric(nifbox.Text.Chars(nifbox.Text.Length - 1)) Then
+            nifbox.Text = ""
+        End If
+    End Sub
+
+    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.TextChanged
+        If Not IsNumeric(cmovelbox.Text.Chars(cmovelbox.Text.Length - 1)) Then
+            If Not cmovelbox.Text.Chars(0) = "+" Then
+                cmovelbox.Text = ""
+            End If
+        End If
+    End Sub
+
+    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.TextChanged
+        If Not IsNumeric(cfixobox.Text.Chars(cfixobox.Text.Length - 1)) Then
+            If Not cfixobox.Text.Chars(0) = "+" Then
+                cfixobox.Text = ""
+            End If
+        End If
+    End Sub
+
+    Private Sub numalunobox_TextChanged(sender As Object, e As EventArgs) Handles numalunobox.TextChanged
+        If Not IsNumeric(numalunobox.Text.Chars(numalunobox.Text.Length - 1)) Then
+            If Not numalunobox.Text.Chars(0) = "+" Then
+                numalunobox.Text = ""
+            End If
+        End If
+    End Sub
+
+    Private Sub turmabox_TextChanged(sender As Object, e As EventArgs) Handles turmabox.TextChanged
+        If Not IsNumeric(turmabox.Text.Chars(turmabox.Text.Length - 1)) Then
+            If Not turmabox.Text.Chars(0) = "+" Then
+                turmabox.Text = ""
+            End If
+        End If
+    End Sub
 End Class

@@ -153,4 +153,10 @@ Public Class Passo2
         simcheck.Checked = False
 
     End Sub
+
+    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs) Handles nifbox.TextChanged
+        If Not IsNumeric(nifbox.Text.Chars(nifbox.Text.Length - 1)) Then
+            nifbox.Text = ""
+        End If
+    End Sub
 End Class

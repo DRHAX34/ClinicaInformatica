@@ -12,6 +12,7 @@ Public Class Workspace
     Public Aluno, admin, admin_geral As Boolean
     Public companyname1 As String
     Public support As Integer
+    Public tecnicos_support As DataTable
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
@@ -332,7 +333,7 @@ Public Class Workspace
                 If admin_geral = True Then
                     utilizadorview.data_table = BLL.Admin_only.Login.carregar_users()
                 Else
-                    utilizadorview.data_table = BLL.Login.carregar_users()
+                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
                 End If
                 utilizadorview.removidos = False
                 utilizadorview.Show()
@@ -355,9 +356,9 @@ Public Class Workspace
                 utilizadorview.MdiParent = Me
                 m_ChildFormNumber += 1
                 If admin_geral = True Then
-                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users()
+                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users_eliminados
                 Else
-                    utilizadorview.data_table = BLL.Login.carregar_users()
+                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
                 End If
                 utilizadorview.removidos = True
                 utilizadorview.Show()

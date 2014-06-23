@@ -35,6 +35,10 @@ Partial Class ViewForm
         Me.othersbutton = New Telerik.WinControls.UI.RadButton()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.newbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +49,7 @@ Partial Class ViewForm
         CType(Me.showbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.exitbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.othersbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'showdata
@@ -146,12 +151,55 @@ Partial Class ViewForm
         Me.Timer1.Enabled = True
         Me.Timer1.Interval = 5000
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.RadioButton2)
+        Me.GroupBox1.Controls.Add(Me.RadioButton1)
+        Me.GroupBox1.Location = New System.Drawing.Point(259, 355)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(229, 100)
+        Me.GroupBox1.TabIndex = 10
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Localizar"
+        '
+        'RadioButton1
+        '
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "RadioButton1"
+        Me.RadioButton1.UseVisualStyleBackColor = True
+        '
+        'RadioButton2
+        '
+        Me.RadioButton2.AutoSize = True
+        Me.RadioButton2.Location = New System.Drawing.Point(133, 19)
+        Me.RadioButton2.Name = "RadioButton2"
+        Me.RadioButton2.Size = New System.Drawing.Size(90, 17)
+        Me.RadioButton2.TabIndex = 1
+        Me.RadioButton2.TabStop = True
+        Me.RadioButton2.Text = "RadioButton2"
+        Me.RadioButton2.UseVisualStyleBackColor = True
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.TextBox1.Location = New System.Drawing.Point(6, 52)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(217, 22)
+        Me.TextBox1.TabIndex = 2
+        '
         'ViewForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(741, 464)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.othersbutton)
         Me.Controls.Add(Me.exitbutton)
@@ -175,6 +223,8 @@ Partial Class ViewForm
         CType(Me.showbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.exitbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.othersbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -191,4 +241,8 @@ Partial Class ViewForm
     Friend WithEvents othersbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
+    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
 End Class

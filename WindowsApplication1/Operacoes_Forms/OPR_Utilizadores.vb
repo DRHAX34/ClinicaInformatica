@@ -13,6 +13,7 @@
         If Workspace.admin = True Then
             admgeralcheck.Hide()
         End If
+        empresabox.DataSource = BLL.Login.Carregar_empresas()
         If Workspace.admin_geral = True Then
             admgeralcheck.Show()
         End If
@@ -24,26 +25,30 @@
             RadButton1.Enabled = False
             RadButton3.Text = "Limpar Tudo"
         End If
+        tecnicobox.Enabled = False
     End Sub
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
-        numalunobox.Text = utilizador_data.Rows.Item(0).Item("NºAluno").ToString()
-        tecnicobox.DataSource = BLL.Tecnicos.carregar_tecnico
-        empresabox.DataSource = BLL.Login.Carregar_empresas()
-        For i = 0 To tecnicobox.Items.Count - 1
-            If utilizador_data.Rows.Item(0).Item("NºTécnico").ToString() = tecnicobox.Items(i) Then
-                tecnicobox.SelectedIndex = i
-            End If
-        Next
-        Dim nome As String
-        nome = BLL.Admin_only.Empresas.check_name(utilizador_data.Rows.Item(0).Item("NºEmpresa").ToString())
-        For i = 0 To empresabox.Items.Count - 1
-            If nome = tecnicobox.Items(i) Then
-                tecnicobox.SelectedIndex = i
-            End If
-        Next
-        nomeutilizadorbox.Text = utilizador_data.Rows.Item(0).Item("Nome_Util").ToString()
-        passwordbox.Text = utilizador_data.Rows.Item(0).Item("Password").ToString()
+        If modo = True Then
+            numalunobox.Text = utilizador_data.Rows.Item(0).Item("NºAluno").ToString()
+            empresabox.DataSource = BLL.Login.Carregar_empresas()
+            tecnicobox.Text = utilizador_data.Rows.Item(0).Item("NºTécnico").ToString()
+            Dim nome As String
+            nome = BLL.Admin_only.Empresas.check_name(utilizador_data.Rows.Item(0).Item("NºEmpresa").ToString())
+            For i = 0 To empresabox.Items.Count - 1
+                If nome = empresabox.Items(i) Then
+                    empresabox.SelectedIndex = i
+                End If
+            Next
+            nomeutilizadorbox.Text = utilizador_data.Rows.Item(0).Item("Nome_Util").ToString()
+            passwordbox.Text = utilizador_data.Rows.Item(0).Item("Password").ToString()
+        Else
+            numalunobox.Text = ""
+            tecnicobox.Text = ""
+            empresabox.SelectedIndex = 0
+            nomeutilizadorbox.Text = ""
+            passwordbox.Text = ""
+        End If
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
@@ -92,11 +97,10 @@
             check_empresa = False
         End If
         Try
-            For i = 0 To nomeutilizadorbox.Text.Count - 1
-                If nomeutilizadorbox.Text.Chars(i) <> " " Then
-                    check_nomutil = False
-                End If
-            Next
+            If nomeutilizadorbox.Text <> "" Or nomeutilizadorbox.Text.Chars(0) = " " Then
+                check_nomutil = False
+            End If
+
         Catch ex As Exception
             check_nomutil = True
         End Try
@@ -106,43 +110,40 @@
                     check_pass = False
                 End If
             Next
+            
         Catch ex As Exception
             check_pass = True
         End Try
-        If Workspace.admin_geral = True Then
-            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
-                Try
-                    If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
-                        MsgBox("Este Utilizador já existe!")
-                    Else
-                        BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+
+        If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+            Try
+                Dim n_empresa As Integer
+                n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
+                If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
+                    MsgBox("Este Utilizador já existe!")
+                Else
+                    Dim password As String = passwordbox.Text
+                    Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+                    Dim passencript As String = wrapper.EncryptData(password)
+                    If admgeralcheck.Checked = True Then
+                        BLL.Admin_only.Login.Add_login_non_student_admin(admgeralcheck.Checked, nomeutilizadorbox.Text, password)
                         MsgBox("Inserido com sucesso!")
+                        Workspace.utilativos.PerformClick()
+                        Me.Close()
+                    Else
+                        BLL.Admin_only.Login.Add_login_non_student_noadmin(admincheck.Checked, nomeutilizadorbox.Text, password, n_empresa)
+                        MsgBox("Inserido com sucesso!")
+                        Workspace.utilativos.PerformClick()
                         Me.Close()
                     End If
-                Catch ex As Exception
-                    MsgBox("Ocorreu um erro: " & ex.Message)
-                End Try
-            Else
-                MsgBox("Insira os dados todos!")
-            End If
-        ElseIf Workspace.admin = True Then
-            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
-                    Try
-                        If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
-                        MsgBox("Esta Utilizador já existe!")
-                        Else
-                            BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
-                            MsgBox("Inserido com sucesso!")
-                            Me.Close()
-                        End If
-                    Catch ex As Exception
-                        MsgBox("Ocorreu um erro: " & ex.Message)
-                    End Try
-            Else
-                MsgBox("Insira os dados todos!")
-            End If
+                End If
+            Catch ex As Exception
+                MsgBox("Ocorreu um erro: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Insira os dados todos!")
         End If
-        
+
     End Sub
 
 
@@ -238,9 +239,13 @@
         If Workspace.admin_geral = True Then
             If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
                 Try
-                        BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
-                        MsgBox("Inserido com sucesso!")
+                    If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
+                        MsgBox("Este Utilizador já existe!")
+                    Else
+                        BLL.Admin_only.Login.alterar_login_non_student(numalunobox.Text = utilizador_data.Rows.Item(0).Item("Cod_Utilizadr").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                        MsgBox("Editado com sucesso!")
                         Me.Close()
+                    End If
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro: " & ex.Message)
                 End Try
@@ -250,12 +255,20 @@
         ElseIf Workspace.admin = True Then
             If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
                 Try
+                    Dim n_empresa As Integer
+                    n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
                     If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
-                        MsgBox("Esta Utilizador já existe!")
+                        MsgBox("Este Utilizador já existe!")
                     Else
-                        BLL.Admin_only.Login.Add_login(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
-                        MsgBox("Inserido com sucesso!")
-                        Me.Close()
+                        If simcheck.Checked = True Then
+                            BLL.Admin_only.Login.Add_login_tecnico(n_empresa, tecnicobox.Text, admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                            MsgBox("Editado com sucesso!")
+                            Me.Close()
+                        Else
+                            BLL.Admin_only.Login.Add_login_non_student_noadmin(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                            MsgBox("Editado com sucesso!")
+                            Me.Close()
+                        End If
                     End If
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro: " & ex.Message)
@@ -264,5 +277,19 @@
                 MsgBox("Insira os dados todos!")
             End If
         End If
+    End Sub
+
+    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
+        Try
+            BLL.Admin_only.Login.remove_login(numalunobox.Text = utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString())
+            MsgBox("Removido com sucesso!")
+            Me.Close()
+        Catch ex As Exception
+            MsgBox("Erro ao remover: " & ex.Message)
+        End Try
+    End Sub
+
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
+        Me.Close()
     End Sub
 End Class

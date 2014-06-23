@@ -39,16 +39,28 @@
         Select Case tabela
             Case "Clientes"
                 othersbutton.Enabled = False
+                RadioButton1.Text = "Nome"
+                RadioButton2.Text = "NIF"
             Case "Componentes"
-                othersbutton.Enabled = False 'Até falarmos com o prof.João
+                othersbutton.Enabled = False
+                RadioButton1.Text = "NºComponente"
+                RadioButton2.Text = "NºCliente"
             Case "Empresas"
-                othersbutton.Enabled = False 'Até falarmos com o prof.João, podem sempre haver outras funções
+                othersbutton.Enabled = False
+                RadioButton1.Text = "Nome"
+                RadioButton2.Text = "NIF"
             Case "Reparações"
-                othersbutton.Enabled = True 'Aqui vão estar as opções de Relatórios
+                othersbutton.Enabled = True
+                RadioButton1.Text = "NºReparação"
+                RadioButton2.Text = "NºComponente"
             Case "Técnicos"
-                othersbutton.Enabled = False '(Emanuel)Creio eu
+                othersbutton.Enabled = True
+                RadioButton1.Text = "NºTécnico"
+                RadioButton2.Text = "Nome"
             Case "Utilizadores"
-                othersbutton.Enabled = False '(Emanuel) igualmente creio eu
+                othersbutton.Enabled = False
+                RadioButton1.Text = "NºUtilizador"
+                RadioButton2.Text = "NºTécnico"
         End Select
         Me.Show()
         showdata.DataSource = data_table
@@ -64,6 +76,7 @@
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
+        GroupBox1.Hide()
         Select Case tabela
             Case "Clientes"
                 Dim opr_clientes As New OPR_Clientes
@@ -219,6 +232,7 @@
 
     
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
+        GroupBox1.Hide()
         Try
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
@@ -304,20 +318,20 @@
                         End If
                     Case "Utilizadores"
                         If removidos = True Then
-                            BLL.Login.Restore_Login(string_data)
+                            BLL.Admin_only.Login.restore_Login(string_data)
                             MsgBox("Restaurado com sucesso!")
                             If Workspace.admin_geral = True Then
                                 showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
                             Else
-                                showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                                showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
                             End If
                         Else
-                            BLL.Login.Remove_Login(string_data)
+                            BLL.Admin_only.Login.remove_login(string_data)
                             MsgBox("Removido com sucesso!")
                             If Workspace.admin_geral = True Then
                                 showdata.DataSource = BLL.Admin_only.Login.carregar_users()
                             Else
-                                showdata.DataSource = BLL.Login.carregar_users()
+                                showdata.DataSource = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
                             End If
                         End If
                 End Select
@@ -331,6 +345,7 @@
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click
+        GroupBox1.Hide()
         Try
             Select Case tabela
                 Case "Clientes"
@@ -376,13 +391,13 @@
                         If Workspace.admin_geral = True Then
                             showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
                         Else
-                            showdata.DataSource = BLL.Login.carregar_users_eliminados()
+                            showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
                         End If
                     Else
                         If Workspace.admin_geral = True Then
                             showdata.DataSource = BLL.Admin_only.Login.carregar_users()
                         Else
-                            showdata.DataSource = BLL.Login.carregar_users()
+                            showdata.DataSource = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
                         End If
                     End If
             End Select
@@ -394,14 +409,124 @@
     End Sub
 
     Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
+        GroupBox1.Show()
     End Sub
 
     Private Sub showbutton_Click(sender As Object, e As EventArgs) Handles showbutton.Click
-        Me.Close()
+        GroupBox1.Hide()
+        Try
+            Dim string_data As String
+            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+            Try
+                Select Case tabela
+                    Case "Clientes"
+                        Dim opr_clientes As New OPR_Clientes
+                        opr_clientes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_clientes.modo = True
+                        If removidos = True Then
+                            If Workspace.Aluno = True Then
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
+                                opr_clientes.removidos = True
+                                opr_clientes.Show()
+                            Else
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
+                                opr_clientes.removidos = True
+                                opr_clientes.Show()
+                            End If
+                        Else
+                            If Workspace.Aluno = True Then
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
+                                opr_clientes.removidos = False
+                                opr_clientes.Show()
+                            Else
+                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
+                                opr_clientes.removidos = False
+                                opr_clientes.Show()
+                            End If
+                        End If
+                    Case "Componentes"
+                        Dim opr_componentes As New OPR_Componentes
+                        opr_componentes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_componentes.modo = True
+                        If removidos = True Then
+                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente_desativo(string_data)
+                            opr_componentes.removidos = True
+                            opr_componentes.Show()
+                        Else
+                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
+                            opr_componentes.removidos = False
+                            opr_componentes.Show()
+                        End If
+                    Case "Reparações"
+                        Dim opr_reparacoes As New OPR_Reparações
+                        opr_reparacoes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_reparacoes.modo = True
+                        If removidos = True Then
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação_desativo(string_data)
+                            opr_reparacoes.removidos = True
+                            opr_reparacoes.Show()
+                        Else
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
+                            opr_reparacoes.removidos = False
+                            opr_reparacoes.Show()
+                        End If
+                    Case "Técnicos"
+                        Dim opr_tecnicos As New OPR_Técnicos
+                        opr_tecnicos.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_tecnicos.modo = True
+                        If removidos = True Then
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_desativados(string_data)
+                            opr_tecnicos.removidos = True
+                            opr_tecnicos.Show()
+                        Else
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
+                            opr_tecnicos.removidos = False
+                            opr_tecnicos.Show()
+                        End If
+                    Case "Empresas"
+                        Dim opr_empresas As New OPR_Empresas
+                        opr_empresas.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_empresas.modo = True
+                        If removidos = True Then
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa_desativados(string_data)
+                            opr_empresas.removidos = True
+                            opr_empresas.Show()
+                        Else
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa(string_data)
+                            opr_empresas.removidos = True
+                            opr_empresas.Show()
+                        End If
+                    Case "Utilizadores"
+                        Dim opr_utilizadores As New OPR_Utilizadores
+                        opr_utilizadores.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_utilizadores.modo = True
+                        If removidos = True Then
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(string_data)
+                            opr_utilizadores.removidos = True
+                            opr_utilizadores.Show()
+                        Else
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(string_data)
+                            opr_utilizadores.removidos = True
+                            opr_utilizadores.Show()
+                        End If
+                End Select
+                Me.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao Editar: " & ex.Message)
+            End Try
+        Catch
+            MsgBox("Selecione algo na tabela primeiro!")
+        End Try
     End Sub
 
     Private Sub othersbutton_Click(sender As Object, e As EventArgs) Handles othersbutton.Click
-
+        GroupBox1.Hide()
     End Sub
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
@@ -411,5 +536,165 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
             Label1.Hide()
             Timer1.Stop()
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+
+        If RadioButton1.Checked = True Then
+            Select Case tabela
+                Case "Clientes"
+                    If removidos = True Then
+                        If Workspace.Aluno = True Then
+                            showdata.DataSource = BLL.Clientes.procura_dados_nome_desativados_alunos("%" + TextBox1.Text + "%")
+                        Else
+                            showdata.DataSource = BLL.Clientes.procura_dados_nome_desativados("%" + TextBox1.Text + "%")
+                        End If
+                    Else
+                        If Workspace.Aluno = True Then
+                            showdata.DataSource = BLL.Clientes.procura_dados_nome_alunos("%" + TextBox1.Text + "%")
+                        Else
+                            showdata.DataSource = BLL.Clientes.procura_dados_nome("%" + TextBox1.Text + "%")
+                        End If
+                    End If
+                Case "Componentes"
+                    If removidos = True Then
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_desativo(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    Else
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Componentes.procura_dados_numcomponente(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    End If
+                Case "Reparações"
+                    If removidos = True Then
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Reparacoes.procura_dados_numreparação_desativo(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    Else
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Reparacoes.procura_dados_numreparação(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    End If
+                Case "Técnicos"
+                    If removidos = True Then
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Tecnicos.procura_dados_ntecnico_desativados(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    Else
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Tecnicos.procura_dados_ntecnico_ativados(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    End If
+                Case "Utilizadores"
+                    If removidos = True Then
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    Else
+                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                            showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(TextBox1.Text)
+                        Else
+                            TextBox1.Text = ""
+                        End If
+                    End If
+                Case "Empresas"
+                    If removidos = True Then
+                        showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_desativados("%" + TextBox1.Text + "%")
+                    Else
+                        showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_ativados("%" + TextBox1.Text + "%")
+                    End If
+            End Select
+        End If
+        If RadioButton2.Checked = True Then
+            If IsNumeric(TextBox1.Text) Then
+                Select Case tabela
+                    Case "Clientes"
+                        If removidos = True Then
+                            If Workspace.Aluno Then
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif_desativados_alunos(TextBox1.Text)
+                            Else
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif_desativados(TextBox1.Text)
+                            End If
+                        Else
+                            If Workspace.Aluno Then
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif_alunos(TextBox1.Text)
+                            Else
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif(TextBox1.Text)
+                            End If
+                        End If
+                    Case "Componentes"
+                        If removidos = True Then
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Componentes.procura_dados_numcliente_desativo(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
+                        Else
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Componentes.procura_dados_numcliente(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
+                        End If
+                    Case "Reparações"
+                        If removidos = True Then
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Reparacoes.procura_dados_numcomponente_desativo(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
+                        Else
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Reparacoes.procura_dados_numcomponente(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
+                        End If
+                    Case "Técnicos"
+                        If removidos = True Then
+                            showdata.DataSource = BLL.Tecnicos.procura_dados_Nome_desativados(TextBox1.Text)
+                        Else
+                            showdata.DataSource = BLL.Tecnicos.procura_dados_Nome_ativados(TextBox1.Text)
+                        End If
+                    Case "Utilizadores"
+                        If removidos = True Then
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
+                        Else
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
+                        End If
+                    Case "Empresas"
+                        If removidos = True Then
+                            showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_ativados(TextBox1.Text)
+                        Else
+                            showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_desativados(TextBox1.Text)
+                        End If
+                End Select
+            Else
+                TextBox1.Text = ""
+            End If
+        End If
     End Sub
 End Class

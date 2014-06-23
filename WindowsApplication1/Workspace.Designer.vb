@@ -117,13 +117,13 @@ Partial Class Workspace
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu
@@ -138,13 +138,13 @@ Partial Class Workspace
         'reparativos
         '
         Me.reparativos.Name = "reparativos"
-        Me.reparativos.Size = New System.Drawing.Size(152, 22)
+        Me.reparativos.Size = New System.Drawing.Size(133, 22)
         Me.reparativos.Text = "Ativos"
         '
         'reparremovidos
         '
         Me.reparremovidos.Name = "reparremovidos"
-        Me.reparremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.reparremovidos.Size = New System.Drawing.Size(133, 22)
         Me.reparremovidos.Text = "Removidos"
         '
         'tecnicosmenu
@@ -159,13 +159,13 @@ Partial Class Workspace
         'tecnicosativos
         '
         Me.tecnicosativos.Name = "tecnicosativos"
-        Me.tecnicosativos.Size = New System.Drawing.Size(152, 22)
+        Me.tecnicosativos.Size = New System.Drawing.Size(133, 22)
         Me.tecnicosativos.Text = "Ativos"
         '
         'tecremovidos
         '
         Me.tecremovidos.Name = "tecremovidos"
-        Me.tecremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.tecremovidos.Size = New System.Drawing.Size(133, 22)
         Me.tecremovidos.Text = "Removidos"
         '
         'UtilizadoresToolStripMenuItem
@@ -180,13 +180,13 @@ Partial Class Workspace
         'utilativos
         '
         Me.utilativos.Name = "utilativos"
-        Me.utilativos.Size = New System.Drawing.Size(152, 22)
+        Me.utilativos.Size = New System.Drawing.Size(133, 22)
         Me.utilativos.Text = "Ativos"
         '
         'utilremovidos
         '
         Me.utilremovidos.Name = "utilremovidos"
-        Me.utilremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.utilremovidos.Size = New System.Drawing.Size(133, 22)
         Me.utilremovidos.Text = "Removidos"
         '
         'EmpresasToolStripMenuItem
@@ -267,7 +267,6 @@ Partial Class Workspace
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundo
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1019, 468)
         Me.Controls.Add(Me.terminarsessaobutton)

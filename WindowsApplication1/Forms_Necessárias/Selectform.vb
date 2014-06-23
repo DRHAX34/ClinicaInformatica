@@ -38,7 +38,14 @@
                     If IsNumeric(TextBox1.Text) Then
                         showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini(TextBox1.Text)
                     Else
+                        Dim backup As Array = TextBox1.Text.ToCharArray
                         TextBox1.Text = ""
+                        Try
+                            For i = 0 To backup.Length - 1
+                                TextBox1.Text += backup(i)
+                            Next
+                        Catch
+                        End Try
                     End If
                 Case "Empresas"
                     showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_mini("%" + TextBox1.Text + "%")
@@ -50,8 +57,18 @@
                     Case "Clientes"
                         showdata.DataSource = BLL.Clientes.procura_dados_numcliente_mini(TextBox1.Text)
                     Case "Componentes"
-                        showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini(TextBox1.Text)
-
+                        If IsNumeric(TextBox1.Text) Then
+                            showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini(TextBox1.Text)
+                        Else
+                            Dim backup As Array = TextBox1.Text.ToCharArray
+                            TextBox1.Text = ""
+                            Try
+                                For i = 0 To backup.Length - 1
+                                    TextBox1.Text += backup(i)
+                                Next
+                            Catch
+                            End Try
+                        End If
                     Case "Empresas"
                         showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_mini(TextBox1.Text)
                 End Select

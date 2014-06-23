@@ -49,10 +49,18 @@
             Workspace.MenuStrip.Show()
             If BLL.Login.verificar_admin(user) = True Then
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
+                Workspace.admin = True
+                Workspace.admin_geral = False
             Else
                 Workspace.UtilizadoresToolStripMenuItem.Visible = False
             End If
             Workspace.terminarsessaobutton.Show()
+            Workspace.clientesmenu.Enabled = True
+            Workspace.dispositivosmenu.Enabled = True
+            Workspace.reparacoesmenu.Enabled = True
+            Workspace.tecnicosmenu.Enabled = True
+            Workspace.empresasativas.Visible = False
+            Workspace.empresasremovidas.Visible = False
             Workspace.modo = 2
             check = True
         Else
@@ -68,6 +76,10 @@
                 Workspace.dispositivosmenu.Enabled = False
                 Workspace.reparacoesmenu.Enabled = False
                 Workspace.tecnicosmenu.Enabled = False
+                Workspace.empresasativas.Visible = True
+                Workspace.empresasremovidas.Visible = True
+                Workspace.admin = False
+                Workspace.admin_geral = True
                 Workspace.modo = 1
                 check = True
             End If

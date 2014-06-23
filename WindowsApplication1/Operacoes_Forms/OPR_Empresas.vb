@@ -50,11 +50,15 @@
                     check_morada = False
                 End If
             Next
-            For i = 0 To nifbox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
-                    check_nif = False
-                End If
-            Next
+            If nifbox.Text.Length = 9 Then
+                For i = 0 To nifbox.Text.Count - 1
+                    If nomebox.Text.Chars(i) <> " " Then
+                        check_nif = False
+                    End If
+                Next
+            Else
+                check_nif = True
+            End If
             For i = 0 To codpostalbox.Text.Count - 1
                 If nomebox.Text.Chars(i) <> " " Then
                     check_codpostal = False
@@ -246,6 +250,12 @@
             codpostalbox.Text = ""
             simcheck.Checked = False
             simcheck.Checked = False
+        End If
+    End Sub
+
+    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs) Handles nifbox.TextChanged
+        If Not IsNumeric(nifbox.Text) Then
+            nifbox.Text = ""
         End If
     End Sub
 End Class

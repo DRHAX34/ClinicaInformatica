@@ -226,6 +226,7 @@ Partial Class OPR_Empresas
         '
         Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.nifbox.Location = New System.Drawing.Point(204, 263)
+        Me.nifbox.MaxLength = 9
         Me.nifbox.Name = "nifbox"
         Me.nifbox.Size = New System.Drawing.Size(275, 25)
         Me.nifbox.TabIndex = 39

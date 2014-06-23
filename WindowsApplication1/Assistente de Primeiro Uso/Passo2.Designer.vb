@@ -240,6 +240,7 @@ Partial Class Passo2
         '
         Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nifbox.Location = New System.Drawing.Point(24, 250)
+        Me.nifbox.MaxLength = 9
         Me.nifbox.Name = "nifbox"
         Me.nifbox.Size = New System.Drawing.Size(183, 27)
         Me.nifbox.TabIndex = 43

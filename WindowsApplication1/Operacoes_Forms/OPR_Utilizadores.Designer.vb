@@ -38,13 +38,13 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.admgeralcheck = New System.Windows.Forms.CheckBox()
         Me.admincheck = New System.Windows.Forms.CheckBox()
-        Me.tecnicobox = New System.Windows.Forms.ComboBox()
         Me.addtecnicobox = New Telerik.WinControls.UI.RadButton()
         Me.empresabox = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.simcheck = New System.Windows.Forms.RadioButton()
         Me.naocheck = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.tecnicobox = New System.Windows.Forms.TextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -205,14 +205,6 @@ Partial Class OPR_Utilizadores
         Me.admincheck.Text = "Admin"
         Me.admincheck.UseVisualStyleBackColor = True
         '
-        'tecnicobox
-        '
-        Me.tecnicobox.FormattingEnabled = True
-        Me.tecnicobox.Location = New System.Drawing.Point(130, 208)
-        Me.tecnicobox.Name = "tecnicobox"
-        Me.tecnicobox.Size = New System.Drawing.Size(168, 21)
-        Me.tecnicobox.TabIndex = 84
-        '
         'addtecnicobox
         '
         Me.addtecnicobox.Location = New System.Drawing.Point(314, 208)
@@ -273,19 +265,26 @@ Partial Class OPR_Utilizadores
         Me.Label9.TabIndex = 90
         Me.Label9.Text = "O Utilizador é Técnico?"
         '
+        'tecnicobox
+        '
+        Me.tecnicobox.Location = New System.Drawing.Point(106, 209)
+        Me.tecnicobox.Name = "tecnicobox"
+        Me.tecnicobox.Size = New System.Drawing.Size(160, 20)
+        Me.tecnicobox.TabIndex = 91
+        '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(719, 620)
+        Me.Controls.Add(Me.tecnicobox)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.naocheck)
         Me.Controls.Add(Me.simcheck)
         Me.Controls.Add(Me.empresabox)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.addtecnicobox)
-        Me.Controls.Add(Me.tecnicobox)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -296,6 +295,7 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.numalunobox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
         Me.Name = "OPR_Utilizadores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Utilizadores"
@@ -325,7 +325,6 @@ Partial Class OPR_Utilizadores
     Friend WithEvents numalunobox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents tecnicobox As System.Windows.Forms.ComboBox
     Friend WithEvents addtecnicobox As Telerik.WinControls.UI.RadButton
     Friend WithEvents empresabox As System.Windows.Forms.ComboBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -334,4 +333,5 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents admgeralcheck As System.Windows.Forms.CheckBox
     Friend WithEvents admincheck As System.Windows.Forms.CheckBox
+    Friend WithEvents tecnicobox As System.Windows.Forms.TextBox
 End Class

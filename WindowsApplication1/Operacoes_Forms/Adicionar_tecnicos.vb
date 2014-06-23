@@ -13,6 +13,10 @@ Partial Class Adicionar_tecnicos
             MyBase.Dispose(disposing)
         End Try
     End Sub
+    Friend WithEvents Adicionar As Telerik.WinControls.UI.RadButton
+    Friend WithEvents button1 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents button2 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents button3 As Telerik.WinControls.UI.RadButton
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -24,12 +28,16 @@ Partial Class Adicionar_tecnicos
     Private Sub InitializeComponent()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.ListBox2 = New System.Windows.Forms.ListBox()
-        Me.Adicionar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.Adicionar = New Telerik.WinControls.UI.RadButton()
+        Me.button1 = New Telerik.WinControls.UI.RadButton()
+        Me.button2 = New Telerik.WinControls.UI.RadButton()
+        Me.button3 = New Telerik.WinControls.UI.RadButton()
+        CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.button1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.button2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.button3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -50,24 +58,6 @@ Partial Class Adicionar_tecnicos
         Me.ListBox2.Sorted = True
         Me.ListBox2.TabIndex = 1
         '
-        'Adicionar
-        '
-        Me.Adicionar.Location = New System.Drawing.Point(269, 122)
-        Me.Adicionar.Name = "Adicionar"
-        Me.Adicionar.Size = New System.Drawing.Size(75, 23)
-        Me.Adicionar.TabIndex = 2
-        Me.Adicionar.Text = ">>>"
-        Me.Adicionar.UseVisualStyleBackColor = True
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(269, 217)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "<<<"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -86,54 +76,67 @@ Partial Class Adicionar_tecnicos
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Remover"
         '
-        'Button2
+        'Adicionar
         '
-        Me.Button2.Location = New System.Drawing.Point(392, 400)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(114, 34)
-        Me.Button2.TabIndex = 6
-        Me.Button2.Text = "Guardar"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.Adicionar.Location = New System.Drawing.Point(272, 119)
+        Me.Adicionar.Name = "Adicionar"
+        Me.Adicionar.Size = New System.Drawing.Size(72, 22)
+        Me.Adicionar.TabIndex = 22
+        Me.Adicionar.Text = ">>"
         '
-        'Button3
+        'button1
         '
-        Me.Button3.Location = New System.Drawing.Point(512, 400)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(89, 34)
-        Me.Button3.TabIndex = 7
-        Me.Button3.Text = "Cancelar"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.button1.Location = New System.Drawing.Point(272, 217)
+        Me.button1.Name = "button1"
+        Me.button1.Size = New System.Drawing.Size(72, 22)
+        Me.button1.TabIndex = 22
+        Me.button1.Text = "<<"
         '
-        'Adicionar_peças
+        'button2
+        '
+        Me.button2.Location = New System.Drawing.Point(400, 400)
+        Me.button2.Name = "button2"
+        Me.button2.Size = New System.Drawing.Size(106, 34)
+        Me.button2.TabIndex = 22
+        Me.button2.Text = "Adicionar"
+        '
+        'button3
+        '
+        Me.button3.Location = New System.Drawing.Point(512, 400)
+        Me.button3.Name = "button3"
+        Me.button3.Size = New System.Drawing.Size(89, 34)
+        Me.button3.TabIndex = 22
+        Me.button3.Text = "Cancelar"
+        '
+        'Adicionar_tecnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(613, 446)
-        Me.Controls.Add(Me.Button3)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.button3)
+        Me.Controls.Add(Me.button2)
+        Me.Controls.Add(Me.button1)
+        Me.Controls.Add(Me.Adicionar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.Adicionar)
         Me.Controls.Add(Me.ListBox2)
         Me.Controls.Add(Me.ListBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Name = "Adicionar_peças"
+        Me.Name = "Adicionar_tecnicos"
         Me.Text = "Adicionar Peças"
+        CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.button1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.button2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.button3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
-    Friend WithEvents Adicionar As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
-
 
 End Class
 
@@ -201,6 +204,7 @@ Public Class Adicionar_tecnicos
                 End If
             Next
             datatable = datatable1
+            Workspace.tecnicos_support = datatable1
             Me.Close()
         Else
             MsgBox("Introduza algum Técnico para guardar")

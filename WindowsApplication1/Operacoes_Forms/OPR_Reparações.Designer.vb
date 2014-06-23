@@ -37,7 +37,7 @@ Partial Class OPR_Reparações
         Me.Label1 = New System.Windows.Forms.Label()
         Me.categoriabox = New System.Windows.Forms.TextBox()
         Me.temporealbox = New System.Windows.Forms.TextBox()
-        Me.numdispositivobox = New System.Windows.Forms.TextBox()
+        Me.numcomponentebox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.dateinicio = New System.Windows.Forms.DateTimePicker()
@@ -171,9 +171,9 @@ Partial Class OPR_Reparações
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(27, 127)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(134, 25)
+        Me.Label1.Size = New System.Drawing.Size(152, 25)
         Me.Label1.TabIndex = 41
-        Me.Label1.Text = "NºDispositivo"
+        Me.Label1.Text = "NºComponente"
         '
         'categoriabox
         '
@@ -189,12 +189,12 @@ Partial Class OPR_Reparações
         Me.temporealbox.Size = New System.Drawing.Size(142, 22)
         Me.temporealbox.TabIndex = 39
         '
-        'numdispositivobox
+        'numcomponentebox
         '
-        Me.numdispositivobox.Location = New System.Drawing.Point(196, 127)
-        Me.numdispositivobox.Name = "numdispositivobox"
-        Me.numdispositivobox.Size = New System.Drawing.Size(136, 22)
-        Me.numdispositivobox.TabIndex = 37
+        Me.numcomponentebox.Location = New System.Drawing.Point(196, 127)
+        Me.numcomponentebox.Name = "numcomponentebox"
+        Me.numcomponentebox.Size = New System.Drawing.Size(136, 22)
+        Me.numcomponentebox.TabIndex = 37
         '
         'Label4
         '
@@ -292,7 +292,7 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.categoriabox)
         Me.Controls.Add(Me.temporealbox)
-        Me.Controls.Add(Me.numdispositivobox)
+        Me.Controls.Add(Me.numcomponentebox)
         Me.Controls.Add(Me.Label4)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -327,7 +327,7 @@ Partial Class OPR_Reparações
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents categoriabox As System.Windows.Forms.TextBox
     Friend WithEvents temporealbox As System.Windows.Forms.TextBox
-    Friend WithEvents numdispositivobox As System.Windows.Forms.TextBox
+    Friend WithEvents numcomponentebox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents dateinicio As System.Windows.Forms.DateTimePicker
