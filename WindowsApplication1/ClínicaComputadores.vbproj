@@ -261,6 +261,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL.vb" />
+    <Compile Include="Forms_Necessárias\pass_decrypt.Designer.vb">
+      <DependentUpon>pass_decrypt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_Necessárias\pass_decrypt.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="unZip.vb" />
     <Compile Include="Simple3Des.vb" />
     <Compile Include="DAL.vb" />
@@ -360,11 +366,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="_BD_C_IDataSet1.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_BD_C_IDataSet1.xsd</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo3emeio.resx">
@@ -382,6 +383,9 @@
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo4.resx">
       <DependentUpon>Passo4.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Necessárias\pass_decrypt.resx">
+      <DependentUpon>pass_decrypt.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\Selectform.resx">
       <DependentUpon>Selectform.vb</DependentUpon>
     </EmbeddedResource>
@@ -391,8 +395,6 @@
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report3.rdlc" />
-    <EmbeddedResource Include="Report4.rdlc" />
     <EmbeddedResource Include="SplashAway.resx">
       <DependentUpon>SplashAway.vb</DependentUpon>
     </EmbeddedResource>
@@ -450,17 +452,6 @@
     </None>
     <None Include="Resources\_BD_C_IDataSet.xss">
       <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="_BD_C_IDataSet1.xsc">
-      <DependentUpon>_BD_C_IDataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="_BD_C_IDataSet1.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_BD_C_IDataSet1.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="_BD_C_IDataSet1.xss">
-      <DependentUpon>_BD_C_IDataSet1.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

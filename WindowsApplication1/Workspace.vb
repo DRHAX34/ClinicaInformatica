@@ -444,4 +444,8 @@ Public Class Workspace
             MsgBox("Já tem a janela dos Técnicos abertas!")
         End If
     End Sub
+
+    Private Sub DesencriptadorDePalavrasPassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DesencriptadorDePalavrasPassesToolStripMenuItem.Click
+
+    End Sub
 End Class

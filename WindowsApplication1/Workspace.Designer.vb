@@ -54,6 +54,7 @@ Partial Class Workspace
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -170,7 +171,7 @@ Partial Class Workspace
         '
         'UtilizadoresToolStripMenuItem
         '
-        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos})
+        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos, Me.DesencriptadorDePalavrasPassesToolStripMenuItem})
         Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ5
         Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
@@ -262,6 +263,12 @@ Partial Class Workspace
         Me.terminarsessaobutton.TabIndex = 49
         Me.terminarsessaobutton.Text = "Terminar Sessão"
         '
+        'DesencriptadorDePalavrasPassesToolStripMenuItem
+        '
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Name = "DesencriptadorDePalavrasPassesToolStripMenuItem"
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Text = "Desencriptador de Palavras-Passes"
+        '
         'Workspace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -315,5 +322,6 @@ Partial Class Workspace
     Friend WithEvents utilremovidos As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents empresasativas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents empresasremovidas As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DesencriptadorDePalavrasPassesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
