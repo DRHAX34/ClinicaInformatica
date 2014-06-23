@@ -58,17 +58,17 @@ Partial Class OPR_Reparações
         'descriçaobox
         '
         Me.descriçaobox.Enabled = False
-        Me.descriçaobox.Location = New System.Drawing.Point(395, 315)
+        Me.descriçaobox.Location = New System.Drawing.Point(49, 310)
         Me.descriçaobox.Multiline = True
         Me.descriçaobox.Name = "descriçaobox"
-        Me.descriçaobox.Size = New System.Drawing.Size(393, 161)
+        Me.descriçaobox.Size = New System.Drawing.Size(709, 117)
         Me.descriçaobox.TabIndex = 58
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(505, 287)
+        Me.Label8.Location = New System.Drawing.Point(312, 282)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
@@ -77,7 +77,7 @@ Partial Class OPR_Reparações
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(6, 88)
+        Me.CheckBox2.Location = New System.Drawing.Point(440, 33)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(111, 29)
         Me.CheckBox2.TabIndex = 54
@@ -98,7 +98,7 @@ Partial Class OPR_Reparações
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(617, 93)
+        Me.Label7.Location = New System.Drawing.Point(617, 26)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(107, 25)
         Me.Label7.TabIndex = 52
@@ -106,7 +106,7 @@ Partial Class OPR_Reparações
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(699, 527)
+        Me.RadButton4.Location = New System.Drawing.Point(703, 444)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 51
@@ -114,7 +114,7 @@ Partial Class OPR_Reparações
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(529, 527)
+        Me.RadButton3.Location = New System.Drawing.Point(533, 444)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 50
@@ -123,7 +123,7 @@ Partial Class OPR_Reparações
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(361, 527)
+        Me.RadButton2.Location = New System.Drawing.Point(365, 444)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 49
@@ -131,7 +131,7 @@ Partial Class OPR_Reparações
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(196, 527)
+        Me.RadButton1.Location = New System.Drawing.Point(200, 444)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 48
@@ -139,7 +139,7 @@ Partial Class OPR_Reparações
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(32, 527)
+        Me.RadButton5.Location = New System.Drawing.Point(36, 444)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 47
@@ -159,7 +159,7 @@ Partial Class OPR_Reparações
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(27, 182)
+        Me.Label3.Location = New System.Drawing.Point(35, 139)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(98, 25)
         Me.Label3.TabIndex = 43
@@ -169,7 +169,7 @@ Partial Class OPR_Reparações
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(27, 127)
+        Me.Label1.Location = New System.Drawing.Point(35, 95)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 25)
         Me.Label1.TabIndex = 41
@@ -177,21 +177,21 @@ Partial Class OPR_Reparações
         '
         'categoriabox
         '
-        Me.categoriabox.Location = New System.Drawing.Point(196, 188)
+        Me.categoriabox.Location = New System.Drawing.Point(196, 139)
         Me.categoriabox.Name = "categoriabox"
         Me.categoriabox.Size = New System.Drawing.Size(275, 22)
         Me.categoriabox.TabIndex = 40
         '
         'temporealbox
         '
-        Me.temporealbox.Location = New System.Drawing.Point(196, 242)
+        Me.temporealbox.Location = New System.Drawing.Point(196, 175)
         Me.temporealbox.Name = "temporealbox"
         Me.temporealbox.Size = New System.Drawing.Size(142, 22)
         Me.temporealbox.TabIndex = 39
         '
         'numcomponentebox
         '
-        Me.numcomponentebox.Location = New System.Drawing.Point(196, 127)
+        Me.numcomponentebox.Location = New System.Drawing.Point(197, 101)
         Me.numcomponentebox.Name = "numcomponentebox"
         Me.numcomponentebox.Size = New System.Drawing.Size(136, 22)
         Me.numcomponentebox.TabIndex = 37
@@ -200,7 +200,7 @@ Partial Class OPR_Reparações
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(27, 237)
+        Me.Label4.Location = New System.Drawing.Point(35, 172)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 25)
         Me.Label4.TabIndex = 36
@@ -210,7 +210,7 @@ Partial Class OPR_Reparações
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(617, 162)
+        Me.Label11.Location = New System.Drawing.Point(617, 79)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(90, 25)
         Me.Label11.TabIndex = 61
@@ -218,14 +218,14 @@ Partial Class OPR_Reparações
         '
         'dateinicio
         '
-        Me.dateinicio.Location = New System.Drawing.Point(560, 127)
+        Me.dateinicio.Location = New System.Drawing.Point(560, 54)
         Me.dateinicio.Name = "dateinicio"
         Me.dateinicio.Size = New System.Drawing.Size(200, 22)
         Me.dateinicio.TabIndex = 62
         '
         'datefim
         '
-        Me.datefim.Location = New System.Drawing.Point(560, 190)
+        Me.datefim.Location = New System.Drawing.Point(560, 107)
         Me.datefim.Name = "datefim"
         Me.datefim.Size = New System.Drawing.Size(200, 22)
         Me.datefim.TabIndex = 63
@@ -237,9 +237,9 @@ Partial Class OPR_Reparações
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(32, 291)
+        Me.GroupBox1.Location = New System.Drawing.Point(40, 203)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(270, 150)
+        Me.GroupBox1.Size = New System.Drawing.Size(728, 76)
         Me.GroupBox1.TabIndex = 64
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo"
@@ -247,7 +247,7 @@ Partial Class OPR_Reparações
         'softwarebox
         '
         Me.softwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.softwarebox.Location = New System.Drawing.Point(131, 84)
+        Me.softwarebox.Location = New System.Drawing.Point(557, 32)
         Me.softwarebox.Name = "softwarebox"
         Me.softwarebox.Size = New System.Drawing.Size(133, 25)
         Me.softwarebox.TabIndex = 56
@@ -262,9 +262,9 @@ Partial Class OPR_Reparações
         '
         'RadButton6
         '
-        Me.RadButton6.Location = New System.Drawing.Point(560, 228)
+        Me.RadButton6.Location = New System.Drawing.Point(560, 150)
         Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(200, 47)
+        Me.RadButton6.Size = New System.Drawing.Size(193, 47)
         Me.RadButton6.TabIndex = 65
         Me.RadButton6.Text = "Técnicos Participantes"
         '
@@ -273,7 +273,7 @@ Partial Class OPR_Reparações
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(812, 606)
+        Me.ClientSize = New System.Drawing.Size(812, 515)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.datefim)
@@ -295,7 +295,7 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.numcomponentebox)
         Me.Controls.Add(Me.Label4)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.Name = "OPR_Reparações"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -15,6 +15,7 @@
         newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (506 - 364)))
         editbutton.Location = New Point((editbutton.Location.X), (Me.Height - (506 - 364)))
         Label1.Location = New Point(((Me.Width / 2) - 53), (Me.Height - (506 - 321)))
+        GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (506 - 355)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         Select Case tabela
@@ -73,6 +74,7 @@
             newbutton.Enabled = True
         End If
         Label1.Hide()
+        GroupBox1.Hide()
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click

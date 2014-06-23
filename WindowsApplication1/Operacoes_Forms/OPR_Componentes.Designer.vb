@@ -223,6 +223,7 @@ Partial Class OPR_Componentes
         Me.Controls.Add(Me.numseriebox)
         Me.Controls.Add(Me.marcabox)
         Me.Controls.Add(Me.Label4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Componentes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Componentes"

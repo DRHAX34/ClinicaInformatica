@@ -287,6 +287,7 @@ Partial Class OPR_Empresas
         Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomebox)
         Me.Controls.Add(Me.Label4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Empresas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Clientes"

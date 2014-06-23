@@ -117,13 +117,13 @@ Partial Class Workspace
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu

@@ -209,8 +209,11 @@ Public Class Workspace
         If check_componentes = False Then
             Try
                 If BLL.Clientes.carregar.Rows.Count = 0 Then
-                    If MsgBox("Antes de adicionar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
-                        clientesativos.PerformClick()
+                    If MsgBox("Antes de adicionar/alterar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
+                        Dim opr_clientes As New OPR_Clientes
+                        opr_clientes.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        opr_clientes.Show()
                     Else
                         MsgBox("Não poderá adicionar um componente até adicionar um cliente!")
                     End If
@@ -237,8 +240,12 @@ Public Class Workspace
     Private Sub componentesRemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles componentesRemovidosToolStripMenuItem.Click
         If check_componentes = False Then
             If BLL.Clientes.carregar.Rows.Count = 0 Then
-                If MsgBox("Antes de adicionar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
+                If MsgBox("Antes de adicionar/alterar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
                     clientesativos.PerformClick()
+                    Dim opr_clientes As New OPR_Clientes
+                    opr_clientes.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    opr_clientes.Show()
                 Else
                     MsgBox("Não poderá adicionar um componente até adicionar um cliente!")
                 End If

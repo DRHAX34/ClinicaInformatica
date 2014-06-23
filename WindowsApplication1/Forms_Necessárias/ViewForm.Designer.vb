@@ -36,9 +36,9 @@ Partial Class ViewForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.newbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -163,16 +163,13 @@ Partial Class ViewForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Localizar"
         '
-        'RadioButton1
+        'TextBox1
         '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.TextBox1.Location = New System.Drawing.Point(6, 52)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(217, 22)
+        Me.TextBox1.TabIndex = 2
         '
         'RadioButton2
         '
@@ -185,13 +182,16 @@ Partial Class ViewForm
         Me.RadioButton2.Text = "RadioButton2"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'RadioButton1
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.TextBox1.Location = New System.Drawing.Point(6, 52)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(217, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.RadioButton1.AutoSize = True
+        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
+        Me.RadioButton1.Name = "RadioButton1"
+        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
+        Me.RadioButton1.TabIndex = 0
+        Me.RadioButton1.TabStop = True
+        Me.RadioButton1.Text = "RadioButton1"
+        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'ViewForm
         '
@@ -210,7 +210,8 @@ Partial Class ViewForm
         Me.Controls.Add(Me.delbutton)
         Me.Controls.Add(Me.newbutton)
         Me.Controls.Add(Me.showdata)
-        Me.MinimumSize = New System.Drawing.Size(512, 503)
+        Me.MaximizeBox = False
+        Me.MinimumSize = New System.Drawing.Size(757, 303)
         Me.Name = "ViewForm"
         Me.Text = "Generic Form"
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
