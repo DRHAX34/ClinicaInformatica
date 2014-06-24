@@ -11,28 +11,30 @@
             Label7.Hide()
             RadioButton1.Hide()
             RadioButton2.Hide()
-            Me.Size = New Size(Me.Width, Me.Height - 50)
-            adicionarbutton.Location = New Point(adicionarbutton.Location.X, (adicionarbutton.Location.Y - 60))
-            editarbutton.Location = New Point(editarbutton.Location.X, (editarbutton.Location.Y - 60))
-            removerbutton.Location = New Point(removerbutton.Location.X, (removerbutton.Location.Y - 60))
-            restorebutton.Location = New Point(restorebutton.Location.X, (restorebutton.Location.Y - 60))
-            cancelarbutton.Location = New Point(cancelarbutton.Location.X, (cancelarbutton.Location.Y - 60))
         Else
-            If cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> "" Then
-                RadioButton1.Checked = True
-                RadioButton2.Checked = False
-                numalunobox.Text = cliente_data.Rows.Item(0).Item("NºAluno").ToString()
-                turmabox.Text = cliente_data.Rows.Item(0).Item("Turma").ToString()
-            Else
-                RadioButton1.Checked = False
-                RadioButton2.Checked = True
-            End If
+            numalunobox.Show()
+            turmabox.Show()
+            Label7.Show()
+            RadioButton1.Show()
+            RadioButton2.Show()
         End If
             If modo = True Then
                 Try
                 adicionarbutton.Enabled = False
                 editarbutton.Enabled = True
                 restorebutton.Text = "Restaurar Dados Originais"
+                Try
+                    If cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> "" Then
+                        RadioButton1.Checked = True
+                        RadioButton2.Checked = False
+                        numalunobox.Text = cliente_data.Rows.Item(0).Item("NºAluno").ToString()
+                        turmabox.Text = cliente_data.Rows.Item(0).Item("Turma").ToString()
+                    Else
+                        RadioButton1.Checked = False
+                        RadioButton2.Checked = True
+                    End If
+                Catch
+                End Try
                 nomebox.Text = cliente_data.Rows.Item(0).Item("Nome").ToString()
                 moradabox.Text = cliente_data.Rows.Item(0).Item("Morada").ToString()
                 emailbox.Text = cliente_data.Rows.Item(0).Item("Email").ToString()
@@ -44,13 +46,13 @@
             Catch ex As Exception
                 MsgBox("Erro ao carregar os dados: " & ex.Message)
             End Try
-            adicionarbutton.Enabled = False
-            removerbutton.Enabled = True
+                adicionarbutton.Enabled = False
+                removerbutton.Enabled = True
         Else
-            adicionarbutton.Enabled = True
-            editarbutton.Enabled = False
-            removerbutton.Enabled = False
-            restorebutton.Text = "Limpar Tudo"
+                adicionarbutton.Enabled = True
+                editarbutton.Enabled = False
+                removerbutton.Enabled = False
+                restorebutton.Text = "Limpar Tudo"
         End If
         If removidos = True Then
             removerbutton.Text = "Restaurar"
@@ -266,11 +268,14 @@
     End Sub
 
     Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.TextChanged
-        If Not IsNumeric(cmovelbox.Text.Chars(cmovelbox.Text.Length - 1)) Then
-            If Not cmovelbox.Text.Chars(0) = "+" Then
-                cmovelbox.Text = ""
+        Try
+            If Not IsNumeric(cmovelbox.Text.Chars(cmovelbox.Text.Length - 1)) Then
+                If Not cmovelbox.Text.Chars(0) = "+" Then
+                    cmovelbox.Text = ""
+                End If
             End If
-        End If
+        Catch
+        End Try
     End Sub
 
     Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.TextChanged

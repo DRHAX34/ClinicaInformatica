@@ -13,6 +13,7 @@ Public Class Workspace
     Public companyname1 As String
     Public support As Integer
     Public tecnicos_support As DataTable
+    Public string_pass As String
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
@@ -446,6 +447,9 @@ Public Class Workspace
     End Sub
 
     Private Sub DesencriptadorDePalavrasPassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DesencriptadorDePalavrasPassesToolStripMenuItem.Click
-
+        Dim decrypt_pass As New pass_decrypt
+        decrypt_pass.MdiParent = Me
+        m_ChildFormNumber += 1
+        decrypt_pass.Show()
     End Sub
 End Class

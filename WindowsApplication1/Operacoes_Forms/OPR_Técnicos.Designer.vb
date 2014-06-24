@@ -53,7 +53,7 @@ Partial Class OPR_Técnicos
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(418, 467)
+        Me.RadButton4.Location = New System.Drawing.Point(735, 304)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 51
@@ -61,7 +61,7 @@ Partial Class OPR_Técnicos
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(321, 467)
+        Me.RadButton3.Location = New System.Drawing.Point(571, 304)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 50
@@ -70,7 +70,7 @@ Partial Class OPR_Técnicos
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(226, 467)
+        Me.RadButton2.Location = New System.Drawing.Point(394, 304)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 49
@@ -78,7 +78,7 @@ Partial Class OPR_Técnicos
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(131, 467)
+        Me.RadButton1.Location = New System.Drawing.Point(218, 304)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 48
@@ -86,7 +86,7 @@ Partial Class OPR_Técnicos
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(35, 467)
+        Me.RadButton5.Location = New System.Drawing.Point(33, 304)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 47
@@ -116,7 +116,7 @@ Partial Class OPR_Técnicos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(27, 238)
+        Me.Label2.Location = New System.Drawing.Point(316, 156)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 25)
         Me.Label2.TabIndex = 42
@@ -141,7 +141,7 @@ Partial Class OPR_Técnicos
         '
         'nomebox
         '
-        Me.nomebox.Location = New System.Drawing.Point(32, 266)
+        Me.nomebox.Location = New System.Drawing.Point(321, 184)
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(243, 20)
         Me.nomebox.TabIndex = 38
@@ -155,7 +155,7 @@ Partial Class OPR_Técnicos
         '
         'PictureBox1
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(383, 40)
+        Me.PictureBox1.Location = New System.Drawing.Point(669, 40)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(141, 141)
         Me.PictureBox1.TabIndex = 55
@@ -163,7 +163,7 @@ Partial Class OPR_Técnicos
         '
         'RadButton6
         '
-        Me.RadButton6.Location = New System.Drawing.Point(418, 213)
+        Me.RadButton6.Location = New System.Drawing.Point(704, 213)
         Me.RadButton6.Name = "RadButton6"
         Me.RadButton6.Size = New System.Drawing.Size(56, 25)
         Me.RadButton6.TabIndex = 57
@@ -171,7 +171,7 @@ Partial Class OPR_Técnicos
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(383, 187)
+        Me.TextBox1.Location = New System.Drawing.Point(669, 187)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(141, 20)
         Me.TextBox1.TabIndex = 58
@@ -180,7 +180,7 @@ Partial Class OPR_Técnicos
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(27, 301)
+        Me.Label4.Location = New System.Drawing.Point(316, 213)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(153, 25)
         Me.Label4.TabIndex = 60
@@ -188,7 +188,7 @@ Partial Class OPR_Técnicos
         '
         'TextBox2
         '
-        Me.TextBox2.Location = New System.Drawing.Point(32, 329)
+        Me.TextBox2.Location = New System.Drawing.Point(321, 241)
         Me.TextBox2.Name = "TextBox2"
         Me.TextBox2.Size = New System.Drawing.Size(243, 20)
         Me.TextBox2.TabIndex = 59
@@ -197,7 +197,7 @@ Partial Class OPR_Técnicos
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(27, 362)
+        Me.Label5.Location = New System.Drawing.Point(27, 213)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(136, 25)
         Me.Label5.TabIndex = 62
@@ -205,7 +205,7 @@ Partial Class OPR_Técnicos
         '
         'TextBox3
         '
-        Me.TextBox3.Location = New System.Drawing.Point(32, 390)
+        Me.TextBox3.Location = New System.Drawing.Point(32, 241)
         Me.TextBox3.Name = "TextBox3"
         Me.TextBox3.Size = New System.Drawing.Size(243, 20)
         Me.TextBox3.TabIndex = 61
@@ -219,7 +219,7 @@ Partial Class OPR_Técnicos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(569, 553)
+        Me.ClientSize = New System.Drawing.Size(860, 379)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.TextBox3)
         Me.Controls.Add(Me.Label4)

@@ -93,6 +93,7 @@
             Workspace.login_load()
             Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
             Workspace.MaximizeBox = True
+            Workspace.string_pass = passencript
             Me.Close()
         End If
 

@@ -44,6 +44,7 @@ Partial Class Workspace
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.utilativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.utilremovidos = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.empresasativas = New System.Windows.Forms.ToolStripMenuItem()
         Me.empresasremovidas = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,7 +55,6 @@ Partial Class Workspace
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -118,13 +118,13 @@ Partial Class Workspace
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu
@@ -139,13 +139,13 @@ Partial Class Workspace
         'reparativos
         '
         Me.reparativos.Name = "reparativos"
-        Me.reparativos.Size = New System.Drawing.Size(133, 22)
+        Me.reparativos.Size = New System.Drawing.Size(152, 22)
         Me.reparativos.Text = "Ativos"
         '
         'reparremovidos
         '
         Me.reparremovidos.Name = "reparremovidos"
-        Me.reparremovidos.Size = New System.Drawing.Size(133, 22)
+        Me.reparremovidos.Size = New System.Drawing.Size(152, 22)
         Me.reparremovidos.Text = "Removidos"
         '
         'tecnicosmenu
@@ -160,13 +160,13 @@ Partial Class Workspace
         'tecnicosativos
         '
         Me.tecnicosativos.Name = "tecnicosativos"
-        Me.tecnicosativos.Size = New System.Drawing.Size(133, 22)
+        Me.tecnicosativos.Size = New System.Drawing.Size(152, 22)
         Me.tecnicosativos.Text = "Ativos"
         '
         'tecremovidos
         '
         Me.tecremovidos.Name = "tecremovidos"
-        Me.tecremovidos.Size = New System.Drawing.Size(133, 22)
+        Me.tecremovidos.Size = New System.Drawing.Size(152, 22)
         Me.tecremovidos.Text = "Removidos"
         '
         'UtilizadoresToolStripMenuItem
@@ -181,14 +181,20 @@ Partial Class Workspace
         'utilativos
         '
         Me.utilativos.Name = "utilativos"
-        Me.utilativos.Size = New System.Drawing.Size(133, 22)
+        Me.utilativos.Size = New System.Drawing.Size(255, 22)
         Me.utilativos.Text = "Ativos"
         '
         'utilremovidos
         '
         Me.utilremovidos.Name = "utilremovidos"
-        Me.utilremovidos.Size = New System.Drawing.Size(133, 22)
+        Me.utilremovidos.Size = New System.Drawing.Size(255, 22)
         Me.utilremovidos.Text = "Removidos"
+        '
+        'DesencriptadorDePalavrasPassesToolStripMenuItem
+        '
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Name = "DesencriptadorDePalavrasPassesToolStripMenuItem"
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Text = "Desencriptador de Palavras-Passes"
         '
         'EmpresasToolStripMenuItem
         '
@@ -262,12 +268,6 @@ Partial Class Workspace
         Me.terminarsessaobutton.Size = New System.Drawing.Size(99, 39)
         Me.terminarsessaobutton.TabIndex = 49
         Me.terminarsessaobutton.Text = "Terminar Sessão"
-        '
-        'DesencriptadorDePalavrasPassesToolStripMenuItem
-        '
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Name = "DesencriptadorDePalavrasPassesToolStripMenuItem"
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Text = "Desencriptador de Palavras-Passes"
         '
         'Workspace
         '

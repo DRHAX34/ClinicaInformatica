@@ -3,13 +3,6 @@
     Public utilizador_data As New DataTable
     Public removidos As Boolean
     Private Sub OPR_Utilizadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        If Workspace.Aluno = False Then
-            Label1.Hide()
-            numalunobox.Hide()
-        Else
-            Label1.Show()
-            numalunobox.Show()
-        End If
         If Workspace.admin = True Then
             admgeralcheck.Hide()
         End If
@@ -20,6 +13,8 @@
         naocheck.PerformClick()
         If modo = True Then
             RadButton3.PerformClick()
+            RadButton5.Enabled = False
+            RadButton1.Enabled = True
         Else
             RadButton5.Enabled = True
             RadButton1.Enabled = False
@@ -30,7 +25,6 @@
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
         If modo = True Then
-            numalunobox.Text = utilizador_data.Rows.Item(0).Item("NºAluno").ToString()
             empresabox.DataSource = BLL.Login.Carregar_empresas()
             tecnicobox.Text = utilizador_data.Rows.Item(0).Item("NºTécnico").ToString()
             Dim nome As String
@@ -43,7 +37,6 @@
             nomeutilizadorbox.Text = utilizador_data.Rows.Item(0).Item("Nome_Util").ToString()
             passwordbox.Text = utilizador_data.Rows.Item(0).Item("Password").ToString()
         Else
-            numalunobox.Text = ""
             tecnicobox.Text = ""
             empresabox.SelectedIndex = 0
             nomeutilizadorbox.Text = ""
@@ -52,24 +45,10 @@
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim check_num As Boolean = True
         Dim check_tecnico As Boolean = True
         Dim check_empresa As Boolean = True
         Dim check_nomutil As Boolean = True
         Dim check_pass As Boolean = True
-        If Workspace.Aluno = True Then
-            Try
-                For i = 0 To numalunobox.Text.Count - 1
-                    If numalunobox.Text.Chars(i) <> " " Then
-                        check_num = False
-                    End If
-                Next
-            Catch ex As Exception
-                check_num = True
-            End Try
-        Else
-            check_num = False
-        End If
         If simcheck.Checked = True Then
             Try
                 For i = 0 To tecnicobox.Text.Count - 1
@@ -115,7 +94,7 @@
             check_pass = True
         End Try
 
-        If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+        If check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
             Try
                 Dim n_empresa As Integer
                 n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
@@ -154,7 +133,7 @@
         addtecnicobox.Enabled = False
     End Sub
 
-    Private Sub simcheck_CheckedChanged(sender As Object, e As EventArgs) Handles simcheck.CheckedChanged
+    Private Sub simcheck_CheckedChanged(sender As Object, e As EventArgs) Handles simcheck.Click
         simcheck.Checked = True
         naocheck.Checked = False
         tecnicobox.Enabled = True
@@ -174,24 +153,10 @@
     End Sub
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
-        Dim check_num As Boolean = True
         Dim check_tecnico As Boolean = True
         Dim check_empresa As Boolean = True
         Dim check_nomutil As Boolean = True
         Dim check_pass As Boolean = True
-        If Workspace.Aluno = True Then
-            Try
-                For i = 0 To numalunobox.Text.Count - 1
-                    If numalunobox.Text.Chars(i) <> " " Then
-                        check_num = False
-                    End If
-                Next
-            Catch ex As Exception
-                check_num = True
-            End Try
-        Else
-            check_num = False
-        End If
         If simcheck.Checked = True Then
             Try
                 For i = 0 To tecnicobox.Text.Count - 1
@@ -237,12 +202,12 @@
             check_pass = True
         End Try
         If Workspace.admin_geral = True Then
-            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+            If check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
                 Try
                     If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
                         MsgBox("Este Utilizador já existe!")
                     Else
-                        BLL.Admin_only.Login.alterar_login_non_student(numalunobox.Text = utilizador_data.Rows.Item(0).Item("Cod_Utilizadr").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                        BLL.Admin_only.Login.alterar_login_non_student(utilizador_data.Rows.Item(0).Item("Cod_Utilizadr").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
                         MsgBox("Editado com sucesso!")
                         Me.Close()
                     End If
@@ -253,7 +218,7 @@
                 MsgBox("Insira os dados todos!")
             End If
         ElseIf Workspace.admin = True Then
-            If check_num = False And check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+            If check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
                 Try
                     Dim n_empresa As Integer
                     n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
@@ -281,7 +246,7 @@
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
         Try
-            BLL.Admin_only.Login.remove_login(numalunobox.Text = utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString())
+            BLL.Admin_only.Login.remove_login(utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString())
             MsgBox("Removido com sucesso!")
             Me.Close()
         Catch ex As Exception
@@ -292,4 +257,6 @@
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
         Me.Close()
     End Sub
+
+    
 End Class
