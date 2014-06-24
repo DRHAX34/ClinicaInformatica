@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -472,6 +472,10 @@
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\repair.png" />
+    <None Include="Resources\oie_2417311E0OBPz25.png" />
+    <None Include="Resources\oie_3010633jb6OZwQ51.png" />
+    <None Include="Resources\company.png" />
     <None Include="Resources\companyicon.png" />
     <None Include="Resources\fundo_melhorado.bmp" />
     <None Include="Resources\fundo_melhorado_960x540.png" />

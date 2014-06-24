@@ -29,6 +29,7 @@ Partial Class Workspace
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesremovidos = New System.Windows.Forms.ToolStripMenuItem()
@@ -54,7 +55,6 @@ Partial Class Workspace
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
         Me.MenuStrip.SuspendLayout()
         CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -85,55 +85,66 @@ Partial Class Workspace
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
+        'terminarsessaobutton
+        '
+        Me.terminarsessaobutton.Location = New System.Drawing.Point(908, 12)
+        Me.terminarsessaobutton.Name = "terminarsessaobutton"
+        Me.terminarsessaobutton.Size = New System.Drawing.Size(99, 39)
+        Me.terminarsessaobutton.TabIndex = 49
+        Me.terminarsessaobutton.Text = "Terminar Sessão"
+        '
         'clientesmenu
         '
         Me.clientesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesativos, Me.clientesremovidos})
+        Me.clientesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.clientesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
         Me.clientesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.clientesmenu.Name = "clientesmenu"
-        Me.clientesmenu.Size = New System.Drawing.Size(115, 58)
+        Me.clientesmenu.Size = New System.Drawing.Size(117, 58)
         Me.clientesmenu.Text = "Clientes"
         '
         'clientesativos
         '
         Me.clientesativos.Name = "clientesativos"
-        Me.clientesativos.Size = New System.Drawing.Size(133, 22)
+        Me.clientesativos.Size = New System.Drawing.Size(152, 22)
         Me.clientesativos.Text = "Ativos"
         '
         'clientesremovidos
         '
         Me.clientesremovidos.Name = "clientesremovidos"
-        Me.clientesremovidos.Size = New System.Drawing.Size(133, 22)
+        Me.clientesremovidos.Size = New System.Drawing.Size(152, 22)
         Me.clientesremovidos.Text = "Removidos"
         '
         'dispositivosmenu
         '
         Me.dispositivosmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.componentesAtivosToolStripMenuItem, Me.componentesRemovidosToolStripMenuItem})
+        Me.dispositivosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.dispositivosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101754Hz7aSVUe
         Me.dispositivosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.dispositivosmenu.Name = "dispositivosmenu"
-        Me.dispositivosmenu.Size = New System.Drawing.Size(148, 58)
+        Me.dispositivosmenu.Size = New System.Drawing.Size(150, 58)
         Me.dispositivosmenu.Text = "Componentes"
         '
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(133, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu
         '
         Me.reparacoesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.reparativos, Me.reparremovidos})
-        Me.reparacoesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101423KaMIRkur
+        Me.reparacoesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.reparacoesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_2417311E0OBPz25
         Me.reparacoesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.reparacoesmenu.Name = "reparacoesmenu"
-        Me.reparacoesmenu.Size = New System.Drawing.Size(133, 58)
+        Me.reparacoesmenu.Size = New System.Drawing.Size(137, 58)
         Me.reparacoesmenu.Text = "Reparações"
         '
         'reparativos
@@ -151,6 +162,7 @@ Partial Class Workspace
         'tecnicosmenu
         '
         Me.tecnicosmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tecnicosativos, Me.tecremovidos})
+        Me.tecnicosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
         Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tecnicosmenu.Name = "tecnicosmenu"
@@ -172,54 +184,57 @@ Partial Class Workspace
         'UtilizadoresToolStripMenuItem
         '
         Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos, Me.DesencriptadorDePalavrasPassesToolStripMenuItem})
+        Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ5
         Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
-        Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(134, 58)
+        Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(139, 58)
         Me.UtilizadoresToolStripMenuItem.Text = "Utilizadores"
         '
         'utilativos
         '
         Me.utilativos.Name = "utilativos"
-        Me.utilativos.Size = New System.Drawing.Size(255, 22)
+        Me.utilativos.Size = New System.Drawing.Size(265, 22)
         Me.utilativos.Text = "Ativos"
         '
         'utilremovidos
         '
         Me.utilremovidos.Name = "utilremovidos"
-        Me.utilremovidos.Size = New System.Drawing.Size(255, 22)
+        Me.utilremovidos.Size = New System.Drawing.Size(265, 22)
         Me.utilremovidos.Text = "Removidos"
         '
         'DesencriptadorDePalavrasPassesToolStripMenuItem
         '
         Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Name = "DesencriptadorDePalavrasPassesToolStripMenuItem"
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Size = New System.Drawing.Size(255, 22)
+        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Size = New System.Drawing.Size(265, 22)
         Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Text = "Desencriptador de Palavras-Passes"
         '
         'EmpresasToolStripMenuItem
         '
         Me.EmpresasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.empresasativas, Me.empresasremovidas})
+        Me.EmpresasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.EmpresasToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.companyicon
         Me.EmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
-        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(123, 58)
+        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(125, 58)
         Me.EmpresasToolStripMenuItem.Text = "Empresas"
         '
         'empresasativas
         '
         Me.empresasativas.Name = "empresasativas"
-        Me.empresasativas.Size = New System.Drawing.Size(132, 22)
+        Me.empresasativas.Size = New System.Drawing.Size(152, 22)
         Me.empresasativas.Text = "Ativas"
         '
         'empresasremovidas
         '
         Me.empresasremovidas.Name = "empresasremovidas"
-        Me.empresasremovidas.Size = New System.Drawing.Size(132, 22)
+        Me.empresasremovidas.Size = New System.Drawing.Size(152, 22)
         Me.empresasremovidas.Text = "Removidas"
         '
         'HelpMenu
         '
         Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
+        Me.HelpMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.HelpMenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent
         Me.HelpMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.HelpMenu.Name = "HelpMenu"
@@ -231,7 +246,7 @@ Partial Class Workspace
         '
         Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
         Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.ContentsToolStripMenuItem.Text = "&Conteúdo"
         '
         'IndexToolStripMenuItem
@@ -239,7 +254,7 @@ Partial Class Workspace
         Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.IndexToolStripMenuItem.Text = "&Índice"
         '
         'SearchToolStripMenuItem
@@ -247,27 +262,19 @@ Partial Class Workspace
         Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.SearchToolStripMenuItem.Text = "&Procurar"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(170, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(173, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(173, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.AboutToolStripMenuItem.Text = "&Sobre ..."
-        '
-        'terminarsessaobutton
-        '
-        Me.terminarsessaobutton.Location = New System.Drawing.Point(908, 12)
-        Me.terminarsessaobutton.Name = "terminarsessaobutton"
-        Me.terminarsessaobutton.Size = New System.Drawing.Size(99, 39)
-        Me.terminarsessaobutton.TabIndex = 49
-        Me.terminarsessaobutton.Text = "Terminar Sessão"
         '
         'Workspace
         '

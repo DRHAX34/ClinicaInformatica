@@ -261,13 +261,13 @@
     End Sub
 
 
-    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs) Handles nifbox.TextChanged
+    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs)
         If Not IsNumeric(nifbox.Text.Chars(nifbox.Text.Length - 1)) Then
             nifbox.Text = ""
         End If
     End Sub
 
-    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.TextChanged
+    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs)
         Try
             If Not IsNumeric(cmovelbox.Text.Chars(cmovelbox.Text.Length - 1)) Then
                 If Not cmovelbox.Text.Chars(0) = "+" Then
@@ -278,7 +278,7 @@
         End Try
     End Sub
 
-    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.TextChanged
+    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs)
         If Not IsNumeric(cfixobox.Text.Chars(cfixobox.Text.Length - 1)) Then
             If Not cfixobox.Text.Chars(0) = "+" Then
                 cfixobox.Text = ""

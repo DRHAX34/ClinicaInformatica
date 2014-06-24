@@ -6,7 +6,6 @@
         If modo = True Then
             numcomponentebox.Text = reparaçao_data.Rows.Item(0).Item("NºDispositivo").ToString()
             categoriabox.Text = reparaçao_data.Rows.Item(0).Item("Categoria").ToString()
-            temporealbox.Text = reparaçao_data.Rows.Item(0).Item("TempoRealReparação").ToString()
             dateinicio.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()

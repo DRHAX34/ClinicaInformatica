@@ -32,11 +32,11 @@ Partial Class SplashAway
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(213, 88)
+        Me.Label1.Location = New System.Drawing.Point(268, 88)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(393, 31)
+        Me.Label1.Size = New System.Drawing.Size(258, 31)
         Me.Label1.TabIndex = 0
-        Me.Label1.Text = "Emanuel Vitorino e Filipe Fonseca"
+        Me.Label1.Text = "F.E.Coding Produções"
         '
         'versaolabel
         '

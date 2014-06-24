@@ -77,6 +77,7 @@ Partial Class ViewForm
         Me.newbutton.Size = New System.Drawing.Size(102, 38)
         Me.newbutton.TabIndex = 1
         Me.newbutton.Text = "Novo"
+        Me.newbutton.ThemeName = "Windows8"
         '
         'delbutton
         '
@@ -85,6 +86,7 @@ Partial Class ViewForm
         Me.delbutton.Size = New System.Drawing.Size(102, 38)
         Me.delbutton.TabIndex = 2
         Me.delbutton.Text = "Eliminar"
+        Me.delbutton.ThemeName = "Windows8"
         '
         'editbutton
         '
@@ -93,6 +95,7 @@ Partial Class ViewForm
         Me.editbutton.Size = New System.Drawing.Size(102, 38)
         Me.editbutton.TabIndex = 3
         Me.editbutton.Text = "Editar"
+        Me.editbutton.ThemeName = "Windows8"
         '
         'updatebutton
         '
@@ -101,6 +104,7 @@ Partial Class ViewForm
         Me.updatebutton.Size = New System.Drawing.Size(102, 38)
         Me.updatebutton.TabIndex = 4
         Me.updatebutton.Text = "Atualizar"
+        Me.updatebutton.ThemeName = "Windows8"
         '
         'findbutton
         '
@@ -109,6 +113,7 @@ Partial Class ViewForm
         Me.findbutton.Size = New System.Drawing.Size(102, 38)
         Me.findbutton.TabIndex = 5
         Me.findbutton.Text = "Localizar"
+        Me.findbutton.ThemeName = "Windows8"
         '
         'showbutton
         '
@@ -118,6 +123,7 @@ Partial Class ViewForm
         Me.showbutton.TabIndex = 6
         Me.showbutton.Text = "Mostrar Dados Completos"
         Me.showbutton.TextWrap = True
+        Me.showbutton.ThemeName = "Windows8"
         '
         'exitbutton
         '
@@ -126,6 +132,7 @@ Partial Class ViewForm
         Me.exitbutton.Size = New System.Drawing.Size(102, 38)
         Me.exitbutton.TabIndex = 7
         Me.exitbutton.Text = "Sair"
+        Me.exitbutton.ThemeName = "Windows8"
         '
         'othersbutton
         '
@@ -135,6 +142,7 @@ Partial Class ViewForm
         Me.othersbutton.TabIndex = 8
         Me.othersbutton.Text = "Outras Funções"
         Me.othersbutton.TextWrap = True
+        Me.othersbutton.ThemeName = "Windows8"
         '
         'Label1
         '
@@ -197,7 +205,7 @@ Partial Class ViewForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(741, 464)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)

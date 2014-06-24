@@ -5,6 +5,7 @@
         Workspace.check_select = False
     End Sub
     Private Sub Selectform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        RadioButton1.Checked = True
         Select Case tabela
             Case "Clientes"
                 showdata.DataSource = BLL.Clientes.carregar_clientes()
@@ -25,6 +26,12 @@
                 RadioButton1.Text = "Nome"
                 RadioButton2.Text = "Código Empresa"
                 RadioButton3.Text = "NIF"
+            Case "Técnicos"
+                showdata.DataSource = BLL.Login.Carregar_empresas()
+                modo = False
+                RadioButton1.Text = "Nome"
+                RadioButton2.Text = "NºTécnico"
+                RadioButton3.Hide()
         End Select
     End Sub
     
@@ -36,7 +43,7 @@
                     showdata.DataSource = BLL.Clientes.procura_dados_nome_mini("%" + TextBox1.Text + "%")
                 Case "Componentes"
                     If IsNumeric(TextBox1.Text) Then
-                        showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini(TextBox1.Text)
+                        showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini("%" + TextBox1.Text + "%")
                     Else
                         Dim backup As Array = TextBox1.Text.ToCharArray
                         TextBox1.Text = ""
@@ -49,16 +56,18 @@
                     End If
                 Case "Empresas"
                     showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_mini("%" + TextBox1.Text + "%")
+                Case "Técnicos"
+                    showdata.DataSource = BLL.Tecnicos.procura_dados_Nome_mini("%" + TextBox1.Text + "%")
             End Select
         End If
         If RadioButton2.Checked = True Then
             If IsNumeric(TextBox1.Text) Then
                 Select Case tabela
                     Case "Clientes"
-                        showdata.DataSource = BLL.Clientes.procura_dados_numcliente_mini(TextBox1.Text)
+                        showdata.DataSource = BLL.Clientes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
                     Case "Componentes"
                         If IsNumeric(TextBox1.Text) Then
-                            showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini(TextBox1.Text)
+                            showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
                         Else
                             Dim backup As Array = TextBox1.Text.ToCharArray
                             TextBox1.Text = ""
@@ -70,7 +79,9 @@
                             End Try
                         End If
                     Case "Empresas"
-                        showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_mini(TextBox1.Text)
+                        showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_mini("%" + TextBox1.Text + "%")
+                    Case "Técnicos"
+                        showdata.DataSource = BLL.Tecnicos.procura_dados_ntecnico_mini("%" + TextBox1.Text + "%")
                 End Select
             Else
                 TextBox1.Text = ""
@@ -80,9 +91,9 @@
             If IsNumeric(TextBox1.Text) Then
                 Select Case tabela
                     Case "Clientes"
-                        showdata.DataSource = BLL.Clientes.procura_dados_nif_mini(TextBox1.Text)
+                        showdata.DataSource = BLL.Clientes.procura_dados_nif_mini("%" + TextBox1.Text + "%")
                     Case "Empresas"
-                        showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_mini(TextBox1.Text)
+                        showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_mini("%" + TextBox1.Text + "%")
                 End Select
             Else
                 TextBox1.Text = ""

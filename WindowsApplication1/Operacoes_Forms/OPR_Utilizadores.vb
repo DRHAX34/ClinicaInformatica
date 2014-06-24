@@ -2,9 +2,12 @@
     Public modo As Boolean
     Public utilizador_data As New DataTable
     Public removidos As Boolean
+    Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
     Private Sub OPR_Utilizadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If Workspace.admin = True Then
             admgeralcheck.Hide()
+            empresabox.Hide()
+            Label5.Hide()
         End If
         empresabox.DataSource = BLL.Login.Carregar_empresas()
         If Workspace.admin_geral = True Then
@@ -35,7 +38,8 @@
                 End If
             Next
             nomeutilizadorbox.Text = utilizador_data.Rows.Item(0).Item("Nome_Util").ToString()
-            passwordbox.Text = utilizador_data.Rows.Item(0).Item("Password").ToString()
+            Dim password As String = utilizador_data.Rows.Item(0).Item("Password").ToString()
+            passwordbox.Text = wrapper.DecryptData(password)
         Else
             tecnicobox.Text = ""
             empresabox.SelectedIndex = 0
@@ -105,12 +109,13 @@
                     Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                     Dim passencript As String = wrapper.EncryptData(password)
                     If admgeralcheck.Checked = True Then
-                        BLL.Admin_only.Login.Add_login_non_student_admin(admgeralcheck.Checked, nomeutilizadorbox.Text, password)
+                        BLL.Admin_only.Login.Add_login_non_student_admin(admgeralcheck.Checked, nomeutilizadorbox.Text, passencript)
                         MsgBox("Inserido com sucesso!")
                         Workspace.utilativos.PerformClick()
                         Me.Close()
                     Else
-                        BLL.Admin_only.Login.Add_login_non_student_noadmin(admincheck.Checked, nomeutilizadorbox.Text, password, n_empresa)
+                        n_empresa = BLL.n_empresa
+                        BLL.Admin_only.Login.Add_login_non_student_noadmin(admincheck.Checked, nomeutilizadorbox.Text, passencript, n_empresa)
                         MsgBox("Inserido com sucesso!")
                         Workspace.utilativos.PerformClick()
                         Me.Close()
@@ -207,7 +212,7 @@
                     If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
                         MsgBox("Este Utilizador já existe!")
                     Else
-                        BLL.Admin_only.Login.alterar_login_non_student(utilizador_data.Rows.Item(0).Item("Cod_Utilizadr").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                        BLL.Admin_only.Login.alterar_login_non_student(utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, wrapper.EncryptData(passwordbox.Text), 0)
                         MsgBox("Editado com sucesso!")
                         Me.Close()
                     End If
@@ -226,11 +231,11 @@
                         MsgBox("Este Utilizador já existe!")
                     Else
                         If simcheck.Checked = True Then
-                            BLL.Admin_only.Login.Add_login_tecnico(n_empresa, tecnicobox.Text, admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                            BLL.Admin_only.Login.alterar_login_tecnico(utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString(), tecnicobox.Text, admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, wrapper.EncryptData(passwordbox.Text))
                             MsgBox("Editado com sucesso!")
                             Me.Close()
                         Else
-                            BLL.Admin_only.Login.Add_login_non_student_noadmin(admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, passwordbox.Text)
+                            BLL.Admin_only.Login.alterar_login_non_student(utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, wrapper.EncryptData(passwordbox.Text), n_empresa)
                             MsgBox("Editado com sucesso!")
                             Me.Close()
                         End If
@@ -259,4 +264,24 @@
     End Sub
 
     
+    Private Sub addtecnicobox_Click(sender As Object, e As EventArgs) Handles addtecnicobox.Click
+        If Workspace.check_select = False Then
+            Dim select_comp As New Selectform
+            select_comp.MdiParent = Workspace
+            Workspace.m_ChildFormNumber += 1
+            select_comp.tabela = "Clientes"
+            select_comp.Show()
+            Timer1.Start()
+            Workspace.check_select = True
+        Else
+            MsgBox("Já tem uma janela de Selecionar aberta!")
+        End If
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+        tecnicobox.Text = Workspace.support
+        If Workspace.check_select = False Then
+            Timer1.Stop()
+        End If
+    End Sub
 End Class

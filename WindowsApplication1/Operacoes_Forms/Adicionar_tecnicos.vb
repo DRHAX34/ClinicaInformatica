@@ -124,7 +124,7 @@ Partial Class Adicionar_tecnicos
         Me.Controls.Add(Me.ListBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "Adicionar_tecnicos"
-        Me.Text = "Adicionar Peças"
+        Me.Text = "Adicionar Técnicos"
         CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.button1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.button2, System.ComponentModel.ISupportInitialize).EndInit()

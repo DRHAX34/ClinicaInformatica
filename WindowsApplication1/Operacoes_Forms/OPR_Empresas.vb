@@ -7,6 +7,7 @@
 
     Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         naocheck.Checked = True
+        logobox.Enabled = False
         If modo = True Then
             RadButton3.PerformClick()
         Else
@@ -46,13 +47,13 @@
                 End If
             Next
             For i = 0 To moradabox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
+                If moradabox.Text.Chars(i) <> " " Then
                     check_morada = False
                 End If
             Next
             If nifbox.Text.Length = 9 Then
                 For i = 0 To nifbox.Text.Count - 1
-                    If nomebox.Text.Chars(i) <> " " Then
+                    If nifbox.Text.Chars(i) <> " " Then
                         check_nif = False
                     End If
                 Next
@@ -60,12 +61,12 @@
                 check_nif = True
             End If
             For i = 0 To codpostalbox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
+                If codpostalbox.Text.Chars(i) <> " " Then
                     check_codpostal = False
                 End If
             Next
             For i = 0 To localidadebox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
+                If localidadebox.Text.Chars(i) <> " " Then
                     check_localidade = False
                 End If
             Next
@@ -113,9 +114,7 @@
         End If
     End Sub
 
-    Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles codpostalbox.MaskInputRejected
-
-    End Sub
+    
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         Dim check_nome, check_morada, check_nif, check_codpostal, check_localidade, checklogo As Boolean

@@ -9,10 +9,10 @@ Imports System.Runtime.InteropServices
 ' Revise os valores dos atributos do assembly
 
 <Assembly: AssemblyTitle("Clínica Informática")> 
-<Assembly: AssemblyDescription("Software para gestão de Clínicas/Lojas de Informática")> 
-<Assembly: AssemblyCompany("")> 
+<Assembly: AssemblyDescription("Software para gestão de Clínicas de Informática")> 
+<Assembly: AssemblyCompany("F.H.Coding")> 
 <Assembly: AssemblyProduct("Clínica Informática")> 
-<Assembly: AssemblyCopyright("Copyright © Emanuel Vitorino e Filipe Fonseca  2014")> 
+<Assembly: AssemblyCopyright("Copyright © F.H.Coding  2014")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' utilizando o '*' como mostrado abaixo:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.3.1.0")> 
-<Assembly: AssemblyFileVersion("0.3.1.0")> 
+<Assembly: AssemblyVersion("0.5.3.0")> 
+<Assembly: AssemblyFileVersion("0.5.3.0")> 

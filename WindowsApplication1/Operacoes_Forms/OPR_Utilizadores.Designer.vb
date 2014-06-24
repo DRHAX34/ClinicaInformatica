@@ -22,6 +22,7 @@ Partial Class OPR_Utilizadores
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton2 = New Telerik.WinControls.UI.RadButton()
@@ -34,6 +35,9 @@ Partial Class OPR_Utilizadores
         Me.passwordbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.admgeralcheck = New System.Windows.Forms.CheckBox()
         Me.admincheck = New System.Windows.Forms.CheckBox()
         Me.addtecnicobox = New Telerik.WinControls.UI.RadButton()
@@ -43,6 +47,9 @@ Partial Class OPR_Utilizadores
         Me.naocheck = New System.Windows.Forms.RadioButton()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.tecnicobox = New System.Windows.Forms.TextBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -50,54 +57,60 @@ Partial Class OPR_Utilizadores
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.addtecnicobox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(620, 487)
+        Me.RadButton4.Location = New System.Drawing.Point(613, 420)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 78
         Me.RadButton4.Text = "Cancelar"
+        Me.RadButton4.ThemeName = "Windows8"
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(478, 487)
+        Me.RadButton3.Location = New System.Drawing.Point(471, 420)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 77
         Me.RadButton3.Text = "Restaurar Dados Originais"
         Me.RadButton3.TextWrap = True
+        Me.RadButton3.ThemeName = "Windows8"
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(341, 487)
+        Me.RadButton2.Location = New System.Drawing.Point(334, 420)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 76
         Me.RadButton2.Text = "Remover"
+        Me.RadButton2.ThemeName = "Windows8"
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(192, 487)
+        Me.RadButton1.Location = New System.Drawing.Point(185, 420)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 75
         Me.RadButton1.Text = "Editar"
+        Me.RadButton1.ThemeName = "Windows8"
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(42, 487)
+        Me.RadButton5.Location = New System.Drawing.Point(35, 420)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 74
         Me.RadButton5.Text = "Adicionar"
+        Me.RadButton5.ThemeName = "Windows8"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(11, 18)
+        Me.Label6.Location = New System.Drawing.Point(136, 33)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(371, 86)
         Me.Label6.TabIndex = 73
@@ -117,7 +130,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(21, 152)
+        Me.Label2.Location = New System.Drawing.Point(16, 175)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(78, 25)
         Me.Label2.TabIndex = 71
@@ -127,29 +140,32 @@ Partial Class OPR_Utilizadores
         '
         Me.nomeutilizadorbox.Location = New System.Drawing.Point(22, 71)
         Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
-        Me.nomeutilizadorbox.Size = New System.Drawing.Size(275, 33)
+        Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
         Me.nomeutilizadorbox.TabIndex = 69
         '
         'passwordbox
         '
-        Me.passwordbox.Location = New System.Drawing.Point(22, 146)
+        Me.passwordbox.Location = New System.Drawing.Point(220, 71)
         Me.passwordbox.Name = "passwordbox"
         Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwordbox.Size = New System.Drawing.Size(275, 33)
+        Me.passwordbox.Size = New System.Drawing.Size(155, 33)
         Me.passwordbox.TabIndex = 68
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label4.Location = New System.Drawing.Point(18, 120)
+        Me.Label4.Location = New System.Drawing.Point(216, 45)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(81, 23)
+        Me.Label4.Size = New System.Drawing.Size(114, 23)
         Me.Label4.TabIndex = 65
-        Me.Label4.Text = "Password"
+        Me.Label4.Text = "Palavra-Passe"
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.admgeralcheck)
         Me.GroupBox1.Controls.Add(Me.admincheck)
         Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
@@ -157,17 +173,45 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.Controls.Add(Me.passwordbox)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(228, 214)
+        Me.GroupBox1.Location = New System.Drawing.Point(22, 216)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(318, 250)
+        Me.GroupBox1.Size = New System.Drawing.Size(666, 188)
         Me.GroupBox1.TabIndex = 80
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informações da Conta"
         '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Location = New System.Drawing.Point(275, 122)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(177, 25)
+        Me.Label7.TabIndex = 77
+        Me.Label7.Text = "Tipo de Utilizador:"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(417, 71)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.TextBox1.Size = New System.Drawing.Size(155, 33)
+        Me.TextBox1.TabIndex = 76
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.25!)
+        Me.Label1.Location = New System.Drawing.Point(413, 45)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(195, 23)
+        Me.Label1.TabIndex = 75
+        Me.Label1.Text = "Confirmar Palavra-Passe"
+        '
         'admgeralcheck
         '
         Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(155, 197)
+        Me.admgeralcheck.Location = New System.Drawing.Point(343, 150)
         Me.admgeralcheck.Name = "admgeralcheck"
         Me.admgeralcheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.admgeralcheck.Size = New System.Drawing.Size(142, 29)
@@ -178,7 +222,7 @@ Partial Class OPR_Utilizadores
         'admincheck
         '
         Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(22, 197)
+        Me.admincheck.Location = New System.Drawing.Point(247, 150)
         Me.admincheck.Name = "admincheck"
         Me.admincheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.admincheck.Size = New System.Drawing.Size(90, 29)
@@ -188,16 +232,17 @@ Partial Class OPR_Utilizadores
         '
         'addtecnicobox
         '
-        Me.addtecnicobox.Location = New System.Drawing.Point(296, 156)
+        Me.addtecnicobox.Location = New System.Drawing.Point(269, 179)
         Me.addtecnicobox.Name = "addtecnicobox"
         Me.addtecnicobox.Size = New System.Drawing.Size(111, 21)
         Me.addtecnicobox.TabIndex = 85
         Me.addtecnicobox.Text = "Adicionar técnico"
+        Me.addtecnicobox.ThemeName = "Windows8"
         '
         'empresabox
         '
         Me.empresabox.FormattingEnabled = True
-        Me.empresabox.Location = New System.Drawing.Point(552, 158)
+        Me.empresabox.Location = New System.Drawing.Point(539, 181)
         Me.empresabox.Name = "empresabox"
         Me.empresabox.Size = New System.Drawing.Size(121, 21)
         Me.empresabox.TabIndex = 87
@@ -206,7 +251,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(459, 154)
+        Me.Label5.Location = New System.Drawing.Point(446, 177)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(87, 25)
         Me.Label5.TabIndex = 86
@@ -216,7 +261,7 @@ Partial Class OPR_Utilizadores
         '
         Me.simcheck.AutoSize = True
         Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.simcheck.Location = New System.Drawing.Point(296, 120)
+        Me.simcheck.Location = New System.Drawing.Point(291, 143)
         Me.simcheck.Name = "simcheck"
         Me.simcheck.Size = New System.Drawing.Size(49, 21)
         Me.simcheck.TabIndex = 88
@@ -228,7 +273,7 @@ Partial Class OPR_Utilizadores
         '
         Me.naocheck.AutoSize = True
         Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.naocheck.Location = New System.Drawing.Point(239, 120)
+        Me.naocheck.Location = New System.Drawing.Point(234, 143)
         Me.naocheck.Name = "naocheck"
         Me.naocheck.Size = New System.Drawing.Size(51, 21)
         Me.naocheck.TabIndex = 89
@@ -240,7 +285,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label9.AutoSize = True
         Me.Label9.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(21, 116)
+        Me.Label9.Location = New System.Drawing.Point(16, 139)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(212, 25)
         Me.Label9.TabIndex = 90
@@ -248,17 +293,31 @@ Partial Class OPR_Utilizadores
         '
         'tecnicobox
         '
-        Me.tecnicobox.Location = New System.Drawing.Point(106, 157)
+        Me.tecnicobox.Location = New System.Drawing.Point(101, 180)
         Me.tecnicobox.Name = "tecnicobox"
         Me.tecnicobox.Size = New System.Drawing.Size(160, 20)
         Me.tecnicobox.TabIndex = 91
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ51
+        Me.PictureBox1.Location = New System.Drawing.Point(42, 33)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 92
+        Me.PictureBox1.TabStop = False
+        '
+        'Timer1
+        '
         '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(719, 555)
+        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.ClientSize = New System.Drawing.Size(719, 491)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.tecnicobox)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.naocheck)
@@ -274,7 +333,7 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label2)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Utilizadores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Utilizadores"
@@ -286,6 +345,7 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.addtecnicobox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -311,4 +371,10 @@ Partial Class OPR_Utilizadores
     Friend WithEvents admgeralcheck As System.Windows.Forms.CheckBox
     Friend WithEvents admincheck As System.Windows.Forms.CheckBox
     Friend WithEvents tecnicobox As System.Windows.Forms.TextBox
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

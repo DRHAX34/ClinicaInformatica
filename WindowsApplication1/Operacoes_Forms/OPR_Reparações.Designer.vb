@@ -36,9 +36,7 @@ Partial Class OPR_Reparações
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.categoriabox = New System.Windows.Forms.TextBox()
-        Me.temporealbox = New System.Windows.Forms.TextBox()
         Me.numcomponentebox = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.dateinicio = New System.Windows.Forms.DateTimePicker()
         Me.datefim = New System.Windows.Forms.DateTimePicker()
@@ -46,6 +44,8 @@ Partial Class OPR_Reparações
         Me.softwarebox = New System.Windows.Forms.TextBox()
         Me.hardwarebox = New System.Windows.Forms.TextBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -53,12 +53,13 @@ Partial Class OPR_Reparações
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'descriçaobox
         '
         Me.descriçaobox.Enabled = False
-        Me.descriçaobox.Location = New System.Drawing.Point(49, 310)
+        Me.descriçaobox.Location = New System.Drawing.Point(49, 294)
         Me.descriçaobox.Multiline = True
         Me.descriçaobox.Name = "descriçaobox"
         Me.descriçaobox.Size = New System.Drawing.Size(709, 117)
@@ -68,7 +69,7 @@ Partial Class OPR_Reparações
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(312, 282)
+        Me.Label8.Location = New System.Drawing.Point(312, 266)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
@@ -77,7 +78,7 @@ Partial Class OPR_Reparações
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(440, 33)
+        Me.CheckBox2.Location = New System.Drawing.Point(277, 33)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(111, 29)
         Me.CheckBox2.TabIndex = 54
@@ -98,7 +99,7 @@ Partial Class OPR_Reparações
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(617, 26)
+        Me.Label7.Location = New System.Drawing.Point(640, 65)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(107, 25)
         Me.Label7.TabIndex = 52
@@ -111,6 +112,7 @@ Partial Class OPR_Reparações
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 51
         Me.RadButton4.Text = "Cancelar"
+        Me.RadButton4.ThemeName = "Windows8"
         '
         'RadButton3
         '
@@ -120,6 +122,7 @@ Partial Class OPR_Reparações
         Me.RadButton3.TabIndex = 50
         Me.RadButton3.Text = "Restaurar Dados Originais"
         Me.RadButton3.TextWrap = True
+        Me.RadButton3.ThemeName = "Windows8"
         '
         'RadButton2
         '
@@ -128,6 +131,7 @@ Partial Class OPR_Reparações
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 49
         Me.RadButton2.Text = "Remover"
+        Me.RadButton2.ThemeName = "Windows8"
         '
         'RadButton1
         '
@@ -136,6 +140,7 @@ Partial Class OPR_Reparações
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 48
         Me.RadButton1.Text = "Editar"
+        Me.RadButton1.ThemeName = "Windows8"
         '
         'RadButton5
         '
@@ -144,12 +149,13 @@ Partial Class OPR_Reparações
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 47
         Me.RadButton5.Text = "Adicionar"
+        Me.RadButton5.ThemeName = "Windows8"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(25, 9)
+        Me.Label6.Location = New System.Drawing.Point(112, 12)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(362, 86)
         Me.Label6.TabIndex = 46
@@ -159,7 +165,7 @@ Partial Class OPR_Reparações
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(35, 139)
+        Me.Label3.Location = New System.Drawing.Point(206, 118)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(98, 25)
         Me.Label3.TabIndex = 43
@@ -169,7 +175,7 @@ Partial Class OPR_Reparações
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(35, 95)
+        Me.Label1.Location = New System.Drawing.Point(35, 118)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 25)
         Me.Label1.TabIndex = 41
@@ -177,40 +183,23 @@ Partial Class OPR_Reparações
         '
         'categoriabox
         '
-        Me.categoriabox.Location = New System.Drawing.Point(196, 139)
+        Me.categoriabox.Location = New System.Drawing.Point(211, 146)
         Me.categoriabox.Name = "categoriabox"
         Me.categoriabox.Size = New System.Drawing.Size(275, 22)
         Me.categoriabox.TabIndex = 40
         '
-        'temporealbox
-        '
-        Me.temporealbox.Location = New System.Drawing.Point(196, 175)
-        Me.temporealbox.Name = "temporealbox"
-        Me.temporealbox.Size = New System.Drawing.Size(142, 22)
-        Me.temporealbox.TabIndex = 39
-        '
         'numcomponentebox
         '
-        Me.numcomponentebox.Location = New System.Drawing.Point(197, 101)
+        Me.numcomponentebox.Location = New System.Drawing.Point(40, 146)
         Me.numcomponentebox.Name = "numcomponentebox"
         Me.numcomponentebox.Size = New System.Drawing.Size(136, 22)
         Me.numcomponentebox.TabIndex = 37
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(35, 172)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(117, 25)
-        Me.Label4.TabIndex = 36
-        Me.Label4.Text = "Tempo-Real"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(617, 79)
+        Me.Label11.Location = New System.Drawing.Point(640, 118)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(90, 25)
         Me.Label11.TabIndex = 61
@@ -218,14 +207,14 @@ Partial Class OPR_Reparações
         '
         'dateinicio
         '
-        Me.dateinicio.Location = New System.Drawing.Point(560, 54)
+        Me.dateinicio.Location = New System.Drawing.Point(583, 93)
         Me.dateinicio.Name = "dateinicio"
         Me.dateinicio.Size = New System.Drawing.Size(200, 22)
         Me.dateinicio.TabIndex = 62
         '
         'datefim
         '
-        Me.datefim.Location = New System.Drawing.Point(560, 107)
+        Me.datefim.Location = New System.Drawing.Point(583, 146)
         Me.datefim.Name = "datefim"
         Me.datefim.Size = New System.Drawing.Size(200, 22)
         Me.datefim.TabIndex = 63
@@ -237,9 +226,9 @@ Partial Class OPR_Reparações
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(40, 203)
+        Me.GroupBox1.Location = New System.Drawing.Point(40, 174)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(728, 76)
+        Me.GroupBox1.Size = New System.Drawing.Size(521, 76)
         Me.GroupBox1.TabIndex = 64
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo"
@@ -247,7 +236,7 @@ Partial Class OPR_Reparações
         'softwarebox
         '
         Me.softwarebox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.softwarebox.Location = New System.Drawing.Point(557, 32)
+        Me.softwarebox.Location = New System.Drawing.Point(381, 32)
         Me.softwarebox.Name = "softwarebox"
         Me.softwarebox.Size = New System.Drawing.Size(133, 25)
         Me.softwarebox.TabIndex = 56
@@ -262,18 +251,30 @@ Partial Class OPR_Reparações
         '
         'RadButton6
         '
-        Me.RadButton6.Location = New System.Drawing.Point(560, 150)
+        Me.RadButton6.Location = New System.Drawing.Point(585, 203)
         Me.RadButton6.Name = "RadButton6"
         Me.RadButton6.Size = New System.Drawing.Size(193, 47)
         Me.RadButton6.TabIndex = 65
         Me.RadButton6.Text = "Técnicos Participantes"
+        Me.RadButton6.ThemeName = "Windows8"
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.repair
+        Me.PictureBox1.Location = New System.Drawing.Point(36, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 66
+        Me.PictureBox1.TabStop = False
         '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 515)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.datefim)
@@ -291,9 +292,7 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.categoriabox)
-        Me.Controls.Add(Me.temporealbox)
         Me.Controls.Add(Me.numcomponentebox)
-        Me.Controls.Add(Me.Label4)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
@@ -308,6 +307,7 @@ Partial Class OPR_Reparações
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -326,9 +326,7 @@ Partial Class OPR_Reparações
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents categoriabox As System.Windows.Forms.TextBox
-    Friend WithEvents temporealbox As System.Windows.Forms.TextBox
     Friend WithEvents numcomponentebox As System.Windows.Forms.TextBox
-    Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents dateinicio As System.Windows.Forms.DateTimePicker
     Friend WithEvents datefim As System.Windows.Forms.DateTimePicker
@@ -336,4 +334,6 @@ Partial Class OPR_Reparações
     Friend WithEvents softwarebox As System.Windows.Forms.TextBox
     Friend WithEvents hardwarebox As System.Windows.Forms.TextBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
 End Class

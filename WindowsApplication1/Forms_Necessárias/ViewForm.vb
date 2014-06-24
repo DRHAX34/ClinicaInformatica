@@ -412,6 +412,7 @@
 
     Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
         GroupBox1.Show()
+        RadioButton1.Checked = True
     End Sub
 
     Private Sub showbutton_Click(sender As Object, e As EventArgs) Handles showbutton.Click
@@ -601,17 +602,33 @@
                         End If
                     End If
                 Case "Utilizadores"
-                    If removidos = True Then
-                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                            showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(TextBox1.Text)
+                    If Workspace.admin_geral = True Then
+                        If removidos = True Then
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
                         Else
-                            TextBox1.Text = ""
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
                         End If
                     Else
-                        If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                            showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(TextBox1.Text)
+                        If removidos = True Then
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_desativados_empresa(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
                         Else
-                            TextBox1.Text = ""
+                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_ativados_empresa(TextBox1.Text)
+                            Else
+                                TextBox1.Text = ""
+                            End If
                         End If
                     End If
                 Case "Empresas"
@@ -674,20 +691,37 @@
                             showdata.DataSource = BLL.Tecnicos.procura_dados_Nome_ativados(TextBox1.Text)
                         End If
                     Case "Utilizadores"
-                        If removidos = True Then
-                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
+                        If Workspace.admin_geral = True Then
+                            If removidos = True Then
+                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
+                                Else
+                                    TextBox1.Text = ""
+                                End If
                             Else
-                                TextBox1.Text = ""
+                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
+                                Else
+                                    TextBox1.Text = ""
+                                End If
                             End If
                         Else
-                            If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
+                            If removidos = True Then
+                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados_empresa(TextBox1.Text)
+                                Else
+                                    TextBox1.Text = ""
+                                End If
                             Else
-                                TextBox1.Text = ""
+                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
+                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados_empresa(TextBox1.Text)
+                                Else
+                                    TextBox1.Text = ""
+                                End If
                             End If
                         End If
                     Case "Empresas"
+
                         If removidos = True Then
                             showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_ativados(TextBox1.Text)
                         Else

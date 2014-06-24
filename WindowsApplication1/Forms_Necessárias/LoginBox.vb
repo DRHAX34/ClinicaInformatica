@@ -94,6 +94,7 @@
             Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
             Workspace.MaximizeBox = True
             Workspace.string_pass = passencript
+            Workspace.UtilizadoresToolStripMenuItem.Text = UsernameBox.Text
             Me.Close()
         End If
 
