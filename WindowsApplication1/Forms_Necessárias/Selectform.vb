@@ -42,18 +42,18 @@
                 Case "Clientes"
                     showdata.DataSource = BLL.Clientes.procura_dados_nome_mini("%" + TextBox1.Text + "%")
                 Case "Componentes"
-                    If IsNumeric(TextBox1.Text) Then
-                        showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini("%" + TextBox1.Text + "%")
-                    Else
-                        Dim backup As Array = TextBox1.Text.ToCharArray
-                        TextBox1.Text = ""
-                        Try
-                            For i = 0 To backup.Length - 1
-                                TextBox1.Text += backup(i)
-                            Next
-                        Catch
-                        End Try
-                    End If
+                    'If IsNumeric(TextBox1.Text) Then
+                    showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini("%" + TextBox1.Text + "%")
+                    'Else
+                    '    Dim backup As Array = TextBox1.Text.ToCharArray
+                    '    TextBox1.Text = ""
+                    '    Try
+                    '        For i = 0 To backup.Length - 1
+                    '            TextBox1.Text += backup(i)
+                    '        Next
+                    '    Catch
+                    '    End Try
+                    'End If
                 Case "Empresas"
                     showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_mini("%" + TextBox1.Text + "%")
                 Case "Técnicos"
@@ -66,18 +66,18 @@
                     Case "Clientes"
                         showdata.DataSource = BLL.Clientes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
                     Case "Componentes"
-                        If IsNumeric(TextBox1.Text) Then
-                            showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
-                        Else
-                            Dim backup As Array = TextBox1.Text.ToCharArray
-                            TextBox1.Text = ""
-                            Try
-                                For i = 0 To backup.Length - 1
-                                    TextBox1.Text += backup(i)
-                                Next
-                            Catch
-                            End Try
-                        End If
+                        'If IsNumeric(TextBox1.Text) Then
+                        showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
+                        'Else
+                        '    Dim backup As Array = TextBox1.Text.ToCharArray
+                        '    TextBox1.Text = ""
+                        '    Try
+                        '        For i = 0 To backup.Length - 1
+                        '            TextBox1.Text += backup(i)
+                        '        Next
+                        '    Catch
+                        '    End Try
+                        'End If
                     Case "Empresas"
                         showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_mini("%" + TextBox1.Text + "%")
                     Case "Técnicos"
@@ -130,5 +130,23 @@
         RadioButton2.Checked = False
         RadioButton3.Checked = True
         modo = True
+    End Sub
+
+    Public Sub OnlyDigitsOnKeyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox1.KeyPress
+        If tabela = "Componentes" Then
+            Try
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            Catch
+            End Try
+        ElseIf RadioButton1.Checked = False Then
+            Try
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            Catch
+            End Try
+        End If
     End Sub
 End Class

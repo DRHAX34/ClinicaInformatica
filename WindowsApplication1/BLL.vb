@@ -616,7 +616,7 @@ Public Class BLL
                 If NIF = "" Then
                     Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome FROM Empresas where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome FROM Empresas where NIF= @NIF AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome FROM Empresas where NIF like @NIF AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_mini(ByRef n_empresa As String) As DataTable
@@ -625,7 +625,7 @@ Public Class BLL
                 If n_empresa = "" Then
                     Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome FROM Empresas where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome FROM Empresas where NºEmpresa=@n_empresa AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome FROM Empresas where NºEmpresa like @n_empresa AND Ativo=1", p)
                 End If
             End Function
             Shared Sub inserir(ByVal alunos As Boolean, ByVal Nome As String, ByVal Morada As String, ByVal NIF As String, ByVal Cod_Postal As String, ByVal Localidade As String, ByVal Logo As Image, ByVal Ativo As Boolean)
@@ -1029,7 +1029,7 @@ Public Class BLL
             If nif = "" Then
                 Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome FROM Clientes where NIF= @NIF AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome FROM Clientes where NIF like @NIF AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         
@@ -1040,7 +1040,7 @@ Public Class BLL
             If num_cliente = "" Then
                 Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome FROM Clientes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome FROM Clientes AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome FROM Clientes where NºCliente like @NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function inserir_aluno(ByVal n_aluno As String, ByVal turma As String, ByVal NIF As String, ByVal localidade As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_mov As String, ByVal contacto_fix As String)
@@ -1257,7 +1257,7 @@ Public Class BLL
             If NºComponente = "" Then
                 Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where NºComponente=@n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where NºComponente like @n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente_mini(ByRef NºCliente As String) As DataTable
@@ -1267,7 +1267,7 @@ Public Class BLL
             If NºCliente = "" Then
                 Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where NºCliente=@NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where NºCliente like @NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente_desativo(ByRef NºCliente As String) As DataTable
