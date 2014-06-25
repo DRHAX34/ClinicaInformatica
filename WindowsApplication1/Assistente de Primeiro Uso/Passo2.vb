@@ -1,5 +1,4 @@
-﻿Option Strict On
-Option Explicit On
+﻿Option Explicit On
 
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
@@ -154,9 +153,17 @@ Public Class Passo2
 
     End Sub
 
-    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs) Handles nifbox.TextChanged
-        If Not IsNumeric(nifbox.Text.Chars(nifbox.Text.Length - 1)) Then
-            nifbox.Text = ""
-        End If
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
+        Try
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub cod_postalbox_click(sender As Object, e As MaskInputRejectedEventArgs) Handles cod_postalbox.Click
+        cod_postalbox.Select(0, cod_postalbox.Text.Length)
     End Sub
 End Class

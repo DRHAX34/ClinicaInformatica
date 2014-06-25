@@ -199,8 +199,9 @@ Partial Class OPR_Técnicos
         '
         Me.contactom_box.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.contactom_box.Location = New System.Drawing.Point(38, 205)
+        Me.contactom_box.MaxLength = 14
         Me.contactom_box.Name = "contactom_box"
-        Me.contactom_box.Size = New System.Drawing.Size(94, 22)
+        Me.contactom_box.Size = New System.Drawing.Size(137, 22)
         Me.contactom_box.TabIndex = 59
         '
         'Label5
@@ -217,8 +218,9 @@ Partial Class OPR_Técnicos
         '
         Me.contacto_fbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.contacto_fbox.Location = New System.Drawing.Point(197, 205)
+        Me.contacto_fbox.MaxLength = 14
         Me.contacto_fbox.Name = "contacto_fbox"
-        Me.contacto_fbox.Size = New System.Drawing.Size(96, 22)
+        Me.contacto_fbox.Size = New System.Drawing.Size(131, 22)
         Me.contacto_fbox.TabIndex = 61
         '
         'OpenFileDialog1

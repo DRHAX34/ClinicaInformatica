@@ -4,7 +4,15 @@
     Public img_caminho As String
     Public logo As Image
     Public removidos As Boolean
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
+        Try
 
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
     Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         naocheck.Checked = True
         logobox.Enabled = False

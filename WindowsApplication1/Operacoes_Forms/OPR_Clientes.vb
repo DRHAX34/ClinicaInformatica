@@ -18,8 +18,8 @@
             RadioButton1.Show()
             RadioButton2.Show()
         End If
-            If modo = True Then
-                Try
+        If modo = True Then
+            Try
                 adicionarbutton.Enabled = False
                 editarbutton.Enabled = True
                 restorebutton.Text = "Restaurar Dados Originais"
@@ -46,13 +46,15 @@
             Catch ex As Exception
                 MsgBox("Erro ao carregar os dados: " & ex.Message)
             End Try
-                adicionarbutton.Enabled = False
-                removerbutton.Enabled = True
+            adicionarbutton.Enabled = False
+            removerbutton.Enabled = True
         Else
-                adicionarbutton.Enabled = True
-                editarbutton.Enabled = False
-                removerbutton.Enabled = False
-                restorebutton.Text = "Limpar Tudo"
+            cmovelbox.Text = "+"
+            cfixobox.Text = "+"
+            adicionarbutton.Enabled = True
+            editarbutton.Enabled = False
+            removerbutton.Enabled = False
+            restorebutton.Text = "Limpar Tudo"
         End If
         If removidos = True Then
             removerbutton.Text = "Restaurar"
@@ -259,46 +261,52 @@
             MsgBox("Erro ao restaurar os dados: " & ex.Message)
         End Try
     End Sub
-
-
-    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs)
-        If Not IsNumeric(nifbox.Text.Chars(nifbox.Text.Length - 1)) Then
-            nifbox.Text = ""
-        End If
-    End Sub
-
-    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs)
+    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numalunobox.KeyPress
         Try
-            If Not IsNumeric(cmovelbox.Text.Chars(cmovelbox.Text.Length - 1)) Then
-                If Not cmovelbox.Text.Chars(0) = "+" Then
-                    cmovelbox.Text = ""
-                End If
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub contactom_onlynums(sender As Object, e As KeyPressEventArgs) Handles cmovelbox.KeyPress
+        Try
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub contactof_onlynums(sender As Object, e As KeyPressEventArgs) Handles cfixobox.KeyPress
+        Try
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
+        Try
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
             End If
         Catch
         End Try
     End Sub
 
-    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs)
-        If Not IsNumeric(cfixobox.Text.Chars(cfixobox.Text.Length - 1)) Then
-            If Not cfixobox.Text.Chars(0) = "+" Then
-                cfixobox.Text = ""
-            End If
+    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.TextChanged
+        If cmovelbox.Text.Count = 0 Then
+            cmovelbox.Text = "+"
         End If
     End Sub
 
-    Private Sub numalunobox_TextChanged(sender As Object, e As EventArgs) Handles numalunobox.TextChanged
-        If Not IsNumeric(numalunobox.Text.Chars(numalunobox.Text.Length - 1)) Then
-            If Not numalunobox.Text.Chars(0) = "+" Then
-                numalunobox.Text = ""
-            End If
-        End If
-    End Sub
-
-    Private Sub turmabox_TextChanged(sender As Object, e As EventArgs) Handles turmabox.TextChanged
-        If Not IsNumeric(turmabox.Text.Chars(turmabox.Text.Length - 1)) Then
-            If Not turmabox.Text.Chars(0) = "+" Then
-                turmabox.Text = ""
-            End If
+    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.TextChanged
+        If cfixobox.Text.Count = 0 Then
+            cfixobox.Text = "+"
         End If
     End Sub
 End Class

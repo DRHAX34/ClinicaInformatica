@@ -28,6 +28,8 @@
             localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
             cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
         Else
+            contacto_fbox.Text = "+"
+            contactom_box.Text = "+"
             RadButton1.Enabled = False
             RadButton5.Enabled = True
             RadButton3.Text = "Limpar Tudo"
@@ -224,7 +226,49 @@
         End Try
     End Sub
 
-    Private Sub turmabox_TextChanged(sender As Object, e As EventArgs) Handles turmabox.TextChanged
+    Private Sub turmabox_onlynums(sender As Object, e As KeyPressEventArgs) Handles turmabox.KeyPress
+        Try
 
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
+        Me.Close()
+    End Sub
+
+    Private Sub contactom_box_onlynumbers(sender As Object, e As KeyPressEventArgs) Handles contactom_box.KeyPress
+        Try
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Public Sub OnlyDigitsOnKeyPress_contactof(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles contacto_fbox.KeyPress
+        Try
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numalunobox.KeyPress
+        Try
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub cod_postalbox_click(sender As Object, e As MaskInputRejectedEventArgs) Handles cod_postalbox.Click
+        cod_postalbox.Select(0, cod_postalbox.Text.Length)
     End Sub
 End Class

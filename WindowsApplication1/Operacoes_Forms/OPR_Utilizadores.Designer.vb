@@ -120,7 +120,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label3.Location = New System.Drawing.Point(18, 45)
+        Me.Label3.Location = New System.Drawing.Point(47, 45)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(159, 23)
         Me.Label3.TabIndex = 72
@@ -138,14 +138,14 @@ Partial Class OPR_Utilizadores
         '
         'nomeutilizadorbox
         '
-        Me.nomeutilizadorbox.Location = New System.Drawing.Point(22, 71)
+        Me.nomeutilizadorbox.Location = New System.Drawing.Point(51, 71)
         Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
         Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
         Me.nomeutilizadorbox.TabIndex = 69
         '
         'passwordbox
         '
-        Me.passwordbox.Location = New System.Drawing.Point(220, 71)
+        Me.passwordbox.Location = New System.Drawing.Point(249, 71)
         Me.passwordbox.Name = "passwordbox"
         Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.passwordbox.Size = New System.Drawing.Size(155, 33)
@@ -155,7 +155,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label4.Location = New System.Drawing.Point(216, 45)
+        Me.Label4.Location = New System.Drawing.Point(245, 45)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(114, 23)
         Me.Label4.TabIndex = 65
@@ -192,7 +192,7 @@ Partial Class OPR_Utilizadores
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(417, 71)
+        Me.TextBox1.Location = New System.Drawing.Point(446, 71)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox1.Size = New System.Drawing.Size(155, 33)
@@ -202,7 +202,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label1.Location = New System.Drawing.Point(413, 45)
+        Me.Label1.Location = New System.Drawing.Point(442, 45)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(195, 23)
         Me.Label1.TabIndex = 75

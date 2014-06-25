@@ -230,7 +230,7 @@ Partial Class Passo2
         Me.cod_postalbox.Location = New System.Drawing.Point(224, 191)
         Me.cod_postalbox.Mask = "0000-000"
         Me.cod_postalbox.Name = "cod_postalbox"
-        Me.cod_postalbox.Size = New System.Drawing.Size(183, 27)
+        Me.cod_postalbox.Size = New System.Drawing.Size(107, 27)
         Me.cod_postalbox.TabIndex = 42
         Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray

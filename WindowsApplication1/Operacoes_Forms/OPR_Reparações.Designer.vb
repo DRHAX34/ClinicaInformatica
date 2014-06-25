@@ -190,9 +190,10 @@ Partial Class OPR_Reparações
         '
         'numcomponentebox
         '
+        Me.numcomponentebox.Enabled = False
         Me.numcomponentebox.Location = New System.Drawing.Point(40, 146)
         Me.numcomponentebox.Name = "numcomponentebox"
-        Me.numcomponentebox.Size = New System.Drawing.Size(136, 22)
+        Me.numcomponentebox.Size = New System.Drawing.Size(36, 22)
         Me.numcomponentebox.TabIndex = 37
         '
         'Label11
