@@ -52,6 +52,7 @@ Partial Class OPR_Clientes
         Me.cmovelbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.cfixobox = New System.Windows.Forms.TextBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -349,12 +350,24 @@ Partial Class OPR_Clientes
         Me.cfixobox.Size = New System.Drawing.Size(110, 22)
         Me.cfixobox.TabIndex = 75
         '
+        'RadioButton3
+        '
+        Me.RadioButton3.AutoSize = True
+        Me.RadioButton3.Location = New System.Drawing.Point(472, 77)
+        Me.RadioButton3.Name = "RadioButton3"
+        Me.RadioButton3.Size = New System.Drawing.Size(90, 17)
+        Me.RadioButton3.TabIndex = 76
+        Me.RadioButton3.TabStop = True
+        Me.RadioButton3.Text = "RadioButton3"
+        Me.RadioButton3.UseVisualStyleBackColor = True
+        '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(637, 461)
+        Me.Controls.Add(Me.RadioButton3)
         Me.Controls.Add(Me.cfixobox)
         Me.Controls.Add(Me.cmovelbox)
         Me.Controls.Add(Me.codpostalbox)
@@ -428,4 +441,5 @@ End Sub
     Friend WithEvents cmovelbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents cfixobox As System.Windows.Forms.TextBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
 End Class
