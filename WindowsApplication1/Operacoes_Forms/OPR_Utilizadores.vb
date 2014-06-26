@@ -9,6 +9,10 @@
             empresabox.Hide()
             Label5.Hide()
         End If
+        If Workspace.varias_empresas = False Then
+            admgeralcheck.Hide()
+            admincheck.Location = New Point(312, 237)
+        End If
         empresabox.DataSource = BLL.Login.Carregar_empresas()
         If Workspace.admin_geral = True Then
             admgeralcheck.Show()
@@ -18,10 +22,15 @@
             RadButton3.PerformClick()
             RadButton5.Enabled = False
             RadButton1.Enabled = True
+            RadButton2.Enabled = True
         Else
             RadButton5.Enabled = True
             RadButton1.Enabled = False
+            RadButton2.Enabled = False
             RadButton3.Text = "Limpar Tudo"
+        End If
+        If removidos = True Then
+            RadButton2.Text = "Restaurar"
         End If
         tecnicobox.Enabled = False
     End Sub

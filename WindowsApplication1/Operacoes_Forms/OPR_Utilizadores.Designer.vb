@@ -38,8 +38,6 @@ Partial Class OPR_Utilizadores
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.admgeralcheck = New System.Windows.Forms.CheckBox()
-        Me.admincheck = New System.Windows.Forms.CheckBox()
         Me.addtecnicobox = New Telerik.WinControls.UI.RadButton()
         Me.empresabox = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -50,6 +48,8 @@ Partial Class OPR_Utilizadores
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
+        Me.admincheck = New System.Windows.Forms.RadioButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,7 +62,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(613, 420)
+        Me.RadButton4.Location = New System.Drawing.Point(613, 498)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 78
@@ -71,7 +71,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(471, 420)
+        Me.RadButton3.Location = New System.Drawing.Point(471, 498)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 77
@@ -81,7 +81,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(334, 420)
+        Me.RadButton2.Location = New System.Drawing.Point(334, 498)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 76
@@ -90,7 +90,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(185, 420)
+        Me.RadButton1.Location = New System.Drawing.Point(185, 498)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 75
@@ -99,7 +99,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(35, 420)
+        Me.RadButton5.Location = New System.Drawing.Point(35, 498)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 74
@@ -163,11 +163,11 @@ Partial Class OPR_Utilizadores
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.admincheck)
+        Me.GroupBox1.Controls.Add(Me.admgeralcheck)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.admgeralcheck)
-        Me.GroupBox1.Controls.Add(Me.admincheck)
         Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.passwordbox)
@@ -175,7 +175,7 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(22, 216)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(666, 188)
+        Me.GroupBox1.Size = New System.Drawing.Size(666, 276)
         Me.GroupBox1.TabIndex = 80
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informações da Conta"
@@ -184,7 +184,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(275, 122)
+        Me.Label7.Location = New System.Drawing.Point(264, 209)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(177, 25)
         Me.Label7.TabIndex = 77
@@ -207,28 +207,6 @@ Partial Class OPR_Utilizadores
         Me.Label1.Size = New System.Drawing.Size(195, 23)
         Me.Label1.TabIndex = 75
         Me.Label1.Text = "Confirmar Palavra-Passe"
-        '
-        'admgeralcheck
-        '
-        Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(343, 150)
-        Me.admgeralcheck.Name = "admgeralcheck"
-        Me.admgeralcheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.admgeralcheck.Size = New System.Drawing.Size(142, 29)
-        Me.admgeralcheck.TabIndex = 74
-        Me.admgeralcheck.Text = "Admin Geral"
-        Me.admgeralcheck.UseVisualStyleBackColor = True
-        '
-        'admincheck
-        '
-        Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(247, 150)
-        Me.admincheck.Name = "admincheck"
-        Me.admincheck.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.admincheck.Size = New System.Drawing.Size(90, 29)
-        Me.admincheck.TabIndex = 73
-        Me.admincheck.Text = "Admin"
-        Me.admincheck.UseVisualStyleBackColor = True
         '
         'addtecnicobox
         '
@@ -311,12 +289,34 @@ Partial Class OPR_Utilizadores
         'Timer1
         '
         '
+        'admgeralcheck
+        '
+        Me.admgeralcheck.AutoSize = True
+        Me.admgeralcheck.Location = New System.Drawing.Point(346, 236)
+        Me.admgeralcheck.Name = "admgeralcheck"
+        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
+        Me.admgeralcheck.TabIndex = 78
+        Me.admgeralcheck.TabStop = True
+        Me.admgeralcheck.Text = "Admin Geral"
+        Me.admgeralcheck.UseVisualStyleBackColor = True
+        '
+        'admincheck
+        '
+        Me.admincheck.AutoSize = True
+        Me.admincheck.Location = New System.Drawing.Point(251, 236)
+        Me.admincheck.Name = "admincheck"
+        Me.admincheck.Size = New System.Drawing.Size(89, 29)
+        Me.admincheck.TabIndex = 79
+        Me.admincheck.TabStop = True
+        Me.admincheck.Text = "Admin"
+        Me.admincheck.UseVisualStyleBackColor = True
+        '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(719, 491)
+        Me.ClientSize = New System.Drawing.Size(721, 573)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.tecnicobox)
         Me.Controls.Add(Me.Label9)
@@ -368,8 +368,6 @@ Partial Class OPR_Utilizadores
     Friend WithEvents simcheck As System.Windows.Forms.RadioButton
     Friend WithEvents naocheck As System.Windows.Forms.RadioButton
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents admgeralcheck As System.Windows.Forms.CheckBox
-    Friend WithEvents admincheck As System.Windows.Forms.CheckBox
     Friend WithEvents tecnicobox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -377,4 +375,6 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents admincheck As System.Windows.Forms.RadioButton
+    Friend WithEvents admgeralcheck As System.Windows.Forms.RadioButton
 End Class

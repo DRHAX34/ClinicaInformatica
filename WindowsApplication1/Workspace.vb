@@ -8,6 +8,7 @@ Public Class Workspace
     Public config3 As New Passo3
     Public config3_5 As New Passo3emeio
     Public config4 As New Passo4
+    Public varias_empresas As Boolean
     Public modo As Integer
     Public Aluno, admin, admin_geral As Boolean
     Public companyname1 As String

@@ -42,6 +42,9 @@
         Dim password As String = Passwordbox.Text
         Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
         Dim passencript As String = wrapper.EncryptData(password)
+        If BLL.Admin_only.Login.check_admin_geral() = 0 Then
+            Workspace.varias_empresas = False
+        End If
         user = BLL.Login.Verificar_Login(UsernameBox.Text, passencript, n_empresa)
         If user <> 0 Then
             'menuform.show()

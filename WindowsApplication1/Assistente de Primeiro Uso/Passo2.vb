@@ -68,49 +68,45 @@ Public Class Passo2
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles seguintebutton.Click
-        Dim check_nome As Boolean = True
-        Dim check_morada As Boolean = True
-        Dim check_nif As Boolean = True
-        Dim check_codpostal As Boolean = True
-        Dim check_localidade As Boolean = True
-        Dim check_logo As Boolean = True
-        For i = 0 To nomebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nome = False
-            End If
-        Next
-        For i = 0 To moradabox.Text.Count - 1
-            If moradabox.Text.Chars(i) <> " " Then
-                check_morada = False
-            End If
-        Next
-        For i = 0 To nifbox.Text.Count - 1
-            If nifbox.Text.Chars(i) <> " " Then
+        Try
+            Dim check_nome As String = ""
+            Dim check_morada As String = ""
+            Dim check_nif As Boolean = False
+            Dim check_codpostal As Boolean = False
+            Dim check_localidade As String = ""
+            Dim check_logo As String = ""
+            check_nome = nomebox.Text
+            check_morada = moradabox.Text
+            If nifbox.Text.Count = 9 Then
+                check_nif = True
+            Else
                 check_nif = False
             End If
-        Next
-        For i = 0 To cod_postalbox.Text.Count - 1
-            If cod_postalbox.Text.Chars(i) <> " " Then
+            If cod_postalbox.Text.Count = 8 Then
+                check_codpostal = True
+            Else
                 check_codpostal = False
             End If
-        Next
-        For i = 0 To localidadebox.Text.Count - 1
-            If localidadebox.Text.Chars(i) <> " " Then
-                check_localidade = False
+            check_localidade = localidadebox.Text
+            check_logo = caminhobox.Text
+            check_nome.Trim(" ")
+            check_morada.Trim(" ")
+            check_localidade.Trim(" ")
+            check_logo.Trim(" ")
+            If Not check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_logo = "" Then
+                BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
+                If Workspace.varias_empresas = True Then
+                    Workspace.config3.Show()
+                Else
+                    Workspace.config3_5.Show()
+                End If
+                Me.Close()
+            Else
+                MsgBox("Preencha todos os dados!")
             End If
-        Next
-        For i = 0 To caminhobox.Text.Count - 1
-            If caminhobox.Text.Chars(i) <> " " Then
-                check_logo = False
-            End If
-        Next
-        If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_logo = False Then
-            BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
-            Workspace.config3.Show()
-            Me.Close()
-        Else
-            MsgBox("Preencha todos os dados!")
-        End If
+        Catch ex As Exception
+            MsgBox("Ocorreu um erro na Aplicação: " & ex.Message)
+        End Try
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles imagebutton.Click
         OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"

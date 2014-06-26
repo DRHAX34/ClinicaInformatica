@@ -59,33 +59,41 @@ Public Class Passo3emeio
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim check_nome As Boolean = True
-        Dim check_pass As Boolean = True
-        For i = 0 To nomebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nome = False
+        Try
+            Dim check_nome, check_pass, check_pergunta, check_resposta As String
+            check_nome = nomebox.Text
+            check_nome.Trim(" ")
+            If passbox.Text = verifbox.Text Then
+                check_pass = passbox.Text
+                check_pass.Trim(" ")
+            Else
+                check_pass = ""
             End If
-        Next
-        For i = 0 To passbox.Text.Count - 1
-            If passbox.Text.Chars(i) <> " " Then
-                check_pass = False
+            check_pergunta = perguntabox.Text
+            check_pergunta.Trim(" ")
+            check_resposta = respostabox.Text
+            check_resposta.Trim(" ")
+            If Not check_nome = "" And check_pass = "" And check_pergunta = "" And check_resposta = "" Then
+                Dim password As String = passbox.Text
+                Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+                Dim passencript As String = wrapper.EncryptData(password)
+                BLL.n_empresa = "1"
+                BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, True, nomebox.Text, passencript, BLL.n_empresa)
+                Workspace.config4.Show()
+                Me.Close()
+            Else
+                MsgBox("Preencha os dados!", vbOK, "Erro")
             End If
-        Next
-        If check_nome = False And check_pass = False Then
-            Dim password As String = passbox.Text
-            Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
-            Dim passencript As String = wrapper.EncryptData(password)
-            BLL.n_empresa = "1"
-            BLL.Admin_only.Login.Add_login_non_student_noadmin(True, nomebox.Text, passencript, BLL.n_empresa)
-            Workspace.config4.Show()
-            Me.Close()
-        Else
-            MsgBox("Preencha os dados!", vbOK, "Erro")
-        End If
+        Catch ex As Exception
+            MsgBox("Ocorreu um erro na Aplicação: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         nomebox.Text = ""
         passbox.Text = ""
+        verifbox.Text = ""
+        perguntabox.Text = ""
+        respostabox.Text = ""
     End Sub
 End Class

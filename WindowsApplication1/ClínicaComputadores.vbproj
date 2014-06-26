@@ -261,12 +261,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL.vb" />
-    <Compile Include="Forms_Necessárias\pass_decrypt.Designer.vb">
-      <DependentUpon>pass_decrypt.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms_Necessárias\pass_decrypt.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="unZip.vb" />
     <Compile Include="Simple3Des.vb" />
     <Compile Include="DAL.vb" />
@@ -382,9 +376,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo4.resx">
       <DependentUpon>Passo4.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms_Necessárias\pass_decrypt.resx">
-      <DependentUpon>pass_decrypt.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\Selectform.resx">
       <DependentUpon>Selectform.vb</DependentUpon>

@@ -32,6 +32,12 @@ Partial Class Passo3
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.verifbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.SuspendLayout()
         '
         'Label1
@@ -58,7 +64,7 @@ Partial Class Passo3
         '
         Me.passlabel.AutoSize = True
         Me.passlabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.passlabel.Location = New System.Drawing.Point(504, 175)
+        Me.passlabel.Location = New System.Drawing.Point(202, 205)
         Me.passlabel.Name = "passlabel"
         Me.passlabel.Size = New System.Drawing.Size(102, 20)
         Me.passlabel.TabIndex = 26
@@ -67,7 +73,7 @@ Partial Class Passo3
         'passbox
         '
         Me.passbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.passbox.Location = New System.Drawing.Point(508, 198)
+        Me.passbox.Location = New System.Drawing.Point(206, 228)
         Me.passbox.Name = "passbox"
         Me.passbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.passbox.Size = New System.Drawing.Size(183, 27)
@@ -79,7 +85,7 @@ Partial Class Passo3
         '
         Me.nomelabel.AutoSize = True
         Me.nomelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.nomelabel.Location = New System.Drawing.Point(305, 175)
+        Me.nomelabel.Location = New System.Drawing.Point(202, 152)
         Me.nomelabel.Name = "nomelabel"
         Me.nomelabel.Size = New System.Drawing.Size(143, 20)
         Me.nomelabel.TabIndex = 24
@@ -88,7 +94,7 @@ Partial Class Passo3
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomebox.Location = New System.Drawing.Point(309, 198)
+        Me.nomebox.Location = New System.Drawing.Point(206, 175)
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 23
@@ -119,11 +125,80 @@ Partial Class Passo3
         Me.Button2.Text = "Limpar"
         Me.Button2.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label3.Location = New System.Drawing.Point(202, 258)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(181, 20)
+        Me.Label3.TabIndex = 36
+        Me.Label3.Text = "Confirme a palavra-passe:"
+        '
+        'verifbox
+        '
+        Me.verifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.verifbox.Location = New System.Drawing.Point(206, 281)
+        Me.verifbox.Name = "verifbox"
+        Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.verifbox.Size = New System.Drawing.Size(183, 27)
+        Me.verifbox.TabIndex = 35
+        Me.verifbox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.verifbox.WaterMarkText = "Confirme a palavra-passe"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label4.Location = New System.Drawing.Point(442, 152)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(165, 20)
+        Me.Label4.TabIndex = 38
+        Me.Label4.Text = "Pergunta de Segurança:"
+        '
+        'perguntabox
+        '
+        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.perguntabox.Location = New System.Drawing.Point(446, 175)
+        Me.perguntabox.Name = "perguntabox"
+        Me.perguntabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.perguntabox.Size = New System.Drawing.Size(233, 27)
+        Me.perguntabox.TabIndex = 37
+        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label5.Location = New System.Drawing.Point(442, 205)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(72, 20)
+        Me.Label5.TabIndex = 40
+        Me.Label5.Text = "Resposta:"
+        '
+        'respostabox
+        '
+        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.respostabox.Location = New System.Drawing.Point(446, 228)
+        Me.respostabox.Name = "respostabox"
+        Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.respostabox.Size = New System.Drawing.Size(183, 27)
+        Me.respostabox.TabIndex = 39
+        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.respostabox.WaterMarkText = "Resposta"
+        '
         'Passo3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1019, 468)
+        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.respostabox)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.perguntabox)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.verifbox)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.passlabel)
@@ -147,4 +222,10 @@ Partial Class Passo3
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents verifbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents perguntabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
 End Class
