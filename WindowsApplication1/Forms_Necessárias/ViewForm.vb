@@ -432,20 +432,41 @@
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
-                            Else
+                                opr_clientes.removerbutton.Enabled = False
+                                opr_clientes.editarbutton.Enabled = False
+                                opr_clientes.restorebutton.Enabled = False
+                                opr_clientes.nomebox.ReadOnly = True
+                                opr_clientes.moradabox.ReadOnly = True
+                                opr_clientes.codpostalbox.ReadOnly = True
+                                opr_clientes.localidadebox.ReadOnly = True
+                                opr_clientes.cmovelbox.ReadOnly = True
+                                opr_clientes.cfixobox.ReadOnly = True
+                                opr_clientes.nifbox.ReadOnly = True
+                                opr_clientes.emailbox.ReadOnly = True
+                                opr_clientes.numalunobox.ReadOnly = True
+                                opr_clientes.turmabox.ReadOnly = True
+                                opr_clientes.RadioButton1.Enabled = False
+                                opr_clientes.RadioButton2.Enabled = False
+                            Else()
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
+                                opr_clientes.removerbutton.Enabled = False
+                                opr_clientes.editarbutton.Enabled = False
                             End If
                         Else
                             If Workspace.Aluno = True Then
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
+                                opr_clientes.removerbutton.Enabled = False
+                                opr_clientes.editarbutton.Enabled = False
                             Else
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
+                                opr_clientes.removerbutton.Enabled = False
+                                opr_clientes.editarbutton.Enabled = False
                             End If
                         End If
                     Case "Componentes"
