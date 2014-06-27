@@ -106,4 +106,8 @@
     Private Sub Button1_Click(sender As Object, e As EventArgs)
         Workspace.Close()
     End Sub
+
+    Private Sub RadClock1_Click(sender As Object, e As EventArgs) Handles RadClock1.Click
+
+    End Sub
 End Class

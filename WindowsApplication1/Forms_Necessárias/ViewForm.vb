@@ -645,15 +645,15 @@
                     Case "Clientes"
                         If removidos = True Then
                             If Workspace.Aluno Then
-                                showdata.DataSource = BLL.Clientes.procura_dados_nif_desativados_alunos(TextBox1.Text)
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif_desativados_alunos("%" + TextBox1.Text + "%")
                             Else
-                                showdata.DataSource = BLL.Clientes.procura_dados_nif_desativados(TextBox1.Text)
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif_desativados("%" + TextBox1.Text + "%")
                             End If
                         Else
                             If Workspace.Aluno Then
-                                showdata.DataSource = BLL.Clientes.procura_dados_nif_alunos(TextBox1.Text)
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif_alunos("%" + TextBox1.Text + "%")
                             Else
-                                showdata.DataSource = BLL.Clientes.procura_dados_nif(TextBox1.Text)
+                                showdata.DataSource = BLL.Clientes.procura_dados_nif("%" + TextBox1.Text + "%")
                             End If
                         End If
                     Case "Componentes"
@@ -723,9 +723,9 @@
                     Case "Empresas"
 
                         If removidos = True Then
-                            showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_ativados(TextBox1.Text)
+                            showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_ativados("%" + TextBox1.Text + "%")
                         Else
-                            showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_desativados(TextBox1.Text)
+                            showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_nif_desativados("%" + TextBox1.Text + "%")
                         End If
                 End Select
             Else
@@ -733,4 +733,6 @@
             End If
         End If
     End Sub
+
+   
 End Class
