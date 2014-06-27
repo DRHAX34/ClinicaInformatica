@@ -30,13 +30,12 @@
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         If Workspace.tecnicos_support.Rows.Count <> 0 Then
             Dim check_componente As Boolean = True
-            Dim check_categoria As Boolean = True
-            Dim check_tempo_real As Boolean = True
-            Dim check_codpostal As Boolean = True
-            Dim check_hardware As Boolean = True
-            Dim check_software As Boolean = True
-            Dim check_descricao As Boolean = True
-            Dim check_date As Boolean = True
+            Dim check_categoria As String = ""
+            Dim check_codpostal As String = ""
+            Dim check_hardware As String = ""
+            Dim check_software As String = ""
+            Dim check_descricao As String = ""
+            Dim check_date As Boolean = ""
             If datefim.Value = dateinicio.Value Then
                 check_date = False
             End If

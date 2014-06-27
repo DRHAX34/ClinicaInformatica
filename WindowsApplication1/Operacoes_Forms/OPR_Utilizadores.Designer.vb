@@ -30,11 +30,17 @@ Partial Class OPR_Utilizadores
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tecnicolabel = New System.Windows.Forms.Label()
         Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
         Me.passwordbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.perguntabox = New System.Windows.Forms.ComboBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.admincheck = New System.Windows.Forms.RadioButton()
+        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -43,13 +49,11 @@ Partial Class OPR_Utilizadores
         Me.Label5 = New System.Windows.Forms.Label()
         Me.simcheck = New System.Windows.Forms.RadioButton()
         Me.naocheck = New System.Windows.Forms.RadioButton()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.questionlabel = New System.Windows.Forms.Label()
         Me.tecnicobox = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
-        Me.admincheck = New System.Windows.Forms.RadioButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -126,15 +130,15 @@ Partial Class OPR_Utilizadores
         Me.Label3.TabIndex = 72
         Me.Label3.Text = "Nome de Utilizador"
         '
-        'Label2
+        'tecnicolabel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(16, 175)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(78, 25)
-        Me.Label2.TabIndex = 71
-        Me.Label2.Text = "Técnico"
+        Me.tecnicolabel.AutoSize = True
+        Me.tecnicolabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tecnicolabel.Location = New System.Drawing.Point(16, 175)
+        Me.tecnicolabel.Name = "tecnicolabel"
+        Me.tecnicolabel.Size = New System.Drawing.Size(78, 25)
+        Me.tecnicolabel.TabIndex = 71
+        Me.tecnicolabel.Text = "Técnico"
         '
         'nomeutilizadorbox
         '
@@ -163,8 +167,12 @@ Partial Class OPR_Utilizadores
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.perguntabox)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.admincheck)
+        Me.GroupBox1.Controls.Add(Me.respostabox)
         Me.GroupBox1.Controls.Add(Me.admgeralcheck)
+        Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -179,6 +187,70 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.TabIndex = 80
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informações da Conta"
+        '
+        'perguntabox
+        '
+        Me.perguntabox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.perguntabox.FormattingEnabled = True
+        Me.perguntabox.Items.AddRange(New Object() {"Qual o nome do seu animal de infância? (Cão, Gato, etc)", "Qual a maior conquista da sua vida?", "Qual o nome do seu avô?", "Qual a idade da sua avó?", "Para onde viajou na sua infância?", "Diga uma coisa que só você saiba. (Nome de Grupo que pertence, etc)", "Diga o nome do seu primeiro namorado/a.", "Qual é/foi o seu filme favorito?"})
+        Me.perguntabox.Location = New System.Drawing.Point(119, 149)
+        Me.perguntabox.Name = "perguntabox"
+        Me.perguntabox.Size = New System.Drawing.Size(221, 28)
+        Me.perguntabox.TabIndex = 97
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label8.Location = New System.Drawing.Point(359, 126)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 20)
+        Me.Label8.TabIndex = 96
+        Me.Label8.Text = "Resposta:"
+        '
+        'admincheck
+        '
+        Me.admincheck.AutoSize = True
+        Me.admincheck.Location = New System.Drawing.Point(251, 236)
+        Me.admincheck.Name = "admincheck"
+        Me.admincheck.Size = New System.Drawing.Size(89, 29)
+        Me.admincheck.TabIndex = 79
+        Me.admincheck.TabStop = True
+        Me.admincheck.Text = "Admin"
+        Me.admincheck.UseVisualStyleBackColor = True
+        '
+        'respostabox
+        '
+        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.respostabox.Location = New System.Drawing.Point(363, 149)
+        Me.respostabox.Name = "respostabox"
+        Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.respostabox.Size = New System.Drawing.Size(183, 27)
+        Me.respostabox.TabIndex = 95
+        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.respostabox.WaterMarkText = "Resposta"
+        '
+        'admgeralcheck
+        '
+        Me.admgeralcheck.AutoSize = True
+        Me.admgeralcheck.Location = New System.Drawing.Point(346, 236)
+        Me.admgeralcheck.Name = "admgeralcheck"
+        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
+        Me.admgeralcheck.TabIndex = 78
+        Me.admgeralcheck.TabStop = True
+        Me.admgeralcheck.Text = "Admin Geral"
+        Me.admgeralcheck.UseVisualStyleBackColor = True
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label10.Location = New System.Drawing.Point(115, 126)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(165, 20)
+        Me.Label10.TabIndex = 94
+        Me.Label10.Text = "Pergunta de Segurança:"
         '
         'Label7
         '
@@ -210,7 +282,7 @@ Partial Class OPR_Utilizadores
         '
         'addtecnicobox
         '
-        Me.addtecnicobox.Location = New System.Drawing.Point(269, 179)
+        Me.addtecnicobox.Location = New System.Drawing.Point(151, 180)
         Me.addtecnicobox.Name = "addtecnicobox"
         Me.addtecnicobox.Size = New System.Drawing.Size(111, 21)
         Me.addtecnicobox.TabIndex = 85
@@ -259,21 +331,21 @@ Partial Class OPR_Utilizadores
         Me.naocheck.Text = "Não"
         Me.naocheck.UseVisualStyleBackColor = True
         '
-        'Label9
+        'questionlabel
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.Location = New System.Drawing.Point(16, 139)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(212, 25)
-        Me.Label9.TabIndex = 90
-        Me.Label9.Text = "O Utilizador é Técnico?"
+        Me.questionlabel.AutoSize = True
+        Me.questionlabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.questionlabel.Location = New System.Drawing.Point(16, 139)
+        Me.questionlabel.Name = "questionlabel"
+        Me.questionlabel.Size = New System.Drawing.Size(212, 25)
+        Me.questionlabel.TabIndex = 90
+        Me.questionlabel.Text = "O Utilizador é Técnico?"
         '
         'tecnicobox
         '
         Me.tecnicobox.Location = New System.Drawing.Point(101, 180)
         Me.tecnicobox.Name = "tecnicobox"
-        Me.tecnicobox.Size = New System.Drawing.Size(160, 20)
+        Me.tecnicobox.Size = New System.Drawing.Size(40, 20)
         Me.tecnicobox.TabIndex = 91
         '
         'PictureBox1
@@ -289,28 +361,6 @@ Partial Class OPR_Utilizadores
         'Timer1
         '
         '
-        'admgeralcheck
-        '
-        Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(346, 236)
-        Me.admgeralcheck.Name = "admgeralcheck"
-        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
-        Me.admgeralcheck.TabIndex = 78
-        Me.admgeralcheck.TabStop = True
-        Me.admgeralcheck.Text = "Admin Geral"
-        Me.admgeralcheck.UseVisualStyleBackColor = True
-        '
-        'admincheck
-        '
-        Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(251, 236)
-        Me.admincheck.Name = "admincheck"
-        Me.admincheck.Size = New System.Drawing.Size(89, 29)
-        Me.admincheck.TabIndex = 79
-        Me.admincheck.TabStop = True
-        Me.admincheck.Text = "Admin"
-        Me.admincheck.UseVisualStyleBackColor = True
-        '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -319,7 +369,7 @@ Partial Class OPR_Utilizadores
         Me.ClientSize = New System.Drawing.Size(721, 573)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.tecnicobox)
-        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.questionlabel)
         Me.Controls.Add(Me.naocheck)
         Me.Controls.Add(Me.simcheck)
         Me.Controls.Add(Me.empresabox)
@@ -332,7 +382,7 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.tecnicolabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Utilizadores"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -357,7 +407,7 @@ Partial Class OPR_Utilizadores
     Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents tecnicolabel As System.Windows.Forms.Label
     Friend WithEvents nomeutilizadorbox As System.Windows.Forms.TextBox
     Friend WithEvents passwordbox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -367,7 +417,7 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents simcheck As System.Windows.Forms.RadioButton
     Friend WithEvents naocheck As System.Windows.Forms.RadioButton
-    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents questionlabel As System.Windows.Forms.Label
     Friend WithEvents tecnicobox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
@@ -377,4 +427,8 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents admincheck As System.Windows.Forms.RadioButton
     Friend WithEvents admgeralcheck As System.Windows.Forms.RadioButton
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents perguntabox As System.Windows.Forms.ComboBox
 End Class

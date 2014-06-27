@@ -137,7 +137,6 @@ Partial Class Adicionar_tecnicos
     Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-
 End Class
 
 Public Class Adicionar_tecnicos
@@ -145,7 +144,7 @@ Public Class Adicionar_tecnicos
     Public datatable As New DataTable
     Private Sub Adicionar_tecnicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For i = 0 To ((BLL.Tecnicos.carregar_tecnico).Rows.Count - 1)
-            If i <> 9 Then
+            If BLL.Tecnicos.carregar_tecnico.Rows(i).Item("NºTécnico").ToString() < 9 Then
                 ListBox1.Items.Add("0" & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Tipo").ToString) & " " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Marca").ToString))
             Else
                 ListBox1.Items.Add(((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Tipo").ToString) & " " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Marca").ToString))
@@ -196,6 +195,8 @@ Public Class Adicionar_tecnicos
                 If ListBox2.SelectedItem.ToString.Chars(0) <> "0" Then
                     If i < 99 Then
                         datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
+                    ElseIf i < 999 Then
+                        datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2)).Rows(0))
                     ElseIf i < 9999 Then
                         datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2) & ListBox1.SelectedItem.ToString.Chars(3)).Rows(0))
                     End If

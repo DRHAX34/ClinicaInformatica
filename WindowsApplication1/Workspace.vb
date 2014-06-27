@@ -109,6 +109,9 @@ Public Class Workspace
                 LoginForm.MdiParent = Me
                 m_ChildFormNumber += 1
                 Me.FormBorderStyle = 1
+                If System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg") Then
+                    varias_empresas = File.ReadAllText((Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg"))
+                End If
                 If BLL.Login.Carregar_empresas.Count = 0 Then
                     Me.WindowState = FormWindowState.Normal
                     Dim config As New Passo1
@@ -124,8 +127,22 @@ Public Class Workspace
                     m_ChildFormNumber += 1
                     Me.MaximizeBox = False
                 Else
-                    Me.WindowState = FormWindowState.Maximized
-                    LoginForm.Show()
+                    If BLL.Admin_only.Login.carregar_users.Rows.Count = 0 Then
+                        If varias_empresas = False Then
+                            config3_5.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            config3_5.Show()
+                            config3_5.WindowState = FormWindowState.Maximized
+                        Else
+                            config3.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            config3.Show()
+                            config3.WindowState = FormWindowState.Maximized
+                        End If
+                    Else
+                        Me.WindowState = FormWindowState.Maximized
+                        LoginForm.Show()
+                    End If
                 End If
                 Me.DoubleBuffered = True
             Catch ex As Exception
@@ -447,10 +464,5 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub DesencriptadorDePalavrasPassesToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DesencriptadorDePalavrasPassesToolStripMenuItem.Click
-        Dim decrypt_pass As New pass_decrypt
-        decrypt_pass.MdiParent = Me
-        m_ChildFormNumber += 1
-        decrypt_pass.Show()
-    End Sub
+    
 End Class

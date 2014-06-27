@@ -3,7 +3,6 @@
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 Imports System.Security
-Imports System.CodeDom.Compiler
 
 Public Class Passo2
     Public logo As Image
@@ -77,23 +76,23 @@ Public Class Passo2
             Dim check_logo As String = ""
             check_nome = nomebox.Text
             check_morada = moradabox.Text
-            If nifbox.Text.Count = 9 Then
+            If nifbox.Text.Length = 9 Then
                 check_nif = True
             Else
                 check_nif = False
             End If
-            If cod_postalbox.Text.Count = 8 Then
+            If cod_postalbox.Text.Length = 7 Then
                 check_codpostal = True
             Else
                 check_codpostal = False
             End If
             check_localidade = localidadebox.Text
             check_logo = caminhobox.Text
-            check_nome.Trim(" ")
-            check_morada.Trim(" ")
-            check_localidade.Trim(" ")
-            check_logo.Trim(" ")
-            If Not check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_logo = "" Then
+            check_nome.Trim()
+            check_morada.Trim()
+            check_localidade.Trim()
+            check_logo.Trim()
+            If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_logo = "") Then
                 BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
                 If Workspace.varias_empresas = True Then
                     Workspace.config3.Show()

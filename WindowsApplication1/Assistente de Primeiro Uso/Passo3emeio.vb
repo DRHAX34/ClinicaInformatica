@@ -4,7 +4,6 @@ Option Explicit On
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 Imports System.Security
-Imports System.CodeDom.Compiler
 
 Public Class Passo3emeio
     
@@ -62,17 +61,17 @@ Public Class Passo3emeio
         Try
             Dim check_nome, check_pass, check_pergunta, check_resposta As String
             check_nome = nomebox.Text
-            check_nome.Trim(" ")
+            check_nome.Trim()
             If passbox.Text = verifbox.Text Then
                 check_pass = passbox.Text
-                check_pass.Trim(" ")
+                check_pass.Trim()
             Else
                 check_pass = ""
             End If
             check_pergunta = perguntabox.Text
-            check_pergunta.Trim(" ")
+            check_pergunta.Trim()
             check_resposta = respostabox.Text
-            check_resposta.Trim(" ")
+            check_resposta.Trim()
             If Not check_nome = "" And check_pass = "" And check_pergunta = "" And check_resposta = "" Then
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")

@@ -3,7 +3,6 @@
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 Imports System.Security
-Imports System.CodeDom.Compiler
 
 Public Class Passo4
     Public logo As Image

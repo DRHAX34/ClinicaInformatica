@@ -1,10 +1,10 @@
-﻿Option Strict On
-Option Explicit On
+﻿Option Explicit On
 
 Imports System.ComponentModel
 Imports System.Runtime.InteropServices
 Imports System.Security
-Imports System.CodeDom.Compiler
+Imports System.IO
+Imports System.IO.Compression
 
 Public Class Passo1
 
@@ -59,6 +59,10 @@ Public Class Passo1
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Workspace.config2.Show()
         Workspace.varias_empresas = variascheck.Checked
+        If Not System.IO.Directory.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config") Then
+            System.IO.Directory.CreateDirectory(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config")
+        End If
+        File.WriteAllText((Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg"), variascheck.Checked)
         Me.Close()
     End Sub
 
