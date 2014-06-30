@@ -72,7 +72,7 @@ Public Class Passo3emeio
             check_pergunta.Trim()
             check_resposta = respostabox.Text
             check_resposta.Trim()
-            If Not check_nome = "" And check_pass = "" And check_pergunta = "" And check_resposta = "" Then
+            If Not (check_nome = "" And check_pass = "" And check_pergunta = "" And check_resposta = "") Then
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
@@ -81,7 +81,7 @@ Public Class Passo3emeio
                 Workspace.config4.Show()
                 Me.Close()
             Else
-                MsgBox("Preencha os dados!", vbOK, "Erro")
+                MsgBox("Preencha todos os dados corretamente!", vbOK, "Erro")
             End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro na Aplicação: " & ex.Message)

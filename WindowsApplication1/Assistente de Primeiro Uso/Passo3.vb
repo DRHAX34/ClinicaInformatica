@@ -72,7 +72,7 @@ Public Class Passo3
             verif_pergunta.Trim()
             verif_resposta = respostabox.Text
             verif_resposta.Trim()
-            If Not verif_pass = "" And verif_user = "" And verif_pergunta = "" And verif_resposta = "" Then
+            If Not (verif_pass = "" And verif_user = "" And verif_pergunta = "" And verif_resposta = "") Then
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
