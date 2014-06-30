@@ -15,6 +15,7 @@ Public Class Workspace
     Public support As Integer
     Public tecnicos_support As DataTable
     Public string_pass As String
+    Public erros As Boolean
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
@@ -83,7 +84,9 @@ Public Class Workspace
     'End Sub
     Public m_ChildFormNumber As Integer
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
-        terminarsessaobutton.Location = New Point((Me.Width - (1035 - 908)), 12)
+        'terminarsessaobutton.Location = New Point((Me.Width - (1035 - 908)), 12)
+        Label1.Location = New Point((Me.Width - (1035 - (965 - (Label1.Size.Width / 2)))), 0)
+        Label2.Location = New Point((Me.Width - (1035 - (1015 - (Label2.Size.Width)))), 25)
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         DAL.CloseConnection()
@@ -91,6 +94,8 @@ Public Class Workspace
     End Sub
     
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label1.Hide()
+        Label2.Hide()
         check_bd = False
         If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf") Then
             unzip()
@@ -100,11 +105,11 @@ Public Class Workspace
         End If
         If check_bd = True Then
             Try
-                Me.Text = "Gestão Clínica Informática " & Application.ProductVersion
+                Me.Text = "Gestão Clínica Informática "
                 MenuStrip.Hide()
                 Me.BackgroundImageLayout = ImageLayout.Stretch
                 StatusStrip.Hide()
-                terminarsessaobutton.Hide()
+                'terminarsessaobutton.Hide()
                 Dim estado As Integer = DAL.CreateConnection()
                 LoginForm.MdiParent = Me
                 m_ChildFormNumber += 1
@@ -209,19 +214,23 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles terminarsessaobutton.Click
-        For Each ChildForm As Form In Me.MdiChildren
-            ChildForm.Close()
-        Next
-        Dim LoginForm1 As New LoginForm
-        StatusStrip.Hide()
-        MenuStrip.Hide()
-        LoginForm1.MdiParent = Me
-        LoginForm1.Show()
-        m_ChildFormNumber += 1
-        Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
-        Me.MaximizeBox = False
-        terminarsessaobutton.Hide()
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles terminarsessao.Click
+        If MsgBox("Tem a certeza que quer terminar sessão?", vbYesNo, "Terminar Sessão") = vbYes Then
+            For Each ChildForm As Form In Me.MdiChildren
+                ChildForm.Close()
+            Next
+            Dim LoginForm1 As New LoginForm
+            StatusStrip.Hide()
+            MenuStrip.Hide()
+            Label1.Hide()
+            Label2.Hide()
+            LoginForm1.MdiParent = Me
+            LoginForm1.Show()
+            m_ChildFormNumber += 1
+            Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
+            Me.MaximizeBox = False
+            'terminarsessaobutton.Hide()
+        End If
     End Sub
 
     Private Sub componentesAtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles componentesAtivosToolStripMenuItem.Click
@@ -465,4 +474,16 @@ Public Class Workspace
     End Sub
 
     
+    Private Sub Statuscheck_Tick(sender As Object, e As EventArgs) Handles Statuscheck.Tick
+        If erros = True Then
+            ToolStripStatusLabel1.Text = "Ocorreram Erros no Programa"
+        Else
+            ToolStripStatusLabel1.Text = "O programa está a decorrer normalmente!"
+        End If
+    End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click
+        AboutBox1.MdiParent = Me
+        AboutBox1.Show()
+    End Sub
 End Class

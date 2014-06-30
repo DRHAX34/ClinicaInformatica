@@ -37,12 +37,12 @@ Partial Class OPR_Componentes
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.numbox = New System.Windows.Forms.TextBox()
-        Me.numseriebox = New System.Windows.Forms.TextBox()
-        Me.marcabox = New System.Windows.Forms.TextBox()
-        Me.modelobox = New System.Windows.Forms.TextBox()
-        Me.observaçoesbox = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.marcabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.modelobox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.numseriebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.observaçoesbox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -178,37 +178,6 @@ Partial Class OPR_Componentes
         Me.numbox.Size = New System.Drawing.Size(41, 20)
         Me.numbox.TabIndex = 61
         '
-        'numseriebox
-        '
-        Me.numseriebox.Location = New System.Drawing.Point(308, 188)
-        Me.numseriebox.Name = "numseriebox"
-        Me.numseriebox.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.numseriebox.Size = New System.Drawing.Size(177, 20)
-        Me.numseriebox.TabIndex = 62
-        Me.numseriebox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'marcabox
-        '
-        Me.marcabox.Location = New System.Drawing.Point(38, 188)
-        Me.marcabox.Name = "marcabox"
-        Me.marcabox.Size = New System.Drawing.Size(98, 20)
-        Me.marcabox.TabIndex = 63
-        '
-        'modelobox
-        '
-        Me.modelobox.Location = New System.Drawing.Point(142, 188)
-        Me.modelobox.Name = "modelobox"
-        Me.modelobox.Size = New System.Drawing.Size(151, 20)
-        Me.modelobox.TabIndex = 64
-        '
-        'observaçoesbox
-        '
-        Me.observaçoesbox.Location = New System.Drawing.Point(39, 250)
-        Me.observaçoesbox.Multiline = True
-        Me.observaçoesbox.Name = "observaçoesbox"
-        Me.observaçoesbox.Size = New System.Drawing.Size(447, 95)
-        Me.observaçoesbox.TabIndex = 65
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101754Hz7aSVUe
@@ -219,17 +188,58 @@ Partial Class OPR_Componentes
         Me.PictureBox1.TabIndex = 66
         Me.PictureBox1.TabStop = False
         '
+        'marcabox
+        '
+        Me.marcabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.marcabox.Location = New System.Drawing.Point(39, 188)
+        Me.marcabox.Name = "marcabox"
+        Me.marcabox.Size = New System.Drawing.Size(88, 25)
+        Me.marcabox.TabIndex = 67
+        Me.marcabox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.marcabox.WaterMarkText = "Obrigatório"
+        '
+        'modelobox
+        '
+        Me.modelobox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.modelobox.Location = New System.Drawing.Point(142, 188)
+        Me.modelobox.Name = "modelobox"
+        Me.modelobox.Size = New System.Drawing.Size(151, 25)
+        Me.modelobox.TabIndex = 68
+        Me.modelobox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.modelobox.WaterMarkText = "Obrigatório"
+        '
+        'numseriebox
+        '
+        Me.numseriebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.numseriebox.Location = New System.Drawing.Point(308, 188)
+        Me.numseriebox.Name = "numseriebox"
+        Me.numseriebox.Size = New System.Drawing.Size(178, 25)
+        Me.numseriebox.TabIndex = 69
+        Me.numseriebox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.numseriebox.WaterMarkText = "Obrigatório"
+        '
+        'observaçoesbox
+        '
+        Me.observaçoesbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.observaçoesbox.Location = New System.Drawing.Point(39, 250)
+        Me.observaçoesbox.Multiline = True
+        Me.observaçoesbox.Name = "observaçoesbox"
+        Me.observaçoesbox.Size = New System.Drawing.Size(447, 98)
+        Me.observaçoesbox.TabIndex = 70
+        Me.observaçoesbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.observaçoesbox.WaterMarkText = "Obrigatório"
+        '
         'OPR_Componentes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(529, 444)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.observaçoesbox)
+        Me.Controls.Add(Me.numseriebox)
         Me.Controls.Add(Me.modelobox)
         Me.Controls.Add(Me.marcabox)
-        Me.Controls.Add(Me.numseriebox)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.numbox)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.Label8)
@@ -245,7 +255,7 @@ Partial Class OPR_Componentes
         Me.Controls.Add(Me.Label4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Componentes"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Operações Componentes"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -272,10 +282,10 @@ Partial Class OPR_Componentes
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents numbox As System.Windows.Forms.TextBox
-    Friend WithEvents numseriebox As System.Windows.Forms.TextBox
-    Friend WithEvents marcabox As System.Windows.Forms.TextBox
-    Friend WithEvents modelobox As System.Windows.Forms.TextBox
-    Friend WithEvents observaçoesbox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents marcabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents modelobox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents numseriebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents observaçoesbox As ClinicaInformatica.WaterMarkTextBox
 End Class

@@ -64,7 +64,7 @@
 
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.Click
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
         RadioButton2.Checked = False
         RadioButton1.Checked = True
         numalunobox.Enabled = True
@@ -72,7 +72,7 @@
         turmabox.Show()
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.Click
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs)
         RadioButton2.Checked = True
         RadioButton1.Checked = False
         numalunobox.Enabled = False
@@ -81,76 +81,59 @@
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles adicionarbutton.Click
-        Dim check_nome As Boolean = True
-        Dim check_morada As Boolean = True
-        Dim check_nif As Boolean = True
-        Dim check_codpostal As Boolean = True
-        Dim check_localidade As Boolean = True
-        Dim check_contactom As Boolean = True
-        For i = 0 To nomebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nome = False
+        Dim check_nome As String = ""
+        Dim check_morada As String = ""
+        Dim check_nif As Boolean = False
+        Dim check_codpostal As Boolean = False
+        Dim check_localidade As String = ""
+        Dim check_contactom As Boolean = False
+        Try
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_morada = moradabox.Text
+            check_morada.Trim()
+            If nifbox.Text.Length < 9 Then
+                check_nif = False
+            Else
+                check_nif = True
             End If
-        Next
-        For i = 0 To moradabox.Text.Count - 1
-            If moradabox.Text.Chars(i) <> " " Then
-                check_morada = False
-            End If
-        Next
-        If nifbox.Text.Length = 9 Then
-            For i = 0 To nifbox.Text.Count - 1
-                If nifbox.Text.Chars(i) <> " " Then
-                    check_nif = False
-                End If
-            Next
-        Else
-            check_nif = True
-        End If
-        For i = 0 To codpostalbox.Text.Count - 1
-            If codpostalbox.Text.Chars(i) <> " " Then
+            If codpostalbox.Text.Count < 7 Then
                 check_codpostal = False
+            Else
+                check_codpostal = True
             End If
-        Next
-        For i = 0 To localidadebox.Text.Count - 1
-            If localidadebox.Text.Chars(i) <> " " Then
-                check_localidade = False
+            check_localidade = localidadebox.Text
+            check_localidade.Trim()
+            If cmovelbox.Text.Count < 9 Then
+                check_contactom = False
+            Else
+                check_contactom = True
             End If
-        Next
-        If cmovelbox.Text > 9 Then
-            For i = 0 To cmovelbox.Text.Count - 1
-                If cmovelbox.Text.Chars(i) <> " " Then
-                    check_contactom = False
-                End If
-            Next
-        Else
-            check_contactom = True
-        End If
-        If Not BLL.Clientes.procura_dados_nome(nomebox.Text).Rows.Count <> 0 Then
+        Catch ex As Exception
+            MsgBox("Preencha todos os dados marcados como obrigatórios!")
+        End Try
             Try
-                If check_nome = False And check_morada = False And check_codpostal = False And check_nif = False And check_localidade = False And check_contactom = False Then
-                    BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                    MsgBox("Inserido com sucesso")
-                    If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
-                        Dim opr_componente As New OPR_Componentes
-                        opr_componente.modo = False
-                        opr_componente.numbox.Text = BLL.Clientes.carregar_max()
-                        opr_componente.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_componente.Show()
-                        Me.Close()
-                    Else
-                        Workspace.clientesativos.PerformClick()
-                        Me.Close()
-                    End If
+            If Not check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False Then
+                BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                MsgBox("Inserido com sucesso")
+                If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
+                    Dim opr_componente As New OPR_Componentes
+                    opr_componente.modo = False
+                    opr_componente.numbox.Text = BLL.Clientes.carregar_max()
+                    opr_componente.MdiParent = Workspace
+                    Workspace.m_ChildFormNumber += 1
+                    opr_componente.Show()
+                    Me.Close()
                 Else
-                    MsgBox("Introduza todos os dados!")
+                    Workspace.clientesativos.PerformClick()
+                    Me.Close()
                 End If
+            Else
+                MsgBox("Introduza todos os dados!")
+            End If
             Catch ex As Exception
                 MsgBox("Ocorreu um erro: " & ex.Message)
             End Try
-        Else
-            MsgBox("Este nome já existe na base-de-dados! Por favor insira outro nome ou o nome completo!")
-        End If
     End Sub
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
@@ -158,35 +141,70 @@
     End Sub
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles editarbutton.Click
+        Dim check_nome As String = ""
+        Dim check_morada As String = ""
+        Dim check_nif As Boolean = False
+        Dim check_codpostal As Boolean = False
+        Dim check_localidade As String = ""
+        Dim check_contactom As Boolean = False
         Try
-            If Workspace.Aluno = False Then
-                If removidos = True Then
-                    BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                    MsgBox("Editado com sucesso")
-                    Workspace.clientesremovidos.PerformClick()
-                    Me.Close()
-                Else
-                    BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                    MsgBox("Editado com sucesso")
-                    Workspace.clientesativos.PerformClick()
-                    Me.Close()
-                End If
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_morada = moradabox.Text
+            check_morada.Trim()
+            If nifbox.Text.Length < 9 Then
+                check_nif = False
             Else
-                If removidos = True Then
-                    BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                    MsgBox("Editado com sucesso")
-                    Workspace.clientesremovidos.PerformClick()
-                    Me.Close()
-                Else
-                    BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                    MsgBox("Editado com sucesso")
-                    Workspace.clientesativos.PerformClick()
-                    Me.Close()
-                End If
+                check_nif = True
+            End If
+            If codpostalbox.Text.Count < 7 Then
+                check_codpostal = False
+            Else
+                check_codpostal = True
+            End If
+            check_localidade = localidadebox.Text
+            check_localidade.Trim()
+            If cmovelbox.Text.Count < 9 Then
+                check_contactom = False
+            Else
+                check_contactom = True
             End If
         Catch ex As Exception
-            MsgBox("Ocorreu um erro: " & ex.Message)
+            MsgBox("Preencha todos os dados marcados como obrigatórios!")
         End Try
+            If Not check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False Then
+                Try
+                    If Workspace.Aluno = False Then
+                        If removidos = True Then
+                            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesremovidos.PerformClick()
+                            Me.Close()
+                        Else
+                            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesativos.PerformClick()
+                            Me.Close()
+                        End If
+                    Else
+                        If removidos = True Then
+                            BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesremovidos.PerformClick()
+                            Me.Close()
+                        Else
+                            BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesativos.PerformClick()
+                            Me.Close()
+                        End If
+                    End If
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Introduza todos os dados marcados como obrigatórios!")
+        End If
     End Sub
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles removerbutton.Click
@@ -261,7 +279,7 @@
             MsgBox("Erro ao restaurar os dados: " & ex.Message)
         End Try
     End Sub
-    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numalunobox.KeyPress
+    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs)
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -270,7 +288,7 @@
         Catch
         End Try
     End Sub
-    Private Sub contactom_onlynums(sender As Object, e As KeyPressEventArgs) Handles cmovelbox.KeyPress
+    Private Sub contactom_onlynums(sender As Object, e As KeyPressEventArgs)
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -279,7 +297,7 @@
         Catch
         End Try
     End Sub
-    Private Sub contactof_onlynums(sender As Object, e As KeyPressEventArgs) Handles cfixobox.KeyPress
+    Private Sub contactof_onlynums(sender As Object, e As KeyPressEventArgs)
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -288,7 +306,7 @@
         Catch
         End Try
     End Sub
-    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs)
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -298,13 +316,11 @@
         End Try
     End Sub
 
-    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.TextChanged
-        If cmovelbox.Text.Count = 0 Then
-            cmovelbox.Text = "+"
-        End If
+    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs)
+
     End Sub
 
-    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.TextChanged
+    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs)
         If cfixobox.Text.Count = 0 Then
             cfixobox.Text = "+"
         End If

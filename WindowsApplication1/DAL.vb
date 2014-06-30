@@ -176,6 +176,3 @@ Public Class DAL
     'End Function
 
 End Class
-
-'Falha no msgbox
-' soluçao criar uma msgbox

@@ -221,6 +221,7 @@ Partial Class ViewForm
         Me.MaximizeBox = False
         Me.MinimumSize = New System.Drawing.Size(757, 303)
         Me.Name = "ViewForm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Generic Form"
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()

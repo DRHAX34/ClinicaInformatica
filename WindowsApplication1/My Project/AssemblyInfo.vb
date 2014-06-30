@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("Clínica Informática")> 
 <Assembly: AssemblyDescription("Software para gestão de Clínicas de Informática")> 
-<Assembly: AssemblyCompany("F.H.Coding")> 
+<Assembly: AssemblyCompany("F.E.Coding")> 
 <Assembly: AssemblyProduct("Clínica Informática")> 
-<Assembly: AssemblyCopyright("Copyright © F.H.Coding  2014")> 
+<Assembly: AssemblyCopyright("None")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' utilizando o '*' como mostrado abaixo:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("0.5.3.0")> 
-<Assembly: AssemblyFileVersion("0.5.3.0")> 
+<Assembly: AssemblyVersion("0.7.5.0")> 
+<Assembly: AssemblyFileVersion("0.7.5.0")> 

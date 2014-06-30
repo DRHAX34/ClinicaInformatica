@@ -26,10 +26,13 @@ Partial Class Workspace
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Workspace))
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.terminarsessaobutton = New Telerik.WinControls.UI.RadButton()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesremovidos = New System.Windows.Forms.ToolStripMenuItem()
@@ -45,7 +48,7 @@ Partial Class Workspace
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.utilativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.utilremovidos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.terminarsessao = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.empresasativas = New System.Windows.Forms.ToolStripMenuItem()
         Me.empresasremovidas = New System.Windows.Forms.ToolStripMenuItem()
@@ -55,18 +58,25 @@ Partial Class Workspace
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
-        CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip
         '
         Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
         Me.StatusStrip.Location = New System.Drawing.Point(0, 446)
         Me.StatusStrip.Name = "StatusStrip"
-        Me.StatusStrip.Size = New System.Drawing.Size(1019, 22)
+        Me.StatusStrip.Size = New System.Drawing.Size(1102, 22)
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
+        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
         'ToolStripStatusLabel
         '
@@ -81,17 +91,38 @@ Partial Class Workspace
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.tecnicosmenu
         Me.MenuStrip.Name = "MenuStrip"
-        Me.MenuStrip.Size = New System.Drawing.Size(1019, 62)
+        Me.MenuStrip.Size = New System.Drawing.Size(1102, 62)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
-        'terminarsessaobutton
+        'Label1
         '
-        Me.terminarsessaobutton.Location = New System.Drawing.Point(908, 12)
-        Me.terminarsessaobutton.Name = "terminarsessaobutton"
-        Me.terminarsessaobutton.Size = New System.Drawing.Size(99, 39)
-        Me.terminarsessaobutton.TabIndex = 49
-        Me.terminarsessaobutton.Text = "Terminar Sessão"
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(1032, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Label1.Size = New System.Drawing.Size(70, 25)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Label1"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Location = New System.Drawing.Point(1032, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Label2.Size = New System.Drawing.Size(70, 25)
+        Me.Label2.TabIndex = 52
+        Me.Label2.Text = "Label2"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Statuscheck
+        '
+        Me.Statuscheck.Enabled = True
+        Me.Statuscheck.Interval = 5
         '
         'clientesmenu
         '
@@ -106,13 +137,13 @@ Partial Class Workspace
         'clientesativos
         '
         Me.clientesativos.Name = "clientesativos"
-        Me.clientesativos.Size = New System.Drawing.Size(152, 22)
+        Me.clientesativos.Size = New System.Drawing.Size(136, 22)
         Me.clientesativos.Text = "Ativos"
         '
         'clientesremovidos
         '
         Me.clientesremovidos.Name = "clientesremovidos"
-        Me.clientesremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.clientesremovidos.Size = New System.Drawing.Size(136, 22)
         Me.clientesremovidos.Text = "Removidos"
         '
         'dispositivosmenu
@@ -128,13 +159,13 @@ Partial Class Workspace
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu
@@ -150,13 +181,13 @@ Partial Class Workspace
         'reparativos
         '
         Me.reparativos.Name = "reparativos"
-        Me.reparativos.Size = New System.Drawing.Size(152, 22)
+        Me.reparativos.Size = New System.Drawing.Size(136, 22)
         Me.reparativos.Text = "Ativos"
         '
         'reparremovidos
         '
         Me.reparremovidos.Name = "reparremovidos"
-        Me.reparremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.reparremovidos.Size = New System.Drawing.Size(136, 22)
         Me.reparremovidos.Text = "Removidos"
         '
         'tecnicosmenu
@@ -172,18 +203,18 @@ Partial Class Workspace
         'tecnicosativos
         '
         Me.tecnicosativos.Name = "tecnicosativos"
-        Me.tecnicosativos.Size = New System.Drawing.Size(152, 22)
+        Me.tecnicosativos.Size = New System.Drawing.Size(136, 22)
         Me.tecnicosativos.Text = "Ativos"
         '
         'tecremovidos
         '
         Me.tecremovidos.Name = "tecremovidos"
-        Me.tecremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.tecremovidos.Size = New System.Drawing.Size(136, 22)
         Me.tecremovidos.Text = "Removidos"
         '
         'UtilizadoresToolStripMenuItem
         '
-        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos, Me.DesencriptadorDePalavrasPassesToolStripMenuItem})
+        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos, Me.terminarsessao})
         Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ5
         Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -194,20 +225,20 @@ Partial Class Workspace
         'utilativos
         '
         Me.utilativos.Name = "utilativos"
-        Me.utilativos.Size = New System.Drawing.Size(265, 22)
+        Me.utilativos.Size = New System.Drawing.Size(164, 22)
         Me.utilativos.Text = "Ativos"
         '
         'utilremovidos
         '
         Me.utilremovidos.Name = "utilremovidos"
-        Me.utilremovidos.Size = New System.Drawing.Size(265, 22)
+        Me.utilremovidos.Size = New System.Drawing.Size(164, 22)
         Me.utilremovidos.Text = "Removidos"
         '
-        'DesencriptadorDePalavrasPassesToolStripMenuItem
+        'terminarsessao
         '
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Name = "DesencriptadorDePalavrasPassesToolStripMenuItem"
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Size = New System.Drawing.Size(265, 22)
-        Me.DesencriptadorDePalavrasPassesToolStripMenuItem.Text = "Desencriptador de Palavras-Passes"
+        Me.terminarsessao.Name = "terminarsessao"
+        Me.terminarsessao.Size = New System.Drawing.Size(164, 22)
+        Me.terminarsessao.Text = "Terminar Sessão"
         '
         'EmpresasToolStripMenuItem
         '
@@ -222,13 +253,13 @@ Partial Class Workspace
         'empresasativas
         '
         Me.empresasativas.Name = "empresasativas"
-        Me.empresasativas.Size = New System.Drawing.Size(152, 22)
+        Me.empresasativas.Size = New System.Drawing.Size(135, 22)
         Me.empresasativas.Text = "Ativas"
         '
         'empresasremovidas
         '
         Me.empresasremovidas.Name = "empresasremovidas"
-        Me.empresasremovidas.Size = New System.Drawing.Size(152, 22)
+        Me.empresasremovidas.Size = New System.Drawing.Size(135, 22)
         Me.empresasremovidas.Text = "Removidas"
         '
         'HelpMenu
@@ -240,7 +271,6 @@ Partial Class Workspace
         Me.HelpMenu.Name = "HelpMenu"
         Me.HelpMenu.Size = New System.Drawing.Size(104, 58)
         Me.HelpMenu.Text = "Ajuda"
-        Me.HelpMenu.Visible = False
         '
         'ContentsToolStripMenuItem
         '
@@ -282,8 +312,9 @@ Partial Class Workspace
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1019, 468)
-        Me.Controls.Add(Me.terminarsessaobutton)
+        Me.ClientSize = New System.Drawing.Size(1102, 468)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.DoubleBuffered = True
@@ -293,9 +324,10 @@ Partial Class Workspace
         Me.Name = "Workspace"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clínica Informática"
+        Me.StatusStrip.ResumeLayout(False)
+        Me.StatusStrip.PerformLayout()
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
-        CType(Me.terminarsessaobutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -318,7 +350,6 @@ Partial Class Workspace
     Friend WithEvents EmpresasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents clientesativos As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents clientesremovidos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents terminarsessaobutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents componentesAtivosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents componentesRemovidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents reparativos As System.Windows.Forms.ToolStripMenuItem
@@ -329,6 +360,10 @@ Partial Class Workspace
     Friend WithEvents utilremovidos As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents empresasativas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents empresasremovidas As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents DesencriptadorDePalavrasPassesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents terminarsessao As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
+    Friend WithEvents Statuscheck As System.Windows.Forms.Timer
 
 End Class

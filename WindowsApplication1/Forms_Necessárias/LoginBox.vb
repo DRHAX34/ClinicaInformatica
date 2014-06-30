@@ -46,6 +46,7 @@
             Workspace.varias_empresas = False
         End If
         user = BLL.Login.Verificar_Login(UsernameBox.Text, passencript, n_empresa)
+        Dim tipo As String = ""
         If user <> 0 Then
             'menuform.show()
             Workspace.StatusStrip.Show()
@@ -54,10 +55,11 @@
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.admin = True
                 Workspace.admin_geral = False
+                tipo = "Administrador"
             Else
                 Workspace.UtilizadoresToolStripMenuItem.Visible = False
+                tipo = "Utilizador Padrão"
             End If
-            Workspace.terminarsessaobutton.Show()
             Workspace.clientesmenu.Enabled = True
             Workspace.dispositivosmenu.Enabled = True
             Workspace.reparacoesmenu.Enabled = True
@@ -74,7 +76,6 @@
                 Workspace.StatusStrip.Show()
                 Workspace.MenuStrip.Show()
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
-                Workspace.terminarsessaobutton.Show()
                 Workspace.clientesmenu.Enabled = False
                 Workspace.dispositivosmenu.Enabled = False
                 Workspace.reparacoesmenu.Enabled = False
@@ -85,6 +86,8 @@
                 Workspace.admin_geral = True
                 Workspace.modo = 1
                 check = True
+
+                tipo = "Administrador Geral"
             End If
         End If
         If check = True Then
@@ -97,7 +100,11 @@
             Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable
             Workspace.MaximizeBox = True
             Workspace.string_pass = passencript
-            Workspace.UtilizadoresToolStripMenuItem.Text = UsernameBox.Text
+            'Workspace.UtilizadoresToolStripMenuItem.Text = UsernameBox.Text
+            Workspace.Label1.Text = UsernameBox.Text
+            Workspace.Label2.Text = tipo
+            Workspace.Label1.Show()
+            Workspace.Label2.Show()
             Me.Close()
         End If
 

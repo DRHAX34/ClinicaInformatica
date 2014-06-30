@@ -133,21 +133,21 @@
                         opr_clientes.modo = True
                         If removidos = True Then
                             If Workspace.Aluno = True Then
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_desativados_alunos(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
                             Else
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_desativados(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
                             End If
                         Else
                             If Workspace.Aluno = True Then
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
                             Else
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
                             End If
@@ -158,11 +158,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_componentes.modo = True
                         If removidos = True Then
-                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente_desativo(string_data)
+                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
                             opr_componentes.removidos = True
                             opr_componentes.Show()
                         Else
-                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
+                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
                             opr_componentes.removidos = False
                             opr_componentes.Show()
                         End If
@@ -172,25 +172,27 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_reparacoes.modo = True
                         If removidos = True Then
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação_desativo(string_data)
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação_desativo(string_data)
                             opr_reparacoes.removidos = True
                             opr_reparacoes.Show()
                         Else
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data)
                             opr_reparacoes.removidos = False
                             opr_reparacoes.Show()
                         End If
+                        opr_reparacoes.hardware_data = BLL.Hardware.return_hardware(string_data)
+                        opr_reparacoes.software_data = BLL.Software.return_software(string_data)
                     Case "Técnicos"
                         Dim opr_tecnicos As New OPR_Técnicos
                         opr_tecnicos.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
                         opr_tecnicos.modo = True
                         If removidos = True Then
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_desativados(string_data)
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_desativados(string_data)
                             opr_tecnicos.removidos = True
                             opr_tecnicos.Show()
                         Else
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_ativados(string_data)
                             opr_tecnicos.removidos = False
                             opr_tecnicos.Show()
                         End If
@@ -200,11 +202,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_empresas.modo = True
                         If removidos = True Then
-                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa_desativados(string_data)
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa_desativados(string_data)
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         Else
-                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa(string_data)
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(string_data)
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         End If
@@ -214,11 +216,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_utilizadores.modo = True
                         If removidos = True Then
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(string_data)
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_desativados(string_data)
                             opr_utilizadores.removidos = True
                             opr_utilizadores.Show()
                         Else
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(string_data)
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(string_data)
                             opr_utilizadores.removidos = True
                             opr_utilizadores.Show()
                         End If
@@ -432,43 +434,37 @@
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
-                                opr_clientes.removerbutton.Enabled = False
-                                opr_clientes.editarbutton.Enabled = False
-                                opr_clientes.restorebutton.Enabled = False
-                                opr_clientes.nomebox.ReadOnly = True
-                                opr_clientes.moradabox.ReadOnly = True
-                                opr_clientes.codpostalbox.ReadOnly = True
-                                opr_clientes.localidadebox.ReadOnly = True
-                                opr_clientes.cmovelbox.ReadOnly = True
-                                opr_clientes.cfixobox.ReadOnly = True
-                                opr_clientes.nifbox.ReadOnly = True
-                                opr_clientes.emailbox.ReadOnly = True
-                                opr_clientes.numalunobox.ReadOnly = True
-                                opr_clientes.turmabox.ReadOnly = True
-                                opr_clientes.RadioButton1.Enabled = False
-                                opr_clientes.RadioButton2.Enabled = False
-                            Else()
+                            Else
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
-                                opr_clientes.removerbutton.Enabled = False
-                                opr_clientes.editarbutton.Enabled = False
                             End If
                         Else
                             If Workspace.Aluno = True Then
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
-                                opr_clientes.removerbutton.Enabled = False
-                                opr_clientes.editarbutton.Enabled = False
                             Else
                                 opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
-                                opr_clientes.removerbutton.Enabled = False
-                                opr_clientes.editarbutton.Enabled = False
                             End If
                         End If
+                        opr_clientes.removerbutton.Enabled = False
+                        opr_clientes.editarbutton.Enabled = False
+                        opr_clientes.restorebutton.Enabled = False
+                        opr_clientes.nomebox.ReadOnly = True
+                        opr_clientes.moradabox.ReadOnly = True
+                        opr_clientes.codpostalbox.ReadOnly = True
+                        opr_clientes.localidadebox.ReadOnly = True
+                        opr_clientes.cmovelbox.ReadOnly = True
+                        opr_clientes.cfixobox.ReadOnly = True
+                        opr_clientes.nifbox.ReadOnly = True
+                        opr_clientes.emailbox.ReadOnly = True
+                        opr_clientes.numalunobox.ReadOnly = True
+                        opr_clientes.turmabox.ReadOnly = True
+                        opr_clientes.RadioButton1.Enabled = False
+                        opr_clientes.RadioButton2.Enabled = False
                     Case "Componentes"
                         Dim opr_componentes As New OPR_Componentes
                         opr_componentes.MdiParent = Workspace
@@ -483,6 +479,12 @@
                             opr_componentes.removidos = False
                             opr_componentes.Show()
                         End If
+                        opr_componentes.numbox.ReadOnly = True
+                        opr_componentes.numseriebox.ReadOnly = True
+                        opr_componentes.observaçoesbox.ReadOnly = True
+                        opr_componentes.marcabox.ReadOnly = True
+                        opr_componentes.modelobox.ReadOnly = True
+                        opr_componentes.RadButton6.Enabled = False
                     Case "Reparações"
                         Dim opr_reparacoes As New OPR_Reparações
                         opr_reparacoes.MdiParent = Workspace
@@ -497,6 +499,26 @@
                             opr_reparacoes.removidos = False
                             opr_reparacoes.Show()
                         End If
+                        opr_reparacoes.dateinicio.Hide()
+                        opr_reparacoes.datefim.Hide()
+                        opr_reparacoes.datainiciolabel.Show()
+                        opr_reparacoes.datainiciolabel.Text = opr_reparacoes.reparaçao_data.Rows(0).Item("DIRepar")
+                        opr_reparacoes.datafimlabel.Show()
+                        opr_reparacoes.datafimlabel.Text = opr_reparacoes.reparaçao_data.Rows(0).Item("DFRepar")
+                        opr_reparacoes.numcomponentebox.ReadOnly = True
+                        opr_reparacoes.RadButton7.Enabled = False
+                        opr_reparacoes.categoriabox.ReadOnly = True
+                        opr_reparacoes.hardwarebox.ReadOnly = True
+                        opr_reparacoes.CheckBox1.Enabled = False
+                        opr_reparacoes.CheckBox2.Enabled = False
+                        opr_reparacoes.softwarebox.ReadOnly = False
+                        opr_reparacoes.RadButton6.Text = "Ver Técnicos Participantes"
+                        opr_reparacoes.RadButton6.TextWrap = True
+                        opr_reparacoes.descriçaobox.ReadOnly = True
+                        opr_reparacoes.RadButton5.Enabled = False
+                        opr_reparacoes.RadButton1.Enabled = False
+                        opr_reparacoes.RadButton2.Enabled = False
+                        opr_reparacoes.RadButton3.Enabled = False
                     Case "Técnicos"
                         Dim opr_tecnicos As New OPR_Técnicos
                         opr_tecnicos.MdiParent = Workspace
@@ -551,6 +573,14 @@
 
     Private Sub othersbutton_Click(sender As Object, e As EventArgs) Handles othersbutton.Click
         GroupBox1.Hide()
+        Try
+            For Each Radbutton As Telerik.WinControls.UI.RadButton In Me.Controls
+                If Radbutton.Text <> "Sair" Then
+                    Radbutton.Hide()
+                End If
+            Next
+        Catch
+        End Try
     End Sub
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click

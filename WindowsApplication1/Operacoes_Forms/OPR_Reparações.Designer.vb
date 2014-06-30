@@ -46,6 +46,9 @@ Partial Class OPR_Reparações
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
+        Me.datainiciolabel = New System.Windows.Forms.Label()
+        Me.datafimlabel = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,6 +57,7 @@ Partial Class OPR_Reparações
         Me.GroupBox1.SuspendLayout()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'descriçaobox
@@ -165,7 +169,7 @@ Partial Class OPR_Reparações
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(206, 118)
+        Me.Label3.Location = New System.Drawing.Point(238, 118)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(98, 25)
         Me.Label3.TabIndex = 43
@@ -183,7 +187,7 @@ Partial Class OPR_Reparações
         '
         'categoriabox
         '
-        Me.categoriabox.Location = New System.Drawing.Point(211, 146)
+        Me.categoriabox.Location = New System.Drawing.Point(243, 146)
         Me.categoriabox.Name = "categoriabox"
         Me.categoriabox.Size = New System.Drawing.Size(275, 22)
         Me.categoriabox.TabIndex = 40
@@ -252,9 +256,9 @@ Partial Class OPR_Reparações
         '
         'RadButton6
         '
-        Me.RadButton6.Location = New System.Drawing.Point(585, 203)
+        Me.RadButton6.Location = New System.Drawing.Point(590, 189)
         Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(193, 47)
+        Me.RadButton6.Size = New System.Drawing.Size(188, 61)
         Me.RadButton6.TabIndex = 65
         Me.RadButton6.Text = "Técnicos Participantes"
         Me.RadButton6.ThemeName = "Windows8"
@@ -269,12 +273,44 @@ Partial Class OPR_Reparações
         Me.PictureBox1.TabIndex = 66
         Me.PictureBox1.TabStop = False
         '
+        'RadButton7
+        '
+        Me.RadButton7.Location = New System.Drawing.Point(83, 146)
+        Me.RadButton7.Name = "RadButton7"
+        Me.RadButton7.Size = New System.Drawing.Size(148, 23)
+        Me.RadButton7.TabIndex = 67
+        Me.RadButton7.Text = "Selecionar Componente"
+        Me.RadButton7.ThemeName = "Windows8"
+        '
+        'datainiciolabel
+        '
+        Me.datainiciolabel.AutoSize = True
+        Me.datainiciolabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.datainiciolabel.Location = New System.Drawing.Point(580, 93)
+        Me.datainiciolabel.Name = "datainiciolabel"
+        Me.datainiciolabel.Size = New System.Drawing.Size(70, 25)
+        Me.datainiciolabel.TabIndex = 68
+        Me.datainiciolabel.Text = "Label2"
+        '
+        'datafimlabel
+        '
+        Me.datafimlabel.AutoSize = True
+        Me.datafimlabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.datafimlabel.Location = New System.Drawing.Point(580, 143)
+        Me.datafimlabel.Name = "datafimlabel"
+        Me.datafimlabel.Size = New System.Drawing.Size(70, 25)
+        Me.datafimlabel.TabIndex = 69
+        Me.datafimlabel.Text = "Label4"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 515)
+        Me.Controls.Add(Me.datafimlabel)
+        Me.Controls.Add(Me.datainiciolabel)
+        Me.Controls.Add(Me.RadButton7)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.GroupBox1)
@@ -298,7 +334,7 @@ Partial Class OPR_Reparações
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.Name = "OPR_Reparações"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Operações Reparações"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -309,6 +345,7 @@ Partial Class OPR_Reparações
         Me.GroupBox1.PerformLayout()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -337,4 +374,7 @@ Partial Class OPR_Reparações
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents datainiciolabel As System.Windows.Forms.Label
+    Friend WithEvents datafimlabel As System.Windows.Forms.Label
 End Class

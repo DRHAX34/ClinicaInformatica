@@ -1,21 +1,25 @@
 ﻿Public Class OPR_Reparações
     Public reparaçao_data As New DataTable
+    Public hardware_data As String
+    Public software_data As String
     Public modo As Boolean
     Public removidos As Boolean
     Private Sub OPR_Reparações_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        datainiciolabel.Hide()
+        datafimlabel.Hide()
         If modo = True Then
             numcomponentebox.Text = reparaçao_data.Rows.Item(0).Item("NºDispositivo").ToString()
             categoriabox.Text = reparaçao_data.Rows.Item(0).Item("Categoria").ToString()
             dateinicio.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()
-            If reparaçao_data.Rows.Item(0).Item("Tipo_hard").ToString() <> "" Then
+            If hardware_data <> "" Or hardware_data = "NULL" Then
                 CheckBox1.Checked = True
-                hardwarebox.Text = reparaçao_data.Rows.Item(0).Item("Tipo_hard").ToString()
+                hardwarebox.Text = hardware_data
             End If
-            If reparaçao_data.Rows.Item(0).Item("Tipo_soft").ToString() Then
+            If software_data <> "" Or software_data = "NULL" Then
                 CheckBox2.Checked = True
-                softwarebox.Text = reparaçao_data.Rows.Item(0).Item("Tipo_soft").ToString()
+                softwarebox.Text = software_data
             End If
             RadButton1.Enabled = True
             RadButton5.Enabled = False
@@ -50,9 +54,24 @@
     End Sub
 
     Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
-        Dim add_tecnicos As New Adicionar_tecnicos
-        add_tecnicos.MdiParent = Workspace
-        add_tecnicos.Show()
+        If RadButton6.Text = "Ver Técnicos Participantes" Then
+            Dim tecnicosform As New ViewForm
+            tecnicosform.MdiParent = Workspace
+            tecnicosform.data_table = BLL.Participacoes.procurar_part(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+            tecnicosform.tabela = "None"
+            tecnicosform.Show()
+            tecnicosform.newbutton.Hide()
+            tecnicosform.editbutton.Hide()
+            tecnicosform.delbutton.Hide()
+            tecnicosform.updatebutton.Hide()
+            tecnicosform.findbutton.Hide()
+            tecnicosform.othersbutton.Hide()
+            tecnicosform.showbutton.Hide()
+        Else
+            Dim add_tecnicos As New Adicionar_tecnicos
+            add_tecnicos.MdiParent = Workspace
+            add_tecnicos.Show()
+        End If
     End Sub
 
     Private Sub numcomponentebox_TextChanged(sender As Object, e As EventArgs) Handles numcomponentebox.TextChanged

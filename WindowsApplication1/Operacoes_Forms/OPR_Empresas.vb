@@ -43,48 +43,35 @@
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         If removidos = False Then
-            Dim check_nome As Boolean = True
-            Dim check_morada As Boolean = True
+            Dim check_nome As String = ""
+            Dim check_morada As String = ""
             Dim check_nif As Boolean = True
             Dim check_codpostal As Boolean = True
-            Dim check_localidade As Boolean = True
-            Dim checklogo As Boolean = True
-            For i = 0 To nomebox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
-                    check_nome = False
-                End If
-            Next
-            For i = 0 To moradabox.Text.Count - 1
-                If moradabox.Text.Chars(i) <> " " Then
-                    check_morada = False
-                End If
-            Next
-            If nifbox.Text.Length = 9 Then
-                For i = 0 To nifbox.Text.Count - 1
-                    If nifbox.Text.Chars(i) <> " " Then
-                        check_nif = False
-                    End If
-                Next
+            Dim check_localidade As String = ""
+            Dim checklogo As Boolean = False
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_morada = moradabox.Text
+            check_morada.Trim()
+            If nifbox.Text < 9 Then
+                check_nif = False
             Else
                 check_nif = True
             End If
-            For i = 0 To codpostalbox.Text.Count - 1
-                If codpostalbox.Text.Chars(i) <> " " Then
-                    check_codpostal = False
-                End If
-            Next
-            For i = 0 To localidadebox.Text.Count - 1
-                If localidadebox.Text.Chars(i) <> " " Then
-                    check_localidade = False
-                End If
-            Next
-            For i = 0 To caminhobox.Text.Count - 1
-                If caminhobox.Text.Chars(i) <> " " Then
-                    checklogo = False
-                End If
-            Next
+            If codpostalbox.Text < 7 Then
+                check_codpostal = False
+            Else
+                check_codpostal = True
+            End If
+            check_localidade = localidadebox.Text
+            check_localidade.Trim()
+            If caminhobox.Text <> "" Then
+                checklogo = True
+            Else
+                checklogo = False
+            End If
             If simcheck.Checked = True Or naocheck.Checked = True Then
-                If check_nome = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
+                If Not check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False Then
                     Try
                         If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
                             MsgBox("Esta Empresa já existe!")
@@ -125,39 +112,35 @@
     
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
-        Dim check_nome, check_morada, check_nif, check_codpostal, check_localidade, checklogo As Boolean
-        For i = 0 To nomebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nome = False
-            End If
-        Next
-        For i = 0 To moradabox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_morada = False
-            End If
-        Next
-        For i = 0 To nifbox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_nif = False
-            End If
-        Next
-        For i = 0 To codpostalbox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_codpostal = False
-            End If
-        Next
-        For i = 0 To localidadebox.Text.Count - 1
-            If nomebox.Text.Chars(i) <> " " Then
-                check_localidade = False
-            End If
-        Next
-        For i = 0 To caminhobox.Text.Count - 1
-            If caminhobox.Text.Chars(i) <> " " Then
-                checklogo = False
-            End If
-        Next
-        If simcheck.Checked = True And naocheck.Checked = True Then
-            If check_nome = False And check_morada = False And check_nif = False And check_localidade = False And check_codpostal = False And checklogo = False Then
+        Dim check_nome As String = ""
+        Dim check_morada As String = ""
+        Dim check_nif As Boolean = True
+        Dim check_codpostal As Boolean = True
+        Dim check_localidade As String = ""
+        Dim checklogo As Boolean = False
+        check_nome = nomebox.Text
+        check_nome.Trim()
+        check_morada = moradabox.Text
+        check_morada.Trim()
+        If nifbox.Text < 9 Then
+            check_nif = False
+        Else
+            check_nif = True
+        End If
+        If codpostalbox.Text < 7 Then
+            check_codpostal = False
+        Else
+            check_codpostal = True
+        End If
+        check_localidade = localidadebox.Text
+        check_localidade.Trim()
+        If caminhobox.Text <> "" Then
+            checklogo = True
+        Else
+            checklogo = False
+        End If
+        If simcheck.Checked = True Or naocheck.Checked = True Then
+            If Not check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False Then
                 Try
                     BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºCliente").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
                 Catch ex As Exception
@@ -256,7 +239,7 @@
             nifbox.Text = ""
             codpostalbox.Text = ""
             simcheck.Checked = False
-            simcheck.Checked = False
+            naocheck.Checked = True
         End If
     End Sub
 

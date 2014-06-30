@@ -14,9 +14,9 @@ Partial Class Adicionar_tecnicos
         End Try
     End Sub
     Friend WithEvents Adicionar As Telerik.WinControls.UI.RadButton
-    Friend WithEvents button1 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents button2 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents button3 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents removerbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents confirmbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents cancellbutton As Telerik.WinControls.UI.RadButton
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -31,13 +31,13 @@ Partial Class Adicionar_tecnicos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Adicionar = New Telerik.WinControls.UI.RadButton()
-        Me.button1 = New Telerik.WinControls.UI.RadButton()
-        Me.button2 = New Telerik.WinControls.UI.RadButton()
-        Me.button3 = New Telerik.WinControls.UI.RadButton()
+        Me.removerbutton = New Telerik.WinControls.UI.RadButton()
+        Me.confirmbutton = New Telerik.WinControls.UI.RadButton()
+        Me.cancellbutton = New Telerik.WinControls.UI.RadButton()
         CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.button1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.button2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.button3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cancellbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ListBox1
@@ -84,29 +84,29 @@ Partial Class Adicionar_tecnicos
         Me.Adicionar.TabIndex = 22
         Me.Adicionar.Text = ">>"
         '
-        'button1
+        'removerbutton
         '
-        Me.button1.Location = New System.Drawing.Point(272, 217)
-        Me.button1.Name = "button1"
-        Me.button1.Size = New System.Drawing.Size(72, 22)
-        Me.button1.TabIndex = 22
-        Me.button1.Text = "<<"
+        Me.removerbutton.Location = New System.Drawing.Point(272, 217)
+        Me.removerbutton.Name = "removerbutton"
+        Me.removerbutton.Size = New System.Drawing.Size(72, 22)
+        Me.removerbutton.TabIndex = 22
+        Me.removerbutton.Text = "<<"
         '
-        'button2
+        'confirmbutton
         '
-        Me.button2.Location = New System.Drawing.Point(400, 400)
-        Me.button2.Name = "button2"
-        Me.button2.Size = New System.Drawing.Size(106, 34)
-        Me.button2.TabIndex = 22
-        Me.button2.Text = "Adicionar"
+        Me.confirmbutton.Location = New System.Drawing.Point(400, 400)
+        Me.confirmbutton.Name = "confirmbutton"
+        Me.confirmbutton.Size = New System.Drawing.Size(106, 34)
+        Me.confirmbutton.TabIndex = 22
+        Me.confirmbutton.Text = "Adicionar"
         '
-        'button3
+        'cancellbutton
         '
-        Me.button3.Location = New System.Drawing.Point(512, 400)
-        Me.button3.Name = "button3"
-        Me.button3.Size = New System.Drawing.Size(89, 34)
-        Me.button3.TabIndex = 22
-        Me.button3.Text = "Cancelar"
+        Me.cancellbutton.Location = New System.Drawing.Point(512, 400)
+        Me.cancellbutton.Name = "cancellbutton"
+        Me.cancellbutton.Size = New System.Drawing.Size(89, 34)
+        Me.cancellbutton.TabIndex = 22
+        Me.cancellbutton.Text = "Cancelar"
         '
         'Adicionar_tecnicos
         '
@@ -114,9 +114,9 @@ Partial Class Adicionar_tecnicos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(613, 446)
-        Me.Controls.Add(Me.button3)
-        Me.Controls.Add(Me.button2)
-        Me.Controls.Add(Me.button1)
+        Me.Controls.Add(Me.cancellbutton)
+        Me.Controls.Add(Me.confirmbutton)
+        Me.Controls.Add(Me.removerbutton)
         Me.Controls.Add(Me.Adicionar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -126,9 +126,9 @@ Partial Class Adicionar_tecnicos
         Me.Name = "Adicionar_tecnicos"
         Me.Text = "Adicionar Técnicos"
         CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.button1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.button2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.button3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cancellbutton, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -151,11 +151,10 @@ Public Class Adicionar_tecnicos
             End If
         Next
         ListBox1.SelectedIndex = 0
-        Button1.Enabled = False
+        removerbutton.Enabled = False
     End Sub
 
     Private Sub Adicionar_Click(sender As Object, e As EventArgs) Handles Adicionar.Click
-
         ListBox2.Items.Add(ListBox1.SelectedItem)
         ListBox2.SelectedIndex = 0
         ListBox1.Items.Remove(ListBox1.SelectedItem)
@@ -164,27 +163,21 @@ Public Class Adicionar_tecnicos
         Else
             Adicionar.Enabled = False
         End If
-        Button1.Enabled = True
+        removerbutton.Enabled = True
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-
+    Private Sub remover_Click(sender As Object, e As EventArgs) Handles removerbutton.Click
         ListBox1.Items.Add(ListBox2.SelectedItem)
         ListBox2.Items.Remove(ListBox2.SelectedItem)
         If ListBox2.Items.Count <> 0 Then
             ListBox2.SelectedIndex = 0
         Else
-            Button1.Enabled = False
+            removerbutton.Enabled = False
         End If
         Adicionar.Enabled = True
     End Sub
 
-
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub confirm_Click(sender As Object, e As EventArgs) Handles confirmbutton.Click
         Dim datatable1 As New DataTable
         datatable1.Columns.Add("NºTécnico")
         datatable1.Columns.Add("Nome")
@@ -194,14 +187,14 @@ Public Class Adicionar_tecnicos
                 ListBox2.SelectedIndex = i
                 If ListBox2.SelectedItem.ToString.Chars(0) <> "0" Then
                     If i < 99 Then
-                        datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
+                        datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
                     ElseIf i < 999 Then
-                        datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2)).Rows(0))
+                        datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2)).Rows(0))
                     ElseIf i < 9999 Then
-                        datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2) & ListBox1.SelectedItem.ToString.Chars(3)).Rows(0))
+                        datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2) & ListBox1.SelectedItem.ToString.Chars(3)).Rows(0))
                     End If
                 Else
-                    datatable1.ImportRow(BLL.Tecnicos.procura_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
+                    datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
                 End If
             Next
             datatable = datatable1
@@ -212,7 +205,7 @@ Public Class Adicionar_tecnicos
         End If
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles cancellbutton.Click
         Me.Close()
     End Sub
 End Class
