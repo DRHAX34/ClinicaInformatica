@@ -25,13 +25,14 @@ Partial Class AboutBox1
     Private Sub InitializeComponent()
         Me.versaolabel = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.SuspendLayout
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
         '
         'versaolabel
         '
-        Me.versaolabel.AutoSize = true
+        Me.versaolabel.AutoSize = True
         Me.versaolabel.BackColor = System.Drawing.Color.Transparent
-        Me.versaolabel.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.versaolabel.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.versaolabel.ForeColor = System.Drawing.SystemColors.ControlText
         Me.versaolabel.Location = New System.Drawing.Point(208, 228)
         Me.versaolabel.Name = "versaolabel"
@@ -51,6 +52,18 @@ Partial Class AboutBox1
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "F.E.Coding Produções"
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label2.Location = New System.Drawing.Point(442, 301)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(172, 19)
+        Me.Label2.TabIndex = 4
+        Me.Label2.Text = "Imagem por Tiago Almeida"
+        '
         'AboutBox1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -58,6 +71,7 @@ Partial Class AboutBox1
         Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundoclinica
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(626, 329)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.versaolabel)
         Me.Controls.Add(Me.Label1)
         Me.DoubleBuffered = True
@@ -75,5 +89,6 @@ Partial Class AboutBox1
 End Sub
     Friend WithEvents versaolabel As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 
 End Class
