@@ -131,9 +131,9 @@
             Else
                 MsgBox("Introduza todos os dados!")
             End If
-            Catch ex As Exception
-                MsgBox("Ocorreu um erro: " & ex.Message)
-            End Try
+        Catch ex As Exception
+            MsgBox("Ocorreu um erro: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
