@@ -114,7 +114,11 @@
         End Try
             Try
             If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False) Then
-                BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                If Workspace.Aluno = False Then
+                    BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                Else
+                    BLL.Clientes.inserir_aluno(numalunobox.Text, turmabox.Text, nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                End If
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
                     Dim opr_componente As New OPR_Componentes
