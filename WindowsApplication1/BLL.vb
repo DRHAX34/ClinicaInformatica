@@ -735,7 +735,7 @@ Public Class BLL
             check(0) = DAL.ExecuteNonQuery("Insert into Clientes(Nome,Morada,NIF,Localidade,Cod_Postal,Email,Ativo,NºEmpresa,Contacto_M,Contacto_F) VALUES (@nome, @morada, @NIF,@Localidade, @cod_postal,@email,@ativo,@n_empresa,@contacto_m,@contacto_f)", p)
             check(1) = DAL.ExecuteScalar("Select MAX(NºCliente) from Clientes where NºEmpresa=@company", c)
             a.Add(New SqlParameter("@NºCliente", check(1)))
-            DAL.ExecuteNonQuery("Insert into TipoAluno(NºCliente,NºAluno,NºTurma) VALUES (@NºCliente,@naluno,@turma)", a)
+            DAL.ExecuteNonQuery("Insert into TipoAluno(N_Cliente,NºAluno,NºTurma) VALUES (@NºCliente,@naluno,@turma)", a)
             Return check
         End Function
         Shared Function alterar_aluno(ByVal n_aluno As String, ByVal turma As String, ByVal numcliente As Integer, ByVal localidade As String, ByVal NIF As String, ByVal nome As String, ByVal morada As String, ByVal cod_postal As String, ByVal email As String, ByVal ativo As Boolean, ByVal contacto_m As String, ByVal contacto_f As String)
@@ -756,7 +756,7 @@ Public Class BLL
             p.Add(New SqlParameter("@Contacto_m", contacto_m))
             p.Add(New SqlParameter("@Contacto_f", contacto_f))
             check(0) = DAL.ExecuteNonQuery("Update Clientes set Localidade=@Localidade, Contacto_M = @contacto_m, Contacto_F = @contacto_f, nome = @nome, morada = @morada, NIF= @NIF, Cod_Postal= @cod_postal, Email= @email, Ativo=@Ativo where NºCliente=@numcliente", p)
-            DAL.ExecuteNonQuery("Update TipoAluno set NºAluno=@N_Aluno,NºTurma=@turma where NºCliente=@NºCliente", c)
+            DAL.ExecuteNonQuery("Update TipoAluno set NºAluno=@N_Aluno,NºTurma=@turma where N_Cliente=@n_cliente", c)
             Return check
         End Function
         Shared Function carregar() As DataTable
