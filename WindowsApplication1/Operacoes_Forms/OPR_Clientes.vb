@@ -320,13 +320,11 @@
         End Try
     End Sub
 
-    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs)
-
+    Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.Click
+        cmovelbox.Select(0, cmovelbox.Text.Length + 1)
     End Sub
 
-    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs)
-        If cfixobox.Text.Count = 0 Then
-            cfixobox.Text = "+"
-        End If
+    Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.Click
+        cfixobox.Select(0, cfixobox.Text.Length + 1)
     End Sub
 End Class
