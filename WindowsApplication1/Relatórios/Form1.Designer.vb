@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class tempomedioprintpage
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,16 +23,22 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.empresalabel = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.mediames = New System.Windows.Forms.Label()
+        Me.nreparmeslabel = New System.Windows.Forms.Label()
+        Me.nreparanolabel = New System.Windows.Forms.Label()
+        Me.tempomedioanolabel = New System.Windows.Forms.Label()
+        CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
@@ -47,13 +53,13 @@ Partial Class Form1
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Tempo Médio das Reparações"
         '
-        'PictureBox1
+        'empresalogobox
         '
-        Me.PictureBox1.Location = New System.Drawing.Point(15, 24)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(148, 154)
-        Me.PictureBox1.TabIndex = 0
-        Me.PictureBox1.TabStop = False
+        Me.empresalogobox.Location = New System.Drawing.Point(15, 24)
+        Me.empresalogobox.Name = "empresalogobox"
+        Me.empresalogobox.Size = New System.Drawing.Size(148, 154)
+        Me.empresalogobox.TabIndex = 0
+        Me.empresalogobox.TabStop = False
         '
         'Label2
         '
@@ -75,15 +81,6 @@ Partial Class Form1
         Me.Panel1.Size = New System.Drawing.Size(660, 33)
         Me.Panel1.TabIndex = 3
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(600, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Label3"
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -93,18 +90,34 @@ Partial Class Form1
         Me.Label4.TabIndex = 4
         Me.Label4.Text = "Label4"
         '
-        'Label5
+        'Label3
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.Label5.Location = New System.Drawing.Point(277, 124)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(198, 28)
-        Me.Label5.TabIndex = 4
-        Me.Label5.Text = "(Nome da Empresa)"
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(600, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Label3"
+        '
+        'empresalabel
+        '
+        Me.empresalabel.AutoSize = True
+        Me.empresalabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.empresalabel.Location = New System.Drawing.Point(277, 124)
+        Me.empresalabel.Name = "empresalabel"
+        Me.empresalabel.Size = New System.Drawing.Size(198, 28)
+        Me.empresalabel.TabIndex = 4
+        Me.empresalabel.Text = "(Nome da Empresa)"
         '
         'Panel2
         '
+        Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.tempomedioanolabel)
+        Me.Panel2.Controls.Add(Me.nreparanolabel)
+        Me.Panel2.Controls.Add(Me.nreparmeslabel)
+        Me.Panel2.Controls.Add(Me.mediames)
+        Me.Panel2.Controls.Add(Me.Label9)
+        Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Location = New System.Drawing.Point(34, 212)
@@ -112,39 +125,97 @@ Partial Class Form1
         Me.Panel2.Size = New System.Drawing.Size(601, 411)
         Me.Panel2.TabIndex = 5
         '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(42, 62)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(109, 13)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "NºReparações Totais"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(42, 100)
+        Me.Label7.Location = New System.Drawing.Point(358, 173)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(143, 13)
+        Me.Label7.Size = New System.Drawing.Size(205, 13)
         Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Tempo Médio de Reparação"
+        Me.Label7.Text = "Tempo Médio das Reparações neste Mês"
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(93, 173)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(122, 13)
+        Me.Label6.TabIndex = 5
+        Me.Label6.Text = "NºReparações este mês"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(93, 354)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(121, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "NºReparações este ano"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(358, 354)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(197, 13)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "Tempo Médio das Reparações este ano"
+        '
+        'mediames
+        '
+        Me.mediames.AutoSize = True
+        Me.mediames.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mediames.Location = New System.Drawing.Point(416, 95)
+        Me.mediames.Name = "mediames"
+        Me.mediames.Size = New System.Drawing.Size(84, 32)
+        Me.mediames.TabIndex = 10
+        Me.mediames.Text = "Label5"
+        '
+        'nreparmeslabel
+        '
+        Me.nreparmeslabel.AutoSize = True
+        Me.nreparmeslabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nreparmeslabel.Location = New System.Drawing.Point(110, 95)
+        Me.nreparmeslabel.Name = "nreparmeslabel"
+        Me.nreparmeslabel.Size = New System.Drawing.Size(84, 32)
+        Me.nreparmeslabel.TabIndex = 11
+        Me.nreparmeslabel.Text = "Label5"
+        '
+        'nreparanolabel
+        '
+        Me.nreparanolabel.AutoSize = True
+        Me.nreparanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nreparanolabel.Location = New System.Drawing.Point(110, 299)
+        Me.nreparanolabel.Name = "nreparanolabel"
+        Me.nreparanolabel.Size = New System.Drawing.Size(84, 32)
+        Me.nreparanolabel.TabIndex = 12
+        Me.nreparanolabel.Text = "Label5"
+        '
+        'tempomedioanolabel
+        '
+        Me.tempomedioanolabel.AutoSize = True
+        Me.tempomedioanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tempomedioanolabel.Location = New System.Drawing.Point(416, 299)
+        Me.tempomedioanolabel.Name = "tempomedioanolabel"
+        Me.tempomedioanolabel.Size = New System.Drawing.Size(84, 32)
+        Me.tempomedioanolabel.TabIndex = 13
+        Me.tempomedioanolabel.Text = "Label5"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(657, 780)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Label5)
+        Me.Controls.Add(Me.empresalabel)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.empresalogobox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Form1"
         Me.Text = "Form1"
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         Me.Panel2.ResumeLayout(False)
@@ -154,13 +225,19 @@ Partial Class Form1
 
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
+    Friend WithEvents empresalogobox As System.Windows.Forms.PictureBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents empresalabel As System.Windows.Forms.Label
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents tempomedioanolabel As System.Windows.Forms.Label
+    Friend WithEvents nreparanolabel As System.Windows.Forms.Label
+    Friend WithEvents nreparmeslabel As System.Windows.Forms.Label
+    Friend WithEvents mediames As System.Windows.Forms.Label
 End Class

@@ -1,6 +1,8 @@
-﻿Public Class Form1
+﻿Public Class tempomedioprintpage
 
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+    Private Sub tempomedio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        empresalogobox.Image = BLL.Admin_only.Empresas.carregar_pic()
+        empresalabel.Text = Workspace.EmpresasToolStripMenuItem.Text()
+        'Inserir aqui comandos da BLL para devolver a média de estas coisas todas
     End Sub
 End Class
