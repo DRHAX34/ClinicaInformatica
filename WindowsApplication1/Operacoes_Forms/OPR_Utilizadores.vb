@@ -111,7 +111,7 @@
         Catch ex As Exception
 
         End Try
-        If Not check_tecnico = False And check_empresa = "" And check_nomutil = "" And check_pass = "" And check_pergunta = "" And check_resposta = "" Then
+        If Not (check_tecnico = False And check_empresa = "" And check_nomutil = "" And check_pass = "" And check_pergunta = "" And check_resposta = "") Then
             Try
                 Dim n_empresa As Integer
                 If admgeralcheck.Checked = False Then

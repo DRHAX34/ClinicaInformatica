@@ -71,7 +71,7 @@
                 checklogo = False
             End If
             If simcheck.Checked = True Or naocheck.Checked = True Then
-                If Not check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False Then
+                If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
                     Try
                         If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
                             MsgBox("Esta Empresa já existe!")
@@ -118,29 +118,32 @@
         Dim check_codpostal As Boolean = True
         Dim check_localidade As String = ""
         Dim checklogo As Boolean = False
-        check_nome = nomebox.Text
-        check_nome.Trim()
-        check_morada = moradabox.Text
-        check_morada.Trim()
-        If nifbox.Text < 9 Then
-            check_nif = False
-        Else
-            check_nif = True
-        End If
-        If codpostalbox.Text < 7 Then
-            check_codpostal = False
-        Else
-            check_codpostal = True
-        End If
-        check_localidade = localidadebox.Text
-        check_localidade.Trim()
-        If caminhobox.Text <> "" Then
-            checklogo = True
-        Else
-            checklogo = False
-        End If
+        Try
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_morada = moradabox.Text
+            check_morada.Trim()
+            If nifbox.Text < 9 Then
+                check_nif = False
+            Else
+                check_nif = True
+            End If
+            If codpostalbox.Text < 7 Then
+                check_codpostal = False
+            Else
+                check_codpostal = True
+            End If
+            check_localidade = localidadebox.Text
+            check_localidade.Trim()
+            If caminhobox.Text <> "" Then
+                checklogo = True
+            Else
+                checklogo = False
+            End If
+        Catch
+        End Try
         If simcheck.Checked = True Or naocheck.Checked = True Then
-            If Not check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False Then
+            If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
                 Try
                     BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºCliente").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
                 Catch ex As Exception

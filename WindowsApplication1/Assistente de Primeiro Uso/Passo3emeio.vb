@@ -47,6 +47,9 @@ Public Class Passo3emeio
         Label2.ForeColor = colorization.Inversecolor
         passlabel.ForeColor = colorization.Inversecolor
         nomelabel.ForeColor = colorization.Inversecolor
+        Label3.ForeColor = colorization.Inversecolor
+        Label4.ForeColor = colorization.Inversecolor
+        Label5.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -60,26 +63,33 @@ Public Class Passo3emeio
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Try
             Dim check_nome, check_pass, check_pergunta, check_resposta As String
-            check_nome = nomebox.Text
-            check_nome.Trim()
-            If passbox.Text = verifbox.Text Then
-                check_pass = passbox.Text
-                check_pass.Trim()
-            Else
-                check_pass = ""
-            End If
-            check_pergunta = perguntabox.Text
-            check_pergunta.Trim()
-            check_resposta = respostabox.Text
-            check_resposta.Trim()
+            Try
+                check_nome = nomebox.Text
+                check_nome.Trim()
+                If passbox.Text = verifbox.Text Then
+                    check_pass = passbox.Text
+                    check_pass.Trim()
+                Else
+                    check_pass = ""
+                End If
+                check_pergunta = perguntabox.Text
+                check_pergunta.Trim()
+                check_resposta = respostabox.Text
+                check_resposta.Trim()
+            Catch
+            End Try
             If Not (check_nome = "" And check_pass = "" And check_pergunta = "" And check_resposta = "") Then
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
                 BLL.n_empresa = "1"
-                BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, True, nomebox.Text, passencript, BLL.n_empresa)
-                Workspace.config4.Show()
-                Me.Close()
+                If BLL.Admin_only.Login.check_exist(nomebox.Text) = 1 Then
+                    BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, True, nomebox.Text, passencript, BLL.n_empresa)
+                    Workspace.config4.Show()
+                    Me.Close()
+                Else
+                    MsgBox("O Administrador não pode ter o mesmo nome que o Administrador Geral.")
+                End If
             Else
                 MsgBox("Preencha todos os dados corretamente!", vbOK, "Erro")
             End If

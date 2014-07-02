@@ -37,61 +37,41 @@
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim check_nome As Boolean = True
-        Dim check_contactom As Boolean = True
-        Dim check_contactof As Boolean = True
-        Dim check_naluno As Boolean = True
-        Dim check_turma As Boolean = True
-        Dim checklogo As Boolean = True
-        Dim checklocalidade As Boolean = True
-        Dim checkcodpostal As Boolean = True
+        Dim check_nome As String = nomebox.Text
+        Dim check_contactom As Boolean = False
+        Dim check_contactof As Boolean = False
+        Dim check_naluno As String = numalunobox.Text
+        Dim check_turma As String = turmabox.Text
+        Dim checklogo As String = caminhobox.Text
+        Dim checklocalidade As String = localidadebox.Text
+        Dim checkcodpostal As Boolean = False
         Try
-            For i = 0 To nomebox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
-                    check_nome = False
-                End If
-            Next
-            For i = 0 To contacto_fbox.Text.Count - 1
-                If contacto_fbox.Text.Chars(i) <> " " Then
-                    check_contactof = False
-                End If
-            Next
-            For i = 0 To contactom_box.Text.Count - 1
-                If contactom_box.Text.Chars(i) <> " " Then
-                    check_contactom = False
-                End If
-            Next
-            If Workspace.Aluno = True Then
-                For i = 0 To numalunobox.Text.Count - 1
-                    If numalunobox.Text.Chars(i) <> " " Then
-                        check_naluno = False
-                    End If
-                Next
-                For i = 0 To turmabox.Text.Count - 1
-                    If turmabox.Text.Chars(i) <> " " Then
-                        check_turma = False
-                    End If
-                Next
+            check_nome.Trim()
+            If contacto_fbox.Text.Length < 9 Then
+                check_contactof = False
             Else
-                check_naluno = False
-                check_turma = False
+                check_contactof = True
             End If
-            For i = 0 To caminhobox.Text.Count - 1
-                If caminhobox.Text.Chars(i) <> " " Then
-                    checklogo = False
-                End If
-            Next
-            For i = 0 To localidadebox.Text.Count - 1
-                If localidadebox.Text.Chars(i) <> " " Then
-                    checklocalidade = False
-                End If
-            Next
-            For i = 0 To cod_postalbox.Text.Count - 1
-                If cod_postalbox.Text.Chars(i) <> " " Then
-                    checkcodpostal = False
-                End If
-            Next
-            If checklocalidade = False And checkcodpostal = False And check_nome = False And check_contactof = False And check_contactom = False And check_naluno = False And check_turma = False And checklogo = False Then
+            If contactom_box.Text.Length < 9 Then
+                check_contactom = False
+            Else
+                check_contactof = True
+            End If
+            If Workspace.Aluno = True Then
+                check_naluno.Trim()
+                check_turma.Trim()
+            Else
+                check_naluno = "N/A"
+                check_turma = "N/A"
+            End If
+            checklogo.Trim()
+            If cod_postalbox.Text.Length < 7 Then
+                checkcodpostal = False
+            Else
+                checkcodpostal = True
+            End If
+            checklocalidade.Trim()
+            If Not (checklocalidade = "" And checkcodpostal = False And check_nome = "" And check_contactof = False And check_contactom = False And checklogo = "") Then
                 Try
                     If BLL.Tecnicos.check_exist(nomebox.Text) = 1 Then
                         MsgBox("Esta Empresa já existe!")
@@ -149,56 +129,41 @@
     End Sub
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
-        Dim check_nome As Boolean = True
-        Dim check_contactom As Boolean = True
-        Dim check_contactof As Boolean = True
-        Dim check_naluno As Boolean = True
-        Dim check_turma As Boolean = True
-        Dim checklogo As Boolean = True
-        Dim checklocalidade As Boolean = True
-        Dim checkcodpostal As Boolean = True
+        Dim check_nome As String = nomebox.Text
+        Dim check_contactom As Boolean = False
+        Dim check_contactof As Boolean = False
+        Dim check_naluno As String = numalunobox.Text
+        Dim check_turma As String = turmabox.Text
+        Dim checklogo As String = caminhobox.Text
+        Dim checklocalidade As String = localidadebox.Text
+        Dim checkcodpostal As Boolean = False
         Try
-            For i = 0 To nomebox.Text.Count - 1
-                If nomebox.Text.Chars(i) <> " " Then
-                    check_nome = False
-                End If
-            Next
-            For i = 0 To contacto_fbox.Text.Count - 1
-                If contacto_fbox.Text.Chars(i) <> " " Then
-                    check_contactof = False
-                End If
-            Next
-            For i = 0 To contactom_box.Text.Count - 1
-                If contactom_box.Text.Chars(i) <> " " Then
-                    check_contactom = False
-                End If
-            Next
-            For i = 0 To numalunobox.Text.Count - 1
-                If numalunobox.Text.Chars(i) <> " " Then
-                    check_naluno = False
-                End If
-            Next
-            For i = 0 To turmabox.Text.Count - 1
-                If turmabox.Text.Chars(i) <> " " Then
-                    check_turma = False
-                End If
-            Next
-            For i = 0 To caminhobox.Text.Count - 1
-                If caminhobox.Text.Chars(i) <> " " Then
-                    checklogo = False
-                End If
-            Next
-            For i = 0 To localidadebox.Text.Count - 1
-                If localidadebox.Text.Chars(i) <> " " Then
-                    checklocalidade = False
-                End If
-            Next
-            For i = 0 To cod_postalbox.Text.Count - 1
-                If cod_postalbox.Text.Chars(i) <> " " Then
-                    checkcodpostal = False
-                End If
-            Next
-            If checklocalidade = False And checkcodpostal = False And check_nome = False And check_contactof = False And check_contactom = False And check_naluno = False And check_turma = False And checklogo = False Then
+            check_nome.Trim()
+            If contacto_fbox.Text.Length < 9 Then
+                check_contactof = False
+            Else
+                check_contactof = True
+            End If
+            If contactom_box.Text.Length < 9 Then
+                check_contactom = False
+            Else
+                check_contactof = True
+            End If
+            If Workspace.Aluno = True Then
+                check_naluno.Trim()
+                check_turma.Trim()
+            Else
+                check_naluno = "N/A"
+                check_turma = "N/A"
+            End If
+            checklogo.Trim()
+            If cod_postalbox.Text.Length < 7 Then
+                checkcodpostal = False
+            Else
+                checkcodpostal = True
+            End If
+            checklocalidade.Trim()
+            If Not (checklocalidade = "" And checkcodpostal = False And check_nome = "" And check_contactof = False And check_contactom = False And checklogo = "") Then
                 Try
                     If BLL.Tecnicos.check_exist(nomebox.Text) = 1 Then
                         MsgBox("Esta Empresa já existe!")

@@ -206,7 +206,7 @@ Partial Class Passo3emeio
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label1)
         Me.Name = "Passo3emeio"
-        Me.Text = "Assistente de Primeiro Uso"
+        Me.Text = "Assistente de Primeiro Uso - Passo 3"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

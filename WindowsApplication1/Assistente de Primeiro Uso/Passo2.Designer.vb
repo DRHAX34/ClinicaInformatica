@@ -300,7 +300,7 @@ Partial Class Passo2
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Passo2"
-        Me.Text = "Assistente de Primeiro Uso"
+        Me.Text = "Assistente de Primeiro Uso - Passo 2"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

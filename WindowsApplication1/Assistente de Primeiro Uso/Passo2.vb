@@ -67,31 +67,34 @@ Public Class Passo2
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles seguintebutton.Click
+        Dim check_nome As String = ""
+        Dim check_morada As String = ""
+        Dim check_nif As Boolean = False
+        Dim check_codpostal As Boolean = False
+        Dim check_localidade As String = ""
+        Dim check_logo As String = ""
         Try
-            Dim check_nome As String = ""
-            Dim check_morada As String = ""
-            Dim check_nif As Boolean = False
-            Dim check_codpostal As Boolean = False
-            Dim check_localidade As String = ""
-            Dim check_logo As String = ""
-            check_nome = nomebox.Text
-            check_morada = moradabox.Text
-            If nifbox.Text.Length = 9 Then
-                check_nif = True
-            Else
-                check_nif = False
-            End If
-            If cod_postalbox.Text.Length = 7 Then
-                check_codpostal = True
-            Else
-                check_codpostal = False
-            End If
-            check_localidade = localidadebox.Text
-            check_logo = caminhobox.Text
-            check_nome.Trim()
-            check_morada.Trim()
-            check_localidade.Trim()
-            check_logo.Trim()
+            Try
+                check_nome = nomebox.Text
+                check_morada = moradabox.Text
+                If nifbox.Text.Length = 9 Then
+                    check_nif = True
+                Else
+                    check_nif = False
+                End If
+                If cod_postalbox.Text.Length = 7 Then
+                    check_codpostal = True
+                Else
+                    check_codpostal = False
+                End If
+                check_localidade = localidadebox.Text
+                check_logo = caminhobox.Text
+                check_nome.Trim()
+                check_morada.Trim()
+                check_localidade.Trim()
+                check_logo.Trim()
+            Catch
+            End Try
             If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_logo = "") Then
                 BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
                 If Workspace.varias_empresas = True Then

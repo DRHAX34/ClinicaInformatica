@@ -47,6 +47,9 @@ Public Class Passo3
         Label2.ForeColor = colorization.Inversecolor
         passlabel.ForeColor = colorization.Inversecolor
         nomelabel.ForeColor = colorization.Inversecolor
+        Label3.ForeColor = colorization.Inversecolor
+        Label4.ForeColor = colorization.Inversecolor
+        Label5.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -59,19 +62,23 @@ Public Class Passo3
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Try
+
             Dim verif_pass, verif_user, verif_pergunta, verif_resposta As String
-            If passbox.Text = verifbox.Text Then
-                verif_pass = passbox.Text
-                verif_pass.Trim()
-            Else
-                verif_pass = ""
-            End If
-            verif_user = nomebox.Text
-            verif_user.Trim()
-            verif_pergunta = perguntabox.Text
-            verif_pergunta.Trim()
-            verif_resposta = respostabox.Text
-            verif_resposta.Trim()
+            Try
+                If passbox.Text = verifbox.Text Then
+                    verif_pass = passbox.Text
+                    verif_pass.Trim()
+                Else
+                    verif_pass = ""
+                End If
+                verif_user = nomebox.Text
+                verif_user.Trim()
+                verif_pergunta = perguntabox.Text
+                verif_pergunta.Trim()
+                verif_resposta = respostabox.Text
+                verif_resposta.Trim()
+            Catch
+            End Try
             If Not (verif_pass = "" And verif_user = "" And verif_pergunta = "" And verif_resposta = "") Then
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")

@@ -73,18 +73,21 @@
         Dim check_marca As String = ""
         Dim check_modelo As String = ""
         Dim check_observaçoes As String = ""
-        check_numcliente = numbox.Text
-        check_numcliente.Trim()
-        check_numserie = numseriebox.Text
-        check_numserie.Trim()
-        check_marca = marcabox.Text
-        check_marca.Trim()
-        check_modelo = modelobox.Text
-        check_modelo.Trim()
-        check_observaçoes = observaçoesbox.Text
-        check_observaçoes.Trim()
-            Try
-            If Not check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "" Then
+        Try
+            check_numcliente = numbox.Text
+            check_numcliente.Trim()
+            check_numserie = numseriebox.Text
+            check_numserie.Trim()
+            check_marca = marcabox.Text
+            check_marca.Trim()
+            check_modelo = modelobox.Text
+            check_modelo.Trim()
+            check_observaçoes = observaçoesbox.Text
+            check_observaçoes.Trim()
+        Catch
+        End Try
+        Try
+            If Not (check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
                 BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text)
                 MsgBox("Inserido com sucesso")
                 Workspace.componentesAtivosToolStripMenuItem.PerformClick()
@@ -92,9 +95,9 @@
             Else
                 MsgBox("Introduza todos os dados!")
             End If
-            Catch ex As Exception
-                MsgBox("Ocorreu um erro: " & ex.Message)
-            End Try
+        Catch ex As Exception
+            MsgBox("Ocorreu um erro: " & ex.Message)
+        End Try
     End Sub
 
     Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
@@ -124,18 +127,21 @@
         Dim check_marca As String = ""
         Dim check_modelo As String = ""
         Dim check_observaçoes As String = ""
-        check_numcliente = numbox.Text
-        check_numcliente.Trim()
-        check_numserie = numseriebox.Text
-        check_numserie.Trim()
-        check_marca = marcabox.Text
-        check_marca.Trim()
-        check_modelo = modelobox.Text
-        check_modelo.Trim()
-        check_observaçoes = observaçoesbox.Text
-        check_observaçoes.Trim()
         Try
-            If Not check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "" Then
+            check_numcliente = numbox.Text
+            check_numcliente.Trim()
+            check_numserie = numseriebox.Text
+            check_numserie.Trim()
+            check_marca = marcabox.Text
+            check_marca.Trim()
+            check_modelo = modelobox.Text
+            check_modelo.Trim()
+            check_observaçoes = observaçoesbox.Text
+            check_observaçoes.Trim()
+        Catch
+        End Try
+        Try
+            If Not (check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
                 BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text)
                 MsgBox("Alterado com sucesso")
                 If removidos = True Then

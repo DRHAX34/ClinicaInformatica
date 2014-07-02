@@ -158,6 +158,16 @@ Public Class Workspace
             Application.Exit()
         End If
     End Sub
+    Private Sub form_closing(ByVal sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
+        Dim check As Boolean = False
+        For Each ChildForm As Form In Me.MdiChildren
+            If ChildForm.Text = "Assistente de Primeiro Uso - Passo 3" And check = False And ChildForm.Visible = True Then
+                check = True
+                MsgBox("Não pode cancelar o assistente neste momento!")
+                e.Cancel = True
+            End If
+        Next
+    End Sub
     Shared Sub login_load()
         If Workspace.modo = 1 Then
             Workspace.EmpresasToolStripMenuItem.Text = "Empresas"

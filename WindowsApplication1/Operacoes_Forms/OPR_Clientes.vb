@@ -113,7 +113,7 @@
             MsgBox("Preencha todos os dados marcados como obrigatórios!")
         End Try
             Try
-            If Not check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False Then
+            If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False) Then
                 BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
@@ -172,35 +172,35 @@
         Catch ex As Exception
             MsgBox("Preencha todos os dados marcados como obrigatórios!")
         End Try
-            If Not check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False Then
-                Try
-                    If Workspace.Aluno = False Then
-                        If removidos = True Then
-                            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
-                            Workspace.clientesremovidos.PerformClick()
-                            Me.Close()
-                        Else
-                            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
-                            Workspace.clientesativos.PerformClick()
-                            Me.Close()
-                        End If
+        If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False) Then
+            Try
+                If Workspace.Aluno = False Then
+                    If removidos = True Then
+                        BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                        MsgBox("Editado com sucesso")
+                        Workspace.clientesremovidos.PerformClick()
+                        Me.Close()
                     Else
-                        If removidos = True Then
-                            BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
-                            Workspace.clientesremovidos.PerformClick()
-                            Me.Close()
-                        Else
-                            BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
-                            Workspace.clientesativos.PerformClick()
-                            Me.Close()
-                        End If
+                        BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                        MsgBox("Editado com sucesso")
+                        Workspace.clientesativos.PerformClick()
+                        Me.Close()
                     End If
-                Catch ex As Exception
-                    MsgBox("Ocorreu um erro: " & ex.Message)
+                Else
+                    If removidos = True Then
+                        BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                        MsgBox("Editado com sucesso")
+                        Workspace.clientesremovidos.PerformClick()
+                        Me.Close()
+                    Else
+                        BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                        MsgBox("Editado com sucesso")
+                        Workspace.clientesativos.PerformClick()
+                        Me.Close()
+                    End If
+                End If
+            Catch ex As Exception
+                MsgBox("Ocorreu um erro: " & ex.Message)
             End Try
         Else
             MsgBox("Introduza todos os dados marcados como obrigatórios!")
