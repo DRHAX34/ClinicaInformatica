@@ -268,7 +268,11 @@
         End Try
     End Sub
 
-    Private Sub cod_postalbox_click(sender As Object, e As MaskInputRejectedEventArgs) Handles cod_postalbox.Click
-        cod_postalbox.Select(0, cod_postalbox.Text.Length)
+    Private Sub cod_postalbox_click(sender As Object, e As EventArgs) Handles cod_postalbox.Click
+        cod_postalbox.Select(0, cod_postalbox.Text.Length + 1)
+    End Sub
+
+    Private Sub cod_postalbox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles cod_postalbox.MaskInputRejected
+
     End Sub
 End Class

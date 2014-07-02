@@ -163,4 +163,7 @@ Public Class Passo2
     End Sub
 
 
+    Private Sub cod_postalbox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles cod_postalbox.MaskInputRejected
+
+    End Sub
 End Class
