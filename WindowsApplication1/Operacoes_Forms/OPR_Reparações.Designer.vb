@@ -33,9 +33,7 @@ Partial Class OPR_Reparações
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.categoriabox = New System.Windows.Forms.TextBox()
         Me.numcomponentebox = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.dateinicio = New System.Windows.Forms.DateTimePicker()
@@ -165,37 +163,20 @@ Partial Class OPR_Reparações
         Me.Label6.TabIndex = 46
         Me.Label6.Text = "Reparações"
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(238, 118)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(98, 25)
-        Me.Label3.TabIndex = 43
-        Me.Label3.Text = "Categoria"
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(35, 118)
+        Me.Label1.Location = New System.Drawing.Point(50, 118)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(152, 25)
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "NºComponente"
         '
-        'categoriabox
-        '
-        Me.categoriabox.Location = New System.Drawing.Point(243, 146)
-        Me.categoriabox.Name = "categoriabox"
-        Me.categoriabox.Size = New System.Drawing.Size(275, 22)
-        Me.categoriabox.TabIndex = 40
-        '
         'numcomponentebox
         '
         Me.numcomponentebox.Enabled = False
-        Me.numcomponentebox.Location = New System.Drawing.Point(40, 146)
+        Me.numcomponentebox.Location = New System.Drawing.Point(55, 146)
         Me.numcomponentebox.Name = "numcomponentebox"
         Me.numcomponentebox.Size = New System.Drawing.Size(36, 22)
         Me.numcomponentebox.TabIndex = 37
@@ -231,7 +212,7 @@ Partial Class OPR_Reparações
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(40, 174)
+        Me.GroupBox1.Location = New System.Drawing.Point(49, 174)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(521, 76)
         Me.GroupBox1.TabIndex = 64
@@ -275,7 +256,7 @@ Partial Class OPR_Reparações
         '
         'RadButton7
         '
-        Me.RadButton7.Location = New System.Drawing.Point(83, 146)
+        Me.RadButton7.Location = New System.Drawing.Point(98, 146)
         Me.RadButton7.Name = "RadButton7"
         Me.RadButton7.Size = New System.Drawing.Size(148, 23)
         Me.RadButton7.TabIndex = 67
@@ -326,9 +307,7 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.categoriabox)
         Me.Controls.Add(Me.numcomponentebox)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
@@ -361,9 +340,7 @@ Partial Class OPR_Reparações
     Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents categoriabox As System.Windows.Forms.TextBox
     Friend WithEvents numcomponentebox As System.Windows.Forms.TextBox
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents dateinicio As System.Windows.Forms.DateTimePicker
