@@ -180,8 +180,8 @@
                             opr_reparacoes.removidos = False
                             opr_reparacoes.Show()
                         End If
-                        opr_reparacoes.hardware_data = BLL.Hardware.return_hardware(string_data)
-                        opr_reparacoes.software_data = BLL.Software.return_software(string_data)
+                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
+                        Workspace.software_support = BLL.Software.return_software(string_data)
                     Case "Técnicos"
                         Dim opr_tecnicos As New OPR_Técnicos
                         opr_tecnicos.MdiParent = Workspace
@@ -501,17 +501,15 @@
                         End If
                         opr_reparacoes.dateinicio.Hide()
                         opr_reparacoes.datefim.Hide()
-                        opr_reparacoes.datainiciolabel.Show()
-                        opr_reparacoes.datainiciolabel.Text = opr_reparacoes.reparaçao_data.Rows(0).Item("DIRepar")
-                        opr_reparacoes.datafimlabel.Show()
-                        opr_reparacoes.datafimlabel.Text = opr_reparacoes.reparaçao_data.Rows(0).Item("DFRepar")
+                        opr_reparacoes.dateinicio.Value = opr_reparacoes.reparaçao_data.Rows(0).Item("DIRepar")
+                        If opr_reparacoes.reparaçao_data.Rows(0).Item("DFRepar") <> New Date Then
+                            opr_reparacoes.datefim.Text = opr_reparacoes.reparaçao_data.Rows(0).Item("DFRepar")
+                        End If
                         opr_reparacoes.numcomponentebox.ReadOnly = True
                         opr_reparacoes.RadButton7.Enabled = False
-                        opr_reparacoes.categoriabox.ReadOnly = True
-                        opr_reparacoes.hardwarebox.ReadOnly = True
+                        opr_reparacoes.preçobox.ReadOnly = True
                         opr_reparacoes.CheckBox1.Enabled = False
                         opr_reparacoes.CheckBox2.Enabled = False
-                        opr_reparacoes.softwarebox.ReadOnly = False
                         opr_reparacoes.RadButton6.Text = "Ver Técnicos Participantes"
                         opr_reparacoes.RadButton6.TextWrap = True
                         opr_reparacoes.descriçaobox.ReadOnly = True
@@ -519,6 +517,7 @@
                         opr_reparacoes.RadButton1.Enabled = False
                         opr_reparacoes.RadButton2.Enabled = False
                         opr_reparacoes.RadButton3.Enabled = False
+                        opr_reparacoes.read_only = True
                     Case "Técnicos"
                         Dim opr_tecnicos As New OPR_Técnicos
                         opr_tecnicos.MdiParent = Workspace

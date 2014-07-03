@@ -1,77 +1,51 @@
-﻿Public Class Inserir_Hardware
+﻿Public Class Inserir_Software
     Public modo As Boolean
-    Private Sub Inserir_Hardware_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Inserir_software_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = RadButton5
         If modo = False Then
             Workspace.hardware_support = New DataTable
         End If
     End Sub
-
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Dim h As New ArrayList
-        Workspace.hardware_support.Columns.Add("Tipo")
-        Workspace.hardware_support.Columns.Add("Quantidade")
-        Workspace.hardware_support.Columns.Add("Preço")
-        h.Add("Caixa")
-        h.Add(caixaqtdbox.Value)
+        Workspace.software_support.Columns.Add("Tipo")
+        Workspace.software_support.Columns.Add("Preço")
+        h.Add("Instalação S.O")
         h.Add(caixapreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
+        Workspace.software_support.Rows.Add(h)
         h = New ArrayList
-        h.Add("Motherboard")
-        h.Add(motherqtdbox.Value)
+        h.Add("Recuperação S.O")
         h.Add(motherpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
+        Workspace.software_support.Rows.Add(h)
         h = New ArrayList
-        h.Add("Cooler")
-        h.Add(coolerqtdbox.Value)
+        h.Add("Remoção Spyware")
         h.Add(coolerpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
+        Workspace.software_support.Rows.Add(h)
         h = New ArrayList
-        h.Add("VGA")
-        h.Add(vgaqtdbox.Value)
+        h.Add("Remoção Vírus")
         h.Add(VGApreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
+        Workspace.software_support.Rows.Add(h)
         h = New ArrayList
-        h.Add("Unidade Óptica")
-        h.Add(opticqtdbox.Value)
+        h.Add("Remoção Cód. S.O")
         h.Add(opticpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
+        Workspace.software_support.Rows.Add(h)
         h = New ArrayList
-        h.Add("Placa de Rede")
-        h.Add(redeqtdbox.Value)
+        h.Add("Limpeza")
         h.Add(redepreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Fonte")
-        h.Add(fonteqtdbox.Value)
-        h.Add(fontepreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Processador")
-        h.Add(processadorqtdbox.Value)
-        h.Add(processadorpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Memória")
-        h.Add(memoriaqtdbox.Value)
-        h.Add(memóriapreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Disco")
-        h.Add(discoqtdbox.Value)
-        h.Add(discopreçobox.Text)
-        h.Add("Leitor de Cartões")
-        h.Add(leitorqtdbox.Value)
-        h.Add(leitorpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
+        Workspace.software_support.Rows.Add(h)
         h = New ArrayList
         h.Add(otherdescriçaobox.Text)
-        h.Add(otherqtdbox.Value)
         h.Add(otherpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        Me.Close()
+        Workspace.software_support.Rows.Add(h)
     End Sub
 
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+        Workspace.software_support.Columns.Add("N/A")
+        Dim p As New ArrayList
+        p.Add("N/A")
+        Workspace.software_support.Rows.Add(p)
+        Me.Close()
+    End Sub
     Public Sub NumberFormat(ByVal Text As TextBox)
         Dim temptext As TextBox = Text
         If Len(temptext.Text) > 0 Then
@@ -113,15 +87,6 @@
         Text.Text = temptext.Text & "€"
     End Sub
 
-
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
-        Workspace.hardware_support.Columns.Add("N/A")
-        Dim p As New ArrayList
-        p.Add("N/A")
-        Workspace.hardware_support.Rows.Add(p)
-        Me.Close()
-    End Sub
-
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
         NumberFormat(caixapreçobox)
     End Sub
@@ -142,31 +107,11 @@
         NumberFormat(opticpreçobox)
     End Sub
 
-    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
-        NumberFormat(redepreçobox)
-    End Sub
-
-    Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs) Handles fontepreçobox.TextChanged
-        NumberFormat(fontepreçobox)
-    End Sub
-
-    Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles processadorpreçobox.TextChanged
-        NumberFormat(processadorpreçobox)
-    End Sub
-
-    Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs) Handles memóriapreçobox.TextChanged
-        NumberFormat(memóriapreçobox)
-    End Sub
-
-    Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs) Handles discopreçobox.TextChanged
-        NumberFormat(discopreçobox)
-    End Sub
-
-    Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles leitorpreçobox.TextChanged
-        NumberFormat(leitorpreçobox)
-    End Sub
-
     Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
         NumberFormat(otherpreçobox)
+    End Sub
+
+    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
+        NumberFormat(redepreçobox)
     End Sub
 End Class

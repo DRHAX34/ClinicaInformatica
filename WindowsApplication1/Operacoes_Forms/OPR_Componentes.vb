@@ -73,6 +73,7 @@
         Dim check_marca As String = ""
         Dim check_modelo As String = ""
         Dim check_observaçoes As String = ""
+        Dim check_tipo As String = tipo_componentebox.Text
         Try
             check_numcliente = numbox.Text
             check_numcliente.Trim()
@@ -84,11 +85,12 @@
             check_modelo.Trim()
             check_observaçoes = observaçoesbox.Text
             check_observaçoes.Trim()
+            check_tipo.Trim()
         Catch
         End Try
         Try
-            If Not (check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
-                BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text)
+            If Not (check_tipo = "" And check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
+                BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
                 Workspace.componentesAtivosToolStripMenuItem.PerformClick()
                 Me.Close()
@@ -127,6 +129,7 @@
         Dim check_marca As String = ""
         Dim check_modelo As String = ""
         Dim check_observaçoes As String = ""
+        Dim check_componente As String = tipo_componentebox.Text
         Try
             check_numcliente = numbox.Text
             check_numcliente.Trim()
@@ -138,11 +141,12 @@
             check_modelo.Trim()
             check_observaçoes = observaçoesbox.Text
             check_observaçoes.Trim()
+            check_componente.Trim()
         Catch
         End Try
         Try
             If Not (check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
-                BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text)
+                BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Alterado com sucesso")
                 If removidos = True Then
                     Workspace.componentesRemovidosToolStripMenuItem.PerformClick()

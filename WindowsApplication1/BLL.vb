@@ -910,6 +910,17 @@ Public Class BLL
         '    p.Add(New SqlParameter("@empresa", empresa))
         '    DAL.ExecuteNonQuery("UPDATE Componentes set ativo=0 where nºempresa=@empresa", p)
         'End Sub
+        Shared Function check_exist(ByVal numcomponente As Integer) As Boolean
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@num_empresa", n_empresa))
+            p.Add(New SqlParameter("@num_componente", numcomponente))
+            Dim check As String = DAL.ExecuteScalar("Select Marca from Componentes where NºEmpresa=@num_empresa and NºComponente=@num_componente", p)
+            If check <> "" Then
+                Return True
+            Else
+                Return False
+            End If
+        End Function
         Shared Function carregar_componentes() As ArrayList
             Dim p As New ArrayList
             p.Add(New SqlParameter("@num_empresa", n_empresa))
@@ -1128,34 +1139,16 @@ Public Class BLL
                 Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
-        Shared Sub inserir(ByVal NºComponente As Integer, ByVal n_tecnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal Preço As Double, ByVal n_empresa As Integer, ByVal n_software As Integer, ByVal n_hardware As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String,)
+        Shared Sub inserir(ByVal NºComponente As Integer, ByVal DescAvaria As String, ByVal DIRepar As String)
             Dim p As New ArrayList
-            Dim s As New ArrayList
-            Dim h As New ArrayList
-            Dim rtrn As String
-            Dim n_reparacao As Integer
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@DescAvaria", DescAvaria))
             p.Add(New SqlParameter("@DIRepar", DIRepar))
-            p.Add(New SqlParameter("@Preço", Preço))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             DAL.ExecuteNonQuery("Insert into Reparações(NºComponente,DescAvaria,DIRepar,Preço,NºEmpresa,Ativo) VALUES (@NºComponente,@DescAvaria,@DIRepar,@Preço@NºEmpresa,1)", p)
-            rtrn = DAL.ExecuteScalar("Select Max(NºReparação) from Reparações", Nothing)
-            n_reparacao = rtrn
-            s.Add(New SqlParameter("@n_reparacao", n_reparacao))
-            s.Add(New SqlParameter("@Tipo", tipo_soft))
-            s.Add(New SqlParameter("@Preço", Preço))
-            h.Add(New SqlParameter("@n_reparacao", n_reparacao))
-            h.Add(New SqlParameter("@Tipo", tipo_hard))
-            h.Add(New SqlParameter("@Preço", Preço))
-            DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo,Preço) VALUES (@n_reparacao,@NºSoftware,@Tipo,@Preço)", s)
-            DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo,Preço) VALUES (@n_reparacao,@NºHarware,@Tipo,@Preço)", h)
         End Sub
-        Shared Function alterar_datafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal TempoRealReparação As String, ByVal NºTécnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal Preço As Double, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
+        Shared Sub alterar_datafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal TempoRealReparação As String, ByVal Técnicos As DataTable, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal Preço As Double)
             Dim p As New ArrayList
-            Dim s As New ArrayList
-            Dim h As New ArrayList
-            Dim rtrn As New ArrayList
             p.Add(New SqlParameter("@NºReparação", NºReparação))
             p.Add(New SqlParameter("@NºComponente", NºComponente))
             p.Add(New SqlParameter("@TempoRealReparação", TempoRealReparação))
@@ -1163,38 +1156,9 @@ Public Class BLL
             p.Add(New SqlParameter("@DIRepar", DIRepar))
             p.Add(New SqlParameter("@DFRepar", DFRepar))
             p.Add(New SqlParameter("@Preço", Preço))
-            s.Add(New SqlParameter("@NºReparação", NºReparação))
-            s.Add(New SqlParameter("@Tipo_hard", tipo_hard))
-            s.Add(New SqlParameter("@Preço", Preço))
-            h.Add(New SqlParameter("@NºReparação", NºReparação))
-            h.Add(New SqlParameter("@Tipo_soft", tipo_soft))
-            h.Add(New SqlParameter("@Preço", Preço))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar, Preço = @Preço where NºReparação=@NºReparação", p))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft, Preço = @Preço where NºReparação = @NºReparação", s))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard, Preço = @Preço where NºReparação = @NºReparação", h))
-            Return rtrn
-        End Function
-        Shared Function alterar_nodatafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal NºTécnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal Preço As Double, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
-            Dim p As New ArrayList
-            Dim s As New ArrayList
-            Dim h As New ArrayList
-            Dim rtrn As New ArrayList
-            p.Add(New SqlParameter("@NºReparação", NºReparação))
-            p.Add(New SqlParameter("@NºComponente", NºComponente))
-            p.Add(New SqlParameter("@DescAvaria", DescAvaria))
-            p.Add(New SqlParameter("@DIRepar", DIRepar))
-            p.Add(New SqlParameter("@Preço", Preço))
-            s.Add(New SqlParameter("@NºReparação", NºReparação))
-            s.Add(New SqlParameter("@Tipo_hard", tipo_hard))
-            s.Add(New SqlParameter("@Preço", Preço))
-            h.Add(New SqlParameter("@NºReparação", NºReparação))
-            h.Add(New SqlParameter("@Tipo_soft", tipo_soft))
-            h.Add(New SqlParameter("@Preço", Preço))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar, Preço = @Preço where NºReparação=@NºReparação", p))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft, Preço = @Preço where NºReparação = @NºReparação", s))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard, Preço = @Preço where NºReparação = @NºReparação", h))
-            Return rtrn
-        End Function
+            'inserir comandos dos tecnicos aqui
+            DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar, Preço = @Preço where NºReparação=@NºReparação", p)
+        End Sub
         Shared Function apagar(ByVal id As Integer, ByVal modo As Integer) As String
             Dim p As New ArrayList
             p.Add(New SqlParameter("@id", id))
@@ -1572,10 +1536,18 @@ Public Class BLL
         End Function
     End Class
     Public Class Hardware
-        Shared Function return_hardware(ByVal n_reparacao As String) As String
+        Shared Sub adicionar_hardware(ByVal n_reparacao As String, tipo As String, preço As String, qtd As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_reparacao", n_reparacao))
+            p.Add(New SqlParameter("@tipo", tipo))
+            p.Add(New SqlParameter("@preço", preço))
+            p.Add(New SqlParameter("@qtd", qtd))
+            DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo,preço,qtd) values (@n_reparacao,@tipo,@preço,@qtd)", p)
+        End Sub
+        Shared Function return_hardware(ByVal n_reparacao As String) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteScalar("Select Tipo, Preço FROM Hardware where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteQueryDT("Select Tipo, Preço FROM Hardware where NºReparação=@NºReparação", p)
         End Function
         Shared Function delete_hardware(ByVal n_reparacao As String) As String
             Dim p As New ArrayList
@@ -1584,10 +1556,17 @@ Public Class BLL
         End Function
     End Class
     Public Class Software
-        Shared Function return_software(ByVal n_reparacao As String) As String
+        Shared Sub adicionar_hardware(ByVal n_reparacao As String, tipo As String, preço As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@n_reparacao", n_reparacao))
+            p.Add(New SqlParameter("@tipo", tipo))
+            p.Add(New SqlParameter("@preço", preço))
+            DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo,preço) values (@n_reparacao,@tipo,@preço)", p)
+        End Sub
+        Shared Function return_software(ByVal n_reparacao As String) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteScalar("Select Tipo, Preço FROM Software where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteQueryDT("Select Tipo, Preço FROM Software where NºReparação=@NºReparação", p)
         End Function
         Shared Function delete_software(ByVal n_reparacao As String) As String
             Dim p As New ArrayList

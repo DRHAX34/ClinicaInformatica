@@ -24,7 +24,6 @@
             RadButton1.Enabled = True
             RadButton2.Enabled = True
         Else
-            perguntabox.SelectedIndex = 0
             RadButton5.Enabled = True
             RadButton1.Enabled = False
             RadButton2.Enabled = False

@@ -274,34 +274,40 @@
     <Compile Include="Operacoes_Forms\Inserir Hardware.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\Form1.Designer.vb">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <Compile Include="Operacoes_Forms\Inserir_Software.Designer.vb">
+      <DependentUpon>Inserir_Software.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\Form1.vb">
+    <Compile Include="Operacoes_Forms\Inserir_Software.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\Form2.Designer.vb">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <Compile Include="Relatórios\tempo_medio.Designer.vb">
+      <DependentUpon>tempo_medio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\Form2.vb">
+    <Compile Include="Relatórios\tempo_medio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\Form3.Designer.vb">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <Compile Include="Relatórios\repar_localidade.Designer.vb">
+      <DependentUpon>repar_localidade.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\Form3.vb">
+    <Compile Include="Relatórios\repar_localidade.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\Form4.Designer.vb">
-      <DependentUpon>Form4.vb</DependentUpon>
+    <Compile Include="Relatórios\Clientes_alunos.Designer.vb">
+      <DependentUpon>Clientes_alunos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\Form4.vb">
+    <Compile Include="Relatórios\Clientes_alunos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\Form5.Designer.vb">
-      <DependentUpon>Form5.vb</DependentUpon>
+    <Compile Include="Relatórios\folha_repar.Designer.vb">
+      <DependentUpon>folha_repar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\Form5.vb">
+    <Compile Include="Relatórios\folha_repar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Relatórios\folha_repar_orçamento.Designer.vb">
+      <DependentUpon>folha_repar_orçamento.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatórios\folha_repar_orçamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="unZip.vb" />
@@ -432,23 +438,26 @@
     <EmbeddedResource Include="Operacoes_Forms\Inserir Hardware.resx">
       <DependentUpon>Inserir Hardware.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Operacoes_Forms\Inserir_Software.resx">
+      <DependentUpon>Inserir_Software.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\Form1.resx">
-      <DependentUpon>Form1.vb</DependentUpon>
+    <EmbeddedResource Include="Relatórios\tempo_medio.resx">
+      <DependentUpon>tempo_medio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\Form2.resx">
-      <DependentUpon>Form2.vb</DependentUpon>
+    <EmbeddedResource Include="Relatórios\repar_localidade.resx">
+      <DependentUpon>repar_localidade.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\Form3.resx">
-      <DependentUpon>Form3.vb</DependentUpon>
+    <EmbeddedResource Include="Relatórios\Clientes_alunos.resx">
+      <DependentUpon>Clientes_alunos.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\Form4.resx">
-      <DependentUpon>Form4.vb</DependentUpon>
+    <EmbeddedResource Include="Relatórios\folha_repar.resx">
+      <DependentUpon>folha_repar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\Form5.resx">
-      <DependentUpon>Form5.vb</DependentUpon>
+    <EmbeddedResource Include="Relatórios\folha_repar_orçamento.resx">
+      <DependentUpon>folha_repar_orçamento.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashAway.resx">
       <DependentUpon>SplashAway.vb</DependentUpon>
@@ -524,6 +533,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone programa.ico" />
+    <None Include="Resources\1404425892_Microprocessor.png" />
+    <None Include="Resources\1404442634_Software.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

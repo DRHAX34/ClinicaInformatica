@@ -14,6 +14,8 @@ Public Class Workspace
     Public companyname1 As String
     Public support As Integer
     Public tecnicos_support As DataTable
+    Public hardware_support As DataTable
+    Public software_support As DataTable
     Public string_pass As String
     Public erros As Boolean
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean

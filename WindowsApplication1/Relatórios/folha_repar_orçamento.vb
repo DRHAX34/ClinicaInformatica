@@ -1,4 +1,4 @@
-﻿Public Class Form5
+﻿Public Class folha_repar_orçamento
 
     Private Sub Panel2_Paint(sender As Object, e As PaintEventArgs) Handles Panel2.Paint
 
