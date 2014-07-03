@@ -913,26 +913,26 @@ Public Class BLL
         Shared Function carregar_componentes() As ArrayList
             Dim p As New ArrayList
             p.Add(New SqlParameter("@num_empresa", n_empresa))
-            Return DAL.ExecuteQuery("Select NºCliente,Marca,Modelo,NºSérie from Componentes where NºEmpresa=@num_empresa", p)
+            Return DAL.ExecuteQuery("Select NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo from Componentes where NºEmpresa=@num_empresa", p)
         End Function
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações, Tipo_Dispositivo FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function carregar_desativos() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+            Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie, Observações,Tipo_Dispositivo FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
         End Function
         Shared Function procura_dados_numcomponente_desativo(ByRef NºComponente As String) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente like @n_componente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where NºComponente like @n_componente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcomponente(ByRef NºComponente As String) As DataTable
@@ -940,9 +940,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente like @n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where NºComponente like @n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function carregar_dados_numcomponente_desativo(ByRef NºComponente As String) As DataTable
@@ -950,9 +950,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente=@n_componente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where NºComponente=@n_componente AND Ativo=0 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function carregar_dados_numcomponente(ByRef NºComponente As String) As DataTable
@@ -960,9 +960,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºComponente=@n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where NºComponente=@n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente(ByRef NºCliente As String) As DataTable
@@ -970,9 +970,9 @@ Public Class BLL
             p.Add(New SqlParameter("@NºCliente", NºCliente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºCliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºCliente like @NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where NºCliente like @NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcomponente_mini(ByRef NºComponente As String) As DataTable
@@ -980,9 +980,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Tipo_Dispositivo FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where NºComponente like @n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Tipo_Dispositivo FROM Componentes where NºComponente like @n_componente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente_mini(ByRef NºCliente As String) As DataTable
@@ -990,9 +990,9 @@ Public Class BLL
             p.Add(New SqlParameter("@NºCliente", NºCliente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºCliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Tipo_Dispositivo FROM Componentes where Ativo=1 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie FROM Componentes where NºCliente like @NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Tipo_Dispositivo FROM Componentes where NºCliente like @NºCliente AND Ativo=1 AND NºEmpresa=@n_empresa", p)
             End If
         End Function
         Shared Function procura_dados_numcliente_desativo(ByRef NºCliente As String) As DataTable
@@ -1000,22 +1000,23 @@ Public Class BLL
             p.Add(New SqlParameter("@NºCliente", NºCliente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºCliente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where Ativo=0 AND NºEmpresa=@n_empresa", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações FROM Componentes where NºCliente like @NºCliente AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºComponente,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo FROM Componentes where NºCliente like @NºCliente AND Ativo=0", p)
             End If
         End Function
-        Shared Function inserir(ByVal NºCliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As String, ByVal Observações As String)
+        Shared Function inserir(ByVal NºCliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As String, ByVal Observações As String, ByVal Tipo_Dispositivo As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºCliente", NºCliente))
             p.Add(New SqlParameter("@Marca", Marca))
             p.Add(New SqlParameter("@Modelo", Modelo))
             p.Add(New SqlParameter("@NºSérie", NºSérie))
             p.Add(New SqlParameter("@Observações", Observações))
+            p.Add(New SqlParameter("@Tipo_Dispositivo", Tipo_Dispositivo))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteNonQuery("Insert into Componentes(NºCliente,Marca,Modelo,NºSérie,Observações,NºEmpresa,Ativo) VALUES (@NºCliente, @Marca, @Modelo, @NºSérie,@Observações,@n_empresa,1)", p)
+            Return DAL.ExecuteNonQuery("Insert into Componentes(NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Dispositivo,NºEmpresa,Ativo) VALUES (@NºCliente, @Marca, @Modelo, @NºSérie,@Observações,@Tipo_Dispositivo,@n_empresa,1)", p)
         End Function
-        Shared Function alterar(ByVal NºComponente As String, ByVal n_cliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As String, ByVal Observações As String)
+        Shared Function alterar(ByVal NºComponente As String, ByVal n_cliente As String, ByVal Marca As String, ByVal Modelo As String, ByVal NºSérie As String, ByVal Observações As String, ByVal Tipo_Dispositivo As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_cliente", n_cliente))
@@ -1023,7 +1024,8 @@ Public Class BLL
             p.Add(New SqlParameter("@Modelo", Modelo))
             p.Add(New SqlParameter("@NºSérie", NºSérie))
             p.Add(New SqlParameter("@Observações", Observações))
-            Return DAL.ExecuteNonQuery("Update Componentes set NºCliente = @n_cliente, Marca = @Marca, Modelo= @Modelo, NºSérie= @NºSérie, Observações= @Observações where NºComponente=@n_componente", p)
+            p.Add(New SqlParameter("@Tipo_Dispositivo", Tipo_Dispositivo))
+            Return DAL.ExecuteNonQuery("Update Componentes set NºCliente = @n_cliente, Marca = @Marca, Modelo= @Modelo, NºSérie= @NºSérie, Observações= @Observações, Tipo_Dispositivo = @Tipo_Dispositivo where NºComponente=@n_componente", p)
         End Function
         Shared Function apagar(ByVal NºComponente As String, ByVal NºCliente As String)
             Dim p As New ArrayList
@@ -1059,21 +1061,21 @@ Public Class BLL
         Shared Function carregar() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
         End Function
         Shared Function carregar_desativos() As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
+            Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
         End Function
         Shared Function procura_dados_numcomponente(ByRef NºComponente As Integer) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço,NºEmpresa From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºComponente like @n_componente AND NºEmpresa=@n_empresa AND Ativo=1", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço,NºEmpresa From Reparações where NºComponente like @n_componente AND NºEmpresa=@n_empresa AND Ativo=1", p)
             End If
         End Function
         Shared Function procura_dados_numcomponente_desativo(ByRef NºComponente As Integer) As DataTable
@@ -1081,9 +1083,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºComponente = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço,NºEmpresa From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,NºEmpresa From Reparações where NºComponente like @n_componente AND NºEmpresa=@n_empresa AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço,NºEmpresa From Reparações where NºComponente like @n_componente AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
         Shared Function procura_dados_numreparação(ByRef NºReparação As Integer) As DataTable
@@ -1091,9 +1093,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_reparação", NºReparação))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºReparação = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação like @n_reparação AND NºEmpresa=@n_empresa AND Ativo=1", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºReparação like @n_reparação AND NºEmpresa=@n_empresa AND Ativo=1", p)
             End If
         End Function
         Shared Function procura_dados_numreparação_desativo(ByRef NºReparação As Integer) As DataTable
@@ -1101,9 +1103,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_reparação", NºReparação))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºReparação = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação like @n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºReparação like @n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
         Shared Function carregar_dados_numreparação(ByRef NºReparação As Integer) As DataTable
@@ -1111,9 +1113,9 @@ Public Class BLL
             p.Add(New SqlParameter("@n_reparação", NºReparação))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºReparação = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºEmpresa=@n_empresa AND Ativo=1", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=1", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=1", p)
             End If
         End Function
         Shared Function carregar_dados_numreparação_desativo(ByRef NºReparação As Integer) As DataTable
@@ -1121,12 +1123,12 @@ Public Class BLL
             p.Add(New SqlParameter("@n_reparação", NºReparação))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             If NºReparação = "" Then
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºEmpresa=@n_empresa AND Ativo=0", p)
             Else
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºComponente,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
-        Shared Sub inserir(ByVal NºComponente As Integer, ByVal n_tecnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal n_empresa As Integer, ByVal n_software As Integer, ByVal n_hardware As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
+        Shared Sub inserir(ByVal NºComponente As Integer, ByVal n_tecnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal Preço As Double, ByVal n_empresa As Integer, ByVal n_software As Integer, ByVal n_hardware As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String,)
             Dim p As New ArrayList
             Dim s As New ArrayList
             Dim h As New ArrayList
@@ -1135,19 +1137,21 @@ Public Class BLL
             p.Add(New SqlParameter("@n_componente", NºComponente))
             p.Add(New SqlParameter("@DescAvaria", DescAvaria))
             p.Add(New SqlParameter("@DIRepar", DIRepar))
-            p.Add(New SqlParameter("@DFRepar", DFRepar))
+            p.Add(New SqlParameter("@Preço", Preço))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
-            DAL.ExecuteNonQuery("Insert into Reparações(NºComponente,DescAvaria,DIRepar,NºEmpresa,Ativo) VALUES (@NºReparação, @NºComponente, @DIRepar,@NºEmpresa,1)", p)
+            DAL.ExecuteNonQuery("Insert into Reparações(NºComponente,DescAvaria,DIRepar,Preço,NºEmpresa,Ativo) VALUES (@NºComponente,@DescAvaria,@DIRepar,@Preço@NºEmpresa,1)", p)
             rtrn = DAL.ExecuteScalar("Select Max(NºReparação) from Reparações", Nothing)
             n_reparacao = rtrn
             s.Add(New SqlParameter("@n_reparacao", n_reparacao))
             s.Add(New SqlParameter("@Tipo", tipo_soft))
+            s.Add(New SqlParameter("@Preço", Preço))
             h.Add(New SqlParameter("@n_reparacao", n_reparacao))
             h.Add(New SqlParameter("@Tipo", tipo_hard))
-            DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo) VALUES (@n_reparacao,@NºSoftware,@Tipo)", s)
-            DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo) VALUES (@n_reparacao,@NºHarware,@Tipo)", h)
+            h.Add(New SqlParameter("@Preço", Preço))
+            DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo,Preço) VALUES (@n_reparacao,@NºSoftware,@Tipo,@Preço)", s)
+            DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo,Preço) VALUES (@n_reparacao,@NºHarware,@Tipo,@Preço)", h)
         End Sub
-        Shared Function alterar_datafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal TempoRealReparação As String, ByVal NºTécnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
+        Shared Function alterar_datafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal TempoRealReparação As String, ByVal NºTécnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal Preço As Double, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
             Dim p As New ArrayList
             Dim s As New ArrayList
             Dim h As New ArrayList
@@ -1158,16 +1162,19 @@ Public Class BLL
             p.Add(New SqlParameter("@DescAvaria", DescAvaria))
             p.Add(New SqlParameter("@DIRepar", DIRepar))
             p.Add(New SqlParameter("@DFRepar", DFRepar))
+            p.Add(New SqlParameter("@Preço", Preço))
             s.Add(New SqlParameter("@NºReparação", NºReparação))
             s.Add(New SqlParameter("@Tipo_hard", tipo_hard))
+            s.Add(New SqlParameter("@Preço", Preço))
             h.Add(New SqlParameter("@NºReparação", NºReparação))
             h.Add(New SqlParameter("@Tipo_soft", tipo_soft))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar where NºReparação=@NºReparação", p))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft where NºReparação = @NºReparação", s))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard where NºReparação = @NºReparação", h))
+            h.Add(New SqlParameter("@Preço", Preço))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar, Preço = @Preço where NºReparação=@NºReparação", p))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft, Preço = @Preço where NºReparação = @NºReparação", s))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard, Preço = @Preço where NºReparação = @NºReparação", h))
             Return rtrn
         End Function
-        Shared Function alterar_nodatafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal NºTécnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
+        Shared Function alterar_nodatafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal NºTécnico As Integer, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal Preço As Double, ByVal NºEmpresa As Integer, ByVal tipo_hard As String, ByVal tipo_soft As String)
             Dim p As New ArrayList
             Dim s As New ArrayList
             Dim h As New ArrayList
@@ -1176,13 +1183,16 @@ Public Class BLL
             p.Add(New SqlParameter("@NºComponente", NºComponente))
             p.Add(New SqlParameter("@DescAvaria", DescAvaria))
             p.Add(New SqlParameter("@DIRepar", DIRepar))
+            p.Add(New SqlParameter("@Preço", Preço))
             s.Add(New SqlParameter("@NºReparação", NºReparação))
             s.Add(New SqlParameter("@Tipo_hard", tipo_hard))
+            s.Add(New SqlParameter("@Preço", Preço))
             h.Add(New SqlParameter("@NºReparação", NºReparação))
             h.Add(New SqlParameter("@Tipo_soft", tipo_soft))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar where NºReparação=@NºReparação", p))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft where NºReparação = @NºReparação", s))
-            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard where NºReparação = @NºReparação", h))
+            h.Add(New SqlParameter("@Preço", Preço))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Reparações set NºComponente = @NºComponente, TempoRealReparação= @TempoRealReparação, DescAvaria= @DescAvaria, DIRepar = @DIRepar, DFRepar = @DFRepar, Preço = @Preço where NºReparação=@NºReparação", p))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Software set Tipo = @Tipo_soft, Preço = @Preço where NºReparação = @NºReparação", s))
+            rtrn.Add(DAL.ExecuteNonQuery("Update Hardware set Tipo = @Tipo_hard, Preço = @Preço where NºReparação = @NºReparação", h))
             Return rtrn
         End Function
         Shared Function apagar(ByVal id As Integer, ByVal modo As Integer) As String
@@ -1565,7 +1575,7 @@ Public Class BLL
         Shared Function return_hardware(ByVal n_reparacao As String) As String
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteScalar("Select Tipo FROM Hardware where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteScalar("Select Tipo, Preço FROM Hardware where NºReparação=@NºReparação", p)
         End Function
         Shared Function delete_hardware(ByVal n_reparacao As String) As String
             Dim p As New ArrayList
@@ -1577,7 +1587,7 @@ Public Class BLL
         Shared Function return_software(ByVal n_reparacao As String) As String
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteScalar("Select Tipo FROM Software where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteScalar("Select Tipo, Preço FROM Software where NºReparação=@NºReparação", p)
         End Function
         Shared Function delete_software(ByVal n_reparacao As String) As String
             Dim p As New ArrayList

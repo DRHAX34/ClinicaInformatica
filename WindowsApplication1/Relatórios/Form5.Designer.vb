@@ -23,14 +23,6 @@ Partial Class Form5
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.tempomedioanolabel = New System.Windows.Forms.Label()
-        Me.nreparanolabel = New System.Windows.Forms.Label()
-        Me.nreparmeslabel = New System.Windows.Forms.Label()
-        Me.mediames = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.empresalabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -38,6 +30,20 @@ Partial Class Form5
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
+        Me.WaterMarkTextBox13 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox12 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox11 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox10 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox9 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox8 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox6 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox5 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox3 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox7 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox4 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox2 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.WaterMarkTextBox1 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -46,94 +52,24 @@ Partial Class Form5
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.tempomedioanolabel)
-        Me.Panel2.Controls.Add(Me.nreparanolabel)
-        Me.Panel2.Controls.Add(Me.nreparmeslabel)
-        Me.Panel2.Controls.Add(Me.mediames)
-        Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox13)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox12)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox11)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox10)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox9)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox8)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox6)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox5)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox3)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox7)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox4)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox2)
+        Me.Panel2.Controls.Add(Me.WaterMarkTextBox1)
         Me.Panel2.Location = New System.Drawing.Point(36, 201)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(601, 411)
+        Me.Panel2.Size = New System.Drawing.Size(622, 478)
         Me.Panel2.TabIndex = 10
-        '
-        'tempomedioanolabel
-        '
-        Me.tempomedioanolabel.AutoSize = True
-        Me.tempomedioanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tempomedioanolabel.Location = New System.Drawing.Point(416, 299)
-        Me.tempomedioanolabel.Name = "tempomedioanolabel"
-        Me.tempomedioanolabel.Size = New System.Drawing.Size(84, 32)
-        Me.tempomedioanolabel.TabIndex = 13
-        Me.tempomedioanolabel.Text = "Label5"
-        '
-        'nreparanolabel
-        '
-        Me.nreparanolabel.AutoSize = True
-        Me.nreparanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparanolabel.Location = New System.Drawing.Point(110, 299)
-        Me.nreparanolabel.Name = "nreparanolabel"
-        Me.nreparanolabel.Size = New System.Drawing.Size(84, 32)
-        Me.nreparanolabel.TabIndex = 12
-        Me.nreparanolabel.Text = "Label5"
-        '
-        'nreparmeslabel
-        '
-        Me.nreparmeslabel.AutoSize = True
-        Me.nreparmeslabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparmeslabel.Location = New System.Drawing.Point(110, 95)
-        Me.nreparmeslabel.Name = "nreparmeslabel"
-        Me.nreparmeslabel.Size = New System.Drawing.Size(84, 32)
-        Me.nreparmeslabel.TabIndex = 11
-        Me.nreparmeslabel.Text = "Label5"
-        '
-        'mediames
-        '
-        Me.mediames.AutoSize = True
-        Me.mediames.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mediames.Location = New System.Drawing.Point(416, 95)
-        Me.mediames.Name = "mediames"
-        Me.mediames.Size = New System.Drawing.Size(84, 32)
-        Me.mediames.TabIndex = 10
-        Me.mediames.Text = "Label5"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(358, 354)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(197, 13)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Tempo Médio das Reparações este ano"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(93, 354)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(121, 13)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "NºReparações este ano"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(358, 173)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(205, 13)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Tempo Médio das Reparações neste Mês"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(93, 173)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(122, 13)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "NºReparações este mês"
         '
         'empresalabel
         '
@@ -201,6 +137,162 @@ Partial Class Form5
         Me.empresalogobox.TabIndex = 6
         Me.empresalogobox.TabStop = False
         '
+        'WaterMarkTextBox13
+        '
+        Me.WaterMarkTextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox13.Location = New System.Drawing.Point(393, 190)
+        Me.WaterMarkTextBox13.Multiline = True
+        Me.WaterMarkTextBox13.Name = "WaterMarkTextBox13"
+        Me.WaterMarkTextBox13.Size = New System.Drawing.Size(215, 83)
+        Me.WaterMarkTextBox13.TabIndex = 29
+        Me.WaterMarkTextBox13.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox13.WaterMarkText = "Observações"
+        '
+        'WaterMarkTextBox12
+        '
+        Me.WaterMarkTextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox12.Location = New System.Drawing.Point(393, 138)
+        Me.WaterMarkTextBox12.Name = "WaterMarkTextBox12"
+        Me.WaterMarkTextBox12.Size = New System.Drawing.Size(137, 20)
+        Me.WaterMarkTextBox12.TabIndex = 28
+        Me.WaterMarkTextBox12.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox12.WaterMarkText = "NºSérie"
+        '
+        'WaterMarkTextBox11
+        '
+        Me.WaterMarkTextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox11.Location = New System.Drawing.Point(393, 112)
+        Me.WaterMarkTextBox11.Name = "WaterMarkTextBox11"
+        Me.WaterMarkTextBox11.Size = New System.Drawing.Size(125, 20)
+        Me.WaterMarkTextBox11.TabIndex = 27
+        Me.WaterMarkTextBox11.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox11.WaterMarkText = "Modelo"
+        '
+        'WaterMarkTextBox10
+        '
+        Me.WaterMarkTextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox10.Location = New System.Drawing.Point(393, 86)
+        Me.WaterMarkTextBox10.Name = "WaterMarkTextBox10"
+        Me.WaterMarkTextBox10.Size = New System.Drawing.Size(125, 20)
+        Me.WaterMarkTextBox10.TabIndex = 26
+        Me.WaterMarkTextBox10.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox10.WaterMarkText = "Marca"
+        '
+        'WaterMarkTextBox9
+        '
+        Me.WaterMarkTextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox9.Location = New System.Drawing.Point(393, 60)
+        Me.WaterMarkTextBox9.Name = "WaterMarkTextBox9"
+        Me.WaterMarkTextBox9.Size = New System.Drawing.Size(104, 20)
+        Me.WaterMarkTextBox9.TabIndex = 25
+        Me.WaterMarkTextBox9.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox9.WaterMarkText = "Tipo_Dispositivo"
+        '
+        'WaterMarkTextBox8
+        '
+        Me.WaterMarkTextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox8.Location = New System.Drawing.Point(38, 141)
+        Me.WaterMarkTextBox8.Name = "WaterMarkTextBox8"
+        Me.WaterMarkTextBox8.Size = New System.Drawing.Size(94, 20)
+        Me.WaterMarkTextBox8.TabIndex = 24
+        Me.WaterMarkTextBox8.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox8.WaterMarkText = "Localidade"
+        '
+        'WaterMarkTextBox6
+        '
+        Me.WaterMarkTextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox6.Location = New System.Drawing.Point(38, 167)
+        Me.WaterMarkTextBox6.Name = "WaterMarkTextBox6"
+        Me.WaterMarkTextBox6.Size = New System.Drawing.Size(128, 20)
+        Me.WaterMarkTextBox6.TabIndex = 23
+        Me.WaterMarkTextBox6.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox6.WaterMarkText = "Contacto_Movel"
+        '
+        'WaterMarkTextBox5
+        '
+        Me.WaterMarkTextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox5.Location = New System.Drawing.Point(38, 115)
+        Me.WaterMarkTextBox5.Name = "WaterMarkTextBox5"
+        Me.WaterMarkTextBox5.Size = New System.Drawing.Size(94, 20)
+        Me.WaterMarkTextBox5.TabIndex = 22
+        Me.WaterMarkTextBox5.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox5.WaterMarkText = "Cod_Postal"
+        '
+        'WaterMarkTextBox3
+        '
+        Me.WaterMarkTextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox3.Location = New System.Drawing.Point(38, 89)
+        Me.WaterMarkTextBox3.Name = "WaterMarkTextBox3"
+        Me.WaterMarkTextBox3.Size = New System.Drawing.Size(178, 20)
+        Me.WaterMarkTextBox3.TabIndex = 21
+        Me.WaterMarkTextBox3.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox3.WaterMarkText = "Morada"
+        '
+        'WaterMarkTextBox7
+        '
+        Me.WaterMarkTextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox7.Location = New System.Drawing.Point(38, 60)
+        Me.WaterMarkTextBox7.Name = "WaterMarkTextBox7"
+        Me.WaterMarkTextBox7.Size = New System.Drawing.Size(128, 20)
+        Me.WaterMarkTextBox7.TabIndex = 20
+        Me.WaterMarkTextBox7.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox7.WaterMarkText = "Nome"
+        '
+        'WaterMarkTextBox4
+        '
+        Me.WaterMarkTextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox4.Location = New System.Drawing.Point(393, 164)
+        Me.WaterMarkTextBox4.Name = "WaterMarkTextBox4"
+        Me.WaterMarkTextBox4.Size = New System.Drawing.Size(193, 20)
+        Me.WaterMarkTextBox4.TabIndex = 19
+        Me.WaterMarkTextBox4.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox4.WaterMarkText = "DescAvaria"
+        '
+        'WaterMarkTextBox2
+        '
+        Me.WaterMarkTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox2.Location = New System.Drawing.Point(393, 34)
+        Me.WaterMarkTextBox2.Name = "WaterMarkTextBox2"
+        Me.WaterMarkTextBox2.Size = New System.Drawing.Size(51, 20)
+        Me.WaterMarkTextBox2.TabIndex = 18
+        Me.WaterMarkTextBox2.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox2.WaterMarkText = "NºComponente"
+        '
+        'WaterMarkTextBox1
+        '
+        Me.WaterMarkTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.WaterMarkTextBox1.Location = New System.Drawing.Point(38, 34)
+        Me.WaterMarkTextBox1.Name = "WaterMarkTextBox1"
+        Me.WaterMarkTextBox1.Size = New System.Drawing.Size(37, 20)
+        Me.WaterMarkTextBox1.TabIndex = 17
+        Me.WaterMarkTextBox1.WaterMarkColor = System.Drawing.Color.Gray
+        Me.WaterMarkTextBox1.WaterMarkText = "NºReparação"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.40322!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.59678!))
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(38, 193)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 14
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.71429!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.571428!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.428571!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(248, 280)
+        Me.TableLayoutPanel1.TabIndex = 30
+        '
         'Form5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -224,14 +316,6 @@ Partial Class Form5
 
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents tempomedioanolabel As System.Windows.Forms.Label
-    Friend WithEvents nreparanolabel As System.Windows.Forms.Label
-    Friend WithEvents nreparmeslabel As System.Windows.Forms.Label
-    Friend WithEvents mediames As System.Windows.Forms.Label
-    Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents empresalabel As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -239,4 +323,18 @@ Partial Class Form5
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents empresalogobox As System.Windows.Forms.PictureBox
+    Friend WithEvents WaterMarkTextBox13 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox12 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox11 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox10 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox9 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox8 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox6 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox5 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox3 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox7 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox4 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox2 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents WaterMarkTextBox1 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
 End Class
