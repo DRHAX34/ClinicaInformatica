@@ -35,7 +35,6 @@ Partial Class OPR_Utilizadores
         Me.passwordbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.perguntabox = New System.Windows.Forms.ComboBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.admincheck = New System.Windows.Forms.RadioButton()
         Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
@@ -54,6 +53,7 @@ Partial Class OPR_Utilizadores
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,7 +66,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(613, 498)
+        Me.RadButton4.Location = New System.Drawing.Point(613, 388)
         Me.RadButton4.Name = "RadButton4"
         Me.RadButton4.Size = New System.Drawing.Size(75, 63)
         Me.RadButton4.TabIndex = 78
@@ -75,7 +75,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(471, 498)
+        Me.RadButton3.Location = New System.Drawing.Point(471, 388)
         Me.RadButton3.Name = "RadButton3"
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 77
@@ -85,7 +85,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton2
         '
-        Me.RadButton2.Location = New System.Drawing.Point(334, 498)
+        Me.RadButton2.Location = New System.Drawing.Point(334, 388)
         Me.RadButton2.Name = "RadButton2"
         Me.RadButton2.Size = New System.Drawing.Size(75, 63)
         Me.RadButton2.TabIndex = 76
@@ -94,7 +94,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(185, 498)
+        Me.RadButton1.Location = New System.Drawing.Point(185, 388)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(75, 63)
         Me.RadButton1.TabIndex = 75
@@ -103,7 +103,7 @@ Partial Class OPR_Utilizadores
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(35, 498)
+        Me.RadButton5.Location = New System.Drawing.Point(35, 388)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(75, 63)
         Me.RadButton5.TabIndex = 74
@@ -114,7 +114,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(136, 33)
+        Me.Label6.Location = New System.Drawing.Point(132, 12)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(371, 86)
         Me.Label6.TabIndex = 73
@@ -124,7 +124,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label3.Location = New System.Drawing.Point(47, 45)
+        Me.Label3.Location = New System.Drawing.Point(48, 29)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(159, 23)
         Me.Label3.TabIndex = 72
@@ -134,22 +134,22 @@ Partial Class OPR_Utilizadores
         '
         Me.tecnicolabel.AutoSize = True
         Me.tecnicolabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tecnicolabel.Location = New System.Drawing.Point(16, 175)
+        Me.tecnicolabel.Location = New System.Drawing.Point(14, 137)
         Me.tecnicolabel.Name = "tecnicolabel"
-        Me.tecnicolabel.Size = New System.Drawing.Size(78, 25)
+        Me.tecnicolabel.Size = New System.Drawing.Size(80, 25)
         Me.tecnicolabel.TabIndex = 71
         Me.tecnicolabel.Text = "Técnico"
         '
         'nomeutilizadorbox
         '
-        Me.nomeutilizadorbox.Location = New System.Drawing.Point(51, 71)
+        Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
         Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
         Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
         Me.nomeutilizadorbox.TabIndex = 69
         '
         'passwordbox
         '
-        Me.passwordbox.Location = New System.Drawing.Point(249, 71)
+        Me.passwordbox.Location = New System.Drawing.Point(250, 55)
         Me.passwordbox.Name = "passwordbox"
         Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.passwordbox.Size = New System.Drawing.Size(155, 33)
@@ -159,7 +159,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label4.Location = New System.Drawing.Point(245, 45)
+        Me.Label4.Location = New System.Drawing.Point(246, 29)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(114, 23)
         Me.Label4.TabIndex = 65
@@ -181,29 +181,18 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.Controls.Add(Me.passwordbox)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.GroupBox1.Location = New System.Drawing.Point(22, 216)
+        Me.GroupBox1.Location = New System.Drawing.Point(22, 169)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(666, 276)
+        Me.GroupBox1.Size = New System.Drawing.Size(666, 213)
         Me.GroupBox1.TabIndex = 80
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informações da Conta"
-        '
-        'perguntabox
-        '
-        Me.perguntabox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.perguntabox.FormattingEnabled = True
-        Me.perguntabox.Items.AddRange(New Object() {"Qual o nome do seu animal de infância? (Cão, Gato, etc)", "Qual a maior conquista da sua vida?", "Qual o nome do seu avô?", "Qual a idade da sua avó?", "Para onde viajou na sua infância?", "Diga uma coisa que só você saiba. (Nome de Grupo que pertence, etc)", "Diga o nome do seu primeiro namorado/a.", "Qual é/foi o seu filme favorito?"})
-        Me.perguntabox.Location = New System.Drawing.Point(119, 149)
-        Me.perguntabox.Name = "perguntabox"
-        Me.perguntabox.Size = New System.Drawing.Size(221, 28)
-        Me.perguntabox.TabIndex = 97
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.Label8.Location = New System.Drawing.Point(359, 126)
+        Me.Label8.Location = New System.Drawing.Point(343, 91)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(72, 20)
         Me.Label8.TabIndex = 96
@@ -212,7 +201,7 @@ Partial Class OPR_Utilizadores
         'admincheck
         '
         Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(251, 236)
+        Me.admincheck.Location = New System.Drawing.Point(252, 171)
         Me.admincheck.Name = "admincheck"
         Me.admincheck.Size = New System.Drawing.Size(89, 29)
         Me.admincheck.TabIndex = 79
@@ -223,10 +212,10 @@ Partial Class OPR_Utilizadores
         'respostabox
         '
         Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.respostabox.Location = New System.Drawing.Point(363, 149)
+        Me.respostabox.Location = New System.Drawing.Point(347, 114)
         Me.respostabox.Name = "respostabox"
         Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.respostabox.Size = New System.Drawing.Size(183, 27)
+        Me.respostabox.Size = New System.Drawing.Size(208, 27)
         Me.respostabox.TabIndex = 95
         Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.respostabox.WaterMarkText = "Resposta"
@@ -234,7 +223,7 @@ Partial Class OPR_Utilizadores
         'admgeralcheck
         '
         Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(346, 236)
+        Me.admgeralcheck.Location = New System.Drawing.Point(347, 171)
         Me.admgeralcheck.Name = "admgeralcheck"
         Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
         Me.admgeralcheck.TabIndex = 78
@@ -246,7 +235,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.Label10.Location = New System.Drawing.Point(115, 126)
+        Me.Label10.Location = New System.Drawing.Point(48, 91)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(165, 20)
         Me.Label10.TabIndex = 94
@@ -256,15 +245,15 @@ Partial Class OPR_Utilizadores
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(264, 209)
+        Me.Label7.Location = New System.Drawing.Point(265, 144)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(177, 25)
+        Me.Label7.Size = New System.Drawing.Size(176, 25)
         Me.Label7.TabIndex = 77
         Me.Label7.Text = "Tipo de Utilizador:"
         '
         'TextBox1
         '
-        Me.TextBox1.Location = New System.Drawing.Point(446, 71)
+        Me.TextBox1.Location = New System.Drawing.Point(447, 55)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.TextBox1.Size = New System.Drawing.Size(155, 33)
@@ -274,7 +263,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.25!)
-        Me.Label1.Location = New System.Drawing.Point(442, 45)
+        Me.Label1.Location = New System.Drawing.Point(443, 29)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(195, 23)
         Me.Label1.TabIndex = 75
@@ -282,7 +271,7 @@ Partial Class OPR_Utilizadores
         '
         'addtecnicobox
         '
-        Me.addtecnicobox.Location = New System.Drawing.Point(151, 180)
+        Me.addtecnicobox.Location = New System.Drawing.Point(149, 142)
         Me.addtecnicobox.Name = "addtecnicobox"
         Me.addtecnicobox.Size = New System.Drawing.Size(111, 21)
         Me.addtecnicobox.TabIndex = 85
@@ -292,7 +281,7 @@ Partial Class OPR_Utilizadores
         'empresabox
         '
         Me.empresabox.FormattingEnabled = True
-        Me.empresabox.Location = New System.Drawing.Point(539, 181)
+        Me.empresabox.Location = New System.Drawing.Point(539, 117)
         Me.empresabox.Name = "empresabox"
         Me.empresabox.Size = New System.Drawing.Size(121, 21)
         Me.empresabox.TabIndex = 87
@@ -301,7 +290,7 @@ Partial Class OPR_Utilizadores
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(446, 177)
+        Me.Label5.Location = New System.Drawing.Point(446, 113)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(87, 25)
         Me.Label5.TabIndex = 86
@@ -311,7 +300,7 @@ Partial Class OPR_Utilizadores
         '
         Me.simcheck.AutoSize = True
         Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.simcheck.Location = New System.Drawing.Point(291, 143)
+        Me.simcheck.Location = New System.Drawing.Point(292, 115)
         Me.simcheck.Name = "simcheck"
         Me.simcheck.Size = New System.Drawing.Size(49, 21)
         Me.simcheck.TabIndex = 88
@@ -323,7 +312,7 @@ Partial Class OPR_Utilizadores
         '
         Me.naocheck.AutoSize = True
         Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.naocheck.Location = New System.Drawing.Point(234, 143)
+        Me.naocheck.Location = New System.Drawing.Point(235, 115)
         Me.naocheck.Name = "naocheck"
         Me.naocheck.Size = New System.Drawing.Size(51, 21)
         Me.naocheck.TabIndex = 89
@@ -335,15 +324,15 @@ Partial Class OPR_Utilizadores
         '
         Me.questionlabel.AutoSize = True
         Me.questionlabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.questionlabel.Location = New System.Drawing.Point(16, 139)
+        Me.questionlabel.Location = New System.Drawing.Point(17, 111)
         Me.questionlabel.Name = "questionlabel"
-        Me.questionlabel.Size = New System.Drawing.Size(212, 25)
+        Me.questionlabel.Size = New System.Drawing.Size(214, 25)
         Me.questionlabel.TabIndex = 90
         Me.questionlabel.Text = "O Utilizador é Técnico?"
         '
         'tecnicobox
         '
-        Me.tecnicobox.Location = New System.Drawing.Point(101, 180)
+        Me.tecnicobox.Location = New System.Drawing.Point(99, 142)
         Me.tecnicobox.Name = "tecnicobox"
         Me.tecnicobox.Size = New System.Drawing.Size(40, 20)
         Me.tecnicobox.TabIndex = 91
@@ -351,7 +340,7 @@ Partial Class OPR_Utilizadores
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ51
-        Me.PictureBox1.Location = New System.Drawing.Point(42, 33)
+        Me.PictureBox1.Location = New System.Drawing.Point(42, 12)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -361,12 +350,23 @@ Partial Class OPR_Utilizadores
         'Timer1
         '
         '
+        'perguntabox
+        '
+        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.perguntabox.Location = New System.Drawing.Point(52, 114)
+        Me.perguntabox.Name = "perguntabox"
+        Me.perguntabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.perguntabox.Size = New System.Drawing.Size(267, 27)
+        Me.perguntabox.TabIndex = 97
+        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
+        '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(721, 573)
+        Me.ClientSize = New System.Drawing.Size(721, 463)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.tecnicobox)
         Me.Controls.Add(Me.questionlabel)
@@ -430,5 +430,5 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
-    Friend WithEvents perguntabox As System.Windows.Forms.ComboBox
+    Friend WithEvents perguntabox As ClinicaInformatica.WaterMarkTextBox
 End Class
