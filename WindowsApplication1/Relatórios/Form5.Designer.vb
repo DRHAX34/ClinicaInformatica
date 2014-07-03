@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form3
+Partial Class Form5
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,9 +23,11 @@ Partial Class Form3
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tempomedioanolabel = New System.Windows.Forms.Label()
         Me.nreparanolabel = New System.Windows.Forms.Label()
         Me.nreparmeslabel = New System.Windows.Forms.Label()
         Me.mediames = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -44,9 +46,11 @@ Partial Class Form3
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.tempomedioanolabel)
         Me.Panel2.Controls.Add(Me.nreparanolabel)
         Me.Panel2.Controls.Add(Me.nreparmeslabel)
         Me.Panel2.Controls.Add(Me.mediames)
+        Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.Label8)
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label6)
@@ -55,11 +59,21 @@ Partial Class Form3
         Me.Panel2.Size = New System.Drawing.Size(601, 411)
         Me.Panel2.TabIndex = 10
         '
+        'tempomedioanolabel
+        '
+        Me.tempomedioanolabel.AutoSize = True
+        Me.tempomedioanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tempomedioanolabel.Location = New System.Drawing.Point(416, 299)
+        Me.tempomedioanolabel.Name = "tempomedioanolabel"
+        Me.tempomedioanolabel.Size = New System.Drawing.Size(84, 32)
+        Me.tempomedioanolabel.TabIndex = 13
+        Me.tempomedioanolabel.Text = "Label5"
+        '
         'nreparanolabel
         '
         Me.nreparanolabel.AutoSize = True
         Me.nreparanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparanolabel.Location = New System.Drawing.Point(241, 289)
+        Me.nreparanolabel.Location = New System.Drawing.Point(110, 299)
         Me.nreparanolabel.Name = "nreparanolabel"
         Me.nreparanolabel.Size = New System.Drawing.Size(84, 32)
         Me.nreparanolabel.TabIndex = 12
@@ -79,38 +93,47 @@ Partial Class Form3
         '
         Me.mediames.AutoSize = True
         Me.mediames.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mediames.Location = New System.Drawing.Point(402, 95)
+        Me.mediames.Location = New System.Drawing.Point(416, 95)
         Me.mediames.Name = "mediames"
         Me.mediames.Size = New System.Drawing.Size(84, 32)
         Me.mediames.TabIndex = 10
         Me.mediames.Text = "Label5"
         '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(358, 354)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(197, 13)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "Tempo Médio das Reparações este ano"
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(224, 344)
+        Me.Label8.Location = New System.Drawing.Point(93, 354)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(145, 13)
+        Me.Label8.Size = New System.Drawing.Size(121, 13)
         Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Percentagem Clientes Alunos"
+        Me.Label8.Text = "NºReparações este ano"
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(405, 173)
+        Me.Label7.Location = New System.Drawing.Point(358, 173)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(79, 13)
+        Me.Label7.Size = New System.Drawing.Size(205, 13)
         Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Clientes Alunos"
+        Me.Label7.Text = "Tempo Médio das Reparações neste Mês"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Location = New System.Drawing.Point(93, 173)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(102, 13)
+        Me.Label6.Size = New System.Drawing.Size(122, 13)
         Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Clientes Não Alunos"
+        Me.Label6.Text = "NºReparações este mês"
         '
         'empresalabel
         '
@@ -166,9 +189,9 @@ Partial Class Form3
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(210, 28)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(383, 32)
+        Me.Label1.Size = New System.Drawing.Size(344, 32)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Percentagem de Clientes Alunos"
+        Me.Label1.Text = "Folha de Reparação Efetuada"
         '
         'empresalogobox
         '
@@ -178,7 +201,7 @@ Partial Class Form3
         Me.empresalogobox.TabIndex = 6
         Me.empresalogobox.TabStop = False
         '
-        'Form3
+        'Form5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -189,8 +212,8 @@ Partial Class Form3
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.empresalogobox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form3"
-        Me.Text = "Form3"
+        Me.Name = "Form5"
+        Me.Text = "Form5"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
@@ -201,9 +224,11 @@ Partial Class Form3
 
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
+    Friend WithEvents tempomedioanolabel As System.Windows.Forms.Label
     Friend WithEvents nreparanolabel As System.Windows.Forms.Label
     Friend WithEvents nreparmeslabel As System.Windows.Forms.Label
     Friend WithEvents mediames As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label

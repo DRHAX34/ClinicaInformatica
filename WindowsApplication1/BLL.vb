@@ -565,6 +565,13 @@ Public Class BLL
 
     End Class
     Public Class Clientes
+        Shared Function carregar_percentagem() As Integer
+            Dim total, por, alunos As Integer
+            total = DAL.ExecuteScalar("SELECT Count(NºCliente) From Clientes", Nothing)
+            alunos = DAL.ExecuteScalar("SELECT Count(NºCliente) From Clientes inner join TipoAluno On Clientes.NºCliente = TipoAluno.N_Cliente where NºAluno <> 0", Nothing)
+            por = alunos * 100 / total
+            Return por
+        End Function
         'Shared Sub remover_empresas(ByVal empresa As String)
         '    Dim p As New ArrayList
         '    p.Add(New SqlParameter("@empresa", empresa))

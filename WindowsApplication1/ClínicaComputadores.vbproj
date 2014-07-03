@@ -292,6 +292,12 @@
     <Compile Include="Relatórios\Form4.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Relatórios\Form5.Designer.vb">
+      <DependentUpon>Form5.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Relatórios\Form5.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="unZip.vb" />
     <Compile Include="Simple3Des.vb" />
     <Compile Include="DAL.vb" />
@@ -431,6 +437,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Relatórios\Form4.resx">
       <DependentUpon>Form4.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Relatórios\Form5.resx">
+      <DependentUpon>Form5.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SplashAway.resx">
       <DependentUpon>SplashAway.vb</DependentUpon>
