@@ -268,6 +268,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL.vb" />
+    <Compile Include="Operacoes_Forms\Inserir Hardware.Designer.vb">
+      <DependentUpon>Inserir Hardware.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Operacoes_Forms\Inserir Hardware.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Relatórios\Form1.Designer.vb">
       <DependentUpon>Form1.vb</DependentUpon>
     </Compile>
@@ -422,6 +428,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\Adicionar_tecnicos.resx">
       <DependentUpon>Adicionar_tecnicos.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacoes_Forms\Inserir Hardware.resx">
+      <DependentUpon>Inserir Hardware.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>

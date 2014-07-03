@@ -23,13 +23,6 @@ Partial Class Form5
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.empresalabel = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.WaterMarkTextBox13 = New ClinicaInformatica.WaterMarkTextBox()
         Me.WaterMarkTextBox12 = New ClinicaInformatica.WaterMarkTextBox()
         Me.WaterMarkTextBox11 = New ClinicaInformatica.WaterMarkTextBox()
@@ -43,7 +36,13 @@ Partial Class Form5
         Me.WaterMarkTextBox4 = New ClinicaInformatica.WaterMarkTextBox()
         Me.WaterMarkTextBox2 = New ClinicaInformatica.WaterMarkTextBox()
         Me.WaterMarkTextBox1 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.empresalabel = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,7 +51,6 @@ Partial Class Form5
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.TableLayoutPanel1)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox13)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox12)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox11)
@@ -66,76 +64,10 @@ Partial Class Form5
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox4)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox2)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox1)
-        Me.Panel2.Location = New System.Drawing.Point(36, 201)
+        Me.Panel2.Location = New System.Drawing.Point(15, 186)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(622, 478)
+        Me.Panel2.Size = New System.Drawing.Size(622, 512)
         Me.Panel2.TabIndex = 10
-        '
-        'empresalabel
-        '
-        Me.empresalabel.AutoSize = True
-        Me.empresalabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.empresalabel.Location = New System.Drawing.Point(279, 113)
-        Me.empresalabel.Name = "empresalabel"
-        Me.empresalabel.Size = New System.Drawing.Size(198, 28)
-        Me.empresalabel.TabIndex = 9
-        Me.empresalabel.Text = "(Nome da Empresa)"
-        '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.Highlight
-        Me.Panel1.Controls.Add(Me.Label4)
-        Me.Panel1.Controls.Add(Me.Label3)
-        Me.Panel1.Controls.Add(Me.Label2)
-        Me.Panel1.Location = New System.Drawing.Point(-2, 735)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(660, 33)
-        Me.Panel1.TabIndex = 8
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(302, 12)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 13)
-        Me.Label4.TabIndex = 4
-        Me.Label4.Text = "Label4"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(600, 12)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(39, 13)
-        Me.Label3.TabIndex = 4
-        Me.Label3.Text = "Label3"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(16, 12)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 13)
-        Me.Label2.TabIndex = 2
-        Me.Label2.Text = "Label2"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(210, 28)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(344, 32)
-        Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Folha de Reparação Efetuada"
-        '
-        'empresalogobox
-        '
-        Me.empresalogobox.Location = New System.Drawing.Point(17, 13)
-        Me.empresalogobox.Name = "empresalogobox"
-        Me.empresalogobox.Size = New System.Drawing.Size(148, 154)
-        Me.empresalogobox.TabIndex = 6
-        Me.empresalogobox.TabStop = False
         '
         'WaterMarkTextBox13
         '
@@ -268,36 +200,77 @@ Partial Class Form5
         Me.WaterMarkTextBox1.WaterMarkColor = System.Drawing.Color.Gray
         Me.WaterMarkTextBox1.WaterMarkText = "NºReparação"
         '
-        'TableLayoutPanel1
+        'empresalabel
         '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.40322!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.59678!))
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(38, 193)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 14
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.71429!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.571428!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.428571!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 6.249999!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(248, 280)
-        Me.TableLayoutPanel1.TabIndex = 30
+        Me.empresalabel.AutoSize = True
+        Me.empresalabel.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.empresalabel.Location = New System.Drawing.Point(279, 113)
+        Me.empresalabel.Name = "empresalabel"
+        Me.empresalabel.Size = New System.Drawing.Size(198, 28)
+        Me.empresalabel.TabIndex = 9
+        Me.empresalabel.Text = "(Nome da Empresa)"
+        '
+        'Panel1
+        '
+        Me.Panel1.BackColor = System.Drawing.SystemColors.Highlight
+        Me.Panel1.Controls.Add(Me.Label4)
+        Me.Panel1.Controls.Add(Me.Label3)
+        Me.Panel1.Controls.Add(Me.Label2)
+        Me.Panel1.Location = New System.Drawing.Point(-2, 735)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(660, 33)
+        Me.Panel1.TabIndex = 8
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(302, 12)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(39, 13)
+        Me.Label4.TabIndex = 4
+        Me.Label4.Text = "Label4"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(600, 12)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(39, 13)
+        Me.Label3.TabIndex = 4
+        Me.Label3.Text = "Label3"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(16, 12)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(39, 13)
+        Me.Label2.TabIndex = 2
+        Me.Label2.Text = "Label2"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(210, 28)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(345, 32)
+        Me.Label1.TabIndex = 7
+        Me.Label1.Text = "Folha de Reparação Efetuada"
+        '
+        'empresalogobox
+        '
+        Me.empresalogobox.Location = New System.Drawing.Point(15, 12)
+        Me.empresalogobox.Name = "empresalogobox"
+        Me.empresalogobox.Size = New System.Drawing.Size(148, 154)
+        Me.empresalogobox.TabIndex = 6
+        Me.empresalogobox.TabStop = False
         '
         'Form5
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(657, 780)
+        Me.ClientSize = New System.Drawing.Size(658, 768)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.empresalabel)
         Me.Controls.Add(Me.Panel1)
@@ -336,5 +309,4 @@ Partial Class Form5
     Friend WithEvents WaterMarkTextBox4 As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents WaterMarkTextBox2 As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents WaterMarkTextBox1 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
 End Class
