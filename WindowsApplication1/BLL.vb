@@ -1556,7 +1556,7 @@ Public Class BLL
         End Function
     End Class
     Public Class Software
-        Shared Sub adicionar_hardware(ByVal n_reparacao As String, tipo As String, preço As String)
+        Shared Sub adicionar_software(ByVal n_reparacao As String, tipo As String, preço As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_reparacao", n_reparacao))
             p.Add(New SqlParameter("@tipo", tipo))

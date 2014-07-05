@@ -4,13 +4,39 @@
         Me.AcceptButton = RadButton5
         If modo = False Then
             Workspace.hardware_support = New DataTable
+        Else
+            caixaqtdbox.Value = Workspace.hardware_support.Rows(0).Item("Qtd")
+            caixapreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
+            motherqtdbox.Value = Workspace.hardware_support.Rows(1).Item("Qtd")
+            motherpreçobox.Text = Workspace.hardware_support.Rows(1).Item("Preço")
+            coolerqtdbox.Value = Workspace.hardware_support.Rows(2).Item("Qtd")
+            coolerpreçobox.Text = Workspace.hardware_support.Rows(2).Item("Preço")
+            vgaqtdbox.Value = Workspace.hardware_support.Rows(3).Item("Qtd")
+            VGApreçobox.Text = Workspace.hardware_support.Rows(3).Item("Preço")
+            opticqtdbox.Value = Workspace.hardware_support.Rows(4).Item("Qtd")
+            opticpreçobox.Text = Workspace.hardware_support.Rows(4).Item("Preço")
+            redeqtdbox.Value = Workspace.hardware_support.Rows(5).Item("Qtd")
+            redepreçobox.Text = Workspace.hardware_support.Rows(5).Item("Preço")
+            fonteqtdbox.Value = Workspace.hardware_support.Rows(6).Item("Qtd")
+            fontepreçobox.Text = Workspace.hardware_support.Rows(6).Item("Preço")
+            processadorqtdbox.Value = Workspace.hardware_support.Rows(7).Item("Qtd")
+            processadorpreçobox.Text = Workspace.hardware_support.Rows(7).Item("Preço")
+            memoriaqtdbox.Value = Workspace.hardware_support.Rows(8).Item("Qtd")
+            memóriapreçobox.Text = Workspace.hardware_support.Rows(8).Item("Preço")
+            discoqtdbox.Value = Workspace.hardware_support.Rows(9).Item("Qtd")
+            discopreçobox.Text = Workspace.hardware_support.Rows(9).Item("Preço")
+            leitorqtdbox.Value = Workspace.hardware_support.Rows(10).Item("Qtd")
+            leitorpreçobox.Text = Workspace.hardware_support.Rows(10).Item("Preço")
+            otherqtdbox.Value = Workspace.hardware_support.Rows(11).Item("Qtd")
+            otherpreçobox.Text = Workspace.hardware_support.Rows(11).Item("Preço")
+            otherdescriçaobox.Text = Workspace.hardware_support.Rows(11).Item("Tipo")
         End If
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Dim h As New ArrayList
         Workspace.hardware_support.Columns.Add("Tipo")
-        Workspace.hardware_support.Columns.Add("Quantidade")
+        Workspace.hardware_support.Columns.Add("Qtd")
         Workspace.hardware_support.Columns.Add("Preço")
         h.Add("Caixa")
         h.Add(caixaqtdbox.Value)
@@ -124,49 +150,61 @@
 
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
         NumberFormat(caixapreçobox)
+        caixapreçoivalabel.Text = CDbl(caixapreçobox.Text) + ((CDbl(caixapreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles motherpreçobox.TextChanged
         NumberFormat(motherpreçobox)
+        motherpreçoivalabel.Text = CDbl(motherpreçobox.Text) + ((CDbl(motherpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs) Handles coolerpreçobox.TextChanged
         NumberFormat(coolerpreçobox)
+        coolerpreçoivalabel.Text = CDbl(coolerpreçobox.Text) + ((CDbl(coolerpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs) Handles VGApreçobox.TextChanged
         NumberFormat(VGApreçobox)
+        vgapreçoivalabel.Text = CDbl(VGApreçobox.Text) + ((CDbl(VGApreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs) Handles opticpreçobox.TextChanged
         NumberFormat(opticpreçobox)
+        opticpreçoivalabel.Text = CDbl(opticpreçobox.Text) + ((CDbl(opticpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
         NumberFormat(redepreçobox)
+        redepreçoivalabel.Text = CDbl(redepreçobox.Text) + ((CDbl(redepreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs) Handles fontepreçobox.TextChanged
         NumberFormat(fontepreçobox)
+        fontepreçoivalabel.Text = CDbl(fontepreçobox.Text) + ((CDbl(fontepreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles processadorpreçobox.TextChanged
         NumberFormat(processadorpreçobox)
+        processadorpreçoivalabel.Text = CDbl(processadorpreçobox.Text) + ((CDbl(processadorpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs) Handles memóriapreçobox.TextChanged
         NumberFormat(memóriapreçobox)
+        memoriapreçoivalabel.Text = CDbl(memóriapreçobox.Text) + ((CDbl(memóriapreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs) Handles discopreçobox.TextChanged
         NumberFormat(discopreçobox)
+        discopreçoivalabel.Text = CDbl(discopreçobox.Text) + ((CDbl(discopreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles leitorpreçobox.TextChanged
         NumberFormat(leitorpreçobox)
+        leitorpreçoivalabel.Text = CDbl(leitorpreçobox.Text) + ((CDbl(leitorpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
         NumberFormat(otherpreçobox)
+        otherpreçoivalabel.Text = CDbl(otherpreçobox.Text) + ((CDbl(otherpreçobox.Text) * 23) / 100)
     End Sub
 End Class

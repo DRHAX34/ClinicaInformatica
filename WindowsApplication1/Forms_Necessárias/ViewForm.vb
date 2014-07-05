@@ -510,8 +510,8 @@
                         opr_reparacoes.preçobox.ReadOnly = True
                         opr_reparacoes.CheckBox1.Enabled = False
                         opr_reparacoes.CheckBox2.Enabled = False
-                        opr_reparacoes.RadButton6.Text = "Ver Técnicos Participantes"
-                        opr_reparacoes.RadButton6.TextWrap = True
+                        opr_reparacoes.insert_tecnicos.Text = "Ver Técnicos Participantes"
+                        opr_reparacoes.insert_tecnicos.TextWrap = True
                         opr_reparacoes.descriçaobox.ReadOnly = True
                         opr_reparacoes.RadButton5.Enabled = False
                         opr_reparacoes.RadButton1.Enabled = False

@@ -1,7 +1,5 @@
 ﻿Public Class OPR_Reparações
     Public reparaçao_data As New DataTable
-    Public hardware_data As String
-    Public software_data As String
     Public modo As Boolean
     Public removidos As Boolean
     Public read_only As Boolean
@@ -15,26 +13,32 @@
             datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString()
             datefim.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()
-            If hardware_data <> "" Or hardware_data = "NULL" Then
+            If Workspace.hardware_support.Rows.Count <> 0 Then
                 CheckBox1.Checked = True
-                'meter aqui comando do hardware_support
             End If
-            If software_data <> "" Or software_data = "NULL" Then
+            If Workspace.software_support.Rows.Count <> 0 Then
                 CheckBox2.Checked = True
-                'meter aqui comando do software_support
             End If
             RadButton1.Enabled = True
             RadButton5.Enabled = False
             RadButton2.Enabled = True
+            datefim.Enabled = True
+            insert_hardware.Enabled = True
+            insert_software.Enabled = True
+            insert_tecnicos.Enabled = True
             check = False
         Else
             dateinicio.MinDate = Today
             datefim.MinDate = Today
+            datefim.Enabled = False
+            insert_hardware.Enabled = False
+            insert_software.Enabled = False
+            insert_tecnicos.Enabled = False
             RadButton1.Enabled = False
             RadButton5.Enabled = True
             RadButton2.Enabled = False
         End If
-
+        NumberFormat(preçobox)
     End Sub
     Private Sub me_onclose(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         If check = True Then
@@ -71,8 +75,8 @@
         End If
     End Sub
 
-    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
-        If RadButton6.Text = "Ver Técnicos Participantes" Then
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles insert_tecnicos.Click
+        If insert_tecnicos.Text = "Ver Técnicos Participantes" Then
             Dim tecnicosform As New ViewForm
             tecnicosform.MdiParent = Workspace
             tecnicosform.data_table = BLL.Participacoes.procurar_part(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
@@ -122,7 +126,7 @@
 
     End Sub
 
-    Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles RadButton8.Click
+    Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles insert_hardware.Click
         Dim select_hardware As New Inserir_Hardware
         select_hardware.MdiParent = Workspace
         select_hardware.modo = modo
@@ -137,7 +141,7 @@
         End If
     End Sub
 
-    Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles RadButton9.Click
+    Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles insert_software.Click
         Dim select_software As New Inserir_Software
         select_software.MdiParent = Workspace
         select_software.modo = modo
@@ -169,9 +173,19 @@
         BLL.Hardware.delete_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
         BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
         BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        If check_componente = True And check_descrição = "" Then
+        If Not (check_componente = True And check_descrição = "" And check_data = False) Then
             Try
                 BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), numcomponentebox.Text, temporeal.ToString(), Workspace.tecnicos_support, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
+                If Workspace.hardware_support.Rows.Count <> 0 Then
+                    For i = 0 To Workspace.hardware_support.Rows.Count - 1
+                        BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"), Workspace.hardware_support.Rows(i).Item("Qtd").ToString)
+                    Next
+                End If
+                If Workspace.software_support.Rows.Count <> 0 Then
+                    For i = 0 To Workspace.software_support.Rows.Count - 1
+                        BLL.Software.adicionar_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"))
+                    Next
+                End If
                 MsgBox("Reparação Editada com sucesso!")
                 Me.Close()
                 check = False
@@ -250,5 +264,11 @@
                 MsgBox("Erro ao Restaurar : " & ex.Message)
             End Try
         End If
+    End Sub
+
+    Private Sub datefim_ValueChanged(sender As Object, e As EventArgs) Handles datefim.ValueChanged
+        Dim temporeal As TimeSpan
+        temporeal = datefim.Value.Subtract(dateinicio.Value)
+        tempo_real.Text = temporeal.TotalHours & " Horas"
     End Sub
 End Class

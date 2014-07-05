@@ -40,9 +40,9 @@ Partial Class OPR_Reparações
         Me.dateinicio = New System.Windows.Forms.DateTimePicker()
         Me.datefim = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.RadButton9 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton8 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
+        Me.insert_software = New Telerik.WinControls.UI.RadButton()
+        Me.insert_hardware = New Telerik.WinControls.UI.RadButton()
+        Me.insert_tecnicos = New Telerik.WinControls.UI.RadButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
@@ -51,15 +51,17 @@ Partial Class OPR_Reparações
         Me.preçobox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.preçocivalabel = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tempo_real = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.RadButton9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.insert_software, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.insert_hardware, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.insert_tecnicos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -107,7 +109,7 @@ Partial Class OPR_Reparações
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(553, 61)
+        Me.Label7.Location = New System.Drawing.Point(553, 9)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(107, 25)
         Me.Label7.TabIndex = 52
@@ -199,7 +201,7 @@ Partial Class OPR_Reparações
         '
         'dateinicio
         '
-        Me.dateinicio.Location = New System.Drawing.Point(558, 98)
+        Me.dateinicio.Location = New System.Drawing.Point(558, 41)
         Me.dateinicio.Name = "dateinicio"
         Me.dateinicio.Size = New System.Drawing.Size(232, 22)
         Me.dateinicio.TabIndex = 62
@@ -215,8 +217,8 @@ Partial Class OPR_Reparações
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.RadButton9)
-        Me.GroupBox1.Controls.Add(Me.RadButton8)
+        Me.GroupBox1.Controls.Add(Me.insert_software)
+        Me.GroupBox1.Controls.Add(Me.insert_hardware)
         Me.GroupBox1.Controls.Add(Me.CheckBox1)
         Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
@@ -227,32 +229,32 @@ Partial Class OPR_Reparações
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo"
         '
-        'RadButton9
+        'insert_software
         '
-        Me.RadButton9.Location = New System.Drawing.Point(385, 28)
-        Me.RadButton9.Name = "RadButton9"
-        Me.RadButton9.Size = New System.Drawing.Size(133, 34)
-        Me.RadButton9.TabIndex = 67
-        Me.RadButton9.Text = "Inserir Software"
-        Me.RadButton9.ThemeName = "Windows8"
+        Me.insert_software.Location = New System.Drawing.Point(385, 28)
+        Me.insert_software.Name = "insert_software"
+        Me.insert_software.Size = New System.Drawing.Size(133, 34)
+        Me.insert_software.TabIndex = 67
+        Me.insert_software.Text = "Inserir Software"
+        Me.insert_software.ThemeName = "Windows8"
         '
-        'RadButton8
+        'insert_hardware
         '
-        Me.RadButton8.Location = New System.Drawing.Point(120, 28)
-        Me.RadButton8.Name = "RadButton8"
-        Me.RadButton8.Size = New System.Drawing.Size(129, 34)
-        Me.RadButton8.TabIndex = 66
-        Me.RadButton8.Text = "Inserir Hardware"
-        Me.RadButton8.ThemeName = "Windows8"
+        Me.insert_hardware.Location = New System.Drawing.Point(120, 28)
+        Me.insert_hardware.Name = "insert_hardware"
+        Me.insert_hardware.Size = New System.Drawing.Size(129, 34)
+        Me.insert_hardware.TabIndex = 66
+        Me.insert_hardware.Text = "Inserir Hardware"
+        Me.insert_hardware.ThemeName = "Windows8"
         '
-        'RadButton6
+        'insert_tecnicos
         '
-        Me.RadButton6.Location = New System.Drawing.Point(590, 189)
-        Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(188, 61)
-        Me.RadButton6.TabIndex = 65
-        Me.RadButton6.Text = "Técnicos Participantes"
-        Me.RadButton6.ThemeName = "Windows8"
+        Me.insert_tecnicos.Location = New System.Drawing.Point(590, 189)
+        Me.insert_tecnicos.Name = "insert_tecnicos"
+        Me.insert_tecnicos.Size = New System.Drawing.Size(188, 61)
+        Me.insert_tecnicos.TabIndex = 65
+        Me.insert_tecnicos.Text = "Técnicos Participantes"
+        Me.insert_tecnicos.ThemeName = "Windows8"
         '
         'PictureBox1
         '
@@ -317,19 +319,40 @@ Partial Class OPR_Reparações
         Me.preçocivalabel.TabIndex = 75
         Me.preçocivalabel.Text = "c/iva"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(553, 66)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(241, 25)
+        Me.Label4.TabIndex = 76
+        Me.Label4.Text = "Tempo Real da Reparação"
+        '
+        'tempo_real
+        '
+        Me.tempo_real.AutoSize = True
+        Me.tempo_real.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tempo_real.Location = New System.Drawing.Point(553, 93)
+        Me.tempo_real.Name = "tempo_real"
+        Me.tempo_real.Size = New System.Drawing.Size(0, 25)
+        Me.tempo_real.TabIndex = 77
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 515)
+        Me.Controls.Add(Me.tempo_real)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.preçocivalabel)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.preçobox)
         Me.Controls.Add(Me.RadButton7)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.RadButton6)
+        Me.Controls.Add(Me.insert_tecnicos)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.datefim)
         Me.Controls.Add(Me.dateinicio)
@@ -358,9 +381,9 @@ Partial Class OPR_Reparações
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.RadButton9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.insert_software, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.insert_hardware, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.insert_tecnicos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -384,15 +407,17 @@ Partial Class OPR_Reparações
     Friend WithEvents dateinicio As System.Windows.Forms.DateTimePicker
     Friend WithEvents datefim As System.Windows.Forms.DateTimePicker
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents insert_tecnicos As Telerik.WinControls.UI.RadButton
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton9 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton8 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents insert_software As Telerik.WinControls.UI.RadButton
+    Friend WithEvents insert_hardware As Telerik.WinControls.UI.RadButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents preçobox As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents preçocivalabel As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
+    Friend WithEvents tempo_real As System.Windows.Forms.Label
 End Class
