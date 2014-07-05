@@ -4,10 +4,17 @@
     Public removidos As Boolean
     Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
     Private Sub OPR_Utilizadores_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        empresabox.Visible = Workspace.varias_empresas
+        Label5.Visible = Workspace.varias_empresas
         If Workspace.admin = True Then
             admgeralcheck.Hide()
             empresabox.Hide()
             Label5.Hide()
+        End If
+        If BLL.Tecnicos.carregar.Rows.Count = 0 Then
+            simcheck.Enabled = False
+        Else
+            simcheck.Enabled = True
         End If
         If Workspace.varias_empresas = False Then
             admgeralcheck.Hide()
@@ -64,53 +71,57 @@
         Dim check_pass As String = ""
         Dim check_pergunta As String = ""
         Dim check_resposta As String = ""
-        If admgeralcheck.Checked = False Then
-            If simcheck.Checked = True Then
-                Try
-                    If tecnicobox.Text <> "" Or tecnicobox.Text <> 0 Then
-                        check_tecnico = True
-                    Else
+        Try
+            If admgeralcheck.Checked = False Then
+                If simcheck.Checked = True Then
+                    Try
+                        If tecnicobox.Text <> "" Or tecnicobox.Text <> 0 Then
+                            check_tecnico = True
+                        Else
+                            check_tecnico = False
+                        End If
+                    Catch ex As Exception
                         check_tecnico = False
-                    End If
-                Catch ex As Exception
-                    check_tecnico = False
-                End Try
+                    End Try
+                Else
+                    check_tecnico = True
+                End If
             Else
                 check_tecnico = True
             End If
-        Else
-            check_tecnico = True
-        End If
-        If admgeralcheck.Checked = False Then
+            If admgeralcheck.Checked = False Then
+                Try
+                    check_empresa = empresabox.Text
+                    check_empresa.Trim()
+                Catch ex As Exception
+                    check_empresa = ""
+                End Try
+            Else
+                check_empresa = "n/d"
+            End If
             Try
-                check_empresa = empresabox.Text
-                check_empresa.Trim()
+                check_nomutil = nomeutilizadorbox.Text
+                check_nomutil.Trim()
             Catch ex As Exception
-                check_empresa = ""
+                check_nomutil = ""
             End Try
-        Else
-            check_empresa = "n/d"
-        End If
-        Try
-            check_nomutil = nomeutilizadorbox.Text
-            check_nomutil.Trim()
-        Catch ex As Exception
-            check_nomutil = ""
-        End Try
-        Try
-            check_pass = passwordbox.Text
-            check_pass.Trim()
-        Catch ex As Exception
-            check_pass = ""
-        End Try
-        Try
-            check_pergunta = perguntabox.Text
-            check_pergunta.Trim()
-            check_resposta = respostabox.Text
-        Catch ex As Exception
+            Try
+                check_pass = passwordbox.Text
+                check_pass.Trim()
+            Catch ex As Exception
+                check_pass = ""
+            End Try
+            Try
+                check_pergunta = perguntabox.Text
+                check_pergunta.Trim()
+                check_resposta = respostabox.Text
+                check_resposta.Trim()
+            Catch ex As Exception
 
+            End Try
+        Catch ex As Exception
         End Try
-        If Not (check_tecnico = False And check_empresa = "" And check_nomutil = "" And check_pass = "" And check_pergunta = "" And check_resposta = "") Then
+        If Not check_tecnico = False And Not check_empresa = "" And Not check_nomutil = "" And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
                 Dim n_empresa As Integer
                 If admgeralcheck.Checked = False Then
@@ -128,7 +139,6 @@
                         Workspace.utilativos.PerformClick()
                         Me.Close()
                     Else
-                        n_empresa = BLL.n_empresa
                         BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, admincheck.Checked, nomeutilizadorbox.Text, passencript, n_empresa)
                         MsgBox("Inserido com sucesso!")
                         Workspace.utilativos.PerformClick()
@@ -185,55 +195,63 @@
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         Dim check_tecnico As Boolean = True
-        Dim check_empresa As Boolean = True
-        Dim check_nomutil As Boolean = True
-        Dim check_pass As Boolean = True
-        If simcheck.Checked = True Then
-            Try
-                For i = 0 To tecnicobox.Text.Count - 1
-                    If tecnicobox.Text.Chars(i) <> " " Then
+        Dim check_empresa As String = ""
+        Dim check_nomutil As String = ""
+        Dim check_pass As String = ""
+        Dim check_pergunta As String = ""
+        Dim check_resposta As String = ""
+        Try
+            If admgeralcheck.Checked = False Then
+                If simcheck.Checked = True Then
+                    Try
+                        If tecnicobox.Text <> "" Or tecnicobox.Text <> 0 Then
+                            check_tecnico = True
+                        Else
+                            check_tecnico = False
+                        End If
+                    Catch ex As Exception
                         check_tecnico = False
-                    End If
-                Next
-            Catch ex As Exception
+                    End Try
+                Else
+                    check_tecnico = True
+                End If
+            Else
                 check_tecnico = True
-            End Try
-        Else
-            check_tecnico = False
-        End If
-        If admgeralcheck.Checked = False Then
+            End If
+            If admgeralcheck.Checked = False Then
+                Try
+                    check_empresa = empresabox.Text
+                    check_empresa.Trim()
+                Catch ex As Exception
+                    check_empresa = ""
+                End Try
+            Else
+                check_empresa = "n/d"
+            End If
             Try
-                For i = 0 To empresabox.Text.Count - 1
-                    If empresabox.Text.Chars(i) <> " " Then
-                        check_empresa = False
-                    End If
-                Next
+                check_nomutil = nomeutilizadorbox.Text
+                check_nomutil.Trim()
             Catch ex As Exception
-                check_empresa = True
+                check_nomutil = ""
             End Try
-        Else
-            check_empresa = False
-        End If
-        Try
-            For i = 0 To nomeutilizadorbox.Text.Count - 1
-                If nomeutilizadorbox.Text.Chars(i) <> " " Then
-                    check_nomutil = False
-                End If
-            Next
+            Try
+                check_pass = passwordbox.Text
+                check_pass.Trim()
+            Catch ex As Exception
+                check_pass = ""
+            End Try
+            Try
+                check_pergunta = perguntabox.Text
+                check_pergunta.Trim()
+                check_resposta = respostabox.Text
+                check_resposta.Trim()
+            Catch ex As Exception
+
+            End Try
         Catch ex As Exception
-            check_nomutil = True
-        End Try
-        Try
-            For i = 0 To passwordbox.Text.Count - 1
-                If passwordbox.Text.Chars(i) <> " " Then
-                    check_pass = False
-                End If
-            Next
-        Catch ex As Exception
-            check_pass = True
         End Try
         If Workspace.admin_geral = True Then
-            If check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+            If Not (check_tecnico = False And check_empresa = "" And check_nomutil = "" And check_pass = "" And check_pergunta = "" And check_resposta = "") Then
                 Try
                     If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = 1 Then
                         MsgBox("Este Utilizador já existe!")
@@ -248,8 +266,9 @@
             Else
                 MsgBox("Insira os dados todos!")
             End If
+
         ElseIf Workspace.admin = True Then
-            If check_tecnico = False And check_empresa = False And check_nomutil = False And check_pass = False Then
+            If Not (check_tecnico = False And check_empresa = "" And check_nomutil = "" And check_pass = "" And check_pergunta = "" And check_resposta = "") Then
                 Try
                     Dim n_empresa As Integer
                     n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
@@ -295,10 +314,11 @@
             Dim select_comp As New Selectform
             select_comp.MdiParent = Workspace
             Workspace.m_ChildFormNumber += 1
-            select_comp.tabela = "Clientes"
+            select_comp.tabela = "Técnicos"
             select_comp.Show()
             Timer1.Start()
             Workspace.check_select = True
+            Me.Enabled = False
         Else
             MsgBox("Já tem uma janela de Selecionar aberta!")
         End If
@@ -307,12 +327,18 @@
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         tecnicobox.Text = Workspace.support
         If Workspace.check_select = False Then
+            Me.Enabled = True
             Timer1.Stop()
         End If
     End Sub
 
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
+
+    
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles verifbox.TextChanged
 
     End Sub
 End Class

@@ -22,9 +22,12 @@ Partial Class SplashAway
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.versaolabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.ProgressBar1 = New System.Windows.Forms.ProgressBar()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.SuspendLayout()
         '
         'Label1
@@ -35,7 +38,7 @@ Partial Class SplashAway
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
         Me.Label1.Location = New System.Drawing.Point(268, 88)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(258, 31)
+        Me.Label1.Size = New System.Drawing.Size(257, 31)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "F.E.Coding Produções"
         '
@@ -63,6 +66,17 @@ Partial Class SplashAway
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Imagem por Tiago Almeida"
         '
+        'ProgressBar1
+        '
+        Me.ProgressBar1.Location = New System.Drawing.Point(274, 295)
+        Me.ProgressBar1.Name = "ProgressBar1"
+        Me.ProgressBar1.Size = New System.Drawing.Size(251, 28)
+        Me.ProgressBar1.TabIndex = 6
+        '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
         'SplashAway
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -71,6 +85,7 @@ Partial Class SplashAway
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(761, 400)
         Me.ControlBox = False
+        Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.versaolabel)
         Me.Controls.Add(Me.Label1)
@@ -87,5 +102,7 @@ Partial Class SplashAway
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents versaolabel As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class

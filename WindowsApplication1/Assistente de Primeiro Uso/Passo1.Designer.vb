@@ -36,7 +36,7 @@ Partial Class Passo1
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.Button2.Location = New System.Drawing.Point(711, 412)
+        Me.Button2.Location = New System.Drawing.Point(529, 412)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(137, 44)
         Me.Button2.TabIndex = 14
@@ -46,7 +46,7 @@ Partial Class Passo1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(854, 400)
+        Me.Button1.Location = New System.Drawing.Point(672, 400)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(153, 56)
         Me.Button1.TabIndex = 13
@@ -81,9 +81,9 @@ Partial Class Passo1
         '
         Me.nomelabel.AutoSize = True
         Me.nomelabel.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomelabel.Location = New System.Drawing.Point(275, 176)
+        Me.nomelabel.Location = New System.Drawing.Point(210, 197)
         Me.nomelabel.Name = "nomelabel"
-        Me.nomelabel.Size = New System.Drawing.Size(430, 20)
+        Me.nomelabel.Size = New System.Drawing.Size(431, 20)
         Me.nomelabel.TabIndex = 42
         Me.nomelabel.Text = "Vai usar este programa com várias empresa ou apenas uma?"
         '
@@ -91,7 +91,7 @@ Partial Class Passo1
         '
         Me.variascheck.AutoSize = True
         Me.variascheck.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.variascheck.Location = New System.Drawing.Point(351, 213)
+        Me.variascheck.Location = New System.Drawing.Point(286, 234)
         Me.variascheck.Name = "variascheck"
         Me.variascheck.Size = New System.Drawing.Size(67, 24)
         Me.variascheck.TabIndex = 43
@@ -103,7 +103,7 @@ Partial Class Passo1
         '
         Me.umacheck.AutoSize = True
         Me.umacheck.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.umacheck.Location = New System.Drawing.Point(489, 213)
+        Me.umacheck.Location = New System.Drawing.Point(424, 234)
         Me.umacheck.Name = "umacheck"
         Me.umacheck.Size = New System.Drawing.Size(111, 24)
         Me.umacheck.TabIndex = 44
@@ -115,7 +115,7 @@ Partial Class Passo1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1019, 468)
+        Me.ClientSize = New System.Drawing.Size(849, 468)
         Me.Controls.Add(Me.umacheck)
         Me.Controls.Add(Me.variascheck)
         Me.Controls.Add(Me.nomelabel)

@@ -23,7 +23,6 @@ Partial Class OPR_Empresas
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.localidadebox = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -34,19 +33,20 @@ Partial Class OPR_Empresas
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.codpostalbox = New System.Windows.Forms.MaskedTextBox()
-        Me.simcheck = New System.Windows.Forms.RadioButton()
         Me.naocheck = New System.Windows.Forms.RadioButton()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.nifbox = New System.Windows.Forms.TextBox()
         Me.caminhobox = New System.Windows.Forms.TextBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.nomebox = New System.Windows.Forms.TextBox()
-        Me.moradabox = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.logobox = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.nomebox = New System.Windows.Forms.TextBox()
+        Me.moradabox = New System.Windows.Forms.TextBox()
+        Me.localidadebox = New System.Windows.Forms.TextBox()
+        Me.nifbox = New System.Windows.Forms.TextBox()
+        Me.codpostalbox = New System.Windows.Forms.MaskedTextBox()
+        Me.simcheck = New System.Windows.Forms.RadioButton()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,17 +63,9 @@ Partial Class OPR_Empresas
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(31, 252)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(135, 25)
+        Me.Label4.Size = New System.Drawing.Size(136, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Código Postal"
-        '
-        'localidadebox
-        '
-        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.localidadebox.Location = New System.Drawing.Point(36, 224)
-        Me.localidadebox.Name = "localidadebox"
-        Me.localidadebox.Size = New System.Drawing.Size(187, 25)
-        Me.localidadebox.TabIndex = 9
         '
         'Label1
         '
@@ -172,27 +164,6 @@ Partial Class OPR_Empresas
         Me.Label7.TabIndex = 26
         Me.Label7.Text = "Alunos"
         '
-        'codpostalbox
-        '
-        Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.codpostalbox.Location = New System.Drawing.Point(36, 280)
-        Me.codpostalbox.Mask = "0000-000"
-        Me.codpostalbox.Name = "codpostalbox"
-        Me.codpostalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.codpostalbox.Size = New System.Drawing.Size(53, 25)
-        Me.codpostalbox.TabIndex = 36
-        '
-        'simcheck
-        '
-        Me.simcheck.AutoSize = True
-        Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.simcheck.Location = New System.Drawing.Point(229, 284)
-        Me.simcheck.Name = "simcheck"
-        Me.simcheck.Size = New System.Drawing.Size(49, 21)
-        Me.simcheck.TabIndex = 37
-        Me.simcheck.Text = "Sim"
-        Me.simcheck.UseVisualStyleBackColor = True
-        '
         'naocheck
         '
         Me.naocheck.AutoSize = True
@@ -214,15 +185,6 @@ Partial Class OPR_Empresas
         Me.Label5.TabIndex = 40
         Me.Label5.Text = "NIF"
         '
-        'nifbox
-        '
-        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.nifbox.Location = New System.Drawing.Point(229, 224)
-        Me.nifbox.MaxLength = 9
-        Me.nifbox.Name = "nifbox"
-        Me.nifbox.Size = New System.Drawing.Size(122, 25)
-        Me.nifbox.TabIndex = 39
-        '
         'caminhobox
         '
         Me.caminhobox.Location = New System.Drawing.Point(506, 287)
@@ -243,22 +205,6 @@ Partial Class OPR_Empresas
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'nomebox
-        '
-        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.nomebox.Location = New System.Drawing.Point(36, 168)
-        Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(187, 25)
-        Me.nomebox.TabIndex = 62
-        '
-        'moradabox
-        '
-        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.moradabox.Location = New System.Drawing.Point(229, 168)
-        Me.moradabox.Name = "moradabox"
-        Me.moradabox.Size = New System.Drawing.Size(256, 25)
-        Me.moradabox.TabIndex = 63
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.company
@@ -278,23 +224,78 @@ Partial Class OPR_Empresas
         Me.logobox.TabIndex = 59
         Me.logobox.TabStop = False
         '
+        'nomebox
+        '
+        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.nomebox.Location = New System.Drawing.Point(36, 168)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.Size = New System.Drawing.Size(187, 25)
+        Me.nomebox.TabIndex = 65
+        '
+        'moradabox
+        '
+        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.moradabox.Location = New System.Drawing.Point(229, 168)
+        Me.moradabox.Name = "moradabox"
+        Me.moradabox.Size = New System.Drawing.Size(256, 25)
+        Me.moradabox.TabIndex = 66
+        '
+        'localidadebox
+        '
+        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.localidadebox.Location = New System.Drawing.Point(36, 224)
+        Me.localidadebox.Name = "localidadebox"
+        Me.localidadebox.Size = New System.Drawing.Size(187, 25)
+        Me.localidadebox.TabIndex = 67
+        '
+        'nifbox
+        '
+        Me.nifbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.nifbox.Location = New System.Drawing.Point(229, 224)
+        Me.nifbox.MaxLength = 9
+        Me.nifbox.Name = "nifbox"
+        Me.nifbox.Size = New System.Drawing.Size(122, 25)
+        Me.nifbox.TabIndex = 68
+        '
+        'codpostalbox
+        '
+        Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.codpostalbox.Location = New System.Drawing.Point(36, 287)
+        Me.codpostalbox.Mask = "0000-000"
+        Me.codpostalbox.Name = "codpostalbox"
+        Me.codpostalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.codpostalbox.Size = New System.Drawing.Size(67, 25)
+        Me.codpostalbox.TabIndex = 69
+        '
+        'simcheck
+        '
+        Me.simcheck.AutoSize = True
+        Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.simcheck.Location = New System.Drawing.Point(229, 284)
+        Me.simcheck.Name = "simcheck"
+        Me.simcheck.Size = New System.Drawing.Size(49, 21)
+        Me.simcheck.TabIndex = 70
+        Me.simcheck.Text = "Sim"
+        Me.simcheck.UseVisualStyleBackColor = True
+        '
         'OPR_Empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(682, 433)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.simcheck)
+        Me.Controls.Add(Me.codpostalbox)
+        Me.Controls.Add(Me.nifbox)
+        Me.Controls.Add(Me.localidadebox)
         Me.Controls.Add(Me.moradabox)
         Me.Controls.Add(Me.nomebox)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.caminhobox)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.logobox)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.nifbox)
         Me.Controls.Add(Me.naocheck)
-        Me.Controls.Add(Me.simcheck)
-        Me.Controls.Add(Me.codpostalbox)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -305,7 +306,6 @@ Partial Class OPR_Empresas
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.localidadebox)
         Me.Controls.Add(Me.Label4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Empresas"
@@ -324,7 +324,6 @@ Partial Class OPR_Empresas
 
     End Sub
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents localidadebox As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
@@ -335,17 +334,18 @@ Partial Class OPR_Empresas
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents codpostalbox As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents simcheck As System.Windows.Forms.RadioButton
     Friend WithEvents naocheck As System.Windows.Forms.RadioButton
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents nifbox As System.Windows.Forms.TextBox
     Friend WithEvents caminhobox As System.Windows.Forms.TextBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents logobox As System.Windows.Forms.PictureBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents nomebox As System.Windows.Forms.TextBox
-    Friend WithEvents moradabox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents nomebox As System.Windows.Forms.TextBox
+    Friend WithEvents moradabox As System.Windows.Forms.TextBox
+    Friend WithEvents localidadebox As System.Windows.Forms.TextBox
+    Friend WithEvents nifbox As System.Windows.Forms.TextBox
+    Friend WithEvents codpostalbox As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents simcheck As System.Windows.Forms.RadioButton
 End Class

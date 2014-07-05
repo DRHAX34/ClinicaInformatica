@@ -4,15 +4,7 @@
     Public img_caminho As String
     Public logo As Image
     Public removidos As Boolean
-    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
-        Try
-
-            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
-                e.Handled = True
-            End If
-        Catch
-        End Try
-    End Sub
+    
     Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         naocheck.Checked = True
         logobox.Enabled = False
@@ -31,7 +23,7 @@
 
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles simcheck.Click
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
         naocheck.Checked = False
         simcheck.Checked = True
     End Sub
@@ -49,29 +41,32 @@
             Dim check_codpostal As Boolean = True
             Dim check_localidade As String = ""
             Dim checklogo As Boolean = False
-            check_nome = nomebox.Text
-            check_nome.Trim()
-            check_morada = moradabox.Text
-            check_morada.Trim()
-            If nifbox.Text < 9 Then
-                check_nif = False
-            Else
-                check_nif = True
-            End If
-            If codpostalbox.Text < 7 Then
-                check_codpostal = False
-            Else
-                check_codpostal = True
-            End If
-            check_localidade = localidadebox.Text
-            check_localidade.Trim()
-            If caminhobox.Text <> "" Then
-                checklogo = True
-            Else
-                checklogo = False
-            End If
+            Try
+                check_nome = nomebox.Text
+                check_nome.Trim()
+                check_morada = moradabox.Text
+                check_morada.Trim()
+                If nifbox.Text < 9 Then
+                    check_nif = False
+                Else
+                    check_nif = True
+                End If
+                If codpostalbox.Text.Count < 7 Then
+                    check_codpostal = False
+                Else
+                    check_codpostal = True
+                End If
+                check_localidade = localidadebox.Text
+                check_localidade.Trim()
+                If caminhobox.Text <> "" Then
+                    checklogo = True
+                Else
+                    checklogo = False
+                End If
+            Catch
+            End Try
             If simcheck.Checked = True Or naocheck.Checked = True Then
-                If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
+                If Not check_nome = "" And Not check_morada = "" And Not check_nif = False And Not check_localidade = "" And Not check_codpostal = False And Not checklogo = False Then
                     Try
                         If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
                             MsgBox("Esta Empresa já existe!")
@@ -87,6 +82,10 @@
                                         opr_utilizadores.empresabox.SelectedIndex = i
                                     End If
                                 Next
+                                Me.Close()
+                            Else
+                                MsgBox("Não poderá inserir dados nesta empresa ou iniciar sessão até criar pelo menos um utilizador", vbOK, "Sem Utilizadores!")
+                                Me.Close()
                             End If
                         End If
                     Catch ex As Exception
@@ -246,9 +245,15 @@
         End If
     End Sub
 
-    Private Sub nifbox_TextChanged(sender As Object, e As EventArgs) Handles nifbox.TextChanged
-        If Not IsNumeric(nifbox.Text) Then
-            nifbox.Text = ""
-        End If
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
+        Try
+
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
+            End If
+        Catch
+        End Try
     End Sub
+
+    
 End Class

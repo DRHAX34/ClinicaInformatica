@@ -98,46 +98,46 @@
         Me.Close()
     End Sub
 
-    Public Sub NumberFormat(ByVal Text As TextBox)
-        Dim temptext As TextBox = Text
-        If Len(temptext.Text) > 0 Then
-            'estou a por estes comentários para te explicar como funcionam estes códigos.
-            'tira o simbolo do Euro 
+    'Public Sub NumberFormat(ByVal Text As TextBox)
+    '    Dim temptext As TextBox = Text
+    '    If Len(temptext.Text) > 0 Then
+    '        'estou a por estes comentários para te explicar como funcionam estes códigos.
+    '        'tira o simbolo do Euro 
 
-            If temptext.Text.StartsWith("€") Then
-                temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
-            End If
-            'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
-            'se não houver decimal, adiciona automáticamente
+    '        If temptext.Text.StartsWith("€") Then
+    '            temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
+    '        End If
+    '        'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
+    '        'se não houver decimal, adiciona automáticamente
 
-            If temptext.Text.Contains(".") Then
-            Else
-                If temptext.TextLength > 1 Then
-                    Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
-                    Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
-                    temptext.Text = CDec(tempstr & "." & tempstrlast2)
-                Else
-                    temptext.Text = ".0" & temptext.Text
-                End If
-            End If
+    '        If temptext.Text.Contains(".") Then
+    '        Else
+    '            If temptext.TextLength > 1 Then
+    '                Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
+    '                Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
+    '                temptext.Text = CDec(tempstr & "." & tempstrlast2)
+    '            Else
+    '                temptext.Text = ".0" & temptext.Text
+    '            End If
+    '        End If
 
-            ' alterar isto de 0 para -1 dá o valor decimal 
+    '        ' alterar isto de 0 para -1 dá o valor decimal 
 
-            temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
-            Dim x As Integer = temptext.Selectionstart.ToString
-            If x = 0 Then
-                temptext.Selectionstart = Len(temptext.Text)
-                temptext.SelectionLength = 0
-            Else
-                temptext.Selectionstart = x
-                temptext.SelectionLength = 0
-            End If
-        End If
+    '        temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
+    '        Dim x As Integer = temptext.Selectionstart.ToString
+    '        If x = 0 Then
+    '            temptext.Selectionstart = Len(temptext.Text)
+    '            temptext.SelectionLength = 0
+    '        Else
+    '            temptext.Selectionstart = x
+    '            temptext.SelectionLength = 0
+    '        End If
+    '    End If
 
-        'Adiciona o simbolo €
+    '    'Adiciona o simbolo €
 
-        Text.Text = temptext.Text & "€"
-    End Sub
+    '    Text.Text = temptext.Text & "€"
+    'End Sub
 
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
@@ -149,62 +149,62 @@
     End Sub
 
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
-        NumberFormat(caixapreçobox)
+        'NumberFormat(caixapreçobox)
         caixapreçoivalabel.Text = CDbl(caixapreçobox.Text) + ((CDbl(caixapreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles motherpreçobox.TextChanged
-        NumberFormat(motherpreçobox)
+        'NumberFormat(motherpreçobox)
         motherpreçoivalabel.Text = CDbl(motherpreçobox.Text) + ((CDbl(motherpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs) Handles coolerpreçobox.TextChanged
-        NumberFormat(coolerpreçobox)
+        'NumberFormat(coolerpreçobox)
         coolerpreçoivalabel.Text = CDbl(coolerpreçobox.Text) + ((CDbl(coolerpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs) Handles VGApreçobox.TextChanged
-        NumberFormat(VGApreçobox)
+        ''NumberFormat(VGApreçobox)
         vgapreçoivalabel.Text = CDbl(VGApreçobox.Text) + ((CDbl(VGApreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs) Handles opticpreçobox.TextChanged
-        NumberFormat(opticpreçobox)
+        'NumberFormat(opticpreçobox)
         opticpreçoivalabel.Text = CDbl(opticpreçobox.Text) + ((CDbl(opticpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
-        NumberFormat(redepreçobox)
+        'NumberFormat(redepreçobox)
         redepreçoivalabel.Text = CDbl(redepreçobox.Text) + ((CDbl(redepreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs) Handles fontepreçobox.TextChanged
-        NumberFormat(fontepreçobox)
+        'NumberFormat(fontepreçobox)
         fontepreçoivalabel.Text = CDbl(fontepreçobox.Text) + ((CDbl(fontepreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles processadorpreçobox.TextChanged
-        NumberFormat(processadorpreçobox)
+        'NumberFormat(processadorpreçobox)
         processadorpreçoivalabel.Text = CDbl(processadorpreçobox.Text) + ((CDbl(processadorpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs) Handles memóriapreçobox.TextChanged
-        NumberFormat(memóriapreçobox)
+        'NumberFormat(memóriapreçobox)
         memoriapreçoivalabel.Text = CDbl(memóriapreçobox.Text) + ((CDbl(memóriapreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs) Handles discopreçobox.TextChanged
-        NumberFormat(discopreçobox)
+        'NumberFormat(discopreçobox)
         discopreçoivalabel.Text = CDbl(discopreçobox.Text) + ((CDbl(discopreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles leitorpreçobox.TextChanged
-        NumberFormat(leitorpreçobox)
+        'NumberFormat(leitorpreçobox)
         leitorpreçoivalabel.Text = CDbl(leitorpreçobox.Text) + ((CDbl(leitorpreçobox.Text) * 23) / 100)
     End Sub
 
     Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
-        NumberFormat(otherpreçobox)
+        'NumberFormat(otherpreçobox)
         otherpreçoivalabel.Text = CDbl(otherpreçobox.Text) + ((CDbl(otherpreçobox.Text) * 23) / 100)
     End Sub
 End Class

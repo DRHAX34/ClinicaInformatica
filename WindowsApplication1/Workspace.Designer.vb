@@ -30,9 +30,6 @@ Partial Class Workspace
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesativos = New System.Windows.Forms.ToolStripMenuItem()
         Me.clientesremovidos = New System.Windows.Forms.ToolStripMenuItem()
@@ -58,6 +55,9 @@ Partial Class Workspace
         Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -95,35 +95,6 @@ Partial Class Workspace
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(1032, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label1.Size = New System.Drawing.Size(70, 25)
-        Me.Label1.TabIndex = 51
-        Me.Label1.Text = "Label1"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.Label2.Location = New System.Drawing.Point(1032, 25)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label2.Size = New System.Drawing.Size(70, 25)
-        Me.Label2.TabIndex = 52
-        Me.Label2.Text = "Label2"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Statuscheck
-        '
-        Me.Statuscheck.Enabled = True
-        Me.Statuscheck.Interval = 5
-        '
         'clientesmenu
         '
         Me.clientesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesativos, Me.clientesremovidos})
@@ -159,13 +130,13 @@ Partial Class Workspace
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu
@@ -181,13 +152,13 @@ Partial Class Workspace
         'reparativos
         '
         Me.reparativos.Name = "reparativos"
-        Me.reparativos.Size = New System.Drawing.Size(136, 22)
+        Me.reparativos.Size = New System.Drawing.Size(152, 22)
         Me.reparativos.Text = "Ativos"
         '
         'reparremovidos
         '
         Me.reparremovidos.Name = "reparremovidos"
-        Me.reparremovidos.Size = New System.Drawing.Size(136, 22)
+        Me.reparremovidos.Size = New System.Drawing.Size(152, 22)
         Me.reparremovidos.Text = "Removidos"
         '
         'tecnicosmenu
@@ -197,7 +168,7 @@ Partial Class Workspace
         Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
         Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tecnicosmenu.Name = "tecnicosmenu"
-        Me.tecnicosmenu.Size = New System.Drawing.Size(120, 58)
+        Me.tecnicosmenu.Size = New System.Drawing.Size(121, 58)
         Me.tecnicosmenu.Text = "Técnicos"
         '
         'tecnicosativos
@@ -225,19 +196,19 @@ Partial Class Workspace
         'utilativos
         '
         Me.utilativos.Name = "utilativos"
-        Me.utilativos.Size = New System.Drawing.Size(164, 22)
+        Me.utilativos.Size = New System.Drawing.Size(165, 22)
         Me.utilativos.Text = "Ativos"
         '
         'utilremovidos
         '
         Me.utilremovidos.Name = "utilremovidos"
-        Me.utilremovidos.Size = New System.Drawing.Size(164, 22)
+        Me.utilremovidos.Size = New System.Drawing.Size(165, 22)
         Me.utilremovidos.Text = "Removidos"
         '
         'terminarsessao
         '
         Me.terminarsessao.Name = "terminarsessao"
-        Me.terminarsessao.Size = New System.Drawing.Size(164, 22)
+        Me.terminarsessao.Size = New System.Drawing.Size(165, 22)
         Me.terminarsessao.Text = "Terminar Sessão"
         '
         'EmpresasToolStripMenuItem
@@ -306,6 +277,35 @@ Partial Class Workspace
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
         Me.AboutToolStripMenuItem.Text = "&Sobre ..."
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(1032, 0)
+        Me.Label1.Name = "Label1"
+        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Label1.Size = New System.Drawing.Size(70, 25)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Label1"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.Label2.Location = New System.Drawing.Point(1032, 25)
+        Me.Label2.Name = "Label2"
+        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Label2.Size = New System.Drawing.Size(70, 25)
+        Me.Label2.TabIndex = 52
+        Me.Label2.Text = "Label2"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Statuscheck
+        '
+        Me.Statuscheck.Enabled = True
+        Me.Statuscheck.Interval = 5
+        '
         'Workspace
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -318,6 +318,7 @@ Partial Class Workspace
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
         Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.MinimumSize = New System.Drawing.Size(863, 506)

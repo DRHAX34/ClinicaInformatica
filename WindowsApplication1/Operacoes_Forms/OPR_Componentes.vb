@@ -73,7 +73,7 @@
         Dim check_marca As String = ""
         Dim check_modelo As String = ""
         Dim check_observaçoes As String = ""
-        Dim check_tipo As String = tipo_componentebox.Text
+        Dim check_tipo As String = ""
         Try
             check_numcliente = numbox.Text
             check_numcliente.Trim()
@@ -85,15 +85,26 @@
             check_modelo.Trim()
             check_observaçoes = observaçoesbox.Text
             check_observaçoes.Trim()
+            check_tipo = tipo_componentebox.Text
             check_tipo.Trim()
         Catch
         End Try
         Try
-            If Not (check_tipo = "" And check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
+            If Not check_tipo = "" And Not check_numcliente = "" And Not check_numserie = "" And Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
                 BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
-                Workspace.componentesAtivosToolStripMenuItem.PerformClick()
-                Me.Close()
+                If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
+                    Dim opr_reparações As New OPR_Reparações
+                    opr_reparações.MdiParent = Workspace
+                    opr_reparações.modo = False
+                    opr_reparações.numcomponentebox.Text = BLL.Componentes.carregar.Rows(BLL.Componentes.carregar.Rows.Count - 1).Item("NºComponente").ToString
+                    opr_reparações.Show()
+                    Me.Close()
+                Else
+                    Workspace.componentesAtivosToolStripMenuItem.PerformClick()
+                    Me.Close()
+                End If
+
             Else
                 MsgBox("Introduza todos os dados!")
             End If

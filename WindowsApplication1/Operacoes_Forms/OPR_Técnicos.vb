@@ -45,33 +45,36 @@
         Dim checklogo As String = caminhobox.Text
         Dim checklocalidade As String = localidadebox.Text
         Dim checkcodpostal As Boolean = False
+            Try
+                check_nome.Trim()
+                If contacto_fbox.Text.Length < 9 Then
+                    check_contactof = False
+                Else
+                    check_contactof = True
+                End If
+                If contactom_box.Text.Length < 9 Then
+                    check_contactom = False
+                Else
+                    check_contactof = True
+                End If
+                If Workspace.Aluno = True Then
+                    check_naluno.Trim()
+                    check_turma.Trim()
+                Else
+                    check_naluno = "N/A"
+                    check_turma = "N/A"
+                End If
+                checklogo.Trim()
+                If cod_postalbox.Text.Length < 7 Then
+                    checkcodpostal = False
+                Else
+                    checkcodpostal = True
+                End If
+                checklocalidade.Trim()
+            Catch
+        End Try
         Try
-            check_nome.Trim()
-            If contacto_fbox.Text.Length < 9 Then
-                check_contactof = False
-            Else
-                check_contactof = True
-            End If
-            If contactom_box.Text.Length < 9 Then
-                check_contactom = False
-            Else
-                check_contactof = True
-            End If
-            If Workspace.Aluno = True Then
-                check_naluno.Trim()
-                check_turma.Trim()
-            Else
-                check_naluno = "N/A"
-                check_turma = "N/A"
-            End If
-            checklogo.Trim()
-            If cod_postalbox.Text.Length < 7 Then
-                checkcodpostal = False
-            Else
-                checkcodpostal = True
-            End If
-            checklocalidade.Trim()
-            If Not (checklocalidade = "" And checkcodpostal = False And check_nome = "" And check_contactof = False And check_contactom = False And checklogo = "") Then
+            If Not checklocalidade = "" And Not checkcodpostal = False And Not check_nome = "" And Not check_contactof = False And Not check_contactom = False And Not checklogo = "" Then
                 Try
                     If BLL.Tecnicos.check_exist(nomebox.Text) = 1 Then
                         MsgBox("Esta Empresa já existe!")

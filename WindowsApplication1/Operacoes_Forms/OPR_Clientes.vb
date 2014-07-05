@@ -113,7 +113,7 @@
             MsgBox("Preencha todos os dados marcados como obrigatórios!")
         End Try
             Try
-            If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False) Then
+            If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_nif = False And Not check_localidade = "" And Not check_contactom = False Then
                 If Workspace.Aluno = False Then
                     BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 Else
@@ -283,7 +283,7 @@
             MsgBox("Erro ao restaurar os dados: " & ex.Message)
         End Try
     End Sub
-    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs)
+    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numalunobox.KeyPress
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -292,7 +292,7 @@
         Catch
         End Try
     End Sub
-    Private Sub contactom_onlynums(sender As Object, e As KeyPressEventArgs)
+    Private Sub contactom_onlynums(sender As Object, e As KeyPressEventArgs) Handles cmovelbox.KeyPress
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -301,7 +301,7 @@
         Catch
         End Try
     End Sub
-    Private Sub contactof_onlynums(sender As Object, e As KeyPressEventArgs)
+    Private Sub contactof_onlynums(sender As Object, e As KeyPressEventArgs) Handles cfixobox.KeyPress
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -310,7 +310,7 @@
         Catch
         End Try
     End Sub
-    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs)
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -327,4 +327,6 @@
     Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.Click
         cfixobox.Select(0, cfixobox.Text.Length + 1)
     End Sub
+
+    
 End Class

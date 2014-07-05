@@ -73,7 +73,6 @@ Public Class Passo2
         Dim check_codpostal As Boolean = False
         Dim check_localidade As String = ""
         Dim check_logo As String = ""
-        Try
             Try
                 check_nome = nomebox.Text
                 check_morada = moradabox.Text
@@ -95,7 +94,8 @@ Public Class Passo2
                 check_logo.Trim()
             Catch
             End Try
-            If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_logo = "") Then
+            Try
+            If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_nif = False And Not check_localidade = "" And Not check_logo = "" Then
                 BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
                 If Workspace.varias_empresas = True Then
                     Workspace.config3.Show()
@@ -104,21 +104,21 @@ Public Class Passo2
                 End If
                 Me.Close()
             Else
-                MsgBox("Preencha todos os dados!")
+                MsgBox("Preencha todos os dados!", vbOKOnly, "Erro!")
             End If
-        Catch ex As Exception
-            MsgBox("Ocorreu um erro na Aplicação: " & ex.Message)
-        End Try
+            Catch ex As Exception
+                MsgBox("Ocorreu um erro na Aplicação: " & ex.Message)
+            End Try
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles imagebutton.Click
         OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
-        caminhobox.Text = img_caminho
         If img_caminho <> "OpenFileDialog1" Then
             Try
                 logo = Image.FromFile(img_caminho)
                 logobox.Image = logo
+                caminhobox.Text = img_caminho
             Catch ex As Exception
                 MsgBox("Erro ao importar a imagem: " & ex.Message)
             End Try

@@ -79,7 +79,7 @@ Public Class Passo3
                 verif_resposta.Trim()
             Catch
             End Try
-            If Not (verif_pass = "" And verif_user = "" And verif_pergunta = "" And verif_resposta = "") Then
+            If Not verif_pass = "" And Not verif_user = "" And Not verif_pergunta = "" And Not verif_resposta = "" Then
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
@@ -87,7 +87,7 @@ Public Class Passo3
                 Workspace.config3_5.Show()
                 Me.Close()
             Else
-                MsgBox("Preencha os dados todos!", vbOK, "Erro")
+                MsgBox("Preencha os dados todos!", vbOKOnly, "Erro")
             End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro na aplicação: " & ex.Message)

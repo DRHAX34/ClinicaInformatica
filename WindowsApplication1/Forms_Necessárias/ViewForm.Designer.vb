@@ -23,6 +23,7 @@ Partial Class ViewForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewForm))
         Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.newbutton = New Telerik.WinControls.UI.RadButton()
@@ -218,6 +219,7 @@ Partial Class ViewForm
         Me.Controls.Add(Me.delbutton)
         Me.Controls.Add(Me.newbutton)
         Me.Controls.Add(Me.showdata)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimumSize = New System.Drawing.Size(757, 303)
         Me.Name = "ViewForm"

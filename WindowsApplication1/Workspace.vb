@@ -9,13 +9,16 @@ Public Class Workspace
     Public config3_5 As New Passo3emeio
     Public config4 As New Passo4
     Public varias_empresas As Boolean
+    Public cache_empresas As ArrayList
+    Public cache_users, cache_users2 As DataTable
     Public modo As Integer
+    Public user As Integer
     Public Aluno, admin, admin_geral As Boolean
     Public companyname1 As String
     Public support As Integer
-    Public tecnicos_support As DataTable
-    Public hardware_support As DataTable
-    Public software_support As DataTable
+    Public tecnicos_support As New DataTable
+    Public hardware_support As New DataTable
+    Public software_support As New DataTable
     Public string_pass As String
     Public erros As Boolean
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
@@ -96,69 +99,45 @@ Public Class Workspace
     End Sub
     
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Label1.Hide()
-        Label2.Hide()
-        check_bd = False
-        If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf") Then
-            unzip()
-            check_bd = True
-        Else
-            check_bd = True
-        End If
-        If check_bd = True Then
-            Try
-                Me.Text = "Gestão Clínica Informática "
-                MenuStrip.Hide()
-                Me.BackgroundImageLayout = ImageLayout.Stretch
-                StatusStrip.Hide()
-                'terminarsessaobutton.Hide()
-                Dim estado As Integer = DAL.CreateConnection()
-                LoginForm.MdiParent = Me
+        If cache_empresas.Count = 0 Then
+            If cache_users.Rows.Count = 0 Then
+                Me.WindowState = FormWindowState.Normal
+                Me.Size = Passo1.Size
+                Dim config As New Passo1
+                config.MdiParent = Me
                 m_ChildFormNumber += 1
-                Me.FormBorderStyle = 1
-                If System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg") Then
-                    varias_empresas = File.ReadAllText((Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg"))
-                End If
-                If BLL.Login.Carregar_empresas.Count = 0 Then
-                    Me.WindowState = FormWindowState.Normal
-                    Dim config As New Passo1
-                    config.MdiParent = Me
+                config.Show()
+                config2.MdiParent = Me
+                m_ChildFormNumber += 1
+                config3.MdiParent = Me
+                m_ChildFormNumber += 1
+                config3_5.MdiParent = Me
+                config4.MdiParent = Me
+                m_ChildFormNumber += 1
+                Me.MaximizeBox = False
+            Else
+                Me.WindowState = FormWindowState.Maximized
+                LoginForm.Show()
+            End If
+        Else
+            If cache_users.Rows.Count = 0 Then
+                If varias_empresas = False Then
+                    config3_5.MdiParent = Me
                     m_ChildFormNumber += 1
-                    config.Show()
-                    config2.MdiParent = Me
-                    m_ChildFormNumber += 1
+                    config3_5.Show()
+                    config3_5.WindowState = FormWindowState.Maximized
+                Else
                     config3.MdiParent = Me
                     m_ChildFormNumber += 1
-                    config3_5.MdiParent = Me
-                    config4.MdiParent = Me
-                    m_ChildFormNumber += 1
-                    Me.MaximizeBox = False
-                Else
-                    If BLL.Admin_only.Login.carregar_users.Rows.Count = 0 Then
-                        If varias_empresas = False Then
-                            config3_5.MdiParent = Me
-                            m_ChildFormNumber += 1
-                            config3_5.Show()
-                            config3_5.WindowState = FormWindowState.Maximized
-                        Else
-                            config3.MdiParent = Me
-                            m_ChildFormNumber += 1
-                            config3.Show()
-                            config3.WindowState = FormWindowState.Maximized
-                        End If
-                    Else
-                        Me.WindowState = FormWindowState.Maximized
-                        LoginForm.Show()
-                    End If
+                    config3.Show()
+                    config3.WindowState = FormWindowState.Maximized
                 End If
-                Me.DoubleBuffered = True
-            Catch ex As Exception
-                MsgBox("Erro no programa: " & ex.Message)
-            End Try
-        Else
-            MsgBox("Erro ao ligar à base-de-dados!")
-            Application.Exit()
+            Else
+                    Me.WindowState = FormWindowState.Maximized
+                    LoginForm.Show()
+            End If
         End If
+                    Me.DoubleBuffered = True
     End Sub
     Private Sub form_closing(ByVal sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim check As Boolean = False
@@ -349,22 +328,46 @@ Public Class Workspace
 
     Private Sub reparativos_Click(sender As Object, e As EventArgs) Handles reparativos.Click
         If check_reparacoes = False Then
-            Try
-                Dim repararview As New ViewForm
-                check_reparacoes = True
-                repararview.Text = "Reparações"
-                repararview.tabela = "Reparações"
-                repararview.MdiParent = Me
-                m_ChildFormNumber += 1
-                repararview.data_table = BLL.Reparacoes.carregar()
-                repararview.removidos = False
-                repararview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
+            If BLL.Clientes.carregar.Rows.Count <> 0 Then
+                If BLL.Componentes.carregar.Rows.Count <> 0 Then
+                    Try
+                        Dim repararview As New ViewForm
+                        check_reparacoes = True
+                        repararview.Text = "Reparações"
+                        repararview.tabela = "Reparações"
+                        repararview.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        repararview.data_table = BLL.Reparacoes.carregar()
+                        repararview.removidos = False
+                        repararview.Show()
+                    Catch ex As Exception
+                        MsgBox("Erro ao executar comando: " & ex.Message)
+                        Me.Close()
+                    End Try
+                Else
+                    MsgBox("Já tem a janela das Reparações abertas!")
+                End If
+            Else
+                If MsgBox("Não tem nenhum cliente inserido, deseja inserir algum?", vbYesNo, "Nenhum Cliente Inserido") = vbYes Then
+                    Dim opr_clientes As New OPR_Clientes
+                    opr_clientes.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    opr_clientes.modo = False
+                    opr_clientes.Show()
+                Else
+                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um cliente!", vbOK, "Erro")
+                End If
+            End If
         Else
-            MsgBox("Já tem a janela das Reparações abertas!")
+            If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
+                Dim opr_componentes As New OPR_Componentes
+                opr_componentes.MdiParent = Me
+                m_ChildFormNumber += 1
+                opr_componentes.modo = False
+                opr_componentes.Show()
+            Else
+                MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOK, "Erro")
+            End If
         End If
     End Sub
 

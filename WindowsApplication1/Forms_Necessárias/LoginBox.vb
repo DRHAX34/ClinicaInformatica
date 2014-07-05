@@ -38,7 +38,11 @@
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         Dim n_empresa As Integer
         Dim check As Boolean = False
-        n_empresa = BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString)
+        If Companybox.Items.Count <> 0 Then
+            n_empresa = BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString)
+        Else
+            n_empresa = 0
+        End If
         Dim password As String = Passwordbox.Text
         Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
         Dim passencript As String = wrapper.EncryptData(password)
@@ -53,11 +57,15 @@
             Workspace.MenuStrip.Show()
             If BLL.Login.verificar_admin(user) = True Then
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
+                Workspace.utilativos.Visible = True
+                Workspace.utilremovidos.Visible = True
                 Workspace.admin = True
                 Workspace.admin_geral = False
                 tipo = "Administrador"
             Else
-                Workspace.UtilizadoresToolStripMenuItem.Visible = False
+                Workspace.UtilizadoresToolStripMenuItem.Visible = True
+                Workspace.utilativos.Visible = False
+                Workspace.utilremovidos.Visible = False
                 tipo = "Utilizador Padrão"
             End If
             Workspace.clientesmenu.Enabled = True
@@ -82,11 +90,12 @@
                 Workspace.tecnicosmenu.Enabled = False
                 Workspace.empresasativas.Visible = True
                 Workspace.empresasremovidas.Visible = True
+                Workspace.utilativos.Visible = True
+                Workspace.utilremovidos.Visible = True
                 Workspace.admin = False
                 Workspace.admin_geral = True
                 Workspace.modo = 1
                 check = True
-
                 tipo = "Administrador Geral"
             End If
         End If
@@ -105,6 +114,7 @@
             Workspace.Label2.Text = tipo
             Workspace.Label1.Show()
             Workspace.Label2.Show()
+            Workspace.user = user
             Me.Close()
         End If
 

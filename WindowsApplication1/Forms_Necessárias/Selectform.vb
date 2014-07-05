@@ -8,26 +8,26 @@
         RadioButton1.Checked = True
         Select Case tabela
             Case "Clientes"
-                showdata.DataSource = BLL.Clientes.carregar_clientes()
+                showdata.DataSource = BLL.Clientes.procura_dados_numcliente_mini("")
                 modo = False
                 RadioButton1.Text = "Nome"
                 RadioButton2.Text = "Código Cliente"
                 RadioButton3.Text = "NIF"
             Case "Componentes"
-                showdata.DataSource = BLL.Componentes.carregar_componentes()
+                showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini("")
                 modo = True
                 RadioButton1.Text = "Código Componente"
                 RadioButton2.Text = "Código Cliente"
                 RadioButton3.Hide()
 
             Case "Empresas"
-                showdata.DataSource = BLL.Login.Carregar_empresas()
+                showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_mini("")
                 modo = False
                 RadioButton1.Text = "Nome"
                 RadioButton2.Text = "Código Empresa"
                 RadioButton3.Text = "NIF"
             Case "Técnicos"
-                showdata.DataSource = BLL.Login.Carregar_empresas()
+                showdata.DataSource = BLL.Tecnicos.procura_dados_Nome_mini("")
                 modo = False
                 RadioButton1.Text = "Nome"
                 RadioButton2.Text = "NºTécnico"

@@ -321,22 +321,26 @@
                             showdata.DataSource = BLL.Tecnicos.carregar()
                         End If
                     Case "Utilizadores"
-                        If removidos = True Then
-                            BLL.Admin_only.Login.restore_Login(string_data)
-                            MsgBox("Restaurado com sucesso!")
-                            If Workspace.admin_geral = True Then
-                                showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                        If string_data <> Workspace.user Then
+                            If removidos = True Then
+                                BLL.Admin_only.Login.restore_login(string_data)
+                                MsgBox("Restaurado com sucesso!")
+                                If Workspace.admin_geral = True Then
+                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
+                                Else
+                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
+                                End If
                             Else
-                                showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
+                                BLL.Admin_only.Login.remove_login(string_data)
+                                MsgBox("Removido com sucesso!")
+                                If Workspace.admin_geral = True Then
+                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users()
+                                Else
+                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
+                                End If
                             End If
                         Else
-                            BLL.Admin_only.Login.remove_login(string_data)
-                            MsgBox("Removido com sucesso!")
-                            If Workspace.admin_geral = True Then
-                                showdata.DataSource = BLL.Admin_only.Login.carregar_users()
-                            Else
-                                showdata.DataSource = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
-                            End If
+                            MsgBox("Não pode eliminar a si próprio!")
                         End If
                 End Select
             Catch ex As Exception

@@ -31,17 +31,11 @@ Partial Class OPR_Utilizadores
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.tecnicolabel = New System.Windows.Forms.Label()
-        Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
-        Me.passwordbox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.admincheck = New System.Windows.Forms.RadioButton()
-        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.addtecnicobox = New Telerik.WinControls.UI.RadButton()
         Me.empresabox = New System.Windows.Forms.ComboBox()
@@ -53,7 +47,13 @@ Partial Class OPR_Utilizadores
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
+        Me.passwordbox = New System.Windows.Forms.TextBox()
+        Me.verifbox = New System.Windows.Forms.TextBox()
         Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.admincheck = New System.Windows.Forms.RadioButton()
+        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,21 +140,6 @@ Partial Class OPR_Utilizadores
         Me.tecnicolabel.TabIndex = 71
         Me.tecnicolabel.Text = "Técnico"
         '
-        'nomeutilizadorbox
-        '
-        Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
-        Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
-        Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
-        Me.nomeutilizadorbox.TabIndex = 69
-        '
-        'passwordbox
-        '
-        Me.passwordbox.Location = New System.Drawing.Point(250, 55)
-        Me.passwordbox.Name = "passwordbox"
-        Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwordbox.Size = New System.Drawing.Size(155, 33)
-        Me.passwordbox.TabIndex = 68
-        '
         'Label4
         '
         Me.Label4.AutoSize = True
@@ -167,18 +152,18 @@ Partial Class OPR_Utilizadores
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.perguntabox)
-        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.admgeralcheck)
         Me.GroupBox1.Controls.Add(Me.admincheck)
         Me.GroupBox1.Controls.Add(Me.respostabox)
-        Me.GroupBox1.Controls.Add(Me.admgeralcheck)
+        Me.GroupBox1.Controls.Add(Me.perguntabox)
+        Me.GroupBox1.Controls.Add(Me.verifbox)
+        Me.GroupBox1.Controls.Add(Me.passwordbox)
+        Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
+        Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label10)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
         Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.passwordbox)
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(22, 169)
@@ -197,39 +182,6 @@ Partial Class OPR_Utilizadores
         Me.Label8.Size = New System.Drawing.Size(72, 20)
         Me.Label8.TabIndex = 96
         Me.Label8.Text = "Resposta:"
-        '
-        'admincheck
-        '
-        Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(252, 171)
-        Me.admincheck.Name = "admincheck"
-        Me.admincheck.Size = New System.Drawing.Size(89, 29)
-        Me.admincheck.TabIndex = 79
-        Me.admincheck.TabStop = True
-        Me.admincheck.Text = "Admin"
-        Me.admincheck.UseVisualStyleBackColor = True
-        '
-        'respostabox
-        '
-        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.respostabox.Location = New System.Drawing.Point(347, 114)
-        Me.respostabox.Name = "respostabox"
-        Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
-        Me.respostabox.Size = New System.Drawing.Size(208, 27)
-        Me.respostabox.TabIndex = 95
-        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.respostabox.WaterMarkText = "Resposta"
-        '
-        'admgeralcheck
-        '
-        Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(347, 171)
-        Me.admgeralcheck.Name = "admgeralcheck"
-        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
-        Me.admgeralcheck.TabIndex = 78
-        Me.admgeralcheck.TabStop = True
-        Me.admgeralcheck.Text = "Admin Geral"
-        Me.admgeralcheck.UseVisualStyleBackColor = True
         '
         'Label10
         '
@@ -250,14 +202,6 @@ Partial Class OPR_Utilizadores
         Me.Label7.Size = New System.Drawing.Size(176, 25)
         Me.Label7.TabIndex = 77
         Me.Label7.Text = "Tipo de Utilizador:"
-        '
-        'TextBox1
-        '
-        Me.TextBox1.Location = New System.Drawing.Point(447, 55)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.TextBox1.Size = New System.Drawing.Size(155, 33)
-        Me.TextBox1.TabIndex = 76
         '
         'Label1
         '
@@ -280,6 +224,7 @@ Partial Class OPR_Utilizadores
         '
         'empresabox
         '
+        Me.empresabox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.empresabox.FormattingEnabled = True
         Me.empresabox.Location = New System.Drawing.Point(539, 117)
         Me.empresabox.Name = "empresabox"
@@ -350,16 +295,70 @@ Partial Class OPR_Utilizadores
         'Timer1
         '
         '
+        'nomeutilizadorbox
+        '
+        Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
+        Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
+        Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
+        Me.nomeutilizadorbox.TabIndex = 100
+        '
+        'passwordbox
+        '
+        Me.passwordbox.Location = New System.Drawing.Point(250, 55)
+        Me.passwordbox.Name = "passwordbox"
+        Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.passwordbox.Size = New System.Drawing.Size(155, 33)
+        Me.passwordbox.TabIndex = 101
+        '
+        'verifbox
+        '
+        Me.verifbox.Location = New System.Drawing.Point(447, 55)
+        Me.verifbox.Name = "verifbox"
+        Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.verifbox.Size = New System.Drawing.Size(155, 33)
+        Me.verifbox.TabIndex = 102
+        '
         'perguntabox
         '
         Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.perguntabox.Location = New System.Drawing.Point(52, 114)
         Me.perguntabox.Name = "perguntabox"
-        Me.perguntabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.perguntabox.Size = New System.Drawing.Size(267, 27)
-        Me.perguntabox.TabIndex = 97
+        Me.perguntabox.TabIndex = 103
         Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
+        '
+        'respostabox
+        '
+        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.respostabox.Location = New System.Drawing.Point(347, 114)
+        Me.respostabox.Name = "respostabox"
+        Me.respostabox.Size = New System.Drawing.Size(208, 27)
+        Me.respostabox.TabIndex = 104
+        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.respostabox.WaterMarkText = "Resposta"
+        '
+        'admincheck
+        '
+        Me.admincheck.AutoSize = True
+        Me.admincheck.Location = New System.Drawing.Point(252, 171)
+        Me.admincheck.Name = "admincheck"
+        Me.admincheck.Size = New System.Drawing.Size(89, 29)
+        Me.admincheck.TabIndex = 105
+        Me.admincheck.TabStop = True
+        Me.admincheck.Text = "Admin"
+        Me.admincheck.UseVisualStyleBackColor = True
+        '
+        'admgeralcheck
+        '
+        Me.admgeralcheck.AutoSize = True
+        Me.admgeralcheck.Location = New System.Drawing.Point(340, 171)
+        Me.admgeralcheck.Name = "admgeralcheck"
+        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
+        Me.admgeralcheck.TabIndex = 106
+        Me.admgeralcheck.TabStop = True
+        Me.admgeralcheck.Text = "Admin Geral"
+        Me.admgeralcheck.UseVisualStyleBackColor = True
         '
         'OPR_Utilizadores
         '
@@ -408,8 +407,6 @@ Partial Class OPR_Utilizadores
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents tecnicolabel As System.Windows.Forms.Label
-    Friend WithEvents nomeutilizadorbox As System.Windows.Forms.TextBox
-    Friend WithEvents passwordbox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents addtecnicobox As Telerik.WinControls.UI.RadButton
@@ -421,14 +418,16 @@ Partial Class OPR_Utilizadores
     Friend WithEvents tecnicobox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents admincheck As System.Windows.Forms.RadioButton
-    Friend WithEvents admgeralcheck As System.Windows.Forms.RadioButton
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents verifbox As System.Windows.Forms.TextBox
+    Friend WithEvents passwordbox As System.Windows.Forms.TextBox
+    Friend WithEvents nomeutilizadorbox As System.Windows.Forms.TextBox
+    Friend WithEvents admgeralcheck As System.Windows.Forms.RadioButton
+    Friend WithEvents admincheck As System.Windows.Forms.RadioButton
+    Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents perguntabox As ClinicaInformatica.WaterMarkTextBox
 End Class

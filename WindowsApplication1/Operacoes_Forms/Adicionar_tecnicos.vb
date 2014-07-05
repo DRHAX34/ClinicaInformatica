@@ -17,6 +17,7 @@ Partial Class Adicionar_tecnicos
     Friend WithEvents removerbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents confirmbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents cancellbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -34,6 +35,7 @@ Partial Class Adicionar_tecnicos
         Me.removerbutton = New Telerik.WinControls.UI.RadButton()
         Me.confirmbutton = New Telerik.WinControls.UI.RadButton()
         Me.cancellbutton = New Telerik.WinControls.UI.RadButton()
+        Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,6 +85,7 @@ Partial Class Adicionar_tecnicos
         Me.Adicionar.Size = New System.Drawing.Size(72, 22)
         Me.Adicionar.TabIndex = 22
         Me.Adicionar.Text = ">>"
+        Me.Adicionar.ThemeName = "Windows8"
         '
         'removerbutton
         '
@@ -91,6 +94,7 @@ Partial Class Adicionar_tecnicos
         Me.removerbutton.Size = New System.Drawing.Size(72, 22)
         Me.removerbutton.TabIndex = 22
         Me.removerbutton.Text = "<<"
+        Me.removerbutton.ThemeName = "Windows8"
         '
         'confirmbutton
         '
@@ -99,6 +103,7 @@ Partial Class Adicionar_tecnicos
         Me.confirmbutton.Size = New System.Drawing.Size(106, 34)
         Me.confirmbutton.TabIndex = 22
         Me.confirmbutton.Text = "Adicionar"
+        Me.confirmbutton.ThemeName = "Windows8"
         '
         'cancellbutton
         '
@@ -107,12 +112,13 @@ Partial Class Adicionar_tecnicos
         Me.cancellbutton.Size = New System.Drawing.Size(89, 34)
         Me.cancellbutton.TabIndex = 22
         Me.cancellbutton.Text = "Cancelar"
+        Me.cancellbutton.ThemeName = "Windows8"
         '
         'Adicionar_tecnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(613, 446)
         Me.Controls.Add(Me.cancellbutton)
         Me.Controls.Add(Me.confirmbutton)
@@ -179,8 +185,6 @@ Public Class Adicionar_tecnicos
 
     Private Sub confirm_Click(sender As Object, e As EventArgs) Handles confirmbutton.Click
         Dim datatable1 As New DataTable
-        datatable1.Columns.Add("NºTécnico")
-        datatable1.Columns.Add("Nome")
         Me.Hide()
         If ListBox2.Items.Count <> 0 Then
             For i = 0 To ListBox2.Items.Count - 1

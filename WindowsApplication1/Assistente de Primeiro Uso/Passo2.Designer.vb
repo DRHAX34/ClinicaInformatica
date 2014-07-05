@@ -52,9 +52,9 @@ Partial Class Passo2
         'cancelarbutton
         '
         Me.cancelarbutton.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.cancelarbutton.Location = New System.Drawing.Point(539, 412)
+        Me.cancelarbutton.Location = New System.Drawing.Point(361, 425)
         Me.cancelarbutton.Name = "cancelarbutton"
-        Me.cancelarbutton.Size = New System.Drawing.Size(137, 44)
+        Me.cancelarbutton.Size = New System.Drawing.Size(137, 31)
         Me.cancelarbutton.TabIndex = 11
         Me.cancelarbutton.Text = "Cancelar"
         Me.cancelarbutton.UseVisualStyleBackColor = True
@@ -62,7 +62,7 @@ Partial Class Passo2
         'seguintebutton
         '
         Me.seguintebutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.seguintebutton.Location = New System.Drawing.Point(854, 400)
+        Me.seguintebutton.Location = New System.Drawing.Point(676, 400)
         Me.seguintebutton.Name = "seguintebutton"
         Me.seguintebutton.Size = New System.Drawing.Size(153, 56)
         Me.seguintebutton.TabIndex = 10
@@ -73,7 +73,7 @@ Partial Class Passo2
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 40.0!)
-        Me.Label1.Location = New System.Drawing.Point(126, 9)
+        Me.Label1.Location = New System.Drawing.Point(53, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(776, 72)
         Me.Label1.TabIndex = 8
@@ -136,7 +136,7 @@ Partial Class Passo2
         '
         Me.logolabel.AutoSize = True
         Me.logolabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.logolabel.Location = New System.Drawing.Point(777, 98)
+        Me.logolabel.Location = New System.Drawing.Point(615, 89)
         Me.logolabel.Name = "logolabel"
         Me.logolabel.Size = New System.Drawing.Size(125, 20)
         Me.logolabel.TabIndex = 23
@@ -144,7 +144,7 @@ Partial Class Passo2
         '
         'logobox
         '
-        Me.logobox.Location = New System.Drawing.Point(781, 124)
+        Me.logobox.Location = New System.Drawing.Point(619, 115)
         Me.logobox.Name = "logobox"
         Me.logobox.Size = New System.Drawing.Size(210, 193)
         Me.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -154,7 +154,7 @@ Partial Class Passo2
         'caminhobox
         '
         Me.caminhobox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.caminhobox.Location = New System.Drawing.Point(781, 323)
+        Me.caminhobox.Location = New System.Drawing.Point(619, 314)
         Me.caminhobox.Name = "caminhobox"
         Me.caminhobox.Size = New System.Drawing.Size(183, 27)
         Me.caminhobox.TabIndex = 25
@@ -163,7 +163,7 @@ Partial Class Passo2
         '
         'imagebutton
         '
-        Me.imagebutton.Location = New System.Drawing.Point(964, 324)
+        Me.imagebutton.Location = New System.Drawing.Point(802, 315)
         Me.imagebutton.Name = "imagebutton"
         Me.imagebutton.Size = New System.Drawing.Size(27, 26)
         Me.imagebutton.TabIndex = 26
@@ -177,9 +177,9 @@ Partial Class Passo2
         'limparbutton
         '
         Me.limparbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.limparbutton.Location = New System.Drawing.Point(682, 409)
+        Me.limparbutton.Location = New System.Drawing.Point(504, 412)
         Me.limparbutton.Name = "limparbutton"
-        Me.limparbutton.Size = New System.Drawing.Size(166, 47)
+        Me.limparbutton.Size = New System.Drawing.Size(166, 44)
         Me.limparbutton.TabIndex = 35
         Me.limparbutton.Text = "Limpar"
         Me.limparbutton.UseVisualStyleBackColor = True
@@ -275,7 +275,7 @@ Partial Class Passo2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1019, 468)
+        Me.ClientSize = New System.Drawing.Size(849, 468)
         Me.Controls.Add(Me.naocheck)
         Me.Controls.Add(Me.simcheck)
         Me.Controls.Add(Me.nifbox)

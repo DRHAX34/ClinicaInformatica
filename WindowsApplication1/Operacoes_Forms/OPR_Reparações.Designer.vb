@@ -53,6 +53,8 @@ Partial Class OPR_Reparações
         Me.preçocivalabel = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tempo_real = New System.Windows.Forms.Label()
+        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
+        Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -231,6 +233,7 @@ Partial Class OPR_Reparações
         '
         'insert_software
         '
+        Me.insert_software.Enabled = False
         Me.insert_software.Location = New System.Drawing.Point(385, 28)
         Me.insert_software.Name = "insert_software"
         Me.insert_software.Size = New System.Drawing.Size(133, 34)
@@ -240,6 +243,7 @@ Partial Class OPR_Reparações
         '
         'insert_hardware
         '
+        Me.insert_hardware.Enabled = False
         Me.insert_hardware.Location = New System.Drawing.Point(120, 28)
         Me.insert_hardware.Name = "insert_hardware"
         Me.insert_hardware.Size = New System.Drawing.Size(129, 34)
@@ -338,6 +342,14 @@ Partial Class OPR_Reparações
         Me.tempo_real.Size = New System.Drawing.Size(0, 25)
         Me.tempo_real.TabIndex = 77
         '
+        'Timer2
+        '
+        Me.Timer2.Interval = 1
+        '
+        'Timer3
+        '
+        Me.Timer3.Interval = 1
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -420,4 +432,6 @@ Partial Class OPR_Reparações
     Friend WithEvents preçocivalabel As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tempo_real As System.Windows.Forms.Label
+    Friend WithEvents Timer2 As System.Windows.Forms.Timer
+    Friend WithEvents Timer3 As System.Windows.Forms.Timer
 End Class

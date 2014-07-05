@@ -8,8 +8,6 @@
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Dim h As New ArrayList
-        Workspace.software_support.Columns.Add("Tipo")
-        Workspace.software_support.Columns.Add("Preço")
         h.Add("Instalação S.O")
         h.Add(caixapreçobox.Text)
         Workspace.software_support.Rows.Add(h)
@@ -46,72 +44,72 @@
         Workspace.software_support.Rows.Add(p)
         Me.Close()
     End Sub
-    Public Sub NumberFormat(ByVal Text As TextBox)
-        Dim temptext As TextBox = Text
-        If Len(temptext.Text) > 0 Then
-            'estou a por estes comentários para te explicar como funcionam estes códigos.
-            'tira o simbolo do Euro 
+    'Public Sub NumberFormat(ByVal Text As TextBox)
+    '    Dim temptext As TextBox = Text
+    '    If Len(temptext.Text) > 0 Then
+    '        'estou a por estes comentários para te explicar como funcionam estes códigos.
+    '        'tira o simbolo do Euro 
 
-            If temptext.Text.StartsWith("€") Then
-                temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
-            End If
-            'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
-            'se não houver decimal, adiciona automáticamente
+    '        If temptext.Text.StartsWith("€") Then
+    '            temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
+    '        End If
+    '        'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
+    '        'se não houver decimal, adiciona automáticamente
 
-            If temptext.Text.Contains(".") Then
-            Else
-                If temptext.TextLength > 1 Then
-                    Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
-                    Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
-                    temptext.Text = CDec(tempstr & "." & tempstrlast2)
-                Else
-                    temptext.Text = ".0" & temptext.Text
-                End If
-            End If
+    '        If temptext.Text.Contains(".") Then
+    '        Else
+    '            If temptext.TextLength > 1 Then
+    '                Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
+    '                Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
+    '                temptext.Text = CDec(tempstr & "." & tempstrlast2)
+    '            Else
+    '                temptext.Text = ".0" & temptext.Text
+    '            End If
+    '        End If
 
-            ' alterar isto de 0 para -1 dá o valor decimal 
+    '        ' alterar isto de 0 para -1 dá o valor decimal 
 
-            temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
-            Dim x As Integer = temptext.Selectionstart.ToString
-            If x = 0 Then
-                temptext.Selectionstart = Len(temptext.Text)
-                temptext.SelectionLength = 0
-            Else
-                temptext.Selectionstart = x
-                temptext.SelectionLength = 0
-            End If
-        End If
+    '        temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
+    '        Dim x As Integer = temptext.Selectionstart.ToString
+    '        If x = 0 Then
+    '            temptext.Selectionstart = Len(temptext.Text)
+    '            temptext.SelectionLength = 0
+    '        Else
+    '            temptext.Selectionstart = x
+    '            temptext.SelectionLength = 0
+    '        End If
+    '    End If
 
-        'Adiciona o simbolo €
+    '    'Adiciona o simbolo €
 
-        Text.Text = temptext.Text & "€"
-    End Sub
+    '    Text.Text = temptext.Text & "€"
+    'End Sub
 
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
-        NumberFormat(caixapreçobox)
+        'NumberFormat(caixapreçobox)
     End Sub
 
     Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles motherpreçobox.TextChanged
-        NumberFormat(motherpreçobox)
+        'NumberFormat(motherpreçobox)
     End Sub
 
     Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs) Handles coolerpreçobox.TextChanged
-        NumberFormat(coolerpreçobox)
+        'NumberFormat(coolerpreçobox)
     End Sub
 
     Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs) Handles VGApreçobox.TextChanged
-        NumberFormat(VGApreçobox)
+        'NumberFormat(VGApreçobox)
     End Sub
 
     Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs) Handles opticpreçobox.TextChanged
-        NumberFormat(opticpreçobox)
+        'NumberFormat(opticpreçobox)
     End Sub
 
     Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
-        NumberFormat(otherpreçobox)
+        'NumberFormat(otherpreçobox)
     End Sub
 
     Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
-        NumberFormat(redepreçobox)
+        'NumberFormat(redepreçobox)
     End Sub
 End Class

@@ -44,7 +44,7 @@ Partial Class Passo3emeio
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 40.0!)
-        Me.Label1.Location = New System.Drawing.Point(243, 9)
+        Me.Label1.Location = New System.Drawing.Point(146, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(587, 72)
         Me.Label1.TabIndex = 9
@@ -53,7 +53,7 @@ Partial Class Passo3emeio
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(836, 377)
+        Me.Button1.Location = New System.Drawing.Point(666, 388)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(171, 68)
         Me.Button1.TabIndex = 10
@@ -64,7 +64,7 @@ Partial Class Passo3emeio
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(305, 81)
+        Me.Label2.Location = New System.Drawing.Point(208, 81)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(474, 17)
         Me.Label2.TabIndex = 33
@@ -77,7 +77,7 @@ Partial Class Passo3emeio
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(664, 398)
+        Me.Button2.Location = New System.Drawing.Point(494, 409)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(166, 47)
         Me.Button2.TabIndex = 34
@@ -88,7 +88,7 @@ Partial Class Passo3emeio
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.Label5.Location = New System.Drawing.Point(515, 209)
+        Me.Label5.Location = New System.Drawing.Point(445, 198)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(72, 20)
         Me.Label5.TabIndex = 50
@@ -97,7 +97,7 @@ Partial Class Passo3emeio
         'respostabox
         '
         Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.respostabox.Location = New System.Drawing.Point(519, 232)
+        Me.respostabox.Location = New System.Drawing.Point(449, 221)
         Me.respostabox.Name = "respostabox"
         Me.respostabox.Size = New System.Drawing.Size(183, 27)
         Me.respostabox.TabIndex = 49
@@ -108,7 +108,7 @@ Partial Class Passo3emeio
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.Label4.Location = New System.Drawing.Point(515, 156)
+        Me.Label4.Location = New System.Drawing.Point(445, 145)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(165, 20)
         Me.Label4.TabIndex = 48
@@ -117,7 +117,7 @@ Partial Class Passo3emeio
         'perguntabox
         '
         Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.perguntabox.Location = New System.Drawing.Point(519, 179)
+        Me.perguntabox.Location = New System.Drawing.Point(449, 168)
         Me.perguntabox.Name = "perguntabox"
         Me.perguntabox.Size = New System.Drawing.Size(233, 27)
         Me.perguntabox.TabIndex = 47
@@ -128,7 +128,7 @@ Partial Class Passo3emeio
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.Label3.Location = New System.Drawing.Point(275, 262)
+        Me.Label3.Location = New System.Drawing.Point(205, 251)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(181, 20)
         Me.Label3.TabIndex = 46
@@ -137,7 +137,7 @@ Partial Class Passo3emeio
         'verifbox
         '
         Me.verifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.verifbox.Location = New System.Drawing.Point(279, 285)
+        Me.verifbox.Location = New System.Drawing.Point(209, 274)
         Me.verifbox.Name = "verifbox"
         Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.verifbox.Size = New System.Drawing.Size(183, 27)
@@ -149,7 +149,7 @@ Partial Class Passo3emeio
         '
         Me.passlabel.AutoSize = True
         Me.passlabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.passlabel.Location = New System.Drawing.Point(275, 209)
+        Me.passlabel.Location = New System.Drawing.Point(205, 198)
         Me.passlabel.Name = "passlabel"
         Me.passlabel.Size = New System.Drawing.Size(102, 20)
         Me.passlabel.TabIndex = 44
@@ -158,7 +158,7 @@ Partial Class Passo3emeio
         'passbox
         '
         Me.passbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.passbox.Location = New System.Drawing.Point(279, 232)
+        Me.passbox.Location = New System.Drawing.Point(209, 221)
         Me.passbox.Name = "passbox"
         Me.passbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.passbox.Size = New System.Drawing.Size(183, 27)
@@ -170,7 +170,7 @@ Partial Class Passo3emeio
         '
         Me.nomelabel.AutoSize = True
         Me.nomelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.nomelabel.Location = New System.Drawing.Point(275, 156)
+        Me.nomelabel.Location = New System.Drawing.Point(205, 145)
         Me.nomelabel.Name = "nomelabel"
         Me.nomelabel.Size = New System.Drawing.Size(143, 20)
         Me.nomelabel.TabIndex = 42
@@ -179,7 +179,7 @@ Partial Class Passo3emeio
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomebox.Location = New System.Drawing.Point(279, 179)
+        Me.nomebox.Location = New System.Drawing.Point(209, 168)
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 41
@@ -190,7 +190,7 @@ Partial Class Passo3emeio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1019, 468)
+        Me.ClientSize = New System.Drawing.Size(849, 468)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.respostabox)
         Me.Controls.Add(Me.Label4)
