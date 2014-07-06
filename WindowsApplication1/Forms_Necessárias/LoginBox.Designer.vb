@@ -56,9 +56,9 @@ Partial Class LoginForm
         Me.passwordlabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.passwordlabel.Location = New System.Drawing.Point(7, 156)
         Me.passwordlabel.Name = "passwordlabel"
-        Me.passwordlabel.Size = New System.Drawing.Size(77, 21)
+        Me.passwordlabel.Size = New System.Drawing.Size(106, 21)
         Me.passwordlabel.TabIndex = 4
-        Me.passwordlabel.Text = "Password"
+        Me.passwordlabel.Text = "Palavra-Passe"
         '
         'loginbutton
         '
@@ -162,7 +162,7 @@ Partial Class LoginForm
         Me.Passwordbox.Size = New System.Drawing.Size(213, 25)
         Me.Passwordbox.TabIndex = 3
         Me.Passwordbox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.Passwordbox.WaterMarkText = "Password"
+        Me.Passwordbox.WaterMarkText = "Palavra-Passe"
         '
         'UsernameBox
         '
