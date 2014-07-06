@@ -22,13 +22,6 @@ Partial Class Inserir_Software
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.otherpreçobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.motherpreçobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.redepreçobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.opticpreçobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.VGApreçobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.coolerpreçobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.caixapreçobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.otherdescriçaobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
@@ -42,6 +35,21 @@ Partial Class Inserir_Software
         Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.caixapreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.motherpreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.coolerpreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.vgapreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.opticpreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.redepreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.otherpreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.redepreçoivalabel = New System.Windows.Forms.Label()
+        Me.opticpreçoivalabel = New System.Windows.Forms.Label()
+        Me.vgapreçoivalabel = New System.Windows.Forms.Label()
+        Me.coolerpreçoivalabel = New System.Windows.Forms.Label()
+        Me.motherpreçoivalabel = New System.Windows.Forms.Label()
+        Me.caixapreçoivalabel = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.otherpreçoivalabel = New System.Windows.Forms.Label()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel13, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -55,76 +63,6 @@ Partial Class Inserir_Software
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'otherpreçobox
-        '
-        Me.otherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.otherpreçobox.Location = New System.Drawing.Point(418, 352)
-        Me.otherpreçobox.Name = "otherpreçobox"
-        Me.otherpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.otherpreçobox.TabIndex = 135
-        Me.otherpreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.otherpreçobox.WaterMarkText = "Preço"
-        '
-        'motherpreçobox
-        '
-        Me.motherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.motherpreçobox.Location = New System.Drawing.Point(418, 156)
-        Me.motherpreçobox.Name = "motherpreçobox"
-        Me.motherpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.motherpreçobox.TabIndex = 125
-        Me.motherpreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.motherpreçobox.WaterMarkText = "Preço"
-        '
-        'redepreçobox
-        '
-        Me.redepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.redepreçobox.Location = New System.Drawing.Point(418, 313)
-        Me.redepreçobox.Name = "redepreçobox"
-        Me.redepreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.redepreçobox.TabIndex = 129
-        Me.redepreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.redepreçobox.WaterMarkText = "Preço"
-        '
-        'opticpreçobox
-        '
-        Me.opticpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.opticpreçobox.Location = New System.Drawing.Point(418, 274)
-        Me.opticpreçobox.Name = "opticpreçobox"
-        Me.opticpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.opticpreçobox.TabIndex = 128
-        Me.opticpreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.opticpreçobox.WaterMarkText = "Preço"
-        '
-        'VGApreçobox
-        '
-        Me.VGApreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.VGApreçobox.Location = New System.Drawing.Point(418, 236)
-        Me.VGApreçobox.Name = "VGApreçobox"
-        Me.VGApreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.VGApreçobox.TabIndex = 127
-        Me.VGApreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.VGApreçobox.WaterMarkText = "Preço"
-        '
-        'coolerpreçobox
-        '
-        Me.coolerpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.coolerpreçobox.Location = New System.Drawing.Point(418, 195)
-        Me.coolerpreçobox.Name = "coolerpreçobox"
-        Me.coolerpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.coolerpreçobox.TabIndex = 126
-        Me.coolerpreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.coolerpreçobox.WaterMarkText = "Preço"
-        '
-        'caixapreçobox
-        '
-        Me.caixapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.caixapreçobox.Location = New System.Drawing.Point(418, 122)
-        Me.caixapreçobox.Name = "caixapreçobox"
-        Me.caixapreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.caixapreçobox.TabIndex = 124
-        Me.caixapreçobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.caixapreçobox.WaterMarkText = "Preço"
-        '
         'otherdescriçaobox
         '
         Me.otherdescriçaobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
@@ -137,7 +75,7 @@ Partial Class Inserir_Software
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(115, 399)
+        Me.RadButton1.Location = New System.Drawing.Point(187, 400)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(172, 39)
         Me.RadButton1.TabIndex = 121
@@ -147,7 +85,7 @@ Partial Class Inserir_Software
         'RadButton5
         '
         Me.RadButton5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadButton5.Location = New System.Drawing.Point(293, 385)
+        Me.RadButton5.Location = New System.Drawing.Point(365, 386)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(174, 53)
         Me.RadButton5.TabIndex = 120
@@ -246,20 +184,171 @@ Partial Class Inserir_Software
         Me.Label1.TabIndex = 136
         Me.Label1.Text = "........................"
         '
+        'caixapreçobox
+        '
+        Me.caixapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.caixapreçobox.Location = New System.Drawing.Point(418, 121)
+        Me.caixapreçobox.Name = "caixapreçobox"
+        Me.caixapreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.caixapreçobox.TabIndex = 137
+        Me.caixapreçobox.Text = "0"
+        '
+        'motherpreçobox
+        '
+        Me.motherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.motherpreçobox.Location = New System.Drawing.Point(418, 160)
+        Me.motherpreçobox.Name = "motherpreçobox"
+        Me.motherpreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.motherpreçobox.TabIndex = 138
+        Me.motherpreçobox.Text = "0"
+        '
+        'coolerpreçobox
+        '
+        Me.coolerpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.coolerpreçobox.Location = New System.Drawing.Point(418, 197)
+        Me.coolerpreçobox.Name = "coolerpreçobox"
+        Me.coolerpreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.coolerpreçobox.TabIndex = 139
+        Me.coolerpreçobox.Text = "0"
+        '
+        'vgapreçobox
+        '
+        Me.vgapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.vgapreçobox.Location = New System.Drawing.Point(418, 239)
+        Me.vgapreçobox.Name = "vgapreçobox"
+        Me.vgapreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.vgapreçobox.TabIndex = 140
+        Me.vgapreçobox.Text = "0"
+        '
+        'opticpreçobox
+        '
+        Me.opticpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.opticpreçobox.Location = New System.Drawing.Point(418, 274)
+        Me.opticpreçobox.Name = "opticpreçobox"
+        Me.opticpreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.opticpreçobox.TabIndex = 141
+        Me.opticpreçobox.Text = "0"
+        '
+        'redepreçobox
+        '
+        Me.redepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.redepreçobox.Location = New System.Drawing.Point(418, 313)
+        Me.redepreçobox.Name = "redepreçobox"
+        Me.redepreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.redepreçobox.TabIndex = 142
+        Me.redepreçobox.Text = "0"
+        '
+        'otherpreçobox
+        '
+        Me.otherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.otherpreçobox.Location = New System.Drawing.Point(418, 348)
+        Me.otherpreçobox.Name = "otherpreçobox"
+        Me.otherpreçobox.Size = New System.Drawing.Size(47, 29)
+        Me.otherpreçobox.TabIndex = 143
+        Me.otherpreçobox.Text = "0"
+        '
+        'redepreçoivalabel
+        '
+        Me.redepreçoivalabel.AutoSize = True
+        Me.redepreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.redepreçoivalabel.Location = New System.Drawing.Point(471, 317)
+        Me.redepreçoivalabel.Name = "redepreçoivalabel"
+        Me.redepreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.redepreçoivalabel.TabIndex = 153
+        Me.redepreçoivalabel.Text = "Qtd."
+        '
+        'opticpreçoivalabel
+        '
+        Me.opticpreçoivalabel.AutoSize = True
+        Me.opticpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.opticpreçoivalabel.Location = New System.Drawing.Point(471, 279)
+        Me.opticpreçoivalabel.Name = "opticpreçoivalabel"
+        Me.opticpreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.opticpreçoivalabel.TabIndex = 152
+        Me.opticpreçoivalabel.Text = "Qtd."
+        '
+        'vgapreçoivalabel
+        '
+        Me.vgapreçoivalabel.AutoSize = True
+        Me.vgapreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.vgapreçoivalabel.Location = New System.Drawing.Point(471, 242)
+        Me.vgapreçoivalabel.Name = "vgapreçoivalabel"
+        Me.vgapreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.vgapreçoivalabel.TabIndex = 151
+        Me.vgapreçoivalabel.Text = "Qtd."
+        '
+        'coolerpreçoivalabel
+        '
+        Me.coolerpreçoivalabel.AutoSize = True
+        Me.coolerpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.coolerpreçoivalabel.Location = New System.Drawing.Point(471, 205)
+        Me.coolerpreçoivalabel.Name = "coolerpreçoivalabel"
+        Me.coolerpreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.coolerpreçoivalabel.TabIndex = 150
+        Me.coolerpreçoivalabel.Text = "Qtd."
+        '
+        'motherpreçoivalabel
+        '
+        Me.motherpreçoivalabel.AutoSize = True
+        Me.motherpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.motherpreçoivalabel.Location = New System.Drawing.Point(471, 159)
+        Me.motherpreçoivalabel.Name = "motherpreçoivalabel"
+        Me.motherpreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.motherpreçoivalabel.TabIndex = 149
+        Me.motherpreçoivalabel.Text = "Qtd."
+        '
+        'caixapreçoivalabel
+        '
+        Me.caixapreçoivalabel.AutoSize = True
+        Me.caixapreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.caixapreçoivalabel.Location = New System.Drawing.Point(471, 124)
+        Me.caixapreçoivalabel.Name = "caixapreçoivalabel"
+        Me.caixapreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.caixapreçoivalabel.TabIndex = 148
+        Me.caixapreçoivalabel.Text = "Qtd."
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(471, 103)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(90, 21)
+        Me.Label3.TabIndex = 147
+        Me.Label3.Text = "Preço c/IVA"
+        '
+        'otherpreçoivalabel
+        '
+        Me.otherpreçoivalabel.AutoSize = True
+        Me.otherpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.otherpreçoivalabel.Location = New System.Drawing.Point(471, 356)
+        Me.otherpreçoivalabel.Name = "otherpreçoivalabel"
+        Me.otherpreçoivalabel.Size = New System.Drawing.Size(39, 21)
+        Me.otherpreçoivalabel.TabIndex = 154
+        Me.otherpreçoivalabel.Text = "Qtd."
+        '
         'Inserir_Software
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(477, 443)
+        Me.ClientSize = New System.Drawing.Size(551, 443)
+        Me.Controls.Add(Me.otherpreçoivalabel)
+        Me.Controls.Add(Me.redepreçoivalabel)
         Me.Controls.Add(Me.otherpreçobox)
-        Me.Controls.Add(Me.motherpreçobox)
-        Me.Controls.Add(Me.RadLabel13)
+        Me.Controls.Add(Me.opticpreçoivalabel)
         Me.Controls.Add(Me.redepreçobox)
-        Me.Controls.Add(Me.otherdescriçaobox)
+        Me.Controls.Add(Me.vgapreçoivalabel)
         Me.Controls.Add(Me.opticpreçobox)
-        Me.Controls.Add(Me.VGApreçobox)
+        Me.Controls.Add(Me.coolerpreçoivalabel)
+        Me.Controls.Add(Me.motherpreçoivalabel)
+        Me.Controls.Add(Me.vgapreçobox)
+        Me.Controls.Add(Me.caixapreçoivalabel)
         Me.Controls.Add(Me.coolerpreçobox)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.motherpreçobox)
         Me.Controls.Add(Me.caixapreçobox)
+        Me.Controls.Add(Me.RadLabel13)
+        Me.Controls.Add(Me.otherdescriçaobox)
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.PictureBox1)
@@ -288,13 +377,6 @@ Partial Class Inserir_Software
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents otherpreçobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents motherpreçobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents redepreçobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents opticpreçobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents VGApreçobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents coolerpreçobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents caixapreçobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents otherdescriçaobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
@@ -308,4 +390,19 @@ Partial Class Inserir_Software
     Friend WithEvents RadLabel4 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents RadLabel1 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents caixapreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents motherpreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents coolerpreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents vgapreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents opticpreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents redepreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents otherpreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents redepreçoivalabel As System.Windows.Forms.Label
+    Friend WithEvents opticpreçoivalabel As System.Windows.Forms.Label
+    Friend WithEvents vgapreçoivalabel As System.Windows.Forms.Label
+    Friend WithEvents coolerpreçoivalabel As System.Windows.Forms.Label
+    Friend WithEvents motherpreçoivalabel As System.Windows.Forms.Label
+    Friend WithEvents caixapreçoivalabel As System.Windows.Forms.Label
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents otherpreçoivalabel As System.Windows.Forms.Label
 End Class

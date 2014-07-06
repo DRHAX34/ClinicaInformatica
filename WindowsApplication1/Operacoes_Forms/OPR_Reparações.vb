@@ -250,7 +250,10 @@
     End Sub
     
     Private Sub preçobox_TextChanged(sender As Object, e As EventArgs) Handles preçobox.TextChanged
-        preçocivalabel.Text = CDbl(preçobox.Text) + (CDbl(preçobox.Text) * 23 / 100)
+        Try
+            preçocivalabel.Text = CDec(preçobox.Text) + (CDec(preçobox.Text) * 23 / 100)
+        Catch
+        End Try
     End Sub
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click

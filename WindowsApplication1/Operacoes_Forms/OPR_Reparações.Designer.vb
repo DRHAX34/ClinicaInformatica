@@ -48,13 +48,13 @@ Partial Class OPR_Reparações
         Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.preçobox = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.preçocivalabel = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tempo_real = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
+        Me.preçobox = New ClinicaInformatica.CurrencyTextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -294,14 +294,6 @@ Partial Class OPR_Reparações
         Me.Label2.TabIndex = 73
         Me.Label2.Text = "Preço S/IVA"
         '
-        'preçobox
-        '
-        Me.preçobox.Enabled = False
-        Me.preçobox.Location = New System.Drawing.Point(252, 146)
-        Me.preçobox.Name = "preçobox"
-        Me.preçobox.Size = New System.Drawing.Size(114, 22)
-        Me.preçobox.TabIndex = 72
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -350,18 +342,26 @@ Partial Class OPR_Reparações
         '
         Me.Timer3.Interval = 1
         '
+        'preçobox
+        '
+        Me.preçobox.Location = New System.Drawing.Point(253, 147)
+        Me.preçobox.Name = "preçobox"
+        Me.preçobox.Size = New System.Drawing.Size(103, 22)
+        Me.preçobox.TabIndex = 78
+        Me.preçobox.Text = "0"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 515)
+        Me.Controls.Add(Me.preçobox)
         Me.Controls.Add(Me.tempo_real)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.preçocivalabel)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.preçobox)
         Me.Controls.Add(Me.RadButton7)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.insert_tecnicos)
@@ -427,11 +427,11 @@ Partial Class OPR_Reparações
     Friend WithEvents insert_hardware As Telerik.WinControls.UI.RadButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents preçobox As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents preçocivalabel As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tempo_real As System.Windows.Forms.Label
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
+    Friend WithEvents preçobox As ClinicaInformatica.CurrencyTextBox
 End Class

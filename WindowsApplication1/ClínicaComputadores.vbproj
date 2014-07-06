@@ -234,6 +234,9 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CurrencyBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms_Necessárias\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
