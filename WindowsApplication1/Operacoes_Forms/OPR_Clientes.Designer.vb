@@ -66,7 +66,7 @@ Partial Class OPR_Clientes
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(360, 211)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 25)
+        Me.Label4.Size = New System.Drawing.Size(135, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Código Postal"
         '
@@ -255,7 +255,7 @@ Partial Class OPR_Clientes
         Me.nifbox.Size = New System.Drawing.Size(125, 25)
         Me.nifbox.TabIndex = 80
         Me.nifbox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.nifbox.WaterMarkText = "Obrigatório"
+        Me.nifbox.WaterMarkText = ""
         '
         'emailbox
         '
