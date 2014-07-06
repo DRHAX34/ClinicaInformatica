@@ -31,23 +31,24 @@ Partial Class OPR_Técnicos
         Me.turmalabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.numalunolabel = New System.Windows.Forms.Label()
-        Me.turmabox = New System.Windows.Forms.TextBox()
-        Me.nomebox = New System.Windows.Forms.TextBox()
-        Me.numalunobox = New System.Windows.Forms.TextBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
-        Me.caminhobox = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.contactom_box = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.contacto_fbox = New System.Windows.Forms.TextBox()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
-        Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Localidadelabel = New System.Windows.Forms.Label()
         Me.cod_postallabel = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.imagembox = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.nomebox = New System.Windows.Forms.TextBox()
+        Me.numalunobox = New System.Windows.Forms.TextBox()
+        Me.turmabox = New System.Windows.Forms.TextBox()
+        Me.contactom_box = New System.Windows.Forms.TextBox()
+        Me.contacto_fbox = New System.Windows.Forms.TextBox()
+        Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
+        Me.caminhobox = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,7 +121,7 @@ Partial Class OPR_Técnicos
         Me.turmalabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.turmalabel.Location = New System.Drawing.Point(464, 126)
         Me.turmalabel.Name = "turmalabel"
-        Me.turmalabel.Size = New System.Drawing.Size(69, 25)
+        Me.turmalabel.Size = New System.Drawing.Size(70, 25)
         Me.turmalabel.TabIndex = 43
         Me.turmalabel.Text = "Turma"
         '
@@ -144,30 +145,6 @@ Partial Class OPR_Técnicos
         Me.numalunolabel.TabIndex = 41
         Me.numalunolabel.Text = "NºAluno"
         '
-        'turmabox
-        '
-        Me.turmabox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.turmabox.Location = New System.Drawing.Point(469, 154)
-        Me.turmabox.Name = "turmabox"
-        Me.turmabox.Size = New System.Drawing.Size(100, 22)
-        Me.turmabox.TabIndex = 40
-        '
-        'nomebox
-        '
-        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.nomebox.Location = New System.Drawing.Point(38, 154)
-        Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(290, 22)
-        Me.nomebox.TabIndex = 38
-        '
-        'numalunobox
-        '
-        Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.numalunobox.Location = New System.Drawing.Point(334, 154)
-        Me.numalunobox.Name = "numalunobox"
-        Me.numalunobox.Size = New System.Drawing.Size(124, 22)
-        Me.numalunobox.TabIndex = 37
-        '
         'RadButton6
         '
         Me.RadButton6.Location = New System.Drawing.Point(737, 180)
@@ -176,14 +153,6 @@ Partial Class OPR_Técnicos
         Me.RadButton6.TabIndex = 57
         Me.RadButton6.Text = "..."
         Me.RadButton6.ThemeName = "Windows8"
-        '
-        'caminhobox
-        '
-        Me.caminhobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.caminhobox.Location = New System.Drawing.Point(629, 180)
-        Me.caminhobox.Name = "caminhobox"
-        Me.caminhobox.Size = New System.Drawing.Size(102, 22)
-        Me.caminhobox.TabIndex = 58
         '
         'Label4
         '
@@ -195,15 +164,6 @@ Partial Class OPR_Técnicos
         Me.Label4.TabIndex = 60
         Me.Label4.Text = "Contacto Móvel"
         '
-        'contactom_box
-        '
-        Me.contactom_box.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.contactom_box.Location = New System.Drawing.Point(38, 205)
-        Me.contactom_box.MaxLength = 14
-        Me.contactom_box.Name = "contactom_box"
-        Me.contactom_box.Size = New System.Drawing.Size(137, 22)
-        Me.contactom_box.TabIndex = 59
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -214,40 +174,9 @@ Partial Class OPR_Técnicos
         Me.Label5.TabIndex = 62
         Me.Label5.Text = "Contacto Fixo"
         '
-        'contacto_fbox
-        '
-        Me.contacto_fbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.contacto_fbox.Location = New System.Drawing.Point(197, 205)
-        Me.contacto_fbox.MaxLength = 14
-        Me.contacto_fbox.Name = "contacto_fbox"
-        Me.contacto_fbox.Size = New System.Drawing.Size(131, 22)
-        Me.contacto_fbox.TabIndex = 61
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'cod_postalbox
-        '
-        Me.cod_postalbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.cod_postalbox.Location = New System.Drawing.Point(469, 205)
-        Me.cod_postalbox.Mask = "0000-000"
-        Me.cod_postalbox.Name = "cod_postalbox"
-        Me.cod_postalbox.Size = New System.Drawing.Size(69, 22)
-        Me.cod_postalbox.TabIndex = 66
-        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
-        Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cod_postalbox.WaterMarkText = ""
-        '
-        'localidadebox
-        '
-        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.localidadebox.Location = New System.Drawing.Point(339, 205)
-        Me.localidadebox.Name = "localidadebox"
-        Me.localidadebox.Size = New System.Drawing.Size(119, 22)
-        Me.localidadebox.TabIndex = 65
-        Me.localidadebox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.localidadebox.WaterMarkText = ""
         '
         'Localidadelabel
         '
@@ -265,7 +194,7 @@ Partial Class OPR_Técnicos
         Me.cod_postallabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
         Me.cod_postallabel.Location = New System.Drawing.Point(464, 177)
         Me.cod_postallabel.Name = "cod_postallabel"
-        Me.cod_postallabel.Size = New System.Drawing.Size(135, 25)
+        Me.cod_postallabel.Size = New System.Drawing.Size(136, 25)
         Me.cod_postallabel.TabIndex = 63
         Me.cod_postallabel.Text = "Código Postal"
         '
@@ -288,22 +217,108 @@ Partial Class OPR_Técnicos
         Me.imagembox.TabIndex = 55
         Me.imagembox.TabStop = False
         '
+        'nomebox
+        '
+        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.nomebox.Location = New System.Drawing.Point(38, 152)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.Size = New System.Drawing.Size(290, 22)
+        Me.nomebox.TabIndex = 68
+        '
+        'numalunobox
+        '
+        Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.numalunobox.Location = New System.Drawing.Point(334, 154)
+        Me.numalunobox.Name = "numalunobox"
+        Me.numalunobox.Size = New System.Drawing.Size(124, 22)
+        Me.numalunobox.TabIndex = 69
+        '
+        'turmabox
+        '
+        Me.turmabox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.turmabox.Location = New System.Drawing.Point(469, 152)
+        Me.turmabox.Name = "turmabox"
+        Me.turmabox.Size = New System.Drawing.Size(69, 22)
+        Me.turmabox.TabIndex = 70
+        '
+        'contactom_box
+        '
+        Me.contactom_box.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.contactom_box.Location = New System.Drawing.Point(38, 205)
+        Me.contactom_box.MaxLength = 14
+        Me.contactom_box.Name = "contactom_box"
+        Me.contactom_box.Size = New System.Drawing.Size(137, 22)
+        Me.contactom_box.TabIndex = 71
+        '
+        'contacto_fbox
+        '
+        Me.contacto_fbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.contacto_fbox.Location = New System.Drawing.Point(197, 205)
+        Me.contacto_fbox.MaxLength = 14
+        Me.contacto_fbox.Name = "contacto_fbox"
+        Me.contacto_fbox.Size = New System.Drawing.Size(131, 22)
+        Me.contacto_fbox.TabIndex = 72
+        '
+        'localidadebox
+        '
+        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.localidadebox.Location = New System.Drawing.Point(339, 205)
+        Me.localidadebox.Name = "localidadebox"
+        Me.localidadebox.Size = New System.Drawing.Size(119, 22)
+        Me.localidadebox.TabIndex = 73
+        Me.localidadebox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.localidadebox.WaterMarkText = ""
+        '
+        'cod_postalbox
+        '
+        Me.cod_postalbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.cod_postalbox.Location = New System.Drawing.Point(469, 205)
+        Me.cod_postalbox.Mask = "0000-000"
+        Me.cod_postalbox.Name = "cod_postalbox"
+        Me.cod_postalbox.Size = New System.Drawing.Size(69, 22)
+        Me.cod_postalbox.TabIndex = 74
+        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cod_postalbox.WaterMarkText = ""
+        '
+        'caminhobox
+        '
+        Me.caminhobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.caminhobox.Location = New System.Drawing.Point(629, 180)
+        Me.caminhobox.Name = "caminhobox"
+        Me.caminhobox.Size = New System.Drawing.Size(102, 22)
+        Me.caminhobox.TabIndex = 75
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Label1.Location = New System.Drawing.Point(69, 230)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(229, 13)
+        Me.Label1.TabIndex = 76
+        Me.Label1.Text = "Não se esqueça de inserir o indicativo do país!"
+        '
         'OPR_Técnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(782, 358)
-        Me.Controls.Add(Me.PictureBox1)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.caminhobox)
         Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.localidadebox)
+        Me.Controls.Add(Me.contacto_fbox)
+        Me.Controls.Add(Me.contactom_box)
+        Me.Controls.Add(Me.turmabox)
+        Me.Controls.Add(Me.numalunobox)
+        Me.Controls.Add(Me.nomebox)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Localidadelabel)
         Me.Controls.Add(Me.cod_postallabel)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.contacto_fbox)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.contactom_box)
-        Me.Controls.Add(Me.caminhobox)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.imagembox)
         Me.Controls.Add(Me.RadButton4)
@@ -315,9 +330,6 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.turmalabel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.numalunolabel)
-        Me.Controls.Add(Me.turmabox)
-        Me.Controls.Add(Me.nomebox)
-        Me.Controls.Add(Me.numalunobox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Técnicos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -343,21 +355,22 @@ Partial Class OPR_Técnicos
     Friend WithEvents turmalabel As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents numalunolabel As System.Windows.Forms.Label
-    Friend WithEvents turmabox As System.Windows.Forms.TextBox
-    Friend WithEvents nomebox As System.Windows.Forms.TextBox
-    Friend WithEvents numalunobox As System.Windows.Forms.TextBox
     Friend WithEvents imagembox As System.Windows.Forms.PictureBox
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents caminhobox As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents contactom_box As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents contacto_fbox As System.Windows.Forms.TextBox
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
-    Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Localidadelabel As System.Windows.Forms.Label
     Friend WithEvents cod_postallabel As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents nomebox As System.Windows.Forms.TextBox
+    Friend WithEvents numalunobox As System.Windows.Forms.TextBox
+    Friend WithEvents turmabox As System.Windows.Forms.TextBox
+    Friend WithEvents contactom_box As System.Windows.Forms.TextBox
+    Friend WithEvents contacto_fbox As System.Windows.Forms.TextBox
+    Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
+    Friend WithEvents caminhobox As System.Windows.Forms.TextBox
+    Friend WithEvents Label1 As System.Windows.Forms.Label
 End Class

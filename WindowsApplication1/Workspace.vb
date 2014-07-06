@@ -330,22 +330,31 @@ Public Class Workspace
         If check_reparacoes = False Then
             If BLL.Clientes.carregar.Rows.Count <> 0 Then
                 If BLL.Componentes.carregar.Rows.Count <> 0 Then
-                    Try
-                        Dim repararview As New ViewForm
-                        check_reparacoes = True
-                        repararview.Text = "Reparações"
-                        repararview.tabela = "Reparações"
-                        repararview.MdiParent = Me
-                        m_ChildFormNumber += 1
-                        repararview.data_table = BLL.Reparacoes.carregar()
-                        repararview.removidos = False
-                        repararview.Show()
-                    Catch ex As Exception
-                        MsgBox("Erro ao executar comando: " & ex.Message)
-                        Me.Close()
-                    End Try
-                Else
-                    MsgBox("Já tem a janela das Reparações abertas!")
+                    If BLL.Tecnicos.carregar.Rows.Count <> 0 Then
+                        Try
+                            Dim repararview As New ViewForm
+                            check_reparacoes = True
+                            repararview.Text = "Reparações"
+                            repararview.tabela = "Reparações"
+                            repararview.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            repararview.data_table = BLL.Reparacoes.carregar()
+                            repararview.removidos = False
+                            repararview.Show()
+                        Catch ex As Exception
+                            MsgBox("Erro ao executar comando: " & ex.Message)
+                            Me.Close()
+                        End Try
+                    Else
+                        If MsgBox("Não tem nenhum técnico inserido, deseja inserir um técnico?", vbYesNo, "Sem Técnicos!") = vbYes Then
+                            Dim opr_tecnicos As New OPR_Técnicos
+                            opr_tecnicos.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            opr_tecnicos.modo = False
+                            opr_tecnicos.Show()
+                        Else
+                            MsgBox("Não poderá inserir/visualizar reparações até inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                        End If
                 End If
             Else
                 If MsgBox("Não tem nenhum cliente inserido, deseja inserir algum?", vbYesNo, "Nenhum Cliente Inserido") = vbYes Then
@@ -358,16 +367,19 @@ Public Class Workspace
                     MsgBox("Não poderá inserir/visualizar Reparações até inserir um cliente!", vbOK, "Erro")
                 End If
             End If
-        Else
-            If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
-                Dim opr_componentes As New OPR_Componentes
-                opr_componentes.MdiParent = Me
-                m_ChildFormNumber += 1
-                opr_componentes.modo = False
-                opr_componentes.Show()
             Else
-                MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOK, "Erro")
+                If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
+                    Dim opr_componentes As New OPR_Componentes
+                    opr_componentes.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    opr_componentes.modo = False
+                    opr_componentes.Show()
+                Else
+                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOK, "Erro")
+                End If
             End If
+        Else
+            MsgBox("Já tem a janela das Reparações abertas!")
         End If
     End Sub
 

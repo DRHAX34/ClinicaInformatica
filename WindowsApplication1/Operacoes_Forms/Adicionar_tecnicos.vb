@@ -151,9 +151,9 @@ Public Class Adicionar_tecnicos
     Private Sub Adicionar_tecnicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         For i = 0 To ((BLL.Tecnicos.carregar_tecnico).Rows.Count - 1)
             If BLL.Tecnicos.carregar_tecnico.Rows(i).Item("NºTécnico").ToString() < 9 Then
-                ListBox1.Items.Add("0" & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Tipo").ToString) & " " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Marca").ToString))
+                ListBox1.Items.Add("0" & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Nome").ToString))
             Else
-                ListBox1.Items.Add(((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Tipo").ToString) & " " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Marca").ToString))
+                ListBox1.Items.Add(((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Nome").ToString))
             End If
         Next
         ListBox1.SelectedIndex = 0

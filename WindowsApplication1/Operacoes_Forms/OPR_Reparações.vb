@@ -34,8 +34,6 @@
             RadButton5.Enabled = False
             RadButton2.Enabled = True
             datefim.Enabled = True
-            insert_hardware.Enabled = True
-            insert_software.Enabled = True
             insert_tecnicos.Enabled = True
             check = False
             preçobox.Enabled = True
@@ -149,14 +147,12 @@
             select_hardware.modo = False
         End If
         select_hardware.Show()
-        Me.Enabled = False
         Timer1.Start()
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         Try
             If Workspace.hardware_support.Rows.Count <> 0 Then
-                Me.Enabled = True
                 Timer1.Stop()
             End If
         Catch
@@ -177,7 +173,6 @@
             select_software.modo = False
         End If
         select_software.Show()
-        Me.Enabled = False
         Timer1.Start()
     End Sub
 
@@ -250,10 +245,6 @@
     End Sub
     
     Private Sub preçobox_TextChanged(sender As Object, e As EventArgs) Handles preçobox.TextChanged
-        Try
-            preçocivalabel.Text = CDec(preçobox.Text) + (CDec(preçobox.Text) * 23 / 100)
-        Catch
-        End Try
     End Sub
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
@@ -295,7 +286,6 @@
             select_comp.Show()
             Timer3.Start()
             Workspace.check_select = True
-            Me.Enabled = False
         Else
             MsgBox("Já tem uma janela de Selecionar aberta!")
         End If
@@ -304,7 +294,6 @@
     Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
         Try
             If Workspace.software_support.Rows.Count <> 0 Then
-                Me.Enabled = True
                 Timer2.Stop()
             End If
         Catch
@@ -316,7 +305,6 @@
             numcomponentebox.Text = Workspace.support
             If Workspace.check_select = False Then
                 Timer1.Stop()
-                Me.Enabled = True
             End If
         Catch
         End Try

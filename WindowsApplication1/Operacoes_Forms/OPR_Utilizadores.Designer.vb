@@ -33,6 +33,13 @@ Partial Class OPR_Utilizadores
         Me.tecnicolabel = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
+        Me.admincheck = New System.Windows.Forms.RadioButton()
+        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.verifbox = New System.Windows.Forms.TextBox()
+        Me.passwordbox = New System.Windows.Forms.TextBox()
+        Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -47,13 +54,6 @@ Partial Class OPR_Utilizadores
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
-        Me.passwordbox = New System.Windows.Forms.TextBox()
-        Me.verifbox = New System.Windows.Forms.TextBox()
-        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.admincheck = New System.Windows.Forms.RadioButton()
-        Me.admgeralcheck = New System.Windows.Forms.RadioButton()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -172,6 +172,71 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1.TabIndex = 80
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Informações da Conta"
+        '
+        'admgeralcheck
+        '
+        Me.admgeralcheck.AutoSize = True
+        Me.admgeralcheck.Location = New System.Drawing.Point(340, 171)
+        Me.admgeralcheck.Name = "admgeralcheck"
+        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
+        Me.admgeralcheck.TabIndex = 106
+        Me.admgeralcheck.TabStop = True
+        Me.admgeralcheck.Text = "Admin Geral"
+        Me.admgeralcheck.UseVisualStyleBackColor = True
+        '
+        'admincheck
+        '
+        Me.admincheck.AutoSize = True
+        Me.admincheck.Location = New System.Drawing.Point(252, 171)
+        Me.admincheck.Name = "admincheck"
+        Me.admincheck.Size = New System.Drawing.Size(89, 29)
+        Me.admincheck.TabIndex = 105
+        Me.admincheck.TabStop = True
+        Me.admincheck.Text = "Admin"
+        Me.admincheck.UseVisualStyleBackColor = True
+        '
+        'respostabox
+        '
+        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.respostabox.Location = New System.Drawing.Point(347, 114)
+        Me.respostabox.Name = "respostabox"
+        Me.respostabox.Size = New System.Drawing.Size(208, 27)
+        Me.respostabox.TabIndex = 104
+        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.respostabox.WaterMarkText = "Resposta"
+        '
+        'perguntabox
+        '
+        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.perguntabox.Location = New System.Drawing.Point(52, 114)
+        Me.perguntabox.Name = "perguntabox"
+        Me.perguntabox.Size = New System.Drawing.Size(267, 27)
+        Me.perguntabox.TabIndex = 103
+        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
+        '
+        'verifbox
+        '
+        Me.verifbox.Location = New System.Drawing.Point(447, 55)
+        Me.verifbox.Name = "verifbox"
+        Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.verifbox.Size = New System.Drawing.Size(155, 33)
+        Me.verifbox.TabIndex = 102
+        '
+        'passwordbox
+        '
+        Me.passwordbox.Location = New System.Drawing.Point(250, 55)
+        Me.passwordbox.Name = "passwordbox"
+        Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.passwordbox.Size = New System.Drawing.Size(155, 33)
+        Me.passwordbox.TabIndex = 101
+        '
+        'nomeutilizadorbox
+        '
+        Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
+        Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
+        Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
+        Me.nomeutilizadorbox.TabIndex = 100
         '
         'Label8
         '
@@ -294,71 +359,6 @@ Partial Class OPR_Utilizadores
         '
         'Timer1
         '
-        '
-        'nomeutilizadorbox
-        '
-        Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
-        Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
-        Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
-        Me.nomeutilizadorbox.TabIndex = 100
-        '
-        'passwordbox
-        '
-        Me.passwordbox.Location = New System.Drawing.Point(250, 55)
-        Me.passwordbox.Name = "passwordbox"
-        Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.passwordbox.Size = New System.Drawing.Size(155, 33)
-        Me.passwordbox.TabIndex = 101
-        '
-        'verifbox
-        '
-        Me.verifbox.Location = New System.Drawing.Point(447, 55)
-        Me.verifbox.Name = "verifbox"
-        Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.verifbox.Size = New System.Drawing.Size(155, 33)
-        Me.verifbox.TabIndex = 102
-        '
-        'perguntabox
-        '
-        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.perguntabox.Location = New System.Drawing.Point(52, 114)
-        Me.perguntabox.Name = "perguntabox"
-        Me.perguntabox.Size = New System.Drawing.Size(267, 27)
-        Me.perguntabox.TabIndex = 103
-        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
-        '
-        'respostabox
-        '
-        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.respostabox.Location = New System.Drawing.Point(347, 114)
-        Me.respostabox.Name = "respostabox"
-        Me.respostabox.Size = New System.Drawing.Size(208, 27)
-        Me.respostabox.TabIndex = 104
-        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.respostabox.WaterMarkText = "Resposta"
-        '
-        'admincheck
-        '
-        Me.admincheck.AutoSize = True
-        Me.admincheck.Location = New System.Drawing.Point(252, 171)
-        Me.admincheck.Name = "admincheck"
-        Me.admincheck.Size = New System.Drawing.Size(89, 29)
-        Me.admincheck.TabIndex = 105
-        Me.admincheck.TabStop = True
-        Me.admincheck.Text = "Admin"
-        Me.admincheck.UseVisualStyleBackColor = True
-        '
-        'admgeralcheck
-        '
-        Me.admgeralcheck.AutoSize = True
-        Me.admgeralcheck.Location = New System.Drawing.Point(340, 171)
-        Me.admgeralcheck.Name = "admgeralcheck"
-        Me.admgeralcheck.Size = New System.Drawing.Size(141, 29)
-        Me.admgeralcheck.TabIndex = 106
-        Me.admgeralcheck.TabStop = True
-        Me.admgeralcheck.Text = "Admin Geral"
-        Me.admgeralcheck.UseVisualStyleBackColor = True
         '
         'OPR_Utilizadores
         '

@@ -150,24 +150,24 @@
 
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
         'NumberFormat(caixapreçobox)
-        Try
-            caixapreçoivalabel.Text = CDec(caixapreçobox.Text) + ((CDec(caixapreçobox.Text) * 23) / 100)
-        Catch
-        End Try
+        'Try
+        '    caixapreçoivalabel.Text = CDec(caixapreçobox.Text) + ((CDec(caixapreçobox.Text) * 23) / 100)
+        'Catch
+        'End Try
     End Sub
 
     Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles motherpreçobox.TextChanged
         'NumberFormat(motherpreçobox)
-        Try
-            motherpreçoivalabel.Text = CDec(motherpreçobox.Text) + ((CDec(motherpreçobox.Text) * 23) / 100)
-        Catch
-        End Try
+        'Try
+        '    motherpreçoivalabel.Text = CDec(motherpreçobox.Text) + ((CDec(motherpreçobox.Text) * 23) / 100)
+        'Catch
+        'End Try
     End Sub
 
     Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs) Handles coolerpreçobox.TextChanged
         'NumberFormat(coolerpreçobox)
         Try
-            coolerpreçoivalabel.Text = CDec(coolerpreçobox.Text) + ((CDec(coolerpreçobox.Text) * 23) / 100)
+            'coolerpreçoivalabel.Text = CDec(coolerpreçobox.Text) + ((CDec(coolerpreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -175,7 +175,7 @@
     Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs) Handles vgapreçobox.TextChanged
         ''NumberFormat(VGApreçobox)
         Try
-            vgapreçoivalabel.Text = CDec(vgapreçobox.Text) + ((CDec(vgapreçobox.Text) * 23) / 100)
+            'vgapreçoivalabel.Text = CDec(vgapreçobox.Text) + ((CDec(vgapreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -183,7 +183,7 @@
     Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs) Handles opticpreçobox.TextChanged
         'NumberFormat(opticpreçobox)
         Try
-            opticpreçoivalabel.Text = CDec(opticpreçobox.Text) + ((CDec(opticpreçobox.Text) * 23) / 100)
+            ''opticpreçoivalabel.Text = CDec(opticpreçobox.Text) + ((CDec(opticpreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -191,7 +191,7 @@
     Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
         'NumberFormat(redepreçobox)
         Try
-            redepreçoivalabel.Text = CDec(redepreçobox.Text) + ((CDec(redepreçobox.Text) * 23) / 100)
+            'redepreçoivalabel.Text = CDec(redepreçobox.Text) + ((CDec(redepreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -199,7 +199,7 @@
     Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs) Handles fontepreçobox.TextChanged
         'NumberFormat(fontepreçobox)
         Try
-            fontepreçoivalabel.Text = CDec(fontepreçobox.Text) + ((CDec(fontepreçobox.Text) * 23) / 100)
+            'fontepreçoivalabel.Text = CDec(fontepreçobox.Text) + ((CDec(fontepreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -207,7 +207,7 @@
     Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles processadorpreçobox.TextChanged
         'NumberFormat(processadorpreçobox)
         Try
-            processadorpreçoivalabel.Text = CDec(processadorpreçobox.Text) + ((CDec(processadorpreçobox.Text) * 23) / 100)
+            'processadorpreçoivalabel.Text = CDec(processadorpreçobox.Text) + ((CDec(processadorpreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -215,7 +215,7 @@
     Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs) Handles memóriapreçobox.TextChanged
         'NumberFormat(memóriapreçobox)
         Try
-            memoriapreçoivalabel.Text = CDec(memóriapreçobox.Text) + ((CDec(memóriapreçobox.Text) * 23) / 100)
+            'memoriapreçoivalabel.Text = CDec(memóriapreçobox.Text) + ((CDec(memóriapreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -223,7 +223,7 @@
     Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs) Handles discopreçobox.TextChanged
         'NumberFormat(discopreçobox)
         Try
-            discopreçoivalabel.Text = CDec(discopreçobox.Text) + ((CDec(discopreçobox.Text) * 23) / 100)
+            'discopreçoivalabel.Text = CDec(discopreçobox.Text) + ((CDec(discopreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -231,7 +231,7 @@
     Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles leitorpreçobox.TextChanged
         'NumberFormat(leitorpreçobox)
         Try
-            leitorpreçoivalabel.Text = CDec(leitorpreçobox.Text) + ((CDec(leitorpreçobox.Text) * 23) / 100)
+            'leitorpreçoivalabel.Text = CDec(leitorpreçobox.Text) + ((CDec(leitorpreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub
@@ -239,7 +239,8 @@
     Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
         'NumberFormat(otherpreçobox)
         Try
-            otherpreçoivalabel.Text = CDec(otherpreçobox.Text) + ((CDec(otherpreçobox.Text) * 23) / 100)
+
+            'otherpreçoivalabel.Text = CDec(otherpreçobox.Text) + ((CDec(otherpreçobox.Text) * 23) / 100)
         Catch
         End Try
     End Sub

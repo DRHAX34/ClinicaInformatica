@@ -185,12 +185,14 @@
         admgeralcheck.Checked = False
         admincheck.Checked = True
         empresabox.Enabled = admincheck.Checked
-        tecnicolabel.Enabled = True
-        tecnicobox.Enabled = True
-        addtecnicobox.Enabled = True
-        questionlabel.Enabled = True
-        simcheck.Enabled = True
-        naocheck.Enabled = True
+        If simcheck.Checked = True Then
+            tecnicolabel.Enabled = True
+            tecnicobox.Enabled = True
+            addtecnicobox.Enabled = True
+            questionlabel.Enabled = True
+            simcheck.Enabled = True
+            naocheck.Enabled = True
+        End If
     End Sub
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click

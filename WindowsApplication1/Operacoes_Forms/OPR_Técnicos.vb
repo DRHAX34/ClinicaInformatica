@@ -55,7 +55,7 @@
                 If contactom_box.Text.Length < 9 Then
                     check_contactom = False
                 Else
-                    check_contactof = True
+                check_contactom = True
                 End If
                 If Workspace.Aluno = True Then
                     check_naluno.Trim()
@@ -84,13 +84,17 @@
                         Else
                             BLL.Tecnicos.Alunos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec, numalunobox.Text, turmabox.Text)
                         End If
-                        If MsgBox("Tem que criar um utilizador para este técnico. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
+                        If MsgBox("Deseja criar um utilizador para este técnico. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
                             Dim opr_utilizadores As New OPR_Utilizadores
                             opr_utilizadores.MdiParent = Workspace
                             opr_utilizadores.modo = False
                             opr_utilizadores.Show()
                             opr_utilizadores.tecnicobox.Text = BLL.Tecnicos.carregar_max()
                             opr_utilizadores.empresabox.Text = BLL.Admin_only.Empresas.procura_dados_numempresa(BLL.n_empresa).Rows.Item(0).Item("NºEmpresa").ToString
+                            Me.Close()
+                        Else
+                            MsgBox("Terá que criar utilizador para este Técnico para ele poder iniciar sessão!")
+                            Me.Close()
                         End If
                     End If
                 Catch ex As Exception
@@ -240,7 +244,11 @@
         cod_postalbox.Select(0, cod_postalbox.Text.Length + 1)
     End Sub
 
-    Private Sub cod_postalbox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs) Handles cod_postalbox.MaskInputRejected
+    Private Sub cod_postalbox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
+
+    End Sub
+
+    Private Sub contactom_box_TextChanged(sender As Object, e As EventArgs) Handles contactom_box.TextChanged
 
     End Sub
 End Class

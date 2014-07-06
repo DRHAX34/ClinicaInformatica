@@ -55,6 +55,9 @@
             editarbutton.Enabled = False
             removerbutton.Enabled = False
             restorebutton.Text = "Limpar Tudo"
+            RadioButton2.Checked = True
+            numalunobox.Hide()
+            turmabox.Hide()
         End If
         If removidos = True Then
             removerbutton.Text = "Restaurar"
@@ -64,7 +67,7 @@
 
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton1.Click
         RadioButton2.Checked = False
         RadioButton1.Checked = True
         numalunobox.Enabled = True
@@ -72,7 +75,7 @@
         turmabox.Show()
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles RadioButton2.Click
         RadioButton2.Checked = True
         RadioButton1.Checked = False
         numalunobox.Enabled = False
@@ -328,5 +331,6 @@
         cfixobox.Select(0, cfixobox.Text.Length + 1)
     End Sub
 
+    
     
 End Class

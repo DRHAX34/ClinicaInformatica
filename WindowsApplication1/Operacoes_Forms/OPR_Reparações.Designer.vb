@@ -48,8 +48,6 @@ Partial Class OPR_Reparações
         Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.preçocivalabel = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tempo_real = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
@@ -288,32 +286,11 @@ Partial Class OPR_Reparações
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(247, 118)
+        Me.Label2.Location = New System.Drawing.Point(261, 118)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(119, 25)
         Me.Label2.TabIndex = 73
         Me.Label2.Text = "Preço S/IVA"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(377, 118)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(120, 25)
-        Me.Label3.TabIndex = 74
-        Me.Label3.Text = "Preço C/IVA"
-        '
-        'preçocivalabel
-        '
-        Me.preçocivalabel.AutoSize = True
-        Me.preçocivalabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.preçocivalabel.Location = New System.Drawing.Point(377, 146)
-        Me.preçocivalabel.MaximumSize = New System.Drawing.Size(120, 25)
-        Me.preçocivalabel.Name = "preçocivalabel"
-        Me.preçocivalabel.Size = New System.Drawing.Size(54, 25)
-        Me.preçocivalabel.TabIndex = 75
-        Me.preçocivalabel.Text = "c/iva"
         '
         'Label4
         '
@@ -344,7 +321,7 @@ Partial Class OPR_Reparações
         '
         'preçobox
         '
-        Me.preçobox.Location = New System.Drawing.Point(253, 147)
+        Me.preçobox.Location = New System.Drawing.Point(267, 147)
         Me.preçobox.Name = "preçobox"
         Me.preçobox.Size = New System.Drawing.Size(103, 22)
         Me.preçobox.TabIndex = 78
@@ -359,8 +336,6 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.preçobox)
         Me.Controls.Add(Me.tempo_real)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.preçocivalabel)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.RadButton7)
         Me.Controls.Add(Me.PictureBox1)
@@ -427,8 +402,6 @@ Partial Class OPR_Reparações
     Friend WithEvents insert_hardware As Telerik.WinControls.UI.RadButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents preçocivalabel As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tempo_real As System.Windows.Forms.Label
     Friend WithEvents Timer2 As System.Windows.Forms.Timer

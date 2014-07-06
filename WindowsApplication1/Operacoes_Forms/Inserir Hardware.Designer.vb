@@ -52,20 +52,6 @@ Partial Class Inserir_Hardware
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.caixapreçoivalabel = New System.Windows.Forms.Label()
-        Me.motherpreçoivalabel = New System.Windows.Forms.Label()
-        Me.coolerpreçoivalabel = New System.Windows.Forms.Label()
-        Me.vgapreçoivalabel = New System.Windows.Forms.Label()
-        Me.opticpreçoivalabel = New System.Windows.Forms.Label()
-        Me.redepreçoivalabel = New System.Windows.Forms.Label()
-        Me.fontepreçoivalabel = New System.Windows.Forms.Label()
-        Me.processadorpreçoivalabel = New System.Windows.Forms.Label()
-        Me.memoriapreçoivalabel = New System.Windows.Forms.Label()
-        Me.discopreçoivalabel = New System.Windows.Forms.Label()
-        Me.leitorpreçoivalabel = New System.Windows.Forms.Label()
-        Me.otherpreçoivalabel = New System.Windows.Forms.Label()
         Me.otherdescriçaobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.otherqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.caixapreçobox = New ClinicaInformatica.CurrencyTextBox()
@@ -349,7 +335,7 @@ Partial Class Inserir_Hardware
         'RadButton5
         '
         Me.RadButton5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadButton5.Location = New System.Drawing.Point(636, 361)
+        Me.RadButton5.Location = New System.Drawing.Point(549, 361)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(174, 53)
         Me.RadButton5.TabIndex = 68
@@ -358,7 +344,7 @@ Partial Class Inserir_Hardware
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(449, 375)
+        Me.RadButton1.Location = New System.Drawing.Point(362, 375)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(172, 39)
         Me.RadButton1.TabIndex = 69
@@ -371,9 +357,9 @@ Partial Class Inserir_Hardware
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(228, 89)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(39, 21)
+        Me.Label1.Size = New System.Drawing.Size(90, 21)
         Me.Label1.TabIndex = 137
-        Me.Label1.Text = "Qtd."
+        Me.Label1.Text = "Qtd.   Preço"
         '
         'Label2
         '
@@ -381,149 +367,9 @@ Partial Class Inserir_Hardware
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(630, 91)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(39, 21)
+        Me.Label2.Size = New System.Drawing.Size(94, 21)
         Me.Label2.TabIndex = 138
-        Me.Label2.Text = "Qtd."
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(310, 91)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(90, 21)
-        Me.Label3.TabIndex = 139
-        Me.Label3.Text = "Preço c/IVA"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(727, 91)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(90, 21)
-        Me.Label4.TabIndex = 140
-        Me.Label4.Text = "Preço c/IVA"
-        '
-        'caixapreçoivalabel
-        '
-        Me.caixapreçoivalabel.AutoSize = True
-        Me.caixapreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.caixapreçoivalabel.Location = New System.Drawing.Point(323, 118)
-        Me.caixapreçoivalabel.Name = "caixapreçoivalabel"
-        Me.caixapreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.caixapreçoivalabel.TabIndex = 141
-        Me.caixapreçoivalabel.Text = "Qtd."
-        '
-        'motherpreçoivalabel
-        '
-        Me.motherpreçoivalabel.AutoSize = True
-        Me.motherpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.motherpreçoivalabel.Location = New System.Drawing.Point(323, 153)
-        Me.motherpreçoivalabel.Name = "motherpreçoivalabel"
-        Me.motherpreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.motherpreçoivalabel.TabIndex = 142
-        Me.motherpreçoivalabel.Text = "Qtd."
-        '
-        'coolerpreçoivalabel
-        '
-        Me.coolerpreçoivalabel.AutoSize = True
-        Me.coolerpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.coolerpreçoivalabel.Location = New System.Drawing.Point(323, 199)
-        Me.coolerpreçoivalabel.Name = "coolerpreçoivalabel"
-        Me.coolerpreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.coolerpreçoivalabel.TabIndex = 143
-        Me.coolerpreçoivalabel.Text = "Qtd."
-        '
-        'vgapreçoivalabel
-        '
-        Me.vgapreçoivalabel.AutoSize = True
-        Me.vgapreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.vgapreçoivalabel.Location = New System.Drawing.Point(323, 236)
-        Me.vgapreçoivalabel.Name = "vgapreçoivalabel"
-        Me.vgapreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.vgapreçoivalabel.TabIndex = 144
-        Me.vgapreçoivalabel.Text = "Qtd."
-        '
-        'opticpreçoivalabel
-        '
-        Me.opticpreçoivalabel.AutoSize = True
-        Me.opticpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.opticpreçoivalabel.Location = New System.Drawing.Point(323, 273)
-        Me.opticpreçoivalabel.Name = "opticpreçoivalabel"
-        Me.opticpreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.opticpreçoivalabel.TabIndex = 145
-        Me.opticpreçoivalabel.Text = "Qtd."
-        '
-        'redepreçoivalabel
-        '
-        Me.redepreçoivalabel.AutoSize = True
-        Me.redepreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.redepreçoivalabel.Location = New System.Drawing.Point(323, 311)
-        Me.redepreçoivalabel.Name = "redepreçoivalabel"
-        Me.redepreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.redepreçoivalabel.TabIndex = 146
-        Me.redepreçoivalabel.Text = "Qtd."
-        '
-        'fontepreçoivalabel
-        '
-        Me.fontepreçoivalabel.AutoSize = True
-        Me.fontepreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fontepreçoivalabel.Location = New System.Drawing.Point(728, 118)
-        Me.fontepreçoivalabel.Name = "fontepreçoivalabel"
-        Me.fontepreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.fontepreçoivalabel.TabIndex = 147
-        Me.fontepreçoivalabel.Text = "Qtd."
-        '
-        'processadorpreçoivalabel
-        '
-        Me.processadorpreçoivalabel.AutoSize = True
-        Me.processadorpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.processadorpreçoivalabel.Location = New System.Drawing.Point(729, 156)
-        Me.processadorpreçoivalabel.Name = "processadorpreçoivalabel"
-        Me.processadorpreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.processadorpreçoivalabel.TabIndex = 148
-        Me.processadorpreçoivalabel.Text = "Qtd."
-        '
-        'memoriapreçoivalabel
-        '
-        Me.memoriapreçoivalabel.AutoSize = True
-        Me.memoriapreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.memoriapreçoivalabel.Location = New System.Drawing.Point(728, 196)
-        Me.memoriapreçoivalabel.Name = "memoriapreçoivalabel"
-        Me.memoriapreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.memoriapreçoivalabel.TabIndex = 149
-        Me.memoriapreçoivalabel.Text = "Qtd."
-        '
-        'discopreçoivalabel
-        '
-        Me.discopreçoivalabel.AutoSize = True
-        Me.discopreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.discopreçoivalabel.Location = New System.Drawing.Point(727, 233)
-        Me.discopreçoivalabel.Name = "discopreçoivalabel"
-        Me.discopreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.discopreçoivalabel.TabIndex = 150
-        Me.discopreçoivalabel.Text = "Qtd."
-        '
-        'leitorpreçoivalabel
-        '
-        Me.leitorpreçoivalabel.AutoSize = True
-        Me.leitorpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.leitorpreçoivalabel.Location = New System.Drawing.Point(728, 273)
-        Me.leitorpreçoivalabel.Name = "leitorpreçoivalabel"
-        Me.leitorpreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.leitorpreçoivalabel.TabIndex = 151
-        Me.leitorpreçoivalabel.Text = "Qtd."
-        '
-        'otherpreçoivalabel
-        '
-        Me.otherpreçoivalabel.AutoSize = True
-        Me.otherpreçoivalabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.otherpreçoivalabel.Location = New System.Drawing.Point(729, 306)
-        Me.otherpreçoivalabel.Name = "otherpreçoivalabel"
-        Me.otherpreçoivalabel.Size = New System.Drawing.Size(39, 21)
-        Me.otherpreçoivalabel.TabIndex = 152
-        Me.otherpreçoivalabel.Text = "Qtd."
+        Me.Label2.Text = "Qtd.    Preço"
         '
         'otherdescriçaobox
         '
@@ -618,7 +464,7 @@ Partial Class Inserir_Hardware
         'memóriapreçobox
         '
         Me.memóriapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.memóriapreçobox.Location = New System.Drawing.Point(677, 192)
+        Me.memóriapreçobox.Location = New System.Drawing.Point(676, 192)
         Me.memóriapreçobox.Name = "memóriapreçobox"
         Me.memóriapreçobox.Size = New System.Drawing.Size(46, 29)
         Me.memóriapreçobox.TabIndex = 175
@@ -655,7 +501,7 @@ Partial Class Inserir_Hardware
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(822, 426)
+        Me.ClientSize = New System.Drawing.Size(749, 426)
         Me.Controls.Add(Me.otherpreçobox)
         Me.Controls.Add(Me.leitorpreçobox)
         Me.Controls.Add(Me.discopreçobox)
@@ -671,20 +517,6 @@ Partial Class Inserir_Hardware
         Me.Controls.Add(Me.caixapreçobox)
         Me.Controls.Add(Me.otherqtdbox)
         Me.Controls.Add(Me.otherdescriçaobox)
-        Me.Controls.Add(Me.otherpreçoivalabel)
-        Me.Controls.Add(Me.leitorpreçoivalabel)
-        Me.Controls.Add(Me.discopreçoivalabel)
-        Me.Controls.Add(Me.memoriapreçoivalabel)
-        Me.Controls.Add(Me.processadorpreçoivalabel)
-        Me.Controls.Add(Me.fontepreçoivalabel)
-        Me.Controls.Add(Me.redepreçoivalabel)
-        Me.Controls.Add(Me.opticpreçoivalabel)
-        Me.Controls.Add(Me.vgapreçoivalabel)
-        Me.Controls.Add(Me.coolerpreçoivalabel)
-        Me.Controls.Add(Me.motherpreçoivalabel)
-        Me.Controls.Add(Me.caixapreçoivalabel)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.RadButton1)
@@ -778,20 +610,6 @@ Partial Class Inserir_Hardware
     Friend WithEvents opticqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents leitorqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents redeqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents caixapreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents motherpreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents coolerpreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents vgapreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents opticpreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents redepreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents fontepreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents processadorpreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents memoriapreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents discopreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents leitorpreçoivalabel As System.Windows.Forms.Label
-    Friend WithEvents otherpreçoivalabel As System.Windows.Forms.Label
     Friend WithEvents otherdescriçaobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents otherqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents caixapreçobox As ClinicaInformatica.CurrencyTextBox
