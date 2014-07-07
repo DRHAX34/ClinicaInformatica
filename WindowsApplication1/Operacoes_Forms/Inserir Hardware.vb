@@ -12,7 +12,7 @@
             coolerqtdbox.Value = Workspace.hardware_support.Rows(2).Item("Qtd")
             coolerpreçobox.Text = Workspace.hardware_support.Rows(2).Item("Preço")
             vgaqtdbox.Value = Workspace.hardware_support.Rows(3).Item("Qtd")
-            VGApreçobox.Text = Workspace.hardware_support.Rows(3).Item("Preço")
+            vgapreçobox.Text = Workspace.hardware_support.Rows(3).Item("Preço")
             opticqtdbox.Value = Workspace.hardware_support.Rows(4).Item("Qtd")
             opticpreçobox.Text = Workspace.hardware_support.Rows(4).Item("Preço")
             redeqtdbox.Value = Workspace.hardware_support.Rows(5).Item("Qtd")
@@ -34,66 +34,58 @@
     End Sub
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim h As New ArrayList
+        Dim h(2) As Object
+        Workspace.hardware_support = New DataTable
         Workspace.hardware_support.Columns.Add("Tipo")
         Workspace.hardware_support.Columns.Add("Qtd")
         Workspace.hardware_support.Columns.Add("Preço")
-        h.Add("Caixa")
-        h.Add(caixaqtdbox.Value)
-        h.Add(caixapreçobox.Text)
+        h(0) = "Caixa"
+        h(1) = caixaqtdbox.Value
+        h(2) = (caixapreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Motherboard")
-        h.Add(motherqtdbox.Value)
-        h.Add(motherpreçobox.Text)
+        h(0) = "Motherboard"
+        h(1) = motherqtdbox.Value
+        h(2) = (motherpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Cooler")
-        h.Add(coolerqtdbox.Value)
-        h.Add(coolerpreçobox.Text)
+        h(0) = "Cooler"
+        h(1) = coolerqtdbox.Value
+        h(2) = (coolerpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("VGA")
-        h.Add(vgaqtdbox.Value)
-        h.Add(VGApreçobox.Text)
+        h(0) = "VGA"
+        h(1) = vgaqtdbox.Value
+        h(2) = (vgapreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Unidade Óptica")
-        h.Add(opticqtdbox.Value)
-        h.Add(opticpreçobox.Text)
+        h(0) = "Unidade Óptica"
+        h(1) = (opticqtdbox.Value)
+        h(2) = (opticpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Placa de Rede")
-        h.Add(redeqtdbox.Value)
-        h.Add(redepreçobox.Text)
+        h(0) = ("Placa de Rede")
+        h(1) = (redeqtdbox.Value)
+        h(2) = (redepreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Fonte")
-        h.Add(fonteqtdbox.Value)
-        h.Add(fontepreçobox.Text)
+        h(0) = ("Fonte")
+        h(1) = (fonteqtdbox.Value)
+        h(2) = (fontepreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Processador")
-        h.Add(processadorqtdbox.Value)
-        h.Add(processadorpreçobox.Text)
+        h(0) = ("Processador")
+        h(1) = (processadorqtdbox.Value)
+        h(2) = (processadorpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Memória")
-        h.Add(memoriaqtdbox.Value)
-        h.Add(memóriapreçobox.Text)
+        h(0) = ("Memória")
+        h(1) = (memoriaqtdbox.Value)
+        h(2) = (memóriapreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Disco")
-        h.Add(discoqtdbox.Value)
-        h.Add(discopreçobox.Text)
-        h.Add("Leitor de Cartões")
-        h.Add(leitorqtdbox.Value)
-        h.Add(leitorpreçobox.Text)
+        h(0) = ("Disco")
+        h(1) = (discoqtdbox.Value)
+        h(2) = (discopreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add(otherdescriçaobox.Text)
-        h.Add(otherqtdbox.Value)
-        h.Add(otherpreçobox.Text)
+        h(0) = ("Leitor de Cartões")
+        h(1) = (leitorqtdbox.Value)
+        h(2) = (leitorpreçobox.Text)
+        Workspace.hardware_support.Rows.Add(h)
+        h(0) = (otherdescriçaobox.Text)
+        h(1) = (otherqtdbox.Value)
+        h(2) = (otherpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         Me.Close()
     End Sub
@@ -141,14 +133,10 @@
 
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
-        Workspace.hardware_support.Columns.Add("N/A")
-        Dim p As New ArrayList
-        p.Add("N/A")
-        Workspace.hardware_support.Rows.Add(p)
-        Me.Close()
+            Me.Close()
     End Sub
 
-    Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
+    Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(caixapreçobox)
         'Try
         '    caixapreçoivalabel.Text = CDec(caixapreçobox.Text) + ((CDec(caixapreçobox.Text) * 23) / 100)
@@ -156,7 +144,7 @@
         'End Try
     End Sub
 
-    Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles motherpreçobox.TextChanged
+    Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(motherpreçobox)
         'Try
         '    motherpreçoivalabel.Text = CDec(motherpreçobox.Text) + ((CDec(motherpreçobox.Text) * 23) / 100)
@@ -164,7 +152,7 @@
         'End Try
     End Sub
 
-    Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs) Handles coolerpreçobox.TextChanged
+    Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(coolerpreçobox)
         Try
             'coolerpreçoivalabel.Text = CDec(coolerpreçobox.Text) + ((CDec(coolerpreçobox.Text) * 23) / 100)
@@ -172,7 +160,7 @@
         End Try
     End Sub
 
-    Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs) Handles vgapreçobox.TextChanged
+    Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs)
         ''NumberFormat(VGApreçobox)
         Try
             'vgapreçoivalabel.Text = CDec(vgapreçobox.Text) + ((CDec(vgapreçobox.Text) * 23) / 100)
@@ -180,7 +168,7 @@
         End Try
     End Sub
 
-    Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs) Handles opticpreçobox.TextChanged
+    Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(opticpreçobox)
         Try
             ''opticpreçoivalabel.Text = CDec(opticpreçobox.Text) + ((CDec(opticpreçobox.Text) * 23) / 100)
@@ -188,7 +176,7 @@
         End Try
     End Sub
 
-    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
+    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(redepreçobox)
         Try
             'redepreçoivalabel.Text = CDec(redepreçobox.Text) + ((CDec(redepreçobox.Text) * 23) / 100)
@@ -196,7 +184,7 @@
         End Try
     End Sub
 
-    Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs) Handles fontepreçobox.TextChanged
+    Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(fontepreçobox)
         Try
             'fontepreçoivalabel.Text = CDec(fontepreçobox.Text) + ((CDec(fontepreçobox.Text) * 23) / 100)
@@ -204,7 +192,7 @@
         End Try
     End Sub
 
-    Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles processadorpreçobox.TextChanged
+    Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(processadorpreçobox)
         Try
             'processadorpreçoivalabel.Text = CDec(processadorpreçobox.Text) + ((CDec(processadorpreçobox.Text) * 23) / 100)
@@ -212,7 +200,7 @@
         End Try
     End Sub
 
-    Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs) Handles memóriapreçobox.TextChanged
+    Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(memóriapreçobox)
         Try
             'memoriapreçoivalabel.Text = CDec(memóriapreçobox.Text) + ((CDec(memóriapreçobox.Text) * 23) / 100)
@@ -220,7 +208,7 @@
         End Try
     End Sub
 
-    Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs) Handles discopreçobox.TextChanged
+    Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(discopreçobox)
         Try
             'discopreçoivalabel.Text = CDec(discopreçobox.Text) + ((CDec(discopreçobox.Text) * 23) / 100)
@@ -228,7 +216,7 @@
         End Try
     End Sub
 
-    Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs) Handles leitorpreçobox.TextChanged
+    Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(leitorpreçobox)
         Try
             'leitorpreçoivalabel.Text = CDec(leitorpreçobox.Text) + ((CDec(leitorpreçobox.Text) * 23) / 100)
@@ -236,7 +224,7 @@
         End Try
     End Sub
 
-    Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
+    Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(otherpreçobox)
         Try
 
@@ -245,4 +233,129 @@
         End Try
     End Sub
 
+    Private Sub RadLabel1_Click(sender As Object, e As EventArgs) Handles RadLabel1.Click
+
+    End Sub
+
+
+    Private Sub caixapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles caixapreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub motherpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles motherpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub coolerpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles coolerpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub vgapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles vgapreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub opticpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles opticpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub redepreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles redepreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub fontepreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles fontepreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub processadorpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles processadorpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub memoriapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles memóriapreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub discopreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles discopreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub leitorpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles leitorpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub otherpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles otherpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
 End Class

@@ -35,14 +35,14 @@ Partial Class Inserir_Software
         Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.caixapreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.motherpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.coolerpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.vgapreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.opticpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.redepreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.otherpreçobox = New ClinicaInformatica.CurrencyTextBox()
         Me.RadLabel2 = New Telerik.WinControls.UI.RadLabel()
+        Me.caixapreçobox = New System.Windows.Forms.TextBox()
+        Me.motherpreçobox = New System.Windows.Forms.TextBox()
+        Me.coolerpreçobox = New System.Windows.Forms.TextBox()
+        Me.vgapreçobox = New System.Windows.Forms.TextBox()
+        Me.opticpreçobox = New System.Windows.Forms.TextBox()
+        Me.redepreçobox = New System.Windows.Forms.TextBox()
+        Me.otherpreçobox = New System.Windows.Forms.TextBox()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel13, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -69,7 +69,7 @@ Partial Class Inserir_Software
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(113, 400)
+        Me.RadButton1.Location = New System.Drawing.Point(135, 400)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(172, 39)
         Me.RadButton1.TabIndex = 121
@@ -79,7 +79,7 @@ Partial Class Inserir_Software
         'RadButton5
         '
         Me.RadButton5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadButton5.Location = New System.Drawing.Point(291, 386)
+        Me.RadButton5.Location = New System.Drawing.Point(313, 386)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(174, 53)
         Me.RadButton5.TabIndex = 120
@@ -178,69 +178,6 @@ Partial Class Inserir_Software
         Me.Label1.TabIndex = 136
         Me.Label1.Text = "........................"
         '
-        'caixapreçobox
-        '
-        Me.caixapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.caixapreçobox.Location = New System.Drawing.Point(418, 121)
-        Me.caixapreçobox.Name = "caixapreçobox"
-        Me.caixapreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.caixapreçobox.TabIndex = 137
-        Me.caixapreçobox.Text = "0"
-        '
-        'motherpreçobox
-        '
-        Me.motherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.motherpreçobox.Location = New System.Drawing.Point(418, 160)
-        Me.motherpreçobox.Name = "motherpreçobox"
-        Me.motherpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.motherpreçobox.TabIndex = 138
-        Me.motherpreçobox.Text = "0"
-        '
-        'coolerpreçobox
-        '
-        Me.coolerpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.coolerpreçobox.Location = New System.Drawing.Point(418, 197)
-        Me.coolerpreçobox.Name = "coolerpreçobox"
-        Me.coolerpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.coolerpreçobox.TabIndex = 139
-        Me.coolerpreçobox.Text = "0"
-        '
-        'vgapreçobox
-        '
-        Me.vgapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.vgapreçobox.Location = New System.Drawing.Point(418, 239)
-        Me.vgapreçobox.Name = "vgapreçobox"
-        Me.vgapreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.vgapreçobox.TabIndex = 140
-        Me.vgapreçobox.Text = "0"
-        '
-        'opticpreçobox
-        '
-        Me.opticpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.opticpreçobox.Location = New System.Drawing.Point(418, 274)
-        Me.opticpreçobox.Name = "opticpreçobox"
-        Me.opticpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.opticpreçobox.TabIndex = 141
-        Me.opticpreçobox.Text = "0"
-        '
-        'redepreçobox
-        '
-        Me.redepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.redepreçobox.Location = New System.Drawing.Point(418, 313)
-        Me.redepreçobox.Name = "redepreçobox"
-        Me.redepreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.redepreçobox.TabIndex = 142
-        Me.redepreçobox.Text = "0"
-        '
-        'otherpreçobox
-        '
-        Me.otherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.otherpreçobox.Location = New System.Drawing.Point(418, 348)
-        Me.otherpreçobox.Name = "otherpreçobox"
-        Me.otherpreçobox.Size = New System.Drawing.Size(47, 29)
-        Me.otherpreçobox.TabIndex = 143
-        Me.otherpreçobox.Text = "0"
-        '
         'RadLabel2
         '
         Me.RadLabel2.Font = New System.Drawing.Font("Segoe UI", 15.75!)
@@ -250,12 +187,67 @@ Partial Class Inserir_Software
         Me.RadLabel2.TabIndex = 144
         Me.RadLabel2.Text = "Preço"
         '
+        'caixapreçobox
+        '
+        Me.caixapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.caixapreçobox.Location = New System.Drawing.Point(418, 125)
+        Me.caixapreçobox.Name = "caixapreçobox"
+        Me.caixapreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.caixapreçobox.TabIndex = 180
+        '
+        'motherpreçobox
+        '
+        Me.motherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.motherpreçobox.Location = New System.Drawing.Point(418, 162)
+        Me.motherpreçobox.Name = "motherpreçobox"
+        Me.motherpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.motherpreçobox.TabIndex = 181
+        '
+        'coolerpreçobox
+        '
+        Me.coolerpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.coolerpreçobox.Location = New System.Drawing.Point(418, 196)
+        Me.coolerpreçobox.Name = "coolerpreçobox"
+        Me.coolerpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.coolerpreçobox.TabIndex = 182
+        '
+        'vgapreçobox
+        '
+        Me.vgapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.vgapreçobox.Location = New System.Drawing.Point(418, 235)
+        Me.vgapreçobox.Name = "vgapreçobox"
+        Me.vgapreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.vgapreçobox.TabIndex = 183
+        '
+        'opticpreçobox
+        '
+        Me.opticpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.opticpreçobox.Location = New System.Drawing.Point(418, 274)
+        Me.opticpreçobox.Name = "opticpreçobox"
+        Me.opticpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.opticpreçobox.TabIndex = 184
+        '
+        'redepreçobox
+        '
+        Me.redepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.redepreçobox.Location = New System.Drawing.Point(418, 309)
+        Me.redepreçobox.Name = "redepreçobox"
+        Me.redepreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.redepreçobox.TabIndex = 185
+        '
+        'otherpreçobox
+        '
+        Me.otherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.otherpreçobox.Location = New System.Drawing.Point(418, 350)
+        Me.otherpreçobox.Name = "otherpreçobox"
+        Me.otherpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.otherpreçobox.TabIndex = 186
+        '
         'Inserir_Software
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(488, 456)
-        Me.Controls.Add(Me.RadLabel2)
+        Me.ClientSize = New System.Drawing.Size(517, 456)
         Me.Controls.Add(Me.otherpreçobox)
         Me.Controls.Add(Me.redepreçobox)
         Me.Controls.Add(Me.opticpreçobox)
@@ -263,6 +255,7 @@ Partial Class Inserir_Software
         Me.Controls.Add(Me.coolerpreçobox)
         Me.Controls.Add(Me.motherpreçobox)
         Me.Controls.Add(Me.caixapreçobox)
+        Me.Controls.Add(Me.RadLabel2)
         Me.Controls.Add(Me.RadLabel13)
         Me.Controls.Add(Me.otherdescriçaobox)
         Me.Controls.Add(Me.RadButton1)
@@ -307,12 +300,12 @@ Partial Class Inserir_Software
     Friend WithEvents RadLabel4 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents RadLabel1 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents caixapreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents motherpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents coolerpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents vgapreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents opticpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents redepreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents otherpreçobox As ClinicaInformatica.CurrencyTextBox
     Friend WithEvents RadLabel2 As Telerik.WinControls.UI.RadLabel
+    Friend WithEvents caixapreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents motherpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents coolerpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents vgapreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents opticpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents redepreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents otherpreçobox As System.Windows.Forms.TextBox
 End Class

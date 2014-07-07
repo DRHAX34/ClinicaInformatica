@@ -86,7 +86,6 @@
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles adicionarbutton.Click
         Dim check_nome As String = ""
         Dim check_morada As String = ""
-        Dim check_nif As Boolean = False
         Dim check_codpostal As Boolean = False
         Dim check_localidade As String = ""
         Dim check_contactom As Boolean = False
@@ -95,11 +94,6 @@
             check_nome.Trim()
             check_morada = moradabox.Text
             check_morada.Trim()
-            If nifbox.Text.Length < 9 Then
-                check_nif = False
-            Else
-                check_nif = True
-            End If
             If codpostalbox.Text.Count < 7 Then
                 check_codpostal = False
             Else
@@ -116,7 +110,7 @@
             MsgBox("Preencha todos os dados marcados como obrigatórios!")
         End Try
             Try
-            If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_nif = False And Not check_localidade = "" And Not check_contactom = False Then
+            If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_localidade = "" And Not check_contactom = False Then
                 If Workspace.Aluno = False Then
                     BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 Else
@@ -330,7 +324,4 @@
     Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.Click
         cfixobox.Select(0, cfixobox.Text.Length + 1)
     End Sub
-
-    
-    
 End Class

@@ -40,8 +40,6 @@
         Dim check_nome As String = nomebox.Text
         Dim check_contactom As Boolean = False
         Dim check_contactof As Boolean = False
-        Dim check_naluno As String = numalunobox.Text
-        Dim check_turma As String = turmabox.Text
         Dim checklogo As String = caminhobox.Text
         Dim checklocalidade As String = localidadebox.Text
         Dim checkcodpostal As Boolean = False
@@ -56,13 +54,6 @@
                     check_contactom = False
                 Else
                 check_contactom = True
-                End If
-                If Workspace.Aluno = True Then
-                    check_naluno.Trim()
-                    check_turma.Trim()
-                Else
-                    check_naluno = "N/A"
-                    check_turma = "N/A"
                 End If
                 checklogo.Trim()
                 If cod_postalbox.Text.Length < 7 Then
@@ -242,13 +233,5 @@
 
     Private Sub cod_postalbox_click(sender As Object, e As EventArgs) Handles cod_postalbox.Click
         cod_postalbox.Select(0, cod_postalbox.Text.Length + 1)
-    End Sub
-
-    Private Sub cod_postalbox_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
-
-    End Sub
-
-    Private Sub contactom_box_TextChanged(sender As Object, e As EventArgs) Handles contactom_box.TextChanged
-
     End Sub
 End Class

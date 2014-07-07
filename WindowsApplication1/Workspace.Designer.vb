@@ -50,14 +50,14 @@ Partial Class Workspace
         Me.empresasativas = New System.Windows.Forms.ToolStripMenuItem()
         Me.empresasremovidas = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpMenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ContentsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.IndexToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SearchToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
+        Me.BackupDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RestaurarDadosFábricaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -130,13 +130,13 @@ Partial Class Workspace
         'componentesAtivosToolStripMenuItem
         '
         Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
         '
         'componentesRemovidosToolStripMenuItem
         '
         Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
         Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
         '
         'reparacoesmenu
@@ -152,13 +152,13 @@ Partial Class Workspace
         'reparativos
         '
         Me.reparativos.Name = "reparativos"
-        Me.reparativos.Size = New System.Drawing.Size(152, 22)
+        Me.reparativos.Size = New System.Drawing.Size(136, 22)
         Me.reparativos.Text = "Ativos"
         '
         'reparremovidos
         '
         Me.reparremovidos.Name = "reparremovidos"
-        Me.reparremovidos.Size = New System.Drawing.Size(152, 22)
+        Me.reparremovidos.Size = New System.Drawing.Size(136, 22)
         Me.reparremovidos.Text = "Removidos"
         '
         'tecnicosmenu
@@ -224,18 +224,18 @@ Partial Class Workspace
         'empresasativas
         '
         Me.empresasativas.Name = "empresasativas"
-        Me.empresasativas.Size = New System.Drawing.Size(135, 22)
+        Me.empresasativas.Size = New System.Drawing.Size(152, 22)
         Me.empresasativas.Text = "Ativas"
         '
         'empresasremovidas
         '
         Me.empresasremovidas.Name = "empresasremovidas"
-        Me.empresasremovidas.Size = New System.Drawing.Size(135, 22)
+        Me.empresasremovidas.Size = New System.Drawing.Size(152, 22)
         Me.empresasremovidas.Text = "Removidas"
         '
         'HelpMenu
         '
-        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ContentsToolStripMenuItem, Me.IndexToolStripMenuItem, Me.SearchToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
+        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem, Me.BackupDeDadosToolStripMenuItem, Me.RestaurarDadosFábricaToolStripMenuItem})
         Me.HelpMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.HelpMenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent
         Me.HelpMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -243,38 +243,23 @@ Partial Class Workspace
         Me.HelpMenu.Size = New System.Drawing.Size(104, 58)
         Me.HelpMenu.Text = "Ajuda"
         '
-        'ContentsToolStripMenuItem
-        '
-        Me.ContentsToolStripMenuItem.Name = "ContentsToolStripMenuItem"
-        Me.ContentsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.F1), System.Windows.Forms.Keys)
-        Me.ContentsToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.ContentsToolStripMenuItem.Text = "&Conteúdo"
-        '
         'IndexToolStripMenuItem
         '
         Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.IndexToolStripMenuItem.Text = "&Índice"
-        '
-        'SearchToolStripMenuItem
-        '
-        Me.SearchToolStripMenuItem.Image = CType(resources.GetObject("SearchToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.SearchToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.SearchToolStripMenuItem.Name = "SearchToolStripMenuItem"
-        Me.SearchToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
-        Me.SearchToolStripMenuItem.Text = "&Procurar"
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.IndexToolStripMenuItem.Text = "Manual de Utilizador"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(173, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(204, 6)
         '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
         Me.AboutToolStripMenuItem.Text = "&Sobre ..."
         '
         'Label1
@@ -305,6 +290,18 @@ Partial Class Workspace
         '
         Me.Statuscheck.Enabled = True
         Me.Statuscheck.Interval = 5
+        '
+        'BackupDeDadosToolStripMenuItem
+        '
+        Me.BackupDeDadosToolStripMenuItem.Name = "BackupDeDadosToolStripMenuItem"
+        Me.BackupDeDadosToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.BackupDeDadosToolStripMenuItem.Text = "Backup de Dados"
+        '
+        'RestaurarDadosFábricaToolStripMenuItem
+        '
+        Me.RestaurarDadosFábricaToolStripMenuItem.Name = "RestaurarDadosFábricaToolStripMenuItem"
+        Me.RestaurarDadosFábricaToolStripMenuItem.Size = New System.Drawing.Size(207, 22)
+        Me.RestaurarDadosFábricaToolStripMenuItem.Text = "Restaurar Dados Fábrica"
         '
         'Workspace
         '
@@ -341,9 +338,7 @@ Partial Class Workspace
     Friend WithEvents reparacoesmenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents tecnicosmenu As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HelpMenu As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ContentsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents IndexToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SearchToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
@@ -366,5 +361,7 @@ Partial Class Workspace
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents Statuscheck As System.Windows.Forms.Timer
+    Friend WithEvents BackupDeDadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RestaurarDadosFábricaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

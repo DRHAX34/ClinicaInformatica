@@ -12,8 +12,10 @@
             RadButton2.Enabled = True
             RadButton3.Text = "Restaurar Dados Originais"
             RadButton5.Enabled = False
+            RadButton1.Enabled = True
         Else
             RadButton2.Enabled = False
+            RadButton1.Enabled = False
             RadButton3.Text = "Limpar Dados"
         End If
         If removidos = True Then
@@ -94,20 +96,33 @@
                 BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
-                    Dim opr_reparações As New OPR_Reparações
-                    opr_reparações.MdiParent = Workspace
-                    opr_reparações.modo = False
-                    opr_reparações.numcomponentebox.Text = BLL.Componentes.carregar.Rows(BLL.Componentes.carregar.Rows.Count - 1).Item("NºComponente").ToString
-                    opr_reparações.Show()
-                    Me.Close()
+                    If BLL.Tecnicos.carregar.Rows.Count = 0 Then
+                        If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
+                            Dim opr_tecnicos As New OPR_Técnicos
+                            opr_tecnicos.MdiParent = Workspace
+                            opr_tecnicos.modo = False
+                            opr_tecnicos.Show()
+                            Me.Close()
+                        Else
+                            MsgBox("Não poderá criar nenhuma reparação sem inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                            Me.Close()
+                        End If
+                    Else
+                        Dim opr_reparações As New OPR_Reparações
+                        opr_reparações.MdiParent = Workspace
+                        opr_reparações.modo = False
+                        opr_reparações.numcomponentebox.Text = BLL.Componentes.carregar.Rows(BLL.Componentes.carregar.Rows.Count - 1).Item("NºComponente").ToString
+                        opr_reparações.Show()
+                        Me.Close()
+                    End If
                 Else
                     Workspace.componentesAtivosToolStripMenuItem.PerformClick()
                     Me.Close()
                 End If
 
-            Else
-                MsgBox("Introduza todos os dados!")
-            End If
+                Else
+                    MsgBox("Introduza todos os dados!")
+                End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
         End Try

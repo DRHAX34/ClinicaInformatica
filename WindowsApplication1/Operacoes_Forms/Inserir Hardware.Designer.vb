@@ -52,20 +52,20 @@ Partial Class Inserir_Hardware
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.otherdescriçaobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.otherqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.caixapreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.motherpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.coolerpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.vgapreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.opticpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.redepreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.fontepreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.processadorpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.memóriapreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.discopreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.leitorpreçobox = New ClinicaInformatica.CurrencyTextBox()
-        Me.otherpreçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.caixapreçobox = New System.Windows.Forms.TextBox()
+        Me.motherpreçobox = New System.Windows.Forms.TextBox()
+        Me.coolerpreçobox = New System.Windows.Forms.TextBox()
+        Me.vgapreçobox = New System.Windows.Forms.TextBox()
+        Me.opticpreçobox = New System.Windows.Forms.TextBox()
+        Me.redepreçobox = New System.Windows.Forms.TextBox()
+        Me.fontepreçobox = New System.Windows.Forms.TextBox()
+        Me.processadorpreçobox = New System.Windows.Forms.TextBox()
+        Me.memóriapreçobox = New System.Windows.Forms.TextBox()
+        Me.discopreçobox = New System.Windows.Forms.TextBox()
+        Me.leitorpreçobox = New System.Windows.Forms.TextBox()
+        Me.otherpreçobox = New System.Windows.Forms.TextBox()
+        Me.otherdescriçaobox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RadLabel4.SuspendLayout()
@@ -335,7 +335,7 @@ Partial Class Inserir_Hardware
         'RadButton5
         '
         Me.RadButton5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadButton5.Location = New System.Drawing.Point(549, 361)
+        Me.RadButton5.Location = New System.Drawing.Point(578, 361)
         Me.RadButton5.Name = "RadButton5"
         Me.RadButton5.Size = New System.Drawing.Size(174, 53)
         Me.RadButton5.TabIndex = 68
@@ -344,7 +344,7 @@ Partial Class Inserir_Hardware
         '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(362, 375)
+        Me.RadButton1.Location = New System.Drawing.Point(391, 375)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(172, 39)
         Me.RadButton1.TabIndex = 69
@@ -371,16 +371,6 @@ Partial Class Inserir_Hardware
         Me.Label2.TabIndex = 138
         Me.Label2.Text = "Qtd.    Preço"
         '
-        'otherdescriçaobox
-        '
-        Me.otherdescriçaobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.otherdescriçaobox.Location = New System.Drawing.Point(449, 302)
-        Me.otherdescriçaobox.Name = "otherdescriçaobox"
-        Me.otherdescriçaobox.Size = New System.Drawing.Size(170, 29)
-        Me.otherdescriçaobox.TabIndex = 165
-        Me.otherdescriçaobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.otherdescriçaobox.WaterMarkText = "Descrição do Hardware"
-        '
         'otherqtdbox
         '
         Me.otherqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -392,129 +382,127 @@ Partial Class Inserir_Hardware
         'caixapreçobox
         '
         Me.caixapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.caixapreçobox.Location = New System.Drawing.Point(271, 115)
+        Me.caixapreçobox.Location = New System.Drawing.Point(273, 115)
         Me.caixapreçobox.Name = "caixapreçobox"
-        Me.caixapreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.caixapreçobox.TabIndex = 85
-        Me.caixapreçobox.Text = "0"
+        Me.caixapreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.caixapreçobox.TabIndex = 179
         '
         'motherpreçobox
         '
         Me.motherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.motherpreçobox.Location = New System.Drawing.Point(270, 153)
+        Me.motherpreçobox.Location = New System.Drawing.Point(273, 150)
         Me.motherpreçobox.Name = "motherpreçobox"
-        Me.motherpreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.motherpreçobox.TabIndex = 168
-        Me.motherpreçobox.Text = "0"
+        Me.motherpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.motherpreçobox.TabIndex = 180
         '
         'coolerpreçobox
         '
         Me.coolerpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.coolerpreçobox.Location = New System.Drawing.Point(270, 192)
+        Me.coolerpreçobox.Location = New System.Drawing.Point(273, 191)
         Me.coolerpreçobox.Name = "coolerpreçobox"
-        Me.coolerpreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.coolerpreçobox.TabIndex = 169
-        Me.coolerpreçobox.Text = "0"
+        Me.coolerpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.coolerpreçobox.TabIndex = 181
         '
         'vgapreçobox
         '
         Me.vgapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.vgapreçobox.Location = New System.Drawing.Point(270, 232)
+        Me.vgapreçobox.Location = New System.Drawing.Point(273, 230)
         Me.vgapreçobox.Name = "vgapreçobox"
-        Me.vgapreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.vgapreçobox.TabIndex = 170
-        Me.vgapreçobox.Text = "0"
+        Me.vgapreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.vgapreçobox.TabIndex = 182
         '
         'opticpreçobox
         '
         Me.opticpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.opticpreçobox.Location = New System.Drawing.Point(270, 269)
+        Me.opticpreçobox.Location = New System.Drawing.Point(273, 269)
         Me.opticpreçobox.Name = "opticpreçobox"
-        Me.opticpreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.opticpreçobox.TabIndex = 171
-        Me.opticpreçobox.Text = "0"
+        Me.opticpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.opticpreçobox.TabIndex = 183
         '
         'redepreçobox
         '
         Me.redepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.redepreçobox.Location = New System.Drawing.Point(271, 304)
+        Me.redepreçobox.Location = New System.Drawing.Point(273, 304)
         Me.redepreçobox.Name = "redepreçobox"
-        Me.redepreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.redepreçobox.TabIndex = 172
-        Me.redepreçobox.Text = "0"
+        Me.redepreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.redepreçobox.TabIndex = 184
         '
         'fontepreçobox
         '
         Me.fontepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.fontepreçobox.Location = New System.Drawing.Point(676, 116)
+        Me.fontepreçobox.Location = New System.Drawing.Point(676, 119)
         Me.fontepreçobox.Name = "fontepreçobox"
-        Me.fontepreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.fontepreçobox.TabIndex = 173
-        Me.fontepreçobox.Text = "0"
+        Me.fontepreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.fontepreçobox.TabIndex = 185
         '
         'processadorpreçobox
         '
         Me.processadorpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.processadorpreçobox.Location = New System.Drawing.Point(676, 154)
+        Me.processadorpreçobox.Location = New System.Drawing.Point(676, 155)
         Me.processadorpreçobox.Name = "processadorpreçobox"
-        Me.processadorpreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.processadorpreçobox.TabIndex = 174
-        Me.processadorpreçobox.Text = "0"
+        Me.processadorpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.processadorpreçobox.TabIndex = 186
         '
         'memóriapreçobox
         '
         Me.memóriapreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.memóriapreçobox.Location = New System.Drawing.Point(676, 192)
+        Me.memóriapreçobox.Location = New System.Drawing.Point(676, 194)
         Me.memóriapreçobox.Name = "memóriapreçobox"
-        Me.memóriapreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.memóriapreçobox.TabIndex = 175
-        Me.memóriapreçobox.Text = "0"
+        Me.memóriapreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.memóriapreçobox.TabIndex = 187
         '
         'discopreçobox
         '
         Me.discopreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.discopreçobox.Location = New System.Drawing.Point(676, 229)
+        Me.discopreçobox.Location = New System.Drawing.Point(675, 226)
         Me.discopreçobox.Name = "discopreçobox"
-        Me.discopreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.discopreçobox.TabIndex = 176
-        Me.discopreçobox.Text = "0"
+        Me.discopreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.discopreçobox.TabIndex = 188
         '
         'leitorpreçobox
         '
         Me.leitorpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.leitorpreçobox.Location = New System.Drawing.Point(677, 264)
+        Me.leitorpreçobox.Location = New System.Drawing.Point(675, 264)
         Me.leitorpreçobox.Name = "leitorpreçobox"
-        Me.leitorpreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.leitorpreçobox.TabIndex = 177
-        Me.leitorpreçobox.Text = "0"
+        Me.leitorpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.leitorpreçobox.TabIndex = 189
         '
         'otherpreçobox
         '
         Me.otherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.otherpreçobox.Location = New System.Drawing.Point(676, 298)
+        Me.otherpreçobox.Location = New System.Drawing.Point(675, 299)
         Me.otherpreçobox.Name = "otherpreçobox"
-        Me.otherpreçobox.Size = New System.Drawing.Size(46, 29)
-        Me.otherpreçobox.TabIndex = 178
-        Me.otherpreçobox.Text = "0"
+        Me.otherpreçobox.Size = New System.Drawing.Size(76, 29)
+        Me.otherpreçobox.TabIndex = 190
+        '
+        'otherdescriçaobox
+        '
+        Me.otherdescriçaobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.otherdescriçaobox.Location = New System.Drawing.Point(449, 302)
+        Me.otherdescriçaobox.Name = "otherdescriçaobox"
+        Me.otherdescriçaobox.Size = New System.Drawing.Size(170, 29)
+        Me.otherdescriçaobox.TabIndex = 165
+        Me.otherdescriçaobox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.otherdescriçaobox.WaterMarkText = "Descrição do Hardware"
         '
         'Inserir_Hardware
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(749, 426)
+        Me.ClientSize = New System.Drawing.Size(771, 426)
         Me.Controls.Add(Me.otherpreçobox)
         Me.Controls.Add(Me.leitorpreçobox)
         Me.Controls.Add(Me.discopreçobox)
         Me.Controls.Add(Me.memóriapreçobox)
         Me.Controls.Add(Me.processadorpreçobox)
         Me.Controls.Add(Me.fontepreçobox)
-        Me.Controls.Add(Me.redeqtdbox)
         Me.Controls.Add(Me.redepreçobox)
         Me.Controls.Add(Me.opticpreçobox)
         Me.Controls.Add(Me.vgapreçobox)
         Me.Controls.Add(Me.coolerpreçobox)
         Me.Controls.Add(Me.motherpreçobox)
         Me.Controls.Add(Me.caixapreçobox)
+        Me.Controls.Add(Me.redeqtdbox)
         Me.Controls.Add(Me.otherqtdbox)
         Me.Controls.Add(Me.otherdescriçaobox)
         Me.Controls.Add(Me.Label2)
@@ -612,16 +600,16 @@ Partial Class Inserir_Hardware
     Friend WithEvents redeqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents otherdescriçaobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents otherqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents caixapreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents motherpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents coolerpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents vgapreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents opticpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents redepreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents fontepreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents processadorpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents memóriapreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents discopreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents leitorpreçobox As ClinicaInformatica.CurrencyTextBox
-    Friend WithEvents otherpreçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents caixapreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents motherpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents coolerpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents vgapreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents opticpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents redepreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents fontepreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents processadorpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents memóriapreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents discopreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents leitorpreçobox As System.Windows.Forms.TextBox
+    Friend WithEvents otherpreçobox As System.Windows.Forms.TextBox
 End Class

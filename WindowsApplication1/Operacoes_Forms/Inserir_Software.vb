@@ -7,33 +7,27 @@
         End If
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim h As New ArrayList
-        h.Add("Instalação S.O")
-        h.Add(caixapreçobox.Text)
+        Dim h(1) As Object
+        h(0) = ("Instalação S.O")
+        h(1) = (caixapreçobox.Text)
         Workspace.software_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Recuperação S.O")
-        h.Add(motherpreçobox.Text)
+        h(0) = ("Recuperação S.O")
+        h(1) = (motherpreçobox.Text)
         Workspace.software_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Remoção Spyware")
-        h.Add(coolerpreçobox.Text)
+        h(0) = ("Remoção Spyware")
+        h(1) = (coolerpreçobox.Text)
         Workspace.software_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Remoção Vírus")
-        h.Add(VGApreçobox.Text)
+        h(0) = ("Remoção Vírus")
+        h(1) = (vgapreçobox.Text)
         Workspace.software_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Remoção Cód. S.O")
-        h.Add(opticpreçobox.Text)
+        h(0) = ("Remoção Cód. S.O")
+        h(1) = (opticpreçobox.Text)
         Workspace.software_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add("Limpeza")
-        h.Add(redepreçobox.Text)
+        h(0) = ("Limpeza")
+        h(1) = (redepreçobox.Text)
         Workspace.software_support.Rows.Add(h)
-        h = New ArrayList
-        h.Add(otherdescriçaobox.Text)
-        h.Add(otherpreçobox.Text)
+        h(0) = (otherdescriçaobox.Text)
+        h(1) = (otherpreçobox.Text)
         Workspace.software_support.Rows.Add(h)
         Me.Close()
     End Sub
@@ -82,33 +76,108 @@
     '    Text.Text = temptext.Text & "€"
     'End Sub
 
-    Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
+    Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(caixapreçobox)
     End Sub
 
-    Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles motherpreçobox.TextChanged
+    Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(motherpreçobox)
     End Sub
 
-    Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs) Handles coolerpreçobox.TextChanged
+    Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(coolerpreçobox)
-        
+
     End Sub
 
-    Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs) Handles vgapreçobox.TextChanged
+    Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs)
         ''NumberFormat(VGApreçobox)
     End Sub
 
-    Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs) Handles opticpreçobox.TextChanged
+    Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(opticpreçobox)
     End Sub
 
-    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs) Handles redepreçobox.TextChanged
+    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(redepreçobox)
     End Sub
 
-    Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs) Handles otherpreçobox.TextChanged
+    Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(fontepreçobox)
-        
+
+    End Sub
+
+    Private Sub caixapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles caixapreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub motherpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles motherpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub coolerpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles coolerpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub vgapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles vgapreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub opticpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles opticpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub redepreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles redepreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub otherpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles otherpreçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub caixapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
+
     End Sub
 End Class

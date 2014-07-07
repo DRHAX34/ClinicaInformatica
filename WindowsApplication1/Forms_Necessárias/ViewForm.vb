@@ -171,6 +171,9 @@
                         opr_reparacoes.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
                         opr_reparacoes.modo = True
+                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
+                        Workspace.software_support = BLL.Software.return_software(string_data)
+                        Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
                         If removidos = True Then
                             opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação_desativo(string_data)
                             opr_reparacoes.removidos = True
@@ -180,8 +183,6 @@
                             opr_reparacoes.removidos = False
                             opr_reparacoes.Show()
                         End If
-                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
-                        Workspace.software_support = BLL.Software.return_software(string_data)
                     Case "Técnicos"
                         Dim opr_tecnicos As New OPR_Técnicos
                         opr_tecnicos.MdiParent = Workspace
@@ -494,6 +495,9 @@
                         opr_reparacoes.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
                         opr_reparacoes.modo = True
+                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
+                        Workspace.software_support = BLL.Software.return_software(string_data)
+                        Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
                         If removidos = True Then
                             opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação_desativo(string_data)
                             opr_reparacoes.removidos = True

@@ -52,6 +52,7 @@ Partial Class OPR_Clientes
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.numalunobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.turmabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,7 +67,7 @@ Partial Class OPR_Clientes
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(360, 211)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(135, 25)
+        Me.Label4.Size = New System.Drawing.Size(136, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Código Postal"
         '
@@ -358,12 +359,23 @@ Partial Class OPR_Clientes
         Me.turmabox.WaterMarkColor = System.Drawing.Color.Gray
         Me.turmabox.WaterMarkText = "Turma"
         '
+        'Label12
+        '
+        Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.Label12.Location = New System.Drawing.Point(51, 344)
+        Me.Label12.Name = "Label12"
+        Me.Label12.Size = New System.Drawing.Size(229, 13)
+        Me.Label12.TabIndex = 90
+        Me.Label12.Text = "Não se esqueça de inserir o indicativo do país!"
+        '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(637, 461)
+        Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.turmabox)
         Me.Controls.Add(Me.numalunobox)
         Me.Controls.Add(Me.RadioButton2)
@@ -437,4 +449,5 @@ End Sub
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents numalunobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents turmabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Label12 As System.Windows.Forms.Label
 End Class

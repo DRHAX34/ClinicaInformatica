@@ -21,6 +21,7 @@ Public Class Workspace
     Public software_support As New DataTable
     Public string_pass As String
     Public erros As Boolean
+    Public preço As String
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
@@ -355,6 +356,17 @@ Public Class Workspace
                         Else
                             MsgBox("Não poderá inserir/visualizar reparações até inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
                         End If
+                    End If
+                Else
+                    If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
+                        Dim opr_componentes As New OPR_Componentes
+                        opr_componentes.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        opr_componentes.modo = False
+                        opr_componentes.Show()
+                    Else
+                        MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOKOnly, "Erro")
+                    End If
                 End If
             Else
                 If MsgBox("Não tem nenhum cliente inserido, deseja inserir algum?", vbYesNo, "Nenhum Cliente Inserido") = vbYes Then
@@ -364,18 +376,7 @@ Public Class Workspace
                     opr_clientes.modo = False
                     opr_clientes.Show()
                 Else
-                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um cliente!", vbOK, "Erro")
-                End If
-            End If
-            Else
-                If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
-                    Dim opr_componentes As New OPR_Componentes
-                    opr_componentes.MdiParent = Me
-                    m_ChildFormNumber += 1
-                    opr_componentes.modo = False
-                    opr_componentes.Show()
-                Else
-                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOK, "Erro")
+                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um cliente!", vbOKOnly, "Erro")
                 End If
             End If
         Else
@@ -439,20 +440,56 @@ Public Class Workspace
 
     Private Sub reparremovidos_Click(sender As Object, e As EventArgs) Handles reparremovidos.Click
         If check_reparacoes = False Then
-            Try
-                Dim repararview As New ViewForm
-                check_reparacoes = True
-                repararview.Text = "Reparações Removidas"
-                repararview.tabela = "Reparações"
-                repararview.MdiParent = Me
-                m_ChildFormNumber += 1
-                repararview.data_table = BLL.Reparacoes.carregar_desativos
-                repararview.removidos = True
-                repararview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
+            If BLL.Clientes.carregar.Rows.Count <> 0 Then
+                If BLL.Componentes.carregar.Rows.Count <> 0 Then
+                    If BLL.Tecnicos.carregar.Rows.Count <> 0 Then
+                        Try
+                            Dim repararview As New ViewForm
+                            check_reparacoes = True
+                            repararview.Text = "Reparações"
+                            repararview.tabela = "Reparações"
+                            repararview.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            repararview.data_table = BLL.Reparacoes.carregar_desativos
+                            repararview.removidos = True
+                            repararview.Show()
+                        Catch ex As Exception
+                            MsgBox("Erro ao executar comando: " & ex.Message)
+                            Me.Close()
+                        End Try
+                    Else
+                        If MsgBox("Não tem nenhum técnico inserido, deseja inserir um técnico?", vbYesNo, "Sem Técnicos!") = vbYes Then
+                            Dim opr_tecnicos As New OPR_Técnicos
+                            opr_tecnicos.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            opr_tecnicos.modo = False
+                            opr_tecnicos.Show()
+                        Else
+                            MsgBox("Não poderá inserir/visualizar reparações até inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                        End If
+                    End If
+                Else
+                    If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
+                        Dim opr_componentes As New OPR_Componentes
+                        opr_componentes.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        opr_componentes.modo = False
+                        opr_componentes.Show()
+                    Else
+                        MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOKOnly, "Erro")
+                    End If
+                End If
+            Else
+                If MsgBox("Não tem nenhum cliente inserido, deseja inserir algum?", vbYesNo, "Nenhum Cliente Inserido") = vbYes Then
+                    Dim opr_clientes As New OPR_Clientes
+                    opr_clientes.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    opr_clientes.modo = False
+                    opr_clientes.Show()
+                Else
+                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um cliente!", vbOKOnly, "Erro")
+                End If
+            End If
         Else
             MsgBox("Já tem a janela das Reparações abertas!")
         End If

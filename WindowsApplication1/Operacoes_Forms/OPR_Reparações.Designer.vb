@@ -52,7 +52,9 @@ Partial Class OPR_Reparações
         Me.tempo_real = New System.Windows.Forms.Label()
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
-        Me.preçobox = New ClinicaInformatica.CurrencyTextBox()
+        Me.showdata = New Telerik.WinControls.UI.RadGridView()
+        Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
+        Me.preçobox = New System.Windows.Forms.TextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -64,6 +66,8 @@ Partial Class OPR_Reparações
         CType(Me.insert_tecnicos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'descriçaobox
@@ -72,14 +76,14 @@ Partial Class OPR_Reparações
         Me.descriçaobox.Location = New System.Drawing.Point(49, 294)
         Me.descriçaobox.Multiline = True
         Me.descriçaobox.Name = "descriçaobox"
-        Me.descriçaobox.Size = New System.Drawing.Size(709, 117)
+        Me.descriçaobox.Size = New System.Drawing.Size(473, 117)
         Me.descriçaobox.TabIndex = 58
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(312, 266)
+        Me.Label8.Location = New System.Drawing.Point(195, 266)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
@@ -88,7 +92,7 @@ Partial Class OPR_Reparações
         'CheckBox2
         '
         Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(268, 33)
+        Me.CheckBox2.Location = New System.Drawing.Point(232, 33)
         Me.CheckBox2.Name = "CheckBox2"
         Me.CheckBox2.Size = New System.Drawing.Size(111, 29)
         Me.CheckBox2.TabIndex = 54
@@ -224,7 +228,7 @@ Partial Class OPR_Reparações
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(49, 174)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(535, 76)
+        Me.GroupBox1.Size = New System.Drawing.Size(464, 76)
         Me.GroupBox1.TabIndex = 64
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo"
@@ -232,9 +236,9 @@ Partial Class OPR_Reparações
         'insert_software
         '
         Me.insert_software.Enabled = False
-        Me.insert_software.Location = New System.Drawing.Point(385, 28)
+        Me.insert_software.Location = New System.Drawing.Point(340, 28)
         Me.insert_software.Name = "insert_software"
-        Me.insert_software.Size = New System.Drawing.Size(133, 34)
+        Me.insert_software.Size = New System.Drawing.Size(105, 34)
         Me.insert_software.TabIndex = 67
         Me.insert_software.Text = "Inserir Software"
         Me.insert_software.ThemeName = "Windows8"
@@ -244,18 +248,18 @@ Partial Class OPR_Reparações
         Me.insert_hardware.Enabled = False
         Me.insert_hardware.Location = New System.Drawing.Point(120, 28)
         Me.insert_hardware.Name = "insert_hardware"
-        Me.insert_hardware.Size = New System.Drawing.Size(129, 34)
+        Me.insert_hardware.Size = New System.Drawing.Size(106, 34)
         Me.insert_hardware.TabIndex = 66
         Me.insert_hardware.Text = "Inserir Hardware"
         Me.insert_hardware.ThemeName = "Windows8"
         '
         'insert_tecnicos
         '
-        Me.insert_tecnicos.Location = New System.Drawing.Point(590, 189)
+        Me.insert_tecnicos.Location = New System.Drawing.Point(574, 189)
         Me.insert_tecnicos.Name = "insert_tecnicos"
         Me.insert_tecnicos.Size = New System.Drawing.Size(188, 61)
         Me.insert_tecnicos.TabIndex = 65
-        Me.insert_tecnicos.Text = "Técnicos Participantes"
+        Me.insert_tecnicos.Text = "Inserir Técnicos"
         Me.insert_tecnicos.ThemeName = "Windows8"
         '
         'PictureBox1
@@ -319,13 +323,35 @@ Partial Class OPR_Reparações
         '
         Me.Timer3.Interval = 1
         '
+        'showdata
+        '
+        Me.showdata.AutoSizeRows = True
+        Me.showdata.Location = New System.Drawing.Point(550, 266)
+        '
+        'showdata
+        '
+        Me.showdata.MasterTemplate.AllowAddNewRow = False
+        Me.showdata.MasterTemplate.AllowColumnResize = False
+        Me.showdata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.showdata.Name = "showdata"
+        Me.showdata.Padding = New System.Windows.Forms.Padding(1)
+        Me.showdata.ReadOnly = True
+        Me.showdata.Size = New System.Drawing.Size(240, 145)
+        Me.showdata.TabIndex = 79
+        Me.showdata.Text = "Data"
+        Me.showdata.ThemeName = "Windows8"
+        '
+        'Timer4
+        '
+        Me.Timer4.Interval = 1
+        '
         'preçobox
         '
-        Me.preçobox.Location = New System.Drawing.Point(267, 147)
+        Me.preçobox.Enabled = False
+        Me.preçobox.Location = New System.Drawing.Point(266, 146)
         Me.preçobox.Name = "preçobox"
-        Me.preçobox.Size = New System.Drawing.Size(103, 22)
-        Me.preçobox.TabIndex = 78
-        Me.preçobox.Text = "0"
+        Me.preçobox.Size = New System.Drawing.Size(56, 22)
+        Me.preçobox.TabIndex = 80
         '
         'OPR_Reparações
         '
@@ -334,6 +360,7 @@ Partial Class OPR_Reparações
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 515)
         Me.Controls.Add(Me.preçobox)
+        Me.Controls.Add(Me.showdata)
         Me.Controls.Add(Me.tempo_real)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
@@ -373,6 +400,8 @@ Partial Class OPR_Reparações
         CType(Me.insert_tecnicos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -406,5 +435,7 @@ Partial Class OPR_Reparações
     Friend WithEvents tempo_real As System.Windows.Forms.Label
     Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
-    Friend WithEvents preçobox As ClinicaInformatica.CurrencyTextBox
+    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents Timer4 As System.Windows.Forms.Timer
+    Friend WithEvents preçobox As System.Windows.Forms.TextBox
 End Class

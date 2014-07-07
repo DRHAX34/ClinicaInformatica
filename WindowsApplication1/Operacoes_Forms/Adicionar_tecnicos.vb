@@ -18,6 +18,8 @@ Partial Class Adicionar_tecnicos
     Friend WithEvents confirmbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents cancellbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
+    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents addedata As Telerik.WinControls.UI.RadGridView
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -27,8 +29,6 @@ Partial Class Adicionar_tecnicos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.ListBox2 = New System.Windows.Forms.ListBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Adicionar = New Telerik.WinControls.UI.RadButton()
@@ -36,29 +36,17 @@ Partial Class Adicionar_tecnicos
         Me.confirmbutton = New Telerik.WinControls.UI.RadButton()
         Me.cancellbutton = New Telerik.WinControls.UI.RadButton()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
+        Me.showdata = New Telerik.WinControls.UI.RadGridView()
+        Me.addedata = New Telerik.WinControls.UI.RadGridView()
         CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cancellbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.addedata, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.addedata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 36)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(230, 342)
-        Me.ListBox1.Sorted = True
-        Me.ListBox1.TabIndex = 0
-        '
-        'ListBox2
-        '
-        Me.ListBox2.FormattingEnabled = True
-        Me.ListBox2.Location = New System.Drawing.Point(371, 36)
-        Me.ListBox2.Name = "ListBox2"
-        Me.ListBox2.Size = New System.Drawing.Size(230, 342)
-        Me.ListBox2.Sorted = True
-        Me.ListBox2.TabIndex = 1
         '
         'Label1
         '
@@ -114,20 +102,56 @@ Partial Class Adicionar_tecnicos
         Me.cancellbutton.Text = "Cancelar"
         Me.cancellbutton.ThemeName = "Windows8"
         '
+        'showdata
+        '
+        Me.showdata.AutoSizeRows = True
+        Me.showdata.Location = New System.Drawing.Point(12, 12)
+        '
+        'showdata
+        '
+        Me.showdata.MasterTemplate.AllowAddNewRow = False
+        Me.showdata.MasterTemplate.AllowColumnResize = False
+        Me.showdata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.showdata.Name = "showdata"
+        Me.showdata.Padding = New System.Windows.Forms.Padding(1)
+        Me.showdata.ReadOnly = True
+        Me.showdata.Size = New System.Drawing.Size(240, 376)
+        Me.showdata.TabIndex = 80
+        Me.showdata.Text = "Data"
+        Me.showdata.ThemeName = "Windows8"
+        '
+        'addedata
+        '
+        Me.addedata.AutoSizeRows = True
+        Me.addedata.Location = New System.Drawing.Point(361, 12)
+        '
+        'addedata
+        '
+        Me.addedata.MasterTemplate.AllowAddNewRow = False
+        Me.addedata.MasterTemplate.AllowColumnResize = False
+        Me.addedata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.addedata.Name = "addedata"
+        Me.addedata.Padding = New System.Windows.Forms.Padding(1)
+        Me.addedata.ReadOnly = True
+        Me.addedata.Size = New System.Drawing.Size(240, 376)
+        Me.addedata.TabIndex = 80
+        Me.addedata.Text = "Data"
+        Me.addedata.ThemeName = "Windows8"
+        '
         'Adicionar_tecnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(613, 446)
+        Me.Controls.Add(Me.addedata)
+        Me.Controls.Add(Me.showdata)
         Me.Controls.Add(Me.cancellbutton)
         Me.Controls.Add(Me.confirmbutton)
         Me.Controls.Add(Me.removerbutton)
         Me.Controls.Add(Me.Adicionar)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.ListBox2)
-        Me.Controls.Add(Me.ListBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "Adicionar_tecnicos"
         Me.Text = "Adicionar Técnicos"
@@ -135,12 +159,14 @@ Partial Class Adicionar_tecnicos
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cancellbutton, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.addedata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.addedata, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
-    Friend WithEvents ListBox2 As System.Windows.Forms.ListBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class
@@ -148,64 +174,46 @@ End Class
 Public Class Adicionar_tecnicos
     Public indexes(199) As String
     Public datatable As New DataTable
+    Public cache As New DataTable
     Private Sub Adicionar_tecnicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        For i = 0 To ((BLL.Tecnicos.carregar_tecnico).Rows.Count - 1)
-            If BLL.Tecnicos.carregar_tecnico.Rows(i).Item("NºTécnico").ToString() < 9 Then
-                ListBox1.Items.Add("0" & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Nome").ToString))
-            Else
-                ListBox1.Items.Add(((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("NºTécnico").ToString) & " . " & ((BLL.Tecnicos.carregar_tecnico).Rows(i).Item("Nome").ToString))
-            End If
-        Next
-        ListBox1.SelectedIndex = 0
+        cache = BLL.Tecnicos.carregar_tecnico
+        showdata.DataSource = cache
+        addedata.DataSource = datatable
+        datatable.Columns.Add("NºTécnico")
+        datatable.Columns.Add("Nome")
         removerbutton.Enabled = False
     End Sub
 
     Private Sub Adicionar_Click(sender As Object, e As EventArgs) Handles Adicionar.Click
-        ListBox2.Items.Add(ListBox1.SelectedItem)
-        ListBox2.SelectedIndex = 0
-        ListBox1.Items.Remove(ListBox1.SelectedItem)
-        If ListBox1.Items.Count <> 0 Then
-            ListBox1.SelectedIndex = 0
-        Else
-            Adicionar.Enabled = False
-        End If
-        removerbutton.Enabled = True
+        Try
+            datatable.ImportRow(cache.Rows(showdata.CurrentCell.RowIndex))
+            cache.Rows.Remove(cache.Rows(showdata.CurrentCell.RowIndex))
+            If cache.Rows.Count = 0 Then
+                Adicionar.Enabled = False
+            End If
+            removerbutton.Enabled = True
+        Catch
+        End Try
     End Sub
 
     Private Sub remover_Click(sender As Object, e As EventArgs) Handles removerbutton.Click
-        ListBox1.Items.Add(ListBox2.SelectedItem)
-        ListBox2.Items.Remove(ListBox2.SelectedItem)
-        If ListBox2.Items.Count <> 0 Then
-            ListBox2.SelectedIndex = 0
-        Else
-            removerbutton.Enabled = False
-        End If
-        Adicionar.Enabled = True
+        Try
+            cache.ImportRow(datatable.Rows(addedata.CurrentCell.RowIndex))
+            datatable.Rows.Remove(datatable.Rows(addedata.CurrentCell.RowIndex))
+            If datatable.Rows.Count = 0 Then
+                removerbutton.Enabled = False
+            End If
+            Adicionar.Enabled = True
+        Catch
+        End Try
     End Sub
 
     Private Sub confirm_Click(sender As Object, e As EventArgs) Handles confirmbutton.Click
-        Dim datatable1 As New DataTable
-        Me.Hide()
-        If ListBox2.Items.Count <> 0 Then
-            For i = 0 To ListBox2.Items.Count - 1
-                ListBox2.SelectedIndex = i
-                If ListBox2.SelectedItem.ToString.Chars(0) <> "0" Then
-                    If i < 99 Then
-                        datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
-                    ElseIf i < 999 Then
-                        datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2)).Rows(0))
-                    ElseIf i < 9999 Then
-                        datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(0) & ListBox2.SelectedItem.ToString.Chars(1) & ListBox1.SelectedItem.ToString.Chars(2) & ListBox1.SelectedItem.ToString.Chars(3)).Rows(0))
-                    End If
-                Else
-                    datatable1.ImportRow(BLL.Tecnicos.carregar_dados_ntecnico_ativados(ListBox2.SelectedItem.ToString.Chars(1)).Rows(0))
-                End If
-            Next
-            datatable = datatable1
-            Workspace.tecnicos_support = datatable1
+        If datatable.Rows.Count <> 0 Then
+            Workspace.tecnicos_support = datatable
             Me.Close()
         Else
-            MsgBox("Introduza algum Técnico para guardar")
+            MsgBox("Introduza algum Técnico para guardar!")
         End If
     End Sub
 

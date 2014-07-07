@@ -1147,7 +1147,7 @@ Public Class BLL
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             DAL.ExecuteNonQuery("Insert into Reparações(NºComponente,DescAvaria,DIRepar,NºEmpresa,Ativo) VALUES (@n_componente,@DescAvaria,@DIRepar,@n_empresa,1)", p)
         End Sub
-        Shared Sub alterar_datafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal TempoRealReparação As String, ByVal Técnicos As DataTable, ByVal DescAvaria As String, ByVal DIRepar As String, ByVal DFRepar As String, ByVal Preço As Double)
+        Shared Sub alterar_datafim(ByVal NºReparação As Integer, ByVal NºComponente As Integer, ByVal TempoRealReparação As String, ByVal DescAvaria As String, ByVal DIRepar As DateTime, ByVal DFRepar As DateTime, ByVal Preço As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", NºReparação))
             p.Add(New SqlParameter("@NºComponente", NºComponente))
@@ -1318,6 +1318,16 @@ Public Class BLL
                     Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
                 Else
                     Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Contacto_M,Contacto_F,Localidade,Cod_Postal,Turma,NºAluno FROM Técnicos where NºTécnico = @n_tecnico AND Ativo=1 AND NºEmpresa=@n_empresa", p)
+                End If
+            End Function
+            Shared Function carregar_dados_ntecnico_ativados_mini(ByRef n_tecnico As String) As DataTable
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@n_tecnico", n_tecnico))
+                p.Add(New SqlParameter("@n_empresa", BLL.n_empresa))
+                If n_tecnico = "" Then
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where Ativo=0 AND NºEmpresa=@n_empresa", p)
+                Else
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Técnicos where NºTécnico = @n_tecnico AND Ativo=1 AND NºEmpresa=@n_empresa", p)
                 End If
             End Function
             Shared Sub inserir(ByVal localidade As String, ByVal cod_postal As String, ByVal contacto_m As String, ByVal contacto_f As String, ByVal Nome As String, ByRef img As Image, ByVal n_aluno As Integer, ByVal turma As String)
@@ -1529,10 +1539,13 @@ Public Class BLL
                 DAL.ExecuteNonQuery("Delete FROM Participações where NºTécnico=@n_tecnico", p)
             End If
         End Sub
-        Shared Function procurar_part(ByVal n_repar As Integer)
+        Shared Function return_all()
+            Return DAL.ExecuteScalar("SELECT Count(NºParticipação) FROM Participações", Nothing)
+        End Function
+        Shared Function procurar_part(ByVal n_repar As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_repar))
-            Return DAL.ExecuteQuery("SELECT NºTécnico FROM Participações where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteQueryDT("SELECT NºTécnico FROM Participações where NºReparação=@NºReparação", p)
         End Function
     End Class
     Public Class Hardware
@@ -1554,6 +1567,9 @@ Public Class BLL
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
             Return DAL.ExecuteNonQuery("Delete from Hardware where NºReparação=@NºReparação", p)
         End Function
+        Shared Function return_all()
+            Return DAL.ExecuteScalar("SELECT Count(NºHardware) FROM Hardware", Nothing)
+        End Function
     End Class
     Public Class Software
         Shared Sub adicionar_software(ByVal n_reparacao As String, tipo As String, preço As String)
@@ -1572,6 +1588,9 @@ Public Class BLL
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
             Return DAL.ExecuteNonQuery("Delete from Software where NºReparação=@NºReparação", p)
+        End Function
+        Shared Function return_all()
+            Return DAL.ExecuteScalar("SELECT Count(NºSoftware) FROM Software", Nothing)
         End Function
     End Class
 End Class

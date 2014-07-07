@@ -9,27 +9,30 @@
         If modo = True Then
             numcomponentebox.Text = reparaçao_data.Rows.Item(0).Item("NºComponente").ToString()
             If reparaçao_data.Rows.Item(0).Item("Preço").ToString() <> "" Then
-                preçobox.Text = reparaçao_data.Rows.Item(0).Item("Preço").ToString()
+                preçobox.Text = reparaçao_data.Rows.Item(0).Item("Preço").ToString().Replace(",", ".")
             End If
             dateinicio.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             dateinicio.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             If reparaçao_data.Rows.Item(0).Item("DFRepar").ToString() <> "" Then
-                datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString()
+                datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString
             Else
-                datefim.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
+                datefim.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString
             End If
             datefim.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()
             If Workspace.hardware_support.Columns.Count <> 0 Then
                 If Workspace.hardware_support.Rows.Count <> 0 Then
                     CheckBox1.Checked = True
+                    insert_hardware.Enabled = True
                 End If
             End If
             If Workspace.software_support.Columns.Count <> 0 Then
                 If Workspace.software_support.Rows.Count <> 0 Then
                     CheckBox2.Checked = True
+                    insert_software.Enabled = True
                 End If
             End If
+                showdata.DataSource = Workspace.tecnicos_support
             RadButton1.Enabled = True
             RadButton5.Enabled = False
             RadButton2.Enabled = True
@@ -44,11 +47,13 @@
             dateinicio.MinDate = Today
             datefim.MinDate = Today
             datefim.Enabled = False
+            preçobox.Enabled = False
             insert_hardware.Enabled = False
             CheckBox1.Enabled = False
             CheckBox2.Enabled = False
             insert_software.Enabled = False
             insert_tecnicos.Enabled = False
+            showdata.Enabled = False
             RadButton1.Enabled = False
             RadButton5.Enabled = True
             RadButton2.Enabled = False
@@ -101,6 +106,8 @@
             Dim add_tecnicos As New Adicionar_tecnicos
             add_tecnicos.MdiParent = Workspace
             add_tecnicos.Show()
+            Workspace.check_select = True
+            Timer4.Start()
         End If
     End Sub
 
@@ -150,14 +157,7 @@
         Timer1.Start()
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        Try
-            If Workspace.hardware_support.Rows.Count <> 0 Then
-                Timer1.Stop()
-            End If
-        Catch
-        End Try
-    End Sub
+    
 
     Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles insert_software.Click
         Dim select_software As New Inserir_Software
@@ -196,16 +196,22 @@
             check_descrição.Trim()
         Catch
         End Try
-        BLL.Hardware.delete_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+        If BLL.Hardware.return_all <> 0 Then
+            BLL.Hardware.delete_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+        End If
+        If BLL.Software.return_all <> 0 Then
+            BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+        End If
+        If BLL.Participacoes.return_all <> 0 Then
+            BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+        End If
         If Not (check_componente = True And check_descrição = "" And check_data = False) Then
             Try
-                BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), numcomponentebox.Text, temporeal.ToString(), Workspace.tecnicos_support, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
+                BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), numcomponentebox.Text, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
                 If Workspace.hardware_support.Columns.Count <> 0 Then
                     If Workspace.hardware_support.Rows.Count <> 0 Then
                         For i = 0 To Workspace.hardware_support.Rows.Count - 1
-                            BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"), Workspace.hardware_support.Rows(i).Item("Qtd").ToString)
+                            BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço").ToString, Workspace.hardware_support.Rows(i).Item("Qtd").ToString)
                         Next
                     End If
                 End If
@@ -244,7 +250,7 @@
         End If
     End Sub
     
-    Private Sub preçobox_TextChanged(sender As Object, e As EventArgs) Handles preçobox.TextChanged
+    Private Sub preçobox_TextChanged(sender As Object, e As EventArgs)
     End Sub
 
     Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
@@ -270,7 +276,7 @@
     Private Sub datefim_ValueChanged(sender As Object, e As EventArgs) Handles datefim.ValueChanged
         Dim temporeal As TimeSpan
         temporeal = datefim.Value.Subtract(dateinicio.Value)
-        tempo_real.Text = temporeal.Hours & " Horas"
+        tempo_real.Text = temporeal.TotalHours & " Horas"
     End Sub
 
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
@@ -291,14 +297,7 @@
         End If
     End Sub
 
-    Private Sub Timer2_Tick(sender As Object, e As EventArgs) Handles Timer2.Tick
-        Try
-            If Workspace.software_support.Rows.Count <> 0 Then
-                Timer2.Stop()
-            End If
-        Catch
-        End Try
-    End Sub
+    
 
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         Try
@@ -314,5 +313,29 @@
     End Sub
     Private Sub checkbox2_click(sender As Object, e As EventArgs) Handles CheckBox2.Click
         insert_software.Enabled = CheckBox2.Checked
+    End Sub
+
+    Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
+        Try
+            showdata.DataSource = Workspace.tecnicos_support
+            If Workspace.check_select = False Then
+                Timer4.Stop()
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    End Sub
+
+    Private Sub preçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles preçobox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
     End Sub
 End Class
