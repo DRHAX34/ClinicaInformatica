@@ -20,4 +20,8 @@
     Private Sub closewhenmousecapturechanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.Leave
         Me.Close()
     End Sub
+
+    Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        Me.Close()
+    End Sub
 End Class

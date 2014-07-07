@@ -23,6 +23,11 @@ Public Class Workspace
     Public erros As Boolean
     Public preço As String
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
+    Public Sub New()
+        InitializeComponent()
+        WindowState = FormWindowState.Maximized
+        Dim mdi As New MdiClientWithoutScrollBars(Me)
+    End Sub
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
     '    OpenFileDialog.InitialDirectory = My.Computer.FileSystem.SpecialDirectories.MyDocuments
@@ -100,6 +105,9 @@ Public Class Workspace
     End Sub
     
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.AutoScroll = False
+        Me.AutoSize = False
+
         If cache_empresas.Count = 0 Then
             If cache_users.Rows.Count = 0 Then
                 Me.WindowState = FormWindowState.Normal
@@ -134,8 +142,8 @@ Public Class Workspace
                     config3.WindowState = FormWindowState.Maximized
                 End If
             Else
-                    Me.WindowState = FormWindowState.Maximized
-                    LoginForm.Show()
+                Me.WindowState = FormWindowState.Maximized
+                LoginForm.Show()
             End If
         End If
                     Me.DoubleBuffered = True

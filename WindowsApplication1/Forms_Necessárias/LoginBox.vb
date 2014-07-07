@@ -55,10 +55,12 @@
             'menuform.show()
             Workspace.StatusStrip.Show()
             Workspace.MenuStrip.Show()
+            Workspace.tecnicosmenu.Enabled = True
             If BLL.Login.verificar_admin(user) = True Then
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.utilativos.Visible = True
                 Workspace.utilremovidos.Visible = True
+                Workspace.tecnicosmenu.Visible = True
                 Workspace.admin = True
                 Workspace.admin_geral = False
                 tipo = "Administrador"
@@ -66,12 +68,12 @@
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.utilativos.Visible = False
                 Workspace.utilremovidos.Visible = False
+                Workspace.tecnicosmenu.Visible = False
                 tipo = "Utilizador Padrão"
             End If
             Workspace.clientesmenu.Enabled = True
             Workspace.dispositivosmenu.Enabled = True
             Workspace.reparacoesmenu.Enabled = True
-            Workspace.tecnicosmenu.Enabled = True
             Workspace.empresasativas.Visible = False
             Workspace.empresasremovidas.Visible = False
             Workspace.modo = 2

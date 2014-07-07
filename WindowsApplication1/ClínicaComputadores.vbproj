@@ -316,6 +316,7 @@
     <Compile Include="Relatórios\folha_repar_orçamento.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="teste.vb" />
     <Compile Include="unZip.vb" />
     <Compile Include="Simple3Des.vb" />
     <Compile Include="DAL.vb" />

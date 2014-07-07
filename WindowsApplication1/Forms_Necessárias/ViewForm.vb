@@ -3,6 +3,29 @@
     Public tabela As String
     Public removidos As Boolean
     Dim timer As Integer
+    'Protected Overrides Sub WndProc(ByRef m As Message)
+    '    If (m.Msg = &H112) AndAlso (m.WParam.ToInt32() = &HF010) Then
+    '        Return
+    '    End If
+    '    If (m.Msg = &HA1) AndAlso (m.WParam.ToInt32() = &H2) Then
+    '        Return
+    '    End If
+    '    MyBase.WndProc(m)
+    'End Sub
+
+    Private Sub no_exit_window(sender As Object, e As EventArgs) Handles Me.LocationChanged
+        If (Me.Location.X + Me.Width) = Workspace.Width - 20 Then
+            If (Me.Location.Y + Me.Size.Height) = Workspace.Size.Height - 20 Then
+                Me.Location = New Point((Workspace.Width - Me.Width), (Workspace.Height - Me.Height))
+            Else
+                Me.Location = New Point((Workspace.Width - Me.Width), Me.Location.Y)
+            End If
+        Else
+            If (Me.Location.Y + Me.Size.Height) = Workspace.Size.Height - 20 Then
+                Me.Location = New Point(Me.Location.X, (Workspace.Height - Me.Height))
+            End If
+        End If
+    End Sub
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 50
         showdata.Height = Me.Height - 200
