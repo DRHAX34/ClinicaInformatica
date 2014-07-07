@@ -23,6 +23,10 @@ Partial Class folha_repar_orçamento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.RadGridView1 = New Telerik.WinControls.UI.RadGridView()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.WaterMarkTextBox13 = New ClinicaInformatica.WaterMarkTextBox()
         Me.WaterMarkTextBox12 = New ClinicaInformatica.WaterMarkTextBox()
         Me.WaterMarkTextBox11 = New ClinicaInformatica.WaterMarkTextBox()
@@ -44,6 +48,10 @@ Partial Class folha_repar_orçamento
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.Panel2.SuspendLayout()
+        CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -51,6 +59,10 @@ Partial Class folha_repar_orçamento
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.RadGridView1)
+        Me.Panel2.Controls.Add(Me.Label5)
+        Me.Panel2.Controls.Add(Me.showdata)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox13)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox12)
         Me.Panel2.Controls.Add(Me.WaterMarkTextBox11)
@@ -69,13 +81,67 @@ Partial Class folha_repar_orçamento
         Me.Panel2.Size = New System.Drawing.Size(622, 512)
         Me.Panel2.TabIndex = 10
         '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(338, 233)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(49, 13)
+        Me.Label6.TabIndex = 33
+        Me.Label6.Text = "Software"
+        '
+        'RadGridView1
+        '
+        Me.RadGridView1.AutoSizeRows = True
+        Me.RadGridView1.Location = New System.Drawing.Point(340, 249)
+        '
+        'RadGridView1
+        '
+        Me.RadGridView1.MasterTemplate.AllowAddNewRow = False
+        Me.RadGridView1.MasterTemplate.AllowColumnResize = False
+        Me.RadGridView1.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.RadGridView1.Name = "RadGridView1"
+        Me.RadGridView1.Padding = New System.Windows.Forms.Padding(1)
+        Me.RadGridView1.ReadOnly = True
+        Me.RadGridView1.Size = New System.Drawing.Size(268, 258)
+        Me.RadGridView1.TabIndex = 32
+        Me.RadGridView1.Text = "Data"
+        Me.RadGridView1.ThemeName = "Windows8"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(39, 193)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(53, 13)
+        Me.Label5.TabIndex = 31
+        Me.Label5.Text = "Hardware"
+        '
+        'showdata
+        '
+        Me.showdata.AutoSizeRows = True
+        Me.showdata.Location = New System.Drawing.Point(42, 209)
+        '
+        'showdata
+        '
+        Me.showdata.MasterTemplate.AllowAddNewRow = False
+        Me.showdata.MasterTemplate.AllowColumnResize = False
+        Me.showdata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.showdata.Name = "showdata"
+        Me.showdata.Padding = New System.Windows.Forms.Padding(1)
+        Me.showdata.ReadOnly = True
+        Me.showdata.Size = New System.Drawing.Size(268, 298)
+        Me.showdata.TabIndex = 30
+        Me.showdata.Text = "Data"
+        Me.showdata.ThemeName = "Windows8"
+        '
         'WaterMarkTextBox13
         '
         Me.WaterMarkTextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox13.Location = New System.Drawing.Point(393, 190)
+        Me.WaterMarkTextBox13.Location = New System.Drawing.Point(393, 167)
         Me.WaterMarkTextBox13.Multiline = True
         Me.WaterMarkTextBox13.Name = "WaterMarkTextBox13"
-        Me.WaterMarkTextBox13.Size = New System.Drawing.Size(215, 83)
+        Me.WaterMarkTextBox13.Size = New System.Drawing.Size(215, 66)
         Me.WaterMarkTextBox13.TabIndex = 29
         Me.WaterMarkTextBox13.WaterMarkColor = System.Drawing.Color.Gray
         Me.WaterMarkTextBox13.WaterMarkText = "Observações"
@@ -83,7 +149,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox12
         '
         Me.WaterMarkTextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox12.Location = New System.Drawing.Point(393, 138)
+        Me.WaterMarkTextBox12.Location = New System.Drawing.Point(393, 115)
         Me.WaterMarkTextBox12.Name = "WaterMarkTextBox12"
         Me.WaterMarkTextBox12.Size = New System.Drawing.Size(137, 20)
         Me.WaterMarkTextBox12.TabIndex = 28
@@ -93,7 +159,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox11
         '
         Me.WaterMarkTextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox11.Location = New System.Drawing.Point(393, 112)
+        Me.WaterMarkTextBox11.Location = New System.Drawing.Point(393, 89)
         Me.WaterMarkTextBox11.Name = "WaterMarkTextBox11"
         Me.WaterMarkTextBox11.Size = New System.Drawing.Size(125, 20)
         Me.WaterMarkTextBox11.TabIndex = 27
@@ -103,7 +169,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox10
         '
         Me.WaterMarkTextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox10.Location = New System.Drawing.Point(393, 86)
+        Me.WaterMarkTextBox10.Location = New System.Drawing.Point(393, 63)
         Me.WaterMarkTextBox10.Name = "WaterMarkTextBox10"
         Me.WaterMarkTextBox10.Size = New System.Drawing.Size(125, 20)
         Me.WaterMarkTextBox10.TabIndex = 26
@@ -113,7 +179,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox9
         '
         Me.WaterMarkTextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox9.Location = New System.Drawing.Point(393, 60)
+        Me.WaterMarkTextBox9.Location = New System.Drawing.Point(393, 37)
         Me.WaterMarkTextBox9.Name = "WaterMarkTextBox9"
         Me.WaterMarkTextBox9.Size = New System.Drawing.Size(104, 20)
         Me.WaterMarkTextBox9.TabIndex = 25
@@ -123,7 +189,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox8
         '
         Me.WaterMarkTextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox8.Location = New System.Drawing.Point(38, 141)
+        Me.WaterMarkTextBox8.Location = New System.Drawing.Point(42, 115)
         Me.WaterMarkTextBox8.Name = "WaterMarkTextBox8"
         Me.WaterMarkTextBox8.Size = New System.Drawing.Size(94, 20)
         Me.WaterMarkTextBox8.TabIndex = 24
@@ -133,7 +199,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox6
         '
         Me.WaterMarkTextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox6.Location = New System.Drawing.Point(38, 167)
+        Me.WaterMarkTextBox6.Location = New System.Drawing.Point(42, 141)
         Me.WaterMarkTextBox6.Name = "WaterMarkTextBox6"
         Me.WaterMarkTextBox6.Size = New System.Drawing.Size(128, 20)
         Me.WaterMarkTextBox6.TabIndex = 23
@@ -143,7 +209,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox5
         '
         Me.WaterMarkTextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox5.Location = New System.Drawing.Point(38, 115)
+        Me.WaterMarkTextBox5.Location = New System.Drawing.Point(42, 89)
         Me.WaterMarkTextBox5.Name = "WaterMarkTextBox5"
         Me.WaterMarkTextBox5.Size = New System.Drawing.Size(94, 20)
         Me.WaterMarkTextBox5.TabIndex = 22
@@ -153,7 +219,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox3
         '
         Me.WaterMarkTextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox3.Location = New System.Drawing.Point(38, 89)
+        Me.WaterMarkTextBox3.Location = New System.Drawing.Point(42, 63)
         Me.WaterMarkTextBox3.Name = "WaterMarkTextBox3"
         Me.WaterMarkTextBox3.Size = New System.Drawing.Size(178, 20)
         Me.WaterMarkTextBox3.TabIndex = 21
@@ -163,7 +229,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox7
         '
         Me.WaterMarkTextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox7.Location = New System.Drawing.Point(38, 60)
+        Me.WaterMarkTextBox7.Location = New System.Drawing.Point(42, 34)
         Me.WaterMarkTextBox7.Name = "WaterMarkTextBox7"
         Me.WaterMarkTextBox7.Size = New System.Drawing.Size(128, 20)
         Me.WaterMarkTextBox7.TabIndex = 20
@@ -173,7 +239,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox4
         '
         Me.WaterMarkTextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox4.Location = New System.Drawing.Point(393, 164)
+        Me.WaterMarkTextBox4.Location = New System.Drawing.Point(393, 141)
         Me.WaterMarkTextBox4.Name = "WaterMarkTextBox4"
         Me.WaterMarkTextBox4.Size = New System.Drawing.Size(193, 20)
         Me.WaterMarkTextBox4.TabIndex = 19
@@ -183,7 +249,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox2
         '
         Me.WaterMarkTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox2.Location = New System.Drawing.Point(393, 34)
+        Me.WaterMarkTextBox2.Location = New System.Drawing.Point(393, 11)
         Me.WaterMarkTextBox2.Name = "WaterMarkTextBox2"
         Me.WaterMarkTextBox2.Size = New System.Drawing.Size(51, 20)
         Me.WaterMarkTextBox2.TabIndex = 18
@@ -193,7 +259,7 @@ Partial Class folha_repar_orçamento
         'WaterMarkTextBox1
         '
         Me.WaterMarkTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox1.Location = New System.Drawing.Point(38, 34)
+        Me.WaterMarkTextBox1.Location = New System.Drawing.Point(42, 8)
         Me.WaterMarkTextBox1.Name = "WaterMarkTextBox1"
         Me.WaterMarkTextBox1.Size = New System.Drawing.Size(37, 20)
         Me.WaterMarkTextBox1.TabIndex = 17
@@ -266,7 +332,7 @@ Partial Class folha_repar_orçamento
         Me.empresalogobox.TabIndex = 6
         Me.empresalogobox.TabStop = False
         '
-        'Form5
+        'folha_repar_orçamento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -277,10 +343,14 @@ Partial Class folha_repar_orçamento
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.empresalogobox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form5"
+        Me.Name = "folha_repar_orçamento"
         Me.Text = "Form5"
         Me.Panel2.ResumeLayout(False)
         Me.Panel2.PerformLayout()
+        CType(Me.RadGridView1.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -309,4 +379,8 @@ Partial Class folha_repar_orçamento
     Friend WithEvents WaterMarkTextBox4 As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents WaterMarkTextBox2 As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents WaterMarkTextBox1 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Label6 As System.Windows.Forms.Label
+    Friend WithEvents RadGridView1 As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
 End Class

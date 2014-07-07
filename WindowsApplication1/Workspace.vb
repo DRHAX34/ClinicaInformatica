@@ -19,7 +19,7 @@ Public Class Workspace
     Public tecnicos_support As New DataTable
     Public hardware_support As New DataTable
     Public software_support As New DataTable
-    Public string_pass As String
+    Public string_pass, pass_string As String
     Public erros As Boolean
     Public preço As String
     Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean

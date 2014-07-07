@@ -23,21 +23,23 @@ Partial Class folha_repar
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.datalabel = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.WaterMarkTextBox13 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox12 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox11 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox10 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox9 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox8 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox6 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox5 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox3 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox7 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox4 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox2 = New ClinicaInformatica.WaterMarkTextBox()
-        Me.WaterMarkTextBox1 = New ClinicaInformatica.WaterMarkTextBox()
+        Me.obsbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.de = New ClinicaInformatica.WaterMarkTextBox()
+        Me.modelobox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.marcabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.tipobox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.cmovelbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.codpostalbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.moradabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.descavariabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.numcompbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.reparbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.empresalabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -46,8 +48,6 @@ Partial Class folha_repar
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.ClientesTableAdapter1 = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ClientesTableAdapter()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.datalabel = New System.Windows.Forms.Label()
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,23 +60,41 @@ Partial Class folha_repar
         Me.Panel2.Controls.Add(Me.Label7)
         Me.Panel2.Controls.Add(Me.Label6)
         Me.Panel2.Controls.Add(Me.Label5)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox13)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox12)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox11)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox10)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox9)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox8)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox6)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox5)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox3)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox7)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox4)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox2)
-        Me.Panel2.Controls.Add(Me.WaterMarkTextBox1)
+        Me.Panel2.Controls.Add(Me.obsbox)
+        Me.Panel2.Controls.Add(Me.de)
+        Me.Panel2.Controls.Add(Me.modelobox)
+        Me.Panel2.Controls.Add(Me.marcabox)
+        Me.Panel2.Controls.Add(Me.tipobox)
+        Me.Panel2.Controls.Add(Me.localidadebox)
+        Me.Panel2.Controls.Add(Me.cmovelbox)
+        Me.Panel2.Controls.Add(Me.codpostalbox)
+        Me.Panel2.Controls.Add(Me.moradabox)
+        Me.Panel2.Controls.Add(Me.nomebox)
+        Me.Panel2.Controls.Add(Me.descavariabox)
+        Me.Panel2.Controls.Add(Me.numcompbox)
+        Me.Panel2.Controls.Add(Me.reparbox)
         Me.Panel2.Location = New System.Drawing.Point(36, 201)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(601, 509)
         Me.Panel2.TabIndex = 15
+        '
+        'datalabel
+        '
+        Me.datalabel.AutoSize = True
+        Me.datalabel.Location = New System.Drawing.Point(419, 417)
+        Me.datalabel.Name = "datalabel"
+        Me.datalabel.Size = New System.Drawing.Size(42, 13)
+        Me.datalabel.TabIndex = 20
+        Me.datalabel.Text = "<Date>"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Location = New System.Drawing.Point(419, 477)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(175, 13)
+        Me.Label7.TabIndex = 19
+        Me.Label7.Text = "____________________________"
         '
         'Label6
         '
@@ -96,136 +114,150 @@ Partial Class folha_repar
         Me.Label5.TabIndex = 17
         Me.Label5.Text = "Data"
         '
-        'WaterMarkTextBox13
+        'obsbox
         '
-        Me.WaterMarkTextBox13.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox13.Location = New System.Drawing.Point(354, 283)
-        Me.WaterMarkTextBox13.Multiline = True
-        Me.WaterMarkTextBox13.Name = "WaterMarkTextBox13"
-        Me.WaterMarkTextBox13.Size = New System.Drawing.Size(215, 83)
-        Me.WaterMarkTextBox13.TabIndex = 16
-        Me.WaterMarkTextBox13.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox13.WaterMarkText = "Observações"
+        Me.obsbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.obsbox.Location = New System.Drawing.Point(46, 278)
+        Me.obsbox.Multiline = True
+        Me.obsbox.Name = "obsbox"
+        Me.obsbox.ReadOnly = True
+        Me.obsbox.Size = New System.Drawing.Size(215, 113)
+        Me.obsbox.TabIndex = 16
+        Me.obsbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.obsbox.WaterMarkText = "Observações"
         '
-        'WaterMarkTextBox12
+        'de
         '
-        Me.WaterMarkTextBox12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox12.Location = New System.Drawing.Point(354, 207)
-        Me.WaterMarkTextBox12.Name = "WaterMarkTextBox12"
-        Me.WaterMarkTextBox12.Size = New System.Drawing.Size(137, 20)
-        Me.WaterMarkTextBox12.TabIndex = 15
-        Me.WaterMarkTextBox12.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox12.WaterMarkText = "NºSérie"
+        Me.de.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.de.Location = New System.Drawing.Point(354, 207)
+        Me.de.Name = "de"
+        Me.de.ReadOnly = True
+        Me.de.Size = New System.Drawing.Size(137, 27)
+        Me.de.TabIndex = 15
+        Me.de.WaterMarkColor = System.Drawing.Color.Gray
+        Me.de.WaterMarkText = "NºSérie"
         '
-        'WaterMarkTextBox11
+        'modelobox
         '
-        Me.WaterMarkTextBox11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox11.Location = New System.Drawing.Point(354, 169)
-        Me.WaterMarkTextBox11.Name = "WaterMarkTextBox11"
-        Me.WaterMarkTextBox11.Size = New System.Drawing.Size(125, 20)
-        Me.WaterMarkTextBox11.TabIndex = 14
-        Me.WaterMarkTextBox11.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox11.WaterMarkText = "Modelo"
+        Me.modelobox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.modelobox.Location = New System.Drawing.Point(354, 169)
+        Me.modelobox.Name = "modelobox"
+        Me.modelobox.ReadOnly = True
+        Me.modelobox.Size = New System.Drawing.Size(125, 27)
+        Me.modelobox.TabIndex = 14
+        Me.modelobox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.modelobox.WaterMarkText = "Modelo"
         '
-        'WaterMarkTextBox10
+        'marcabox
         '
-        Me.WaterMarkTextBox10.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox10.Location = New System.Drawing.Point(354, 133)
-        Me.WaterMarkTextBox10.Name = "WaterMarkTextBox10"
-        Me.WaterMarkTextBox10.Size = New System.Drawing.Size(125, 20)
-        Me.WaterMarkTextBox10.TabIndex = 13
-        Me.WaterMarkTextBox10.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox10.WaterMarkText = "Marca"
+        Me.marcabox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.marcabox.Location = New System.Drawing.Point(354, 133)
+        Me.marcabox.Name = "marcabox"
+        Me.marcabox.ReadOnly = True
+        Me.marcabox.Size = New System.Drawing.Size(125, 27)
+        Me.marcabox.TabIndex = 13
+        Me.marcabox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.marcabox.WaterMarkText = "Marca"
         '
-        'WaterMarkTextBox9
+        'tipobox
         '
-        Me.WaterMarkTextBox9.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox9.Location = New System.Drawing.Point(354, 94)
-        Me.WaterMarkTextBox9.Name = "WaterMarkTextBox9"
-        Me.WaterMarkTextBox9.Size = New System.Drawing.Size(104, 20)
-        Me.WaterMarkTextBox9.TabIndex = 12
-        Me.WaterMarkTextBox9.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox9.WaterMarkText = "Tipo_Dispositivo"
+        Me.tipobox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.tipobox.Location = New System.Drawing.Point(354, 94)
+        Me.tipobox.Name = "tipobox"
+        Me.tipobox.ReadOnly = True
+        Me.tipobox.Size = New System.Drawing.Size(104, 27)
+        Me.tipobox.TabIndex = 12
+        Me.tipobox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.tipobox.WaterMarkText = "Tipo_Dispositivo"
         '
-        'WaterMarkTextBox8
+        'localidadebox
         '
-        Me.WaterMarkTextBox8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox8.Location = New System.Drawing.Point(46, 207)
-        Me.WaterMarkTextBox8.Name = "WaterMarkTextBox8"
-        Me.WaterMarkTextBox8.Size = New System.Drawing.Size(94, 20)
-        Me.WaterMarkTextBox8.TabIndex = 11
-        Me.WaterMarkTextBox8.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox8.WaterMarkText = "Localidade"
+        Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.localidadebox.Location = New System.Drawing.Point(46, 207)
+        Me.localidadebox.Name = "localidadebox"
+        Me.localidadebox.ReadOnly = True
+        Me.localidadebox.Size = New System.Drawing.Size(94, 27)
+        Me.localidadebox.TabIndex = 11
+        Me.localidadebox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.localidadebox.WaterMarkText = "Localidade"
         '
-        'WaterMarkTextBox6
+        'cmovelbox
         '
-        Me.WaterMarkTextBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox6.Location = New System.Drawing.Point(46, 245)
-        Me.WaterMarkTextBox6.Name = "WaterMarkTextBox6"
-        Me.WaterMarkTextBox6.Size = New System.Drawing.Size(128, 20)
-        Me.WaterMarkTextBox6.TabIndex = 10
-        Me.WaterMarkTextBox6.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox6.WaterMarkText = "Contacto_Movel"
+        Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.cmovelbox.Location = New System.Drawing.Point(46, 245)
+        Me.cmovelbox.Name = "cmovelbox"
+        Me.cmovelbox.ReadOnly = True
+        Me.cmovelbox.Size = New System.Drawing.Size(128, 27)
+        Me.cmovelbox.TabIndex = 10
+        Me.cmovelbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.cmovelbox.WaterMarkText = "Contacto_Movel"
         '
-        'WaterMarkTextBox5
+        'codpostalbox
         '
-        Me.WaterMarkTextBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox5.Location = New System.Drawing.Point(46, 169)
-        Me.WaterMarkTextBox5.Name = "WaterMarkTextBox5"
-        Me.WaterMarkTextBox5.Size = New System.Drawing.Size(94, 20)
-        Me.WaterMarkTextBox5.TabIndex = 9
-        Me.WaterMarkTextBox5.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox5.WaterMarkText = "Cod_Postal"
+        Me.codpostalbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.codpostalbox.Location = New System.Drawing.Point(46, 169)
+        Me.codpostalbox.Name = "codpostalbox"
+        Me.codpostalbox.ReadOnly = True
+        Me.codpostalbox.Size = New System.Drawing.Size(94, 27)
+        Me.codpostalbox.TabIndex = 9
+        Me.codpostalbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.codpostalbox.WaterMarkText = "Cod_Postal"
         '
-        'WaterMarkTextBox3
+        'moradabox
         '
-        Me.WaterMarkTextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox3.Location = New System.Drawing.Point(46, 133)
-        Me.WaterMarkTextBox3.Name = "WaterMarkTextBox3"
-        Me.WaterMarkTextBox3.Size = New System.Drawing.Size(178, 20)
-        Me.WaterMarkTextBox3.TabIndex = 8
-        Me.WaterMarkTextBox3.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox3.WaterMarkText = "Morada"
+        Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.moradabox.Location = New System.Drawing.Point(46, 133)
+        Me.moradabox.Name = "moradabox"
+        Me.moradabox.ReadOnly = True
+        Me.moradabox.Size = New System.Drawing.Size(178, 27)
+        Me.moradabox.TabIndex = 8
+        Me.moradabox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.moradabox.WaterMarkText = "Morada"
         '
-        'WaterMarkTextBox7
+        'nomebox
         '
-        Me.WaterMarkTextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox7.Location = New System.Drawing.Point(46, 94)
-        Me.WaterMarkTextBox7.Name = "WaterMarkTextBox7"
-        Me.WaterMarkTextBox7.Size = New System.Drawing.Size(128, 20)
-        Me.WaterMarkTextBox7.TabIndex = 7
-        Me.WaterMarkTextBox7.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox7.WaterMarkText = "Nome"
+        Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.nomebox.Location = New System.Drawing.Point(46, 94)
+        Me.nomebox.Name = "nomebox"
+        Me.nomebox.ReadOnly = True
+        Me.nomebox.Size = New System.Drawing.Size(128, 27)
+        Me.nomebox.TabIndex = 7
+        Me.nomebox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.nomebox.WaterMarkText = "Nome"
         '
-        'WaterMarkTextBox4
+        'descavariabox
         '
-        Me.WaterMarkTextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox4.Location = New System.Drawing.Point(354, 245)
-        Me.WaterMarkTextBox4.Name = "WaterMarkTextBox4"
-        Me.WaterMarkTextBox4.Size = New System.Drawing.Size(215, 20)
-        Me.WaterMarkTextBox4.TabIndex = 4
-        Me.WaterMarkTextBox4.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox4.WaterMarkText = "DescAvaria"
+        Me.descavariabox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.descavariabox.Location = New System.Drawing.Point(354, 245)
+        Me.descavariabox.Multiline = True
+        Me.descavariabox.Name = "descavariabox"
+        Me.descavariabox.ReadOnly = True
+        Me.descavariabox.Size = New System.Drawing.Size(215, 146)
+        Me.descavariabox.TabIndex = 4
+        Me.descavariabox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.descavariabox.WaterMarkText = "DescAvaria"
         '
-        'WaterMarkTextBox2
+        'numcompbox
         '
-        Me.WaterMarkTextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox2.Location = New System.Drawing.Point(354, 53)
-        Me.WaterMarkTextBox2.Name = "WaterMarkTextBox2"
-        Me.WaterMarkTextBox2.Size = New System.Drawing.Size(51, 20)
-        Me.WaterMarkTextBox2.TabIndex = 2
-        Me.WaterMarkTextBox2.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox2.WaterMarkText = "NºComponente"
+        Me.numcompbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.numcompbox.Location = New System.Drawing.Point(354, 53)
+        Me.numcompbox.Name = "numcompbox"
+        Me.numcompbox.ReadOnly = True
+        Me.numcompbox.Size = New System.Drawing.Size(51, 27)
+        Me.numcompbox.TabIndex = 2
+        Me.numcompbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.numcompbox.WaterMarkText = "NºComponente"
         '
-        'WaterMarkTextBox1
+        'reparbox
         '
-        Me.WaterMarkTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.WaterMarkTextBox1.Location = New System.Drawing.Point(46, 53)
-        Me.WaterMarkTextBox1.Name = "WaterMarkTextBox1"
-        Me.WaterMarkTextBox1.Size = New System.Drawing.Size(37, 20)
-        Me.WaterMarkTextBox1.TabIndex = 1
-        Me.WaterMarkTextBox1.WaterMarkColor = System.Drawing.Color.Gray
-        Me.WaterMarkTextBox1.WaterMarkText = "NºReparação"
+        Me.reparbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.reparbox.Location = New System.Drawing.Point(46, 53)
+        Me.reparbox.Name = "reparbox"
+        Me.reparbox.ReadOnly = True
+        Me.reparbox.Size = New System.Drawing.Size(37, 27)
+        Me.reparbox.TabIndex = 1
+        Me.reparbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.reparbox.WaterMarkText = "NºReparação"
         '
         'empresalabel
         '
@@ -297,24 +329,6 @@ Partial Class folha_repar
         '
         Me.ClientesTableAdapter1.ClearBeforeFill = True
         '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(419, 477)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(175, 13)
-        Me.Label7.TabIndex = 19
-        Me.Label7.Text = "____________________________"
-        '
-        'datalabel
-        '
-        Me.datalabel.AutoSize = True
-        Me.datalabel.Location = New System.Drawing.Point(419, 417)
-        Me.datalabel.Name = "datalabel"
-        Me.datalabel.Size = New System.Drawing.Size(42, 13)
-        Me.datalabel.TabIndex = 20
-        Me.datalabel.Text = "<Date>"
-        '
         'folha_repar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -345,19 +359,19 @@ Partial Class folha_repar
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents empresalogobox As System.Windows.Forms.PictureBox
-    Friend WithEvents WaterMarkTextBox1 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox7 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox4 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox2 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox13 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox12 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox11 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox10 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox9 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox8 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox6 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox5 As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents WaterMarkTextBox3 As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents reparbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents descavariabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents numcompbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents obsbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents de As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents modelobox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents marcabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents tipobox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents cmovelbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents codpostalbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents moradabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents ClientesTableAdapter1 As ClinicaInformatica._BD_C_IDataSetTableAdapters.ClientesTableAdapter
