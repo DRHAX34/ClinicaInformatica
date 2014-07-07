@@ -18,6 +18,7 @@
         End If
         If modo = True Then
             RadButton1.Enabled = True
+            RadButton2.Enabled = True
             RadButton5.Enabled = False
             RadButton3.Text = "Restaurar Dados Originais"
             numalunobox.Text = tecnico_data.Rows.Item(0).Item("NºAluno").ToString()
@@ -31,6 +32,7 @@
             contacto_fbox.Text = "+"
             contactom_box.Text = "+"
             RadButton1.Enabled = False
+            RadButton2.Enabled = False
             RadButton5.Enabled = True
             RadButton3.Text = "Limpar Tudo"
         End If
