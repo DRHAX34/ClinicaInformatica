@@ -1522,11 +1522,12 @@ Public Class BLL
         End Function
     End Class
     Public Class Participacoes
-        Shared Sub adicionar_part(ByVal n_tecnico As Integer, ByVal n_reparacao As Integer)
+        Shared Sub adicionar_part(ByVal n_tecnico As Integer, ByVal n_reparacao As Integer, ByVal nome As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_tecnico", n_tecnico))
+            p.Add(New SqlParameter("@nome", nome))
             p.Add(New SqlParameter("@n_reparacao", n_reparacao))
-            DAL.ExecuteNonQuery("Insert into Participações(NºReparação,NºTécnico) VALUES (@n_reparacao,@n_tecnico)", p)
+            DAL.ExecuteNonQuery("Insert into Participações(NºReparação,NºTécnico,Nome) VALUES (@n_reparacao,@n_tecnico,@Nome)", p)
         End Sub
         Shared Sub remover_part(ByVal n_tecnico As Integer, ByVal n_reparacao As Integer)
             Dim p As New ArrayList
@@ -1545,7 +1546,7 @@ Public Class BLL
         Shared Function procurar_part(ByVal n_repar As String)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_repar))
-            Return DAL.ExecuteQueryDT("SELECT NºTécnico FROM Participações where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome FROM Participações where NºReparação=@NºReparação", p)
         End Function
     End Class
     Public Class Hardware

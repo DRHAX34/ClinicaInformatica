@@ -225,7 +225,7 @@
                 If Workspace.tecnicos_support.Columns.Count <> 0 Then
                     If Workspace.tecnicos_support.Rows.Count <> 0 Then
                         For i = 0 To Workspace.tecnicos_support.Rows.Count - 1
-                            BLL.Participacoes.adicionar_part(Workspace.tecnicos_support.Rows(i).Item("NºTécnico").ToString, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+                            BLL.Participacoes.adicionar_part(Workspace.tecnicos_support.Rows(i).Item("NºTécnico").ToString, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.tecnicos_support.Rows(i).Item("Nome").ToString)
                         Next
                     End If
                 End If
