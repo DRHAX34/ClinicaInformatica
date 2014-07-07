@@ -7,6 +7,10 @@
         End If
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+        If Workspace.software_support.Columns.Count <> 2 Then
+            Workspace.software_support.Columns.Add("Tipo")
+            Workspace.software_support.Columns.Add("Preço")
+        End If
         Dim h(1) As Object
         h(0) = ("Instalação S.O")
         h(1) = (caixapreçobox.Text)

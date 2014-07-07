@@ -35,10 +35,11 @@
 
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
         Dim h(2) As Object
-        Workspace.hardware_support = New DataTable
-        Workspace.hardware_support.Columns.Add("Tipo")
-        Workspace.hardware_support.Columns.Add("Qtd")
-        Workspace.hardware_support.Columns.Add("Preço")
+        If Workspace.hardware_support.Columns.Count <> 3 Then
+            Workspace.hardware_support.Columns.Add("Tipo")
+            Workspace.hardware_support.Columns.Add("Qtd")
+            Workspace.hardware_support.Columns.Add("Preço")
+        End If
         h(0) = "Caixa"
         h(1) = caixaqtdbox.Value
         h(2) = (caixapreçobox.Text)
