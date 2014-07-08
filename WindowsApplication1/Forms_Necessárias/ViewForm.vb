@@ -459,21 +459,21 @@
                         opr_clientes.modo = True
                         If removidos = True Then
                             If Workspace.Aluno = True Then
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados_alunos(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_desativados_alunos(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
                             Else
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_desativados(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_desativados(string_data)
                                 opr_clientes.removidos = True
                                 opr_clientes.Show()
                             End If
                         Else
                             If Workspace.Aluno = True Then
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente_alunos(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
                             Else
-                                opr_clientes.cliente_data = BLL.Clientes.procura_dados_numcliente(string_data)
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data)
                                 opr_clientes.removidos = False
                                 opr_clientes.Show()
                             End If
@@ -499,11 +499,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_componentes.modo = True
                         If removidos = True Then
-                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente_desativo(string_data)
+                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
                             opr_componentes.removidos = True
                             opr_componentes.Show()
                         Else
-                            opr_componentes.dispositivo_data = BLL.Componentes.procura_dados_numcomponente(string_data)
+                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
                             opr_componentes.removidos = False
                             opr_componentes.Show()
                         End If
@@ -522,11 +522,11 @@
                         Workspace.software_support = BLL.Software.return_software(string_data)
                         Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
                         If removidos = True Then
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação_desativo(string_data)
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação_desativo(string_data)
                             opr_reparacoes.removidos = True
                             opr_reparacoes.Show()
                         Else
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.procura_dados_numreparação(string_data)
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data)
                             opr_reparacoes.removidos = False
                             opr_reparacoes.Show()
                         End If
@@ -555,11 +555,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_tecnicos.modo = True
                         If removidos = True Then
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_desativados(string_data)
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_desativados(string_data)
                             opr_tecnicos.removidos = True
                             opr_tecnicos.Show()
                         Else
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.procura_dados_ntecnico_ativados(string_data)
+                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_ativados(string_data)
                             opr_tecnicos.removidos = False
                             opr_tecnicos.Show()
                         End If
@@ -569,11 +569,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_empresas.modo = True
                         If removidos = True Then
-                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa_desativados(string_data)
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa_desativados(string_data)
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         Else
-                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.procura_dados_numempresa(string_data)
+                            opr_empresas.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(string_data)
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         End If
@@ -583,14 +583,19 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_utilizadores.modo = True
                         If removidos = True Then
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(string_data)
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_desativados(string_data)
                             opr_utilizadores.removidos = True
                             opr_utilizadores.Show()
                         Else
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(string_data)
+                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(string_data)
                             opr_utilizadores.removidos = True
                             opr_utilizadores.Show()
                         End If
+                        opr_utilizadores.RadButton5.Enabled = False
+                        opr_utilizadores.RadButton1.Enabled = False
+                        opr_utilizadores.RadButton2.Enabled = False
+                        opr_utilizadores.RadButton3.Enabled = False
+                        opr_utilizadores.tecnicobox.Enabled = False
                 End Select
                 Me.Close()
             Catch ex As Exception

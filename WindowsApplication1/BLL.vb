@@ -82,18 +82,18 @@ Public Class BLL
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
                 If Cod_Utilizador = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util,Password,Pergunta_S,Resposta_S, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=0", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador like @Cod_Utilizador AND Ativo=0", p)
+                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util,Password,Pergunta_S,Resposta_S, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador like @Cod_Utilizador AND Ativo=0", p)
                 End If
             End Function
             Shared Function carregar_dados_codutilizador_ativados(ByRef Cod_Utilizador As String) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@Cod_Utilizador", Cod_Utilizador))
                 If Cod_Utilizador = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util,Password,Pergunta_S,Resposta_S, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores Where Ativo=1", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador like @Cod_Utilizador AND Ativo=1", p)
+                    Return DAL.ExecuteQueryDT("SELECT Cod_Utilizador, NºTécnico, Nome_Util,Password,Pergunta_S,Resposta_S, Admin, Admin_Geral, Ativo, NºEmpresa FROM Utilizadores where Cod_Utilizador like @Cod_Utilizador AND Ativo=1", p)
                 End If
             End Function
             Shared Function procura_dados_ntecnico(ByVal id As String) As DataTable

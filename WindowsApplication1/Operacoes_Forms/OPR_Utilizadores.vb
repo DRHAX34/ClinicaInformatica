@@ -10,6 +10,7 @@
             admgeralcheck.Hide()
             empresabox.Hide()
             Label5.Hide()
+            admincheck.Show()
         End If
         If BLL.Tecnicos.carregar.Rows.Count = 0 Then
             simcheck.Enabled = False
@@ -18,7 +19,7 @@
         End If
         If Workspace.varias_empresas = False Then
             admgeralcheck.Hide()
-            admincheck.Location = New Point(312, 237)
+            admincheck.Location = New Point(312, 171)
         End If
         empresabox.DataSource = BLL.Login.Carregar_empresas()
         If Workspace.admin_geral = True Then
@@ -53,9 +54,14 @@
                     empresabox.SelectedIndex = i
                 End If
             Next
-            nomeutilizadorbox.Text = utilizador_data.Rows.Item(0).Item("Nome_Util").ToString()
-            Dim password As String = utilizador_data.Rows.Item(0).Item("Password").ToString()
+            nomeutilizadorbox.Text = utilizador_data.Rows(0).Item("Nome_Util").ToString()
+            Dim password As String = utilizador_data.Rows(0).Item("Password").ToString()
             passwordbox.Text = wrapper.DecryptData(password)
+            verifbox.Text = passwordbox.Text
+            perguntabox.Text = utilizador_data.Rows(0).Item("Pergunta_S").ToString()
+            respostabox.Text = utilizador_data.Rows(0).Item("Resposta_S").ToString()
+            admincheck.Checked = utilizador_data.Rows(0).Item("Admin").ToString()
+            admgeralcheck.Checked = utilizador_data.Rows(0).Item("Admin_Geral").ToString()
         Else
             tecnicobox.Text = ""
             empresabox.SelectedIndex = 0
@@ -282,7 +288,7 @@
                             MsgBox("Editado com sucesso!")
                             Me.Close()
                         Else
-                            BLL.Admin_only.Login.alterar_login_non_student(perguntabox.Text, respostabox.Text, utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString(), admgeralcheck.Checked, admincheck.Checked, nomeutilizadorbox.Text, wrapper.EncryptData(passwordbox.Text), n_empresa)
+                            BLL.Admin_only.Login.alterar_login_non_student(perguntabox.Text, respostabox.Text, utilizador_data.Rows.Item(0).Item("Cod_Utilizador").ToString(), admincheck.Checked, admgeralcheck.Checked, nomeutilizadorbox.Text, wrapper.EncryptData(passwordbox.Text), n_empresa)
                             MsgBox("Editado com sucesso!")
                             Me.Close()
                         End If
