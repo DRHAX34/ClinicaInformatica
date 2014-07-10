@@ -83,7 +83,9 @@ Public Class Passo3
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
-                BLL.Admin_only.Login.Add_login_non_student_admin(perguntabox.Text, respostabox.Text, True, nomebox.Text, passencript)
+                Dim perguntastring As String = wrapper.EncryptData(perguntabox.Text)
+                Dim respostastring As String = wrapper.EncryptData(respostabox.Text)
+                BLL.Admin_only.Login.Add_login_non_student_admin(perguntastring, respostastring, True, nomebox.Text, passencript)
                 Workspace.config3_5.Show()
                 Me.Close()
             Else

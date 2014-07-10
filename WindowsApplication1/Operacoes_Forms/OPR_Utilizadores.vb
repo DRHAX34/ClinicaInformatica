@@ -111,12 +111,16 @@
             Catch ex As Exception
                 check_nomutil = ""
             End Try
-            Try
-                check_pass = passwordbox.Text
-                check_pass.Trim()
-            Catch ex As Exception
+            If passwordbox.Text = verifbox.Text Then
+                Try
+                    check_pass = passwordbox.Text
+                    check_pass.Trim()
+                Catch ex As Exception
+                    check_pass = ""
+                End Try
+            Else
                 check_pass = ""
-            End Try
+            End If
             Try
                 check_pergunta = perguntabox.Text
                 check_pergunta.Trim()
@@ -139,13 +143,15 @@
                     Dim password As String = passwordbox.Text
                     Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                     Dim passencript As String = wrapper.EncryptData(password)
+                    Dim perguntastring As String = wrapper.EncryptData(perguntabox.Text)
+                    Dim respostastring As String = wrapper.EncryptData(respostabox.Text)
                     If admgeralcheck.Checked = True Then
-                        BLL.Admin_only.Login.Add_login_non_student_admin(perguntabox.Text, respostabox.Text, admgeralcheck.Checked, nomeutilizadorbox.Text, passencript)
+                        BLL.Admin_only.Login.Add_login_non_student_admin(perguntastring, respostastring, admgeralcheck.Checked, nomeutilizadorbox.Text, passencript)
                         MsgBox("Inserido com sucesso!")
                         Workspace.utilativos.PerformClick()
                         Me.Close()
                     Else
-                        BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, admincheck.Checked, nomeutilizadorbox.Text, passencript, n_empresa)
+                        BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntastring, respostastring, admincheck.Checked, nomeutilizadorbox.Text, passencript, n_empresa)
                         MsgBox("Inserido com sucesso!")
                         Workspace.utilativos.PerformClick()
                         Me.Close()

@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Clientes_alunos
+Partial Class repar_localidade
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -22,13 +22,10 @@ Partial Class Clientes_alunos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(repar_localidade))
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.nreparanolabel = New System.Windows.Forms.Label()
-        Me.nreparmeslabel = New System.Windows.Forms.Label()
-        Me.mediames = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label7 = New System.Windows.Forms.Label()
-        Me.Label6 = New System.Windows.Forms.Label()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.empresalabel = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -36,6 +33,7 @@ Partial Class Clientes_alunos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
+        Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -44,73 +42,19 @@ Partial Class Clientes_alunos
         'Panel2
         '
         Me.Panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel2.Controls.Add(Me.nreparanolabel)
-        Me.Panel2.Controls.Add(Me.nreparmeslabel)
-        Me.Panel2.Controls.Add(Me.mediames)
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.ListBox1)
         Me.Panel2.Location = New System.Drawing.Point(36, 201)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(601, 411)
         Me.Panel2.TabIndex = 10
         '
-        'nreparanolabel
+        'ListBox1
         '
-        Me.nreparanolabel.AutoSize = True
-        Me.nreparanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparanolabel.Location = New System.Drawing.Point(241, 289)
-        Me.nreparanolabel.Name = "nreparanolabel"
-        Me.nreparanolabel.Size = New System.Drawing.Size(84, 32)
-        Me.nreparanolabel.TabIndex = 12
-        Me.nreparanolabel.Text = "Label5"
-        '
-        'nreparmeslabel
-        '
-        Me.nreparmeslabel.AutoSize = True
-        Me.nreparmeslabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparmeslabel.Location = New System.Drawing.Point(110, 95)
-        Me.nreparmeslabel.Name = "nreparmeslabel"
-        Me.nreparmeslabel.Size = New System.Drawing.Size(84, 32)
-        Me.nreparmeslabel.TabIndex = 11
-        Me.nreparmeslabel.Text = "Label5"
-        '
-        'mediames
-        '
-        Me.mediames.AutoSize = True
-        Me.mediames.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mediames.Location = New System.Drawing.Point(402, 95)
-        Me.mediames.Name = "mediames"
-        Me.mediames.Size = New System.Drawing.Size(84, 32)
-        Me.mediames.TabIndex = 10
-        Me.mediames.Text = "Label5"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(224, 344)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(145, 13)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "Percentagem Clientes Alunos"
-        '
-        'Label7
-        '
-        Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(405, 173)
-        Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(79, 13)
-        Me.Label7.TabIndex = 6
-        Me.Label7.Text = "Clientes Alunos"
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(93, 173)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(102, 13)
-        Me.Label6.TabIndex = 5
-        Me.Label6.Text = "Clientes Não Alunos"
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(4, 4)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(592, 394)
+        Me.ListBox1.TabIndex = 0
         '
         'empresalabel
         '
@@ -164,11 +108,11 @@ Partial Class Clientes_alunos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(210, 28)
+        Me.Label1.Location = New System.Drawing.Point(239, 33)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(383, 32)
+        Me.Label1.Size = New System.Drawing.Size(322, 32)
         Me.Label1.TabIndex = 7
-        Me.Label1.Text = "Percentagem de Clientes Alunos"
+        Me.Label1.Text = "Reparações por Localidade"
         '
         'empresalogobox
         '
@@ -178,7 +122,15 @@ Partial Class Clientes_alunos
         Me.empresalogobox.TabIndex = 6
         Me.empresalogobox.TabStop = False
         '
-        'Form3
+        'PrintForm1
+        '
+        Me.PrintForm1.DocumentName = "document"
+        Me.PrintForm1.Form = Me
+        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
+        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
+        Me.PrintForm1.PrintFileName = Nothing
+        '
+        'repar_localidade
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -189,10 +141,9 @@ Partial Class Clientes_alunos
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.empresalogobox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form3"
-        Me.Text = "Form3"
+        Me.Name = "repar_localidade"
+        Me.Text = "Form2"
         Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -201,12 +152,6 @@ Partial Class Clientes_alunos
 
     End Sub
     Friend WithEvents Panel2 As System.Windows.Forms.Panel
-    Friend WithEvents nreparanolabel As System.Windows.Forms.Label
-    Friend WithEvents nreparmeslabel As System.Windows.Forms.Label
-    Friend WithEvents mediames As System.Windows.Forms.Label
-    Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents empresalabel As System.Windows.Forms.Label
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents Label4 As System.Windows.Forms.Label
@@ -214,4 +159,6 @@ Partial Class Clientes_alunos
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents empresalogobox As System.Windows.Forms.PictureBox
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
 End Class

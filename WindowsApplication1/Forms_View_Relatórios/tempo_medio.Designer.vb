@@ -22,6 +22,8 @@ Partial Class tempomedioprintpage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(tempomedioprintpage))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -30,14 +32,15 @@ Partial Class tempomedioprintpage
         Me.Label3 = New System.Windows.Forms.Label()
         Me.empresalabel = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.tempomedioanolabel = New System.Windows.Forms.Label()
+        Me.nreparanolabel = New System.Windows.Forms.Label()
+        Me.nreparmeslabel = New System.Windows.Forms.Label()
+        Me.mediames = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.mediames = New System.Windows.Forms.Label()
-        Me.nreparmeslabel = New System.Windows.Forms.Label()
-        Me.nreparanolabel = New System.Windows.Forms.Label()
-        Me.tempomedioanolabel = New System.Windows.Forms.Label()
+        Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -49,7 +52,7 @@ Partial Class tempomedioprintpage
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(208, 39)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(355, 32)
+        Me.Label1.Size = New System.Drawing.Size(358, 32)
         Me.Label1.TabIndex = 1
         Me.Label1.Text = "Tempo Médio das Reparações"
         '
@@ -125,6 +128,64 @@ Partial Class tempomedioprintpage
         Me.Panel2.Size = New System.Drawing.Size(601, 411)
         Me.Panel2.TabIndex = 5
         '
+        'tempomedioanolabel
+        '
+        Me.tempomedioanolabel.AutoSize = True
+        Me.tempomedioanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tempomedioanolabel.Location = New System.Drawing.Point(416, 299)
+        Me.tempomedioanolabel.Name = "tempomedioanolabel"
+        Me.tempomedioanolabel.Size = New System.Drawing.Size(84, 32)
+        Me.tempomedioanolabel.TabIndex = 13
+        Me.tempomedioanolabel.Text = "Label5"
+        '
+        'nreparanolabel
+        '
+        Me.nreparanolabel.AutoSize = True
+        Me.nreparanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nreparanolabel.Location = New System.Drawing.Point(110, 299)
+        Me.nreparanolabel.Name = "nreparanolabel"
+        Me.nreparanolabel.Size = New System.Drawing.Size(84, 32)
+        Me.nreparanolabel.TabIndex = 12
+        Me.nreparanolabel.Text = "Label5"
+        '
+        'nreparmeslabel
+        '
+        Me.nreparmeslabel.AutoSize = True
+        Me.nreparmeslabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nreparmeslabel.Location = New System.Drawing.Point(110, 95)
+        Me.nreparmeslabel.Name = "nreparmeslabel"
+        Me.nreparmeslabel.Size = New System.Drawing.Size(84, 32)
+        Me.nreparmeslabel.TabIndex = 11
+        Me.nreparmeslabel.Text = "Label5"
+        '
+        'mediames
+        '
+        Me.mediames.AutoSize = True
+        Me.mediames.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.mediames.Location = New System.Drawing.Point(416, 95)
+        Me.mediames.Name = "mediames"
+        Me.mediames.Size = New System.Drawing.Size(84, 32)
+        Me.mediames.TabIndex = 10
+        Me.mediames.Text = "Label5"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(358, 354)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(197, 13)
+        Me.Label9.TabIndex = 8
+        Me.Label9.Text = "Tempo Médio das Reparações este ano"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Location = New System.Drawing.Point(93, 354)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(121, 13)
+        Me.Label8.TabIndex = 7
+        Me.Label8.Text = "NºReparações este ano"
+        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -143,65 +204,15 @@ Partial Class tempomedioprintpage
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "NºReparações este mês"
         '
-        'Label8
+        'PrintForm1
         '
-        Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(93, 354)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(121, 13)
-        Me.Label8.TabIndex = 7
-        Me.Label8.Text = "NºReparações este ano"
+        Me.PrintForm1.DocumentName = "document"
+        Me.PrintForm1.Form = Me
+        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
+        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
+        Me.PrintForm1.PrintFileName = Nothing
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(358, 354)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(197, 13)
-        Me.Label9.TabIndex = 8
-        Me.Label9.Text = "Tempo Médio das Reparações este ano"
-        '
-        'mediames
-        '
-        Me.mediames.AutoSize = True
-        Me.mediames.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.mediames.Location = New System.Drawing.Point(416, 95)
-        Me.mediames.Name = "mediames"
-        Me.mediames.Size = New System.Drawing.Size(84, 32)
-        Me.mediames.TabIndex = 10
-        Me.mediames.Text = "Label5"
-        '
-        'nreparmeslabel
-        '
-        Me.nreparmeslabel.AutoSize = True
-        Me.nreparmeslabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparmeslabel.Location = New System.Drawing.Point(110, 95)
-        Me.nreparmeslabel.Name = "nreparmeslabel"
-        Me.nreparmeslabel.Size = New System.Drawing.Size(84, 32)
-        Me.nreparmeslabel.TabIndex = 11
-        Me.nreparmeslabel.Text = "Label5"
-        '
-        'nreparanolabel
-        '
-        Me.nreparanolabel.AutoSize = True
-        Me.nreparanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nreparanolabel.Location = New System.Drawing.Point(110, 299)
-        Me.nreparanolabel.Name = "nreparanolabel"
-        Me.nreparanolabel.Size = New System.Drawing.Size(84, 32)
-        Me.nreparanolabel.TabIndex = 12
-        Me.nreparanolabel.Text = "Label5"
-        '
-        'tempomedioanolabel
-        '
-        Me.tempomedioanolabel.AutoSize = True
-        Me.tempomedioanolabel.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tempomedioanolabel.Location = New System.Drawing.Point(416, 299)
-        Me.tempomedioanolabel.Name = "tempomedioanolabel"
-        Me.tempomedioanolabel.Size = New System.Drawing.Size(84, 32)
-        Me.tempomedioanolabel.TabIndex = 13
-        Me.tempomedioanolabel.Text = "Label5"
-        '
-        'Form1
+        'tempomedioprintpage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -213,7 +224,7 @@ Partial Class tempomedioprintpage
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.empresalogobox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.Name = "Form1"
+        Me.Name = "tempomedioprintpage"
         Me.Text = "Form1"
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
@@ -240,4 +251,5 @@ Partial Class tempomedioprintpage
     Friend WithEvents nreparanolabel As System.Windows.Forms.Label
     Friend WithEvents nreparmeslabel As System.Windows.Forms.Label
     Friend WithEvents mediames As System.Windows.Forms.Label
+    Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
 End Class

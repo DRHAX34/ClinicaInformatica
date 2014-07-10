@@ -95,16 +95,21 @@
             If Not check_tipo = "" And Not check_numcliente = "" And Not check_numserie = "" And Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
                 BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
-                If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
-                    If BLL.Tecnicos.carregar.Rows.Count = 0 Then
-                        If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
-                            Dim opr_tecnicos As New OPR_Técnicos
-                            opr_tecnicos.MdiParent = Workspace
-                            opr_tecnicos.modo = False
-                            opr_tecnicos.Show()
-                            Me.Close()
+                    If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
+                        If BLL.Tecnicos.carregar.Rows.Count = 0 Then
+                        If Workspace.admin = True Then
+                            If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
+                                Dim opr_tecnicos As New OPR_Técnicos
+                                opr_tecnicos.MdiParent = Workspace
+                                opr_tecnicos.modo = False
+                                opr_tecnicos.Show()
+                                Me.Close()
+                            Else
+                                MsgBox("Não poderá criar nenhuma reparação sem inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                                Me.Close()
+                            End If
                         Else
-                            MsgBox("Não poderá criar nenhuma reparação sem inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                            MsgBox("Não existem Técnicos no programa, tem que pedir ao seu Administrador que adicione pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
                             Me.Close()
                         End If
                     Else
@@ -115,6 +120,7 @@
                         opr_reparações.Show()
                         Me.Close()
                     End If
+                    
                 Else
                     Workspace.componentesAtivosToolStripMenuItem.PerformClick()
                     Me.Close()

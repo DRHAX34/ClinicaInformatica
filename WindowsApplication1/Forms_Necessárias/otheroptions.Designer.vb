@@ -39,9 +39,9 @@ Partial Class otheroptions
         '
         'repar_entregabox
         '
-        Me.repar_entregabox.Location = New System.Drawing.Point(108, 12)
+        Me.repar_entregabox.Location = New System.Drawing.Point(12, 12)
         Me.repar_entregabox.Name = "repar_entregabox"
-        Me.repar_entregabox.Size = New System.Drawing.Size(102, 60)
+        Me.repar_entregabox.Size = New System.Drawing.Size(173, 60)
         Me.repar_entregabox.TabIndex = 2
         Me.repar_entregabox.Text = "Folha de Reparação para Entrega"
         Me.repar_entregabox.TextWrap = True
@@ -49,9 +49,9 @@ Partial Class otheroptions
         '
         'repara_orçabox
         '
-        Me.repara_orçabox.Location = New System.Drawing.Point(108, 78)
+        Me.repara_orçabox.Location = New System.Drawing.Point(191, 12)
         Me.repara_orçabox.Name = "repara_orçabox"
-        Me.repara_orçabox.Size = New System.Drawing.Size(102, 38)
+        Me.repara_orçabox.Size = New System.Drawing.Size(186, 60)
         Me.repara_orçabox.TabIndex = 2
         Me.repara_orçabox.Text = "Folha Reparação Orçamento"
         Me.repara_orçabox.TextWrap = True
@@ -59,18 +59,18 @@ Partial Class otheroptions
         '
         'percentagem_clientesbox
         '
-        Me.percentagem_clientesbox.Location = New System.Drawing.Point(108, 122)
+        Me.percentagem_clientesbox.Location = New System.Drawing.Point(12, 78)
         Me.percentagem_clientesbox.Name = "percentagem_clientesbox"
-        Me.percentagem_clientesbox.Size = New System.Drawing.Size(102, 38)
+        Me.percentagem_clientesbox.Size = New System.Drawing.Size(173, 63)
         Me.percentagem_clientesbox.TabIndex = 2
         Me.percentagem_clientesbox.Text = "Percentagens de Clientes Alunos"
         Me.percentagem_clientesbox.ThemeName = "Windows8"
         '
         'repar_localbox
         '
-        Me.repar_localbox.Location = New System.Drawing.Point(108, 166)
+        Me.repar_localbox.Location = New System.Drawing.Point(191, 78)
         Me.repar_localbox.Name = "repar_localbox"
-        Me.repar_localbox.Size = New System.Drawing.Size(102, 38)
+        Me.repar_localbox.Size = New System.Drawing.Size(186, 63)
         Me.repar_localbox.TabIndex = 2
         Me.repar_localbox.Text = "Reparações por Localidade"
         Me.repar_localbox.TextWrap = True
@@ -78,9 +78,9 @@ Partial Class otheroptions
         '
         'tempo_mediobox
         '
-        Me.tempo_mediobox.Location = New System.Drawing.Point(108, 210)
+        Me.tempo_mediobox.Location = New System.Drawing.Point(103, 147)
         Me.tempo_mediobox.Name = "tempo_mediobox"
-        Me.tempo_mediobox.Size = New System.Drawing.Size(102, 38)
+        Me.tempo_mediobox.Size = New System.Drawing.Size(158, 63)
         Me.tempo_mediobox.TabIndex = 2
         Me.tempo_mediobox.Text = "Tempo Médio de Reparações"
         Me.tempo_mediobox.TextWrap = True
@@ -99,13 +99,14 @@ Partial Class otheroptions
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(340, 304)
+        Me.ClientSize = New System.Drawing.Size(421, 317)
         Me.Controls.Add(Me.Sair)
         Me.Controls.Add(Me.tempo_mediobox)
         Me.Controls.Add(Me.repar_localbox)
         Me.Controls.Add(Me.percentagem_clientesbox)
         Me.Controls.Add(Me.repara_orçabox)
         Me.Controls.Add(Me.repar_entregabox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "otheroptions"
         Me.Text = "otheroptions"
         CType(Me.repar_entregabox, System.ComponentModel.ISupportInitialize).EndInit()

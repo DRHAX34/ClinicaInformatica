@@ -83,6 +83,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -93,6 +96,7 @@
     <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml" />
@@ -111,6 +115,7 @@
       <Private>True</Private>
       <HintPath>..\packages\RadControls.for.WinForms.GridView.2013.3.1016\lib\net40\Telerik.WinControls.GridView.dll</HintPath>
     </Reference>
+    <Reference Include="Telerik.WinControls.PdfViewer, Version=2013.3.1016.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
     <Reference Include="Telerik.WinControls.PivotGrid, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\RadControls.for.WinForms.PivotGrid.2013.3.1016\lib\net40\Telerik.WinControls.PivotGrid.dll</HintPath>
@@ -234,7 +239,14 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console.vb" />
     <Compile Include="CurrencyBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl1.Designer.vb">
+      <DependentUpon>CustomControl1.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl1.vb">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Forms_Necessárias\AboutBox1.Designer.vb">
@@ -274,6 +286,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL.vb" />
+    <Compile Include="Forms_Necessárias\manual_form.Designer.vb">
+      <DependentUpon>manual_form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_Necessárias\manual_form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms_Necessárias\otheroptions.Designer.vb">
       <DependentUpon>otheroptions.vb</DependentUpon>
     </Compile>
@@ -292,34 +310,28 @@
     <Compile Include="Operacoes_Forms\Inserir_Software.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\tempo_medio.Designer.vb">
+    <Compile Include="Forms_View_Relatórios\tempo_medio.Designer.vb">
       <DependentUpon>tempo_medio.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\tempo_medio.vb">
+    <Compile Include="Forms_View_Relatórios\tempo_medio.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\repar_localidade.Designer.vb">
+    <Compile Include="Forms_View_Relatórios\repar_localidade.Designer.vb">
       <DependentUpon>repar_localidade.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\repar_localidade.vb">
+    <Compile Include="Forms_View_Relatórios\repar_localidade.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\Clientes_alunos.Designer.vb">
-      <DependentUpon>Clientes_alunos.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Relatórios\Clientes_alunos.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Relatórios\folha_repar.Designer.vb">
+    <Compile Include="Forms_View_Relatórios\folha_repar.Designer.vb">
       <DependentUpon>folha_repar.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\folha_repar.vb">
+    <Compile Include="Forms_View_Relatórios\folha_repar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Relatórios\folha_repar_orçamento.Designer.vb">
+    <Compile Include="Forms_View_Relatórios\folha_repar_orçamento.Designer.vb">
       <DependentUpon>folha_repar_orçamento.vb</DependentUpon>
     </Compile>
-    <Compile Include="Relatórios\folha_repar_orçamento.vb">
+    <Compile Include="Forms_View_Relatórios\folha_repar_orçamento.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="teste.vb" />
@@ -374,11 +386,6 @@
     <Compile Include="Operacoes_Forms\OPR_Reparações.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resources\_BD_C_IDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Forms_Necessárias\ViewForm.Designer.vb">
       <DependentUpon>ViewForm.vb</DependentUpon>
     </Compile>
@@ -422,6 +429,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="_BD_C_IDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms_Necessárias\AboutBox1.resx">
@@ -442,6 +454,9 @@
     <EmbeddedResource Include="Assistente de Primeiro Uso\Passo4.resx">
       <DependentUpon>Passo4.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Necessárias\manual_form.resx">
+      <DependentUpon>manual_form.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\otheroptions.resx">
       <DependentUpon>otheroptions.vb</DependentUpon>
     </EmbeddedResource>
@@ -460,21 +475,19 @@
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\tempo_medio.resx">
+    <EmbeddedResource Include="Forms_View_Relatórios\tempo_medio.resx">
       <DependentUpon>tempo_medio.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\repar_localidade.resx">
+    <EmbeddedResource Include="Forms_View_Relatórios\repar_localidade.resx">
       <DependentUpon>repar_localidade.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\Clientes_alunos.resx">
-      <DependentUpon>Clientes_alunos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\folha_repar.resx">
+    <EmbeddedResource Include="Forms_View_Relatórios\folha_repar.resx">
       <DependentUpon>folha_repar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Relatórios\folha_repar_orçamento.resx">
+    <EmbeddedResource Include="Forms_View_Relatórios\folha_repar_orçamento.resx">
       <DependentUpon>folha_repar_orçamento.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report5.rdlc" />
     <EmbeddedResource Include="SplashAway.resx">
       <DependentUpon>SplashAway.vb</DependentUpon>
     </EmbeddedResource>
@@ -523,15 +536,15 @@
     </None>
     <None Include="App.config" />
     <None Include="Resources\BD.zip" />
-    <None Include="Resources\_BD_C_IDataSet.xsc">
+    <None Include="_BD_C_IDataSet.xsc">
       <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
     </None>
-    <None Include="Resources\_BD_C_IDataSet.xsd">
+    <None Include="_BD_C_IDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>_BD_C_IDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="Resources\_BD_C_IDataSet.xss">
+    <None Include="_BD_C_IDataSet.xss">
       <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
@@ -595,6 +608,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

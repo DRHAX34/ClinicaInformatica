@@ -13,14 +13,18 @@ Public NotInheritable Class SplashAway
         ProgressBar1.Value = 15
         Workspace.check_bd = False
         ProgressBar1.Value = 20
-        If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf") Then
-            unzip()
-            ProgressBar1.Value = 25
-            Workspace.check_bd = True
-        Else
-            Workspace.check_bd = True
-            ProgressBar1.Value = 25
-        End If
+        'If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf") Then
+        '    unzip()
+        '    ProgressBar1.Value = 25
+        '    Workspace.check_bd = True
+        'Else
+        Try
+            System.IO.File.Delete(".\Resources\BD-C.I_log.ldf")
+        Catch
+        End Try
+        Workspace.check_bd = True
+        ProgressBar1.Value = 25
+        'End If
         ProgressBar1.Value = 30
         If Workspace.check_bd = True Then
             Try

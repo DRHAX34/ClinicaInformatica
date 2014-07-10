@@ -17,6 +17,7 @@
         folha_repar_entrega.n_repar = Workspace.pass_string
         folha_repar_entrega.componentedata = BLL.Componentes.carregar_dados_numcomponente(n_componente)
         folha_repar_entrega.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar_entrega.componentedata.Rows(0).Item("NºCliente").ToString)
-        'folha_repar_entrega
+        folha_repar_entrega.Show()
+
     End Sub
 End Class

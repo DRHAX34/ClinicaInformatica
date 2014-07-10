@@ -32,7 +32,7 @@ Public Class BLL
                 Dim check As Integer
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@nome", nome))
-                check = DAL.ExecuteScalar("Select Cod_Utilizador FROM Utilizadores where Nome_util=@Nome AND Admin_Geral=1", p)
+                check = DAL.ExecuteScalar("Select Cod_Utilizador FROM Utilizadores where Nome_util=@Nome", p)
                 If check <> 0 Then
                     Return 1
                 Else

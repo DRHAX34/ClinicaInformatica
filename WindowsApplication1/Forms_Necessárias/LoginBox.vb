@@ -69,6 +69,8 @@
                 Workspace.utilativos.Visible = False
                 Workspace.utilremovidos.Visible = False
                 Workspace.tecnicosmenu.Visible = False
+                Workspace.admin = False
+                Workspace.admin_geral = False
                 tipo = "Utilizador Padrão"
             End If
             Workspace.clientesmenu.Enabled = True

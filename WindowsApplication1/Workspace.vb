@@ -558,4 +558,49 @@ Public Class Workspace
         AboutBox1.MdiParent = Me
         AboutBox1.Show()
     End Sub
+
+    Private Sub BackupDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackupDeDadosToolStripMenuItem.Click
+        Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
+        Dim sql_caminho As String
+        SaveFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
+        SaveFileDialog1.ShowDialog()
+        sql_caminho = SaveFileDialog1.FileName
+        Try
+            If sql_caminho <> "OpenFileDialog1" Then
+                If System.IO.File.Exists(sql_caminho) = True Then
+                    System.IO.File.Delete(sql_caminho)
+                End If
+                System.IO.File.Copy(".\Resources\BD-C.I.mdf", sql_caminho)
+                MsgBox("Backup feito com êxito! Nota: O programa ficará um pouco lento ao abrir uma Tabela por um curto período de tempo.", vbOKOnly, "Êxito!")
+            End If
+        Catch ex As Exception
+            MsgBox("Erro ao fazer o backup: " & ex.Message, vbOKOnly, "Erro ao fazer Backup!")
+        End Try
+    End Sub
+
+    Private Sub RestauroDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestauroDeDadosToolStripMenuItem.Click
+        If MsgBox("O programa terá que ser reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
+            Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
+            Dim sql_caminho As String
+            OpenFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
+            OpenFileDialog1.ShowDialog()
+            sql_caminho = OpenFileDialog1.FileName
+            If sql_caminho <> "OpenFileDialog1" Then
+                Try
+                    System.IO.File.Delete(".\Resources\BD-C.I.mdf")
+                    System.IO.File.Delete(".\Resources\BD-C.I_log.ldf")
+                    System.IO.File.Copy(sql_caminho, ".\Resources\BD-C.I.mdf")
+                    MsgBox("Backup restaurado com êxito!")
+                    Application.Restart()
+                Catch ex As Exception
+                    MsgBox("Erro ao Restaurar Cópia: " & ex.Message, vbOKOnly, "Erro ao fazer Backup!")
+                End Try
+            End If
+        End If
+    End Sub
+
+    
+    Private Sub IndexToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IndexToolStripMenuItem.Click
+
+    End Sub
 End Class

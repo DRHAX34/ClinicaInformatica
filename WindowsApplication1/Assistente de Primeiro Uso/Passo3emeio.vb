@@ -82,9 +82,11 @@ Public Class Passo3emeio
                 Dim password As String = passbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
+                Dim perguntastring As String = wrapper.EncryptData(perguntabox.Text)
+                Dim respostastring As String = wrapper.EncryptData(respostabox.Text)
                 BLL.n_empresa = "1"
                 If BLL.Admin_only.Login.check_exist(nomebox.Text) = 0 Then
-                    BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, True, nomebox.Text, passencript, BLL.n_empresa)
+                    BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntastring, respostastring, True, nomebox.Text, passencript, BLL.n_empresa)
                     Workspace.config4.Show()
                     Me.Close()
                 Else
