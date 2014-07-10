@@ -407,7 +407,7 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.Label4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Clientes"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Clientes"
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).EndInit()

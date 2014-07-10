@@ -35,6 +35,8 @@ Partial Class OPR_Utilizadores
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.admgeralcheck = New System.Windows.Forms.RadioButton()
         Me.admincheck = New System.Windows.Forms.RadioButton()
+        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.verifbox = New System.Windows.Forms.TextBox()
         Me.passwordbox = New System.Windows.Forms.TextBox()
         Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
@@ -52,8 +54,6 @@ Partial Class OPR_Utilizadores
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -194,6 +194,26 @@ Partial Class OPR_Utilizadores
         Me.admincheck.TabStop = True
         Me.admincheck.Text = "Admin"
         Me.admincheck.UseVisualStyleBackColor = True
+        '
+        'respostabox
+        '
+        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.respostabox.Location = New System.Drawing.Point(347, 114)
+        Me.respostabox.Name = "respostabox"
+        Me.respostabox.Size = New System.Drawing.Size(208, 27)
+        Me.respostabox.TabIndex = 104
+        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.respostabox.WaterMarkText = "Resposta"
+        '
+        'perguntabox
+        '
+        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.perguntabox.Location = New System.Drawing.Point(52, 114)
+        Me.perguntabox.Name = "perguntabox"
+        Me.perguntabox.Size = New System.Drawing.Size(267, 27)
+        Me.perguntabox.TabIndex = 103
+        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
         '
         'verifbox
         '
@@ -340,26 +360,6 @@ Partial Class OPR_Utilizadores
         'Timer1
         '
         '
-        'respostabox
-        '
-        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.respostabox.Location = New System.Drawing.Point(347, 114)
-        Me.respostabox.Name = "respostabox"
-        Me.respostabox.Size = New System.Drawing.Size(208, 27)
-        Me.respostabox.TabIndex = 104
-        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.respostabox.WaterMarkText = "Resposta"
-        '
-        'perguntabox
-        '
-        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.perguntabox.Location = New System.Drawing.Point(52, 114)
-        Me.perguntabox.Name = "perguntabox"
-        Me.perguntabox.Size = New System.Drawing.Size(267, 27)
-        Me.perguntabox.TabIndex = 103
-        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
-        '
         'OPR_Utilizadores
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -384,7 +384,7 @@ Partial Class OPR_Utilizadores
         Me.Controls.Add(Me.tecnicolabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Utilizadores"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Utilizadores"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()

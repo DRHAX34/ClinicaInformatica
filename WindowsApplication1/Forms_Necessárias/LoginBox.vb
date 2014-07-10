@@ -32,7 +32,8 @@
     End Sub
 
     Private Sub helpbutton_Click(sender As Object, e As EventArgs) Handles buttonhelp.Click
-
+        Recuperação_pass.MdiParent = Workspace
+        Recuperação_pass.Show()
     End Sub
 
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click

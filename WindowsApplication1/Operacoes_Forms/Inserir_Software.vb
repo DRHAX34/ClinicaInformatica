@@ -3,7 +3,16 @@
     Private Sub Inserir_software_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AcceptButton = RadButton5
         If modo = False Then
-            Workspace.hardware_support = New DataTable
+            Workspace.software_support = New DataTable
+        Else
+            caixapreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
+            motherpreçobox.Text = Workspace.hardware_support.Rows(1).Item("Preço")
+            coolerpreçobox.Text = Workspace.hardware_support.Rows(2).Item("Preço")
+            vgapreçobox.Text = Workspace.hardware_support.Rows(3).Item("Preço")
+            opticpreçobox.Text = Workspace.hardware_support.Rows(4).Item("Preço")
+            redepreçobox.Text = Workspace.hardware_support.Rows(5).Item("Preço")
+            otherdescriçaobox.Text = Workspace.hardware_support.Rows(6).Item("Tipo")
+            otherpreçobox.Text = Workspace.hardware_support.Rows(6).Item("Preço")
         End If
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click

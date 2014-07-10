@@ -350,7 +350,7 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.numalunolabel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Técnicos"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Técnicos"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()

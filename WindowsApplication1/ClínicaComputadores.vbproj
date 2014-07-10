@@ -115,7 +115,7 @@
       <Private>True</Private>
       <HintPath>..\packages\RadControls.for.WinForms.GridView.2013.3.1016\lib\net40\Telerik.WinControls.GridView.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.PdfViewer, Version=2013.3.1016.20, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
+    <Reference Include="Telerik.WinControls.PdfViewer, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.PivotGrid, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\RadControls.for.WinForms.PivotGrid.2013.3.1016\lib\net40\Telerik.WinControls.PivotGrid.dll</HintPath>
@@ -286,6 +286,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BLL.vb" />
+    <Compile Include="Forms_Necessárias\Recuperação_pass.Designer.vb">
+      <DependentUpon>Recuperação_pass.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_Necessárias\Recuperação_pass.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms_Necessárias\manual_form.Designer.vb">
       <DependentUpon>manual_form.vb</DependentUpon>
     </Compile>
@@ -460,6 +466,9 @@
     <EmbeddedResource Include="Forms_Necessárias\otheroptions.resx">
       <DependentUpon>otheroptions.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Necessárias\Recuperação_pass.resx">
+      <DependentUpon>Recuperação_pass.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\Selectform.resx">
       <DependentUpon>Selectform.vb</DependentUpon>
     </EmbeddedResource>
@@ -536,6 +545,7 @@
     </None>
     <None Include="App.config" />
     <None Include="Resources\BD.zip" />
+    <None Include="Resources\Manual de Instruções.pdf" />
     <None Include="_BD_C_IDataSet.xsc">
       <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
     </None>

@@ -49,7 +49,8 @@ Partial Class otheroptions
         '
         'repara_orçabox
         '
-        Me.repara_orçabox.Location = New System.Drawing.Point(191, 12)
+        Me.repara_orçabox.Enabled = False
+        Me.repara_orçabox.Location = New System.Drawing.Point(223, 12)
         Me.repara_orçabox.Name = "repara_orçabox"
         Me.repara_orçabox.Size = New System.Drawing.Size(186, 60)
         Me.repara_orçabox.TabIndex = 2
@@ -59,6 +60,7 @@ Partial Class otheroptions
         '
         'percentagem_clientesbox
         '
+        Me.percentagem_clientesbox.Enabled = False
         Me.percentagem_clientesbox.Location = New System.Drawing.Point(12, 78)
         Me.percentagem_clientesbox.Name = "percentagem_clientesbox"
         Me.percentagem_clientesbox.Size = New System.Drawing.Size(173, 63)
@@ -68,7 +70,8 @@ Partial Class otheroptions
         '
         'repar_localbox
         '
-        Me.repar_localbox.Location = New System.Drawing.Point(191, 78)
+        Me.repar_localbox.Enabled = False
+        Me.repar_localbox.Location = New System.Drawing.Point(223, 78)
         Me.repar_localbox.Name = "repar_localbox"
         Me.repar_localbox.Size = New System.Drawing.Size(186, 63)
         Me.repar_localbox.TabIndex = 2
@@ -78,7 +81,8 @@ Partial Class otheroptions
         '
         'tempo_mediobox
         '
-        Me.tempo_mediobox.Location = New System.Drawing.Point(103, 147)
+        Me.tempo_mediobox.Enabled = False
+        Me.tempo_mediobox.Location = New System.Drawing.Point(129, 147)
         Me.tempo_mediobox.Name = "tempo_mediobox"
         Me.tempo_mediobox.Size = New System.Drawing.Size(158, 63)
         Me.tempo_mediobox.TabIndex = 2
@@ -88,7 +92,7 @@ Partial Class otheroptions
         '
         'Sair
         '
-        Me.Sair.Location = New System.Drawing.Point(226, 254)
+        Me.Sair.Location = New System.Drawing.Point(307, 267)
         Me.Sair.Name = "Sair"
         Me.Sair.Size = New System.Drawing.Size(102, 38)
         Me.Sair.TabIndex = 2
@@ -108,7 +112,8 @@ Partial Class otheroptions
         Me.Controls.Add(Me.repar_entregabox)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "otheroptions"
-        Me.Text = "otheroptions"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.Text = "Outras Opções"
         CType(Me.repar_entregabox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repara_orçabox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.percentagem_clientesbox, System.ComponentModel.ISupportInitialize).EndInit()

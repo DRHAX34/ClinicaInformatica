@@ -611,14 +611,12 @@
         Try
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-            If Workspace.admin = True Then
                 If tabela = "Reparações" Then
                     Dim otheroptions As New otheroptions
                     otheroptions.MdiParent = Workspace
                     otheroptions.Show()
                     Workspace.pass_string = string_data
                 End If
-            End If
         Catch
         End Try
     End Sub

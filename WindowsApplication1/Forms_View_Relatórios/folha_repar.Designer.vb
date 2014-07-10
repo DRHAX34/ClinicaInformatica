@@ -27,22 +27,48 @@ Partial Class folha_repar
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me._BD_C_IDataSet = New ClinicaInformatica._BD_C_IDataSet()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(folha_repar))
         Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ClientesTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ClientesTableAdapter()
+        Me._BD_C_IDataSet = New ClinicaInformatica._BD_C_IDataSet()
         Me.ComponentesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ComponentesTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ComponentesTableAdapter()
         Me.ReparaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ReparaçõesTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ReparaçõesTableAdapter()
         Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.ClientesTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ClientesTableAdapter()
+        Me.ComponentesTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ComponentesTableAdapter()
+        Me.ReparaçõesTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.ReparaçõesTableAdapter()
         Me.EmpresasTableAdapter = New ClinicaInformatica._BD_C_IDataSetTableAdapters.EmpresasTableAdapter()
-        CType(Me._BD_C_IDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me._BD_C_IDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComponentesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me._BD_C_IDataSet
+        '
+        '_BD_C_IDataSet
+        '
+        Me._BD_C_IDataSet.DataSetName = "_BD_C_IDataSet"
+        Me._BD_C_IDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ComponentesBindingSource
+        '
+        Me.ComponentesBindingSource.DataMember = "Componentes"
+        Me.ComponentesBindingSource.DataSource = Me._BD_C_IDataSet
+        '
+        'ReparaçõesBindingSource
+        '
+        Me.ReparaçõesBindingSource.DataMember = "Reparações"
+        Me.ReparaçõesBindingSource.DataSource = Me._BD_C_IDataSet
+        '
+        'EmpresasBindingSource
+        '
+        Me.EmpresasBindingSource.DataMember = "Empresas"
+        Me.EmpresasBindingSource.DataSource = Me._BD_C_IDataSet
         '
         'ReportViewer1
         '
@@ -65,42 +91,17 @@ Partial Class folha_repar
         Me.ReportViewer1.Size = New System.Drawing.Size(658, 446)
         Me.ReportViewer1.TabIndex = 0
         '
-        '_BD_C_IDataSet
-        '
-        Me._BD_C_IDataSet.DataSetName = "_BD_C_IDataSet"
-        Me._BD_C_IDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me._BD_C_IDataSet
-        '
         'ClientesTableAdapter
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
-        '
-        'ComponentesBindingSource
-        '
-        Me.ComponentesBindingSource.DataMember = "Componentes"
-        Me.ComponentesBindingSource.DataSource = Me._BD_C_IDataSet
         '
         'ComponentesTableAdapter
         '
         Me.ComponentesTableAdapter.ClearBeforeFill = True
         '
-        'ReparaçõesBindingSource
-        '
-        Me.ReparaçõesBindingSource.DataMember = "Reparações"
-        Me.ReparaçõesBindingSource.DataSource = Me._BD_C_IDataSet
-        '
         'ReparaçõesTableAdapter
         '
         Me.ReparaçõesTableAdapter.ClearBeforeFill = True
-        '
-        'EmpresasBindingSource
-        '
-        Me.EmpresasBindingSource.DataMember = "Empresas"
-        Me.EmpresasBindingSource.DataSource = Me._BD_C_IDataSet
         '
         'EmpresasTableAdapter
         '
@@ -112,11 +113,13 @@ Partial Class folha_repar
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(658, 446)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "folha_repar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Form4"
-        CType(Me._BD_C_IDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Folha de Reparação - Entrega ao Cliente"
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me._BD_C_IDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComponentesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

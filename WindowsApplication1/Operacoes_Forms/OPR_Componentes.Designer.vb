@@ -279,7 +279,7 @@ Partial Class OPR_Componentes
         Me.Controls.Add(Me.Label4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Name = "OPR_Componentes"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Componentes"
         CType(Me.RadButton4,System.ComponentModel.ISupportInitialize).EndInit
         CType(Me.RadButton3,System.ComponentModel.ISupportInitialize).EndInit

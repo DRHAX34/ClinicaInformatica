@@ -22,6 +22,7 @@ Partial Class Inserir_Software
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inserir_Software))
         Me.otherdescriçaobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
@@ -269,7 +270,11 @@ Partial Class Inserir_Software
         Me.Controls.Add(Me.RadLabel4)
         Me.Controls.Add(Me.RadLabel1)
         Me.Controls.Add(Me.Label1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.MaximizeBox = False
         Me.Name = "Inserir_Software"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inserir_Software"
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()

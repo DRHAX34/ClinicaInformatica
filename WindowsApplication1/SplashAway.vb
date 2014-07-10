@@ -18,6 +18,12 @@ Public NotInheritable Class SplashAway
         '    ProgressBar1.Value = 25
         '    Workspace.check_bd = True
         'Else
+        If Not System.IO.Directory.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Manual_instr") Then
+            System.IO.Directory.CreateDirectory(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Manual_instr")
+        End If
+        If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Manual_instr\manual.pdf") = True Then
+            System.IO.File.WriteAllBytes(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Manual_instr\manual.pdf", My.Resources.Manual_de_Instruções)
+        End If
         Try
             System.IO.File.Delete(".\Resources\BD-C.I_log.ldf")
         Catch

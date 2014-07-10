@@ -566,7 +566,7 @@ Public Class Workspace
         SaveFileDialog1.ShowDialog()
         sql_caminho = SaveFileDialog1.FileName
         Try
-            If sql_caminho <> "OpenFileDialog1" Then
+            If sql_caminho <> "OpenFileDialog1" Or sql_caminho <> "" Then
                 If System.IO.File.Exists(sql_caminho) = True Then
                     System.IO.File.Delete(sql_caminho)
                 End If
@@ -585,7 +585,7 @@ Public Class Workspace
             OpenFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
             OpenFileDialog1.ShowDialog()
             sql_caminho = OpenFileDialog1.FileName
-            If sql_caminho <> "OpenFileDialog1" Then
+            If sql_caminho <> "OpenFileDialog1" Or sql_caminho <> "" Then
                 Try
                     System.IO.File.Delete(".\Resources\BD-C.I.mdf")
                     System.IO.File.Delete(".\Resources\BD-C.I_log.ldf")
@@ -601,6 +601,7 @@ Public Class Workspace
 
     
     Private Sub IndexToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IndexToolStripMenuItem.Click
-
+        manual_form.MdiParent = Me
+        manual_form.Show()
     End Sub
 End Class

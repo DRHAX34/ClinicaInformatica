@@ -181,6 +181,16 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Manual_de_Instruções() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Manual_de_Instruções", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property oie_2417311E0OBPz25() As System.Drawing.Bitmap

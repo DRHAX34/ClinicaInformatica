@@ -18,6 +18,11 @@ Public Class BLL
         End Sub
         
         Public Class Login
+            Shared Function return_p_r(ByVal nome_de_utilizador As String) As ArrayList
+                Dim p As New ArrayList
+                p.Add(New SqlParameter("@user", nome_de_utilizador))
+                Return DAL.ExecuteQuery("Select Pergunta_S, Resposta_S,Password from utilizadores where Nome_util=@user", p)
+            End Function
             Shared Sub remove_login(ByVal id As String)
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@user", id))

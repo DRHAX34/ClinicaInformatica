@@ -386,7 +386,7 @@ Partial Class OPR_Reparações
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.MaximizeBox = False
         Me.Name = "OPR_Reparações"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Reparações"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()

@@ -22,6 +22,7 @@ Partial Class Inserir_Hardware
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inserir_Hardware))
         Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
         Me.RadLabel4 = New Telerik.WinControls.UI.RadLabel()
         Me.caixaqtdbox = New System.Windows.Forms.NumericUpDown()
@@ -524,7 +525,9 @@ Partial Class Inserir_Hardware
         Me.Controls.Add(Me.RadLabel4)
         Me.Controls.Add(Me.RadLabel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "Inserir_Hardware"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inserir_Hardware"
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel4, System.ComponentModel.ISupportInitialize).EndInit()
