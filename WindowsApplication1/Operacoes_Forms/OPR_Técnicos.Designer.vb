@@ -268,7 +268,7 @@ Partial Class OPR_Técnicos
         Me.cod_postalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.cod_postalbox.Size = New System.Drawing.Size(69, 22)
         Me.cod_postalbox.TabIndex = 91
-        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt
+        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
         Me.cod_postalbox.WaterMarkText = "Obrigatório"
         '

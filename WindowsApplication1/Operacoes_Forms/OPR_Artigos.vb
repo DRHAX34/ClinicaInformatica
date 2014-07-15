@@ -2,9 +2,11 @@
     Public dispositivo_data As New DataTable
     Public modo As Boolean
     Public removidos As Boolean
+    Public n_cliente As String
     Private Sub OPR_Dispositivos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If modo = True Then
-            numbox.Text = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
+            n_cliente = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
+            nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente).Rows(0).Item("Nome").ToString()
             marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
             modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
             numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
@@ -29,13 +31,14 @@
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
         Try
             If modo = True Then
-                numbox.Text = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
+                n_cliente = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
                 marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
                 modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
                 observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
             Else
-                numbox.Text = ""
+                n_cliente = ""
+                nomeclientelabel.Text = "Não Selecionado!"
                 marcabox.Text = ""
                 modelobox.Text = ""
                 numseriebox.Text = ""
@@ -77,7 +80,7 @@
         Dim check_observaçoes As String = ""
         Dim check_tipo As String = ""
         Try
-            check_numcliente = numbox.Text
+            check_numcliente = n_cliente
             check_numcliente.Trim()
             check_numserie = numseriebox.Text
             check_numserie.Trim()
@@ -93,7 +96,7 @@
         End Try
         Try
             If Not check_tipo = "" And Not check_numcliente = "" And Not check_numserie = "" And Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
-                BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
+                BLL.Componentes.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
                     If BLL.Tecnicos.carregar.Rows.Count = 0 Then
@@ -149,9 +152,13 @@
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        numbox.Text = Workspace.support
+        n_cliente = Workspace.support
         If Workspace.check_select = False Then
             Timer1.Stop()
+            Try
+                nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente).Rows(0).Item("Nome").ToString
+            Catch
+            End Try
         End If
     End Sub
 
@@ -163,7 +170,7 @@
         Dim check_observaçoes As String = ""
         Dim check_componente As String = tipo_componentebox.Text
         Try
-            check_numcliente = numbox.Text
+            check_numcliente = n_cliente
             check_numcliente.Trim()
             check_numserie = numseriebox.Text
             check_numserie.Trim()
@@ -178,7 +185,7 @@
         End Try
         Try
             If Not (check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
-                BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
+                BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Alterado com sucesso")
                 If removidos = True Then
                     Workspace.dispositivosmenu.PerformClick()

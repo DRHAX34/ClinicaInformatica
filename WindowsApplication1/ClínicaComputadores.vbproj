@@ -380,12 +380,6 @@
     <Compile Include="Operacoes_Forms\OPR_Técnicos.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacoes_Forms\OPR_Utilizadores.Designer.vb">
-      <DependentUpon>OPR_Utilizadores.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Operacoes_Forms\OPR_Utilizadores.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Operacoes_Forms\OPR_Reparações.Designer.vb">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </Compile>
@@ -505,9 +499,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Técnicos.resx">
       <DependentUpon>OPR_Técnicos.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Operacoes_Forms\OPR_Utilizadores.resx">
-      <DependentUpon>OPR_Utilizadores.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Reparações.resx">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>

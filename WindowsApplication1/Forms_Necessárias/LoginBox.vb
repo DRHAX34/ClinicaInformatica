@@ -47,9 +47,6 @@
         Dim password As String = Passwordbox.Text
         Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
         Dim passencript As String = wrapper.EncryptData(password)
-        If BLL.Admin_only.Login.check_admin_geral() = 0 Then
-            Workspace.varias_empresas = False
-        End If
         user = BLL.Login.Verificar_Login(UsernameBox.Text, passencript, n_empresa)
         Dim tipo As String = ""
         If user <> 0 Then
@@ -71,14 +68,16 @@
                 Workspace.tecnicosmenu.Visible = False
                 Workspace.admin = False
                 tipo = "Utilizador Padrão"
+                Workspace.tecnico = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(user).Rows(0).Item("N_Técnico").ToString
             End If
             Workspace.clientesmenu.Enabled = True
             Workspace.dispositivosmenu.Enabled = True
             Workspace.reparacoesmenu.Enabled = True
-            Workspace.empresasativas.Visible = False
-            Workspace.empresasremovidas.Visible = False
+            Workspace.EmpresasToolStripMenuItem.Enabled = False
             Workspace.modo = 2
             check = True
+        Else
+            MsgBox("Nome de Utilizador/Palavra-Passe errados!", vbOKOnly, "Erro!")
         End If
         If check = True Then
             If BLL.Login.verificar_aluno(n_empresa) = True Then

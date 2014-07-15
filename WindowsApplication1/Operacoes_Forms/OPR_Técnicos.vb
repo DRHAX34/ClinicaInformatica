@@ -27,82 +27,27 @@
             contactom_box.Text = tecnico_data.Rows.Item(0).Item("Contacto_F").ToString()
             localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
             cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
+            nomeutilizadorbox.Text = tecnico_data.Rows.Item(0).Item("Nome_util").ToString()
+            Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+            Dim passdecript As String = wrapper.DecryptData(tecnico_data.Rows.Item(0).Item("Password").ToString)
+            passwordbox.Text = passdecript
+            verifbox.Text = passdecript
+            perguntabox.Text = tecnico_data.Rows.Item(0).Item("Pergunta_S")
+            respostabox.Text = tecnico_data.Rows.Item(0).Item("Resposta_S")
             For i = 0 To empresabox.Items.Count - 1
                 If empresabox.Items(i).ToString = BLL.Admin_only.Empresas.carregar_dados_numempresa(tecnico_data.Rows.Item(0).Item("NºEmpresa").ToString()).Rows.Item(0).Item("Nome").ToString Then
                     empresabox.SelectedIndex = i
                 End If
             Next
         Else
-            contacto_fbox.Text = "+"
-            contactom_box.Text = "+"
+            contacto_fbox.Text = "+351"
+            contactom_box.Text = "+351"
             RadButton1.Enabled = False
             RadButton5.Enabled = True
             RadButton3.Text = "Limpar Tudo"
         End If
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
-        Dim check_nome As String = nomebox.Text
-        Dim check_contactom As Boolean = False
-        Dim check_contactof As Boolean = False
-        Dim checklogo As String = caminhobox.Text
-        Dim checklocalidade As String = localidadebox.Text
-        Dim checkcodpostal As Boolean = False
-        Try
-            check_nome.Trim()
-            If contacto_fbox.Text.Length < 9 Then
-                check_contactof = False
-            Else
-                check_contactof = True
-            End If
-            If contactom_box.Text.Length < 9 Then
-                check_contactom = False
-            Else
-                check_contactom = True
-            End If
-            checklogo.Trim()
-            If cod_postalbox.Text.Length < 7 Then
-                checkcodpostal = False
-            Else
-                checkcodpostal = True
-            End If
-            checklocalidade.Trim()
-        Catch
-        End Try
-        Try
-            If Not checklocalidade = "" And Not checkcodpostal = False And Not check_nome = "" And Not check_contactof = False And Not check_contactom = False And Not checklogo = "" Then
-                Try
-                    If BLL.Tecnicos.check_exist(nomebox.Text) = 1 Then
-                        MsgBox("Esta Empresa já existe!")
-                    Else
-                        If Workspace.Aluno = False Then
-                            BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
-                        Else
-                            BLL.Tecnicos.Alunos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec, numalunobox.Text, turmabox.Text)
-                        End If
-                        If MsgBox("Deseja criar um utilizador para este técnico. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
-                            Dim opr_utilizadores As New OPR_Utilizadores
-                            opr_utilizadores.MdiParent = Workspace
-                            opr_utilizadores.modo = False
-                            opr_utilizadores.Show()
-
-                            opr_utilizadores.empresabox.Text = BLL.Admin_only.Empresas.procura_dados_numempresa(BLL.n_empresa).Rows.Item(0).Item("NºEmpresa").ToString
-                            Me.Close()
-                        Else
-                            MsgBox("Terá que criar utilizador para este Técnico para ele poder iniciar sessão!")
-                            Me.Close()
-                        End If
-                    End If
-                Catch ex As Exception
-                    MsgBox("Ocorreu um erro: " & ex.Message)
-                End Try
-            Else
-                MsgBox("Insira os dados todos!")
-            End If
-        Catch ex As Exception
-            MsgBox("Os dados não foram todos introduzidos!")
-        End Try
-    End Sub
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs)
         If modo = True Then
@@ -253,5 +198,189 @@
         Dim check_alunos As String = ""
         Dim check_turma As String = ""
         Dim check_codpostal As Boolean = False
+        Dim check_image As String = ""
+        Try
+            check_nomutil = nomeutilizadorbox.Text
+            check_nomutil.Trim()
+        Catch ex As Exception
+            check_nomutil = ""
+        End Try
+        If passwordbox.Text = verifbox.Text Then
+            Try
+                check_pass = passwordbox.Text
+                check_pass.Trim()
+            Catch ex As Exception
+                check_pass = ""
+            End Try
+        Else
+            check_pass = ""
+        End If
+        Try
+            check_pergunta = perguntabox.Text
+            check_pergunta.Trim()
+            check_resposta = respostabox.Text
+            check_resposta.Trim()
+        
+        check_nome = nomebox.Text
+        check_nome.Trim()
+        check_localidade = localidadebox.Text
+        check_alunos = numalunobox.Text
+        check_alunos.Trim()
+        check_turma = turmabox.Text
+        check_turma.Trim()
+        If contactom_box.Text.Length >= 9 Then
+            check_cmovel = True
+        End If
+        If contacto_fbox.Text.Length >= 9 Then
+            check_cfixo = True
+        End If
+        cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
+        If cod_postalbox.Text.Length = 8 Then
+            check_codpostal = True
+        End If
+        check_image = caminhobox.Text
+        check_image.Trim()
+        check_empresa = empresabox.Text
+            check_empresa = ""
+        Catch ex As Exception
+
+        End Try
+        Dim n_empresa As Integer
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_empresa = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+            Try
+                BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
+                n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
+                Dim password As String = passwordbox.Text
+                Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+                Dim passencript As String = wrapper.EncryptData(password)
+                BLL.Admin_only.Login.Add_login_tecnico(perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
+                MsgBox("Inserido com êxito!")
+                Me.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao inserir: " & ex.Message)
+            End Try
+        End If
     End Sub
+
+    Private Sub RadButton1_Click_1(sender As Object, e As EventArgs) Handles RadButton1.Click
+        Dim check_empresa As String = ""
+        Dim check_nomutil As String = ""
+        Dim check_pass As String = ""
+        Dim check_pergunta As String = ""
+        Dim check_resposta As String = ""
+        Dim check_nome As String = ""
+        Dim check_cmovel As Boolean = False
+        Dim check_cfixo As Boolean = False
+        Dim check_localidade As String = ""
+        Dim check_alunos As String = ""
+        Dim check_turma As String = ""
+        Dim check_codpostal As Boolean = False
+        Dim check_image As String = ""
+        Try
+            check_nomutil = nomeutilizadorbox.Text
+            check_nomutil.Trim()
+        Catch ex As Exception
+            check_nomutil = ""
+        End Try
+        If passwordbox.Text = verifbox.Text Then
+            Try
+                check_pass = passwordbox.Text
+                check_pass.Trim()
+            Catch ex As Exception
+                check_pass = ""
+            End Try
+        Else
+            check_pass = ""
+        End If
+        Try
+            check_pergunta = perguntabox.Text
+            check_pergunta.Trim()
+            check_resposta = respostabox.Text
+            check_resposta.Trim()
+
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_localidade = localidadebox.Text
+            check_alunos = numalunobox.Text
+            check_alunos.Trim()
+            check_turma = turmabox.Text
+            check_turma.Trim()
+            If contactom_box.Text.Length >= 9 Then
+                check_cmovel = True
+            End If
+            If contacto_fbox.Text.Length >= 9 Then
+                check_cfixo = True
+            End If
+            cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
+            If cod_postalbox.Text.Length = 8 Then
+                check_codpostal = True
+            End If
+            check_image = caminhobox.Text
+            check_image.Trim()
+            check_empresa = empresabox.Text
+            check_empresa = ""
+        Catch ex As Exception
+
+        End Try
+        Dim n_empresa As Integer
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_empresa = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+            Try
+                BLL.n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
+                BLL.Tecnicos.alterar(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec, tecnico_data.Rows(0).Item("NºTécnico").ToString)
+                n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
+                Dim password As String = passwordbox.Text
+                Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+                Dim passencript As String = wrapper.EncryptData(password)
+                BLL.Admin_only.Login.alterar_login_tecnico(tecnico_data.Rows(0).Item("Cod_Utilizador").ToString, perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
+                MsgBox("Inserido com êxito!")
+                Me.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao inserir: " & ex.Message)
+            End Try
+        End If
+    End Sub
+
+    Private Sub RadButton3_Click_1(sender As Object, e As EventArgs) Handles RadButton3.Click
+        If modo = True Then
+            numalunobox.Text = tecnico_data.Rows.Item(0).Item("NºAluno").ToString()
+            turmabox.Text = tecnico_data.Rows.Item(0).Item("Turma").ToString()
+            nomebox.Text = tecnico_data.Rows.Item(0).Item("Nome").ToString()
+            contacto_fbox.Text = tecnico_data.Rows.Item(0).Item("Contacto_M").ToString()
+            contactom_box.Text = tecnico_data.Rows.Item(0).Item("Contacto_F").ToString()
+            localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
+            cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
+            nomeutilizadorbox.Text = tecnico_data.Rows.Item(0).Item("Nome_util").ToString()
+            Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+            Dim passdecript As String = wrapper.DecryptData(tecnico_data.Rows.Item(0).Item("Password").ToString)
+            passwordbox.Text = passdecript
+            verifbox.Text = passdecript
+            perguntabox.Text = tecnico_data.Rows.Item(0).Item("Pergunta_S")
+            respostabox.Text = tecnico_data.Rows.Item(0).Item("Resposta_S")
+            For i = 0 To empresabox.Items.Count - 1
+                If empresabox.Items(i).ToString = BLL.Admin_only.Empresas.carregar_dados_numempresa(tecnico_data.Rows.Item(0).Item("NºEmpresa").ToString()).Rows.Item(0).Item("Nome").ToString Then
+                    empresabox.SelectedIndex = i
+                End If
+            Next
+        Else
+            numalunobox.Text = ""
+            turmabox.Text = ""
+            nomebox.Text = ""
+            contacto_fbox.Text = ""
+            contactom_box.Text = ""
+            localidadebox.Text = ""
+            cod_postalbox.Text = ""
+            nomeutilizadorbox.Text = ""
+            passwordbox.Text = ""
+            verifbox.Text = ""
+            perguntabox.Text = ""
+            respostabox.Text = ""
+            empresabox.SelectedIndex = 0
+        End If
+    End Sub
+
+    Private Sub RadButton4_Click_1(sender As Object, e As EventArgs) Handles RadButton4.Click
+        Me.Close()
+    End Sub
+
+    
 End Class

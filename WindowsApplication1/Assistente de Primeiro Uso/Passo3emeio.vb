@@ -23,7 +23,8 @@ Public Class Passo3emeio
         Catch ex As Exception
         End Try
     End Sub
-
+    Public img_caminho As String
+    Public image_tec As Image
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
         Label1.Show()
@@ -31,6 +32,17 @@ Public Class Passo3emeio
         MaximizeBox = False
         MinimizeBox = False
         Me.AcceptButton = Button1
+        If BLL.Login.verificar_aluno(BLL.Admin_only.Empresas.carregar_max) = True Then
+            numalunobox.Show()
+            numalunolabel.Show()
+            turmabox.Show()
+            turmalabel.Show()
+        Else
+            numalunobox.Hide()
+            numalunolabel.Hide()
+            turmabox.Hide()
+            turmalabel.Hide()
+        End If
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -43,13 +55,16 @@ Public Class Passo3emeio
         Else
             Me.BackColor = Color.White
         End If
-        Label1.ForeColor = colorization.Inversecolor
-        Label2.ForeColor = colorization.Inversecolor
-        passlabel.ForeColor = colorization.Inversecolor
-        nomelabel.ForeColor = colorization.Inversecolor
-        Label3.ForeColor = colorization.Inversecolor
+        numalunolabel.ForeColor = colorization.Inversecolor
+        Label12.ForeColor = colorization.Inversecolor
+        turmalabel.ForeColor = colorization.Inversecolor
+        Localidadelabel.ForeColor = colorization.Inversecolor
+        Label6.ForeColor = colorization.Inversecolor
         Label4.ForeColor = colorization.Inversecolor
         Label5.ForeColor = colorization.Inversecolor
+        cod_postallabel.ForeColor = colorization.Inversecolor
+        GroupBox1.ForeColor = colorization.Inversecolor
+        GroupBox1.BackColor = colorization.SolidColor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -60,49 +75,125 @@ Public Class Passo3emeio
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
     End Sub
 
-    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub numalunobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numalunobox.KeyPress
         Try
-            Dim check_nome, check_pass, check_pergunta, check_resposta As String
-            Try
-                check_nome = nomebox.Text
-                check_nome.Trim()
-                If passbox.Text = verifbox.Text Then
-                    check_pass = passbox.Text
-                    check_pass.Trim()
-                Else
-                    check_pass = ""
-                End If
-                check_pergunta = perguntabox.Text
-                check_pergunta.Trim()
-                check_resposta = respostabox.Text
-                check_resposta.Trim()
-            Catch
-            End Try
-            If Not check_nome = "" And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
-                Dim password As String = passbox.Text
-                Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
-                Dim passencript As String = wrapper.EncryptData(password)
-                BLL.n_empresa = "1"
-                If BLL.Admin_only.Login.check_exist(nomebox.Text) = 0 Then
-                    BLL.Admin_only.Login.Add_login_non_student_noadmin(perguntabox.Text, respostabox.Text, True, nomebox.Text, passencript, BLL.n_empresa)
-                    Workspace.config4.Show()
-                    Me.Close()
-                Else
-                    MsgBox("O Administrador não pode ter o mesmo nome que o Administrador Geral.")
-                End If
-            Else
-                MsgBox("Preencha todos os dados corretamente!", vbOKOnly, "Erro")
+            If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                e.Handled = True
             End If
-        Catch ex As Exception
-            MsgBox("Ocorreu um erro na Aplicação: " & ex.Message)
+        Catch
         End Try
     End Sub
+    Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim check_empresa As String = ""
+        Dim check_nomutil As String = ""
+        Dim check_pass As String = ""
+        Dim check_pergunta As String = ""
+        Dim check_resposta As String = ""
+        Dim check_nome As String = ""
+        Dim check_cmovel As Boolean = False
+        Dim check_cfixo As Boolean = False
+        Dim check_localidade As String = ""
+        Dim check_alunos As String = ""
+        Dim check_turma As String = ""
+        Dim check_codpostal As Boolean = False
+        Dim check_image As String = ""
+        Try
+            check_nomutil = nomeutilizadorbox.Text
+            check_nomutil.Trim()
+        Catch ex As Exception
+            check_nomutil = ""
+        End Try
+        If passwordbox.Text = verifbox.Text Then
+            Try
+                check_pass = passwordbox.Text
+                check_pass.Trim()
+            Catch ex As Exception
+                check_pass = ""
+            End Try
+        Else
+            check_pass = ""
+        End If
+        Try
+            check_pergunta = perguntabox.Text
+            check_pergunta.Trim()
+            check_resposta = respostabox.Text
+            check_resposta.Trim()
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_localidade = localidadebox.Text
+            If BLL.Login.verificar_aluno(BLL.Admin_only.Empresas.carregar_max) = True Then
+                check_alunos = numalunobox.Text
+                check_alunos.Trim()
+                check_turma = turmabox.Text
+                check_turma.Trim()
+            Else
+                check_alunos = 0
+                check_turma = "N/A"
+            End If
+            If contactom_box.Text.Length >= 9 Then
+                check_cmovel = True
+            End If
+            If contacto_fbox.Text.Length >= 9 Then
+                check_cfixo = True
+            End If
+            cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
+            If cod_postalbox.Text.Length = 8 Then
+                check_codpostal = True
+            End If
+            check_image = caminhobox.Text
+            check_image.Trim()
+        Catch ex As Exception
+
+        End Try
+        Dim n_empresa As Integer
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+            Try
+                BLL.n_empresa = BLL.Admin_only.Empresas.carregar_max()
+                n_empresa = BLL.Admin_only.Empresas.carregar_max()
+                BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
+                Dim password As String = passwordbox.Text
+                Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+                Dim passencript As String = wrapper.EncryptData(password)
+                BLL.Admin_only.Login.Add_login_tecnico(perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
+                MsgBox("Inserido com êxito!")
+                Workspace.config4.Show()
+                Me.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao inserir: " & ex.Message)
+            End Try
+        Else
+            MsgBox("Insira todos os dados!", vbOKOnly, "Erro!")
+        End If
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles limparbutton.Click
+        numalunobox.Text = ""
+        turmabox.Text = ""
         nomebox.Text = ""
-        passbox.Text = ""
+        contacto_fbox.Text = ""
+        contactom_box.Text = ""
+        localidadebox.Text = ""
+        cod_postalbox.Text = ""
+        nomeutilizadorbox.Text = ""
+        passwordbox.Text = ""
         verifbox.Text = ""
         perguntabox.Text = ""
         respostabox.Text = ""
+    End Sub
+
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
+        OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
+        OpenFileDialog1.ShowDialog()
+        img_caminho = OpenFileDialog1.FileName
+        caminhobox.Text = img_caminho
+        If img_caminho <> "OpenFileDialog1" Then
+            Try
+                image_tec = Image.FromFile(img_caminho)
+                imagembox.Image = image_tec
+            Catch ex As Exception
+                MsgBox("Erro ao importar a imagem: " & ex.Message)
+            End Try
+        End If
     End Sub
 End Class

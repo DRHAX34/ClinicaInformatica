@@ -13,7 +13,8 @@ Public Class Workspace
     Public cache_users, cache_users2 As DataTable
     Public modo As Integer
     Public user As Integer
-    Public Aluno, admin, admin_geral As Boolean
+    Public Aluno, admin As Boolean
+    Public tecnico As String
     Public companyname1 As String
     Public support As Integer
     Public tecnicos_support As New DataTable
@@ -264,28 +265,11 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub empresasativas_Click(sender As Object, e As EventArgs) Handles empresasativas.Click
-        If check_empresas = False Then
-            Try
-                Dim empresasview As New ViewForm
-                check_empresas = True
-                empresasview.Text = "Empresas"
-                empresasview.tabela = "Empresas"
-                empresasview.MdiParent = Me
-                m_ChildFormNumber += 1
-                empresasview.data_table = BLL.Admin_only.Empresas.carregar()
-                empresasview.removidos = False
-                empresasview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
-        Else
-            MsgBox("Já tem a janela das Empresas abertas!")
-        End If
+    Private Sub empresasativas_Click(sender As Object, e As EventArgs)
+
     End Sub
 
-    Private Sub empresasremovidas_Click(sender As Object, e As EventArgs) Handles empresasremovidas.Click
+    Private Sub empresasremovidas_Click(sender As Object, e As EventArgs)
         If check_empresas = False Then
             Try
                 Dim empresasview As New ViewForm
@@ -363,58 +347,25 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub utilativos_Click(sender As Object, e As EventArgs)
-        If check_utilizadores = False Then
-            Try
-                Dim utilizadorview As New ViewForm
-                check_utilizadores = True
-                utilizadorview.Text = "Utilizadores"
-                utilizadorview.tabela = "Utilizadores"
-                utilizadorview.MdiParent = Me
-                m_ChildFormNumber += 1
-                If admin_geral = True Then
-                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users()
-                Else
-                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
-                End If
-                utilizadorview.removidos = False
-                utilizadorview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
-        Else
-            MsgBox("Já tem a janela dos Utilizadores abertas!")
-        End If
-    End Sub
-
-    Private Sub utilremovidos_Click(sender As Object, e As EventArgs)
-        If check_utilizadores = False Then
-            Try
-                Dim utilizadorview As New ViewForm
-                check_utilizadores = True
-                utilizadorview.Text = "Utilizadores"
-                utilizadorview.tabela = "Utilizadores"
-                utilizadorview.MdiParent = Me
-                m_ChildFormNumber += 1
-                If admin_geral = True Then
-                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users_eliminados
-                Else
-                    utilizadorview.data_table = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
-                End If
-                utilizadorview.removidos = True
-                utilizadorview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
-        Else
-            MsgBox("Já tem a janela dos Utilizadores abertas!")
-        End If
-    End Sub
-
     Private Sub EmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem.Click
-
+        If check_empresas = False Then
+            Try
+                Dim empresasview As New ViewForm
+                check_empresas = True
+                empresasview.Text = "Empresas"
+                empresasview.tabela = "Empresas"
+                empresasview.MdiParent = Me
+                m_ChildFormNumber += 1
+                empresasview.data_table = BLL.Admin_only.Empresas.carregar()
+                empresasview.removidos = False
+                empresasview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela das Empresas abertas!")
+        End If
     End Sub
 
     Private Sub reparremovidos_Click(sender As Object, e As EventArgs)
@@ -656,4 +607,6 @@ Public Class Workspace
             MsgBox("Já tem a janela dos Técnicos abertas!")
         End If
     End Sub
+
+    
 End Class

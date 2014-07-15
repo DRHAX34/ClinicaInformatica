@@ -34,7 +34,7 @@ Public Class Passo1
         MaximizeBox = False
         Me.WindowState = FormWindowState.Minimized
         Me.WindowState = FormWindowState.Maximized
-        variascheck.Checked = True
+
     End Sub
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
         SetBackColor(e.Colorization)
@@ -58,11 +58,11 @@ Public Class Passo1
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Workspace.config2.Show()
-        Workspace.varias_empresas = variascheck.Checked
+        Workspace.varias_empresas = True
         If Not System.IO.Directory.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config") Then
             System.IO.Directory.CreateDirectory(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config")
         End If
-        File.WriteAllText((Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg"), variascheck.Checked)
+        File.WriteAllText((Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg"), True)
         Me.Close()
     End Sub
 
@@ -76,15 +76,7 @@ Public Class Passo1
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
     End Sub
 
-    Private Sub umacheck_Click(sender As Object, e As EventArgs) Handles umacheck.Click
-        variascheck.Checked = False
-        umacheck.Checked = True
-    End Sub
-
-    Private Sub variascheck_Click(sender As Object, e As EventArgs) Handles variascheck.Click
-        umacheck.Checked = False
-        variascheck.Checked = True
-    End Sub
+    
 End Class
 
 Public Class Colorization

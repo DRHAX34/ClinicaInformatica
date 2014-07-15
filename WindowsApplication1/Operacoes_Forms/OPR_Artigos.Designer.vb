@@ -36,7 +36,6 @@ Partial Class OPR_Artigos
         Me.Label4 = New System.Windows.Forms.Label()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.numbox = New System.Windows.Forms.TextBox()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.marcabox = New ClinicaInformatica.WaterMarkTextBox()
@@ -45,6 +44,7 @@ Partial Class OPR_Artigos
         Me.observaçoesbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.tipo_componentebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.nomeclientelabel = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,9 +116,9 @@ Partial Class OPR_Artigos
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(96, 9)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(433, 86)
+        Me.Label6.Size = New System.Drawing.Size(241, 86)
         Me.Label6.TabIndex = 46
-        Me.Label6.Text = "Componentes"
+        Me.Label6.Text = "Artigos"
         '
         'Label3
         '
@@ -144,7 +144,7 @@ Partial Class OPR_Artigos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(34, 106)
+        Me.Label1.Location = New System.Drawing.Point(33, 106)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 25)
         Me.Label1.TabIndex = 41
@@ -162,7 +162,7 @@ Partial Class OPR_Artigos
         '
         'RadButton6
         '
-        Me.RadButton6.Location = New System.Drawing.Point(86, 135)
+        Me.RadButton6.Location = New System.Drawing.Point(111, 136)
         Me.RadButton6.Name = "RadButton6"
         Me.RadButton6.Size = New System.Drawing.Size(122, 23)
         Me.RadButton6.TabIndex = 60
@@ -171,14 +171,6 @@ Partial Class OPR_Artigos
         '
         'Timer1
         '
-        '
-        'numbox
-        '
-        Me.numbox.Location = New System.Drawing.Point(39, 135)
-        Me.numbox.Name = "numbox"
-        Me.numbox.ReadOnly = True
-        Me.numbox.Size = New System.Drawing.Size(41, 20)
-        Me.numbox.TabIndex = 61
         '
         'PictureBox1
         '
@@ -247,16 +239,28 @@ Partial Class OPR_Artigos
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(303, 106)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(173, 25)
+        Me.Label5.Size = New System.Drawing.Size(141, 25)
         Me.Label5.TabIndex = 71
-        Me.Label5.Text = "Tipo Componente"
+        Me.Label5.Text = "Tipo de Artigo"
         '
-        'OPR_Componentes
+        'nomeclientelabel
+        '
+        Me.nomeclientelabel.AutoSize = True
+        Me.nomeclientelabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nomeclientelabel.Location = New System.Drawing.Point(111, 108)
+        Me.nomeclientelabel.MaximumSize = New System.Drawing.Size(200, 25)
+        Me.nomeclientelabel.Name = "nomeclientelabel"
+        Me.nomeclientelabel.Size = New System.Drawing.Size(143, 21)
+        Me.nomeclientelabel.TabIndex = 73
+        Me.nomeclientelabel.Text = "Não selecionado!"
+        '
+        'OPR_Artigos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(529, 444)
+        Me.Controls.Add(Me.nomeclientelabel)
         Me.Controls.Add(Me.tipo_componentebox)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.observaçoesbox)
@@ -264,7 +268,6 @@ Partial Class OPR_Artigos
         Me.Controls.Add(Me.modelobox)
         Me.Controls.Add(Me.marcabox)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.numbox)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.RadButton4)
@@ -278,9 +281,9 @@ Partial Class OPR_Artigos
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label4)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
-        Me.Name = "OPR_Componentes"
+        Me.Name = "OPR_Artigos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Operações Componentes"
+        Me.Text = "Operações Artigos"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
@@ -305,7 +308,6 @@ Partial Class OPR_Artigos
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents numbox As System.Windows.Forms.TextBox
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents marcabox As ClinicaInformatica.WaterMarkTextBox
@@ -314,4 +316,5 @@ Partial Class OPR_Artigos
     Friend WithEvents observaçoesbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents tipo_componentebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
 End Class

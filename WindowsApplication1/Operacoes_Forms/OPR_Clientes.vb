@@ -111,16 +111,18 @@
         End Try
             Try
             If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_localidade = "" And Not check_contactom = False Then
+                codpostalbox.TextMaskFormat = MaskFormat.IncludeLiterals
                 If Workspace.Aluno = False Then
                     BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 Else
                     BLL.Clientes.inserir_aluno(numalunobox.Text, turmabox.Text, nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                 End If
+                codpostalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
                     Dim opr_componente As New OPR_Artigos
                     opr_componente.modo = False
-                    opr_componente.numbox.Text = BLL.Clientes.carregar_max()
+                    opr_componente.n_cliente = BLL.Clientes.carregar_max()
                     opr_componente.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
                     opr_componente.Show()

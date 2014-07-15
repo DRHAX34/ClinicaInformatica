@@ -5,7 +5,6 @@
     Public read_only As Boolean
     Public check As Boolean = True
     Private Sub OPR_Reparações_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Timer1.Stop()
         If modo = True Then
             numcomponentebox.Text = reparaçao_data.Rows.Item(0).Item("NºComponente").ToString()
             If reparaçao_data.Rows.Item(0).Item("Preço").ToString() <> "" Then
@@ -59,7 +58,13 @@
             RadButton2.Enabled = False
             descriçaobox.Enabled = True
         End If
-
+        If Workspace.Aluno = True Then
+            insert_tecnicos.Show()
+            showdata.Show()
+        Else
+            insert_tecnicos.Hide()
+            showdata.Hide()
+        End If
     End Sub
     
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
@@ -130,6 +135,8 @@
         '    End If
         'Catch
         'End Try
+        Dim componente As DataTable = BLL.Componentes.carregar_dados_numcomponente(numcomponentebox.Text)
+        nomeclientelabel.Text = componente.Rows(0).Item("Marca").ToString + " " + componente.Rows(0).Item("Modelo").ToString()
     End Sub
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
@@ -154,7 +161,6 @@
             select_hardware.modo = False
         End If
         select_hardware.Show()
-        Timer1.Start()
     End Sub
 
     
@@ -173,7 +179,6 @@
             select_software.modo = False
         End If
         select_software.Show()
-        Timer1.Start()
     End Sub
 
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
@@ -202,9 +207,9 @@
         If BLL.Software.return_all <> 0 Then
             BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
         End If
-        If BLL.Participacoes.return_all <> 0 Then
-            BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        End If
+            If BLL.Participacoes.return_all <> 0 Then
+                BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+            End If
         If Not (check_componente = True And check_descrição = "" And check_data = False) Then
             Try
                 BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), numcomponentebox.Text, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
@@ -221,6 +226,9 @@
                             BLL.Software.adicionar_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"))
                         Next
                     End If
+                End If
+                If Workspace.Aluno = False Then
+                    Workspace.tecnicos_support.Rows.Add(Workspace.tecnico, BLL.Tecnicos.carregar_dados_ntecnico_ativados(Workspace.tecnico).Rows(0).Item("Nome").ToString())
                 End If
                 If Workspace.tecnicos_support.Columns.Count <> 0 Then
                     If Workspace.tecnicos_support.Rows.Count <> 0 Then
@@ -302,8 +310,10 @@
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         Try
             numcomponentebox.Text = Workspace.support
+            Dim componente As DataTable = BLL.Componentes.carregar_dados_numcomponente(Workspace.support)
+            nomeclientelabel.Text = componente.Rows(0).Item("Marca").ToString + " " + componente.Rows(0).Item("Modelo").ToString()
             If Workspace.check_select = False Then
-                Timer1.Stop()
+                Timer3.Stop()
             End If
         Catch
         End Try
@@ -325,7 +335,7 @@
         End Try
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
     End Sub
 
     Private Sub preçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles preçobox.KeyPress
@@ -337,5 +347,19 @@
             End If
         Catch
         End Try
+    End Sub
+    Private Sub numcomponentebox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numcomponentebox.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+                    e.Handled = True
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+
+    Private Sub Timer2_Tick(sender As Object, e As EventArgs)
+
     End Sub
 End Class

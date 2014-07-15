@@ -46,15 +46,14 @@ Partial Class OPR_Reparações
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.RadButton7 = New Telerik.WinControls.UI.RadButton()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.tempo_real = New System.Windows.Forms.Label()
-        Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.preçobox = New System.Windows.Forms.TextBox()
+        Me.nomeclientelabel = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -181,9 +180,9 @@ Partial Class OPR_Reparações
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(50, 118)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(152, 25)
+        Me.Label1.Size = New System.Drawing.Size(74, 25)
         Me.Label1.TabIndex = 41
-        Me.Label1.Text = "NºComponente"
+        Me.Label1.Text = "Artigo:"
         '
         'numcomponentebox
         '
@@ -274,27 +273,22 @@ Partial Class OPR_Reparações
         '
         'RadButton7
         '
-        Me.RadButton7.Location = New System.Drawing.Point(98, 146)
+        Me.RadButton7.Location = New System.Drawing.Point(97, 147)
         Me.RadButton7.Name = "RadButton7"
         Me.RadButton7.Size = New System.Drawing.Size(148, 23)
         Me.RadButton7.TabIndex = 67
         Me.RadButton7.Text = "Selecionar Componente"
         Me.RadButton7.ThemeName = "Windows8"
         '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 1
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(261, 118)
+        Me.Label2.Location = New System.Drawing.Point(411, 118)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(119, 25)
+        Me.Label2.Size = New System.Drawing.Size(63, 25)
         Me.Label2.TabIndex = 73
-        Me.Label2.Text = "Preço S/IVA"
+        Me.Label2.Text = "Preço"
         '
         'Label4
         '
@@ -314,10 +308,6 @@ Partial Class OPR_Reparações
         Me.tempo_real.Name = "tempo_real"
         Me.tempo_real.Size = New System.Drawing.Size(0, 25)
         Me.tempo_real.TabIndex = 77
-        '
-        'Timer2
-        '
-        Me.Timer2.Interval = 1
         '
         'Timer3
         '
@@ -348,10 +338,21 @@ Partial Class OPR_Reparações
         'preçobox
         '
         Me.preçobox.Enabled = False
-        Me.preçobox.Location = New System.Drawing.Point(266, 146)
+        Me.preçobox.Location = New System.Drawing.Point(416, 147)
         Me.preçobox.Name = "preçobox"
-        Me.preçobox.Size = New System.Drawing.Size(56, 22)
+        Me.preçobox.Size = New System.Drawing.Size(58, 22)
         Me.preçobox.TabIndex = 80
+        '
+        'nomeclientelabel
+        '
+        Me.nomeclientelabel.AutoSize = True
+        Me.nomeclientelabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nomeclientelabel.Location = New System.Drawing.Point(123, 121)
+        Me.nomeclientelabel.MaximumSize = New System.Drawing.Size(200, 25)
+        Me.nomeclientelabel.Name = "nomeclientelabel"
+        Me.nomeclientelabel.Size = New System.Drawing.Size(143, 21)
+        Me.nomeclientelabel.TabIndex = 82
+        Me.nomeclientelabel.Text = "Não selecionado!"
         '
         'OPR_Reparações
         '
@@ -359,6 +360,7 @@ Partial Class OPR_Reparações
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 515)
+        Me.Controls.Add(Me.nomeclientelabel)
         Me.Controls.Add(Me.preçobox)
         Me.Controls.Add(Me.showdata)
         Me.Controls.Add(Me.tempo_real)
@@ -429,13 +431,12 @@ Partial Class OPR_Reparações
     Friend WithEvents RadButton7 As Telerik.WinControls.UI.RadButton
     Friend WithEvents insert_software As Telerik.WinControls.UI.RadButton
     Friend WithEvents insert_hardware As Telerik.WinControls.UI.RadButton
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents tempo_real As System.Windows.Forms.Label
-    Friend WithEvents Timer2 As System.Windows.Forms.Timer
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
     Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents preçobox As System.Windows.Forms.TextBox
+    Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
 End Class

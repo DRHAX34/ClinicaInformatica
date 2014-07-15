@@ -29,7 +29,6 @@ Partial Class Passo3
         Me.nomelabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -38,24 +37,25 @@ Partial Class Passo3
         Me.verifbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.limparbutton = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 40.0!)
-        Me.Label1.Location = New System.Drawing.Point(60, 9)
+        Me.Label1.Location = New System.Drawing.Point(113, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(726, 72)
+        Me.Label1.Size = New System.Drawing.Size(587, 72)
         Me.Label1.TabIndex = 9
-        Me.Label1.Text = "Crie um Administrador Geral!"
+        Me.Label1.Text = "Crie um Administrador!"
         '
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(666, 388)
+        Me.Button1.Location = New System.Drawing.Point(666, 409)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(171, 68)
+        Me.Button1.Size = New System.Drawing.Size(171, 47)
         Me.Button1.TabIndex = 10
         Me.Button1.Text = "Continuar"
         Me.Button1.UseVisualStyleBackColor = True
@@ -84,25 +84,15 @@ Partial Class Passo3
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(203, 81)
+        Me.Label2.Location = New System.Drawing.Point(226, 81)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(359, 17)
+        Me.Label2.Size = New System.Drawing.Size(324, 17)
         Me.Label2.TabIndex = 33
-        Me.Label2.Text = "Nota:Um Administrador Geral apenas pode gerir Empresas."
+        Me.Label2.Text = "Nota:Um Administrador apenas pode gerir Empresas."
         '
         'Timer1
         '
         Me.Timer1.Interval = 1
-        '
-        'Button2
-        '
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(494, 409)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(166, 47)
-        Me.Button2.TabIndex = 34
-        Me.Button2.Text = "Limpar"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Label3
         '
@@ -186,11 +176,22 @@ Partial Class Passo3
         Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.respostabox.WaterMarkText = "Resposta"
         '
+        'limparbutton
+        '
+        Me.limparbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.limparbutton.Image = Global.ClinicaInformatica.My.Resources.Resources._48x48
+        Me.limparbutton.Location = New System.Drawing.Point(610, 411)
+        Me.limparbutton.Name = "limparbutton"
+        Me.limparbutton.Size = New System.Drawing.Size(50, 44)
+        Me.limparbutton.TabIndex = 121
+        Me.limparbutton.UseVisualStyleBackColor = True
+        '
         'Passo3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 468)
+        Me.Controls.Add(Me.limparbutton)
         Me.Controls.Add(Me.respostabox)
         Me.Controls.Add(Me.perguntabox)
         Me.Controls.Add(Me.verifbox)
@@ -199,7 +200,6 @@ Partial Class Passo3
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.passlabel)
         Me.Controls.Add(Me.nomelabel)
@@ -217,7 +217,6 @@ Partial Class Passo3
     Friend WithEvents nomelabel As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
@@ -226,4 +225,5 @@ Partial Class Passo3
     Friend WithEvents verifbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents perguntabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents limparbutton As System.Windows.Forms.Button
 End Class

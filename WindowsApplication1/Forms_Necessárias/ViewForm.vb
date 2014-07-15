@@ -84,6 +84,11 @@
         End If
         Label1.Hide()
         GroupBox1.Hide()
+        If Workspace.admin = True Then
+            CheckBox1.Show()
+        Else
+            CheckBox1.Hide()
+        End If
     End Sub
 
     Private Sub newbutton_Click(sender As Object, e As EventArgs) Handles newbutton.Click
@@ -113,12 +118,6 @@
                 opr_tecnicos.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
                 opr_tecnicos.Show()
-            Case "Utilizadores"
-                Dim opr_utilizadores As New OPR_Utilizadores
-                opr_utilizadores.modo = False
-                opr_utilizadores.MdiParent = Workspace
-                Workspace.m_ChildFormNumber += 1
-                opr_utilizadores.Show()
             Case "Empresas"
                 Dim opr_empresas As New OPR_Empresas
                 opr_empresas.modo = False
@@ -220,20 +219,7 @@
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         End If
-                    Case "Utilizadores"
-                        Dim opr_utilizadores As New OPR_Utilizadores
-                        opr_utilizadores.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_utilizadores.modo = True
-                        If removidos = True Then
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_desativados(string_data)
-                            opr_utilizadores.removidos = True
-                            opr_utilizadores.Show()
-                        Else
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(string_data)
-                            opr_utilizadores.removidos = True
-                            opr_utilizadores.Show()
-                        End If
+                    
                 End Select
                 Me.Close()
             Catch ex As Exception
@@ -292,13 +278,13 @@
                                 If result = vbYes Then
                                     BLL.Admin_only.eliminar_empresa(string_data)
                                     MsgBox("Eliminada com sucesso!")
-                                    Workspace.empresasativas.PerformClick()
+                                    Workspace.EmpresasToolStripMenuItem.PerformClick()
                                     Me.Close()
                                 ElseIf result = vbNo Then
                                     If MsgBox("Deseja marcar a empresa como inativa?", vbYesNoCancel) = vbYes Then
                                         BLL.Admin_only.Empresas.apagar(string_data, 0)
                                         MsgBox("Eliminada com sucesso!")
-                                        Workspace.empresasativas.PerformClick()
+                                        Workspace.EmpresasToolStripMenuItem.PerformClick()
                                         Me.Close()
                                     Else
                                         MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Erro, nenhuma opção selecionada")
@@ -323,34 +309,14 @@
                     Case "Técnicos"
                         If removidos = True Then
                             BLL.Tecnicos.restaurar(string_data)
+                            BLL.Admin_only.Login.restore_login(string_data)
                             MsgBox("Restaurado com sucesso!")
                             showdata.DataSource = BLL.Tecnicos.carregar_eliminados
                         Else
                             BLL.Tecnicos.apagar(string_data)
+                            BLL.Admin_only.Login.remove_login(string_data)
                             MsgBox("Removido com sucesso!")
                             showdata.DataSource = BLL.Tecnicos.carregar()
-                        End If
-                    Case "Utilizadores"
-                        If string_data <> Workspace.user Then
-                            If removidos = True Then
-                                BLL.Admin_only.Login.restore_login(string_data)
-                                MsgBox("Restaurado com sucesso!")
-                                If Workspace.admin_geral = True Then
-                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
-                                Else
-                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
-                                End If
-                            Else
-                                BLL.Admin_only.Login.remove_login(string_data)
-                                MsgBox("Removido com sucesso!")
-                                If Workspace.admin_geral = True Then
-                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users()
-                                Else
-                                    showdata.DataSource = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
-                                End If
-                            End If
-                        Else
-                            MsgBox("Não pode eliminar a si próprio!")
                         End If
                 End Select
             Catch ex As Exception
@@ -404,20 +370,7 @@
                     Else
                         showdata.DataSource = BLL.Tecnicos.carregar()
                     End If
-                Case "Utilizadores"
-                    If removidos = True Then
-                        If Workspace.admin_geral = True Then
-                            showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados
-                        Else
-                            showdata.DataSource = BLL.Admin_only.Login.carregar_users_eliminados_empresa(BLL.n_empresa)
-                        End If
-                    Else
-                        If Workspace.admin_geral = True Then
-                            showdata.DataSource = BLL.Admin_only.Login.carregar_users()
-                        Else
-                            showdata.DataSource = BLL.Admin_only.Login.carregar_users_empresa(BLL.n_empresa)
-                        End If
-                    End If
+                
             End Select
             Timer1.Start()
             Label1.Show()
@@ -493,7 +446,6 @@
                             opr_artigos.removidos = False
                             opr_artigos.Show()
                         End If
-                        opr_artigos.numbox.ReadOnly = True
                         opr_artigos.numseriebox.ReadOnly = True
                         opr_artigos.observaçoesbox.ReadOnly = True
                         opr_artigos.marcabox.ReadOnly = True
@@ -563,23 +515,7 @@
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         End If
-                    Case "Utilizadores"
-                        Dim opr_utilizadores As New OPR_Utilizadores
-                        opr_utilizadores.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_utilizadores.modo = True
-                        If removidos = True Then
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_desativados(string_data)
-                            opr_utilizadores.removidos = True
-                            opr_utilizadores.Show()
-                        Else
-                            opr_utilizadores.utilizador_data = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(string_data)
-                            opr_utilizadores.removidos = True
-                            opr_utilizadores.Show()
-                        End If
-                        opr_utilizadores.RadButton5.Enabled = False
-                        opr_utilizadores.RadButton1.Enabled = False
-                        opr_utilizadores.RadButton3.Enabled = False
+                    
                 End Select
                 Me.Close()
             Catch ex As Exception
@@ -674,36 +610,6 @@
                                 TextBox1.Text = ""
                             End If
                         End If
-                    Case "Utilizadores"
-                        If Workspace.admin_geral = True Then
-                            If removidos = True Then
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_desativados(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            Else
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_ativados(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            End If
-                        Else
-                            If removidos = True Then
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_desativados_empresa(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            Else
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_codutilizador_ativados_empresa(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            End If
-                        End If
                     Case "Empresas"
                         If removidos = True Then
                             showdata.DataSource = BLL.Admin_only.Empresas.procura_dados_Nome_desativados("%" + TextBox1.Text + "%")
@@ -762,36 +668,6 @@
                         Else
                             showdata.DataSource = BLL.Tecnicos.procura_dados_Nome_ativados(TextBox1.Text)
                         End If
-                    Case "Utilizadores"
-                        If Workspace.admin_geral = True Then
-                            If removidos = True Then
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            Else
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            End If
-                        Else
-                            If removidos = True Then
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados_empresa(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            Else
-                                If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                    showdata.DataSource = BLL.Admin_only.Login.procura_dados_tecnico_desativados_empresa(TextBox1.Text)
-                                Else
-                                    TextBox1.Text = ""
-                                End If
-                            End If
-                        End If
                     Case "Empresas"
 
                         If removidos = True Then
@@ -824,13 +700,7 @@
                     End If
                     removidos = False
                 End If
-                If removidos = True Then
-                    delbutton.Text = "Restaurar"
-                    newbutton.Enabled = False
-                Else
-                    delbutton.Text = "Eliminar"
-                    newbutton.Enabled = True
-                End If
+                
             Case "Artigos"
                 If CheckBox1.Checked = True Then
                     data_table = BLL.Componentes.carregar_desativos
@@ -853,8 +723,23 @@
                     removidos = True
                 Else
                     data_table = BLL.Tecnicos.carregar
+                    removidos = False
+                End If
+            Case "Empresas"
+                If CheckBox1.Checked = True Then
+                    data_table = BLL.Admin_only.Empresas.carregar_eliminados
                     removidos = True
+                Else
+                    data_table = BLL.Admin_only.Empresas.carregar_eliminados
+                    removidos = False
                 End If
         End Select
+        If removidos = True Then
+            delbutton.Text = "Restaurar"
+            newbutton.Enabled = False
+        Else
+            delbutton.Text = "Eliminar"
+            newbutton.Enabled = True
+        End If
     End Sub
 End Class

@@ -72,19 +72,19 @@
                             MsgBox("Esta Empresa já existe!")
                         Else
                             BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                            If MsgBox("Tem que criar um utilizador para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
-                                Dim opr_utilizadores As New OPR_Utilizadores
-                                opr_utilizadores.MdiParent = Workspace
-                                opr_utilizadores.modo = False
-                                opr_utilizadores.Show()
-                                For i = 0 To opr_utilizadores.empresabox.Items.Count - 1
-                                    If opr_utilizadores.empresabox.Items.Item(i) = nomebox.Text Then
-                                        opr_utilizadores.empresabox.SelectedIndex = i
+                            If MsgBox("Tem que criar um técnico para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
+                                Dim opr_tecnicos As New OPR_Técnicos
+                                opr_tecnicos.MdiParent = Workspace
+                                opr_tecnicos.modo = False
+                                opr_tecnicos.Show()
+                                For i = 0 To opr_tecnicos.empresabox.Items.Count - 1
+                                    If opr_tecnicos.empresabox.Items.Item(i) = nomebox.Text Then
+                                        opr_tecnicos.empresabox.SelectedIndex = i
                                     End If
                                 Next
                                 Me.Close()
                             Else
-                                MsgBox("Não poderá inserir dados nesta empresa ou iniciar sessão até criar pelo menos um utilizador", vbOK, "Sem Utilizadores!")
+                                MsgBox("Não poderá inserir dados nesta empresa ou iniciar sessão até criar pelo menos um técnico", vbOK, "Sem Técnicos!")
                                 Me.Close()
                             End If
                         End If
@@ -101,7 +101,7 @@
             Try
                 BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
                 MsgBox("Removida com sucesso!")
-                Workspace.empresasremovidas.PerformClick()
+                Workspace.EmpresasToolStripMenuItem.PerformClick()
             Catch ex As Exception
                 MsgBox("Erro ao remover: " & ex.Message)
             End Try
@@ -163,13 +163,13 @@
             If result = vbYes Then
                 BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
                 MsgBox("Eliminada com sucesso!")
-                Workspace.empresasativas.PerformClick()
+                Workspace.EmpresasToolStripMenuItem.PerformClick()
                 Me.Close()
             ElseIf result = vbNo Then
                 If MsgBox("Deseja marcar a empresa como inativa?", vbYesNoCancel) = vbYes Then
                     BLL.Admin_only.Empresas.apagar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString, empresa_data.Rows.Item(0).Item("NIF"))
                     MsgBox("Eliminada com sucesso!")
-                    Workspace.empresasativas.PerformClick()
+                    Workspace.EmpresasToolStripMenuItem.PerformClick()
                     Me.Close()
                 Else
                     MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Erro, nenhuma opção selecionada")
@@ -184,9 +184,9 @@
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
         If removidos = True Then
-            Workspace.empresasremovidas.PerformClick()
+            Workspace.EmpresasToolStripMenuItem.PerformClick()
         Else
-            Workspace.empresasativas.PerformClick()
+            Workspace.EmpresasToolStripMenuItem.PerformClick()
         End If
         Me.Close()
     End Sub
