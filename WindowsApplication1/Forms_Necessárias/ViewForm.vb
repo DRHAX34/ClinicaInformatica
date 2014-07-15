@@ -196,14 +196,26 @@
                         opr_tecnicos.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
                         opr_tecnicos.modo = True
-                        If removidos = True Then
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_desativados(string_data)
-                            opr_tecnicos.removidos = True
-                            opr_tecnicos.Show()
+                        If Workspace.Aluno = True Then
+                            If removidos = True Then
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.Alunos.carregar_dados_ntecnico_desativados(string_data)
+                                opr_tecnicos.removidos = True
+                                opr_tecnicos.Show()
+                            Else
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.Alunos.carregar_dados_ntecnico_ativados(string_data)
+                                opr_tecnicos.removidos = False
+                                opr_tecnicos.Show()
+                            End If
                         Else
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_ativados(string_data)
-                            opr_tecnicos.removidos = False
-                            opr_tecnicos.Show()
+                            If removidos = True Then
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_desativados(string_data)
+                                opr_tecnicos.removidos = True
+                                opr_tecnicos.Show()
+                            Else
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados_ntecnico_ativados(string_data)
+                                opr_tecnicos.removidos = False
+                                opr_tecnicos.Show()
+                            End If
                         End If
                     Case "Empresas"
                         Dim opr_empresas As New OPR_Empresas
@@ -219,7 +231,7 @@
                             opr_empresas.removidos = True
                             opr_empresas.Show()
                         End If
-                    
+
                 End Select
                 Me.Close()
             Catch ex As Exception

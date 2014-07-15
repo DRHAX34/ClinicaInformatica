@@ -21,14 +21,19 @@
             RadButton1.Enabled = True
             RadButton5.Enabled = False
             RadButton3.Text = "Restaurar Dados Originais"
-            numalunobox.Text = tecnico_data.Rows.Item(0).Item("NºAluno").ToString()
-            turmabox.Text = tecnico_data.Rows.Item(0).Item("Turma").ToString()
-            nomebox.Text = tecnico_data.Rows.Item(0).Item("Nome").ToString()
-            contacto_fbox.Text = tecnico_data.Rows.Item(0).Item("Contacto_M").ToString()
-            contactom_box.Text = tecnico_data.Rows.Item(0).Item("Contacto_F").ToString()
-            localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
-            cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
-            nomeutilizadorbox.Text = tecnico_data.Rows.Item(0).Item("Nome_util").ToString()
+            Try
+                numalunobox.Text = tecnico_data.Rows.Item(0).Item("NºAluno").ToString()
+                turmabox.Text = tecnico_data.Rows.Item(0).Item("Turma").ToString()
+                nomebox.Text = tecnico_data.Rows.Item(0).Item("Nome").ToString()
+                contacto_fbox.Text = tecnico_data.Rows.Item(0).Item("Contacto_M").ToString()
+                contactom_box.Text = tecnico_data.Rows.Item(0).Item("Contacto_F").ToString()
+                localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
+                cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
+                nomeutilizadorbox.Text = tecnico_data.Rows.Item(0).Item("Nome_util").ToString()
+            Catch ex As Exception
+                MsgBox("Erro ao abrir técnico: " & ex.Message, vbOKOnly, "Erro!")
+                Me.Close()
+            End Try
             Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
             Dim passdecript As String = wrapper.DecryptData(tecnico_data.Rows.Item(0).Item("Password").ToString)
             passwordbox.Text = passdecript
@@ -255,7 +260,7 @@
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
                 BLL.Admin_only.Login.Add_login_tecnico(perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
-                MsgBox("Inserido com êxito!", vbOKOnly, "Erro!")
+                MsgBox("Inserido com êxito!", vbOKOnly, "Inserido!")
                 Me.Close()
             Catch ex As Exception
                 MsgBox("Erro ao inserir: " & ex.Message)

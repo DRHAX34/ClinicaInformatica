@@ -192,6 +192,7 @@
             temporeal = New TimeSpan
         Else
             temporeal = datefim.Value.Subtract(dateinicio.Value)
+            check_data = True
         End If
         If numcomponentebox.Text <> 0 Or numcomponentebox.Text <> "" Then
             check_componente = True
