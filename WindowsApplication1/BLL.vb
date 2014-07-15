@@ -285,19 +285,20 @@ Public Class BLL
                 End Try
             End Sub
             Shared Sub apagar(ByVal NºEmpresa As String, ByVal NIF As String)
-                Dim p As New ArrayList
+                Dim p, c As New ArrayList
                 Dim data As String = ""
-                p.Add(New SqlParameter("@NIF", NIF))
-                p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
 
                 If NºEmpresa <> "" Then
+                    p.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
                     DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NºEmpresa = @NºEmpresa", p)
                     'BLL.Login.remover_empresas(NºEmpresa)
                     'BLL.Clientes.remover_empresas(NºEmpresa)
                     'BLL.Artigos.remover_empresas(NºEmpresa)
                     'BLL.Reparacoes.remover_empresas(NºEmpresa)
-                    'BLL.Tecnicos.remover_empresas(NºEmpresa)
+                    c.Add(New SqlParameter("@NºEmpresa", NºEmpresa))
+                    DAL.ExecuteNonQuery("Update Técnicos set Ativo=0 where NºEmpresa=@n_empresa", c)
                 ElseIf NIF <> "" Then
+                    p.Add(New SqlParameter("@NIF", NIF))
                     DAL.ExecuteNonQuery("Update Empresas set Ativo=0 where NIF = @NIF", p)
                     'data = DAL.ExecuteScalar("Select NºEmpresa from empresas where NIF=@NIF", p)
                     'BLL.Login.remover_empresas(data)
@@ -305,6 +306,11 @@ Public Class BLL
                     'BLL.Artigos.remover_empresas(data)
                     'BLL.Reparacoes.remover_empresas(data)
                     'BLL.Tecnicos.remover_empresas(data)
+                    c.Add(New SqlParameter("@NIF", NIF))
+                    Dim n_empresa As Integer = DAL.ExecuteScalar("Select NºEmpresa FROM Empresas where NIF=@NIF", c)
+                    c.Remove(New SqlParameter("@NIF", NIF))
+                    c.Add(New SqlParameter("@NºEmpresa", n_empresa))
+                    DAL.ExecuteNonQuery("Update Técnicos set Ativo=0 where NºEmpresa=@n_empresa", c)
                 End If
             End Sub
             Shared Sub restaurar(ByVal nºempresa As String, ByVal nif As String)
@@ -408,11 +414,18 @@ Public Class BLL
             If resultado1.Count <> 0 Then
                 resultado2 = resultado1.Item(0)
                 BLL.n_empresa = empresa
-                If BLL.Tecnicos.carregar_dados_ntecnico_ativados(resultado1.Item(1)).Rows(0).Item("NºTécnico").ToString <> 0 Then
-                    Return resultado2
-                Else
-                    Return 0
-                End If
+                Try
+                    If resultado1.Item(1) <> "" Then
+                        If BLL.Tecnicos.carregar_dados_ntecnico_ativados(resultado1.Item(1)).Rows(0).Item("NºTécnico").ToString <> 0 Then
+                            Return resultado2
+                        Else
+                            Return 0
+                        End If
+                    Else
+                        Return resultado2
+                    End If
+                Catch
+                End Try
             Else
                 Return 0
             End If
@@ -994,11 +1007,7 @@ Public Class BLL
                 Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações where NºReparação=@n_reparação AND NºEmpresa=@n_empresa AND Ativo=0", p)
             End If
         End Function
-<<<<<<< HEAD
-        Shared Sub inserir(ByVal NºComponente As Integer, ByVal DescAvaria As String, ByVal DIRepar As DateTime)
-=======
-        Shared Sub inserir(ByVal NºArtigo As Integer, ByVal DescAvaria As String, ByVal DIRepar As String)
->>>>>>> origin/master
+        Shared Sub inserir(ByVal NºArtigo As Integer, ByVal DescAvaria As String, ByVal DIRepar As DateTime)
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_artigo", NºArtigo))
             p.Add(New SqlParameter("@DescAvaria", DescAvaria))

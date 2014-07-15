@@ -11,19 +11,12 @@
             modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
             numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
             observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
-            RadButton2.Enabled = True
             RadButton3.Text = "Restaurar Dados Originais"
             RadButton5.Enabled = False
             RadButton1.Enabled = True
         Else
-            RadButton2.Enabled = False
             RadButton1.Enabled = False
             RadButton3.Text = "Limpar Dados"
-        End If
-        If removidos = True Then
-            RadButton2.Text = "Restaurar"
-        Else
-            RadButton2.Text = "Remover"
         End If
 
     End Sub
@@ -49,15 +42,15 @@
         End Try
     End Sub
 
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
+    Private Sub RadButton2_Click(sender As Object, e As EventArgs)
         Try
             If removidos = False Then
-                BLL.Componentes.apagar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
+                BLL.Artigos.apagar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Removido com sucesso!")
                 Workspace.dispositivosmenu.PerformClick()
                 Me.Close()
             Else
-                BLL.Componentes.restaurar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
+                BLL.Artigos.restaurar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Restaurado com sucesso!")
                 Workspace.dispositivosmenu.PerformClick()
                 Me.Close()
@@ -96,9 +89,9 @@
         End Try
         Try
             If Not check_tipo = "" And Not check_numcliente = "" And Not check_numserie = "" And Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
-                BLL.Componentes.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
+                BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
-                If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
+                If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then
                     If BLL.Tecnicos.carregar.Rows.Count = 0 Then
                         If Workspace.admin = True Then
                             If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
@@ -119,7 +112,7 @@
                         Dim opr_reparações As New OPR_Reparações
                         opr_reparações.MdiParent = Workspace
                         opr_reparações.modo = False
-                        opr_reparações.numcomponentebox.Text = BLL.Componentes.carregar.Rows(BLL.Componentes.carregar.Rows.Count - 1).Item("NºComponente").ToString
+                        opr_reparações.numcomponentebox.Text = BLL.Artigos.carregar.Rows(BLL.Artigos.carregar.Rows.Count - 1).Item("NºArtigo").ToString
                         opr_reparações.Show()
                         Me.Close()
                     End If
@@ -185,7 +178,7 @@
         End Try
         Try
             If Not (check_numcliente = "" And check_numserie = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
-                BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
+                BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Alterado com sucesso")
                 If removidos = True Then
                     Workspace.dispositivosmenu.PerformClick()

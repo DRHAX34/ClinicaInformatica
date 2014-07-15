@@ -156,31 +156,7 @@
         End If
     End Sub
 
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
-        Try
-            Dim result As Integer
-            result = MsgBox("Deseja eliminar permanentemente a empresa?", vbYesNoCancel, "Eliminar")
-            If result = vbYes Then
-                BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
-                MsgBox("Eliminada com sucesso!")
-                Workspace.EmpresasToolStripMenuItem.PerformClick()
-                Me.Close()
-            ElseIf result = vbNo Then
-                If MsgBox("Deseja marcar a empresa como inativa?", vbYesNoCancel) = vbYes Then
-                    BLL.Admin_only.Empresas.apagar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString, empresa_data.Rows.Item(0).Item("NIF"))
-                    MsgBox("Eliminada com sucesso!")
-                    Workspace.EmpresasToolStripMenuItem.PerformClick()
-                    Me.Close()
-                Else
-                    MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Erro, nenhuma opção selecionada")
-                End If
-            Else
-                MsgBox("A empresa não foi removida.", MsgBoxStyle.Exclamation, "Cancelado")
-            End If
-        Catch ex As Exception
-            MsgBox("Ocorreu um erro: " & ex.Message)
-        End Try
-    End Sub
+    
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
         If removidos = True Then

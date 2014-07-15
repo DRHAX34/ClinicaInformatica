@@ -256,7 +256,7 @@ Public Class Workspace
                 artigosview.tabela = "Artigos"
                 artigosview.MdiParent = Me
                 m_ChildFormNumber += 1
-                artigosview.data_table = BLL.Componentes.carregar_desativos
+                artigosview.data_table = BLL.Artigos.carregar_desativos
                 artigosview.removidos = True
                 artigosview.Show()
             End If
@@ -293,7 +293,7 @@ Public Class Workspace
     Private Sub reparativos_Click(sender As Object, e As EventArgs)
         If check_reparacoes = False Then
             If BLL.Clientes.carregar.Rows.Count <> 0 Then
-                If BLL.Componentes.carregar.Rows.Count <> 0 Then
+                If BLL.Artigos.carregar.Rows.Count <> 0 Then
                     If BLL.Tecnicos.carregar.Rows.Count <> 0 Then
                         Try
                             Dim repararview As New ViewForm
@@ -371,7 +371,7 @@ Public Class Workspace
     Private Sub reparremovidos_Click(sender As Object, e As EventArgs)
         If check_reparacoes = False Then
             If BLL.Clientes.carregar.Rows.Count <> 0 Then
-                If BLL.Componentes.carregar.Rows.Count <> 0 Then
+                If BLL.Artigos.carregar.Rows.Count <> 0 Then
                     If BLL.Tecnicos.carregar.Rows.Count <> 0 Then
                         Try
                             Dim repararview As New ViewForm
@@ -529,7 +529,7 @@ Public Class Workspace
                     artigosview.tabela = "Artigos"
                     artigosview.MdiParent = Me
                     m_ChildFormNumber += 1
-                    artigosview.data_table = BLL.Componentes.carregar
+                    artigosview.data_table = BLL.Artigos.carregar
                     artigosview.removidos = False
                     artigosview.Show()
                 End If
@@ -545,21 +545,21 @@ Public Class Workspace
     Private Sub reparacoesmenu_Click(sender As Object, e As EventArgs) Handles reparacoesmenu.Click
         If check_reparacoes = False Then
             If BLL.Clientes.carregar.Rows.Count <> 0 Then
-                If BLL.Componentes.carregar.Rows.Count <> 0 Then
-                        Try
-                            Dim repararview As New ViewForm
-                            check_reparacoes = True
-                            repararview.Text = "Reparações"
-                            repararview.tabela = "Reparações"
-                            repararview.MdiParent = Me
-                            m_ChildFormNumber += 1
-                            repararview.data_table = BLL.Reparacoes.carregar()
-                            repararview.removidos = False
-                            repararview.Show()
-                        Catch ex As Exception
-                            MsgBox("Erro ao executar comando: " & ex.Message)
-                            Me.Close()
-                        End Try
+                If BLL.Artigos.carregar.Rows.Count <> 0 Then
+                    Try
+                        Dim repararview As New ViewForm
+                        check_reparacoes = True
+                        repararview.Text = "Reparações"
+                        repararview.tabela = "Reparações"
+                        repararview.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        repararview.data_table = BLL.Reparacoes.carregar()
+                        repararview.removidos = False
+                        repararview.Show()
+                    Catch ex As Exception
+                        MsgBox("Erro ao executar comando: " & ex.Message)
+                        Me.Close()
+                    End Try
                 Else
                     If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
                         Dim opr_artigos As New OPR_Artigos

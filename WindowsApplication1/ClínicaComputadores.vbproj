@@ -340,6 +340,11 @@
     <Compile Include="Forms_View_Relatórios\folha_repar_orçamento.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SQLToReportConnection.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SQLToReportConnection.xsd</DependentUpon>
+    </Compile>
     <Compile Include="teste.vb" />
     <Compile Include="unZip.vb" />
     <Compile Include="Simple3Des.vb" />
@@ -428,11 +433,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <Compile Include="_BD_C_IDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -537,16 +537,16 @@
     <None Include="App.config" />
     <None Include="Resources\BD.zip" />
     <None Include="Resources\Manual de Instruções.pdf" />
-    <None Include="_BD_C_IDataSet.xsc">
-      <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
+    <None Include="SQLToReportConnection.xsc">
+      <DependentUpon>SQLToReportConnection.xsd</DependentUpon>
     </None>
-    <None Include="_BD_C_IDataSet.xsd">
+    <None Include="SQLToReportConnection.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>_BD_C_IDataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>SQLToReportConnection.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="_BD_C_IDataSet.xss">
-      <DependentUpon>_BD_C_IDataSet.xsd</DependentUpon>
+    <None Include="SQLToReportConnection.xss">
+      <DependentUpon>SQLToReportConnection.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

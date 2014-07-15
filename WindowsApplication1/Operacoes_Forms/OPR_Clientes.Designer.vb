@@ -29,7 +29,6 @@ Partial Class OPR_Clientes
         Me.Label6 = New System.Windows.Forms.Label()
         Me.adicionarbutton = New Telerik.WinControls.UI.RadButton()
         Me.editarbutton = New Telerik.WinControls.UI.RadButton()
-        Me.removerbutton = New Telerik.WinControls.UI.RadButton()
         Me.restorebutton = New Telerik.WinControls.UI.RadButton()
         Me.cancelarbutton = New Telerik.WinControls.UI.RadButton()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -55,7 +54,6 @@ Partial Class OPR_Clientes
         Me.Label12 = New System.Windows.Forms.Label()
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.restorebutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cancelarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -113,36 +111,27 @@ Partial Class OPR_Clientes
         '
         'adicionarbutton
         '
-        Me.adicionarbutton.Location = New System.Drawing.Point(30, 386)
+        Me.adicionarbutton.Location = New System.Drawing.Point(30, 371)
         Me.adicionarbutton.Name = "adicionarbutton"
-        Me.adicionarbutton.Size = New System.Drawing.Size(75, 63)
+        Me.adicionarbutton.Size = New System.Drawing.Size(103, 37)
         Me.adicionarbutton.TabIndex = 21
         Me.adicionarbutton.Text = "Adicionar"
         Me.adicionarbutton.ThemeName = "Windows8"
         '
         'editarbutton
         '
-        Me.editarbutton.Location = New System.Drawing.Point(151, 386)
+        Me.editarbutton.Location = New System.Drawing.Point(139, 371)
         Me.editarbutton.Name = "editarbutton"
-        Me.editarbutton.Size = New System.Drawing.Size(75, 63)
+        Me.editarbutton.Size = New System.Drawing.Size(103, 37)
         Me.editarbutton.TabIndex = 22
         Me.editarbutton.Text = "Editar"
         Me.editarbutton.ThemeName = "Windows8"
         '
-        'removerbutton
-        '
-        Me.removerbutton.Location = New System.Drawing.Point(276, 386)
-        Me.removerbutton.Name = "removerbutton"
-        Me.removerbutton.Size = New System.Drawing.Size(75, 63)
-        Me.removerbutton.TabIndex = 23
-        Me.removerbutton.Text = "Remover"
-        Me.removerbutton.ThemeName = "Windows8"
-        '
         'restorebutton
         '
-        Me.restorebutton.Location = New System.Drawing.Point(406, 386)
+        Me.restorebutton.Location = New System.Drawing.Point(393, 371)
         Me.restorebutton.Name = "restorebutton"
-        Me.restorebutton.Size = New System.Drawing.Size(75, 63)
+        Me.restorebutton.Size = New System.Drawing.Size(103, 37)
         Me.restorebutton.TabIndex = 24
         Me.restorebutton.Text = "Restaurar Dados Originais"
         Me.restorebutton.TextWrap = True
@@ -150,9 +139,9 @@ Partial Class OPR_Clientes
         '
         'cancelarbutton
         '
-        Me.cancelarbutton.Location = New System.Drawing.Point(536, 386)
+        Me.cancelarbutton.Location = New System.Drawing.Point(501, 371)
         Me.cancelarbutton.Name = "cancelarbutton"
-        Me.cancelarbutton.Size = New System.Drawing.Size(75, 63)
+        Me.cancelarbutton.Size = New System.Drawing.Size(110, 37)
         Me.cancelarbutton.TabIndex = 25
         Me.cancelarbutton.Text = "Cancelar"
         Me.cancelarbutton.ThemeName = "Windows8"
@@ -374,7 +363,7 @@ Partial Class OPR_Clientes
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(637, 461)
+        Me.ClientSize = New System.Drawing.Size(637, 420)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.turmabox)
         Me.Controls.Add(Me.numalunobox)
@@ -397,7 +386,6 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.cancelarbutton)
         Me.Controls.Add(Me.restorebutton)
-        Me.Controls.Add(Me.removerbutton)
         Me.Controls.Add(Me.editarbutton)
         Me.Controls.Add(Me.adicionarbutton)
         Me.Controls.Add(Me.Label6)
@@ -411,7 +399,6 @@ Partial Class OPR_Clientes
         Me.Text = "Operações Clientes"
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.restorebutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cancelarbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -426,7 +413,6 @@ End Sub
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents adicionarbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents editarbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents removerbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents restorebutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents cancelarbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label7 As System.Windows.Forms.Label

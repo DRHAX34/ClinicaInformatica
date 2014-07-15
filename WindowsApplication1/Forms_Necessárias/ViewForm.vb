@@ -62,7 +62,7 @@
             Case "Reparações"
                 'othersbutton.Enabled = True
                 RadioButton1.Text = "NºReparação"
-                RadioButton2.Text = "NºComponente"
+                RadioButton2.Text = "NºArtigo"
             Case "Técnicos"
                 othersbutton.Enabled = True
                 RadioButton1.Text = "NºTécnico"
@@ -166,11 +166,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_artigos.modo = True
                         If removidos = True Then
-                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
+                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo_desativo(string_data)
                             opr_artigos.removidos = True
                             opr_artigos.Show()
                         Else
-                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
+                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data)
                             opr_artigos.removidos = False
                             opr_artigos.Show()
                         End If
@@ -258,13 +258,13 @@
                         End If
                     Case "Artigos"
                         If removidos = True Then
-                            BLL.Componentes.restaurar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
+                            BLL.Artigos.restaurar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
                             MsgBox("Restaurado com sucesso!")
-                            showdata.DataSource = BLL.Componentes.carregar_desativos()
+                            showdata.DataSource = BLL.Artigos.carregar_desativos()
                         Else
-                            BLL.Componentes.apagar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
+                            BLL.Artigos.apagar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
                             MsgBox("Removido com sucesso!")
-                            showdata.DataSource = BLL.Componentes.carregar()
+                            showdata.DataSource = BLL.Artigos.carregar()
                         End If
                     Case "Empresas"
                         If removidos = True Then
@@ -348,9 +348,9 @@
                     End If
                 Case "Artigos"
                     If removidos = True Then
-                        showdata.DataSource = BLL.Componentes.carregar_desativos()
+                        showdata.DataSource = BLL.Artigos.carregar_desativos()
                     Else
-                        showdata.DataSource = BLL.Componentes.carregar()
+                        showdata.DataSource = BLL.Artigos.carregar()
                     End If
                 Case "Empresas"
                     If removidos = True Then
@@ -417,7 +417,6 @@
                                 opr_clientes.Show()
                             End If
                         End If
-                        opr_clientes.removerbutton.Enabled = False
                         opr_clientes.editarbutton.Enabled = False
                         opr_clientes.restorebutton.Enabled = False
                         opr_clientes.nomebox.ReadOnly = True
@@ -438,11 +437,11 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_artigos.modo = True
                         If removidos = True Then
-                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
+                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo_desativo(string_data)
                             opr_artigos.removidos = True
                             opr_artigos.Show()
                         Else
-                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
+                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data)
                             opr_artigos.removidos = False
                             opr_artigos.Show()
                         End If
@@ -484,7 +483,6 @@
                         opr_reparacoes.descriçaobox.ReadOnly = True
                         opr_reparacoes.RadButton5.Enabled = False
                         opr_reparacoes.RadButton1.Enabled = False
-                        opr_reparacoes.RadButton2.Enabled = False
                         opr_reparacoes.RadButton3.Enabled = False
                         opr_reparacoes.read_only = True
                     Case "Técnicos"
@@ -571,13 +569,13 @@
                     Case "Artigos"
                         If removidos = True Then
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_desativo(TextBox1.Text)
+                                showdata.DataSource = BLL.Artigos.procura_dados_numartigo_desativo(TextBox1.Text)
                             Else
                                 TextBox1.Text = ""
                             End If
                         Else
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Componentes.procura_dados_numcomponente(TextBox1.Text)
+                                showdata.DataSource = BLL.Artigos.procura_dados_numartigo(TextBox1.Text)
                             Else
                                 TextBox1.Text = ""
                             End If
@@ -637,13 +635,13 @@
                     Case "Artigos"
                         If removidos = True Then
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Componentes.procura_dados_numcliente_desativo(TextBox1.Text)
+                                showdata.DataSource = BLL.Artigos.procura_dados_numcliente_desativo(TextBox1.Text)
                             Else
                                 TextBox1.Text = ""
                             End If
                         Else
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Componentes.procura_dados_numcliente(TextBox1.Text)
+                                showdata.DataSource = BLL.Artigos.procura_dados_numcliente(TextBox1.Text)
                             Else
                                 TextBox1.Text = ""
                             End If
@@ -651,13 +649,13 @@
                     Case "Reparações"
                         If removidos = True Then
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Reparacoes.procura_dados_numcomponente_desativo(TextBox1.Text)
+                                showdata.DataSource = BLL.Reparacoes.procura_dados_numartigo_desativo(TextBox1.Text)
                             Else
                                 TextBox1.Text = ""
                             End If
                         Else
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
-                                showdata.DataSource = BLL.Reparacoes.procura_dados_numcomponente(TextBox1.Text)
+                                showdata.DataSource = BLL.Reparacoes.procura_dados_numartigo(TextBox1.Text)
                             Else
                                 TextBox1.Text = ""
                             End If
@@ -703,10 +701,10 @@
                 
             Case "Artigos"
                 If CheckBox1.Checked = True Then
-                    data_table = BLL.Componentes.carregar_desativos
+                    data_table = BLL.Artigos.carregar_desativos
                     removidos = True
                 Else
-                    data_table = BLL.Componentes.carregar
+                    data_table = BLL.Artigos.carregar
                     removidos = False
                 End If
             Case "Reparações"

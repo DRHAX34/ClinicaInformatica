@@ -26,7 +26,6 @@ Partial Class OPR_Artigos
         Me.Label8 = New System.Windows.Forms.Label()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton2 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -47,7 +46,6 @@ Partial Class OPR_Artigos
         Me.nomeclientelabel = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,46 +64,37 @@ Partial Class OPR_Artigos
         '
         'RadButton4
         '
-        Me.RadButton4.Location = New System.Drawing.Point(435, 369)
+        Me.RadButton4.Location = New System.Drawing.Point(402, 364)
         Me.RadButton4.Name = "RadButton4"
-        Me.RadButton4.Size = New System.Drawing.Size(75, 63)
+        Me.RadButton4.Size = New System.Drawing.Size(103, 37)
         Me.RadButton4.TabIndex = 51
         Me.RadButton4.Text = "Cancelar"
         Me.RadButton4.ThemeName = "Windows8"
         '
         'RadButton3
         '
-        Me.RadButton3.Location = New System.Drawing.Point(326, 368)
+        Me.RadButton3.Location = New System.Drawing.Point(294, 364)
         Me.RadButton3.Name = "RadButton3"
-        Me.RadButton3.Size = New System.Drawing.Size(75, 63)
+        Me.RadButton3.Size = New System.Drawing.Size(103, 37)
         Me.RadButton3.TabIndex = 50
         Me.RadButton3.Text = "Restaurar Dados Originais"
         Me.RadButton3.TextWrap = True
         Me.RadButton3.ThemeName = "Windows8"
         '
-        'RadButton2
-        '
-        Me.RadButton2.Location = New System.Drawing.Point(218, 368)
-        Me.RadButton2.Name = "RadButton2"
-        Me.RadButton2.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton2.TabIndex = 49
-        Me.RadButton2.Text = "Remover"
-        Me.RadButton2.ThemeName = "Windows8"
-        '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(111, 368)
+        Me.RadButton1.Location = New System.Drawing.Point(121, 364)
         Me.RadButton1.Name = "RadButton1"
-        Me.RadButton1.Size = New System.Drawing.Size(75, 63)
+        Me.RadButton1.Size = New System.Drawing.Size(103, 37)
         Me.RadButton1.TabIndex = 48
         Me.RadButton1.Text = "Editar"
         Me.RadButton1.ThemeName = "Windows8"
         '
         'RadButton5
         '
-        Me.RadButton5.Location = New System.Drawing.Point(17, 369)
+        Me.RadButton5.Location = New System.Drawing.Point(12, 364)
         Me.RadButton5.Name = "RadButton5"
-        Me.RadButton5.Size = New System.Drawing.Size(75, 63)
+        Me.RadButton5.Size = New System.Drawing.Size(103, 37)
         Me.RadButton5.TabIndex = 47
         Me.RadButton5.Text = "Adicionar"
         Me.RadButton5.ThemeName = "Windows8"
@@ -259,7 +248,7 @@ Partial Class OPR_Artigos
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(529, 444)
+        Me.ClientSize = New System.Drawing.Size(523, 411)
         Me.Controls.Add(Me.nomeclientelabel)
         Me.Controls.Add(Me.tipo_componentebox)
         Me.Controls.Add(Me.Label5)
@@ -272,7 +261,6 @@ Partial Class OPR_Artigos
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
-        Me.Controls.Add(Me.RadButton2)
         Me.Controls.Add(Me.RadButton1)
         Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
@@ -286,7 +274,6 @@ Partial Class OPR_Artigos
         Me.Text = "Operações Artigos"
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
@@ -298,7 +285,6 @@ Partial Class OPR_Artigos
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton2 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label6 As System.Windows.Forms.Label

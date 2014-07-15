@@ -13,10 +13,10 @@
                 RadioButton1.Text = "Nome"
                 RadioButton2.Text = "Código Cliente"
                 RadioButton3.Text = "NIF"
-            Case "Componentes"
-                showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini("")
+            Case "Artigos"
+                showdata.DataSource = BLL.Artigos.procura_dados_numartigo_mini("")
                 modo = True
-                RadioButton1.Text = "Código Componente"
+                RadioButton1.Text = "Código Artigo"
                 RadioButton2.Text = "Código Cliente"
                 RadioButton3.Hide()
 
@@ -41,9 +41,9 @@
             Select Case tabela
                 Case "Clientes"
                     showdata.DataSource = BLL.Clientes.procura_dados_nome_mini("%" + TextBox1.Text + "%")
-                Case "Componentes"
+                Case "Artigos"
                     'If IsNumeric(TextBox1.Text) Then
-                    showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_mini("%" + TextBox1.Text + "%")
+                    showdata.DataSource = BLL.Artigos.procura_dados_numartigo_mini("%" + TextBox1.Text + "%")
                     'Else
                     '    Dim backup As Array = TextBox1.Text.ToCharArray
                     '    TextBox1.Text = ""
@@ -65,9 +65,9 @@
                 Select Case tabela
                     Case "Clientes"
                         showdata.DataSource = BLL.Clientes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
-                    Case "Componentes"
+                    Case "Artigos"
                         'If IsNumeric(TextBox1.Text) Then
-                        showdata.DataSource = BLL.Componentes.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
+                        showdata.DataSource = BLL.Artigos.procura_dados_numcliente_mini("%" + TextBox1.Text + "%")
                         'Else
                         '    Dim backup As Array = TextBox1.Text.ToCharArray
                         '    TextBox1.Text = ""
@@ -115,7 +115,7 @@
         RadioButton1.Checked = True
         RadioButton2.Checked = False
         RadioButton3.Checked = False
-        If Not tabela = "Componentes" Then
+        If Not tabela = "Artigos" Then
             modo = False
         End If
     End Sub
@@ -133,7 +133,7 @@
     End Sub
 
     Public Sub OnlyDigitsOnKeyPress(ByVal sender As Object, ByVal e As KeyPressEventArgs) Handles TextBox1.KeyPress
-        If tabela = "Componentes" Then
+        If tabela = "Artigos" Then
             Try
                 If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
                     e.Handled = True

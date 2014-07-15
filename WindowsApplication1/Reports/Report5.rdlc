@@ -425,7 +425,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Observações.Value, "Componentes")</Value>
+                    <Value>=First(Fields!Observações.Value, "Artigos")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -578,7 +578,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!NºComponente.Value, "Componentes")</Value>
+                    <Value>=First(Fields!NºArtigo.Value, "Artigos")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -649,7 +649,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Marca.Value, "Componentes")</Value>
+                    <Value>=First(Fields!Marca.Value, "Artigos")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -720,7 +720,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Modelo.Value, "Componentes")</Value>
+                    <Value>=First(Fields!Modelo.Value, "Artigos")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -791,7 +791,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!NºSérie.Value, "Componentes")</Value>
+                    <Value>=First(Fields!NºSérie.Value, "Artigos")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -976,8 +976,10 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=Today()</Value>
-                        <Style />
+                        <Value>=formatdatetime(today)</Value>
+                        <Style>
+                          <FontWeight>Normal</FontWeight>
+                        </Style>
                       </TextRun>
                     </TextRuns>
                     <Style />
@@ -1114,7 +1116,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=First(Fields!Tipo_Dispositivo.Value, "Componentes")</Value>
+                    <Value>=First(Fields!Tipo_Artigo.Value, "Artigos")</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontSize>12pt</FontSize>
@@ -1256,39 +1258,70 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="ID_BD_C_IDataSet">
+    <DataSource Name="SQLToReportConnection">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>3ad48a10-881a-4558-a00e-3e9b380da438</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="ID_BD_C_IDataSet1">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>5ae2a67e-7e29-4cc7-bf47-9d6d8e4b856f</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="ID_BD_C_IDataSet2">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>b070e298-b3f6-4529-a36f-505226ba88eb</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="ID_BD_C_IDataSet3">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>5103ae64-8858-4beb-adaf-2cb38c949183</rd:DataSourceID>
+      <rd:DataSourceID>559c9f8b-8bdb-4c70-9483-0836c9e78209</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
+    <DataSet Name="Artigos">
+      <Query>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NºArtigo">
+          <DataField>NºArtigo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NºCliente">
+          <DataField>NºCliente</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Marca">
+          <DataField>Marca</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Modelo">
+          <DataField>Modelo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NºSérie">
+          <DataField>NºSérie</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Observações">
+          <DataField>Observações</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Tipo_Artigo">
+          <DataField>Tipo_Artigo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="NºEmpresa">
+          <DataField>NºEmpresa</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Ativo">
+          <DataField>Ativo</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:TableName>Artigos</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ArtigosTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
     <DataSet Name="Clientes">
       <Query>
-        <DataSourceName>ID_BD_C_IDataSet</DataSourceName>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1338,121 +1371,17 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>_BD_C_IDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\_BD_C_IDataSet.xsd</rd:SchemaPath>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
         <rd:TableName>Clientes</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>ClientesTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
-    <DataSet Name="Componentes">
-      <Query>
-        <DataSourceName>ID_BD_C_IDataSet1</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="NºComponente">
-          <DataField>NºComponente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="NºCliente">
-          <DataField>NºCliente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Marca">
-          <DataField>Marca</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Modelo">
-          <DataField>Modelo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="NºSérie">
-          <DataField>NºSérie</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Observações">
-          <DataField>Observações</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Tipo_Dispositivo">
-          <DataField>Tipo_Dispositivo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="NºEmpresa">
-          <DataField>NºEmpresa</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Ativo">
-          <DataField>Ativo</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_BD_C_IDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\_BD_C_IDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Componentes</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ComponentesTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Reparações">
-      <Query>
-        <DataSourceName>ID_BD_C_IDataSet2</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="NºReparação">
-          <DataField>NºReparação</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="NºComponente">
-          <DataField>NºComponente</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="TempoRealReparação">
-          <DataField>TempoRealReparação</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DescAvaria">
-          <DataField>DescAvaria</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="DIRepar">
-          <DataField>DIRepar</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="DFRepar">
-          <DataField>DFRepar</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="Preço">
-          <DataField>Preço</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
-        </Field>
-        <Field Name="NºEmpresa">
-          <DataField>NºEmpresa</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Ativo">
-          <DataField>Ativo</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>_BD_C_IDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\_BD_C_IDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Reparações</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ReparaçõesTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
     <DataSet Name="Empresas">
       <Query>
-        <DataSourceName>ID_BD_C_IDataSet3</DataSourceName>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1494,12 +1423,64 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>_BD_C_IDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\_BD_C_IDataSet.xsd</rd:SchemaPath>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
         <rd:TableName>Empresas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>EmpresasTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Reparações">
+      <Query>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NºReparação">
+          <DataField>NºReparação</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NºArtigo">
+          <DataField>NºArtigo</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="TempoRealReparação">
+          <DataField>TempoRealReparação</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DescAvaria">
+          <DataField>DescAvaria</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DIRepar">
+          <DataField>DIRepar</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="DFRepar">
+          <DataField>DFRepar</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="Preço">
+          <DataField>Preço</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="NºEmpresa">
+          <DataField>NºEmpresa</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Ativo">
+          <DataField>Ativo</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Emanuel Vitorino\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:TableName>Reparações</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ReparaçõesTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

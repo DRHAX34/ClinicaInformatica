@@ -65,6 +65,8 @@ Public Class Passo3emeio
         cod_postallabel.ForeColor = colorization.Inversecolor
         GroupBox1.ForeColor = colorization.Inversecolor
         GroupBox1.BackColor = colorization.SolidColor
+        Label1.ForeColor = colorization.SolidColor
+        Label2.ForeColor = colorization.SolidColor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -149,16 +151,19 @@ Public Class Passo3emeio
         Dim n_empresa As Integer
         If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
-                BLL.n_empresa = BLL.Admin_only.Empresas.carregar_max()
-                n_empresa = BLL.Admin_only.Empresas.carregar_max()
-                BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
-                Dim password As String = passwordbox.Text
-                Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
-                Dim passencript As String = wrapper.EncryptData(password)
-                BLL.Admin_only.Login.Add_login_tecnico(perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
-                MsgBox("Inserido com êxito!")
-                Workspace.config4.Show()
-                Me.Close()
+                If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = True Then
+                    MsgBox("O Técnico não pode ter o mesmo nome que o Administrador!", vbOKOnly, "Erro!")
+                Else
+                    BLL.n_empresa = BLL.Admin_only.Empresas.carregar_max()
+                    n_empresa = BLL.Admin_only.Empresas.carregar_max()
+                    BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
+                    Dim password As String = passwordbox.Text
+                    Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
+                    Dim passencript As String = wrapper.EncryptData(password)
+                    BLL.Admin_only.Login.Add_login_tecnico(perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
+                    Workspace.config4.Show()
+                    Me.Close()
+                End If
             Catch ex As Exception
                 MsgBox("Erro ao inserir: " & ex.Message)
             End Try
@@ -196,4 +201,6 @@ Public Class Passo3emeio
             End Try
         End If
     End Sub
+
+    
 End Class

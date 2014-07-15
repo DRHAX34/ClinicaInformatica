@@ -3,6 +3,11 @@
     Public modo, removidos As Boolean
 
     Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If modo = True Then
+            Me.AcceptButton = editarbutton
+        Else
+            Me.AcceptButton = adicionarbutton
+        End If
         numalunobox.Hide()
         RadioButton2.Checked = True
         If Workspace.Aluno = False Then
@@ -47,23 +52,17 @@
                 MsgBox("Erro ao carregar os dados: " & ex.Message)
             End Try
             adicionarbutton.Enabled = False
-            removerbutton.Enabled = True
         Else
             cmovelbox.Text = "+351"
             cfixobox.Text = "+351"
             adicionarbutton.Enabled = True
             editarbutton.Enabled = False
-            removerbutton.Enabled = False
             restorebutton.Text = "Limpar Tudo"
             RadioButton2.Checked = True
             numalunobox.Hide()
             turmabox.Hide()
         End If
-        If removidos = True Then
-            removerbutton.Text = "Restaurar"
-        Else
-            removerbutton.Text = "Remover"
-        End If
+        
 
     End Sub
 
@@ -210,7 +209,7 @@
         End If
     End Sub
 
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles removerbutton.Click
+    Private Sub RadButton2_Click(sender As Object, e As EventArgs)
         Try
             If removidos = True Then
                 BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
