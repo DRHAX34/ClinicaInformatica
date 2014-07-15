@@ -22,8 +22,6 @@ Partial Class tempomedioprintpage
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(tempomedioprintpage))
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -40,7 +38,6 @@ Partial Class tempomedioprintpage
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -204,14 +201,6 @@ Partial Class tempomedioprintpage
         Me.Label6.TabIndex = 5
         Me.Label6.Text = "NºReparações este mês"
         '
-        'PrintForm1
-        '
-        Me.PrintForm1.DocumentName = "document"
-        Me.PrintForm1.Form = Me
-        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
-        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
-        Me.PrintForm1.PrintFileName = Nothing
-        '
         'tempomedioprintpage
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -251,5 +240,4 @@ Partial Class tempomedioprintpage
     Friend WithEvents nreparanolabel As System.Windows.Forms.Label
     Friend WithEvents nreparmeslabel As System.Windows.Forms.Label
     Friend WithEvents mediames As System.Windows.Forms.Label
-    Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
 End Class

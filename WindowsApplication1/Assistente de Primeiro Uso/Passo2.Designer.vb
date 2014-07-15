@@ -219,7 +219,7 @@ Partial Class Passo2
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.localidadebox.Location = New System.Drawing.Point(24, 191)
         Me.localidadebox.Name = "localidadebox"
-        Me.localidadebox.Size = New System.Drawing.Size(183, 27)
+        Me.localidadebox.Size = New System.Drawing.Size(119, 27)
         Me.localidadebox.TabIndex = 41
         Me.localidadebox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.localidadebox.WaterMarkText = "Localidade"
@@ -242,7 +242,7 @@ Partial Class Passo2
         Me.nifbox.Location = New System.Drawing.Point(24, 250)
         Me.nifbox.MaxLength = 9
         Me.nifbox.Name = "nifbox"
-        Me.nifbox.Size = New System.Drawing.Size(183, 27)
+        Me.nifbox.Size = New System.Drawing.Size(119, 27)
         Me.nifbox.TabIndex = 43
         Me.nifbox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.nifbox.WaterMarkText = "NIF"

@@ -1,7 +1,7 @@
 ﻿Public Class Recuperação_pass
     Public int As Integer = 0
     Public arrayl As ArrayList
-    Public passdecrypt, respostadecript, perguntadecript As String
+    Public passdecrypt As String
     Private Sub seguintebutton_Click(sender As Object, e As EventArgs) Handles seguintebutton.Click
         Select Case int
             Case 0
@@ -9,10 +9,8 @@
                     arrayl = BLL.Admin_only.Login.return_p_r(moradabox.Text)
                     If arrayl.Item(0) <> "" Or arrayl.Item(0) <> "0" Then
                         Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
-                        perguntadecript = wrapper.DecryptData(arrayl.Item(0))
-                        respostadecript = wrapper.DecryptData(arrayl.Item(1))
                         passdecrypt = wrapper.DecryptData(arrayl.Item(2))
-                        Label5.Text = perguntadecript
+                        Label5.Text = arrayl.Item(0)
                         GroupBox1.Show()
                         int = 1
                     Else
@@ -22,7 +20,7 @@
                     MsgBox("Erro ao devolver da Base-de-Dados: " & ex.Message)
                 End Try
             Case 1
-                If resposta_segur.Text = respostadecript Then
+                If resposta_segur.Text = arrayl.Item(1) Then
                     Label7.Text = passdecrypt
                     Label6.Show()
                     Label7.Show()

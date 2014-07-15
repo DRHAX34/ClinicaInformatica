@@ -22,8 +22,6 @@ Partial Class repar_localidade
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(repar_localidade))
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.empresalabel = New System.Windows.Forms.Label()
@@ -33,7 +31,6 @@ Partial Class repar_localidade
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.empresalogobox = New System.Windows.Forms.PictureBox()
-        Me.PrintForm1 = New Microsoft.VisualBasic.PowerPacks.Printing.PrintForm(Me.components)
         Me.Panel2.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.empresalogobox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,14 +119,6 @@ Partial Class repar_localidade
         Me.empresalogobox.TabIndex = 6
         Me.empresalogobox.TabStop = False
         '
-        'PrintForm1
-        '
-        Me.PrintForm1.DocumentName = "document"
-        Me.PrintForm1.Form = Me
-        Me.PrintForm1.PrintAction = System.Drawing.Printing.PrintAction.PrintToPreview
-        Me.PrintForm1.PrinterSettings = CType(resources.GetObject("PrintForm1.PrinterSettings"), System.Drawing.Printing.PrinterSettings)
-        Me.PrintForm1.PrintFileName = Nothing
-        '
         'repar_localidade
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -160,5 +149,4 @@ Partial Class repar_localidade
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents empresalogobox As System.Windows.Forms.PictureBox
     Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
-    Friend WithEvents PrintForm1 As Microsoft.VisualBasic.PowerPacks.Printing.PrintForm
 End Class

@@ -146,7 +146,7 @@
         select_hardware.MdiParent = Workspace
         If Workspace.hardware_support.Columns.Count <> 0 Then
             If Workspace.hardware_support.Rows.Count <> 0 Then
-                select_hardware.modo = modo
+                select_hardware.modo = True
             Else
                 select_hardware.modo = False
             End If
@@ -164,7 +164,7 @@
         select_software.MdiParent = Workspace
         If Workspace.software_support.Columns.Count <> 0 Then
             If Workspace.software_support.Rows.Count <> 0 Then
-                select_software.modo = modo
+                select_software.modo = True
             Else
                 select_software.modo = False
             End If

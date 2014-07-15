@@ -496,7 +496,7 @@
     <EmbeddedResource Include="Forms_View_Relatórios\folha_repar_orçamento.resx">
       <DependentUpon>folha_repar_orçamento.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Report5.rdlc" />
+    <EmbeddedResource Include="Reports\Report5.rdlc" />
     <EmbeddedResource Include="SplashAway.resx">
       <DependentUpon>SplashAway.vb</DependentUpon>
     </EmbeddedResource>

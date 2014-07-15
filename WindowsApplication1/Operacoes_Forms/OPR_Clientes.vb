@@ -49,8 +49,8 @@
             adicionarbutton.Enabled = False
             removerbutton.Enabled = True
         Else
-            cmovelbox.Text = "+"
-            cfixobox.Text = "+"
+            cmovelbox.Text = "+351"
+            cfixobox.Text = "+351"
             adicionarbutton.Enabled = True
             editarbutton.Enabled = False
             removerbutton.Enabled = False
