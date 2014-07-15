@@ -43,6 +43,8 @@ Public Class Passo3emeio
             turmabox.Hide()
             turmalabel.Hide()
         End If
+        contacto_fbox.Text = "+351"
+        contactom_box.Text = "+351"
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -65,8 +67,8 @@ Public Class Passo3emeio
         cod_postallabel.ForeColor = colorization.Inversecolor
         GroupBox1.ForeColor = colorization.Inversecolor
         GroupBox1.BackColor = colorization.SolidColor
-        Label1.ForeColor = colorization.SolidColor
-        Label2.ForeColor = colorization.SolidColor
+        Label1.ForeColor = colorization.Inversecolor
+        Label2.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -151,7 +153,7 @@ Public Class Passo3emeio
         Dim n_empresa As Integer
         If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
-                If BLL.Admin_only.Login.check_exist(nomeutilizadorbox.Text) = True Then
+                If BLL.Login.check_exist(nomeutilizadorbox.Text) = True Then
                     MsgBox("O Técnico não pode ter o mesmo nome que o Administrador!", vbOKOnly, "Erro!")
                 Else
                     BLL.n_empresa = BLL.Admin_only.Empresas.carregar_max()

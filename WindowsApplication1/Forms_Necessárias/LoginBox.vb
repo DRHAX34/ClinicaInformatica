@@ -61,19 +61,19 @@
                 Workspace.clientesmenu.Enabled = False
                 Workspace.dispositivosmenu.Enabled = False
                 Workspace.reparacoesmenu.Enabled = False
-                Workspace.EmpresasToolStripMenuItem.Visible = False
+                Workspace.EmpresasToolStripMenuItem.Visible = True
                 tipo = "Administrador"
             Else
+                Workspace.clientesmenu.Enabled = True
+                Workspace.dispositivosmenu.Enabled = True
+                Workspace.reparacoesmenu.Enabled = True
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.tecnicosmenu.Visible = False
                 Workspace.admin = False
                 tipo = "Utilizador Padrão"
                 Workspace.tecnico = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(user).Rows(0).Item("N_Técnico").ToString
             End If
-            Workspace.clientesmenu.Enabled = True
-            Workspace.dispositivosmenu.Enabled = True
-            Workspace.reparacoesmenu.Enabled = True
-            Workspace.EmpresasToolStripMenuItem.Enabled = False
+            Workspace.EmpresasToolStripMenuItem.Enabled = True
             Workspace.modo = 2
             check = True
         Else

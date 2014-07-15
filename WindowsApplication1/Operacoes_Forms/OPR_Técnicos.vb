@@ -5,6 +5,7 @@
     Public image_tec As Image
     Public img_caminho As String
     Private Sub OPR_Técnicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        empresabox.DataSource = BLL.Login.Carregar_empresas
         If Workspace.Aluno = True Then
             numalunobox.Show()
             numalunolabel.Show()
@@ -235,13 +236,13 @@
             check_cfixo = True
         End If
         cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
-        If cod_postalbox.Text.Length = 8 Then
-            check_codpostal = True
-        End If
+            If cod_postalbox.Text.Length = 8 Then
+                check_codpostal = True
+            End If
         check_image = caminhobox.Text
         check_image.Trim()
-        check_empresa = empresabox.Text
-            check_empresa = ""
+            check_empresa = empresabox.Text
+            check_empresa.Trim()
         Catch ex As Exception
 
         End Try
@@ -254,11 +255,13 @@
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
                 BLL.Admin_only.Login.Add_login_tecnico(perguntabox.Text, respostabox.Text, BLL.Tecnicos.carregar_max, nomeutilizadorbox.Text, passencript)
-                MsgBox("Inserido com êxito!")
+                MsgBox("Inserido com êxito!", vbOKOnly, "Erro!")
                 Me.Close()
             Catch ex As Exception
                 MsgBox("Erro ao inserir: " & ex.Message)
             End Try
+        Else
+            MsgBox("Insira todos os dados!", vbOKOnly, "Erro!")
         End If
     End Sub
 

@@ -160,7 +160,7 @@ Public Class Workspace
         Next
     End Sub
     Shared Sub login_load()
-        If Workspace.modo = 1 Then
+        If Workspace.admin = True Then
             Workspace.EmpresasToolStripMenuItem.Text = "Empresas"
             Workspace.EmpresasToolStripMenuItem.Enabled = True
             Workspace.EmpresasToolStripMenuItem.Image = My.Resources.companyicon
@@ -348,23 +348,25 @@ Public Class Workspace
     End Sub
 
     Private Sub EmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem.Click
-        If check_empresas = False Then
-            Try
-                Dim empresasview As New ViewForm
-                check_empresas = True
-                empresasview.Text = "Empresas"
-                empresasview.tabela = "Empresas"
-                empresasview.MdiParent = Me
-                m_ChildFormNumber += 1
-                empresasview.data_table = BLL.Admin_only.Empresas.carregar()
-                empresasview.removidos = False
-                empresasview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
-        Else
-            MsgBox("Já tem a janela das Empresas abertas!")
+        If admin = True Then
+            If check_empresas = False Then
+                Try
+                    Dim empresasview As New ViewForm
+                    check_empresas = True
+                    empresasview.Text = "Empresas"
+                    empresasview.tabela = "Empresas"
+                    empresasview.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    empresasview.data_table = BLL.Admin_only.Empresas.carregar()
+                    empresasview.removidos = False
+                    empresasview.Show()
+                Catch ex As Exception
+                    MsgBox("Erro ao executar comando: " & ex.Message)
+                    Me.Close()
+                End Try
+            Else
+                MsgBox("Já tem a janela das Empresas abertas!")
+            End If
         End If
     End Sub
 

@@ -339,12 +339,11 @@ Public Class BLL
             Dim check As Integer
             Dim p As New ArrayList
             p.Add(New SqlParameter("@nome", nome))
-            p.Add(New SqlParameter("@n_empresa", n_empresa))
-            check = DAL.ExecuteScalar("Select Cod_Utilizador FROM Utilizadores where Nome_util=@Nome AND NºEmpresa=@n_empresa", p)
+            check = DAL.ExecuteScalar("Select Cod_Utilizador FROM Utilizadores where Nome_util=@Nome", p)
             If check <> 0 Then
-                Return 1
+                Return True
             Else
-                Return 0
+                Return False
             End If
         End Function
         Shared Function verificar_admin(ByVal id As Integer) As Boolean
@@ -415,16 +414,16 @@ Public Class BLL
                 resultado2 = resultado1.Item(0)
                 BLL.n_empresa = empresa
                 Try
-                    If resultado1.Item(1) <> "" Then
+                    Dim teste As DBNull
+                    If resultado1.Item(1) <> teste Then
                         If BLL.Tecnicos.carregar_dados_ntecnico_ativados(resultado1.Item(1)).Rows(0).Item("NºTécnico").ToString <> 0 Then
                             Return resultado2
                         Else
                             Return 0
                         End If
-                    Else
-                        Return resultado2
                     End If
                 Catch
+                    Return resultado2
                 End Try
             Else
                 Return 0

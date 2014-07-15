@@ -18,6 +18,5 @@
         folha_repar_entrega.artigodata = BLL.Artigos.carregar_dados_numartigo(n_artigo)
         folha_repar_entrega.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar_entrega.artigodata.Rows(0).Item("NºCliente").ToString)
         folha_repar_entrega.Show()
-
     End Sub
 End Class
