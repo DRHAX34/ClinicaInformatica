@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class OPR_Componentes
+Partial Class OPR_Artigos
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -45,19 +45,19 @@ Partial Class OPR_Componentes
         Me.observaçoesbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.tipo_componentebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        CType(Me.RadButton4,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RadButton3,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RadButton2,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RadButton1,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RadButton5,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.RadButton6,System.ComponentModel.ISupportInitialize).BeginInit
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).BeginInit
-        Me.SuspendLayout
+        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.SuspendLayout()
         '
         'Label8
         '
-        Me.Label8.AutoSize = true
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(34, 222)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(123, 25)
@@ -80,7 +80,7 @@ Partial Class OPR_Componentes
         Me.RadButton3.Size = New System.Drawing.Size(75, 63)
         Me.RadButton3.TabIndex = 50
         Me.RadButton3.Text = "Restaurar Dados Originais"
-        Me.RadButton3.TextWrap = true
+        Me.RadButton3.TextWrap = True
         Me.RadButton3.ThemeName = "Windows8"
         '
         'RadButton2
@@ -112,8 +112,8 @@ Partial Class OPR_Componentes
         '
         'Label6
         '
-        Me.Label6.AutoSize = true
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(96, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(433, 86)
@@ -122,8 +122,8 @@ Partial Class OPR_Componentes
         '
         'Label3
         '
-        Me.Label3.AutoSize = true
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(137, 160)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(81, 25)
@@ -132,8 +132,8 @@ Partial Class OPR_Componentes
         '
         'Label2
         '
-        Me.Label2.AutoSize = true
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(33, 160)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(67, 25)
@@ -142,8 +142,8 @@ Partial Class OPR_Componentes
         '
         'Label1
         '
-        Me.Label1.AutoSize = true
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(34, 106)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 25)
@@ -152,8 +152,8 @@ Partial Class OPR_Componentes
         '
         'Label4
         '
-        Me.Label4.AutoSize = true
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(303, 160)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(80, 25)
@@ -176,7 +176,7 @@ Partial Class OPR_Componentes
         '
         Me.numbox.Location = New System.Drawing.Point(39, 135)
         Me.numbox.Name = "numbox"
-        Me.numbox.ReadOnly = true
+        Me.numbox.ReadOnly = True
         Me.numbox.Size = New System.Drawing.Size(41, 20)
         Me.numbox.TabIndex = 61
         '
@@ -188,7 +188,7 @@ Partial Class OPR_Componentes
         Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 66
-        Me.PictureBox1.TabStop = false
+        Me.PictureBox1.TabStop = False
         '
         'marcabox
         '
@@ -224,7 +224,7 @@ Partial Class OPR_Componentes
         '
         Me.observaçoesbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.observaçoesbox.Location = New System.Drawing.Point(39, 250)
-        Me.observaçoesbox.Multiline = true
+        Me.observaçoesbox.Multiline = True
         Me.observaçoesbox.Name = "observaçoesbox"
         Me.observaçoesbox.Size = New System.Drawing.Size(447, 98)
         Me.observaçoesbox.TabIndex = 70
@@ -243,8 +243,8 @@ Partial Class OPR_Componentes
         '
         'Label5
         '
-        Me.Label5.AutoSize = true
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(303, 106)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(173, 25)
@@ -253,7 +253,7 @@ Partial Class OPR_Componentes
         '
         'OPR_Componentes
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(529, 444)
@@ -281,17 +281,17 @@ Partial Class OPR_Componentes
         Me.Name = "OPR_Componentes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Componentes"
-        CType(Me.RadButton4,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RadButton3,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RadButton2,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RadButton1,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RadButton5,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.RadButton6,System.ComponentModel.ISupportInitialize).EndInit
-        CType(Me.PictureBox1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.ResumeLayout(false)
-        Me.PerformLayout
+        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton

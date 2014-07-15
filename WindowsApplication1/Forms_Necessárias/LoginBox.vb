@@ -59,19 +59,17 @@
             Workspace.tecnicosmenu.Enabled = True
             If BLL.Login.verificar_admin(user) = True Then
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
-                Workspace.utilativos.Visible = True
-                Workspace.utilremovidos.Visible = True
                 Workspace.tecnicosmenu.Visible = True
                 Workspace.admin = True
-                Workspace.admin_geral = False
+                Workspace.clientesmenu.Enabled = False
+                Workspace.dispositivosmenu.Enabled = False
+                Workspace.reparacoesmenu.Enabled = False
+                Workspace.EmpresasToolStripMenuItem.Visible = False
                 tipo = "Administrador"
             Else
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
-                Workspace.utilativos.Visible = False
-                Workspace.utilremovidos.Visible = False
                 Workspace.tecnicosmenu.Visible = False
                 Workspace.admin = False
-                Workspace.admin_geral = False
                 tipo = "Utilizador Padrão"
             End If
             Workspace.clientesmenu.Enabled = True
@@ -81,28 +79,6 @@
             Workspace.empresasremovidas.Visible = False
             Workspace.modo = 2
             check = True
-        Else
-            user = BLL.Admin_only.Login.Verificar_Login_admin(UsernameBox.Text, passencript)
-            If user = 0 Then
-                MsgBox("Nome de Utilizador/Palavra-Passe errados!")
-            Else
-                Workspace.StatusStrip.Show()
-                Workspace.MenuStrip.Show()
-                Workspace.UtilizadoresToolStripMenuItem.Visible = True
-                Workspace.clientesmenu.Enabled = False
-                Workspace.dispositivosmenu.Enabled = False
-                Workspace.reparacoesmenu.Enabled = False
-                Workspace.tecnicosmenu.Enabled = False
-                Workspace.empresasativas.Visible = True
-                Workspace.empresasremovidas.Visible = True
-                Workspace.utilativos.Visible = True
-                Workspace.utilremovidos.Visible = True
-                Workspace.admin = False
-                Workspace.admin_geral = True
-                Workspace.modo = 1
-                check = True
-                tipo = "Administrador Geral"
-            End If
         End If
         If check = True Then
             If BLL.Login.verificar_aluno(n_empresa) = True Then

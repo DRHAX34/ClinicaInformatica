@@ -78,7 +78,7 @@
             Try
                 BLL.Reparacoes.inserir(numcomponentebox.Text, descriçaobox.Text, dateinicio.Value)
                 MsgBox("Reparação Inserida com sucesso!")
-                Workspace.reparativos.PerformClick()
+                Workspace.reparacoesmenu.PerformClick()
                 Me.Close()
             Catch ex As Exception
                 MsgBox("Erro ao inserir: " & ex.Message)
@@ -133,7 +133,7 @@
     End Sub
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
-        Workspace.reparativos.PerformClick()
+        Workspace.reparacoesmenu.PerformClick()
         Me.Close()
     End Sub
 
@@ -231,9 +231,9 @@
                 End If
                 MsgBox("Reparação Editada com sucesso!")
                 If removidos = True Then
-                    Workspace.reparremovidos.PerformClick()
+                    Workspace.reparacoesmenu.PerformClick()
                 Else
-                    Workspace.reparativos.PerformClick()
+                    Workspace.reparacoesmenu.PerformClick()
                 End If
                 Me.Close()
                 check = False

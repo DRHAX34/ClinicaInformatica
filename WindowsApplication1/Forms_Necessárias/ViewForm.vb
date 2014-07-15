@@ -12,23 +12,9 @@
     '    End If
     '    MyBase.WndProc(m)
     'End Sub
-
-    Private Sub no_exit_window(sender As Object, e As EventArgs) Handles Me.LocationChanged
-        If (Me.Location.X + Me.Width) = Workspace.Width - 20 Then
-            If (Me.Location.Y + Me.Size.Height) = Workspace.Size.Height - 20 Then
-                Me.Location = New Point((Workspace.Width - Me.Width), (Workspace.Height - Me.Height))
-            Else
-                Me.Location = New Point((Workspace.Width - Me.Width), Me.Location.Y)
-            End If
-        Else
-            If (Me.Location.Y + Me.Size.Height) = Workspace.Size.Height - 20 Then
-                Me.Location = New Point(Me.Location.X, (Workspace.Height - Me.Height))
-            End If
-        End If
-    End Sub
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 50
-        showdata.Height = Me.Height - 200
+        showdata.Height = Me.Height - 210
         othersbutton.Location = New Point((Me.Width - (750 - 494)), (Me.Height - (506 - 417)))
         exitbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 417)))
         delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (506 - 417)))
@@ -44,8 +30,8 @@
         Select Case tabela
             Case "Clientes"
                 Workspace.check_clientes = False
-            Case "Componentes"
-                Workspace.check_componentes = False
+            Case "Artigos"
+                Workspace.check_artigos = False
             Case "Empresas"
                 Workspace.check_empresas = False
             Case "Reparações"
@@ -65,9 +51,9 @@
                 othersbutton.Enabled = False
                 RadioButton1.Text = "Nome"
                 RadioButton2.Text = "NIF"
-            Case "Componentes"
+            Case "Artigos"
                 othersbutton.Enabled = False
-                RadioButton1.Text = "NºComponente"
+                RadioButton1.Text = "NºArtigos"
                 RadioButton2.Text = "NºCliente"
             Case "Empresas"
                 othersbutton.Enabled = False
@@ -109,12 +95,12 @@
                 opr_clientes.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
                 opr_clientes.Show()
-            Case "Componentes"
-                Dim opr_componentes As New OPR_Componentes
-                opr_componentes.modo = False
-                opr_componentes.MdiParent = Workspace
+            Case "Artigos"
+                Dim opr_artigos As New OPR_Artigos
+                OPR_Artigos.modo = False
+                OPR_Artigos.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
-                opr_componentes.Show()
+                OPR_Artigos.Show()
             Case "Reparações"
                 Dim opr_reparacoes As New OPR_Reparações
                 opr_reparacoes.modo = False
@@ -175,19 +161,19 @@
                                 opr_clientes.Show()
                             End If
                         End If
-                    Case "Componentes"
-                        Dim opr_componentes As New OPR_Componentes
-                        opr_componentes.MdiParent = Workspace
+                    Case "Artigos"
+                        Dim opr_artigos As New OPR_Artigos
+                        opr_artigos.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
-                        opr_componentes.modo = True
+                        opr_artigos.modo = True
                         If removidos = True Then
-                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
-                            opr_componentes.removidos = True
-                            opr_componentes.Show()
+                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
+                            opr_artigos.removidos = True
+                            opr_artigos.Show()
                         Else
-                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
-                            opr_componentes.removidos = False
-                            opr_componentes.Show()
+                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
+                            opr_artigos.removidos = False
+                            opr_artigos.Show()
                         End If
                     Case "Reparações"
                         Dim opr_reparacoes As New OPR_Reparações
@@ -258,7 +244,7 @@
         End Try
     End Sub
 
-    
+
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
         GroupBox1.Hide()
         Try
@@ -284,7 +270,7 @@
                                 showdata.DataSource = BLL.Clientes.carregar()
                             End If
                         End If
-                    Case "Componentes"
+                    Case "Artigos"
                         If removidos = True Then
                             BLL.Componentes.restaurar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
                             MsgBox("Restaurado com sucesso!")
@@ -373,7 +359,7 @@
         Catch
             MsgBox("Selecione algo na tabela primeiro!")
         End Try
-        
+
     End Sub
 
     Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click
@@ -394,7 +380,7 @@
                             showdata.DataSource = BLL.Clientes.carregar()
                         End If
                     End If
-                Case "Componentes"
+                Case "Artigos"
                     If removidos = True Then
                         showdata.DataSource = BLL.Componentes.carregar_desativos()
                     Else
@@ -493,26 +479,26 @@
                         opr_clientes.turmabox.ReadOnly = True
                         opr_clientes.RadioButton1.Enabled = False
                         opr_clientes.RadioButton2.Enabled = False
-                    Case "Componentes"
-                        Dim opr_componentes As New OPR_Componentes
-                        opr_componentes.MdiParent = Workspace
+                    Case "Artigos"
+                        Dim opr_artigos As New OPR_Artigos
+                        opr_artigos.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
-                        opr_componentes.modo = True
+                        opr_artigos.modo = True
                         If removidos = True Then
-                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
-                            opr_componentes.removidos = True
-                            opr_componentes.Show()
+                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente_desativo(string_data)
+                            opr_artigos.removidos = True
+                            opr_artigos.Show()
                         Else
-                            opr_componentes.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
-                            opr_componentes.removidos = False
-                            opr_componentes.Show()
+                            opr_artigos.dispositivo_data = BLL.Componentes.carregar_dados_numcomponente(string_data)
+                            opr_artigos.removidos = False
+                            opr_artigos.Show()
                         End If
-                        opr_componentes.numbox.ReadOnly = True
-                        opr_componentes.numseriebox.ReadOnly = True
-                        opr_componentes.observaçoesbox.ReadOnly = True
-                        opr_componentes.marcabox.ReadOnly = True
-                        opr_componentes.modelobox.ReadOnly = True
-                        opr_componentes.RadButton6.Enabled = False
+                        opr_artigos.numbox.ReadOnly = True
+                        opr_artigos.numseriebox.ReadOnly = True
+                        opr_artigos.observaçoesbox.ReadOnly = True
+                        opr_artigos.marcabox.ReadOnly = True
+                        opr_artigos.modelobox.ReadOnly = True
+                        opr_artigos.RadButton6.Enabled = False
                     Case "Reparações"
                         Dim opr_reparacoes As New OPR_Reparações
                         opr_reparacoes.MdiParent = Workspace
@@ -593,9 +579,7 @@
                         End If
                         opr_utilizadores.RadButton5.Enabled = False
                         opr_utilizadores.RadButton1.Enabled = False
-                        opr_utilizadores.RadButton2.Enabled = False
                         opr_utilizadores.RadButton3.Enabled = False
-                        opr_utilizadores.tecnicobox.Enabled = False
                 End Select
                 Me.Close()
             Catch ex As Exception
@@ -648,7 +632,7 @@
                                 showdata.DataSource = BLL.Clientes.procura_dados_nome("%" + TextBox1.Text + "%")
                             End If
                         End If
-                    Case "Componentes"
+                    Case "Artigos"
                         If removidos = True Then
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
                                 showdata.DataSource = BLL.Componentes.procura_dados_numcomponente_desativo(TextBox1.Text)
@@ -744,7 +728,7 @@
                                 showdata.DataSource = BLL.Clientes.procura_dados_nif("%" + TextBox1.Text + "%")
                             End If
                         End If
-                    Case "Componentes"
+                    Case "Artigos"
                         If removidos = True Then
                             If IsNumeric(TextBox1.Text.Chars(TextBox1.Text.Length - 1)) Then
                                 showdata.DataSource = BLL.Componentes.procura_dados_numcliente_desativo(TextBox1.Text)
@@ -822,4 +806,55 @@
     End Sub
 
    
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        Select Case tabela
+            Case "Clientes"
+                If CheckBox1.Checked = True Then
+                    If Workspace.Aluno = True Then
+                        data_table = BLL.Clientes.carregar_eliminados_alunos()
+                    Else
+                        data_table = BLL.Clientes.carregar_eliminados()
+                    End If
+                    removidos = True
+                Else
+                    If Workspace.Aluno = True Then
+                        data_table = BLL.Clientes.carregar_alunos()
+                    Else
+                        data_table = BLL.Clientes.carregar()
+                    End If
+                    removidos = False
+                End If
+                If removidos = True Then
+                    delbutton.Text = "Restaurar"
+                    newbutton.Enabled = False
+                Else
+                    delbutton.Text = "Eliminar"
+                    newbutton.Enabled = True
+                End If
+            Case "Artigos"
+                If CheckBox1.Checked = True Then
+                    data_table = BLL.Componentes.carregar_desativos
+                    removidos = True
+                Else
+                    data_table = BLL.Componentes.carregar
+                    removidos = False
+                End If
+            Case "Reparações"
+                If CheckBox1.Checked = True Then
+                    data_table = BLL.Reparacoes.carregar_desativos
+                    removidos = True
+                Else
+                    data_table = BLL.Reparacoes.carregar
+                    removidos = False
+                End If
+            Case "Técnicos"
+                If CheckBox1.Checked = True Then
+                    data_table = BLL.Tecnicos.carregar_eliminados()
+                    removidos = True
+                Else
+                    data_table = BLL.Tecnicos.carregar
+                    removidos = True
+                End If
+        End Select
+    End Sub
 End Class

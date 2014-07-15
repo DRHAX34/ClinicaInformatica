@@ -40,6 +40,7 @@ Partial Class ViewForm
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.newbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,7 +67,7 @@ Partial Class ViewForm
         Me.showdata.Name = "showdata"
         Me.showdata.Padding = New System.Windows.Forms.Padding(1)
         Me.showdata.ReadOnly = True
-        Me.showdata.Size = New System.Drawing.Size(709, 335)
+        Me.showdata.Size = New System.Drawing.Size(709, 322)
         Me.showdata.TabIndex = 0
         Me.showdata.Text = "Data"
         Me.showdata.ThemeName = "Windows8"
@@ -202,12 +203,24 @@ Partial Class ViewForm
         Me.RadioButton1.Text = "RadioButton1"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.CheckBox1.Location = New System.Drawing.Point(640, 341)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(82, 17)
+        Me.CheckBox1.TabIndex = 11
+        Me.CheckBox1.Text = "Removidos"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'ViewForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(741, 464)
+        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.othersbutton)
@@ -257,4 +270,5 @@ Partial Class ViewForm
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
+    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
 End Class

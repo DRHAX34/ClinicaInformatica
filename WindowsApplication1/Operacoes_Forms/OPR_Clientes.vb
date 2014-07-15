@@ -118,7 +118,7 @@
                 End If
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
-                    Dim opr_componente As New OPR_Componentes
+                    Dim opr_componente As New OPR_Artigos
                     opr_componente.modo = False
                     opr_componente.numbox.Text = BLL.Clientes.carregar_max()
                     opr_componente.MdiParent = Workspace
@@ -126,7 +126,7 @@
                     opr_componente.Show()
                     Me.Close()
                 Else
-                    Workspace.clientesativos.PerformClick()
+                    Workspace.clientesmenu.PerformClick()
                     Me.Close()
                 End If
             Else
@@ -179,24 +179,24 @@
                     If removidos = True Then
                         BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
                         MsgBox("Editado com sucesso")
-                        Workspace.clientesremovidos.PerformClick()
+                        Workspace.clientesmenu.PerformClick()
                         Me.Close()
                     Else
                         BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                         MsgBox("Editado com sucesso")
-                        Workspace.clientesativos.PerformClick()
+                        Workspace.clientesmenu.PerformClick()
                         Me.Close()
                     End If
                 Else
                     If removidos = True Then
                         BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
                         MsgBox("Editado com sucesso")
-                        Workspace.clientesremovidos.PerformClick()
+                        Workspace.clientesmenu.PerformClick()
                         Me.Close()
                     Else
                         BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
                         MsgBox("Editado com sucesso")
-                        Workspace.clientesativos.PerformClick()
+                        Workspace.clientesmenu.PerformClick()
                         Me.Close()
                     End If
                 End If
@@ -213,12 +213,12 @@
             If removidos = True Then
                 BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Restaurado com sucesso")
-                Workspace.clientesremovidos.PerformClick()
+                Workspace.clientesmenu.PerformClick()
                 Me.Close()
             Else
                 BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Removido com sucesso")
-                Workspace.clientesativos.PerformClick()
+                Workspace.clientesmenu.PerformClick()
                 Me.Close()
             End If
         Catch ex As Exception
@@ -228,9 +228,9 @@
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles cancelarbutton.Click
         If removidos = False Then
-            Workspace.clientesativos.PerformClick()
+            Workspace.clientesmenu.PerformClick()
         Else
-            Workspace.clientesremovidos.PerformClick()
+            Workspace.clientesmenu.PerformClick()
         End If
         Me.Close()
     End Sub

@@ -158,7 +158,7 @@ Partial Class LoginForm
         Me.Passwordbox.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Passwordbox.Location = New System.Drawing.Point(11, 180)
         Me.Passwordbox.Name = "Passwordbox"
-        Me.Passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.Passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.Passwordbox.Size = New System.Drawing.Size(213, 25)
         Me.Passwordbox.TabIndex = 3
         Me.Passwordbox.WaterMarkColor = System.Drawing.Color.Gray

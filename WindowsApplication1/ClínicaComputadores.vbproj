@@ -398,10 +398,10 @@
     <Compile Include="Forms_Necessárias\ViewForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacoes_Forms\OPR_Componentes.Designer.vb">
-      <DependentUpon>OPR_Componentes.vb</DependentUpon>
+    <Compile Include="Operacoes_Forms\OPR_Artigos.Designer.vb">
+      <DependentUpon>OPR_Artigos.vb</DependentUpon>
     </Compile>
-    <Compile Include="Operacoes_Forms\OPR_Componentes.vb">
+    <Compile Include="Operacoes_Forms\OPR_Artigos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Operacoes_Forms\OPR_Clientes.Designer.vb">
@@ -512,8 +512,8 @@
     <EmbeddedResource Include="Operacoes_Forms\OPR_Reparações.resx">
       <DependentUpon>OPR_Reparações.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacoes_Forms\OPR_Componentes.resx">
-      <DependentUpon>OPR_Componentes.vb</DependentUpon>
+    <EmbeddedResource Include="Operacoes_Forms\OPR_Artigos.resx">
+      <DependentUpon>OPR_Artigos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\ViewForm.resx">
       <DependentUpon>ViewForm.vb</DependentUpon>
@@ -575,6 +575,9 @@
     <Content Include="icone programa.ico" />
     <None Include="Resources\1404425892_Microprocessor.png" />
     <None Include="Resources\1404442634_Software.png" />
+    <None Include="Resources\96x96.png" />
+    <None Include="Resources\32x32.png" />
+    <None Include="Resources\48x48.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

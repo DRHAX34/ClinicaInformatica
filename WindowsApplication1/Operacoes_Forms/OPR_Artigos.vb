@@ -1,4 +1,4 @@
-﻿Public Class OPR_Componentes
+﻿Public Class OPR_Artigos
     Public dispositivo_data As New DataTable
     Public modo As Boolean
     Public removidos As Boolean
@@ -23,7 +23,7 @@
         Else
             RadButton2.Text = "Remover"
         End If
-        
+
     End Sub
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
@@ -51,12 +51,12 @@
             If removidos = False Then
                 BLL.Componentes.apagar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Removido com sucesso!")
-                Workspace.componentesAtivosToolStripMenuItem.PerformClick()
+                Workspace.dispositivosmenu.PerformClick()
                 Me.Close()
             Else
                 BLL.Componentes.restaurar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
                 MsgBox("Restaurado com sucesso!")
-                Workspace.componentesRemovidosToolStripMenuItem.PerformClick()
+                Workspace.dispositivosmenu.PerformClick()
                 Me.Close()
             End If
 
@@ -95,8 +95,8 @@
             If Not check_tipo = "" And Not check_numcliente = "" And Not check_numserie = "" And Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
                 BLL.Componentes.inserir(numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
-                    If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
-                        If BLL.Tecnicos.carregar.Rows.Count = 0 Then
+                If MsgBox("Deseja inserir uma reparação para este componente?", vbYesNo, "Novo Componente") = vbYes Then
+                    If BLL.Tecnicos.carregar.Rows.Count = 0 Then
                         If Workspace.admin = True Then
                             If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
                                 Dim opr_tecnicos As New OPR_Técnicos
@@ -120,15 +120,15 @@
                         opr_reparações.Show()
                         Me.Close()
                     End If
-                    
+
                 Else
-                    Workspace.componentesAtivosToolStripMenuItem.PerformClick()
+                    Workspace.dispositivosmenu.PerformClick()
                     Me.Close()
                 End If
 
-                Else
-                    MsgBox("Introduza todos os dados!")
-                End If
+            Else
+                MsgBox("Introduza todos os dados!")
+            End If
         Catch ex As Exception
             MsgBox("Ocorreu um erro: " & ex.Message)
         End Try
@@ -181,10 +181,10 @@
                 BLL.Componentes.alterar(dispositivo_data.Rows.Item(0).Item("NºComponente").ToString(), numbox.Text, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Alterado com sucesso")
                 If removidos = True Then
-                    Workspace.componentesRemovidosToolStripMenuItem.PerformClick()
+                    Workspace.dispositivosmenu.PerformClick()
                     Me.Close()
                 Else
-                    Workspace.componentesAtivosToolStripMenuItem.PerformClick()
+                    Workspace.dispositivosmenu.PerformClick()
                     Me.Close()
                 End If
             Else
@@ -197,9 +197,9 @@
 
     Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
         If removidos = True Then
-            Workspace.componentesRemovidosToolStripMenuItem.PerformClick()
+            Workspace.dispositivosmenu.PerformClick()
         Else
-            Workspace.componentesAtivosToolStripMenuItem.PerformClick()
+            Workspace.dispositivosmenu.PerformClick()
         End If
         Me.Close()
     End Sub

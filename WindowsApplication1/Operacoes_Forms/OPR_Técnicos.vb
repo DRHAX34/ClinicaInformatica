@@ -18,7 +18,6 @@
         End If
         If modo = True Then
             RadButton1.Enabled = True
-            RadButton2.Enabled = True
             RadButton5.Enabled = False
             RadButton3.Text = "Restaurar Dados Originais"
             numalunobox.Text = tecnico_data.Rows.Item(0).Item("NºAluno").ToString()
@@ -28,43 +27,47 @@
             contactom_box.Text = tecnico_data.Rows.Item(0).Item("Contacto_F").ToString()
             localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
             cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
+            For i = 0 To empresabox.Items.Count - 1
+                If empresabox.Items(i).ToString = BLL.Admin_only.Empresas.carregar_dados_numempresa(tecnico_data.Rows.Item(0).Item("NºEmpresa").ToString()).Rows.Item(0).Item("Nome").ToString Then
+                    empresabox.SelectedIndex = i
+                End If
+            Next
         Else
             contacto_fbox.Text = "+"
             contactom_box.Text = "+"
             RadButton1.Enabled = False
-            RadButton2.Enabled = False
             RadButton5.Enabled = True
             RadButton3.Text = "Limpar Tudo"
         End If
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
         Dim check_nome As String = nomebox.Text
         Dim check_contactom As Boolean = False
         Dim check_contactof As Boolean = False
         Dim checklogo As String = caminhobox.Text
         Dim checklocalidade As String = localidadebox.Text
         Dim checkcodpostal As Boolean = False
-            Try
-                check_nome.Trim()
-                If contacto_fbox.Text.Length < 9 Then
-                    check_contactof = False
-                Else
-                    check_contactof = True
-                End If
-                If contactom_box.Text.Length < 9 Then
-                    check_contactom = False
-                Else
+        Try
+            check_nome.Trim()
+            If contacto_fbox.Text.Length < 9 Then
+                check_contactof = False
+            Else
+                check_contactof = True
+            End If
+            If contactom_box.Text.Length < 9 Then
+                check_contactom = False
+            Else
                 check_contactom = True
-                End If
-                checklogo.Trim()
-                If cod_postalbox.Text.Length < 7 Then
-                    checkcodpostal = False
-                Else
-                    checkcodpostal = True
-                End If
-                checklocalidade.Trim()
-            Catch
+            End If
+            checklogo.Trim()
+            If cod_postalbox.Text.Length < 7 Then
+                checkcodpostal = False
+            Else
+                checkcodpostal = True
+            End If
+            checklocalidade.Trim()
+        Catch
         End Try
         Try
             If Not checklocalidade = "" And Not checkcodpostal = False And Not check_nome = "" And Not check_contactof = False And Not check_contactom = False And Not checklogo = "" Then
@@ -82,7 +85,7 @@
                             opr_utilizadores.MdiParent = Workspace
                             opr_utilizadores.modo = False
                             opr_utilizadores.Show()
-                            opr_utilizadores.tecnicobox.Text = BLL.Tecnicos.carregar_max()
+
                             opr_utilizadores.empresabox.Text = BLL.Admin_only.Empresas.procura_dados_numempresa(BLL.n_empresa).Rows.Item(0).Item("NºEmpresa").ToString
                             Me.Close()
                         Else
@@ -101,7 +104,7 @@
         End Try
     End Sub
 
-    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
+    Private Sub RadButton3_Click(sender As Object, e As EventArgs)
         If modo = True Then
             numalunobox.Text = tecnico_data.Rows.Item(0).Item("NºCliente").ToString()
             turmabox.Text = tecnico_data.Rows.Item(0).Item("Turma").ToString()
@@ -128,7 +131,7 @@
         End If
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
         Dim check_nome As String = nomebox.Text
         Dim check_contactom As Boolean = False
         Dim check_contactof As Boolean = False
@@ -181,7 +184,7 @@
         End Try
     End Sub
 
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs) Handles RadButton2.Click
+    Private Sub RadButton2_Click(sender As Object, e As EventArgs)
         Try
             BLL.Tecnicos.apagar(tecnico_data.Rows.Item(0).Item("NºTécnico").ToString())
             MsgBox("Removido com sucesso!")
@@ -201,7 +204,7 @@
         End Try
     End Sub
 
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
@@ -234,6 +237,21 @@
     End Sub
 
     Private Sub cod_postalbox_click(sender As Object, e As EventArgs) Handles cod_postalbox.Click
-        cod_postalbox.Select(0, cod_postalbox.Text.Length + 1)
+        cod_postalbox.Select(0, cod_postalbox.Text.Length)
+    End Sub
+
+    Private Sub RadButton5_Click_1(sender As Object, e As EventArgs) Handles RadButton5.Click
+        Dim check_empresa As String = ""
+        Dim check_nomutil As String = ""
+        Dim check_pass As String = ""
+        Dim check_pergunta As String = ""
+        Dim check_resposta As String = ""
+        Dim check_nome As String = ""
+        Dim check_cmovel As Boolean = False
+        Dim check_cfixo As Boolean = False
+        Dim check_localidade As String = ""
+        Dim check_alunos As String = ""
+        Dim check_turma As String = ""
+        Dim check_codpostal As Boolean = False
     End Sub
 End Class

@@ -22,11 +22,6 @@ Partial Class OPR_Técnicos
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton2 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.turmalabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -49,61 +44,32 @@ Partial Class OPR_Técnicos
         Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
         Me.caminhobox = New ClinicaInformatica.WaterMarkTextBox()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.empresabox = New System.Windows.Forms.ComboBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.verifbox = New System.Windows.Forms.TextBox()
+        Me.passwordbox = New System.Windows.Forms.TextBox()
+        Me.nomeutilizadorbox = New System.Windows.Forms.TextBox()
+        Me.Label8 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.Label7 = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
+        Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
+        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
+        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
+        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'RadButton4
-        '
-        Me.RadButton4.Location = New System.Drawing.Point(666, 276)
-        Me.RadButton4.Name = "RadButton4"
-        Me.RadButton4.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton4.TabIndex = 51
-        Me.RadButton4.Text = "Cancelar"
-        Me.RadButton4.ThemeName = "Windows8"
-        '
-        'RadButton3
-        '
-        Me.RadButton3.Location = New System.Drawing.Point(506, 276)
-        Me.RadButton3.Name = "RadButton3"
-        Me.RadButton3.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton3.TabIndex = 50
-        Me.RadButton3.Text = "Restaurar Dados Originais"
-        Me.RadButton3.TextWrap = True
-        Me.RadButton3.ThemeName = "Windows8"
-        '
-        'RadButton2
-        '
-        Me.RadButton2.Location = New System.Drawing.Point(353, 276)
-        Me.RadButton2.Name = "RadButton2"
-        Me.RadButton2.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton2.TabIndex = 49
-        Me.RadButton2.Text = "Remover"
-        Me.RadButton2.ThemeName = "Windows8"
-        '
-        'RadButton1
-        '
-        Me.RadButton1.Location = New System.Drawing.Point(177, 276)
-        Me.RadButton1.Name = "RadButton1"
-        Me.RadButton1.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton1.TabIndex = 48
-        Me.RadButton1.Text = "Editar"
-        Me.RadButton1.ThemeName = "Windows8"
-        '
-        'RadButton5
-        '
-        Me.RadButton5.Location = New System.Drawing.Point(33, 276)
-        Me.RadButton5.Name = "RadButton5"
-        Me.RadButton5.Size = New System.Drawing.Size(75, 63)
-        Me.RadButton5.TabIndex = 47
-        Me.RadButton5.Text = "Adicionar"
-        Me.RadButton5.ThemeName = "Windows8"
         '
         'Label6
         '
@@ -119,7 +85,7 @@ Partial Class OPR_Técnicos
         '
         Me.turmalabel.AutoSize = True
         Me.turmalabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.turmalabel.Location = New System.Drawing.Point(464, 126)
+        Me.turmalabel.Location = New System.Drawing.Point(371, 122)
         Me.turmalabel.Name = "turmalabel"
         Me.turmalabel.Size = New System.Drawing.Size(70, 25)
         Me.turmalabel.TabIndex = 43
@@ -129,7 +95,7 @@ Partial Class OPR_Técnicos
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(33, 126)
+        Me.Label2.Location = New System.Drawing.Point(33, 122)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(66, 25)
         Me.Label2.TabIndex = 42
@@ -139,7 +105,7 @@ Partial Class OPR_Técnicos
         '
         Me.numalunolabel.AutoSize = True
         Me.numalunolabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.numalunolabel.Location = New System.Drawing.Point(334, 126)
+        Me.numalunolabel.Location = New System.Drawing.Point(241, 122)
         Me.numalunolabel.Name = "numalunolabel"
         Me.numalunolabel.Size = New System.Drawing.Size(90, 25)
         Me.numalunolabel.TabIndex = 41
@@ -234,7 +200,7 @@ Partial Class OPR_Técnicos
         Me.contactom_box.Mask = "+0000000000000"
         Me.contactom_box.Name = "contactom_box"
         Me.contactom_box.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.contactom_box.Size = New System.Drawing.Size(148, 22)
+        Me.contactom_box.Size = New System.Drawing.Size(107, 22)
         Me.contactom_box.TabIndex = 85
         Me.contactom_box.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contactom_box.WaterMarkColor = System.Drawing.Color.Gray
@@ -247,7 +213,7 @@ Partial Class OPR_Técnicos
         Me.contacto_fbox.Mask = "+0000000000000"
         Me.contacto_fbox.Name = "contacto_fbox"
         Me.contacto_fbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.contacto_fbox.Size = New System.Drawing.Size(131, 22)
+        Me.contacto_fbox.Size = New System.Drawing.Size(101, 22)
         Me.contacto_fbox.TabIndex = 86
         Me.contacto_fbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contacto_fbox.WaterMarkColor = System.Drawing.Color.Gray
@@ -256,9 +222,9 @@ Partial Class OPR_Técnicos
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.nomebox.Location = New System.Drawing.Point(38, 156)
+        Me.nomebox.Location = New System.Drawing.Point(38, 152)
         Me.nomebox.Name = "nomebox"
-        Me.nomebox.Size = New System.Drawing.Size(290, 22)
+        Me.nomebox.Size = New System.Drawing.Size(204, 22)
         Me.nomebox.TabIndex = 87
         Me.nomebox.WaterMarkColor = System.Drawing.Color.Gray
         Me.nomebox.WaterMarkText = "Obrigatório"
@@ -266,7 +232,7 @@ Partial Class OPR_Técnicos
         'numalunobox
         '
         Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.numalunobox.Location = New System.Drawing.Point(339, 156)
+        Me.numalunobox.Location = New System.Drawing.Point(246, 152)
         Me.numalunobox.Name = "numalunobox"
         Me.numalunobox.Size = New System.Drawing.Size(119, 22)
         Me.numalunobox.TabIndex = 88
@@ -276,7 +242,7 @@ Partial Class OPR_Técnicos
         'turmabox
         '
         Me.turmabox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.turmabox.Location = New System.Drawing.Point(469, 154)
+        Me.turmabox.Location = New System.Drawing.Point(376, 150)
         Me.turmabox.Name = "turmabox"
         Me.turmabox.Size = New System.Drawing.Size(69, 22)
         Me.turmabox.TabIndex = 89
@@ -302,7 +268,7 @@ Partial Class OPR_Técnicos
         Me.cod_postalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.cod_postalbox.Size = New System.Drawing.Size(69, 22)
         Me.cod_postalbox.TabIndex = 91
-        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        Me.cod_postalbox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePrompt
         Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
         Me.cod_postalbox.WaterMarkText = "Obrigatório"
         '
@@ -317,12 +283,189 @@ Partial Class OPR_Técnicos
         Me.caminhobox.WaterMarkColor = System.Drawing.Color.Gray
         Me.caminhobox.WaterMarkText = "Obrigatório"
         '
+        'empresabox
+        '
+        Me.empresabox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.empresabox.FormattingEnabled = True
+        Me.empresabox.Location = New System.Drawing.Point(453, 150)
+        Me.empresabox.Name = "empresabox"
+        Me.empresabox.Size = New System.Drawing.Size(147, 21)
+        Me.empresabox.TabIndex = 99
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(447, 122)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(87, 25)
+        Me.Label3.TabIndex = 98
+        Me.Label3.Text = "Empresa"
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.Controls.Add(Me.respostabox)
+        Me.GroupBox1.Controls.Add(Me.perguntabox)
+        Me.GroupBox1.Controls.Add(Me.verifbox)
+        Me.GroupBox1.Controls.Add(Me.passwordbox)
+        Me.GroupBox1.Controls.Add(Me.nomeutilizadorbox)
+        Me.GroupBox1.Controls.Add(Me.Label8)
+        Me.GroupBox1.Controls.Add(Me.Label10)
+        Me.GroupBox1.Controls.Add(Me.Label7)
+        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.Label11)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.GroupBox1.Location = New System.Drawing.Point(38, 246)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(693, 167)
+        Me.GroupBox1.TabIndex = 97
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Informações da Conta"
+        '
+        'respostabox
+        '
+        Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.respostabox.Location = New System.Drawing.Point(400, 114)
+        Me.respostabox.Name = "respostabox"
+        Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.respostabox.Size = New System.Drawing.Size(208, 27)
+        Me.respostabox.TabIndex = 104
+        Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.respostabox.WaterMarkText = "Resposta"
+        '
+        'perguntabox
+        '
+        Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.perguntabox.Location = New System.Drawing.Point(105, 114)
+        Me.perguntabox.Name = "perguntabox"
+        Me.perguntabox.Size = New System.Drawing.Size(267, 27)
+        Me.perguntabox.TabIndex = 103
+        Me.perguntabox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.perguntabox.WaterMarkText = "Pergunta de Segurança"
+        '
+        'verifbox
+        '
+        Me.verifbox.Location = New System.Drawing.Point(447, 55)
+        Me.verifbox.Name = "verifbox"
+        Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.verifbox.Size = New System.Drawing.Size(155, 33)
+        Me.verifbox.TabIndex = 102
+        '
+        'passwordbox
+        '
+        Me.passwordbox.Location = New System.Drawing.Point(250, 55)
+        Me.passwordbox.Name = "passwordbox"
+        Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
+        Me.passwordbox.Size = New System.Drawing.Size(155, 33)
+        Me.passwordbox.TabIndex = 101
+        '
+        'nomeutilizadorbox
+        '
+        Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
+        Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
+        Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
+        Me.nomeutilizadorbox.TabIndex = 100
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label8.Location = New System.Drawing.Point(396, 91)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(72, 20)
+        Me.Label8.TabIndex = 96
+        Me.Label8.Text = "Resposta:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.Label10.Location = New System.Drawing.Point(101, 91)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(165, 20)
+        Me.Label10.TabIndex = 94
+        Me.Label10.Text = "Pergunta de Segurança:"
+        '
+        'Label7
+        '
+        Me.Label7.AutoSize = True
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.25!)
+        Me.Label7.Location = New System.Drawing.Point(443, 29)
+        Me.Label7.Name = "Label7"
+        Me.Label7.Size = New System.Drawing.Size(195, 23)
+        Me.Label7.TabIndex = 75
+        Me.Label7.Text = "Confirmar Palavra-Passe"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 12.25!)
+        Me.Label9.Location = New System.Drawing.Point(48, 29)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(159, 23)
+        Me.Label9.TabIndex = 72
+        Me.Label9.Text = "Nome de Utilizador"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 12.25!)
+        Me.Label11.Location = New System.Drawing.Point(246, 29)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(114, 23)
+        Me.Label11.TabIndex = 65
+        Me.Label11.Text = "Palavra-Passe"
+        '
+        'RadButton4
+        '
+        Me.RadButton4.Location = New System.Drawing.Point(650, 428)
+        Me.RadButton4.Name = "RadButton4"
+        Me.RadButton4.Size = New System.Drawing.Size(120, 36)
+        Me.RadButton4.TabIndex = 96
+        Me.RadButton4.Text = "Cancelar"
+        Me.RadButton4.ThemeName = "Windows8"
+        '
+        'RadButton3
+        '
+        Me.RadButton3.Location = New System.Drawing.Point(524, 428)
+        Me.RadButton3.Name = "RadButton3"
+        Me.RadButton3.Size = New System.Drawing.Size(120, 36)
+        Me.RadButton3.TabIndex = 95
+        Me.RadButton3.Text = "Restaurar Dados Originais"
+        Me.RadButton3.TextWrap = True
+        Me.RadButton3.ThemeName = "Windows8"
+        '
+        'RadButton1
+        '
+        Me.RadButton1.Location = New System.Drawing.Point(164, 428)
+        Me.RadButton1.Name = "RadButton1"
+        Me.RadButton1.Size = New System.Drawing.Size(120, 36)
+        Me.RadButton1.TabIndex = 94
+        Me.RadButton1.Text = "Editar"
+        Me.RadButton1.ThemeName = "Windows8"
+        '
+        'RadButton5
+        '
+        Me.RadButton5.Location = New System.Drawing.Point(38, 428)
+        Me.RadButton5.Name = "RadButton5"
+        Me.RadButton5.Size = New System.Drawing.Size(120, 36)
+        Me.RadButton5.TabIndex = 93
+        Me.RadButton5.Text = "Adicionar"
+        Me.RadButton5.ThemeName = "Windows8"
+        '
         'OPR_Técnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(782, 358)
+        Me.ClientSize = New System.Drawing.Size(810, 476)
+        Me.Controls.Add(Me.empresabox)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.RadButton4)
+        Me.Controls.Add(Me.RadButton3)
+        Me.Controls.Add(Me.RadButton1)
+        Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.caminhobox)
         Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.localidadebox)
@@ -339,11 +482,6 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.imagembox)
-        Me.Controls.Add(Me.RadButton4)
-        Me.Controls.Add(Me.RadButton3)
-        Me.Controls.Add(Me.RadButton2)
-        Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.turmalabel)
         Me.Controls.Add(Me.Label2)
@@ -352,23 +490,19 @@ Partial Class OPR_Técnicos
         Me.Name = "OPR_Técnicos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Técnicos"
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton2 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents turmalabel As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -391,4 +525,21 @@ Partial Class OPR_Técnicos
     Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
     Friend WithEvents caminhobox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents empresabox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents perguntabox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents verifbox As System.Windows.Forms.TextBox
+    Friend WithEvents passwordbox As System.Windows.Forms.TextBox
+    Friend WithEvents nomeutilizadorbox As System.Windows.Forms.TextBox
+    Friend WithEvents Label8 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents Label11 As System.Windows.Forms.Label
+    Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
 End Class

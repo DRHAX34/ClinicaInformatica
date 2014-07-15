@@ -33,11 +33,9 @@ Partial Class Passo2
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.niflabel = New System.Windows.Forms.Label()
         Me.logolabel = New System.Windows.Forms.Label()
-        Me.logobox = New System.Windows.Forms.PictureBox()
         Me.caminhobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.imagebutton = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.limparbutton = New System.Windows.Forms.Button()
         Me.alunoslabel = New System.Windows.Forms.Label()
         Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.moradabox = New ClinicaInformatica.WaterMarkTextBox()
@@ -46,15 +44,17 @@ Partial Class Passo2
         Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.simcheck = New System.Windows.Forms.RadioButton()
         Me.naocheck = New System.Windows.Forms.RadioButton()
+        Me.limparbutton = New System.Windows.Forms.Button()
+        Me.logobox = New System.Windows.Forms.PictureBox()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cancelarbutton
         '
         Me.cancelarbutton.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.cancelarbutton.Location = New System.Drawing.Point(361, 425)
+        Me.cancelarbutton.Location = New System.Drawing.Point(533, 412)
         Me.cancelarbutton.Name = "cancelarbutton"
-        Me.cancelarbutton.Size = New System.Drawing.Size(137, 31)
+        Me.cancelarbutton.Size = New System.Drawing.Size(137, 44)
         Me.cancelarbutton.TabIndex = 11
         Me.cancelarbutton.Text = "Cancelar"
         Me.cancelarbutton.UseVisualStyleBackColor = True
@@ -62,9 +62,9 @@ Partial Class Passo2
         'seguintebutton
         '
         Me.seguintebutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.seguintebutton.Location = New System.Drawing.Point(676, 400)
+        Me.seguintebutton.Location = New System.Drawing.Point(676, 412)
         Me.seguintebutton.Name = "seguintebutton"
-        Me.seguintebutton.Size = New System.Drawing.Size(153, 56)
+        Me.seguintebutton.Size = New System.Drawing.Size(153, 44)
         Me.seguintebutton.TabIndex = 10
         Me.seguintebutton.Text = "Seguinte"
         Me.seguintebutton.UseVisualStyleBackColor = True
@@ -142,15 +142,6 @@ Partial Class Passo2
         Me.logolabel.TabIndex = 23
         Me.logolabel.Text = "Logo da Empresa"
         '
-        'logobox
-        '
-        Me.logobox.Location = New System.Drawing.Point(619, 115)
-        Me.logobox.Name = "logobox"
-        Me.logobox.Size = New System.Drawing.Size(210, 193)
-        Me.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.logobox.TabIndex = 24
-        Me.logobox.TabStop = False
-        '
         'caminhobox
         '
         Me.caminhobox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -173,16 +164,6 @@ Partial Class Passo2
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'limparbutton
-        '
-        Me.limparbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.limparbutton.Location = New System.Drawing.Point(504, 412)
-        Me.limparbutton.Name = "limparbutton"
-        Me.limparbutton.Size = New System.Drawing.Size(166, 44)
-        Me.limparbutton.TabIndex = 35
-        Me.limparbutton.Text = "Limpar"
-        Me.limparbutton.UseVisualStyleBackColor = True
         '
         'alunoslabel
         '
@@ -270,6 +251,25 @@ Partial Class Passo2
         Me.naocheck.TabStop = True
         Me.naocheck.Text = "Não"
         Me.naocheck.UseVisualStyleBackColor = True
+        '
+        'limparbutton
+        '
+        Me.limparbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.limparbutton.Image = Global.ClinicaInformatica.My.Resources.Resources._48x48
+        Me.limparbutton.Location = New System.Drawing.Point(477, 412)
+        Me.limparbutton.Name = "limparbutton"
+        Me.limparbutton.Size = New System.Drawing.Size(50, 44)
+        Me.limparbutton.TabIndex = 35
+        Me.limparbutton.UseVisualStyleBackColor = True
+        '
+        'logobox
+        '
+        Me.logobox.Location = New System.Drawing.Point(619, 115)
+        Me.logobox.Name = "logobox"
+        Me.logobox.Size = New System.Drawing.Size(210, 193)
+        Me.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.logobox.TabIndex = 24
+        Me.logobox.TabStop = False
         '
         'Passo2
         '

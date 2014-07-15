@@ -22,7 +22,7 @@ Public Class Workspace
     Public string_pass, pass_string As String
     Public erros As Boolean
     Public preço As String
-    Public check_bd, check_clientes, check_componentes, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
+    Public check_bd, check_clientes, check_artigos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     Public Sub New()
         InitializeComponent()
         WindowState = FormWindowState.Maximized
@@ -171,10 +171,6 @@ Public Class Workspace
         End If
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
-        
-    End Sub
-
-    Private Sub AtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles clientesativos.Click
         If check_clientes = False Then
             Dim clientesview As New ViewForm
             check_clientes = True
@@ -194,7 +190,11 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub RemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles clientesremovidos.Click
+    Private Sub AtivosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub RemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs)
         If check_clientes = False Then
             Dim clientesview As New ViewForm
             check_clientes = True
@@ -233,43 +233,14 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub componentesAtivosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles componentesAtivosToolStripMenuItem.Click
-        If check_componentes = False Then
-            Try
-                If BLL.Clientes.carregar.Rows.Count = 0 Then
-                    If MsgBox("Antes de adicionar/alterar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
-                        Dim opr_clientes As New OPR_Clientes
-                        opr_clientes.MdiParent = Me
-                        m_ChildFormNumber += 1
-                        opr_clientes.Show()
-                    Else
-                        MsgBox("Não poderá adicionar um componente até adicionar um cliente!")
-                    End If
-                Else
-                    Dim componentesview As New ViewForm
-                    check_componentes = True
-                    componentesview.Text = "Componentes"
-                    componentesview.tabela = "Componentes"
-                    componentesview.MdiParent = Me
-                    m_ChildFormNumber += 1
-                    componentesview.data_table = BLL.Componentes.carregar
-                    componentesview.removidos = False
-                    componentesview.Show()
-                End If
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
-        Else
-            MsgBox("Já tem a janela dos Componentes aberta!")
-        End If
+    Private Sub componentesAtivosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+
     End Sub
 
-    Private Sub componentesRemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles componentesRemovidosToolStripMenuItem.Click
-        If check_componentes = False Then
+    Private Sub componentesRemovidosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        If check_artigos = False Then
             If BLL.Clientes.carregar.Rows.Count = 0 Then
                 If MsgBox("Antes de adicionar/alterar um componente, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
-                    clientesativos.PerformClick()
                     Dim opr_clientes As New OPR_Clientes
                     opr_clientes.MdiParent = Me
                     m_ChildFormNumber += 1
@@ -278,18 +249,18 @@ Public Class Workspace
                     MsgBox("Não poderá adicionar um componente até adicionar um cliente!")
                 End If
             Else
-                Dim componentesview As New ViewForm
-                check_componentes = True
-                componentesview.Text = "Componentes Removidos"
-                componentesview.tabela = "Componentes"
-                componentesview.MdiParent = Me
+                Dim artigosview As New ViewForm
+                check_artigos = True
+                artigosview.Text = "Artigos Removidos"
+                artigosview.tabela = "Artigos"
+                artigosview.MdiParent = Me
                 m_ChildFormNumber += 1
-                componentesview.data_table = BLL.Componentes.carregar_desativos
-                componentesview.removidos = True
-                componentesview.Show()
+                artigosview.data_table = BLL.Componentes.carregar_desativos
+                artigosview.removidos = True
+                artigosview.Show()
             End If
         Else
-            MsgBox("Já tem a janela dos Componentes aberta!")
+            MsgBox("Já tem a janela dos Artigos aberta!")
         End If
     End Sub
 
@@ -335,7 +306,7 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub reparativos_Click(sender As Object, e As EventArgs) Handles reparativos.Click
+    Private Sub reparativos_Click(sender As Object, e As EventArgs)
         If check_reparacoes = False Then
             If BLL.Clientes.carregar.Rows.Count <> 0 Then
                 If BLL.Componentes.carregar.Rows.Count <> 0 Then
@@ -367,11 +338,11 @@ Public Class Workspace
                     End If
                 Else
                     If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
-                        Dim opr_componentes As New OPR_Componentes
-                        opr_componentes.MdiParent = Me
+                        Dim opr_artigos As New OPR_Artigos
+                        opr_artigos.MdiParent = Me
                         m_ChildFormNumber += 1
-                        opr_componentes.modo = False
-                        opr_componentes.Show()
+                        opr_artigos.modo = False
+                        opr_artigos.Show()
                     Else
                         MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOKOnly, "Erro")
                     End If
@@ -392,7 +363,7 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub utilativos_Click(sender As Object, e As EventArgs) Handles utilativos.Click
+    Private Sub utilativos_Click(sender As Object, e As EventArgs)
         If check_utilizadores = False Then
             Try
                 Dim utilizadorview As New ViewForm
@@ -417,7 +388,7 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub utilremovidos_Click(sender As Object, e As EventArgs) Handles utilremovidos.Click
+    Private Sub utilremovidos_Click(sender As Object, e As EventArgs)
         If check_utilizadores = False Then
             Try
                 Dim utilizadorview As New ViewForm
@@ -446,7 +417,7 @@ Public Class Workspace
 
     End Sub
 
-    Private Sub reparremovidos_Click(sender As Object, e As EventArgs) Handles reparremovidos.Click
+    Private Sub reparremovidos_Click(sender As Object, e As EventArgs)
         If check_reparacoes = False Then
             If BLL.Clientes.carregar.Rows.Count <> 0 Then
                 If BLL.Componentes.carregar.Rows.Count <> 0 Then
@@ -478,11 +449,11 @@ Public Class Workspace
                     End If
                 Else
                     If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
-                        Dim opr_componentes As New OPR_Componentes
-                        opr_componentes.MdiParent = Me
+                        Dim opr_artigos As New OPR_Artigos
+                        opr_artigos.MdiParent = Me
                         m_ChildFormNumber += 1
-                        opr_componentes.modo = False
-                        opr_componentes.Show()
+                        opr_artigos.modo = False
+                        opr_artigos.Show()
                     Else
                         MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOKOnly, "Erro")
                     End If
@@ -503,28 +474,11 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub tecnicosativos_Click(sender As Object, e As EventArgs) Handles tecnicosativos.Click
-        If check_tecnicos = False Then
-            Try
-                Dim tecnicoview As New ViewForm
-                check_tecnicos = True
-                tecnicoview.Text = "Técnicos"
-                tecnicoview.tabela = "Técnicos"
-                tecnicoview.MdiParent = Me
-                m_ChildFormNumber += 1
-                tecnicoview.data_table = BLL.Tecnicos.carregar()
-                tecnicoview.removidos = False
-                tecnicoview.Show()
-            Catch ex As Exception
-                MsgBox("Erro ao executar comando: " & ex.Message)
-                Me.Close()
-            End Try
-        Else
-            MsgBox("Já tem a janela dos Técnicos abertas!")
-        End If
+    Private Sub tecnicosativos_Click(sender As Object, e As EventArgs)
+
     End Sub
 
-    Private Sub tecremovidos_Click(sender As Object, e As EventArgs) Handles tecremovidos.Click
+    Private Sub tecremovidos_Click(sender As Object, e As EventArgs)
         If check_tecnicos = False Then
             Try
                 Dim tecnicoview As New ViewForm
@@ -603,5 +557,103 @@ Public Class Workspace
     Private Sub IndexToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IndexToolStripMenuItem.Click
         manual_form.MdiParent = Me
         manual_form.Show()
+    End Sub
+
+    Private Sub dispositivosmenu_Click(sender As Object, e As EventArgs) Handles dispositivosmenu.Click
+        If check_artigos = False Then
+            Try
+                If BLL.Clientes.carregar.Rows.Count = 0 Then
+                    If MsgBox("Antes de adicionar/alterar um Artigo, tem que adicionar um Cliente, deseja fazê-lo agora?", vbOKCancel, "Erro") = vbOK Then
+                        Dim opr_clientes As New OPR_Clientes
+                        opr_clientes.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        opr_clientes.Show()
+                    Else
+                        MsgBox("Não poderá adicionar um Artigo até adicionar um cliente!")
+                    End If
+                Else
+                    Dim artigosview As New ViewForm
+                    check_artigos = True
+                    artigosview.Text = "Artigos"
+                    artigosview.tabela = "Artigos"
+                    artigosview.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    artigosview.data_table = BLL.Componentes.carregar
+                    artigosview.removidos = False
+                    artigosview.Show()
+                End If
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Artigos aberta!")
+        End If
+    End Sub
+
+    Private Sub reparacoesmenu_Click(sender As Object, e As EventArgs) Handles reparacoesmenu.Click
+        If check_reparacoes = False Then
+            If BLL.Clientes.carregar.Rows.Count <> 0 Then
+                If BLL.Componentes.carregar.Rows.Count <> 0 Then
+                        Try
+                            Dim repararview As New ViewForm
+                            check_reparacoes = True
+                            repararview.Text = "Reparações"
+                            repararview.tabela = "Reparações"
+                            repararview.MdiParent = Me
+                            m_ChildFormNumber += 1
+                            repararview.data_table = BLL.Reparacoes.carregar()
+                            repararview.removidos = False
+                            repararview.Show()
+                        Catch ex As Exception
+                            MsgBox("Erro ao executar comando: " & ex.Message)
+                            Me.Close()
+                        End Try
+                Else
+                    If MsgBox("Não tem nenhum componente inserido no programa, deseja criar um?", vbYesNo, "Nenhum Componente Inserido") = vbYes Then
+                        Dim opr_artigos As New OPR_Artigos
+                        opr_artigos.MdiParent = Me
+                        m_ChildFormNumber += 1
+                        opr_artigos.modo = False
+                        opr_artigos.Show()
+                    Else
+                        MsgBox("Não poderá inserir/visualizar Reparações até inserir um Componente!", vbOKOnly, "Erro")
+                    End If
+                End If
+            Else
+                If MsgBox("Não tem nenhum cliente inserido, deseja inserir algum?", vbYesNo, "Nenhum Cliente Inserido") = vbYes Then
+                    Dim opr_clientes As New OPR_Clientes
+                    opr_clientes.MdiParent = Me
+                    m_ChildFormNumber += 1
+                    opr_clientes.modo = False
+                    opr_clientes.Show()
+                Else
+                    MsgBox("Não poderá inserir/visualizar Reparações até inserir um cliente!", vbOKOnly, "Erro")
+                End If
+            End If
+        Else
+            MsgBox("Já tem a janela das Reparações abertas!")
+        End If
+    End Sub
+
+    Private Sub tecnicosmenu_Click(sender As Object, e As EventArgs) Handles tecnicosmenu.Click
+        If check_tecnicos = False Then
+            Try
+                Dim tecnicoview As New ViewForm
+                check_tecnicos = True
+                tecnicoview.Text = "Técnicos"
+                tecnicoview.tabela = "Técnicos"
+                tecnicoview.MdiParent = Me
+                m_ChildFormNumber += 1
+                tecnicoview.data_table = BLL.Tecnicos.carregar()
+                tecnicoview.removidos = False
+                tecnicoview.Show()
+            Catch ex As Exception
+                MsgBox("Erro ao executar comando: " & ex.Message)
+                Me.Close()
+            End Try
+        Else
+            MsgBox("Já tem a janela dos Técnicos abertas!")
+        End If
     End Sub
 End Class

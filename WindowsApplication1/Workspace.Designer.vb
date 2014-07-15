@@ -31,20 +31,10 @@ Partial Class Workspace
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.clientesativos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.clientesremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.dispositivosmenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.componentesAtivosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.componentesRemovidosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.reparacoesmenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.reparativos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.reparremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.tecnicosmenu = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tecnicosativos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.tecremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.utilativos = New System.Windows.Forms.ToolStripMenuItem()
-        Me.utilremovidos = New System.Windows.Forms.ToolStripMenuItem()
         Me.terminarsessao = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.empresasativas = New System.Windows.Forms.ToolStripMenuItem()
@@ -89,7 +79,7 @@ Partial Class Workspace
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesmenu, Me.dispositivosmenu, Me.reparacoesmenu, Me.tecnicosmenu, Me.UtilizadoresToolStripMenuItem, Me.EmpresasToolStripMenuItem, Me.HelpMenu})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesmenu, Me.dispositivosmenu, Me.reparacoesmenu, Me.tecnicosmenu, Me.EmpresasToolStripMenuItem, Me.HelpMenu, Me.UtilizadoresToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.tecnicosmenu
         Me.MenuStrip.Name = "MenuStrip"
@@ -99,7 +89,6 @@ Partial Class Workspace
         '
         'clientesmenu
         '
-        Me.clientesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesativos, Me.clientesremovidos})
         Me.clientesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.clientesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
         Me.clientesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -107,43 +96,17 @@ Partial Class Workspace
         Me.clientesmenu.Size = New System.Drawing.Size(117, 58)
         Me.clientesmenu.Text = "Clientes"
         '
-        'clientesativos
-        '
-        Me.clientesativos.Name = "clientesativos"
-        Me.clientesativos.Size = New System.Drawing.Size(136, 22)
-        Me.clientesativos.Text = "Ativos"
-        '
-        'clientesremovidos
-        '
-        Me.clientesremovidos.Name = "clientesremovidos"
-        Me.clientesremovidos.Size = New System.Drawing.Size(136, 22)
-        Me.clientesremovidos.Text = "Removidos"
-        '
         'dispositivosmenu
         '
-        Me.dispositivosmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.componentesAtivosToolStripMenuItem, Me.componentesRemovidosToolStripMenuItem})
         Me.dispositivosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.dispositivosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101754Hz7aSVUe
         Me.dispositivosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.dispositivosmenu.Name = "dispositivosmenu"
-        Me.dispositivosmenu.Size = New System.Drawing.Size(150, 58)
-        Me.dispositivosmenu.Text = "Componentes"
-        '
-        'componentesAtivosToolStripMenuItem
-        '
-        Me.componentesAtivosToolStripMenuItem.Name = "componentesAtivosToolStripMenuItem"
-        Me.componentesAtivosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.componentesAtivosToolStripMenuItem.Text = "Ativos"
-        '
-        'componentesRemovidosToolStripMenuItem
-        '
-        Me.componentesRemovidosToolStripMenuItem.Name = "componentesRemovidosToolStripMenuItem"
-        Me.componentesRemovidosToolStripMenuItem.Size = New System.Drawing.Size(136, 22)
-        Me.componentesRemovidosToolStripMenuItem.Text = "Removidos"
+        Me.dispositivosmenu.Size = New System.Drawing.Size(113, 58)
+        Me.dispositivosmenu.Text = "Artigos"
         '
         'reparacoesmenu
         '
-        Me.reparacoesmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.reparativos, Me.reparremovidos})
         Me.reparacoesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.reparacoesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_2417311E0OBPz25
         Me.reparacoesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -151,21 +114,8 @@ Partial Class Workspace
         Me.reparacoesmenu.Size = New System.Drawing.Size(137, 58)
         Me.reparacoesmenu.Text = "Reparações"
         '
-        'reparativos
-        '
-        Me.reparativos.Name = "reparativos"
-        Me.reparativos.Size = New System.Drawing.Size(136, 22)
-        Me.reparativos.Text = "Ativos"
-        '
-        'reparremovidos
-        '
-        Me.reparremovidos.Name = "reparremovidos"
-        Me.reparremovidos.Size = New System.Drawing.Size(136, 22)
-        Me.reparremovidos.Text = "Removidos"
-        '
         'tecnicosmenu
         '
-        Me.tecnicosmenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.tecnicosativos, Me.tecremovidos})
         Me.tecnicosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
         Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
         Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
@@ -173,39 +123,15 @@ Partial Class Workspace
         Me.tecnicosmenu.Size = New System.Drawing.Size(121, 58)
         Me.tecnicosmenu.Text = "Técnicos"
         '
-        'tecnicosativos
-        '
-        Me.tecnicosativos.Name = "tecnicosativos"
-        Me.tecnicosativos.Size = New System.Drawing.Size(136, 22)
-        Me.tecnicosativos.Text = "Ativos"
-        '
-        'tecremovidos
-        '
-        Me.tecremovidos.Name = "tecremovidos"
-        Me.tecremovidos.Size = New System.Drawing.Size(136, 22)
-        Me.tecremovidos.Text = "Removidos"
-        '
         'UtilizadoresToolStripMenuItem
         '
-        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.utilativos, Me.utilremovidos, Me.terminarsessao})
+        Me.UtilizadoresToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.terminarsessao})
         Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_3010633jb6OZwQ5
         Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
-        Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(139, 58)
-        Me.UtilizadoresToolStripMenuItem.Text = "Utilizadores"
-        '
-        'utilativos
-        '
-        Me.utilativos.Name = "utilativos"
-        Me.utilativos.Size = New System.Drawing.Size(165, 22)
-        Me.utilativos.Text = "Ativos"
-        '
-        'utilremovidos
-        '
-        Me.utilremovidos.Name = "utilremovidos"
-        Me.utilremovidos.Size = New System.Drawing.Size(165, 22)
-        Me.utilremovidos.Text = "Removidos"
+        Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(127, 58)
+        Me.UtilizadoresToolStripMenuItem.Text = "Utilizador"
         '
         'terminarsessao
         '
@@ -350,16 +276,6 @@ Partial Class Workspace
     Friend WithEvents MenuStrip As System.Windows.Forms.MenuStrip
     Friend WithEvents UtilizadoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EmpresasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents clientesativos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents clientesremovidos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents componentesAtivosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents componentesRemovidosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents reparativos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents reparremovidos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tecnicosativos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tecremovidos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents utilativos As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents utilremovidos As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents empresasativas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents empresasremovidas As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents terminarsessao As System.Windows.Forms.ToolStripMenuItem

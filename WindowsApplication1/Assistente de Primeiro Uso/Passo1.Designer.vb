@@ -46,9 +46,9 @@ Partial Class Passo1
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(672, 400)
+        Me.Button1.Location = New System.Drawing.Point(672, 412)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(153, 56)
+        Me.Button1.Size = New System.Drawing.Size(153, 44)
         Me.Button1.TabIndex = 13
         Me.Button1.Text = "Seguinte"
         Me.Button1.UseVisualStyleBackColor = True
