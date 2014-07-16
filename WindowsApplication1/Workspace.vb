@@ -109,8 +109,8 @@ Public Class Workspace
         Me.AutoScroll = False
         Me.AutoSize = False
 
-        If cache_empresas.Count = 0 Then
-            If cache_users.Rows.Count = 0 Then
+        If cache_users.Rows.Count = 0 Then
+            If cache_empresas.Count = 0 Then
                 Me.WindowState = FormWindowState.Normal
                 Me.Size = Passo1.Size
                 Dim config As New Passo1

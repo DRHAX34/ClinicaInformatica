@@ -226,7 +226,7 @@ Partial Class Passo3emeio
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.Label4.Location = New System.Drawing.Point(57, 220)
+        Me.Label4.Location = New System.Drawing.Point(107, 220)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(229, 13)
         Me.Label4.TabIndex = 108
@@ -236,7 +236,7 @@ Partial Class Passo3emeio
         '
         Me.Localidadelabel.AutoSize = True
         Me.Localidadelabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.Localidadelabel.Location = New System.Drawing.Point(346, 167)
+        Me.Localidadelabel.Location = New System.Drawing.Point(394, 167)
         Me.Localidadelabel.Name = "Localidadelabel"
         Me.Localidadelabel.Size = New System.Drawing.Size(107, 25)
         Me.Localidadelabel.TabIndex = 107
@@ -246,7 +246,7 @@ Partial Class Passo3emeio
         '
         Me.cod_postallabel.AutoSize = True
         Me.cod_postallabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
-        Me.cod_postallabel.Location = New System.Drawing.Point(502, 167)
+        Me.cod_postallabel.Location = New System.Drawing.Point(524, 168)
         Me.cod_postallabel.Name = "cod_postallabel"
         Me.cod_postallabel.Size = New System.Drawing.Size(136, 25)
         Me.cod_postallabel.TabIndex = 106
@@ -256,7 +256,7 @@ Partial Class Passo3emeio
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(188, 167)
+        Me.Label5.Location = New System.Drawing.Point(236, 167)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(136, 25)
         Me.Label5.TabIndex = 105
@@ -266,7 +266,7 @@ Partial Class Passo3emeio
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(29, 167)
+        Me.Label6.Location = New System.Drawing.Point(77, 167)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(153, 25)
         Me.Label6.TabIndex = 104
@@ -285,7 +285,7 @@ Partial Class Passo3emeio
         '
         Me.turmalabel.AutoSize = True
         Me.turmalabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.turmalabel.Location = New System.Drawing.Point(383, 112)
+        Me.turmalabel.Location = New System.Drawing.Point(431, 112)
         Me.turmalabel.Name = "turmalabel"
         Me.turmalabel.Size = New System.Drawing.Size(70, 25)
         Me.turmalabel.TabIndex = 102
@@ -295,7 +295,7 @@ Partial Class Passo3emeio
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(29, 112)
+        Me.Label12.Location = New System.Drawing.Point(77, 112)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(66, 25)
         Me.Label12.TabIndex = 101
@@ -305,7 +305,7 @@ Partial Class Passo3emeio
         '
         Me.numalunolabel.AutoSize = True
         Me.numalunolabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.numalunolabel.Location = New System.Drawing.Point(251, 112)
+        Me.numalunolabel.Location = New System.Drawing.Point(299, 112)
         Me.numalunolabel.Name = "numalunolabel"
         Me.numalunolabel.Size = New System.Drawing.Size(90, 25)
         Me.numalunolabel.TabIndex = 100
@@ -337,7 +337,7 @@ Partial Class Passo3emeio
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.nomebox.Location = New System.Drawing.Point(34, 142)
+        Me.nomebox.Location = New System.Drawing.Point(82, 142)
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(204, 22)
         Me.nomebox.TabIndex = 122
@@ -347,7 +347,7 @@ Partial Class Passo3emeio
         'numalunobox
         '
         Me.numalunobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.numalunobox.Location = New System.Drawing.Point(256, 142)
+        Me.numalunobox.Location = New System.Drawing.Point(304, 142)
         Me.numalunobox.Name = "numalunobox"
         Me.numalunobox.Size = New System.Drawing.Size(119, 22)
         Me.numalunobox.TabIndex = 123
@@ -357,7 +357,7 @@ Partial Class Passo3emeio
         'turmabox
         '
         Me.turmabox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.turmabox.Location = New System.Drawing.Point(388, 142)
+        Me.turmabox.Location = New System.Drawing.Point(436, 142)
         Me.turmabox.Name = "turmabox"
         Me.turmabox.Size = New System.Drawing.Size(69, 22)
         Me.turmabox.TabIndex = 124
@@ -367,11 +367,11 @@ Partial Class Passo3emeio
         'contactom_box
         '
         Me.contactom_box.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.contactom_box.Location = New System.Drawing.Point(34, 195)
+        Me.contactom_box.Location = New System.Drawing.Point(82, 195)
         Me.contactom_box.Mask = "+0000000000000"
         Me.contactom_box.Name = "contactom_box"
         Me.contactom_box.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.contactom_box.Size = New System.Drawing.Size(107, 22)
+        Me.contactom_box.Size = New System.Drawing.Size(148, 22)
         Me.contactom_box.TabIndex = 125
         Me.contactom_box.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contactom_box.WaterMarkColor = System.Drawing.Color.Gray
@@ -380,11 +380,11 @@ Partial Class Passo3emeio
         'contacto_fbox
         '
         Me.contacto_fbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.contacto_fbox.Location = New System.Drawing.Point(193, 195)
+        Me.contacto_fbox.Location = New System.Drawing.Point(241, 195)
         Me.contacto_fbox.Mask = "+0000000000000"
         Me.contacto_fbox.Name = "contacto_fbox"
         Me.contacto_fbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
-        Me.contacto_fbox.Size = New System.Drawing.Size(101, 22)
+        Me.contacto_fbox.Size = New System.Drawing.Size(131, 22)
         Me.contacto_fbox.TabIndex = 126
         Me.contacto_fbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contacto_fbox.WaterMarkColor = System.Drawing.Color.Gray
@@ -393,7 +393,7 @@ Partial Class Passo3emeio
         'localidadebox
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.localidadebox.Location = New System.Drawing.Point(351, 195)
+        Me.localidadebox.Location = New System.Drawing.Point(399, 195)
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(119, 22)
         Me.localidadebox.TabIndex = 127
@@ -403,7 +403,7 @@ Partial Class Passo3emeio
         'cod_postalbox
         '
         Me.cod_postalbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.cod_postalbox.Location = New System.Drawing.Point(507, 195)
+        Me.cod_postalbox.Location = New System.Drawing.Point(529, 196)
         Me.cod_postalbox.Mask = "0000-000"
         Me.cod_postalbox.Name = "cod_postalbox"
         Me.cod_postalbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)

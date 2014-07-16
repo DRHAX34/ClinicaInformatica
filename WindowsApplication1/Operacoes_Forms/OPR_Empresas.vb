@@ -144,7 +144,7 @@
         If simcheck.Checked = True Or naocheck.Checked = True Then
             If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
                 Try
-                    BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºCliente").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
+                    BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro: " & ex.Message)
                 End Try
@@ -207,6 +207,8 @@
                     simcheck.Checked = False
                 End If
                 caminhobox.Text = "<Não Alterado>"
+                logo = BLL.Admin_only.Empresas.carregar_pic()
+                logobox.Image = logo
             Catch ex As Exception
                 MsgBox("Erro: " & ex.Message)
             End Try

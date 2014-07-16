@@ -51,7 +51,7 @@ Partial Class Passo2
         '
         'cancelarbutton
         '
-        Me.cancelarbutton.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.cancelarbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!)
         Me.cancelarbutton.Location = New System.Drawing.Point(533, 412)
         Me.cancelarbutton.Name = "cancelarbutton"
         Me.cancelarbutton.Size = New System.Drawing.Size(137, 44)
@@ -61,7 +61,7 @@ Partial Class Passo2
         '
         'seguintebutton
         '
-        Me.seguintebutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.seguintebutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.seguintebutton.Location = New System.Drawing.Point(676, 412)
         Me.seguintebutton.Name = "seguintebutton"
         Me.seguintebutton.Size = New System.Drawing.Size(153, 44)

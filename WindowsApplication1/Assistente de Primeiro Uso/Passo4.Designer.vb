@@ -40,9 +40,9 @@ Partial Class Passo4
         'Button2
         '
         Me.Button2.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(666, 388)
+        Me.Button2.Location = New System.Drawing.Point(666, 409)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(171, 68)
+        Me.Button2.Size = New System.Drawing.Size(171, 47)
         Me.Button2.TabIndex = 36
         Me.Button2.Text = "Terminar"
         Me.Button2.UseVisualStyleBackColor = True
