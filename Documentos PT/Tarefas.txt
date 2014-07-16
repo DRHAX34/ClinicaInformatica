@@ -8,6 +8,23 @@ Na parte dos Clientes, remover o botão "editar" e substituir por double click na
 No botão "Mostrar dados Clientes" poder editar, e adicionar 2 botões para os artigos e reparações.
 Lembrete: Validação do nif na localização
 Eliminar botões desnecessários que estão desativados na form dos clientes.
+Selecionar automaticamente a textbox na localização dos clientes
+Se um dos contactos tiver preenchido avançar.
+Depois de gravar uma nova avaria, mostrar a folha da reparação.
+Juntar os dois relatórios (de entrega e efetuada) após gravar uma nova reparação e um botão para imprimir em qualquer sitio.
+Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
+Tipo_Artigo, adicionar combobox nas reparações caso seja Portátil ou Computador.
+Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
+Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
+Quando clicar no botão "Gravar" abrir o relatório final que é exactamente igual à 2ºFolha do primeiro mas com tudo preenchido.
+Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
+Remover o header das datagridviews, se não der devido ao tipo de datagridview que temos, substituir pelo original e remover header.
+Rever permissões de Administrador, pode adicionar clientes, mas nao pode adicionar nem reparações nem artigos...
+Remover o botão Empresas
+Remover fotografia como campo obrigatório.
+Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
+No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa
+
 
 Fonseca:
 Na parte dos artigos, remover o selecionar componente.- Fonseca
@@ -18,3 +35,14 @@ A form Clientes faz tudo, pode adicionar artigos e reparações.- Fonseca
 Double click nas tabelas para editar.- Fonseca
 NºSérie nao é campo obrigatório.- Fonseca
 Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
+Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
+Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
+Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
+Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
+
+
+
+
+
+
+
