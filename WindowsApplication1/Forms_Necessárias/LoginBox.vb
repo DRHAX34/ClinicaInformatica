@@ -90,12 +90,13 @@
             Workspace.MaximizeBox = True
             Workspace.string_pass = passencript
             'Workspace.UtilizadoresToolStripMenuItem.Text = UsernameBox.Text
-            Workspace.Label1.Text = UsernameBox.Text
-            Workspace.Label2.Text = tipo
             Workspace.Label1.Show()
-            Workspace.Label2.Show()
             Workspace.Label1.BringToFront()
+            Workspace.Label2.Text = "Utilizador: " & UsernameBox.Text & "        Tipo de Utilizador: " & tipo
+            Workspace.Label2.Show()
             Workspace.Label2.BringToFront()
+            Workspace.companylogo.Show()
+            Workspace.companylogo.BringToFront()
             Workspace.user = user
             Me.Close()
         End If

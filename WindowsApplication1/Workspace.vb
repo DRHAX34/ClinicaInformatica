@@ -97,8 +97,9 @@ Public Class Workspace
     Public m_ChildFormNumber As Integer
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         'terminarsessaobutton.Location = New Point((Me.Width - (1035 - 908)), 12)
-        Label1.Location = New Point((Me.Width - (1035 - (965 - (Label1.Size.Width / 2)))), 0)
-        Label2.Location = New Point((Me.Width - (1035 - (1015 - (Label2.Size.Width)))), 25)
+        Label1.Location = New Point((Me.Width - (1035 - (956 - (Label1.Size.Width) - (5)))), 15)
+        companylogo.Location = New Point((Me.Width - (1118 - 1032)), 0)
+        Label2.Location = New Point((Me.Width - Label2.Size.Width - 25), (Me.Height - (506 - 446)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         DAL.CloseConnection()
@@ -108,7 +109,8 @@ Public Class Workspace
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = False
         Me.AutoSize = False
-
+        companylogo.Hide()
+        Label2.Hide()
         If cache_users.Rows.Count = 0 Then
             If cache_empresas.Count = 0 Then
                 Me.WindowState = FormWindowState.Normal
@@ -160,16 +162,9 @@ Public Class Workspace
         Next
     End Sub
     Shared Sub login_load()
-        If Workspace.admin = True Then
-            Workspace.EmpresasToolStripMenuItem.Text = "Empresas"
-            Workspace.EmpresasToolStripMenuItem.Enabled = True
-            Workspace.EmpresasToolStripMenuItem.Image = My.Resources.companyicon
-        Else
-            Dim imagecompany As Image = BLL.Admin_only.Empresas.carregar_pic()
-            Dim companyimage As New Bitmap(imagecompany, 54, 54)
-            Workspace.EmpresasToolStripMenuItem.Image = companyimage
-            Workspace.EmpresasToolStripMenuItem.Text = Workspace.companyname1
-        End If
+        Dim companyimage As Image = BLL.Admin_only.Empresas.carregar_pic()
+        Workspace.companylogo.Image = companyimage
+        Workspace.Label1.Text = Workspace.companyname1
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
         If check_clientes = False Then
@@ -225,6 +220,7 @@ Public Class Workspace
             MenuStrip.Hide()
             Label1.Hide()
             Label2.Hide()
+            companylogo.Hide()
             LoginForm1.MdiParent = Me
             LoginForm1.Show()
             m_ChildFormNumber += 1
@@ -348,26 +344,7 @@ Public Class Workspace
     End Sub
 
     Private Sub EmpresasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles EmpresasToolStripMenuItem.Click
-        If admin = True Then
-            If check_empresas = False Then
-                Try
-                    Dim empresasview As New ViewForm
-                    check_empresas = True
-                    empresasview.Text = "Empresas"
-                    empresasview.tabela = "Empresas"
-                    empresasview.MdiParent = Me
-                    m_ChildFormNumber += 1
-                    empresasview.data_table = BLL.Admin_only.Empresas.carregar()
-                    empresasview.removidos = False
-                    empresasview.Show()
-                Catch ex As Exception
-                    MsgBox("Erro ao executar comando: " & ex.Message)
-                    Me.Close()
-                End Try
-            Else
-                MsgBox("Já tem a janela das Empresas abertas!")
-            End If
-        End If
+        
     End Sub
 
     Private Sub reparremovidos_Click(sender As Object, e As EventArgs)
@@ -473,7 +450,7 @@ Public Class Workspace
         SaveFileDialog1.ShowDialog()
         sql_caminho = SaveFileDialog1.FileName
         Try
-            If sql_caminho <> "OpenFileDialog1" Or sql_caminho <> "" Then
+            If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 If System.IO.File.Exists(sql_caminho) = True Then
                     System.IO.File.Delete(sql_caminho)
                 End If
@@ -492,7 +469,7 @@ Public Class Workspace
             OpenFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
             OpenFileDialog1.ShowDialog()
             sql_caminho = OpenFileDialog1.FileName
-            If sql_caminho <> "OpenFileDialog1" Or sql_caminho <> "" Then
+            If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 Try
                     System.IO.File.Delete(".\Resources\BD-C.I.mdf")
                     System.IO.File.Delete(".\Resources\BD-C.I_log.ldf")
@@ -609,6 +586,4 @@ Public Class Workspace
             MsgBox("Já tem a janela dos Técnicos abertas!")
         End If
     End Sub
-
-    
 End Class

@@ -9,7 +9,6 @@ Public NotInheritable Class SplashAway
         ProgressBar1.Value = 5
         Workspace.Label1.Hide()
         ProgressBar1.Value = 10
-        Workspace.Label2.Hide()
         ProgressBar1.Value = 15
         Workspace.check_bd = False
         ProgressBar1.Value = 20

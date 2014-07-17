@@ -83,6 +83,16 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _1405625651_Administrative_Tools_256x256_32() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1405625651_Administrative_Tools_256x256-32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property _32x32() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("32x32", resourceCulture)
@@ -306,6 +316,16 @@ Namespace My.Resources
         Friend ReadOnly Property oie_transparent() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("oie_transparent", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property oie_transparent1() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("oie_transparent1", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property

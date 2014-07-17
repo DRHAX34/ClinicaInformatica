@@ -455,11 +455,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone programa.ico" />
+    <None Include="Resources\oie_transparent1.png" />
     <None Include="Resources\1404425892_Microprocessor.png" />
     <None Include="Resources\1404442634_Software.png" />
     <None Include="Resources\96x96.png" />
     <None Include="Resources\32x32.png" />
     <None Include="Resources\48x48.png" />
+    <None Include="Resources\1405625651_Administrative_Tools_256x256-32.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
