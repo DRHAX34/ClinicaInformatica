@@ -326,13 +326,13 @@ Partial Class ViewForm
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
-    Private WithEvents showdata As Telerik.WinControls.UI.RadGridView
-    Private WithEvents newbutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents delbutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents editbutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents updatebutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents findbutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents showbutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents exitbutton As Telerik.WinControls.UI.RadButton
-    Private WithEvents othersbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents newbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents delbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents editbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents updatebutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents findbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents showbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents exitbutton As Telerik.WinControls.UI.RadButton
+    Friend WithEvents othersbutton As Telerik.WinControls.UI.RadButton
 End Class
