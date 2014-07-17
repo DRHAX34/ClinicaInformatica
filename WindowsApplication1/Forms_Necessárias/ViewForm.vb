@@ -43,6 +43,8 @@
         End Select
     End Sub
     Private Sub ViewForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim newimagebutton As New Bitmap((My.Resources._1405624626_Add), newbutton.Height, newbutton.Height)
+        newbutton.Image = newimagebutton
         othersbutton.Enabled = True
         'Se não metermos .Enabled=false ele reverte para o default, que é true
         'Código de Teste:

@@ -57,6 +57,7 @@ Partial Class ViewForm
         'showdata
         '
         Me.showdata.AutoSizeRows = True
+        Me.showdata.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.showdata.Location = New System.Drawing.Point(13, 13)
         '
         'showdata
@@ -67,6 +68,12 @@ Partial Class ViewForm
         Me.showdata.Name = "showdata"
         Me.showdata.Padding = New System.Windows.Forms.Padding(1)
         Me.showdata.ReadOnly = True
+        '
+        '
+        '
+        Me.showdata.RootElement.AccessibleDescription = Nothing
+        Me.showdata.RootElement.AccessibleName = Nothing
+        Me.showdata.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 240, 150)
         Me.showdata.Size = New System.Drawing.Size(709, 322)
         Me.showdata.TabIndex = 0
         Me.showdata.Text = "Data"
@@ -74,8 +81,16 @@ Partial Class ViewForm
         '
         'newbutton
         '
+        Me.newbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.newbutton.ImageScalingSize = New System.Drawing.Size(38, 38)
         Me.newbutton.Location = New System.Drawing.Point(13, 364)
         Me.newbutton.Name = "newbutton"
+        '
+        '
+        '
+        Me.newbutton.RootElement.AccessibleDescription = Nothing
+        Me.newbutton.RootElement.AccessibleName = Nothing
+        Me.newbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.newbutton.Size = New System.Drawing.Size(102, 38)
         Me.newbutton.TabIndex = 1
         Me.newbutton.Text = "Novo"
@@ -83,8 +98,15 @@ Partial Class ViewForm
         '
         'delbutton
         '
+        Me.delbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.delbutton.Location = New System.Drawing.Point(13, 417)
         Me.delbutton.Name = "delbutton"
+        '
+        '
+        '
+        Me.delbutton.RootElement.AccessibleDescription = Nothing
+        Me.delbutton.RootElement.AccessibleName = Nothing
+        Me.delbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.delbutton.Size = New System.Drawing.Size(102, 38)
         Me.delbutton.TabIndex = 2
         Me.delbutton.Text = "Eliminar"
@@ -92,8 +114,15 @@ Partial Class ViewForm
         '
         'editbutton
         '
+        Me.editbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.editbutton.Location = New System.Drawing.Point(137, 364)
         Me.editbutton.Name = "editbutton"
+        '
+        '
+        '
+        Me.editbutton.RootElement.AccessibleDescription = Nothing
+        Me.editbutton.RootElement.AccessibleName = Nothing
+        Me.editbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.editbutton.Size = New System.Drawing.Size(102, 38)
         Me.editbutton.TabIndex = 3
         Me.editbutton.Text = "Editar"
@@ -101,8 +130,15 @@ Partial Class ViewForm
         '
         'updatebutton
         '
+        Me.updatebutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.updatebutton.Location = New System.Drawing.Point(137, 417)
         Me.updatebutton.Name = "updatebutton"
+        '
+        '
+        '
+        Me.updatebutton.RootElement.AccessibleDescription = Nothing
+        Me.updatebutton.RootElement.AccessibleName = Nothing
+        Me.updatebutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.updatebutton.Size = New System.Drawing.Size(102, 38)
         Me.updatebutton.TabIndex = 4
         Me.updatebutton.Text = "Atualizar"
@@ -110,8 +146,15 @@ Partial Class ViewForm
         '
         'findbutton
         '
+        Me.findbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.findbutton.Location = New System.Drawing.Point(494, 364)
         Me.findbutton.Name = "findbutton"
+        '
+        '
+        '
+        Me.findbutton.RootElement.AccessibleDescription = Nothing
+        Me.findbutton.RootElement.AccessibleName = Nothing
+        Me.findbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.findbutton.Size = New System.Drawing.Size(102, 38)
         Me.findbutton.TabIndex = 5
         Me.findbutton.Text = "Localizar"
@@ -119,8 +162,15 @@ Partial Class ViewForm
         '
         'showbutton
         '
+        Me.showbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.showbutton.Location = New System.Drawing.Point(620, 364)
         Me.showbutton.Name = "showbutton"
+        '
+        '
+        '
+        Me.showbutton.RootElement.AccessibleDescription = Nothing
+        Me.showbutton.RootElement.AccessibleName = Nothing
+        Me.showbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.showbutton.Size = New System.Drawing.Size(102, 38)
         Me.showbutton.TabIndex = 6
         Me.showbutton.Text = "Mostrar Dados Completos"
@@ -129,8 +179,15 @@ Partial Class ViewForm
         '
         'exitbutton
         '
+        Me.exitbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.exitbutton.Location = New System.Drawing.Point(620, 417)
         Me.exitbutton.Name = "exitbutton"
+        '
+        '
+        '
+        Me.exitbutton.RootElement.AccessibleDescription = Nothing
+        Me.exitbutton.RootElement.AccessibleName = Nothing
+        Me.exitbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.exitbutton.Size = New System.Drawing.Size(102, 38)
         Me.exitbutton.TabIndex = 7
         Me.exitbutton.Text = "Sair"
@@ -138,8 +195,15 @@ Partial Class ViewForm
         '
         'othersbutton
         '
+        Me.othersbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.othersbutton.Location = New System.Drawing.Point(494, 417)
         Me.othersbutton.Name = "othersbutton"
+        '
+        '
+        '
+        Me.othersbutton.RootElement.AccessibleDescription = Nothing
+        Me.othersbutton.RootElement.AccessibleName = Nothing
+        Me.othersbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.othersbutton.Size = New System.Drawing.Size(102, 38)
         Me.othersbutton.TabIndex = 8
         Me.othersbutton.Text = "Outras Funções"
@@ -254,16 +318,7 @@ Partial Class ViewForm
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
-    Friend WithEvents newbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents delbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents editbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents updatebutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents findbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents showbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents exitbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents othersbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
@@ -271,4 +326,13 @@ Partial Class ViewForm
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
+    Private WithEvents showdata As Telerik.WinControls.UI.RadGridView
+    Private WithEvents newbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents delbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents editbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents updatebutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents findbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents showbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents exitbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents othersbutton As Telerik.WinControls.UI.RadButton
 End Class
