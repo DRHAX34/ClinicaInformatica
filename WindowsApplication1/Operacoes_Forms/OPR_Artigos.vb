@@ -130,7 +130,7 @@
         End Try
     End Sub
 
-    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs)
         If Workspace.check_select = False Then
             Dim select_comp As New Selectform
             select_comp.MdiParent = Workspace

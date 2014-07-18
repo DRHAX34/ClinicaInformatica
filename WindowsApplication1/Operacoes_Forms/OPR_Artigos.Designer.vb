@@ -33,7 +33,6 @@ Partial Class OPR_Artigos
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
@@ -48,7 +47,6 @@ Partial Class OPR_Artigos
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -58,14 +56,21 @@ Partial Class OPR_Artigos
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(34, 222)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(123, 25)
+        Me.Label8.Size = New System.Drawing.Size(124, 25)
         Me.Label8.TabIndex = 56
         Me.Label8.Text = "Observações"
         '
         'RadButton4
         '
+        Me.RadButton4.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.RadButton4.Location = New System.Drawing.Point(402, 364)
         Me.RadButton4.Name = "RadButton4"
+        '
+        '
+        '
+        Me.RadButton4.RootElement.AccessibleDescription = Nothing
+        Me.RadButton4.RootElement.AccessibleName = Nothing
+        Me.RadButton4.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.RadButton4.Size = New System.Drawing.Size(103, 37)
         Me.RadButton4.TabIndex = 51
         Me.RadButton4.Text = "Cancelar"
@@ -73,8 +78,15 @@ Partial Class OPR_Artigos
         '
         'RadButton3
         '
+        Me.RadButton3.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.RadButton3.Location = New System.Drawing.Point(294, 364)
         Me.RadButton3.Name = "RadButton3"
+        '
+        '
+        '
+        Me.RadButton3.RootElement.AccessibleDescription = Nothing
+        Me.RadButton3.RootElement.AccessibleName = Nothing
+        Me.RadButton3.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.RadButton3.Size = New System.Drawing.Size(103, 37)
         Me.RadButton3.TabIndex = 50
         Me.RadButton3.Text = "Restaurar Dados Originais"
@@ -83,8 +95,15 @@ Partial Class OPR_Artigos
         '
         'RadButton1
         '
+        Me.RadButton1.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.RadButton1.Location = New System.Drawing.Point(121, 364)
         Me.RadButton1.Name = "RadButton1"
+        '
+        '
+        '
+        Me.RadButton1.RootElement.AccessibleDescription = Nothing
+        Me.RadButton1.RootElement.AccessibleName = Nothing
+        Me.RadButton1.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.RadButton1.Size = New System.Drawing.Size(103, 37)
         Me.RadButton1.TabIndex = 48
         Me.RadButton1.Text = "Editar"
@@ -92,8 +111,15 @@ Partial Class OPR_Artigos
         '
         'RadButton5
         '
+        Me.RadButton5.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.RadButton5.Location = New System.Drawing.Point(12, 364)
         Me.RadButton5.Name = "RadButton5"
+        '
+        '
+        '
+        Me.RadButton5.RootElement.AccessibleDescription = Nothing
+        Me.RadButton5.RootElement.AccessibleName = Nothing
+        Me.RadButton5.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.RadButton5.Size = New System.Drawing.Size(103, 37)
         Me.RadButton5.TabIndex = 47
         Me.RadButton5.Text = "Adicionar"
@@ -133,7 +159,7 @@ Partial Class OPR_Artigos
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(33, 106)
+        Me.Label1.Location = New System.Drawing.Point(29, 118)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(78, 25)
         Me.Label1.TabIndex = 41
@@ -148,15 +174,6 @@ Partial Class OPR_Artigos
         Me.Label4.Size = New System.Drawing.Size(80, 25)
         Me.Label4.TabIndex = 36
         Me.Label4.Text = "NºSérie"
-        '
-        'RadButton6
-        '
-        Me.RadButton6.Location = New System.Drawing.Point(111, 136)
-        Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(122, 23)
-        Me.RadButton6.TabIndex = 60
-        Me.RadButton6.Text = "Selecionar Cliente"
-        Me.RadButton6.ThemeName = "Windows8"
         '
         'Timer1
         '
@@ -228,7 +245,7 @@ Partial Class OPR_Artigos
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(303, 106)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(141, 25)
+        Me.Label5.Size = New System.Drawing.Size(142, 25)
         Me.Label5.TabIndex = 71
         Me.Label5.Text = "Tipo de Artigo"
         '
@@ -236,7 +253,7 @@ Partial Class OPR_Artigos
         '
         Me.nomeclientelabel.AutoSize = True
         Me.nomeclientelabel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nomeclientelabel.Location = New System.Drawing.Point(111, 108)
+        Me.nomeclientelabel.Location = New System.Drawing.Point(107, 120)
         Me.nomeclientelabel.MaximumSize = New System.Drawing.Size(200, 25)
         Me.nomeclientelabel.Name = "nomeclientelabel"
         Me.nomeclientelabel.Size = New System.Drawing.Size(143, 21)
@@ -257,7 +274,6 @@ Partial Class OPR_Artigos
         Me.Controls.Add(Me.modelobox)
         Me.Controls.Add(Me.marcabox)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -276,23 +292,17 @@ Partial Class OPR_Artigos
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
@@ -303,4 +313,8 @@ Partial Class OPR_Artigos
     Friend WithEvents tipo_componentebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
+    Private WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
+    Private WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
+    Private WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
+    Private WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
 End Class

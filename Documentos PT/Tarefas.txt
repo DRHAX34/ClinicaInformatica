@@ -26,7 +26,7 @@ No relatório adicionar o nome dos técnicos participantes na parte Escolar do pro
 
 
 Fonseca:
-Na parte dos artigos, remover o selecionar componente.- Fonseca
+Done - Na parte dos artigos, remover o selecionar componente.- Fonseca
 Adicionar imagens correspondentes a cada botão (Ex. Um "X" no eliminar, entre outros...)- Fonseca
 Alterar o botão "restaurar dados de origem" no "Mostrar dados completos" dos Clientes para o icon de "Reiniciar"- Fonseca
 Na parte do localizar dos Clientes, adicionar pesquisa por Cod_Cliente.- Fonseca
@@ -36,7 +36,7 @@ NºSérie nao é campo obrigatório.- Fonseca
 Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
 Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
 Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
-Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
+Done - Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
 Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
 
 
