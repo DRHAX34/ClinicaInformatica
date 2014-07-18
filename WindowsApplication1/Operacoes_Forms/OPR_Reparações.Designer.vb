@@ -53,6 +53,9 @@ Partial Class OPR_Reparações
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.preçobox = New System.Windows.Forms.TextBox()
         Me.nomeclientelabel = New System.Windows.Forms.Label()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.clientelabel = New System.Windows.Forms.Label()
+        Me.clienteshow = New System.Windows.Forms.Label()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,6 +68,7 @@ Partial Class OPR_Reparações
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'descriçaobox
@@ -343,12 +347,43 @@ Partial Class OPR_Reparações
         Me.nomeclientelabel.TabIndex = 82
         Me.nomeclientelabel.Text = "Não selecionado!"
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.clienteshow)
+        Me.Panel1.Controls.Add(Me.clientelabel)
+        Me.Panel1.Location = New System.Drawing.Point(550, 189)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(244, 222)
+        Me.Panel1.TabIndex = 83
+        '
+        'clientelabel
+        '
+        Me.clientelabel.AutoSize = True
+        Me.clientelabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.clientelabel.Location = New System.Drawing.Point(8, 18)
+        Me.clientelabel.Name = "clientelabel"
+        Me.clientelabel.Size = New System.Drawing.Size(78, 25)
+        Me.clientelabel.TabIndex = 0
+        Me.clientelabel.Text = "Cliente:"
+        '
+        'clienteshow
+        '
+        Me.clienteshow.AutoSize = True
+        Me.clienteshow.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
+        Me.clienteshow.Location = New System.Drawing.Point(8, 43)
+        Me.clienteshow.MaximumSize = New System.Drawing.Size(232, 25)
+        Me.clienteshow.Name = "clienteshow"
+        Me.clienteshow.Size = New System.Drawing.Size(232, 25)
+        Me.clienteshow.TabIndex = 1
+        Me.clienteshow.Text = "(clieeeeeeeeeeeeetteeeee"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 474)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.nomeclientelabel)
         Me.Controls.Add(Me.preçobox)
         Me.Controls.Add(Me.showdata)
@@ -391,6 +426,8 @@ Partial Class OPR_Reparações
         CType(Me.RadButton7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -425,4 +462,7 @@ Partial Class OPR_Reparações
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents preçobox As System.Windows.Forms.TextBox
     Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
+    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents clienteshow As System.Windows.Forms.Label
+    Friend WithEvents clientelabel As System.Windows.Forms.Label
 End Class

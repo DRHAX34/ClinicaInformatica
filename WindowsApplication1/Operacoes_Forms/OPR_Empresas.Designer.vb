@@ -27,7 +27,6 @@ Partial Class OPR_Empresas
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
         Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
@@ -37,8 +36,6 @@ Partial Class OPR_Empresas
         Me.caminhobox = New System.Windows.Forms.TextBox()
         Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.logobox = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.nomebox = New System.Windows.Forms.TextBox()
         Me.moradabox = New System.Windows.Forms.TextBox()
@@ -46,7 +43,8 @@ Partial Class OPR_Empresas
         Me.nifbox = New System.Windows.Forms.TextBox()
         Me.codpostalbox = New System.Windows.Forms.MaskedTextBox()
         Me.simcheck = New System.Windows.Forms.RadioButton()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.logobox = New System.Windows.Forms.PictureBox()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -105,19 +103,9 @@ Partial Class OPR_Empresas
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "Empresas"
         '
-        'RadButton5
-        '
-        Me.RadButton5.Location = New System.Drawing.Point(35, 330)
-        Me.RadButton5.Name = "RadButton5"
-        Me.RadButton5.Size = New System.Drawing.Size(113, 44)
-        Me.RadButton5.TabIndex = 21
-        Me.RadButton5.Text = "Adicionar"
-        Me.RadButton5.TextWrap = True
-        Me.RadButton5.ThemeName = "Windows8"
-        '
         'RadButton1
         '
-        Me.RadButton1.Location = New System.Drawing.Point(154, 330)
+        Me.RadButton1.Location = New System.Drawing.Point(36, 327)
         Me.RadButton1.Name = "RadButton1"
         Me.RadButton1.Size = New System.Drawing.Size(113, 44)
         Me.RadButton1.TabIndex = 22
@@ -194,25 +182,6 @@ Partial Class OPR_Empresas
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.company
-        Me.PictureBox1.Location = New System.Drawing.Point(36, 23)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
-        Me.PictureBox1.TabIndex = 64
-        Me.PictureBox1.TabStop = False
-        '
-        'logobox
-        '
-        Me.logobox.Location = New System.Drawing.Point(506, 140)
-        Me.logobox.Name = "logobox"
-        Me.logobox.Size = New System.Drawing.Size(141, 141)
-        Me.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.logobox.TabIndex = 59
-        Me.logobox.TabStop = False
-        '
         'nomebox
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
@@ -267,6 +236,25 @@ Partial Class OPR_Empresas
         Me.simcheck.Text = "Sim"
         Me.simcheck.UseVisualStyleBackColor = True
         '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.company
+        Me.PictureBox1.Location = New System.Drawing.Point(36, 23)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.PictureBox1.TabIndex = 64
+        Me.PictureBox1.TabStop = False
+        '
+        'logobox
+        '
+        Me.logobox.Location = New System.Drawing.Point(506, 140)
+        Me.logobox.Name = "logobox"
+        Me.logobox.Size = New System.Drawing.Size(141, 141)
+        Me.logobox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.logobox.TabIndex = 59
+        Me.logobox.TabStop = False
+        '
         'OPR_Empresas
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -289,7 +277,6 @@ Partial Class OPR_Empresas
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
         Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -299,7 +286,6 @@ Partial Class OPR_Empresas
         Me.Name = "OPR_Empresas"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Clientes"
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
@@ -315,7 +301,6 @@ Partial Class OPR_Empresas
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
     Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton

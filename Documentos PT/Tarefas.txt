@@ -1,12 +1,12 @@
 Vitorino:
-Logotipo da empresa do lado direito e o nome de utilizador e o tipo de utilizador em baixo no canto inferior direito.
-O programa na parte Profissional, na operação Reparações, adicionar o nome do cliente no espaço vazio.
-Na operação Reparações, no selecionar componente. Listar todos os artigos pertencentes sómente ao cliente selecionado.
-Na parte do pesquisar, meter uma "pesquisa por tipo_artigo, em vez da pesquisa por cod_cliente"
+feito! - Logotipo da empresa do lado direito e o nome de utilizador e o tipo de utilizador em baixo no canto inferior direito.
+feito! - O programa na parte Profissional, na operação Reparações, adicionar o nome do cliente no espaço vazio.
+feito! - Na operação Reparações, no selecionar componente. Listar todos os artigos pertencentes sómente ao cliente selecionado.
+feito! - fazer uma revisão à BLL e torná-la mais pequena,optimizada e simples.
+feito! - Remover o botão Empresas
 Eliminar as operações Artigos e Reparações do menu principal e meter na form Clientes.
 Na parte dos Clientes, remover o botão "editar" e substituir por double click na datagridview. 
 No botão "Mostrar dados Clientes" poder editar, e adicionar 2 botões para os artigos e reparações.
-Lembrete: Validação do nif na localização
 Eliminar botões desnecessários que estão desativados na form dos clientes.
 Selecionar automaticamente a textbox na localização dos clientes
 Se um dos contactos tiver preenchido avançar.
@@ -18,9 +18,8 @@ Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD,
 Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
 Quando clicar no botão "Gravar" abrir o relatório final que é exactamente igual à 2ºFolha do primeiro mas com tudo preenchido.
 Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
-Remover o header das datagridviews, se não der devido ao tipo de datagridview que temos, substituir pelo original e remover header.
-Rever permissões de Administrador, pode adicionar clientes, mas nao pode adicionar nem reparações nem artigos...
-Remover o botão Empresas
+substituir datagridview pelo original se pudermos.
+Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
 Remover fotografia como campo obrigatório.
 Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
 No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa

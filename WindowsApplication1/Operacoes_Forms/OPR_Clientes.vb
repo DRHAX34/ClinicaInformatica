@@ -121,7 +121,7 @@
                 If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
                     Dim opr_componente As New OPR_Artigos
                     opr_componente.modo = False
-                    opr_componente.n_cliente = BLL.Clientes.carregar_max()
+                    opr_componente.n_cliente = BLL.Clientes.carregar_max(True)
                     opr_componente.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
                     opr_componente.Show()

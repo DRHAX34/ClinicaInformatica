@@ -6,7 +6,7 @@
     Private Sub OPR_Dispositivos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If modo = True Then
             n_cliente = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
-            nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente).Rows(0).Item("Nome").ToString()
+            nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente, True).Rows(0).Item("Nome").ToString()
             marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
             modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
             numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
@@ -92,7 +92,7 @@
                 BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                 MsgBox("Inserido com sucesso")
                 If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then
-                    If BLL.Tecnicos.carregar.Rows.Count = 0 Then
+                    If BLL.Tecnicos.carregar(True).Rows.Count = 0 Then
                         If Workspace.admin = True Then
                             If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
                                 Dim opr_tecnicos As New OPR_Técnicos
@@ -112,7 +112,7 @@
                         Dim opr_reparações As New OPR_Reparações
                         opr_reparações.MdiParent = Workspace
                         opr_reparações.modo = False
-                        opr_reparações.numcomponentebox.Text = BLL.Artigos.carregar.Rows(BLL.Artigos.carregar.Rows.Count - 1).Item("NºArtigo").ToString
+                        opr_reparações.numcomponentebox.Text = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString
                         opr_reparações.Show()
                         Me.Close()
                     End If
@@ -149,7 +149,7 @@
         If Workspace.check_select = False Then
             Timer1.Stop()
             Try
-                nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente).Rows(0).Item("Nome").ToString
+                nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente, True).Rows(0).Item("Nome").ToString
             Catch
             End Try
         End If

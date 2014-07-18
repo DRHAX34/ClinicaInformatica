@@ -24,11 +24,8 @@ Partial Class Selectform
     Private Sub InitializeComponent()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.showdata = New Telerik.WinControls.UI.RadGridView()
         Me.adicionarbutton = New Telerik.WinControls.UI.RadButton()
-        Me.RadioButton3 = New System.Windows.Forms.RadioButton()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -38,7 +35,7 @@ Partial Class Selectform
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(13, 13)
+        Me.Label1.Location = New System.Drawing.Point(13, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(108, 32)
         Me.Label1.TabIndex = 0
@@ -47,37 +44,15 @@ Partial Class Selectform
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(396, 10)
+        Me.TextBox1.Location = New System.Drawing.Point(127, 9)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(206, 35)
         Me.TextBox1.TabIndex = 1
         '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(206, 3)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton1.TabIndex = 2
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(206, 26)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton2.TabIndex = 3
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
         'showdata
         '
         Me.showdata.AutoSizeRows = True
-        Me.showdata.Location = New System.Drawing.Point(19, 71)
+        Me.showdata.Location = New System.Drawing.Point(19, 50)
         '
         'showdata
         '
@@ -94,34 +69,21 @@ Partial Class Selectform
         '
         'adicionarbutton
         '
-        Me.adicionarbutton.Location = New System.Drawing.Point(489, 362)
+        Me.adicionarbutton.Image = Global.ClinicaInformatica.My.Resources.Resources._1405695721_Select
+        Me.adicionarbutton.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter
+        Me.adicionarbutton.Location = New System.Drawing.Point(531, 333)
         Me.adicionarbutton.Name = "adicionarbutton"
-        Me.adicionarbutton.Size = New System.Drawing.Size(113, 34)
+        Me.adicionarbutton.Size = New System.Drawing.Size(71, 53)
         Me.adicionarbutton.TabIndex = 22
-        Me.adicionarbutton.Text = "Selecionar"
-        '
-        'RadioButton3
-        '
-        Me.RadioButton3.AutoSize = True
-        Me.RadioButton3.Location = New System.Drawing.Point(206, 48)
-        Me.RadioButton3.Name = "RadioButton3"
-        Me.RadioButton3.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton3.TabIndex = 23
-        Me.RadioButton3.TabStop = True
-        Me.RadioButton3.Text = "RadioButton3"
-        Me.RadioButton3.UseVisualStyleBackColor = True
         '
         'Selectform
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(614, 408)
-        Me.Controls.Add(Me.RadioButton3)
+        Me.ClientSize = New System.Drawing.Size(614, 394)
         Me.Controls.Add(Me.adicionarbutton)
         Me.Controls.Add(Me.showdata)
-        Me.Controls.Add(Me.RadioButton2)
-        Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Label1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -137,9 +99,6 @@ Partial Class Selectform
     End Sub
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
     Friend WithEvents adicionarbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadioButton3 As System.Windows.Forms.RadioButton
 End Class

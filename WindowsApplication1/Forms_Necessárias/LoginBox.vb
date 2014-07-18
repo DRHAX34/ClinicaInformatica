@@ -71,7 +71,7 @@
                 Workspace.tecnicosmenu.Visible = False
                 Workspace.admin = False
                 tipo = "Utilizador Padrão"
-                Workspace.tecnico = BLL.Admin_only.Login.carregar_dados_codutilizador_ativados(user).Rows(0).Item("N_Técnico").ToString
+                Workspace.tecnico = BLL.Admin_only.Login.carregar_dados_codutilizador(user, True).Rows(0).Item("N_Técnico").ToString
             End If
             Workspace.EmpresasToolStripMenuItem.Enabled = True
             Workspace.modo = 2

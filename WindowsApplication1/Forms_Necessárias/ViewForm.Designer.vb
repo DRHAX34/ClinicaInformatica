@@ -38,8 +38,6 @@ Partial Class ViewForm
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -71,9 +69,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.showdata.RootElement.AccessibleDescription = Nothing
-        Me.showdata.RootElement.AccessibleName = Nothing
-        Me.showdata.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 240, 150)
+        Me.showdata.RootElement.ControlBounds = New System.Drawing.Rectangle(13, 13, 240, 150)
         Me.showdata.Size = New System.Drawing.Size(709, 322)
         Me.showdata.TabIndex = 0
         Me.showdata.Text = "Data"
@@ -82,15 +78,14 @@ Partial Class ViewForm
         'newbutton
         '
         Me.newbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.newbutton.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter
         Me.newbutton.ImageScalingSize = New System.Drawing.Size(38, 38)
         Me.newbutton.Location = New System.Drawing.Point(13, 364)
         Me.newbutton.Name = "newbutton"
         '
         '
         '
-        Me.newbutton.RootElement.AccessibleDescription = Nothing
-        Me.newbutton.RootElement.AccessibleName = Nothing
-        Me.newbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.newbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(13, 364, 110, 24)
         Me.newbutton.Size = New System.Drawing.Size(102, 38)
         Me.newbutton.TabIndex = 1
         Me.newbutton.Text = "Novo"
@@ -104,9 +99,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.delbutton.RootElement.AccessibleDescription = Nothing
-        Me.delbutton.RootElement.AccessibleName = Nothing
-        Me.delbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.delbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(13, 417, 110, 24)
         Me.delbutton.Size = New System.Drawing.Size(102, 38)
         Me.delbutton.TabIndex = 2
         Me.delbutton.Text = "Eliminar"
@@ -120,9 +113,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.editbutton.RootElement.AccessibleDescription = Nothing
-        Me.editbutton.RootElement.AccessibleName = Nothing
-        Me.editbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.editbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(137, 364, 110, 24)
         Me.editbutton.Size = New System.Drawing.Size(102, 38)
         Me.editbutton.TabIndex = 3
         Me.editbutton.Text = "Editar"
@@ -136,9 +127,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.updatebutton.RootElement.AccessibleDescription = Nothing
-        Me.updatebutton.RootElement.AccessibleName = Nothing
-        Me.updatebutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.updatebutton.RootElement.ControlBounds = New System.Drawing.Rectangle(137, 417, 110, 24)
         Me.updatebutton.Size = New System.Drawing.Size(102, 38)
         Me.updatebutton.TabIndex = 4
         Me.updatebutton.Text = "Atualizar"
@@ -152,9 +141,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.findbutton.RootElement.AccessibleDescription = Nothing
-        Me.findbutton.RootElement.AccessibleName = Nothing
-        Me.findbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.findbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(494, 364, 110, 24)
         Me.findbutton.Size = New System.Drawing.Size(102, 38)
         Me.findbutton.TabIndex = 5
         Me.findbutton.Text = "Localizar"
@@ -168,9 +155,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.showbutton.RootElement.AccessibleDescription = Nothing
-        Me.showbutton.RootElement.AccessibleName = Nothing
-        Me.showbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.showbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(620, 364, 110, 24)
         Me.showbutton.Size = New System.Drawing.Size(102, 38)
         Me.showbutton.TabIndex = 6
         Me.showbutton.Text = "Mostrar Dados Completos"
@@ -185,9 +170,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.exitbutton.RootElement.AccessibleDescription = Nothing
-        Me.exitbutton.RootElement.AccessibleName = Nothing
-        Me.exitbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.exitbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(620, 417, 110, 24)
         Me.exitbutton.Size = New System.Drawing.Size(102, 38)
         Me.exitbutton.TabIndex = 7
         Me.exitbutton.Text = "Sair"
@@ -201,9 +184,7 @@ Partial Class ViewForm
         '
         '
         '
-        Me.othersbutton.RootElement.AccessibleDescription = Nothing
-        Me.othersbutton.RootElement.AccessibleName = Nothing
-        Me.othersbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
+        Me.othersbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(494, 417, 110, 24)
         Me.othersbutton.Size = New System.Drawing.Size(102, 38)
         Me.othersbutton.TabIndex = 8
         Me.othersbutton.Text = "Outras Funções"
@@ -228,11 +209,9 @@ Partial Class ViewForm
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.TextBox1)
-        Me.GroupBox1.Controls.Add(Me.RadioButton2)
-        Me.GroupBox1.Controls.Add(Me.RadioButton1)
         Me.GroupBox1.Location = New System.Drawing.Point(259, 355)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(229, 100)
+        Me.GroupBox1.Size = New System.Drawing.Size(229, 47)
         Me.GroupBox1.TabIndex = 10
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Localizar"
@@ -240,32 +219,10 @@ Partial Class ViewForm
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.TextBox1.Location = New System.Drawing.Point(6, 52)
+        Me.TextBox1.Location = New System.Drawing.Point(6, 19)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(217, 22)
         Me.TextBox1.TabIndex = 2
-        '
-        'RadioButton2
-        '
-        Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(133, 19)
-        Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton2.TabIndex = 1
-        Me.RadioButton2.TabStop = True
-        Me.RadioButton2.Text = "RadioButton2"
-        Me.RadioButton2.UseVisualStyleBackColor = True
-        '
-        'RadioButton1
-        '
-        Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(6, 19)
-        Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(90, 17)
-        Me.RadioButton1.TabIndex = 0
-        Me.RadioButton1.TabStop = True
-        Me.RadioButton1.Text = "RadioButton1"
-        Me.RadioButton1.UseVisualStyleBackColor = True
         '
         'CheckBox1
         '
@@ -323,8 +280,6 @@ Partial Class ViewForm
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
     Friend WithEvents newbutton As Telerik.WinControls.UI.RadButton

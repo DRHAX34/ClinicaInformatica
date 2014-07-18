@@ -11,14 +11,8 @@
         If modo = True Then
             RadButton3.PerformClick()
         Else
-            RadButton5.Enabled = True
             RadButton1.Enabled = False
             RadButton3.Text = "Limpar Tudo"
-        End If
-        If removidos = True Then
-            RadButton5.Text = "Remover Permanentemente"
-        Else
-            RadButton5.Text = "Adicionar"
         End If
 
     End Sub
@@ -32,84 +26,6 @@
         naocheck.Checked = True
         simcheck.Checked = False
     End Sub
-
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
-        If removidos = False Then
-            Dim check_nome As String = ""
-            Dim check_morada As String = ""
-            Dim check_nif As Boolean = True
-            Dim check_codpostal As Boolean = True
-            Dim check_localidade As String = ""
-            Dim checklogo As Boolean = False
-            Try
-                check_nome = nomebox.Text
-                check_nome.Trim()
-                check_morada = moradabox.Text
-                check_morada.Trim()
-                If nifbox.Text < 9 Then
-                    check_nif = False
-                Else
-                    check_nif = True
-                End If
-                If codpostalbox.Text.Count < 7 Then
-                    check_codpostal = False
-                Else
-                    check_codpostal = True
-                End If
-                check_localidade = localidadebox.Text
-                check_localidade.Trim()
-                If caminhobox.Text <> "" Then
-                    checklogo = True
-                Else
-                    checklogo = False
-                End If
-            Catch
-            End Try
-            If simcheck.Checked = True Or naocheck.Checked = True Then
-                If Not check_nome = "" And Not check_morada = "" And Not check_nif = False And Not check_localidade = "" And Not check_codpostal = False And Not checklogo = False Then
-                    Try
-                        If BLL.Admin_only.Empresas.check_exist(nomebox.Text) = 1 Then
-                            MsgBox("Esta Empresa já existe!")
-                        Else
-                            BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
-                            If MsgBox("Tem que criar um técnico para esta empresa. Deseja criar agora?", MsgBoxStyle.YesNo) = vbYes Then
-                                Dim opr_tecnicos As New OPR_Técnicos
-                                opr_tecnicos.MdiParent = Workspace
-                                opr_tecnicos.modo = False
-                                opr_tecnicos.Show()
-                                For i = 0 To opr_tecnicos.empresabox.Items.Count - 1
-                                    If opr_tecnicos.empresabox.Items.Item(i) = nomebox.Text Then
-                                        opr_tecnicos.empresabox.SelectedIndex = i
-                                    End If
-                                Next
-                                Me.Close()
-                            Else
-                                MsgBox("Não poderá inserir dados nesta empresa ou iniciar sessão até criar pelo menos um técnico", vbOK, "Sem Técnicos!")
-                                Me.Close()
-                            End If
-                        End If
-                    Catch ex As Exception
-                        MsgBox("Ocorreu um erro: " & ex.Message)
-                    End Try
-                Else
-                    MsgBox("Insira os dados todos!")
-                End If
-            Else
-                MsgBox("Indique se a Empresa tem alunos ou não!")
-            End If
-        Else
-            Try
-                BLL.Admin_only.eliminar_empresa(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString())
-                MsgBox("Removida com sucesso!")
-                Workspace.EmpresasToolStripMenuItem.PerformClick()
-            Catch ex As Exception
-                MsgBox("Erro ao remover: " & ex.Message)
-            End Try
-        End If
-    End Sub
-
-    
-
     Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
         Dim check_nome As String = ""
         Dim check_morada As String = ""
@@ -207,7 +123,7 @@
                     simcheck.Checked = False
                 End If
                 caminhobox.Text = "<Não Alterado>"
-                logo = BLL.Admin_only.Empresas.carregar_pic()
+                logo = BLL.Admin_only.Empresas.return_pic()
                 logobox.Image = logo
             Catch ex As Exception
                 MsgBox("Erro: " & ex.Message)

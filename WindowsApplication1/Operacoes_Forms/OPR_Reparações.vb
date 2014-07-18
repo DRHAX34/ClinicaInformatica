@@ -4,7 +4,15 @@
     Public removidos As Boolean
     Public read_only As Boolean
     Public check As Boolean = True
+    Public cliente As Integer
     Private Sub OPR_Reparações_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        If Workspace.Aluno = True Then
+            Panel1.Hide()
+        Else
+            clienteshow.Text = BLL.Clientes.carregar_dados_numcliente(cliente, True).Rows(0).Item("Nome").ToString
+            Panel1.Show()
+            Panel1.BringToFront()
+        End If
         If modo = True Then
             numcomponentebox.Text = reparaçao_data.Rows.Item(0).Item("NºArtigo").ToString()
             If reparaçao_data.Rows.Item(0).Item("Preço").ToString() <> "" Then
@@ -31,7 +39,7 @@
                     insert_software.Enabled = True
                 End If
             End If
-                showdata.DataSource = Workspace.tecnicos_support
+            showdata.DataSource = Workspace.tecnicos_support
             RadButton1.Enabled = True
             RadButton5.Enabled = False
 
@@ -136,7 +144,7 @@
         '    End If
         'Catch
         'End Try
-        Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(numcomponentebox.Text)
+        Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(numcomponentebox.Text, True)
         nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
     End Sub
 
@@ -230,7 +238,7 @@
                     End If
                 End If
                 If Workspace.Aluno = False Then
-                    Workspace.tecnicos_support.Rows.Add(Workspace.tecnico, BLL.Tecnicos.carregar_dados_ntecnico_ativados(Workspace.tecnico).Rows(0).Item("Nome").ToString())
+                    Workspace.tecnicos_support.Rows.Add(Workspace.tecnico, BLL.Tecnicos.carregar_dados(Workspace.tecnico, True).Rows(0).Item("Nome").ToString())
                 End If
                 If Workspace.tecnicos_support.Columns.Count <> 0 Then
                     If Workspace.tecnicos_support.Rows.Count <> 0 Then
@@ -314,7 +322,7 @@
     Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
         Try
             numcomponentebox.Text = Workspace.support
-            Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(Workspace.support)
+            Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(Workspace.support, True)
             nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
             If Workspace.check_select = False Then
                 Timer3.Stop()

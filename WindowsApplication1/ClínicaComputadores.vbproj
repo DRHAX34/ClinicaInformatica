@@ -468,6 +468,7 @@
     <None Include="Resources\1405624497_MB__reload.png" />
     <None Include="Resources\1405624626_Add.png" />
     <None Include="Resources\1405624938_file_edit.png" />
+    <None Include="Resources\1405695721_Select.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -44,8 +44,6 @@ Partial Class OPR_Técnicos
         Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
         Me.caminhobox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.empresabox = New System.Windows.Forms.ComboBox()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.respostabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.perguntabox = New ClinicaInformatica.WaterMarkTextBox()
@@ -283,25 +281,6 @@ Partial Class OPR_Técnicos
         Me.caminhobox.WaterMarkColor = System.Drawing.Color.Gray
         Me.caminhobox.WaterMarkText = "Obrigatório"
         '
-        'empresabox
-        '
-        Me.empresabox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.empresabox.FormattingEnabled = True
-        Me.empresabox.Location = New System.Drawing.Point(453, 150)
-        Me.empresabox.Name = "empresabox"
-        Me.empresabox.Size = New System.Drawing.Size(147, 21)
-        Me.empresabox.TabIndex = 99
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(447, 122)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(87, 25)
-        Me.Label3.TabIndex = 98
-        Me.Label3.Text = "Empresa"
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.respostabox)
@@ -459,8 +438,6 @@ Partial Class OPR_Técnicos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(810, 476)
-        Me.Controls.Add(Me.empresabox)
-        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.RadButton4)
         Me.Controls.Add(Me.RadButton3)
@@ -525,8 +502,6 @@ Partial Class OPR_Técnicos
     Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
     Friend WithEvents caminhobox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents empresabox As System.Windows.Forms.ComboBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents respostabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents perguntabox As ClinicaInformatica.WaterMarkTextBox

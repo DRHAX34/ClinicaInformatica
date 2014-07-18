@@ -5,7 +5,6 @@
     Public image_tec As Image
     Public img_caminho As String
     Private Sub OPR_Técnicos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        empresabox.DataSource = BLL.Login.Carregar_empresas
         If Workspace.Aluno = True Then
             numalunobox.Show()
             numalunolabel.Show()
@@ -40,11 +39,6 @@
             verifbox.Text = passdecript
             perguntabox.Text = tecnico_data.Rows.Item(0).Item("Pergunta_S")
             respostabox.Text = tecnico_data.Rows.Item(0).Item("Resposta_S")
-            For i = 0 To empresabox.Items.Count - 1
-                If empresabox.Items(i).ToString = BLL.Admin_only.Empresas.carregar_dados_numempresa(tecnico_data.Rows.Item(0).Item("NºEmpresa").ToString()).Rows.Item(0).Item("Nome").ToString Then
-                    empresabox.SelectedIndex = i
-                End If
-            Next
         Else
             contacto_fbox.Text = "+351"
             contactom_box.Text = "+351"
@@ -192,7 +186,6 @@
     End Sub
 
     Private Sub RadButton5_Click_1(sender As Object, e As EventArgs) Handles RadButton5.Click
-        Dim check_empresa As String = ""
         Dim check_nomutil As String = ""
         Dim check_pass As String = ""
         Dim check_pergunta As String = ""
@@ -246,16 +239,12 @@
             End If
         check_image = caminhobox.Text
         check_image.Trim()
-            check_empresa = empresabox.Text
-            check_empresa.Trim()
         Catch ex As Exception
 
         End Try
-        Dim n_empresa As Integer
-        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_empresa = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
                 BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
-                n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
                 Dim password As String = passwordbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
@@ -271,7 +260,6 @@
     End Sub
 
     Private Sub RadButton1_Click_1(sender As Object, e As EventArgs) Handles RadButton1.Click
-        Dim check_empresa As String = ""
         Dim check_nomutil As String = ""
         Dim check_pass As String = ""
         Dim check_pergunta As String = ""
@@ -325,17 +313,13 @@
             End If
             check_image = caminhobox.Text
             check_image.Trim()
-            check_empresa = empresabox.Text
-            check_empresa = ""
         Catch ex As Exception
 
         End Try
         Dim n_empresa As Integer
-        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_empresa = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
-                BLL.n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
                 BLL.Tecnicos.alterar(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec, tecnico_data.Rows(0).Item("NºTécnico").ToString)
-                n_empresa = BLL.Login.return_n_empresa(empresabox.SelectedItem.ToString)
                 Dim password As String = passwordbox.Text
                 Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
                 Dim passencript As String = wrapper.EncryptData(password)
@@ -364,11 +348,6 @@
             verifbox.Text = passdecript
             perguntabox.Text = tecnico_data.Rows.Item(0).Item("Pergunta_S")
             respostabox.Text = tecnico_data.Rows.Item(0).Item("Resposta_S")
-            For i = 0 To empresabox.Items.Count - 1
-                If empresabox.Items(i).ToString = BLL.Admin_only.Empresas.carregar_dados_numempresa(tecnico_data.Rows.Item(0).Item("NºEmpresa").ToString()).Rows.Item(0).Item("Nome").ToString Then
-                    empresabox.SelectedIndex = i
-                End If
-            Next
         Else
             numalunobox.Text = ""
             turmabox.Text = ""
@@ -382,7 +361,6 @@
             verifbox.Text = ""
             perguntabox.Text = ""
             respostabox.Text = ""
-            empresabox.SelectedIndex = 0
         End If
     End Sub
 
