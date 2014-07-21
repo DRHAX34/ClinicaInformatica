@@ -4,6 +4,7 @@ feito! - O programa na parte Profissional, na operação Reparações, adicionar o n
 feito! - Na operação Reparações, no selecionar componente. Listar todos os artigos pertencentes sómente ao cliente selecionado.
 feito! - fazer uma revisão à BLL e torná-la mais pequena,optimizada e simples.
 feito! - Remover o botão Empresas
+
 Eliminar as operações Artigos e Reparações do menu principal e meter na form Clientes.
 Na parte dos Clientes, remover o botão "editar" e substituir por double click na datagridview. 
 No botão "Mostrar dados Clientes" poder editar, e adicionar 2 botões para os artigos e reparações.
