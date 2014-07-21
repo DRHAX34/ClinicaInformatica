@@ -121,19 +121,19 @@ Public Class BLL
             Shared Function carregar(ByRef ativo As Boolean) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@ativo", ativo))
-                Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos FROM Empresas where Ativo=@ativo", p)
+                Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos,Email,Site,Contacto_F FROM Empresas where Ativo=@ativo", p)
             End Function
             Shared Function carregar_dados_numempresa(ByRef n_empresa As String, ByRef ativo As Boolean) As DataTable
                 Dim p As New ArrayList
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 p.Add(New SqlParameter("@ativo", ativo))
                 If n_empresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos FROM Empresas where Ativo=@ativo", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos,Email,Site,Contacto_F FROM Empresas where Ativo=@ativo", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos FROM Empresas where NºEmpresa=@n_empresa AND Ativo=@ativo", p)
+                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos,Email,Site,Contacto_F FROM Empresas where NºEmpresa=@n_empresa AND Ativo=@ativo", p)
                 End If
             End Function
-            Shared Sub inserir(ByVal alunos As Boolean, ByVal Nome As String, ByVal Morada As String, ByVal NIF As String, ByVal Cod_Postal As String, ByVal Localidade As String, ByVal Logo As Image, ByVal Ativo As Boolean)
+            Shared Sub inserir(ByVal alunos As Boolean, ByVal Nome As String, ByVal Morada As String, ByVal NIF As String, ByVal Cod_Postal As String, ByVal Localidade As String, ByVal Logo As Image, ByVal Email As String, ByVal Site As String, ByVal Contacto_Fix As String, ByVal Ativo As Boolean)
                 Dim p As New ArrayList
                 Dim img_save As New SqlParameter("@img", SqlDbType.Image)
                 p.Add(New SqlParameter("@Nome", Nome))
@@ -142,14 +142,17 @@ Public Class BLL
                 p.Add(New SqlParameter("@Cod_Postal", Cod_Postal))
                 p.Add(New SqlParameter("@Localidade", Localidade))
                 p.Add(New SqlParameter("@Alunos", alunos))
+                p.Add(New SqlParameter("@Email", Email))
+                p.Add(New SqlParameter("@Site", Site))
+                p.Add(New SqlParameter("@Contacto_F", Contacto_Fix))
                 Dim mStream As MemoryStream = New MemoryStream()
                 Logo.Save(mStream, ImageFormat.Png)
                 img_save.SqlValue = mStream.GetBuffer
                 p.Add(img_save)
                 p.Add(New SqlParameter("@Ativo", Ativo))
-                DAL.ExecuteNonQuery("Insert into Empresas(Nome,Morada,NIF,Cod_Postal,Localidade,Logo,Alunos,Ativo) VALUES (@nome, @morada, @NIF, @cod_postal,@Localidade,@img,@Alunos,1)", p)
+                DAL.ExecuteNonQuery("Insert into Empresas(Nome,Morada,NIF,Cod_Postal,Localidade,Logo,Alunos,Email,Site,Contacto_F,Ativo) VALUES (@nome, @morada, @NIF, @cod_postal,@Localidade,@img,@Alunos,@Email,@Site,@Contacto_F,1)", p)
             End Sub
-            Shared Sub alterar(ByVal NºEmpresa As Integer, ByVal Nome As String, ByVal Morada As String, ByVal NIF As String, ByVal Cod_Postal As String, ByVal Localidade As String, ByVal Logo As Image, ByVal ativo As Boolean)
+            Shared Sub alterar(ByVal NºEmpresa As Integer, ByVal Nome As String, ByVal Morada As String, ByVal NIF As String, ByVal Cod_Postal As String, ByVal Localidade As String, ByVal Logo As Image, ByVal Email As String, ByVal Site As String, ByVal Contacto_Fix As String, ByVal ativo As Boolean)
                 Dim p As New ArrayList
                 Dim img_save As New SqlParameter("@Logo", SqlDbType.Image)
                 p.Add(New SqlParameter("@Nome", Nome))
@@ -157,13 +160,16 @@ Public Class BLL
                 p.Add(New SqlParameter("@NIF", NIF))
                 p.Add(New SqlParameter("@Cod_Postal", Cod_Postal))
                 p.Add(New SqlParameter("@Localidade", Localidade))
+                p.Add(New SqlParameter("@Email", Email))
+                p.Add(New SqlParameter("@Site", Site))
+                p.Add(New SqlParameter("@Contacto_F", Contacto_Fix))
                 Dim mStream As MemoryStream = New MemoryStream()
                 Logo.Save(mStream, ImageFormat.Png)
                 img_save.SqlValue = mStream.GetBuffer
                 p.Add(img_save)
                 p.Add(New SqlParameter("@Ativo", ativo))
                 Try
-                    DAL.ExecuteNonQuery("Update Empresas set Nome = @Nome, Norada = @Morada, NIF= @NIF, Cod_Postal= @Cod_Postal, Localidade= @Localidade, Logo= @Logo, Ativo= @Ativo where NºEmpresa=@NºEmpresa", p)
+                    DAL.ExecuteNonQuery("Update Empresas set Nome = @Nome, Norada = @Morada, NIF= @NIF, Cod_Postal= @Cod_Postal, Localidade= @Localidade, Logo= @Logo, Email= @Email, Site= @Site, Contacto_F= @Contacto_F, Ativo= @Ativo where NºEmpresa=@NºEmpresa", p)
                 Catch e As Exception
                     MsgBox("Erro ao editar os dados: " & e.Message)
                 Finally

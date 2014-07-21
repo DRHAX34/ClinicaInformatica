@@ -46,6 +46,13 @@ Partial Class Passo2
         Me.naocheck = New System.Windows.Forms.RadioButton()
         Me.limparbutton = New System.Windows.Forms.Button()
         Me.logobox = New System.Windows.Forms.PictureBox()
+        Me.emaillabel = New System.Windows.Forms.Label()
+        Me.sitelabel = New System.Windows.Forms.Label()
+        Me.contactofixlabel = New System.Windows.Forms.Label()
+        Me.notalabel = New System.Windows.Forms.Label()
+        Me.contactofixbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
+        Me.emailbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.sitebox = New ClinicaInformatica.WaterMarkTextBox()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -85,9 +92,9 @@ Partial Class Passo2
         Me.nomelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.nomelabel.Location = New System.Drawing.Point(21, 115)
         Me.nomelabel.Name = "nomelabel"
-        Me.nomelabel.Size = New System.Drawing.Size(53, 20)
+        Me.nomelabel.Size = New System.Drawing.Size(56, 20)
         Me.nomelabel.TabIndex = 13
-        Me.nomelabel.Text = "Nome:"
+        Me.nomelabel.Text = "Nome*"
         '
         'moradalabel
         '
@@ -95,9 +102,9 @@ Partial Class Passo2
         Me.moradalabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.moradalabel.Location = New System.Drawing.Point(220, 115)
         Me.moradalabel.Name = "moradalabel"
-        Me.moradalabel.Size = New System.Drawing.Size(61, 20)
+        Me.moradalabel.Size = New System.Drawing.Size(67, 20)
         Me.moradalabel.TabIndex = 15
-        Me.moradalabel.Text = "Morada"
+        Me.moradalabel.Text = "Morada*"
         '
         'cod_postallabel
         '
@@ -105,9 +112,9 @@ Partial Class Passo2
         Me.cod_postallabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.cod_postallabel.Location = New System.Drawing.Point(220, 168)
         Me.cod_postallabel.Name = "cod_postallabel"
-        Me.cod_postallabel.Size = New System.Drawing.Size(102, 20)
+        Me.cod_postallabel.Size = New System.Drawing.Size(108, 20)
         Me.cod_postallabel.TabIndex = 17
-        Me.cod_postallabel.Text = "Código Postal"
+        Me.cod_postallabel.Text = "Código Postal*"
         '
         'Localidadelabel
         '
@@ -115,9 +122,9 @@ Partial Class Passo2
         Me.Localidadelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.Localidadelabel.Location = New System.Drawing.Point(21, 168)
         Me.Localidadelabel.Name = "Localidadelabel"
-        Me.Localidadelabel.Size = New System.Drawing.Size(82, 20)
+        Me.Localidadelabel.Size = New System.Drawing.Size(88, 20)
         Me.Localidadelabel.TabIndex = 19
-        Me.Localidadelabel.Text = "Localidade"
+        Me.Localidadelabel.Text = "Localidade*"
         '
         'Timer1
         '
@@ -128,9 +135,9 @@ Partial Class Passo2
         Me.niflabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.niflabel.Location = New System.Drawing.Point(21, 226)
         Me.niflabel.Name = "niflabel"
-        Me.niflabel.Size = New System.Drawing.Size(31, 20)
+        Me.niflabel.Size = New System.Drawing.Size(37, 20)
         Me.niflabel.TabIndex = 22
-        Me.niflabel.Text = "NIF"
+        Me.niflabel.Text = "NIF*"
         '
         'logolabel
         '
@@ -169,7 +176,7 @@ Partial Class Passo2
         '
         Me.alunoslabel.AutoSize = True
         Me.alunoslabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
-        Me.alunoslabel.Location = New System.Drawing.Point(220, 226)
+        Me.alunoslabel.Location = New System.Drawing.Point(220, 280)
         Me.alunoslabel.Name = "alunoslabel"
         Me.alunoslabel.Size = New System.Drawing.Size(94, 20)
         Me.alunoslabel.TabIndex = 36
@@ -232,7 +239,7 @@ Partial Class Passo2
         '
         Me.simcheck.AutoSize = True
         Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.simcheck.Location = New System.Drawing.Point(224, 250)
+        Me.simcheck.Location = New System.Drawing.Point(224, 304)
         Me.simcheck.Name = "simcheck"
         Me.simcheck.Size = New System.Drawing.Size(47, 21)
         Me.simcheck.TabIndex = 44
@@ -244,7 +251,7 @@ Partial Class Passo2
         '
         Me.naocheck.AutoSize = True
         Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.naocheck.Location = New System.Drawing.Point(224, 277)
+        Me.naocheck.Location = New System.Drawing.Point(277, 304)
         Me.naocheck.Name = "naocheck"
         Me.naocheck.Size = New System.Drawing.Size(51, 21)
         Me.naocheck.TabIndex = 45
@@ -271,11 +278,93 @@ Partial Class Passo2
         Me.logobox.TabIndex = 24
         Me.logobox.TabStop = False
         '
+        'emaillabel
+        '
+        Me.emaillabel.AutoSize = True
+        Me.emaillabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.emaillabel.Location = New System.Drawing.Point(21, 280)
+        Me.emaillabel.Name = "emaillabel"
+        Me.emaillabel.Size = New System.Drawing.Size(46, 20)
+        Me.emaillabel.TabIndex = 49
+        Me.emaillabel.Text = "Email"
+        '
+        'sitelabel
+        '
+        Me.sitelabel.AutoSize = True
+        Me.sitelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.sitelabel.Location = New System.Drawing.Point(21, 332)
+        Me.sitelabel.Name = "sitelabel"
+        Me.sitelabel.Size = New System.Drawing.Size(34, 20)
+        Me.sitelabel.TabIndex = 50
+        Me.sitelabel.Text = "Site"
+        '
+        'contactofixlabel
+        '
+        Me.contactofixlabel.AutoSize = True
+        Me.contactofixlabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.contactofixlabel.Location = New System.Drawing.Point(220, 226)
+        Me.contactofixlabel.Name = "contactofixlabel"
+        Me.contactofixlabel.Size = New System.Drawing.Size(106, 20)
+        Me.contactofixlabel.TabIndex = 53
+        Me.contactofixlabel.Text = "Contacto Fixo*"
+        '
+        'notalabel
+        '
+        Me.notalabel.AutoSize = True
+        Me.notalabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
+        Me.notalabel.Location = New System.Drawing.Point(21, 436)
+        Me.notalabel.Name = "notalabel"
+        Me.notalabel.Size = New System.Drawing.Size(171, 20)
+        Me.notalabel.TabIndex = 61
+        Me.notalabel.Text = "* - Campos Obrigatórios"
+        '
+        'contactofixbox
+        '
+        Me.contactofixbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
+        Me.contactofixbox.Location = New System.Drawing.Point(224, 250)
+        Me.contactofixbox.Mask = "+0000000000000"
+        Me.contactofixbox.Name = "contactofixbox"
+        Me.contactofixbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
+        Me.contactofixbox.Size = New System.Drawing.Size(110, 27)
+        Me.contactofixbox.TabIndex = 86
+        Me.contactofixbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
+        Me.contactofixbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.contactofixbox.WaterMarkText = "Contacto Fixo"
+        '
+        'emailbox
+        '
+        Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.emailbox.Location = New System.Drawing.Point(25, 302)
+        Me.emailbox.MaxLength = 9
+        Me.emailbox.Name = "emailbox"
+        Me.emailbox.Size = New System.Drawing.Size(184, 27)
+        Me.emailbox.TabIndex = 87
+        Me.emailbox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.emailbox.WaterMarkText = "Email"
+        '
+        'sitebox
+        '
+        Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sitebox.Location = New System.Drawing.Point(26, 355)
+        Me.sitebox.MaxLength = 9
+        Me.sitebox.Name = "sitebox"
+        Me.sitebox.Size = New System.Drawing.Size(183, 27)
+        Me.sitebox.TabIndex = 88
+        Me.sitebox.WaterMarkColor = System.Drawing.Color.DimGray
+        Me.sitebox.WaterMarkText = "Site"
+        '
         'Passo2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 468)
+        Me.Controls.Add(Me.sitebox)
+        Me.Controls.Add(Me.emailbox)
+        Me.Controls.Add(Me.contactofixbox)
+        Me.Controls.Add(Me.notalabel)
+        Me.Controls.Add(Me.contactofixlabel)
+        Me.Controls.Add(Me.sitelabel)
+        Me.Controls.Add(Me.emaillabel)
         Me.Controls.Add(Me.naocheck)
         Me.Controls.Add(Me.simcheck)
         Me.Controls.Add(Me.nifbox)
@@ -330,4 +419,11 @@ Partial Class Passo2
     Friend WithEvents nifbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents simcheck As System.Windows.Forms.RadioButton
     Friend WithEvents naocheck As System.Windows.Forms.RadioButton
+    Friend WithEvents emaillabel As System.Windows.Forms.Label
+    Friend WithEvents sitelabel As System.Windows.Forms.Label
+    Friend WithEvents contactofixlabel As System.Windows.Forms.Label
+    Friend WithEvents notalabel As System.Windows.Forms.Label
+    Friend WithEvents contactofixbox As ClinicaInformatica.MaskedWaterMarkTextBox
+    Friend WithEvents emailbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents sitebox As ClinicaInformatica.WaterMarkTextBox
 End Class

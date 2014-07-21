@@ -26,7 +26,6 @@ Partial Class OPR_Técnicos
         Me.turmalabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.numalunolabel = New System.Windows.Forms.Label()
-        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
@@ -55,18 +54,14 @@ Partial Class OPR_Técnicos
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.restartbutton = New System.Windows.Forms.Button()
+        Me.exitbutton = New System.Windows.Forms.Button()
+        Me.savebutton = New System.Windows.Forms.Button()
+        Me.reparaçoesefetuadasbutton = New System.Windows.Forms.Button()
+        Me.logobutton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label6
@@ -108,15 +103,6 @@ Partial Class OPR_Técnicos
         Me.numalunolabel.Size = New System.Drawing.Size(90, 25)
         Me.numalunolabel.TabIndex = 41
         Me.numalunolabel.Text = "NºAluno"
-        '
-        'RadButton6
-        '
-        Me.RadButton6.Location = New System.Drawing.Point(737, 180)
-        Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(33, 22)
-        Me.RadButton6.TabIndex = 57
-        Me.RadButton6.Text = "..."
-        Me.RadButton6.ThemeName = "Windows8"
         '
         'Label4
         '
@@ -279,7 +265,7 @@ Partial Class OPR_Técnicos
         Me.caminhobox.Size = New System.Drawing.Size(102, 22)
         Me.caminhobox.TabIndex = 92
         Me.caminhobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.caminhobox.WaterMarkText = "Obrigatório"
+        Me.caminhobox.WaterMarkText = ""
         '
         'GroupBox1
         '
@@ -395,42 +381,47 @@ Partial Class OPR_Técnicos
         Me.Label11.TabIndex = 65
         Me.Label11.Text = "Palavra-Passe"
         '
-        'RadButton4
+        'restartbutton
         '
-        Me.RadButton4.Location = New System.Drawing.Point(650, 428)
-        Me.RadButton4.Name = "RadButton4"
-        Me.RadButton4.Size = New System.Drawing.Size(120, 36)
-        Me.RadButton4.TabIndex = 96
-        Me.RadButton4.Text = "Cancelar"
-        Me.RadButton4.ThemeName = "Windows8"
+        Me.restartbutton.Location = New System.Drawing.Point(549, 419)
+        Me.restartbutton.Name = "restartbutton"
+        Me.restartbutton.Size = New System.Drawing.Size(97, 41)
+        Me.restartbutton.TabIndex = 108
+        Me.restartbutton.UseVisualStyleBackColor = True
         '
-        'RadButton3
+        'exitbutton
         '
-        Me.RadButton3.Location = New System.Drawing.Point(524, 428)
-        Me.RadButton3.Name = "RadButton3"
-        Me.RadButton3.Size = New System.Drawing.Size(120, 36)
-        Me.RadButton3.TabIndex = 95
-        Me.RadButton3.Text = "Restaurar Dados Originais"
-        Me.RadButton3.TextWrap = True
-        Me.RadButton3.ThemeName = "Windows8"
+        Me.exitbutton.Location = New System.Drawing.Point(673, 419)
+        Me.exitbutton.Name = "exitbutton"
+        Me.exitbutton.Size = New System.Drawing.Size(97, 41)
+        Me.exitbutton.TabIndex = 107
+        Me.exitbutton.UseVisualStyleBackColor = True
         '
-        'RadButton1
+        'savebutton
         '
-        Me.RadButton1.Location = New System.Drawing.Point(164, 428)
-        Me.RadButton1.Name = "RadButton1"
-        Me.RadButton1.Size = New System.Drawing.Size(120, 36)
-        Me.RadButton1.TabIndex = 94
-        Me.RadButton1.Text = "Editar"
-        Me.RadButton1.ThemeName = "Windows8"
+        Me.savebutton.Location = New System.Drawing.Point(33, 419)
+        Me.savebutton.Name = "savebutton"
+        Me.savebutton.Size = New System.Drawing.Size(97, 41)
+        Me.savebutton.TabIndex = 105
+        Me.savebutton.UseVisualStyleBackColor = True
         '
-        'RadButton5
+        'reparaçoesefetuadasbutton
         '
-        Me.RadButton5.Location = New System.Drawing.Point(38, 428)
-        Me.RadButton5.Name = "RadButton5"
-        Me.RadButton5.Size = New System.Drawing.Size(120, 36)
-        Me.RadButton5.TabIndex = 93
-        Me.RadButton5.Text = "Adicionar"
-        Me.RadButton5.ThemeName = "Windows8"
+        Me.reparaçoesefetuadasbutton.Location = New System.Drawing.Point(160, 419)
+        Me.reparaçoesefetuadasbutton.Name = "reparaçoesefetuadasbutton"
+        Me.reparaçoesefetuadasbutton.Size = New System.Drawing.Size(97, 41)
+        Me.reparaçoesefetuadasbutton.TabIndex = 106
+        Me.reparaçoesefetuadasbutton.UseVisualStyleBackColor = True
+        '
+        'logobutton
+        '
+        Me.logobutton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logobutton.Location = New System.Drawing.Point(738, 181)
+        Me.logobutton.Name = "logobutton"
+        Me.logobutton.Size = New System.Drawing.Size(42, 23)
+        Me.logobutton.TabIndex = 109
+        Me.logobutton.Text = "..."
+        Me.logobutton.UseVisualStyleBackColor = True
         '
         'OPR_Técnicos
         '
@@ -438,12 +429,13 @@ Partial Class OPR_Técnicos
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(810, 476)
+        Me.Controls.Add(Me.logobutton)
+        Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.RadButton4)
-        Me.Controls.Add(Me.RadButton3)
-        Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadButton5)
+        Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.caminhobox)
+        Me.Controls.Add(Me.reparaçoesefetuadasbutton)
+        Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.localidadebox)
         Me.Controls.Add(Me.turmabox)
@@ -457,7 +449,6 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.cod_postallabel)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.imagembox)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.turmalabel)
@@ -467,15 +458,10 @@ Partial Class OPR_Técnicos
         Me.Name = "OPR_Técnicos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Técnicos"
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -485,7 +471,6 @@ Partial Class OPR_Técnicos
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents numalunolabel As System.Windows.Forms.Label
     Friend WithEvents imagembox As System.Windows.Forms.PictureBox
-    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
@@ -513,8 +498,9 @@ Partial Class OPR_Técnicos
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
-    Friend WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
-    Friend WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents restartbutton As System.Windows.Forms.Button
+    Friend WithEvents exitbutton As System.Windows.Forms.Button
+    Friend WithEvents savebutton As System.Windows.Forms.Button
+    Friend WithEvents reparaçoesefetuadasbutton As System.Windows.Forms.Button
+    Friend WithEvents logobutton As System.Windows.Forms.Button
 End Class

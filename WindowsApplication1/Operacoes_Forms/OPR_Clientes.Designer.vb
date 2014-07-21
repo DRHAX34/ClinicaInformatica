@@ -33,7 +33,6 @@ Partial Class OPR_Clientes
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.moradabox = New ClinicaInformatica.WaterMarkTextBox()
@@ -48,10 +47,11 @@ Partial Class OPR_Clientes
         Me.numalunobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.turmabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.addeditbutton = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.savebutton = New System.Windows.Forms.Button()
+        Me.componentesbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.restartbutton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -164,16 +164,6 @@ Partial Class OPR_Clientes
         Me.Label11.Size = New System.Drawing.Size(107, 25)
         Me.Label11.TabIndex = 42
         Me.Label11.Text = "Localidade"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
-        Me.PictureBox1.Location = New System.Drawing.Point(30, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 65
-        Me.PictureBox1.TabStop = False
         '
         'nomebox
         '
@@ -317,23 +307,21 @@ Partial Class OPR_Clientes
         Me.Label12.TabIndex = 90
         Me.Label12.Text = "Não se esqueça de inserir o indicativo do país!"
         '
-        'addeditbutton
+        'savebutton
         '
-        Me.addeditbutton.Location = New System.Drawing.Point(30, 367)
-        Me.addeditbutton.Name = "addeditbutton"
-        Me.addeditbutton.Size = New System.Drawing.Size(126, 41)
-        Me.addeditbutton.TabIndex = 91
-        Me.addeditbutton.Text = "Adicionar"
-        Me.addeditbutton.UseVisualStyleBackColor = True
+        Me.savebutton.Location = New System.Drawing.Point(30, 367)
+        Me.savebutton.Name = "savebutton"
+        Me.savebutton.Size = New System.Drawing.Size(126, 41)
+        Me.savebutton.TabIndex = 91
+        Me.savebutton.UseVisualStyleBackColor = True
         '
-        'Button2
+        'componentesbutton
         '
-        Me.Button2.Location = New System.Drawing.Point(162, 367)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(126, 41)
-        Me.Button2.TabIndex = 92
-        Me.Button2.Text = "Button2"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.componentesbutton.Location = New System.Drawing.Point(162, 367)
+        Me.componentesbutton.Name = "componentesbutton"
+        Me.componentesbutton.Size = New System.Drawing.Size(126, 41)
+        Me.componentesbutton.TabIndex = 92
+        Me.componentesbutton.UseVisualStyleBackColor = True
         '
         'exitbutton
         '
@@ -341,7 +329,6 @@ Partial Class OPR_Clientes
         Me.exitbutton.Name = "exitbutton"
         Me.exitbutton.Size = New System.Drawing.Size(126, 41)
         Me.exitbutton.TabIndex = 93
-        Me.exitbutton.Text = "Sair"
         Me.exitbutton.UseVisualStyleBackColor = True
         '
         'restartbutton
@@ -350,8 +337,17 @@ Partial Class OPR_Clientes
         Me.restartbutton.Name = "restartbutton"
         Me.restartbutton.Size = New System.Drawing.Size(126, 41)
         Me.restartbutton.TabIndex = 94
-        Me.restartbutton.Text = "Reiniciar"
         Me.restartbutton.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
+        Me.PictureBox1.Location = New System.Drawing.Point(30, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 65
+        Me.PictureBox1.TabStop = False
         '
         'OPR_Clientes
         '
@@ -361,8 +357,8 @@ Partial Class OPR_Clientes
         Me.ClientSize = New System.Drawing.Size(637, 420)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.exitbutton)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.addeditbutton)
+        Me.Controls.Add(Me.componentesbutton)
+        Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.turmabox)
         Me.Controls.Add(Me.numalunobox)
@@ -423,8 +419,8 @@ Partial Class OPR_Clientes
     Friend WithEvents numalunobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents turmabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents addeditbutton As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents savebutton As System.Windows.Forms.Button
+    Friend WithEvents componentesbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents restartbutton As System.Windows.Forms.Button
 End Class

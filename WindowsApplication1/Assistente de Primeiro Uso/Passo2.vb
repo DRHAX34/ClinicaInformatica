@@ -33,6 +33,7 @@ Public Class Passo2
         caminhobox.Enabled = False
         simcheck.Checked = False
         naocheck.Checked = True
+        contactofixbox.Text = "+351"
         Me.AcceptButton = seguintebutton
     End Sub
 
@@ -73,6 +74,7 @@ Public Class Passo2
         Dim check_codpostal As Boolean = False
         Dim check_localidade As String = ""
         Dim check_logo As String = ""
+        Dim check_contacto As String = ""
             Try
                 check_nome = nomebox.Text
                 check_morada = moradabox.Text
@@ -91,12 +93,15 @@ Public Class Passo2
                 check_nome.Trim()
                 check_morada.Trim()
                 check_localidade.Trim()
-                check_logo.Trim()
-            Catch
+            check_logo.Trim()
+            If contactofixbox.Text >= 9 Then
+                check_contacto = True
+            End If
+        Catch
             End Try
             Try
-            If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_nif = False And Not check_localidade = "" And Not check_logo = "" Then
-                BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, True)
+            If Not check_contacto = False And Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_nif = False And Not check_localidade = "" And Not check_logo = "" Then
+                BLL.Admin_only.Empresas.inserir(simcheck.Checked, nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, emailbox.Text, sitebox.Text, contactofixbox.Text, True)
                 If Workspace.varias_empresas = True Then
                     Workspace.config3.Show()
                 Else

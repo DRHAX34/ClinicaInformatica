@@ -24,10 +24,6 @@ Partial Class OPR_Artigos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.RadButton4 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton3 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -43,10 +39,10 @@ Partial Class OPR_Artigos
         Me.tipo_componentebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.nomeclientelabel = New System.Windows.Forms.Label()
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.restartbutton = New System.Windows.Forms.Button()
+        Me.exitbutton = New System.Windows.Forms.Button()
+        Me.reparaçoesbutton = New System.Windows.Forms.Button()
+        Me.savebutton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -56,74 +52,9 @@ Partial Class OPR_Artigos
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(34, 222)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(124, 25)
+        Me.Label8.Size = New System.Drawing.Size(123, 25)
         Me.Label8.TabIndex = 56
         Me.Label8.Text = "Observações"
-        '
-        'RadButton4
-        '
-        Me.RadButton4.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadButton4.Location = New System.Drawing.Point(402, 364)
-        Me.RadButton4.Name = "RadButton4"
-        '
-        '
-        '
-        Me.RadButton4.RootElement.AccessibleDescription = Nothing
-        Me.RadButton4.RootElement.AccessibleName = Nothing
-        Me.RadButton4.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
-        Me.RadButton4.Size = New System.Drawing.Size(103, 37)
-        Me.RadButton4.TabIndex = 51
-        Me.RadButton4.Text = "Cancelar"
-        Me.RadButton4.ThemeName = "Windows8"
-        '
-        'RadButton3
-        '
-        Me.RadButton3.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadButton3.Location = New System.Drawing.Point(294, 364)
-        Me.RadButton3.Name = "RadButton3"
-        '
-        '
-        '
-        Me.RadButton3.RootElement.AccessibleDescription = Nothing
-        Me.RadButton3.RootElement.AccessibleName = Nothing
-        Me.RadButton3.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
-        Me.RadButton3.Size = New System.Drawing.Size(103, 37)
-        Me.RadButton3.TabIndex = 50
-        Me.RadButton3.Text = "Restaurar Dados Originais"
-        Me.RadButton3.TextWrap = True
-        Me.RadButton3.ThemeName = "Windows8"
-        '
-        'RadButton1
-        '
-        Me.RadButton1.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadButton1.Location = New System.Drawing.Point(121, 364)
-        Me.RadButton1.Name = "RadButton1"
-        '
-        '
-        '
-        Me.RadButton1.RootElement.AccessibleDescription = Nothing
-        Me.RadButton1.RootElement.AccessibleName = Nothing
-        Me.RadButton1.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
-        Me.RadButton1.Size = New System.Drawing.Size(103, 37)
-        Me.RadButton1.TabIndex = 48
-        Me.RadButton1.Text = "Editar"
-        Me.RadButton1.ThemeName = "Windows8"
-        '
-        'RadButton5
-        '
-        Me.RadButton5.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadButton5.Location = New System.Drawing.Point(12, 364)
-        Me.RadButton5.Name = "RadButton5"
-        '
-        '
-        '
-        Me.RadButton5.RootElement.AccessibleDescription = Nothing
-        Me.RadButton5.RootElement.AccessibleName = Nothing
-        Me.RadButton5.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
-        Me.RadButton5.Size = New System.Drawing.Size(103, 37)
-        Me.RadButton5.TabIndex = 47
-        Me.RadButton5.Text = "Adicionar"
-        Me.RadButton5.ThemeName = "Windows8"
         '
         'Label6
         '
@@ -175,9 +106,6 @@ Partial Class OPR_Artigos
         Me.Label4.TabIndex = 36
         Me.Label4.Text = "NºSérie"
         '
-        'Timer1
-        '
-        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101754Hz7aSVUe
@@ -216,7 +144,7 @@ Partial Class OPR_Artigos
         Me.numseriebox.Size = New System.Drawing.Size(178, 25)
         Me.numseriebox.TabIndex = 69
         Me.numseriebox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.numseriebox.WaterMarkText = "Obrigatório"
+        Me.numseriebox.WaterMarkText = ""
         '
         'observaçoesbox
         '
@@ -245,7 +173,7 @@ Partial Class OPR_Artigos
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(303, 106)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(142, 25)
+        Me.Label5.Size = New System.Drawing.Size(141, 25)
         Me.Label5.TabIndex = 71
         Me.Label5.Text = "Tipo de Artigo"
         '
@@ -260,12 +188,48 @@ Partial Class OPR_Artigos
         Me.nomeclientelabel.TabIndex = 73
         Me.nomeclientelabel.Text = "Não selecionado!"
         '
+        'restartbutton
+        '
+        Me.restartbutton.Location = New System.Drawing.Point(311, 358)
+        Me.restartbutton.Name = "restartbutton"
+        Me.restartbutton.Size = New System.Drawing.Size(97, 41)
+        Me.restartbutton.TabIndex = 98
+        Me.restartbutton.UseVisualStyleBackColor = True
+        '
+        'exitbutton
+        '
+        Me.exitbutton.Location = New System.Drawing.Point(414, 358)
+        Me.exitbutton.Name = "exitbutton"
+        Me.exitbutton.Size = New System.Drawing.Size(97, 41)
+        Me.exitbutton.TabIndex = 97
+        Me.exitbutton.UseVisualStyleBackColor = True
+        '
+        'reparaçoesbutton
+        '
+        Me.reparaçoesbutton.Location = New System.Drawing.Point(113, 358)
+        Me.reparaçoesbutton.Name = "reparaçoesbutton"
+        Me.reparaçoesbutton.Size = New System.Drawing.Size(97, 41)
+        Me.reparaçoesbutton.TabIndex = 96
+        Me.reparaçoesbutton.UseVisualStyleBackColor = True
+        '
+        'savebutton
+        '
+        Me.savebutton.Location = New System.Drawing.Point(10, 358)
+        Me.savebutton.Name = "savebutton"
+        Me.savebutton.Size = New System.Drawing.Size(97, 41)
+        Me.savebutton.TabIndex = 95
+        Me.savebutton.UseVisualStyleBackColor = True
+        '
         'OPR_Artigos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(523, 411)
+        Me.Controls.Add(Me.restartbutton)
+        Me.Controls.Add(Me.exitbutton)
+        Me.Controls.Add(Me.reparaçoesbutton)
+        Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.nomeclientelabel)
         Me.Controls.Add(Me.tipo_componentebox)
         Me.Controls.Add(Me.Label5)
@@ -275,10 +239,6 @@ Partial Class OPR_Artigos
         Me.Controls.Add(Me.marcabox)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.RadButton4)
-        Me.Controls.Add(Me.RadButton3)
-        Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -288,10 +248,6 @@ Partial Class OPR_Artigos
         Me.Name = "OPR_Artigos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Artigos"
-        CType(Me.RadButton4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton3, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -313,8 +269,8 @@ Partial Class OPR_Artigos
     Friend WithEvents tipo_componentebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
-    Private WithEvents RadButton4 As Telerik.WinControls.UI.RadButton
-    Private WithEvents RadButton3 As Telerik.WinControls.UI.RadButton
-    Private WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
-    Private WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
+    Friend WithEvents restartbutton As System.Windows.Forms.Button
+    Friend WithEvents exitbutton As System.Windows.Forms.Button
+    Friend WithEvents reparaçoesbutton As System.Windows.Forms.Button
+    Friend WithEvents savebutton As System.Windows.Forms.Button
 End Class

@@ -3,11 +3,20 @@
     Public modo, removidos As Boolean
 
     Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height, savebutton.Height)
+        savebutton.Image = saveimagebutton
+        Dim componentesimagebutton As New Bitmap((My.Resources.oie_30101754Hz7aSVUe), componentesbutton.Height, componentesbutton.Height)
+        componentesbutton.Image = componentesimagebutton
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        exitbutton.Image = exitimagebutton
+        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
         If modo = True Then
-            Me.AcceptButton = editarbutton
+            restartbutton.Image = restartimagebutton
         Else
-            Me.AcceptButton = adicionarbutton
+            restartbutton.Image = limparimagebutton
         End If
+        Me.AcceptButton = savebutton
         numalunobox.Hide()
         RadioButton2.Checked = True
         If Workspace.Aluno = False Then
@@ -25,9 +34,6 @@
         End If
         If modo = True Then
             Try
-                adicionarbutton.Enabled = False
-                editarbutton.Enabled = True
-                restorebutton.Text = "Restaurar Dados Originais"
                 Try
                     If cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> 0 Or cliente_data.Rows.Item(0).Item("NºAluno").ToString() <> "" Then
                         RadioButton1.Checked = True
@@ -51,18 +57,14 @@
             Catch ex As Exception
                 MsgBox("Erro ao carregar os dados: " & ex.Message)
             End Try
-            adicionarbutton.Enabled = False
         Else
             cmovelbox.Text = "+351"
             cfixobox.Text = "+351"
-            adicionarbutton.Enabled = True
-            editarbutton.Enabled = False
-            restorebutton.Text = "Limpar Tudo"
             RadioButton2.Checked = True
             numalunobox.Hide()
             turmabox.Hide()
         End If
-        
+
 
     End Sub
 
@@ -82,8 +84,8 @@
         turmabox.Hide()
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
-        If modo = True Then
+    Private Sub savebutton_Click(sender As Object, e As EventArgs) Handles savebutton.Click
+        If modo = False Then
             Dim check_nome As String = ""
             Dim check_morada As String = ""
             Dim check_codpostal As Boolean = False
@@ -307,4 +309,6 @@
     Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.Click
         cfixobox.Select(0, cfixobox.Text.Length + 1)
     End Sub
+
+    
 End Class

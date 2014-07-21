@@ -13,13 +13,13 @@ Partial Class Adicionar_tecnicos
             MyBase.Dispose(disposing)
         End Try
     End Sub
-    Friend WithEvents Adicionar As Telerik.WinControls.UI.RadButton
-    Friend WithEvents removerbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents confirmbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents cancellbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents Adicionar As Telerik.WinControls.UI.RadButton
+    Private WithEvents removerbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents confirmbutton As Telerik.WinControls.UI.RadButton
+    Private WithEvents cancellbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
-    Friend WithEvents showdata As Telerik.WinControls.UI.RadGridView
-    Friend WithEvents addedata As Telerik.WinControls.UI.RadGridView
+    Friend WithEvents showdata As System.Windows.Forms.DataGridView
+    Friend WithEvents addedata As System.Windows.Forms.DataGridView
 
     'Required by the Windows Form Designer
     Private components As System.ComponentModel.IContainer
@@ -36,16 +36,14 @@ Partial Class Adicionar_tecnicos
         Me.confirmbutton = New Telerik.WinControls.UI.RadButton()
         Me.cancellbutton = New Telerik.WinControls.UI.RadButton()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
-        Me.showdata = New Telerik.WinControls.UI.RadGridView()
-        Me.addedata = New Telerik.WinControls.UI.RadGridView()
+        Me.showdata = New System.Windows.Forms.DataGridView()
+        Me.addedata = New System.Windows.Forms.DataGridView()
         CType(Me.Adicionar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cancellbutton, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.addedata, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.addedata.MasterTemplate, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -68,8 +66,15 @@ Partial Class Adicionar_tecnicos
         '
         'Adicionar
         '
+        Me.Adicionar.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.Adicionar.Location = New System.Drawing.Point(272, 119)
         Me.Adicionar.Name = "Adicionar"
+        '
+        '
+        '
+        Me.Adicionar.RootElement.AccessibleDescription = Nothing
+        Me.Adicionar.RootElement.AccessibleName = Nothing
+        Me.Adicionar.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.Adicionar.Size = New System.Drawing.Size(72, 22)
         Me.Adicionar.TabIndex = 22
         Me.Adicionar.Text = ">>"
@@ -77,8 +82,15 @@ Partial Class Adicionar_tecnicos
         '
         'removerbutton
         '
+        Me.removerbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.removerbutton.Location = New System.Drawing.Point(272, 217)
         Me.removerbutton.Name = "removerbutton"
+        '
+        '
+        '
+        Me.removerbutton.RootElement.AccessibleDescription = Nothing
+        Me.removerbutton.RootElement.AccessibleName = Nothing
+        Me.removerbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.removerbutton.Size = New System.Drawing.Size(72, 22)
         Me.removerbutton.TabIndex = 22
         Me.removerbutton.Text = "<<"
@@ -86,8 +98,15 @@ Partial Class Adicionar_tecnicos
         '
         'confirmbutton
         '
+        Me.confirmbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.confirmbutton.Location = New System.Drawing.Point(400, 400)
         Me.confirmbutton.Name = "confirmbutton"
+        '
+        '
+        '
+        Me.confirmbutton.RootElement.AccessibleDescription = Nothing
+        Me.confirmbutton.RootElement.AccessibleName = Nothing
+        Me.confirmbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.confirmbutton.Size = New System.Drawing.Size(106, 34)
         Me.confirmbutton.TabIndex = 22
         Me.confirmbutton.Text = "Adicionar"
@@ -95,8 +114,15 @@ Partial Class Adicionar_tecnicos
         '
         'cancellbutton
         '
+        Me.cancellbutton.BackColor = System.Drawing.SystemColors.ControlLightLight
         Me.cancellbutton.Location = New System.Drawing.Point(512, 400)
         Me.cancellbutton.Name = "cancellbutton"
+        '
+        '
+        '
+        Me.cancellbutton.RootElement.AccessibleDescription = Nothing
+        Me.cancellbutton.RootElement.AccessibleName = Nothing
+        Me.cancellbutton.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
         Me.cancellbutton.Size = New System.Drawing.Size(89, 34)
         Me.cancellbutton.TabIndex = 22
         Me.cancellbutton.Text = "Cancelar"
@@ -104,39 +130,21 @@ Partial Class Adicionar_tecnicos
         '
         'showdata
         '
-        Me.showdata.AutoSizeRows = True
-        Me.showdata.Location = New System.Drawing.Point(12, 12)
-        '
-        'showdata
-        '
-        Me.showdata.MasterTemplate.AllowAddNewRow = False
-        Me.showdata.MasterTemplate.AllowColumnResize = False
-        Me.showdata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.showdata.BackgroundColor = System.Drawing.SystemColors.ControlLight
+        Me.showdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.showdata.Location = New System.Drawing.Point(12, 29)
         Me.showdata.Name = "showdata"
-        Me.showdata.Padding = New System.Windows.Forms.Padding(1)
-        Me.showdata.ReadOnly = True
-        Me.showdata.Size = New System.Drawing.Size(240, 376)
-        Me.showdata.TabIndex = 80
-        Me.showdata.Text = "Data"
-        Me.showdata.ThemeName = "Windows8"
+        Me.showdata.Size = New System.Drawing.Size(240, 341)
+        Me.showdata.TabIndex = 23
         '
         'addedata
         '
-        Me.addedata.AutoSizeRows = True
-        Me.addedata.Location = New System.Drawing.Point(361, 12)
-        '
-        'addedata
-        '
-        Me.addedata.MasterTemplate.AllowAddNewRow = False
-        Me.addedata.MasterTemplate.AllowColumnResize = False
-        Me.addedata.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill
+        Me.addedata.BackgroundColor = System.Drawing.SystemColors.ControlLight
+        Me.addedata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.addedata.Location = New System.Drawing.Point(361, 29)
         Me.addedata.Name = "addedata"
-        Me.addedata.Padding = New System.Windows.Forms.Padding(1)
-        Me.addedata.ReadOnly = True
-        Me.addedata.Size = New System.Drawing.Size(240, 376)
-        Me.addedata.TabIndex = 80
-        Me.addedata.Text = "Data"
-        Me.addedata.ThemeName = "Windows8"
+        Me.addedata.Size = New System.Drawing.Size(240, 341)
+        Me.addedata.TabIndex = 24
         '
         'Adicionar_tecnicos
         '
@@ -159,9 +167,7 @@ Partial Class Adicionar_tecnicos
         CType(Me.removerbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.confirmbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cancellbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.showdata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.addedata.MasterTemplate, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.addedata, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

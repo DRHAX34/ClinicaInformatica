@@ -58,7 +58,6 @@
             delbutton.Text = "Eliminar"
             newbutton.Enabled = True
         End If
-        Label1.Hide()
         GroupBox1.Hide()
         If Workspace.admin = True Then
             CheckBox1.Show()
@@ -309,142 +308,15 @@
                     End If
 
             End Select
-            Timer1.Start()
-            Label1.Show()
         Catch ex As Exception
             MsgBox("Erro ao atualizar: " & ex.Message)
         End Try
     End Sub
 
-    Private Sub findbutton_Click(sender As Object, e As EventArgs)
+    Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
         GroupBox1.Show()
+        TextBox1.Select(0, 0)
     End Sub
-
-    Private Sub showbutton_Click(sender As Object, e As EventArgs)
-        GroupBox1.Hide()
-        Try
-            Dim string_data As String
-            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-            Try
-                Select Case tabela
-                    Case "Clientes"
-                        Dim opr_clientes As New OPR_Clientes
-                        opr_clientes.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_clientes.modo = True
-                        If removidos = True Then
-                            If Workspace.Aluno = True Then
-                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data, False)
-                                opr_clientes.removidos = True
-                                opr_clientes.Show()
-                            Else
-                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data, False)
-                                opr_clientes.removidos = True
-                                opr_clientes.Show()
-                            End If
-                        Else
-                            If Workspace.Aluno = True Then
-                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data, True)
-                                opr_clientes.removidos = False
-                                opr_clientes.Show()
-                            Else
-                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data, True)
-                                opr_clientes.removidos = False
-                                opr_clientes.Show()
-                            End If
-                        End If
-                        opr_clientes.editarbutton.Enabled = False
-                        opr_clientes.restorebutton.Enabled = False
-                        opr_clientes.nomebox.ReadOnly = True
-                        opr_clientes.moradabox.ReadOnly = True
-                        opr_clientes.codpostalbox.ReadOnly = True
-                        opr_clientes.localidadebox.ReadOnly = True
-                        opr_clientes.cmovelbox.ReadOnly = True
-                        opr_clientes.cfixobox.ReadOnly = True
-                        opr_clientes.nifbox.ReadOnly = True
-                        opr_clientes.emailbox.ReadOnly = True
-                        opr_clientes.numalunobox.ReadOnly = True
-                        opr_clientes.turmabox.ReadOnly = True
-                        opr_clientes.RadioButton1.Enabled = False
-                        opr_clientes.RadioButton2.Enabled = False
-                    Case "Artigos"
-                        Dim opr_artigos As New OPR_Artigos
-                        opr_artigos.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_artigos.modo = True
-                        If removidos = True Then
-                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, False)
-                            opr_artigos.removidos = True
-                            opr_artigos.Show()
-                        Else
-                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, True)
-                            opr_artigos.removidos = False
-                            opr_artigos.Show()
-                        End If
-                        opr_artigos.numseriebox.ReadOnly = True
-                        opr_artigos.observaçoesbox.ReadOnly = True
-                        opr_artigos.marcabox.ReadOnly = True
-                        opr_artigos.modelobox.ReadOnly = True
-                        opr_artigos.RadButton6.Enabled = False
-                    Case "Reparações"
-                        Dim opr_reparacoes As New OPR_Reparações
-                        opr_reparacoes.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_reparacoes.modo = True
-                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
-                        Workspace.software_support = BLL.Software.return_software(string_data)
-                        Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
-                        If removidos = True Then
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
-                            opr_reparacoes.removidos = True
-                            opr_reparacoes.Show()
-                        Else
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
-                            opr_reparacoes.removidos = False
-                            opr_reparacoes.Show()
-                        End If
-                        opr_reparacoes.dateinicio.Hide()
-                        opr_reparacoes.datefim.Hide()
-                        opr_reparacoes.dateinicio.Value = opr_reparacoes.reparaçao_data.Rows(0).Item("DIRepar")
-                        If opr_reparacoes.reparaçao_data.Rows(0).Item("DFRepar") <> New Date Then
-                            opr_reparacoes.datefim.Text = opr_reparacoes.reparaçao_data.Rows(0).Item("DFRepar")
-                        End If
-                        opr_reparacoes.numcomponentebox.ReadOnly = True
-                        opr_reparacoes.RadButton7.Enabled = False
-                        opr_reparacoes.preçobox.ReadOnly = True
-                        opr_reparacoes.CheckBox1.Enabled = False
-                        opr_reparacoes.CheckBox2.Enabled = False
-                        opr_reparacoes.insert_tecnicos.Text = "Ver Técnicos Participantes"
-                        opr_reparacoes.insert_tecnicos.TextWrap = True
-                        opr_reparacoes.descriçaobox.ReadOnly = True
-                        opr_reparacoes.RadButton5.Enabled = False
-                        opr_reparacoes.RadButton1.Enabled = False
-                        opr_reparacoes.RadButton3.Enabled = False
-                        opr_reparacoes.read_only = True
-                    Case "Técnicos"
-                        Dim opr_tecnicos As New OPR_Técnicos
-                        opr_tecnicos.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_tecnicos.modo = True
-                        If removidos = True Then
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados(string_data, False)
-                            opr_tecnicos.removidos = True
-                            opr_tecnicos.Show()
-                        Else
-                            opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados(string_data, True)
-                            opr_tecnicos.removidos = False
-                            opr_tecnicos.Show()
-                        End If
-                End Select
-                Me.Close()
-            Catch ex As Exception
-                MsgBox("Erro ao Editar: " & ex.Message)
-            End Try
-        Catch
-            MsgBox("Selecione algo na tabela primeiro!")
-        End Try
-    End Sub
-
     Private Sub othersbutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Hide()
         Try
@@ -464,10 +336,6 @@
         Me.Close()
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
-        Label1.Hide()
-        Timer1.Stop()
-    End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         Try
@@ -660,4 +528,5 @@
         End If
     End Sub
 
+    
 End Class

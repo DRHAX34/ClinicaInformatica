@@ -1,11 +1,22 @@
 ﻿Public Class OPR_Reparações
     Public reparaçao_data As New DataTable
+    Public artigos As String
     Public modo As Boolean
     Public removidos As Boolean
     Public read_only As Boolean
     Public check As Boolean = True
     Public cliente As Integer
     Private Sub OPR_Reparações_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height, savebutton.Height)
+        savebutton.Image = saveimagebutton
+        Dim reportimagebutton As New Bitmap((My.Resources._1405976976_distributor_report), reportbutton.Height, reportbutton.Height)
+        reportbutton.Image = reportimagebutton
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        exitbutton.Image = exitimagebutton
+        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
+
+
         If Workspace.Aluno = True Then
             Panel1.Hide()
         Else
@@ -14,7 +25,7 @@
             Panel1.BringToFront()
         End If
         If modo = True Then
-            numcomponentebox.Text = reparaçao_data.Rows.Item(0).Item("NºArtigo").ToString()
+            restartbutton.Image = restartimagebutton
             If reparaçao_data.Rows.Item(0).Item("Preço").ToString() <> "" Then
                 preçobox.Text = reparaçao_data.Rows.Item(0).Item("Preço").ToString().Replace(",", ".")
             End If
@@ -23,13 +34,14 @@
             If reparaçao_data.Rows.Item(0).Item("DFRepar").ToString() <> "" Then
                 datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString
             Else
+                restartbutton.Image = limparimagebutton
                 datefim.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString
             End If
             datefim.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()
             If Workspace.hardware_support.Columns.Count <> 0 Then
                 If Workspace.hardware_support.Rows.Count <> 0 Then
-                    CheckBox1.Checked = True
+                    checkbox1.Checked = True
                     insert_hardware.Enabled = True
                 End If
             End If
@@ -40,15 +52,13 @@
                 End If
             End If
             showdata.DataSource = Workspace.tecnicos_support
-            RadButton1.Enabled = True
-            RadButton5.Enabled = False
 
             datefim.Enabled = True
             insert_tecnicos.Enabled = True
             check = False
             preçobox.Enabled = True
             descriçaobox.Enabled = True
-            CheckBox1.Enabled = True
+            checkbox1.Enabled = True
             CheckBox2.Enabled = True
         Else
             dateinicio.MinDate = Today
@@ -56,13 +66,11 @@
             datefim.Enabled = False
             preçobox.Enabled = False
             insert_hardware.Enabled = False
-            CheckBox1.Enabled = False
+            checkbox1.Enabled = False
             CheckBox2.Enabled = False
             insert_software.Enabled = False
             insert_tecnicos.Enabled = False
             showdata.Enabled = False
-            RadButton1.Enabled = False
-            RadButton5.Enabled = True
 
             descriçaobox.Enabled = True
         End If
@@ -75,21 +83,16 @@
         End If
     End Sub
     
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
         Dim check_componente As Boolean = False
         Dim check_descrição As String = descriçaobox.Text
-        If numcomponentebox.Text.Count <> 0 Or numcomponentebox.Text <> "" Then
-            check_componente = True
-        Else
-            check_componente = False
-        End If
         Try
             check_descrição.Trim()
         Catch
         End Try
         If Not check_componente = False And Not check_descrição = "" Then
             Try
-                BLL.Reparacoes.inserir(numcomponentebox.Text, descriçaobox.Text, dateinicio.Value)
+                BLL.Reparacoes.inserir(artigos, descriçaobox.Text, dateinicio.Value)
                 MsgBox("Reparação Inserida com sucesso!")
                 Workspace.reparacoesmenu.PerformClick()
                 Me.Close()
@@ -101,7 +104,7 @@
         End If
     End Sub
 
-    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles insert_tecnicos.Click
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs)
         If insert_tecnicos.Text = "Ver Técnicos Participantes" Then
             Dim tecnicosform As New ViewForm
             tecnicosform.MdiParent = Workspace
@@ -110,12 +113,8 @@
             tecnicosform.Text = "Técnicos Participantes"
             tecnicosform.Show()
             tecnicosform.newbutton.Hide()
-            tecnicosform.editbutton.Hide()
             tecnicosform.delbutton.Hide()
-            tecnicosform.updatebutton.Hide()
             tecnicosform.findbutton.Hide()
-            tecnicosform.othersbutton.Hide()
-            tecnicosform.showbutton.Hide()
         Else
             Dim add_tecnicos As New Adicionar_tecnicos
             add_tecnicos.MdiParent = Workspace
@@ -125,7 +124,7 @@
         End If
     End Sub
 
-    Private Sub numcomponentebox_TextChanged(sender As Object, e As EventArgs) Handles numcomponentebox.TextChanged
+    Private Sub numcomponentebox_TextChanged(sender As Object, e As EventArgs)
         'Try
         '    If Not IsNumeric(numcomponentebox.Text.Chars(numcomponentebox.Text.Length - 1)) Then
         '        Dim backup As Array = numcomponentebox.Text.ToCharArray
@@ -144,11 +143,11 @@
         '    End If
         'Catch
         'End Try
-        Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(numcomponentebox.Text, True)
+        Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(artigos, True)
         nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
     End Sub
 
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs)
         Workspace.reparacoesmenu.PerformClick()
         Me.Close()
     End Sub
@@ -157,7 +156,7 @@
 
     End Sub
 
-    Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles insert_hardware.Click
+    Private Sub RadButton8_Click(sender As Object, e As EventArgs)
         Dim select_hardware As New Inserir_Hardware
         select_hardware.MdiParent = Workspace
         If Workspace.hardware_support.Columns.Count <> 0 Then
@@ -174,7 +173,7 @@
 
     
 
-    Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles insert_software.Click
+    Private Sub RadButton9_Click(sender As Object, e As EventArgs)
         Dim select_software As New Inserir_Software
         select_software.MdiParent = Workspace
         If Workspace.software_support.Columns.Count <> 0 Then
@@ -190,7 +189,7 @@
         select_software.Show()
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
         Dim check_componente As Boolean = False
         Dim check_descrição As String = descriçaobox.Text
         Dim check_data As Boolean = False
@@ -202,7 +201,7 @@
             temporeal = datefim.Value.Subtract(dateinicio.Value)
             check_data = True
         End If
-        If numcomponentebox.Text <> 0 Or numcomponentebox.Text <> "" Then
+        If artigos <> 0 Or artigos <> "" Then
             check_componente = True
         Else
             MsgBox("Selecione o Artigo!")
@@ -217,12 +216,12 @@
         If BLL.Software.return_all <> 0 Then
             BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
         End If
-            If BLL.Participacoes.return_all <> 0 Then
-                BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-            End If
+        If BLL.Participacoes.return_all <> 0 Then
+            BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+        End If
         If Not check_componente = False And Not check_descrição = "" And Not check_data = False Then
             Try
-                BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), numcomponentebox.Text, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
+                BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), artigos, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
                 If Workspace.hardware_support.Columns.Count <> 0 Then
                     If Workspace.hardware_support.Rows.Count <> 0 Then
                         For i = 0 To Workspace.hardware_support.Rows.Count - 1
@@ -302,34 +301,6 @@
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
 
     End Sub
-
-    Private Sub RadButton7_Click(sender As Object, e As EventArgs) Handles RadButton7.Click
-        If Workspace.check_select = False Then
-            Dim select_comp As New Selectform
-            select_comp.MdiParent = Workspace
-            Workspace.m_ChildFormNumber += 1
-            select_comp.tabela = "Artigos"
-            select_comp.Show()
-            Timer3.Start()
-            Workspace.check_select = True
-        Else
-            MsgBox("Já tem uma janela de Selecionar aberta!")
-        End If
-    End Sub
-
-    
-
-    Private Sub Timer3_Tick(sender As Object, e As EventArgs) Handles Timer3.Tick
-        Try
-            numcomponentebox.Text = Workspace.support
-            Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(Workspace.support, True)
-            nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
-            If Workspace.check_select = False Then
-                Timer3.Stop()
-            End If
-        Catch
-        End Try
-    End Sub
     Private Sub checkbox1_click(sender As Object, e As EventArgs) Handles CheckBox1.Click
         insert_hardware.Enabled = CheckBox1.Checked
     End Sub
@@ -347,9 +318,6 @@
         End Try
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
-    End Sub
-
     Private Sub preçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles preçobox.KeyPress
         Try
             If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
@@ -360,7 +328,7 @@
         Catch
         End Try
     End Sub
-    Private Sub numcomponentebox_onlynums(sender As Object, e As KeyPressEventArgs) Handles numcomponentebox.KeyPress
+    Private Sub numcomponentebox_onlynums(sender As Object, e As KeyPressEventArgs)
         Try
             If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
                 If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
