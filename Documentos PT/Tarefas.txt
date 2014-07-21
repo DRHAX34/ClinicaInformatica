@@ -15,6 +15,8 @@ Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
 Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
 No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa
 Mover as reparações e artigos para os clientes (aquilo que falámos com o professor)
+Mostrar informações da empresa ao carregar no logo da empresa do ecrã principal.
+Remover selecionar empresa da LoginForm.
 
 Fonseca:
 Done - Na parte dos artigos, remover o selecionar componente.- Fonseca
@@ -35,7 +37,8 @@ Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD,
 Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
 adicionar combobox nos artigos caso seja Portátil ou Computador.
 Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
-
+Remover do relatório, manual, apresentação, etc as funcionalidades das multi-empresas.
+atualizar o manual aplicação (apenas quando o programa estiver acabado)
 
 
 
