@@ -4,42 +4,37 @@ feito! - O programa na parte Profissional, na operação Reparações, adicionar o n
 feito! - Na operação Reparações, no selecionar componente. Listar todos os artigos pertencentes sómente ao cliente selecionado.
 feito! - fazer uma revisão à BLL e torná-la mais pequena,optimizada e simples.
 feito! - Remover o botão Empresas
+done - Eliminar botões desnecessários que estão desativados na form dos clientes.
+done - substituir datagridview pelo original se pudermos.
 
-Eliminar as operações Artigos e Reparações do menu principal e meter na form Clientes.
-Na parte dos Clientes, remover o botão "editar" e substituir por double click na datagridview. 
-No botão "Mostrar dados Clientes" poder editar, e adicionar 2 botões para os artigos e reparações.
-Eliminar botões desnecessários que estão desativados na form dos clientes.
-Selecionar automaticamente a textbox na localização dos clientes
-Se um dos contactos tiver preenchido avançar.
 Depois de gravar uma nova avaria, mostrar a folha da reparação.
 Juntar os dois relatórios (de entrega e efetuada) após gravar uma nova reparação e um botão para imprimir em qualquer sitio.
-Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
-Tipo_Artigo, adicionar combobox nas reparações caso seja Portátil ou Computador.
-Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
-Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
+Tipo_Artigo.
 Quando clicar no botão "Gravar" abrir o relatório final que é exactamente igual à 2ºFolha do primeiro mas com tudo preenchido.
 Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
-substituir datagridview pelo original se pudermos.
-Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
-Remover fotografia como campo obrigatório.
 Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
 No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa
-
+Mover as reparações e artigos para os clientes (aquilo que falámos com o professor)
 
 Fonseca:
 Done - Na parte dos artigos, remover o selecionar componente.- Fonseca
-Adicionar imagens correspondentes a cada botão (Ex. Um "X" no eliminar, entre outros...)- Fonseca
-Alterar o botão "restaurar dados de origem" no "Mostrar dados completos" dos Clientes para o icon de "Reiniciar"- Fonseca
-Na parte do localizar dos Clientes, adicionar pesquisa por Cod_Cliente.- Fonseca
-A form Clientes faz tudo, pode adicionar artigos e reparações.- Fonseca
-Double click nas tabelas para editar.- Fonseca
-NºSérie nao é campo obrigatório.- Fonseca
+done - Adicionar imagens correspondentes a cada botão (Ex. Um "X" no eliminar, entre outros...)- Fonseca
+done - Double click nas tabelas para editar.- Fonseca
+done - NºSérie nao é campo obrigatório.- Fonseca
 Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
-Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
-Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
+done - Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
+done - Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
 Done - Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
-Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
+done - Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
 
+Remover fotografia como campo obrigatório.
+Selecionar automaticamente a textbox na localização dos clientes
+Se um dos contactos tiver preenchido avançar.
+Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
+Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
+Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
+adicionar combobox nos artigos caso seja Portátil ou Computador.
+Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
 
 
 
