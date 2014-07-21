@@ -23,15 +23,15 @@ Done - Na parte dos artigos, remover o selecionar componente.- Fonseca
 done - Adicionar imagens correspondentes a cada botão (Ex. Um "X" no eliminar, entre outros...)- Fonseca
 done - Double click nas tabelas para editar.- Fonseca
 done - NºSérie nao é campo obrigatório.- Fonseca
-Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
+done - Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
 done - Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
 done - Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
 Done - Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
 done - Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
+done - Remover fotografia como campo obrigatório.
+done - Selecionar automaticamente a textbox na localização dos clientes
+done - Se um dos contactos tiver preenchido avançar.
 
-Remover fotografia como campo obrigatório.
-Selecionar automaticamente a textbox na localização dos clientes
-Se um dos contactos tiver preenchido avançar.
 Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
 Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
 Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
