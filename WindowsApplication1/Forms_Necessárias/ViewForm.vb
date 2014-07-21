@@ -15,15 +15,10 @@
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 50
         showdata.Height = Me.Height - 210
-        othersbutton.Location = New Point((Me.Width - (750 - 494)), (Me.Height - (506 - 417)))
         exitbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 417)))
         delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (506 - 417)))
-        updatebutton.Location = New Point((updatebutton.Location.X), (Me.Height - (506 - 417)))
         findbutton.Location = New Point((Me.Width - (750 - 494)), (Me.Height - (506 - 364)))
-        showbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 364)))
         newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (506 - 364)))
-        editbutton.Location = New Point((editbutton.Location.X), (Me.Height - (506 - 364)))
-        Label1.Location = New Point(((Me.Width / 2) - 53), (Me.Height - (506 - 321)))
         GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (506 - 355)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
@@ -45,12 +40,17 @@
     Private Sub ViewForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim newimagebutton As New Bitmap((My.Resources._1405624626_Add), newbutton.Height, newbutton.Height)
         newbutton.Image = newimagebutton
-        othersbutton.Enabled = True
+        Dim delimagebutton As New Bitmap((My.Resources._1405973024_file_delete), delbutton.Height, delbutton.Height)
+        delbutton.Image = delimagebutton
+        Dim findimagebutton As New Bitmap((My.Resources._1405973067_file_search), findbutton.Height, findbutton.Height)
+        findbutton.Image = findimagebutton
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        exitbutton.Image = exitimagebutton
+
         'Se não metermos .Enabled=false ele reverte para o default, que é true
         'Código de Teste:
         Me.Show()
         showdata.DataSource = data_table
-        showdata.AllowAutoSizeColumns = True
         If removidos = True Then
             delbutton.Text = "Restaurar"
             newbutton.Enabled = False
@@ -78,10 +78,10 @@
                 opr_clientes.Show()
             Case "Artigos"
                 Dim opr_artigos As New OPR_Artigos
-                OPR_Artigos.modo = False
-                OPR_Artigos.MdiParent = Workspace
+                opr_artigos.modo = False
+                opr_artigos.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
-                OPR_Artigos.Show()
+                opr_artigos.Show()
             Case "Reparações"
                 Dim opr_reparacoes As New OPR_Reparações
                 opr_reparacoes.modo = False
@@ -104,7 +104,7 @@
         Me.Close()
     End Sub
 
-    Private Sub editbutton_Click(sender As Object, e As EventArgs) Handles editbutton.Click
+    Private Sub showdata_doubleclick(sender As Object, e As EventArgs) Handles showdata.DoubleClick
         Try
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
@@ -204,7 +204,7 @@
     End Sub
 
 
-    Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
+    Private Sub delbutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Hide()
         Try
             Dim string_data As String
@@ -271,7 +271,7 @@
 
     End Sub
 
-    Private Sub updatebutton_Click(sender As Object, e As EventArgs) Handles updatebutton.Click
+    Private Sub updatebutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Hide()
         Try
             Select Case tabela
@@ -307,7 +307,7 @@
                     Else
                         showdata.DataSource = BLL.Tecnicos.carregar(True)
                     End If
-                
+
             End Select
             Timer1.Start()
             Label1.Show()
@@ -316,11 +316,11 @@
         End Try
     End Sub
 
-    Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
+    Private Sub findbutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Show()
     End Sub
 
-    Private Sub showbutton_Click(sender As Object, e As EventArgs) Handles showbutton.Click
+    Private Sub showbutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Hide()
         Try
             Dim string_data As String
@@ -445,28 +445,28 @@
         End Try
     End Sub
 
-    Private Sub othersbutton_Click(sender As Object, e As EventArgs) Handles othersbutton.Click
+    Private Sub othersbutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Hide()
         Try
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-                If tabela = "Reparações" Then
-                    Dim otheroptions As New otheroptions
-                    otheroptions.MdiParent = Workspace
-                    otheroptions.Show()
-                    Workspace.pass_string = string_data
-                End If
+            If tabela = "Reparações" Then
+                Dim otheroptions As New otheroptions
+                otheroptions.MdiParent = Workspace
+                otheroptions.Show()
+                Workspace.pass_string = string_data
+            End If
         Catch
         End Try
     End Sub
 
-    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-            Label1.Hide()
-            Timer1.Stop()
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs)
+        Label1.Hide()
+        Timer1.Stop()
     End Sub
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
@@ -659,4 +659,5 @@
             newbutton.Enabled = True
         End If
     End Sub
+
 End Class

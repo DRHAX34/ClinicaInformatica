@@ -97,10 +97,6 @@
       <Private>True</Private>
       <HintPath>..\packages\RadControls.for.WinForms.Common.2013.3.1016\lib\net40\Telerik.WinControls.dll</HintPath>
     </Reference>
-    <Reference Include="Telerik.WinControls.GridView, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\RadControls.for.WinForms.GridView.2013.3.1016\lib\net40\Telerik.WinControls.GridView.dll</HintPath>
-    </Reference>
     <Reference Include="Telerik.WinControls.PdfViewer, Version=2013.3.1016.40, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -469,6 +465,8 @@
     <None Include="Resources\1405624626_Add.png" />
     <None Include="Resources\1405624938_file_edit.png" />
     <None Include="Resources\1405695721_Select.png" />
+    <None Include="Resources\1405973024_file_delete.png" />
+    <None Include="Resources\1405973067_file_search.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
