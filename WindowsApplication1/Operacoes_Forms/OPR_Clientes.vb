@@ -82,152 +82,134 @@
         turmabox.Hide()
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles adicionarbutton.Click
-        Dim check_nome As String = ""
-        Dim check_morada As String = ""
-        Dim check_codpostal As Boolean = False
-        Dim check_localidade As String = ""
-        Dim check_contactom As Boolean = False
-        Try
-            check_nome = nomebox.Text
-            check_nome.Trim()
-            check_morada = moradabox.Text
-            check_morada.Trim()
-            If codpostalbox.Text.Count < 7 Then
-                check_codpostal = False
-            Else
-                check_codpostal = True
-            End If
-            check_localidade = localidadebox.Text
-            check_localidade.Trim()
-            If cmovelbox.Text.Count < 9 Then
-                check_contactom = False
-            Else
-                check_contactom = True
-            End If
-        Catch ex As Exception
-            MsgBox("Preencha todos os dados marcados como obrigatórios!")
-        End Try
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
+        If modo = True Then
+            Dim check_nome As String = ""
+            Dim check_morada As String = ""
+            Dim check_codpostal As Boolean = False
+            Dim check_localidade As String = ""
+            Dim check_contactom As Boolean = False
             Try
-            If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_localidade = "" And Not check_contactom = False Then
-                codpostalbox.TextMaskFormat = MaskFormat.IncludeLiterals
-                If Workspace.Aluno = False Then
-                    BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                check_nome = nomebox.Text
+                check_nome.Trim()
+                check_morada = moradabox.Text
+                check_morada.Trim()
+                If codpostalbox.Text.Count < 7 Then
+                    check_codpostal = False
                 Else
-                    BLL.Clientes.inserir_aluno(numalunobox.Text, turmabox.Text, nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                    check_codpostal = True
                 End If
-                codpostalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
-                MsgBox("Inserido com sucesso")
-                If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
-                    Dim opr_componente As New OPR_Artigos
-                    opr_componente.modo = False
-                    opr_componente.n_cliente = BLL.Clientes.carregar_max(True)
-                    opr_componente.MdiParent = Workspace
-                    Workspace.m_ChildFormNumber += 1
-                    opr_componente.Show()
-                    Me.Close()
+                check_localidade = localidadebox.Text
+                check_localidade.Trim()
+                If cmovelbox.Text.Count < 9 Then
+                    check_contactom = False
                 Else
-                    Workspace.clientesmenu.PerformClick()
-                    Me.Close()
+                    check_contactom = True
                 End If
+            Catch ex As Exception
+                MsgBox("Preencha todos os dados marcados como obrigatórios!")
+            End Try
+            Try
+                If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_localidade = "" And Not check_contactom = False Then
+                    codpostalbox.TextMaskFormat = MaskFormat.IncludeLiterals
+                    If Workspace.Aluno = False Then
+                        BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                    Else
+                        BLL.Clientes.inserir_aluno(numalunobox.Text, turmabox.Text, nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                    End If
+                    codpostalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
+                    MsgBox("Inserido com sucesso")
+                    If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
+                        Dim opr_componente As New OPR_Artigos
+                        opr_componente.modo = False
+                        opr_componente.n_cliente = BLL.Clientes.carregar_max(True)
+                        opr_componente.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_componente.Show()
+                        Me.Close()
+                    Else
+                        Workspace.clientesmenu.PerformClick()
+                        Me.Close()
+                    End If
+                Else
+                    MsgBox("Introduza todos os dados!")
+                End If
+            Catch ex As Exception
+                MsgBox("Ocorreu um erro: " & ex.Message)
+            End Try
+        Else
+            Dim check_nome As String = ""
+            Dim check_morada As String = ""
+            Dim check_nif As Boolean = False
+            Dim check_codpostal As Boolean = False
+            Dim check_localidade As String = ""
+            Dim check_contactom As Boolean = False
+            Try
+                check_nome = nomebox.Text
+                check_nome.Trim()
+                check_morada = moradabox.Text
+                check_morada.Trim()
+                If nifbox.Text.Length < 9 Then
+                    check_nif = False
+                Else
+                    check_nif = True
+                End If
+                If codpostalbox.Text.Count < 7 Then
+                    check_codpostal = False
+                Else
+                    check_codpostal = True
+                End If
+                check_localidade = localidadebox.Text
+                check_localidade.Trim()
+                If cmovelbox.Text.Count < 9 Then
+                    check_contactom = False
+                Else
+                    check_contactom = True
+                End If
+            Catch ex As Exception
+                MsgBox("Preencha todos os dados marcados como obrigatórios!")
+            End Try
+            If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False) Then
+                Try
+                    If Workspace.Aluno = False Then
+                        If removidos = True Then
+                            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesmenu.PerformClick()
+                            Me.Close()
+                        Else
+                            BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesmenu.PerformClick()
+                            Me.Close()
+                        End If
+                    Else
+                        If removidos = True Then
+                            BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesmenu.PerformClick()
+                            Me.Close()
+                        Else
+                            BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
+                            MsgBox("Editado com sucesso")
+                            Workspace.clientesmenu.PerformClick()
+                            Me.Close()
+                        End If
+                    End If
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+                End Try
             Else
-                MsgBox("Introduza todos os dados!")
+                MsgBox("Introduza todos os dados marcados como obrigatórios!")
             End If
-        Catch ex As Exception
-            MsgBox("Ocorreu um erro: " & ex.Message)
-        End Try
+        End If
     End Sub
 
     Private Sub MaskedTextBox1_MaskInputRejected(sender As Object, e As MaskInputRejectedEventArgs)
 
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles editarbutton.Click
-        Dim check_nome As String = ""
-        Dim check_morada As String = ""
-        Dim check_nif As Boolean = False
-        Dim check_codpostal As Boolean = False
-        Dim check_localidade As String = ""
-        Dim check_contactom As Boolean = False
-        Try
-            check_nome = nomebox.Text
-            check_nome.Trim()
-            check_morada = moradabox.Text
-            check_morada.Trim()
-            If nifbox.Text.Length < 9 Then
-                check_nif = False
-            Else
-                check_nif = True
-            End If
-            If codpostalbox.Text.Count < 7 Then
-                check_codpostal = False
-            Else
-                check_codpostal = True
-            End If
-            check_localidade = localidadebox.Text
-            check_localidade.Trim()
-            If cmovelbox.Text.Count < 9 Then
-                check_contactom = False
-            Else
-                check_contactom = True
-            End If
-        Catch ex As Exception
-            MsgBox("Preencha todos os dados marcados como obrigatórios!")
-        End Try
-        If Not (check_nome = "" And check_morada = "" And check_codpostal = False And check_nif = False And check_localidade = "" And check_contactom = False) Then
-            Try
-                If Workspace.Aluno = False Then
-                    If removidos = True Then
-                        BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                        MsgBox("Editado com sucesso")
-                        Workspace.clientesmenu.PerformClick()
-                        Me.Close()
-                    Else
-                        BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                        MsgBox("Editado com sucesso")
-                        Workspace.clientesmenu.PerformClick()
-                        Me.Close()
-                    End If
-                Else
-                    If removidos = True Then
-                        BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                        MsgBox("Editado com sucesso")
-                        Workspace.clientesmenu.PerformClick()
-                        Me.Close()
-                    Else
-                        BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                        MsgBox("Editado com sucesso")
-                        Workspace.clientesmenu.PerformClick()
-                        Me.Close()
-                    End If
-                End If
-            Catch ex As Exception
-                MsgBox("Ocorreu um erro: " & ex.Message)
-            End Try
-        Else
-            MsgBox("Introduza todos os dados marcados como obrigatórios!")
-        End If
-    End Sub
-
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs)
-        Try
-            If removidos = True Then
-                BLL.Clientes.reativar_cliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
-                MsgBox("Restaurado com sucesso")
-                Workspace.clientesmenu.PerformClick()
-                Me.Close()
-            Else
-                BLL.Clientes.apagar(cliente_data.Rows.Item(0).Item("NºCliente").ToString())
-                MsgBox("Removido com sucesso")
-                Workspace.clientesmenu.PerformClick()
-                Me.Close()
-            End If
-        Catch ex As Exception
-            MsgBox("Ocorreu um erro: " & ex.Message)
-        End Try
-    End Sub
-
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles cancelarbutton.Click
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         If removidos = False Then
             Workspace.clientesmenu.PerformClick()
         Else
@@ -236,7 +218,7 @@
         Me.Close()
     End Sub
 
-    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles restorebutton.Click
+    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles restartbutton.Click
         Try
             If modo = True Then
                 If Not Workspace.Aluno = False Then

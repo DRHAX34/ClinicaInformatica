@@ -27,10 +27,6 @@ Partial Class OPR_Clientes
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.adicionarbutton = New Telerik.WinControls.UI.RadButton()
-        Me.editarbutton = New Telerik.WinControls.UI.RadButton()
-        Me.restorebutton = New Telerik.WinControls.UI.RadButton()
-        Me.cancelarbutton = New Telerik.WinControls.UI.RadButton()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
@@ -52,10 +48,10 @@ Partial Class OPR_Clientes
         Me.numalunobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.turmabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label12 = New System.Windows.Forms.Label()
-        CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.restorebutton, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.cancelarbutton, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.addeditbutton = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.exitbutton = New System.Windows.Forms.Button()
+        Me.restartbutton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -108,43 +104,6 @@ Partial Class OPR_Clientes
         Me.Label6.Size = New System.Drawing.Size(260, 86)
         Me.Label6.TabIndex = 20
         Me.Label6.Text = "Clientes"
-        '
-        'adicionarbutton
-        '
-        Me.adicionarbutton.Location = New System.Drawing.Point(30, 371)
-        Me.adicionarbutton.Name = "adicionarbutton"
-        Me.adicionarbutton.Size = New System.Drawing.Size(103, 37)
-        Me.adicionarbutton.TabIndex = 21
-        Me.adicionarbutton.Text = "Adicionar"
-        Me.adicionarbutton.ThemeName = "Windows8"
-        '
-        'editarbutton
-        '
-        Me.editarbutton.Location = New System.Drawing.Point(139, 371)
-        Me.editarbutton.Name = "editarbutton"
-        Me.editarbutton.Size = New System.Drawing.Size(103, 37)
-        Me.editarbutton.TabIndex = 22
-        Me.editarbutton.Text = "Editar"
-        Me.editarbutton.ThemeName = "Windows8"
-        '
-        'restorebutton
-        '
-        Me.restorebutton.Location = New System.Drawing.Point(393, 371)
-        Me.restorebutton.Name = "restorebutton"
-        Me.restorebutton.Size = New System.Drawing.Size(103, 37)
-        Me.restorebutton.TabIndex = 24
-        Me.restorebutton.Text = "Restaurar Dados Originais"
-        Me.restorebutton.TextWrap = True
-        Me.restorebutton.ThemeName = "Windows8"
-        '
-        'cancelarbutton
-        '
-        Me.cancelarbutton.Location = New System.Drawing.Point(501, 371)
-        Me.cancelarbutton.Name = "cancelarbutton"
-        Me.cancelarbutton.Size = New System.Drawing.Size(110, 37)
-        Me.cancelarbutton.TabIndex = 25
-        Me.cancelarbutton.Text = "Cancelar"
-        Me.cancelarbutton.ThemeName = "Windows8"
         '
         'Label7
         '
@@ -358,12 +317,52 @@ Partial Class OPR_Clientes
         Me.Label12.TabIndex = 90
         Me.Label12.Text = "Não se esqueça de inserir o indicativo do país!"
         '
+        'addeditbutton
+        '
+        Me.addeditbutton.Location = New System.Drawing.Point(30, 367)
+        Me.addeditbutton.Name = "addeditbutton"
+        Me.addeditbutton.Size = New System.Drawing.Size(126, 41)
+        Me.addeditbutton.TabIndex = 91
+        Me.addeditbutton.Text = "Adicionar"
+        Me.addeditbutton.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(162, 367)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(126, 41)
+        Me.Button2.TabIndex = 92
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'exitbutton
+        '
+        Me.exitbutton.Location = New System.Drawing.Point(485, 367)
+        Me.exitbutton.Name = "exitbutton"
+        Me.exitbutton.Size = New System.Drawing.Size(126, 41)
+        Me.exitbutton.TabIndex = 93
+        Me.exitbutton.Text = "Sair"
+        Me.exitbutton.UseVisualStyleBackColor = True
+        '
+        'restartbutton
+        '
+        Me.restartbutton.Location = New System.Drawing.Point(353, 367)
+        Me.restartbutton.Name = "restartbutton"
+        Me.restartbutton.Size = New System.Drawing.Size(126, 41)
+        Me.restartbutton.TabIndex = 94
+        Me.restartbutton.Text = "Reiniciar"
+        Me.restartbutton.UseVisualStyleBackColor = True
+        '
         'OPR_Clientes
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(637, 420)
+        Me.Controls.Add(Me.restartbutton)
+        Me.Controls.Add(Me.exitbutton)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.addeditbutton)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.turmabox)
         Me.Controls.Add(Me.numalunobox)
@@ -384,10 +383,6 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.cancelarbutton)
-        Me.Controls.Add(Me.restorebutton)
-        Me.Controls.Add(Me.editarbutton)
-        Me.Controls.Add(Me.adicionarbutton)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
@@ -397,24 +392,16 @@ Partial Class OPR_Clientes
         Me.Name = "OPR_Clientes"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Operações Clientes"
-        CType(Me.adicionarbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.editarbutton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.restorebutton, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.cancelarbutton, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout
+        Me.PerformLayout()
 
-End Sub
+    End Sub
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents adicionarbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents editarbutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents restorebutton As Telerik.WinControls.UI.RadButton
-    Friend WithEvents cancelarbutton As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
@@ -436,4 +423,8 @@ End Sub
     Friend WithEvents numalunobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents turmabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
+    Friend WithEvents addeditbutton As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents exitbutton As System.Windows.Forms.Button
+    Friend WithEvents restartbutton As System.Windows.Forms.Button
 End Class
