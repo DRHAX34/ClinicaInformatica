@@ -294,9 +294,9 @@ Partial Class Passo2
         Me.sitelabel.Font = New System.Drawing.Font("Segoe UI", 11.0!)
         Me.sitelabel.Location = New System.Drawing.Point(21, 332)
         Me.sitelabel.Name = "sitelabel"
-        Me.sitelabel.Size = New System.Drawing.Size(34, 20)
+        Me.sitelabel.Size = New System.Drawing.Size(63, 20)
         Me.sitelabel.TabIndex = 50
-        Me.sitelabel.Text = "Site"
+        Me.sitelabel.Text = "Website"
         '
         'contactofixlabel
         '
@@ -344,12 +344,13 @@ Partial Class Passo2
         '
         'sitebox
         '
-        Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.sitebox.Location = New System.Drawing.Point(26, 355)
         Me.sitebox.MaxLength = 9
         Me.sitebox.Name = "sitebox"
         Me.sitebox.Size = New System.Drawing.Size(183, 27)
         Me.sitebox.TabIndex = 88
+        Me.sitebox.Text = "Website"
         Me.sitebox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.sitebox.WaterMarkText = "Site"
         '

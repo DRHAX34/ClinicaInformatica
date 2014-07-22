@@ -9,10 +9,7 @@
         naocheck.Checked = True
         logobox.Enabled = False
         If modo = True Then
-            RadButton3.PerformClick()
-        Else
-            RadButton1.Enabled = False
-            RadButton3.Text = "Limpar Tudo"
+            restartbutton.PerformClick()
         End If
 
     End Sub
@@ -22,11 +19,11 @@
         simcheck.Checked = True
     End Sub
 
-    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs) Handles naocheck.Click
+    Private Sub RadioButton2_CheckedChanged(sender As Object, e As EventArgs)
         naocheck.Checked = True
         simcheck.Checked = False
     End Sub
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
         Dim check_nome As String = ""
         Dim check_morada As String = ""
         Dim check_nif As Boolean = True
@@ -43,7 +40,7 @@
             Else
                 check_nif = True
             End If
-            If codpostalbox.Text < 7 Then
+            If cod_postalbox.Text < 7 Then
                 check_codpostal = False
             Else
                 check_codpostal = True
@@ -60,7 +57,7 @@
         If simcheck.Checked = True Or naocheck.Checked = True Then
             If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
                 Try
-                    BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, codpostalbox.Text, localidadebox.Text, logo, True)
+                    BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, emailbox.Text, sitebox.Text, contactofixbox.Text, True)
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro: " & ex.Message)
                 End Try
@@ -74,16 +71,11 @@
 
     
 
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles RadButton4.Click
-        If removidos = True Then
-            Workspace.EmpresasToolStripMenuItem.PerformClick()
-        Else
-            Workspace.EmpresasToolStripMenuItem.PerformClick()
-        End If
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
-    Private Sub RadioButton1_CheckedChanged_1(sender As Object, e As EventArgs) Handles simcheck.Click
+    Private Sub RadioButton1_CheckedChanged_1(sender As Object, e As EventArgs)
         simcheck.Checked = True
         naocheck.Checked = False
     End Sub
@@ -92,7 +84,7 @@
         simcheck.Checked = False
     End Sub
 
-    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles logobutton.Click
         OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
@@ -107,14 +99,14 @@
         End If
     End Sub
 
-    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles RadButton3.Click
+    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles restartbutton.Click
         If modo = True Then
             Try
                 nomebox.Text = empresa_data.Rows.Item(0).Item("Nome").ToString()
                 moradabox.Text = empresa_data.Rows.Item(0).Item("Morada").ToString()
                 localidadebox.Text = empresa_data.Rows.Item(0).Item("Localidade").ToString()
                 nifbox.Text = empresa_data.Rows.Item(0).Item("NIF").ToString()
-                codpostalbox.Text = empresa_data.Rows.Item(0).Item("Cod_Postal").ToString()
+                cod_postalbox.Text = empresa_data.Rows.Item(0).Item("Cod_Postal").ToString()
                 If empresa_data.Rows.Item(0).Item("Alunos") = True Then
                     simcheck.Checked = True
                     naocheck.Checked = False
@@ -133,13 +125,13 @@
             moradabox.Text = ""
             localidadebox.Text = ""
             nifbox.Text = ""
-            codpostalbox.Text = ""
+            cod_postalbox.Text = ""
             simcheck.Checked = False
             naocheck.Checked = True
         End If
     End Sub
 
-    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs) Handles nifbox.KeyPress
+    Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs)
         Try
 
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
@@ -148,6 +140,4 @@
         Catch
         End Try
     End Sub
-
-    
 End Class

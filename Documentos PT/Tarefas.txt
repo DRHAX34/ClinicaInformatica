@@ -4,33 +4,37 @@ feito! - O programa na parte Profissional, na operação Reparações, adicionar o n
 feito! - Na operação Reparações, no selecionar componente. Listar todos os artigos pertencentes sómente ao cliente selecionado.
 feito! - fazer uma revisão à BLL e torná-la mais pequena,optimizada e simples.
 feito! - Remover o botão Empresas
-done - Eliminar botões desnecessários que estão desativados na form dos clientes.
-done - substituir datagridview pelo original se pudermos.
+feito! - Eliminar botões desnecessários que estão desativados na form dos clientes.
+feito! - substituir datagridview pelo original se pudermos.
 
-Depois de gravar uma nova avaria, mostrar a folha da reparação.
-Juntar os dois relatórios (de entrega e efetuada) após gravar uma nova reparação e um botão para imprimir em qualquer sitio.
-Tipo_Artigo.
-Quando clicar no botão "Gravar" abrir o relatório final que é exactamente igual à 2ºFolha do primeiro mas com tudo preenchido.
+feito(em teste)! - Depois de gravar uma nova avaria, mostrar a folha da reparação.
+
+falta relatório - Quando clicar no botão "Gravar" abrir o relatório final que é exactamente igual à 2ºFolha do primeiro mas com tudo preenchido.
+falta relatório - Juntar os dois relatórios (de entrega e efetuada) após gravar uma nova reparação.
+
+em andamento - Mover as reparações e artigos para os clientes (aquilo que falámos com o professor)
+
+Mostrar informações da empresa ao carregar no logo da empresa do ecrã principal.
+Remover selecionar empresa da LoginForm.
 Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
 Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
 No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa
-Mover as reparações e artigos para os clientes (aquilo que falámos com o professor)
-Mostrar informações da empresa ao carregar no logo da empresa do ecrã principal.
-Remover selecionar empresa da LoginForm.
+Reduzir o .NET Framework para 4 dado que o professor quer que este programa suporte o Windows XP
+
 
 Fonseca:
-Done - Na parte dos artigos, remover o selecionar componente.- Fonseca
-done - Adicionar imagens correspondentes a cada botão (Ex. Um "X" no eliminar, entre outros...)- Fonseca
-done - Double click nas tabelas para editar.- Fonseca
-done - NºSérie nao é campo obrigatório.- Fonseca
-done - Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
-done - Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
-done - Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
-Done - Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
-done - Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
-done - Remover fotografia como campo obrigatório.
-done - Selecionar automaticamente a textbox na localização dos clientes
-done - Se um dos contactos tiver preenchido avançar.
+feito! - Na parte dos artigos, remover o selecionar componente.- Fonseca
+feito! - Adicionar imagens correspondentes a cada botão (Ex. Um "X" no eliminar, entre outros...)- Fonseca
+feito! - Double click nas tabelas para editar.- Fonseca
+feito! - NºSérie nao é campo obrigatório.- Fonseca
+feito! - Contacto, site e email na parte do assistente de primeiro uso das Empresas. - Fonseca
+feito! - Substituir Adicionar por Gravar, no adicionar Cliente e no adicionar Artigos e no adicionar Reparações (meter a imagem da disquete)
+feito! - Após adicionar a 1ºvez o artigo ao abrir a reparação para esse cliente, nao aparecer selecionar artigo
+feito! - Escrever do lado direito e adicionar o simbolo do Euro no Hardware e do Software
+feito! - Alterar o botão Editar em todas as operações, de novo, para uma imagem de Disquete.
+feito! - Remover fotografia como campo obrigatório.
+feito! - Selecionar automaticamente a textbox na localização dos clientes
+feito! - Se um dos contactos tiver preenchido avançar.
 
 Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
 Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
