@@ -20,6 +20,7 @@ Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
 Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
 No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa
 Reduzir o .NET Framework para 4 dado que o professor quer que este programa suporte o Windows XP
+adicionar um if caso a combobox do OPR_Artigos caso esteja selecionado ou "Portátil" ou "Fixo"
 
 
 Fonseca:
@@ -35,13 +36,15 @@ feito! - Alterar o botão Editar em todas as operações, de novo, para uma imagem 
 feito! - Remover fotografia como campo obrigatório.
 feito! - Selecionar automaticamente a textbox na localização dos clientes
 feito! - Se um dos contactos tiver preenchido avançar.
+feito! - adicionar combobox nos artigos caso seja Portátil ou Computador.
+feito! - Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
+feito! - Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
+feito! - Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
+feito! - Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
+feito! - Remover do relatório, manual, apresentação, etc as funcionalidades das multi-empresas.
 
-Adicionar uma nova função do hardware para "Computador e Portátil", alterar algumas labels de acordo com cada tipo_artigo.
-Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar USB, LCD, Teclado, touchpad, Carregador A/C.
-Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
-adicionar combobox nos artigos caso seja Portátil ou Computador.
-Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
-Remover do relatório, manual, apresentação, etc as funcionalidades das multi-empresas.
+
+
 atualizar o manual aplicação (apenas quando o programa estiver acabado)
 
 
