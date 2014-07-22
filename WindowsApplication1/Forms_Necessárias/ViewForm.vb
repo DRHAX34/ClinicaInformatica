@@ -207,7 +207,7 @@
     End Sub
 
 
-    Private Sub delbutton_Click(sender As Object, e As EventArgs)
+    Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
         GroupBox1.Hide()
         Try
             Dim string_data As String
@@ -273,70 +273,12 @@
         End Try
 
     End Sub
-
-    Private Sub updatebutton_Click(sender As Object, e As EventArgs)
-        GroupBox1.Hide()
-        Try
-            Select Case tabela
-                Case "Clientes"
-                    If removidos = True Then
-                        If Workspace.Aluno = True Then
-                            showdata.DataSource = BLL.Clientes.carregar_alunos(False)
-                        Else
-                            showdata.DataSource = BLL.Clientes.carregar(False)
-                        End If
-                    Else
-                        If Workspace.Aluno = True Then
-                            showdata.DataSource = BLL.Clientes.carregar_alunos(True)
-                        Else
-                            showdata.DataSource = BLL.Clientes.carregar(True)
-                        End If
-                    End If
-                Case "Artigos"
-                    If removidos = True Then
-                        showdata.DataSource = BLL.Artigos.carregar(False)
-                    Else
-                        showdata.DataSource = BLL.Artigos.carregar(True)
-                    End If
-                Case "Reparações"
-                    If removidos = True Then
-                        showdata.DataSource = BLL.Reparacoes.carregar(False)
-                    Else
-                        showdata.DataSource = BLL.Reparacoes.carregar(True)
-                    End If
-                Case "Técnicos"
-                    If removidos = True Then
-                        showdata.DataSource = BLL.Tecnicos.carregar(False)
-                    Else
-                        showdata.DataSource = BLL.Tecnicos.carregar(True)
-                    End If
-
-            End Select
-        Catch ex As Exception
-            MsgBox("Erro ao atualizar: " & ex.Message)
-        End Try
-    End Sub
-
     Private Sub findbutton_Click(sender As Object, e As EventArgs) Handles findbutton.Click
         GroupBox1.Show()
         TextBox1.Select(0, 0)
     End Sub
-    Private Sub othersbutton_Click(sender As Object, e As EventArgs)
-        GroupBox1.Hide()
-        Try
-            Dim string_data As String
-            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-            If tabela = "Reparações" Then
-                Dim otheroptions As New otheroptions
-                otheroptions.MdiParent = Workspace
-                otheroptions.Show()
-                Workspace.pass_string = string_data
-            End If
-        Catch
-        End Try
-    End Sub
 
-    Private Sub exitbutton_Click(sender As Object, e As EventArgs)
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
     End Sub
 
@@ -500,18 +442,18 @@
                 
             Case "Artigos"
                 If CheckBox1.Checked = True Then
-                    data_table = BLL.Artigos.carregar(False)
+                    data_table = BLL.Artigos.carregar_dados_numcliente(n_cliente, False)
                     removidos = True
                 Else
-                    data_table = BLL.Artigos.carregar(True)
+                    data_table = BLL.Artigos.carregar_dados_numcliente(n_cliente, True)
                     removidos = False
                 End If
             Case "Reparações"
                 If CheckBox1.Checked = True Then
-                    data_table = BLL.Reparacoes.carregar(False)
+                    data_table = BLL.Reparacoes.carregar_dados_numartigo(artigo, False)
                     removidos = True
                 Else
-                    data_table = BLL.Reparacoes.carregar(True)
+                    data_table = BLL.Reparacoes.carregar_dados_numartigo(artigo, False)
                     removidos = False
                 End If
             Case "Técnicos"
@@ -524,16 +466,9 @@
                 End If
         End Select
         If removidos = True Then
-            delbutton.Text = "Restaurar"
             newbutton.Enabled = False
         Else
-            delbutton.Text = "Eliminar"
             newbutton.Enabled = True
         End If
-    End Sub
-
-    
-    Private Sub showdata_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles showdata.CellContentClick
-
     End Sub
 End Class

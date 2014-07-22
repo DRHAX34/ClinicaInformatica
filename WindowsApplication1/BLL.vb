@@ -464,20 +464,21 @@ Public Class BLL
             p.Add(New SqlParameter("@ativo", ativo))
             Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie, Observações, Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa", p)
         End Function
-        Shared Function procura_dados(ByRef query As String, ByRef ativo As Boolean) As DataTable
+        Shared Function procura_dados(ByRef query As String, ByRef n_cliente As String, ByRef ativo As Boolean) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@n_empresa", n_empresa))
             p.Add(New SqlParameter("@ativo", ativo))
+            p.Add(New SqlParameter("@n_cliente", n_cliente))
             If IsNumeric(query) = True Then
                 Dim backup As String = query
                 query = "%" + backup + "%"
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (NºArtigo like @query OR NºCliente like @query)", p)
+                Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (NºArtigo like @query) and NºCliente=@n_cliente", p)
             Else
                 Dim backup As String = query
                 query = "%" + backup + "%"
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (Marca like @query OR Modelo like @query OR NºSérie like @query OR Observações like @query OR Tipo_Artigo like @query)", p)
+                Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (Marca like @query OR Modelo like @query OR NºSérie like @query OR Observações like @query OR Tipo_Artigo like @query) and NºCliente=@n_cliente", p)
             End If
         End Function
         Shared Function carregar_dados_numartigo(ByRef NºArtigo As String, ByRef ativo As Boolean) As DataTable

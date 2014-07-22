@@ -121,6 +121,7 @@ Public Class Passo2
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles imagebutton.Click
         OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
+        OpenFileDialog1.FileName = ""
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
         If img_caminho <> "OpenFileDialog1" Then

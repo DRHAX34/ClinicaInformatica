@@ -189,8 +189,9 @@ Public Class Passo3emeio
         respostabox.Text = ""
     End Sub
 
-    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles RadButton6.Click
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles logobutton.Click
         OpenFileDialog1.Filter = "Imagens | *.png;*.jpg;*.jpeg;*.bmp"
+        OpenFileDialog1.FileName = ""
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
         caminhobox.Text = img_caminho
@@ -203,6 +204,4 @@ Public Class Passo3emeio
             End Try
         End If
     End Sub
-
-    
 End Class

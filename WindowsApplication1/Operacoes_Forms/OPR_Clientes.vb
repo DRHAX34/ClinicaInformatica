@@ -325,9 +325,9 @@
     Private Sub componentesbutton_Click(sender As Object, e As EventArgs) Handles componentesbutton.Click
         Dim artigosview As New ViewForm
         Workspace.check_artigos = True
-        artigosview.Text = "Artigos"
+        artigosview.Text = "Artigos do Cliente"
         artigosview.tabela = "Artigos"
-        artigosview.MdiParent = Me
+        artigosview.MdiParent = Workspace
         Workspace.m_ChildFormNumber += 1
         artigosview.n_cliente = cliente_data.Rows(0).Item("NºCliente").ToString()
         artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), True)

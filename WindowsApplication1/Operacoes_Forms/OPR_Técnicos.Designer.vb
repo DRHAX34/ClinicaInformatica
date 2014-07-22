@@ -418,7 +418,7 @@ Partial Class OPR_Técnicos
         Me.logobutton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.logobutton.Location = New System.Drawing.Point(738, 181)
         Me.logobutton.Name = "logobutton"
-        Me.logobutton.Size = New System.Drawing.Size(42, 23)
+        Me.logobutton.Size = New System.Drawing.Size(32, 23)
         Me.logobutton.TabIndex = 109
         Me.logobutton.Text = "..."
         Me.logobutton.UseVisualStyleBackColor = True

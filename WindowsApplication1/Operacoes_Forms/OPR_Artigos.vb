@@ -12,31 +12,31 @@
         Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
-        If modo = True Then
-            restartbutton.Image = restartimagebutton
-            n_cliente = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
-            nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente, True).Rows(0).Item("Nome").ToString()
-            marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
-            modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
-            numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
-            observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
-        Else
-            restartbutton.Image = limparimagebutton
-        End If
-
-    End Sub
-
-    Private Sub RadButton3_Click(sender As Object, e As EventArgs)
         Try
             If modo = True Then
+                restartbutton.Image = restartimagebutton
                 n_cliente = dispositivo_data.Rows.Item(0).Item("NºCliente").ToString()
                 marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
                 modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
                 observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
             Else
-                n_cliente = ""
-                nomeclientelabel.Text = "Não Selecionado!"
+                restartbutton.Image = limparimagebutton
+            End If
+            nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente, True).Rows(0).Item("Nome").ToString()
+        Catch ex As Exception
+            MsgBox("Erro ao carregar: " & ex.Message, vbOKOnly, "Erro!")
+        End Try
+    End Sub
+
+    Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles restartbutton.Click
+        Try
+            If modo = True Then
+                marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
+                modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
+                numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
+                observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
+            Else
                 marcabox.Text = ""
                 modelobox.Text = ""
                 numseriebox.Text = ""
@@ -89,7 +89,7 @@
             End Try
             Try
                 If Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
-                    BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
+                    BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.Text)
                     MsgBox("Inserido com sucesso")
                     If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then
                         If BLL.Tecnicos.carregar(True).Rows.Count = 0 Then
@@ -112,6 +112,7 @@
                             Dim opr_reparações As New OPR_Reparações
                             opr_reparações.MdiParent = Workspace
                             opr_reparações.modo = False
+                            opr_reparações.artigos = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString()
                             'opr_reparações. = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString
                             opr_reparações.Show()
                             Me.Close()
@@ -131,14 +132,6 @@
 
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
-        
-    End Sub
-
-    Private Sub savebutton_Click(sender As Object, e As EventArgs) Handles savebutton.Click
-
-    End Sub
-
     Private Sub reparaçoesbutton_Click(sender As Object, e As EventArgs) Handles reparaçoesbutton.Click
         Dim repararview As New ViewForm
         Workspace.check_reparacoes = True
@@ -149,5 +142,9 @@
         repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), True)
         repararview.removidos = False
         repararview.Show()
+    End Sub
+
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+        Me.Close()
     End Sub
 End Class

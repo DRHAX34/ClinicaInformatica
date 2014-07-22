@@ -49,7 +49,6 @@ Partial Class Passo3emeio
         Me.Label12 = New System.Windows.Forms.Label()
         Me.numalunolabel = New System.Windows.Forms.Label()
         Me.limparbutton = New System.Windows.Forms.Button()
-        Me.RadButton6 = New Telerik.WinControls.UI.RadButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.nomebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.numalunobox = New ClinicaInformatica.WaterMarkTextBox()
@@ -58,9 +57,9 @@ Partial Class Passo3emeio
         Me.contacto_fbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
         Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
+        Me.logobutton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -321,15 +320,6 @@ Partial Class Passo3emeio
         Me.limparbutton.TabIndex = 120
         Me.limparbutton.UseVisualStyleBackColor = True
         '
-        'RadButton6
-        '
-        Me.RadButton6.Location = New System.Drawing.Point(795, 167)
-        Me.RadButton6.Name = "RadButton6"
-        Me.RadButton6.Size = New System.Drawing.Size(33, 22)
-        Me.RadButton6.TabIndex = 121
-        Me.RadButton6.Text = "..."
-        Me.RadButton6.ThemeName = "Windows8"
-        '
         'OpenFileDialog1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
@@ -413,11 +403,22 @@ Partial Class Passo3emeio
         Me.cod_postalbox.WaterMarkColor = System.Drawing.Color.Gray
         Me.cod_postalbox.WaterMarkText = "Obrigatório"
         '
+        'logobutton
+        '
+        Me.logobutton.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.logobutton.Location = New System.Drawing.Point(795, 167)
+        Me.logobutton.Name = "logobutton"
+        Me.logobutton.Size = New System.Drawing.Size(33, 23)
+        Me.logobutton.TabIndex = 129
+        Me.logobutton.Text = "..."
+        Me.logobutton.UseVisualStyleBackColor = True
+        '
         'Passo3emeio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 468)
+        Me.Controls.Add(Me.logobutton)
         Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.localidadebox)
         Me.Controls.Add(Me.contacto_fbox)
@@ -425,7 +426,6 @@ Partial Class Passo3emeio
         Me.Controls.Add(Me.turmabox)
         Me.Controls.Add(Me.numalunobox)
         Me.Controls.Add(Me.nomebox)
-        Me.Controls.Add(Me.RadButton6)
         Me.Controls.Add(Me.limparbutton)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.caminhobox)
@@ -446,7 +446,6 @@ Partial Class Passo3emeio
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton6, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -477,7 +476,6 @@ Partial Class Passo3emeio
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents numalunolabel As System.Windows.Forms.Label
     Friend WithEvents limparbutton As System.Windows.Forms.Button
-    Friend WithEvents RadButton6 As Telerik.WinControls.UI.RadButton
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents nomebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents numalunobox As ClinicaInformatica.WaterMarkTextBox
@@ -486,4 +484,5 @@ Partial Class Passo3emeio
     Friend WithEvents contacto_fbox As ClinicaInformatica.MaskedWaterMarkTextBox
     Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
+    Friend WithEvents logobutton As System.Windows.Forms.Button
 End Class
