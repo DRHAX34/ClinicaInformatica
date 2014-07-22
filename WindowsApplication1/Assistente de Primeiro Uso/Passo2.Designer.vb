@@ -350,9 +350,8 @@ Partial Class Passo2
         Me.sitebox.Name = "sitebox"
         Me.sitebox.Size = New System.Drawing.Size(183, 27)
         Me.sitebox.TabIndex = 88
-        Me.sitebox.Text = "Website"
         Me.sitebox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.sitebox.WaterMarkText = "Site"
+        Me.sitebox.WaterMarkText = "Website"
         '
         'Passo2
         '

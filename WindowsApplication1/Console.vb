@@ -4,6 +4,7 @@
         Dim pi As ProcessStartInfo = New ProcessStartInfo()
         pi.Arguments = " " + command + " " + arguments
         pi.FileName = "taskkill.exe"
+        pi.WindowStyle = ProcessWindowStyle.Hidden
         p.StartInfo = pi
         p.Start()
     End Sub

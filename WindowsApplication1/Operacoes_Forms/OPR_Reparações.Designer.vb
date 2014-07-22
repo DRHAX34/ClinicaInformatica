@@ -35,10 +35,10 @@ Partial Class OPR_Reparações
         Me.datefim = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.insert_software = New System.Windows.Forms.Button()
+        Me.insert_hardware = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.clienteshow = New System.Windows.Forms.Label()
         Me.clientelabel = New System.Windows.Forms.Label()
-        Me.insert_hardware = New System.Windows.Forms.Button()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -54,6 +54,7 @@ Partial Class OPR_Reparações
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.insert_tecnicos = New System.Windows.Forms.Button()
         Me.showdata = New System.Windows.Forms.DataGridView()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -179,6 +180,16 @@ Partial Class OPR_Reparações
         Me.insert_software.Text = "Inserir Software"
         Me.insert_software.UseVisualStyleBackColor = True
         '
+        'insert_hardware
+        '
+        Me.insert_hardware.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.insert_hardware.Location = New System.Drawing.Point(116, 26)
+        Me.insert_hardware.Name = "insert_hardware"
+        Me.insert_hardware.Size = New System.Drawing.Size(110, 36)
+        Me.insert_hardware.TabIndex = 55
+        Me.insert_hardware.Text = "Inserir Hardware"
+        Me.insert_hardware.UseVisualStyleBackColor = True
+        '
         'Panel1
         '
         Me.Panel1.Controls.Add(Me.clienteshow)
@@ -208,16 +219,6 @@ Partial Class OPR_Reparações
         Me.clientelabel.Size = New System.Drawing.Size(78, 25)
         Me.clientelabel.TabIndex = 0
         Me.clientelabel.Text = "Cliente:"
-        '
-        'insert_hardware
-        '
-        Me.insert_hardware.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.insert_hardware.Location = New System.Drawing.Point(116, 26)
-        Me.insert_hardware.Name = "insert_hardware"
-        Me.insert_hardware.Size = New System.Drawing.Size(110, 36)
-        Me.insert_hardware.TabIndex = 55
-        Me.insert_hardware.Text = "Inserir Hardware"
-        Me.insert_hardware.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -339,12 +340,24 @@ Partial Class OPR_Reparações
         Me.showdata.Size = New System.Drawing.Size(240, 150)
         Me.showdata.TabIndex = 104
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(480, 144)
+        Me.Label3.MaximumSize = New System.Drawing.Size(200, 25)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(19, 21)
+        Me.Label3.TabIndex = 105
+        Me.Label3.Text = "€"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(812, 474)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.showdata)
         Me.Controls.Add(Me.insert_tecnicos)
@@ -414,4 +427,5 @@ Partial Class OPR_Reparações
     Friend WithEvents insert_hardware As System.Windows.Forms.Button
     Friend WithEvents insert_tecnicos As System.Windows.Forms.Button
     Friend WithEvents showdata As System.Windows.Forms.DataGridView
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

@@ -15,8 +15,6 @@
         Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
-
-
         If Workspace.Aluno = True Then
             Panel1.Hide()
         Else
@@ -52,7 +50,6 @@
                 End If
             End If
             showdata.DataSource = Workspace.tecnicos_support
-
             datefim.Enabled = True
             insert_tecnicos.Enabled = True
             check = False
@@ -81,30 +78,98 @@
             insert_tecnicos.Hide()
             showdata.Hide()
         End If
+        Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(artigos, True)
+        nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
     End Sub
-    
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
-        Dim check_componente As Boolean = False
-        Dim check_descrição As String = descriçaobox.Text
-        Try
-            check_descrição.Trim()
-        Catch
-        End Try
-        If Not check_componente = False And Not check_descrição = "" Then
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
+        If modo = False Then
+            Dim check_componente As Boolean = False
+            Dim check_descrição As String = descriçaobox.Text
             Try
-                BLL.Reparacoes.inserir(artigos, descriçaobox.Text, dateinicio.Value)
-                MsgBox("Reparação Inserida com sucesso!")
-                Workspace.reparacoesmenu.PerformClick()
-                Me.Close()
-            Catch ex As Exception
-                MsgBox("Erro ao inserir: " & ex.Message)
+                check_descrição.Trim()
+            Catch
             End Try
+            If Not check_componente = False And Not check_descrição = "" Then
+                Try
+                    BLL.Reparacoes.inserir(artigos, descriçaobox.Text, dateinicio.Value)
+                    folha_repar = New folha_repar
+                    folha_repar.MdiParent = Workspace
+                    folha_repar.n_repar = BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação").ToString()
+                    folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
+                    folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString, True)
+                    folha_repar.Show()
+                    Me.Close()
+                Catch ex As Exception
+                    MsgBox("Erro ao inserir: " & ex.Message)
+                End Try
+            Else
+                MsgBox("Verifique se inseriu o número de Artigo, a data inicial ou a descrição da avaria!", vbOK, "Erro!")
+            End If
         Else
-            MsgBox("Verifique se inseriu o número de Artigo, a data inicial ou a descrição da avaria!", vbOK, "Erro!")
+            Dim check_componente As Boolean = False
+            Dim check_descrição As String = descriçaobox.Text
+            Dim check_data As Boolean = False
+            Dim temporeal As TimeSpan
+            If datefim.Value = dateinicio.Value Then
+                check_data = False
+                temporeal = New TimeSpan
+            Else
+                temporeal = datefim.Value.Subtract(dateinicio.Value)
+                check_data = True
+            End If
+            Try
+                check_descrição.Trim()
+            Catch
+            End Try
+            If BLL.Hardware.return_all <> 0 Then
+                BLL.Hardware.delete_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+            End If
+            If BLL.Software.return_all <> 0 Then
+                BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+            End If
+            If BLL.Participacoes.return_all <> 0 Then
+                BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
+            End If
+            If Not check_componente = False And Not check_descrição = "" And Not check_data = False Then
+                Try
+                    BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), artigos, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
+                    If Workspace.hardware_support.Columns.Count <> 0 Then
+                        If Workspace.hardware_support.Rows.Count <> 0 Then
+                            For i = 0 To Workspace.hardware_support.Rows.Count - 1
+                                BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço").ToString, Workspace.hardware_support.Rows(i).Item("Qtd").ToString)
+                            Next
+                        End If
+                    End If
+                    If Workspace.software_support.Columns.Count <> 0 Then
+                        If Workspace.software_support.Rows.Count <> 0 Then
+                            For i = 0 To Workspace.software_support.Rows.Count - 1
+                                BLL.Software.adicionar_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"))
+                            Next
+                        End If
+                    End If
+                    If Workspace.Aluno = False Then
+                        Workspace.tecnicos_support.Rows.Add(Workspace.tecnico, BLL.Tecnicos.carregar_dados(Workspace.tecnico, True).Rows(0).Item("Nome").ToString())
+                    End If
+                    If Workspace.tecnicos_support.Columns.Count <> 0 Then
+                        If Workspace.tecnicos_support.Rows.Count <> 0 Then
+                            For i = 0 To Workspace.tecnicos_support.Rows.Count - 1
+                                BLL.Participacoes.adicionar_part(Workspace.tecnicos_support.Rows(i).Item("NºTécnico").ToString, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.tecnicos_support.Rows(i).Item("Nome").ToString)
+                            Next
+                        End If
+                    End If
+                    MsgBox("Reparação Editada com sucesso!")
+                    '-----INSERIR CÓDIGO AQUI------"
+                    Me.Close()
+                    check = False
+                Catch ex As Exception
+                    MsgBox("Erro ao inserir: " & ex.Message)
+                End Try
+            Else
+                MsgBox("Insira todos os dados!", vbOKOnly, "Erro!")
+            End If
         End If
     End Sub
-
-    Private Sub RadButton6_Click(sender As Object, e As EventArgs)
+    Private Sub RadButton6_Click(sender As Object, e As EventArgs) Handles insert_tecnicos.Click
         If insert_tecnicos.Text = "Ver Técnicos Participantes" Then
             Dim tecnicosform As New ViewForm
             tecnicosform.MdiParent = Workspace
@@ -123,7 +188,6 @@
             Timer4.Start()
         End If
     End Sub
-
     Private Sub numcomponentebox_TextChanged(sender As Object, e As EventArgs)
         'Try
         '    If Not IsNumeric(numcomponentebox.Text.Chars(numcomponentebox.Text.Length - 1)) Then
@@ -143,20 +207,12 @@
         '    End If
         'Catch
         'End Try
-        Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(artigos, True)
-        nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
+        
     End Sub
-
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs)
-        Workspace.reparacoesmenu.PerformClick()
+    Private Sub RadButton4_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
     End Sub
-
-    Private Sub Label8_Click(sender As Object, e As EventArgs) Handles Label8.Click
-
-    End Sub
-
-    Private Sub RadButton8_Click(sender As Object, e As EventArgs)
+    Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles insert_hardware.Click
         Dim select_hardware As New Inserir_Hardware
         select_hardware.MdiParent = Workspace
         If Workspace.hardware_support.Columns.Count <> 0 Then
@@ -170,10 +226,7 @@
         End If
         select_hardware.Show()
     End Sub
-
-    
-
-    Private Sub RadButton9_Click(sender As Object, e As EventArgs)
+    Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles insert_software.Click
         Dim select_software As New Inserir_Software
         select_software.MdiParent = Workspace
         If Workspace.software_support.Columns.Count <> 0 Then
@@ -188,118 +241,16 @@
         End If
         select_software.Show()
     End Sub
-
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
-        Dim check_componente As Boolean = False
-        Dim check_descrição As String = descriçaobox.Text
-        Dim check_data As Boolean = False
-        Dim temporeal As TimeSpan
-        If datefim.Value = dateinicio.Value Then
-            check_data = False
-            temporeal = New TimeSpan
-        Else
-            temporeal = datefim.Value.Subtract(dateinicio.Value)
-            check_data = True
-        End If
-        If artigos <> 0 Or artigos <> "" Then
-            check_componente = True
-        Else
-            MsgBox("Selecione o Artigo!")
-        End If
-        Try
-            check_descrição.Trim()
-        Catch
-        End Try
-        If BLL.Hardware.return_all <> 0 Then
-            BLL.Hardware.delete_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        End If
-        If BLL.Software.return_all <> 0 Then
-            BLL.Software.delete_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        End If
-        If BLL.Participacoes.return_all <> 0 Then
-            BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
-        End If
-        If Not check_componente = False And Not check_descrição = "" And Not check_data = False Then
-            Try
-                BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), artigos, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
-                If Workspace.hardware_support.Columns.Count <> 0 Then
-                    If Workspace.hardware_support.Rows.Count <> 0 Then
-                        For i = 0 To Workspace.hardware_support.Rows.Count - 1
-                            BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço").ToString, Workspace.hardware_support.Rows(i).Item("Qtd").ToString)
-                        Next
-                    End If
-                End If
-                If Workspace.software_support.Columns.Count <> 0 Then
-                    If Workspace.software_support.Rows.Count <> 0 Then
-                        For i = 0 To Workspace.software_support.Rows.Count - 1
-                            BLL.Software.adicionar_software(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"))
-                        Next
-                    End If
-                End If
-                If Workspace.Aluno = False Then
-                    Workspace.tecnicos_support.Rows.Add(Workspace.tecnico, BLL.Tecnicos.carregar_dados(Workspace.tecnico, True).Rows(0).Item("Nome").ToString())
-                End If
-                If Workspace.tecnicos_support.Columns.Count <> 0 Then
-                    If Workspace.tecnicos_support.Rows.Count <> 0 Then
-                        For i = 0 To Workspace.tecnicos_support.Rows.Count - 1
-                            BLL.Participacoes.adicionar_part(Workspace.tecnicos_support.Rows(i).Item("NºTécnico").ToString, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), Workspace.tecnicos_support.Rows(i).Item("Nome").ToString)
-                        Next
-                    End If
-                End If
-                MsgBox("Reparação Editada com sucesso!")
-                If removidos = True Then
-                    Workspace.reparacoesmenu.PerformClick()
-                Else
-                    Workspace.reparacoesmenu.PerformClick()
-                End If
-                Me.Close()
-                check = False
-            Catch ex As Exception
-                MsgBox("Erro ao inserir: " & ex.Message)
-            End Try
-        Else
-            MsgBox("Insira todos os dados!", vbOKOnly, "Erro!")
-        End If
-    End Sub
-
     Private Sub dateinicio_ValueChanged(sender As Object, e As EventArgs) Handles dateinicio.ValueChanged
         datefim.MinDate = dateinicio.Value
         If datefim.Value < dateinicio.Value Then
             datefim.Value = dateinicio.Value
         End If
     End Sub
-    
-    Private Sub preçobox_TextChanged(sender As Object, e As EventArgs)
-    End Sub
-
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs)
-        If removidos = False Then
-            Try
-                BLL.Reparacoes.apagar(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), 1)
-                MsgBox("Removido com sucesso!")
-                Me.Close()
-            Catch ex As Exception
-                MsgBox("Erro ao Eliminar : " & ex.Message)
-            End Try
-        Else
-            Try
-                BLL.Reparacoes.restaurar(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), 1)
-                MsgBox("Restaurado com sucesso!")
-                Me.Close()
-            Catch ex As Exception
-                MsgBox("Erro ao Restaurar : " & ex.Message)
-            End Try
-        End If
-    End Sub
-
     Private Sub datefim_ValueChanged(sender As Object, e As EventArgs) Handles datefim.ValueChanged
         Dim temporeal As TimeSpan
         temporeal = datefim.Value.Subtract(dateinicio.Value)
         tempo_real.Text = temporeal.TotalHours & " Horas"
-    End Sub
-
-    Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
-
     End Sub
     Private Sub checkbox1_click(sender As Object, e As EventArgs) Handles CheckBox1.Click
         insert_hardware.Enabled = CheckBox1.Checked
@@ -307,7 +258,6 @@
     Private Sub checkbox2_click(sender As Object, e As EventArgs) Handles CheckBox2.Click
         insert_software.Enabled = CheckBox2.Checked
     End Sub
-
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Try
             showdata.DataSource = Workspace.tecnicos_support
@@ -317,7 +267,6 @@
         Catch
         End Try
     End Sub
-
     Private Sub preçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles preçobox.KeyPress
         Try
             If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
@@ -327,16 +276,19 @@
             End If
         Catch
         End Try
-    End Sub
-    Private Sub numcomponentebox_onlynums(sender As Object, e As KeyPressEventArgs)
-        Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
-                    e.Handled = True
-                End If
+        Dim check As Boolean = False
+        Dim count As Integer = 0
+        For i = 0 To preçobox.Text.Length() - 1
+            If preçobox.Text.Chars(i) = "." And check = False Then
+                check = True
             End If
-        Catch
-        End Try
+            If check = True Then
+                count += 1
+            End If
+        Next
+        If count = 2 Then
+            e.Handled = True
+        End If
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs)

@@ -1,7 +1,7 @@
 ﻿Imports System.IO
 Imports System.IO.Compression
 Public NotInheritable Class SplashAway
-
+    Public check As Boolean
     'TODO: Este formulário pode ser facilmente configurado como a tela inicial da aplicação através da edição da aba "Aplicação"
     '  no Designer de Projeto ("Propriedades" dentro do menu "Projetos").
 
@@ -62,8 +62,14 @@ Public NotInheritable Class SplashAway
                 ProgressBar1.Value = 100
                 Workspace.Show()
                 Me.Close()
+                Timer1.Stop()
             Catch ex As Exception
-                MsgBox("Erro no programa: " & ex.Message)
+                Timer1.Stop()
+                If check = False Then
+                    check = True
+                    MsgBox("Erro no programa: " & ex.Message, vbOKOnly, "Erro!")
+                End If
+                Me.Close()
             End Try
         Else
             Workspace.Show()
@@ -79,5 +85,6 @@ Public NotInheritable Class SplashAway
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         load_form()
+        Timer1.Stop()
     End Sub
 End Class

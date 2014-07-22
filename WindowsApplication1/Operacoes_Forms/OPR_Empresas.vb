@@ -10,6 +10,8 @@
         logobox.Enabled = False
         If modo = True Then
             restartbutton.PerformClick()
+        Else
+            restartbutton.Text = "Limpar Tudo"
         End If
 
     End Sub

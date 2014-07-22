@@ -241,17 +241,23 @@ Public Class Workspace
     End Sub
 
     Private Sub BackupDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BackupDeDadosToolStripMenuItem.Click
-        Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
-        Dim sql_caminho As String
+        'DAL.Connection.Close()
+        'DAL.Connection.Dispose()
+        'Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
+        'DAL.Connection.Dispose()
+        Dim sql_caminho, sqlnome As String
         SaveFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
         SaveFileDialog1.ShowDialog()
-        sql_caminho = SaveFileDialog1.FileName
+        Dim backup As New FileInfo(SaveFileDialog1.FileName)
+        sql_caminho = backup.DirectoryName
+        sqlnome = backup.Name + backup.Extension
         Try
             If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 If System.IO.File.Exists(sql_caminho) = True Then
                     System.IO.File.Delete(sql_caminho)
                 End If
-                System.IO.File.Copy(".\Resources\BD-C.I.mdf", sql_caminho)
+                'System.IO.File.Copy("|DataDirectory|\Resources\BD-C.I.mdf", sql_caminho)
+                'DAL.BackUpDB(sql_caminho, sqlnome)
                 MsgBox("Backup feito com êxito! Nota: O programa ficará um pouco lento ao abrir uma Tabela por um curto período de tempo.", vbOKOnly, "Êxito!")
             End If
         Catch ex As Exception
@@ -261,16 +267,16 @@ Public Class Workspace
 
     Private Sub RestauroDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestauroDeDadosToolStripMenuItem.Click
         If MsgBox("O programa terá que ser reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
-            Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
+            'DAL.Connection.Close()
+            'DAL.Connection.Dispose()
+            'Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
             Dim sql_caminho As String
             OpenFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
             OpenFileDialog1.ShowDialog()
             sql_caminho = OpenFileDialog1.FileName
             If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 Try
-                    System.IO.File.Delete(".\Resources\BD-C.I.mdf")
-                    System.IO.File.Delete(".\Resources\BD-C.I_log.ldf")
-                    System.IO.File.Copy(sql_caminho, ".\Resources\BD-C.I.mdf")
+                    'DAL.RestoreDB(sql_caminho)
                     MsgBox("Backup restaurado com êxito!")
                     Application.Restart()
                 Catch ex As Exception
@@ -286,7 +292,7 @@ Public Class Workspace
         manual_form.Show()
     End Sub
 
-    Private Sub dispositivosmenu_Click(sender As Object, e As EventArgs) Handles dispositivosmenu.Click
+    Private Sub dispositivosmenu_Click(sender As Object, e As EventArgs)
         If check_artigos = False Then
             Try
                 If BLL.Clientes.carregar(True).Rows.Count = 0 Then
@@ -318,7 +324,7 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub reparacoesmenu_Click(sender As Object, e As EventArgs) Handles reparacoesmenu.Click
+    Private Sub reparacoesmenu_Click(sender As Object, e As EventArgs)
         If check_reparacoes = False Then
             If BLL.Clientes.carregar(True).Rows.Count <> 0 Then
                 If BLL.Artigos.carregar(True).Rows.Count <> 0 Then

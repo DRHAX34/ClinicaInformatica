@@ -123,6 +123,51 @@ Public Class DAL
             CloseConnection()
         End Try
     End Function
+    'Shared Sub BackUpDB(ByVal path As String, ByVal name As String)
+    '    Try
+    '        Dim bakadp As SqlDataAdapter
+    '        Dim bakds As DataSet
+    '        Dim dbname As String = DAL.ExecuteScalar("SELECT DB_NAME() AS DataBaseName", Nothing)
+    '        Dim strbakSQLSentence As String = "BACKUP DATABASE " + dbname + " TO DISK = '@path' WITH INIT, NOUNLOAD, NAME = '" + name + "' , NOSKIP , STATS = 10 , NOFORMAT "
+    '        strbakSQLSentence.Replace("'", Chr(34))
+    '        bakadp = New SqlDataAdapter(strbakSQLSentence, Connection)
+    '        Connection.Open()
+    '        bakds = New DataSet
+    '        bakadp.SelectCommand.Parameters.Add(New SqlParameter("@path", path + "\" + name))
+    '        bakadp.Fill(bakds)
+    '        Connection.Close()
+    '    Catch ex As Exception
+    '        MsgBox("Erro ao fazer backup! " & ex.Message)
+    '    Finally
+    '        If Connection.State = ConnectionState.Open Then
+    '            Connection.Close()
+    '            Connection.Dispose()
+    '        End If
+    '    End Try
+    'End Sub
+    'Shared Sub RestoreDB(ByVal path As String)
+    '    Try
+    '        'THI[b]S TIME THE CONNECTION IS SET TO THE MASTER db[/b]
+    '        Dim resCmd As SqlCommand
+    '        Dim dbname As String = DAL.ExecuteScalar("SELECT DB_NAME() AS DataBaseName", Nothing)
+    '        Dim strResSQLsentencia As String = "RESTORE DATABASE " & dbname & " FROM DISK='" & path & "'"
+    '        Connection.Open()
+    '        resCmd = New SqlCommand(strResSQLsentencia, Connection)
+    '        resCmd.ExecuteNonQuery()
+    '        Connection.Close()
+    '    Catch ex As Exception
+    '        MsgBox("Não foi possível restaurar!", vbOKOnly)
+    '    Finally
+    '        If Connection.State = ConnectionState.Open Then
+    '            Connection.Close()
+    '            Connection.Dispose()
+    '        End If
+    '    End Try
+
+    'End Sub
+
+
+
     'Shared Sub store_pic_Sql(ByVal img As Image, ByVal id As Integer)
     '    'for SQL 
     '    Dim sql As String = "insert into picture(id,image) values(@id,@imgData)"

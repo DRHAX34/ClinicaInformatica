@@ -57,6 +57,10 @@ Public Class Passo2
         alunoslabel.ForeColor = colorization.Inversecolor
         simcheck.ForeColor = colorization.Inversecolor
         naocheck.ForeColor = colorization.Inversecolor
+        emaillabel.ForeColor = colorization.Inversecolor
+        contactofixlabel.ForeColor = colorization.Inversecolor
+        sitelabel.ForeColor = colorization.Inversecolor
+        notalabel.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)

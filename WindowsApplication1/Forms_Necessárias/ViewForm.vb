@@ -2,6 +2,8 @@
     Public data_table As DataTable
     Public tabela As String
     Public removidos As Boolean
+    Public n_cliente As String
+    Public artigo As String
     Dim timer As Integer
     'Protected Overrides Sub WndProc(ByRef m As Message)
     '    If (m.Msg = &H112) AndAlso (m.WParam.ToInt32() = &HF010) Then
@@ -14,12 +16,12 @@
     'End Sub
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 50
-        showdata.Height = Me.Height - 210
-        exitbutton.Location = New Point((Me.Width - (750 - 620)), (Me.Height - (506 - 417)))
-        delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (506 - 417)))
-        findbutton.Location = New Point((Me.Width - (750 - 494)), (Me.Height - (506 - 364)))
-        newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (506 - 364)))
-        GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (506 - 355)))
+        showdata.Height = Me.Height - 150
+        exitbutton.Location = New Point((Me.Width - (707 - 593)), (Me.Height - (436 - 329)))
+        delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (436 - 329)))
+        findbutton.Location = New Point((Me.Width - (707 - 501)), (Me.Height - (436 - 329)))
+        newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (436 - 329)))
+        GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (436 - 329)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         Select Case tabela
@@ -78,12 +80,14 @@
             Case "Artigos"
                 Dim opr_artigos As New OPR_Artigos
                 opr_artigos.modo = False
+                opr_artigos.n_cliente = n_cliente
                 opr_artigos.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
                 opr_artigos.Show()
             Case "Reparações"
                 Dim opr_reparacoes As New OPR_Reparações
                 opr_reparacoes.modo = False
+                opr_reparacoes.artigos = artigo
                 opr_reparacoes.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
                 opr_reparacoes.Show()
@@ -529,4 +533,7 @@
     End Sub
 
     
+    Private Sub showdata_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles showdata.CellContentClick
+
+    End Sub
 End Class

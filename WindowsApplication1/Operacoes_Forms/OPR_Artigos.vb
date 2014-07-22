@@ -47,29 +47,6 @@
         End Try
     End Sub
 
-    Private Sub RadButton2_Click(sender As Object, e As EventArgs)
-        Try
-            If removidos = False Then
-                BLL.Artigos.apagar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
-                MsgBox("Removido com sucesso!")
-                Workspace.dispositivosmenu.PerformClick()
-                Me.Close()
-            Else
-                BLL.Artigos.restaurar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), dispositivo_data.Rows.Item(0).Item("NºCliente").ToString())
-                MsgBox("Restaurado com sucesso!")
-                Workspace.dispositivosmenu.PerformClick()
-                Me.Close()
-            End If
-
-        Catch ex As Exception
-            If removidos = False Then
-                MsgBox("Erro ao Remover: " & ex.Message)
-            Else
-                MsgBox("Erro ao Restaurar:" & ex.Message)
-            End If
-        End Try
-    End Sub
-
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
         If modo = True Then
             Dim check_numcliente As String = ""
@@ -92,14 +69,7 @@
             Try
                 If Not (check_numcliente = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
                     BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
-                    MsgBox("Alterado com sucesso")
-                    If removidos = True Then
-                        Workspace.dispositivosmenu.PerformClick()
-                        Me.Close()
-                    Else
-                        Workspace.dispositivosmenu.PerformClick()
-                        Me.Close()
-                    End If
+                    Me.Close()
                 Else
                     MsgBox("Introduza todos os dados!")
                 End If
@@ -156,7 +126,6 @@
                         End If
 
                     Else
-                        Workspace.dispositivosmenu.PerformClick()
                         Me.Close()
                     End If
 
@@ -174,16 +143,19 @@
         
     End Sub
 
-    Private Sub RadButton4_Click(sender As Object, e As EventArgs)
-        If removidos = True Then
-            Workspace.dispositivosmenu.PerformClick()
-        Else
-            Workspace.dispositivosmenu.PerformClick()
-        End If
-        Me.Close()
-    End Sub
-
     Private Sub savebutton_Click(sender As Object, e As EventArgs) Handles savebutton.Click
 
+    End Sub
+
+    Private Sub reparaçoesbutton_Click(sender As Object, e As EventArgs) Handles reparaçoesbutton.Click
+        Dim repararview As New ViewForm
+        Workspace.check_reparacoes = True
+        repararview.Text = "Reparações"
+        repararview.tabela = "Reparações"
+        repararview.MdiParent = Me
+        Workspace.m_ChildFormNumber += 1
+        repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), True)
+        repararview.removidos = False
+        repararview.Show()
     End Sub
 End Class

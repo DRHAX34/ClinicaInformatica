@@ -59,14 +59,10 @@
                 Workspace.tecnicosmenu.Visible = True
                 Workspace.admin = True
                 Workspace.clientesmenu.Enabled = False
-                Workspace.dispositivosmenu.Enabled = False
-                Workspace.reparacoesmenu.Enabled = False
                 Workspace.EmpresasToolStripMenuItem.Visible = True
                 tipo = "Administrador"
             Else
                 Workspace.clientesmenu.Enabled = True
-                Workspace.dispositivosmenu.Enabled = True
-                Workspace.reparacoesmenu.Enabled = True
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.tecnicosmenu.Visible = False
                 Workspace.admin = False
