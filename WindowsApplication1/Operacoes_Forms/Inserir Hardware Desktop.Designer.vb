@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Inserir_Hardware
+Partial Class Inserir_Hardware_desk
     Inherits System.Windows.Forms.Form
 
     'Descartar substituições de formulário para limpar a lista de componentes.
@@ -22,34 +22,18 @@ Partial Class Inserir_Hardware
     'Não o modifique usando o editor de códigos.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inserir_Hardware))
-        Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
-        Me.RadLabel4 = New Telerik.WinControls.UI.RadLabel()
-        Me.caixaqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel5 = New Telerik.WinControls.UI.RadLabel()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inserir_Hardware_desk))
         Me.fonteqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel6 = New Telerik.WinControls.UI.RadLabel()
         Me.motherqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel7 = New Telerik.WinControls.UI.RadLabel()
         Me.processadorqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel8 = New Telerik.WinControls.UI.RadLabel()
         Me.coolerqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel9 = New Telerik.WinControls.UI.RadLabel()
         Me.memoriaqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel10 = New Telerik.WinControls.UI.RadLabel()
         Me.vgaqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel11 = New Telerik.WinControls.UI.RadLabel()
         Me.discoqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel12 = New Telerik.WinControls.UI.RadLabel()
         Me.opticqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.RadLabel2 = New Telerik.WinControls.UI.RadLabel()
         Me.leitorqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel3 = New Telerik.WinControls.UI.RadLabel()
         Me.redeqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.RadLabel13 = New Telerik.WinControls.UI.RadLabel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.RadButton5 = New Telerik.WinControls.UI.RadButton()
-        Me.RadButton1 = New Telerik.WinControls.UI.RadButton()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -79,273 +63,102 @@ Partial Class Inserir_Hardware
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
-        CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.caixaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.caixaqtdbox = New System.Windows.Forms.NumericUpDown()
+        Me.Label17 = New System.Windows.Forms.Label()
+        Me.Label18 = New System.Windows.Forms.Label()
+        Me.Label19 = New System.Windows.Forms.Label()
+        Me.Label20 = New System.Windows.Forms.Label()
+        Me.Label21 = New System.Windows.Forms.Label()
+        Me.Label22 = New System.Windows.Forms.Label()
+        Me.Label23 = New System.Windows.Forms.Label()
+        Me.Label24 = New System.Windows.Forms.Label()
+        Me.Label25 = New System.Windows.Forms.Label()
+        Me.Label26 = New System.Windows.Forms.Label()
+        Me.certobutton = New System.Windows.Forms.Button()
+        Me.exitbutton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.fonteqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.motherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel8, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel9, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel10, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.discoqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel12, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.opticqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel2, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.RadLabel2.SuspendLayout()
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.redeqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadLabel13, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.caixaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'RadLabel1
-        '
-        Me.RadLabel1.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel1.Font = New System.Drawing.Font("Segoe UI", 48.0!)
-        Me.RadLabel1.Location = New System.Drawing.Point(135, 3)
-        Me.RadLabel1.Name = "RadLabel1"
-        '
-        '
-        '
-        Me.RadLabel1.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel1.RootElement.AccessibleName = Nothing
-        Me.RadLabel1.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel1.Size = New System.Drawing.Size(304, 95)
-        Me.RadLabel1.TabIndex = 0
-        Me.RadLabel1.Text = "Hardware"
-        '
-        'RadLabel4
-        '
-        Me.RadLabel4.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel4.Controls.Add(Me.caixaqtdbox)
-        Me.RadLabel4.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel4.Location = New System.Drawing.Point(41, 113)
-        Me.RadLabel4.Name = "RadLabel4"
-        '
-        '
-        '
-        Me.RadLabel4.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel4.RootElement.AccessibleName = Nothing
-        Me.RadLabel4.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel4.Size = New System.Drawing.Size(243, 33)
-        Me.RadLabel4.TabIndex = 3
-        Me.RadLabel4.Text = "Caixa......................................."
-        '
-        'caixaqtdbox
-        '
-        Me.caixaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.caixaqtdbox.Location = New System.Drawing.Point(183, 2)
-        Me.caixaqtdbox.Name = "caixaqtdbox"
-        Me.caixaqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.caixaqtdbox.TabIndex = 84
-        '
-        'RadLabel5
-        '
-        Me.RadLabel5.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel5.Controls.Add(Me.fonteqtdbox)
-        Me.RadLabel5.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel5.Location = New System.Drawing.Point(372, 115)
-        Me.RadLabel5.Name = "RadLabel5"
-        '
-        '
-        '
-        Me.RadLabel5.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel5.RootElement.AccessibleName = Nothing
-        Me.RadLabel5.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel5.Size = New System.Drawing.Size(312, 33)
-        Me.RadLabel5.TabIndex = 4
-        Me.RadLabel5.Text = "Fonte....................................................."
         '
         'fonteqtdbox
         '
         Me.fonteqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fonteqtdbox.Location = New System.Drawing.Point(255, 2)
+        Me.fonteqtdbox.Location = New System.Drawing.Point(627, 120)
         Me.fonteqtdbox.Name = "fonteqtdbox"
         Me.fonteqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.fonteqtdbox.TabIndex = 86
-        '
-        'RadLabel6
-        '
-        Me.RadLabel6.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel6.Controls.Add(Me.motherqtdbox)
-        Me.RadLabel6.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel6.Location = New System.Drawing.Point(41, 152)
-        Me.RadLabel6.Name = "RadLabel6"
-        '
-        '
-        '
-        Me.RadLabel6.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel6.RootElement.AccessibleName = Nothing
-        Me.RadLabel6.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel6.Size = New System.Drawing.Size(244, 33)
-        Me.RadLabel6.TabIndex = 5
-        Me.RadLabel6.Text = "Motherboard......................."
+        Me.fonteqtdbox.Visible = False
         '
         'motherqtdbox
         '
         Me.motherqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.motherqtdbox.Location = New System.Drawing.Point(183, 3)
+        Me.motherqtdbox.Location = New System.Drawing.Point(224, 153)
         Me.motherqtdbox.Name = "motherqtdbox"
         Me.motherqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.motherqtdbox.TabIndex = 85
-        '
-        'RadLabel7
-        '
-        Me.RadLabel7.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel7.Controls.Add(Me.processadorqtdbox)
-        Me.RadLabel7.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel7.Location = New System.Drawing.Point(372, 154)
-        Me.RadLabel7.Name = "RadLabel7"
-        '
-        '
-        '
-        Me.RadLabel7.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel7.RootElement.AccessibleName = Nothing
-        Me.RadLabel7.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel7.Size = New System.Drawing.Size(313, 33)
-        Me.RadLabel7.TabIndex = 6
-        Me.RadLabel7.Text = "Processador........................................"
+        Me.motherqtdbox.Visible = False
         '
         'processadorqtdbox
         '
         Me.processadorqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.processadorqtdbox.Location = New System.Drawing.Point(255, 2)
+        Me.processadorqtdbox.Location = New System.Drawing.Point(627, 158)
         Me.processadorqtdbox.Name = "processadorqtdbox"
         Me.processadorqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.processadorqtdbox.TabIndex = 85
-        '
-        'RadLabel8
-        '
-        Me.RadLabel8.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel8.Controls.Add(Me.coolerqtdbox)
-        Me.RadLabel8.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel8.Location = New System.Drawing.Point(41, 191)
-        Me.RadLabel8.Name = "RadLabel8"
-        '
-        '
-        '
-        Me.RadLabel8.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel8.RootElement.AccessibleName = Nothing
-        Me.RadLabel8.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel8.Size = New System.Drawing.Size(236, 33)
-        Me.RadLabel8.TabIndex = 7
-        Me.RadLabel8.Text = "Cooler..................................."
+        Me.processadorqtdbox.Visible = False
         '
         'coolerqtdbox
         '
         Me.coolerqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.coolerqtdbox.Location = New System.Drawing.Point(183, 3)
+        Me.coolerqtdbox.Location = New System.Drawing.Point(224, 193)
         Me.coolerqtdbox.Name = "coolerqtdbox"
         Me.coolerqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.coolerqtdbox.TabIndex = 86
         '
-        'RadLabel9
-        '
-        Me.RadLabel9.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel9.Controls.Add(Me.memoriaqtdbox)
-        Me.RadLabel9.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel9.Location = New System.Drawing.Point(372, 193)
-        Me.RadLabel9.Name = "RadLabel9"
-        '
-        '
-        '
-        Me.RadLabel9.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel9.RootElement.AccessibleName = Nothing
-        Me.RadLabel9.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel9.Size = New System.Drawing.Size(316, 33)
-        Me.RadLabel9.TabIndex = 8
-        Me.RadLabel9.Text = "Memória..............................................."
-        '
         'memoriaqtdbox
         '
         Me.memoriaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.memoriaqtdbox.Location = New System.Drawing.Point(254, 0)
+        Me.memoriaqtdbox.Location = New System.Drawing.Point(627, 192)
         Me.memoriaqtdbox.Name = "memoriaqtdbox"
         Me.memoriaqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.memoriaqtdbox.TabIndex = 85
         '
-        'RadLabel10
-        '
-        Me.RadLabel10.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel10.Controls.Add(Me.vgaqtdbox)
-        Me.RadLabel10.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel10.Location = New System.Drawing.Point(41, 230)
-        Me.RadLabel10.Name = "RadLabel10"
-        '
-        '
-        '
-        Me.RadLabel10.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel10.RootElement.AccessibleName = Nothing
-        Me.RadLabel10.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel10.Size = New System.Drawing.Size(239, 33)
-        Me.RadLabel10.TabIndex = 9
-        Me.RadLabel10.Text = "VGA........................................"
-        '
         'vgaqtdbox
         '
         Me.vgaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.vgaqtdbox.Location = New System.Drawing.Point(183, 2)
+        Me.vgaqtdbox.Location = New System.Drawing.Point(224, 231)
         Me.vgaqtdbox.Name = "vgaqtdbox"
         Me.vgaqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.vgaqtdbox.TabIndex = 85
         '
-        'RadLabel11
-        '
-        Me.RadLabel11.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel11.Controls.Add(Me.discoqtdbox)
-        Me.RadLabel11.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel11.Location = New System.Drawing.Point(373, 228)
-        Me.RadLabel11.Name = "RadLabel11"
-        '
-        '
-        '
-        Me.RadLabel11.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel11.RootElement.AccessibleName = Nothing
-        Me.RadLabel11.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel11.Size = New System.Drawing.Size(315, 33)
-        Me.RadLabel11.TabIndex = 10
-        Me.RadLabel11.Text = "Disco......................................................"
-        '
         'discoqtdbox
         '
         Me.discoqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.discoqtdbox.Location = New System.Drawing.Point(254, -1)
+        Me.discoqtdbox.Location = New System.Drawing.Point(628, 228)
         Me.discoqtdbox.Name = "discoqtdbox"
         Me.discoqtdbox.Size = New System.Drawing.Size(42, 29)
         Me.discoqtdbox.TabIndex = 87
         '
-        'RadLabel12
-        '
-        Me.RadLabel12.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel12.Controls.Add(Me.opticqtdbox)
-        Me.RadLabel12.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel12.Location = New System.Drawing.Point(41, 269)
-        Me.RadLabel12.Name = "RadLabel12"
-        '
-        '
-        '
-        Me.RadLabel12.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel12.RootElement.AccessibleName = Nothing
-        Me.RadLabel12.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel12.Size = New System.Drawing.Size(242, 33)
-        Me.RadLabel12.TabIndex = 11
-        Me.RadLabel12.Text = "Unidade Óptica.................."
-        '
         'opticqtdbox
         '
         Me.opticqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.opticqtdbox.Location = New System.Drawing.Point(183, 0)
+        Me.opticqtdbox.Location = New System.Drawing.Point(224, 269)
         Me.opticqtdbox.Name = "opticqtdbox"
         Me.opticqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.opticqtdbox.TabIndex = 85
@@ -360,9 +173,7 @@ Partial Class Inserir_Hardware
         '
         '
         '
-        Me.RadLabel2.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel2.RootElement.AccessibleName = Nothing
-        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
+        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(375, 264, 313, 33)
         Me.RadLabel2.Size = New System.Drawing.Size(313, 33)
         Me.RadLabel2.TabIndex = 12
         Me.RadLabel2.Text = "Leitor de Cartões.............................."
@@ -375,88 +186,13 @@ Partial Class Inserir_Hardware
         Me.leitorqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.leitorqtdbox.TabIndex = 85
         '
-        'RadLabel3
-        '
-        Me.RadLabel3.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel3.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel3.Location = New System.Drawing.Point(41, 308)
-        Me.RadLabel3.Name = "RadLabel3"
-        '
-        '
-        '
-        Me.RadLabel3.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel3.RootElement.AccessibleName = Nothing
-        Me.RadLabel3.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel3.Size = New System.Drawing.Size(251, 33)
-        Me.RadLabel3.TabIndex = 13
-        Me.RadLabel3.Text = "Placa de Rede......................."
-        '
         'redeqtdbox
         '
         Me.redeqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.redeqtdbox.Location = New System.Drawing.Point(224, 305)
+        Me.redeqtdbox.Location = New System.Drawing.Point(224, 310)
         Me.redeqtdbox.Name = "redeqtdbox"
         Me.redeqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.redeqtdbox.TabIndex = 86
-        '
-        'RadLabel13
-        '
-        Me.RadLabel13.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadLabel13.Font = New System.Drawing.Font("Segoe UI", 15.75!)
-        Me.RadLabel13.Location = New System.Drawing.Point(375, 304)
-        Me.RadLabel13.Name = "RadLabel13"
-        '
-        '
-        '
-        Me.RadLabel13.RootElement.AccessibleDescription = Nothing
-        Me.RadLabel13.RootElement.AccessibleName = Nothing
-        Me.RadLabel13.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 100, 18)
-        Me.RadLabel13.Size = New System.Drawing.Size(70, 33)
-        Me.RadLabel13.TabIndex = 14
-        Me.RadLabel13.Text = "Outro:"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources._1404425892_Microprocessor
-        Me.PictureBox1.Location = New System.Drawing.Point(41, 12)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 67
-        Me.PictureBox1.TabStop = False
-        '
-        'RadButton5
-        '
-        Me.RadButton5.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadButton5.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RadButton5.Location = New System.Drawing.Point(578, 361)
-        Me.RadButton5.Name = "RadButton5"
-        '
-        '
-        '
-        Me.RadButton5.RootElement.AccessibleDescription = Nothing
-        Me.RadButton5.RootElement.AccessibleName = Nothing
-        Me.RadButton5.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
-        Me.RadButton5.Size = New System.Drawing.Size(174, 53)
-        Me.RadButton5.TabIndex = 68
-        Me.RadButton5.Text = "Adicionar"
-        Me.RadButton5.ThemeName = "Windows8"
-        '
-        'RadButton1
-        '
-        Me.RadButton1.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.RadButton1.Location = New System.Drawing.Point(391, 375)
-        Me.RadButton1.Name = "RadButton1"
-        '
-        '
-        '
-        Me.RadButton1.RootElement.AccessibleDescription = Nothing
-        Me.RadButton1.RootElement.AccessibleName = Nothing
-        Me.RadButton1.RootElement.ControlBounds = New System.Drawing.Rectangle(0, 0, 110, 24)
-        Me.RadButton1.Size = New System.Drawing.Size(172, 39)
-        Me.RadButton1.TabIndex = 69
-        Me.RadButton1.Text = "Cancelar"
-        Me.RadButton1.ThemeName = "Windows8"
         '
         'Label1
         '
@@ -481,7 +217,7 @@ Partial Class Inserir_Hardware
         'otherqtdbox
         '
         Me.otherqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.otherqtdbox.Location = New System.Drawing.Point(627, 300)
+        Me.otherqtdbox.Location = New System.Drawing.Point(628, 308)
         Me.otherqtdbox.Name = "otherqtdbox"
         Me.otherqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.otherqtdbox.TabIndex = 166
@@ -525,7 +261,7 @@ Partial Class Inserir_Hardware
         'opticpreçobox
         '
         Me.opticpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.opticpreçobox.Location = New System.Drawing.Point(273, 269)
+        Me.opticpreçobox.Location = New System.Drawing.Point(273, 270)
         Me.opticpreçobox.Name = "opticpreçobox"
         Me.opticpreçobox.Size = New System.Drawing.Size(76, 29)
         Me.opticpreçobox.TabIndex = 183
@@ -534,7 +270,7 @@ Partial Class Inserir_Hardware
         'redepreçobox
         '
         Me.redepreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.redepreçobox.Location = New System.Drawing.Point(273, 304)
+        Me.redepreçobox.Location = New System.Drawing.Point(273, 308)
         Me.redepreçobox.Name = "redepreçobox"
         Me.redepreçobox.Size = New System.Drawing.Size(76, 29)
         Me.redepreçobox.TabIndex = 184
@@ -588,7 +324,7 @@ Partial Class Inserir_Hardware
         'otherpreçobox
         '
         Me.otherpreçobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.otherpreçobox.Location = New System.Drawing.Point(675, 299)
+        Me.otherpreçobox.Location = New System.Drawing.Point(676, 304)
         Me.otherpreçobox.Name = "otherpreçobox"
         Me.otherpreçobox.Size = New System.Drawing.Size(76, 29)
         Me.otherpreçobox.TabIndex = 190
@@ -597,7 +333,7 @@ Partial Class Inserir_Hardware
         'otherdescriçaobox
         '
         Me.otherdescriçaobox.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.otherdescriçaobox.Location = New System.Drawing.Point(449, 302)
+        Me.otherdescriçaobox.Location = New System.Drawing.Point(448, 308)
         Me.otherdescriçaobox.Name = "otherdescriçaobox"
         Me.otherdescriçaobox.Size = New System.Drawing.Size(170, 29)
         Me.otherdescriçaobox.TabIndex = 165
@@ -724,11 +460,179 @@ Partial Class Inserir_Hardware
         Me.Label14.TabIndex = 202
         Me.Label14.Text = "€"
         '
-        'Inserir_Hardware
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label15.Location = New System.Drawing.Point(36, 117)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(258, 30)
+        Me.Label15.TabIndex = 203
+        Me.Label15.Text = "Caixa......................................."
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label16.Location = New System.Drawing.Point(36, 150)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(250, 30)
+        Me.Label16.TabIndex = 204
+        Me.Label16.Text = "Motherboard......................."
+        '
+        'caixaqtdbox
+        '
+        Me.caixaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.caixaqtdbox.Location = New System.Drawing.Point(224, 115)
+        Me.caixaqtdbox.Name = "caixaqtdbox"
+        Me.caixaqtdbox.Size = New System.Drawing.Size(43, 29)
+        Me.caixaqtdbox.TabIndex = 84
+        Me.caixaqtdbox.Visible = False
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label17.Location = New System.Drawing.Point(36, 187)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(248, 30)
+        Me.Label17.TabIndex = 205
+        Me.Label17.Text = "Cooler..................................."
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label18.Location = New System.Drawing.Point(36, 226)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(254, 30)
+        Me.Label18.TabIndex = 206
+        Me.Label18.Text = "VGA........................................"
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label19.Location = New System.Drawing.Point(36, 265)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(247, 30)
+        Me.Label19.TabIndex = 207
+        Me.Label19.Text = "Unidade Óptica.................."
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label20.Location = New System.Drawing.Point(36, 308)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(259, 30)
+        Me.Label20.TabIndex = 208
+        Me.Label20.Text = "Placa de Rede......................."
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label21.Location = New System.Drawing.Point(370, 119)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(330, 30)
+        Me.Label21.TabIndex = 209
+        Me.Label21.Text = "Fonte....................................................."
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label22.Location = New System.Drawing.Point(370, 155)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(325, 30)
+        Me.Label22.TabIndex = 210
+        Me.Label22.Text = "Processador........................................"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label23.Location = New System.Drawing.Point(370, 190)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(331, 30)
+        Me.Label23.TabIndex = 211
+        Me.Label23.Text = "Memória..............................................."
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label24.Location = New System.Drawing.Point(370, 226)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(334, 30)
+        Me.Label24.TabIndex = 212
+        Me.Label24.Text = "Disco......................................................"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Font = New System.Drawing.Font("Segoe UI", 15.75!)
+        Me.Label25.Location = New System.Drawing.Point(370, 304)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(72, 30)
+        Me.Label25.TabIndex = 213
+        Me.Label25.Text = "Outro:"
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Font = New System.Drawing.Font("Segoe UI", 48.0!)
+        Me.Label26.Location = New System.Drawing.Point(133, 9)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(309, 86)
+        Me.Label26.TabIndex = 214
+        Me.Label26.Text = "Hardware"
+        '
+        'certobutton
+        '
+        Me.certobutton.Location = New System.Drawing.Point(662, 357)
+        Me.certobutton.Name = "certobutton"
+        Me.certobutton.Size = New System.Drawing.Size(89, 57)
+        Me.certobutton.TabIndex = 215
+        Me.certobutton.UseVisualStyleBackColor = True
+        '
+        'exitbutton
+        '
+        Me.exitbutton.Location = New System.Drawing.Point(557, 357)
+        Me.exitbutton.Name = "exitbutton"
+        Me.exitbutton.Size = New System.Drawing.Size(89, 57)
+        Me.exitbutton.TabIndex = 216
+        Me.exitbutton.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources._1404425892_Microprocessor
+        Me.PictureBox1.Location = New System.Drawing.Point(41, 12)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 67
+        Me.PictureBox1.TabStop = False
+        '
+        'Inserir_Hardware_desk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(797, 426)
+        Me.Controls.Add(Me.exitbutton)
+        Me.Controls.Add(Me.certobutton)
+        Me.Controls.Add(Me.Label26)
+        Me.Controls.Add(Me.Label25)
+        Me.Controls.Add(Me.discoqtdbox)
+        Me.Controls.Add(Me.memoriaqtdbox)
+        Me.Controls.Add(Me.processadorqtdbox)
+        Me.Controls.Add(Me.fonteqtdbox)
+        Me.Controls.Add(Me.opticqtdbox)
+        Me.Controls.Add(Me.vgaqtdbox)
+        Me.Controls.Add(Me.coolerqtdbox)
+        Me.Controls.Add(Me.motherqtdbox)
+        Me.Controls.Add(Me.caixaqtdbox)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
@@ -758,55 +662,38 @@ Partial Class Inserir_Hardware
         Me.Controls.Add(Me.otherdescriçaobox)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.RadButton1)
-        Me.Controls.Add(Me.RadButton5)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.RadLabel13)
-        Me.Controls.Add(Me.RadLabel3)
         Me.Controls.Add(Me.RadLabel2)
-        Me.Controls.Add(Me.RadLabel12)
-        Me.Controls.Add(Me.RadLabel11)
-        Me.Controls.Add(Me.RadLabel10)
-        Me.Controls.Add(Me.RadLabel9)
-        Me.Controls.Add(Me.RadLabel8)
-        Me.Controls.Add(Me.RadLabel7)
-        Me.Controls.Add(Me.RadLabel6)
-        Me.Controls.Add(Me.RadLabel5)
-        Me.Controls.Add(Me.RadLabel4)
-        Me.Controls.Add(Me.RadLabel1)
+        Me.Controls.Add(Me.Label15)
+        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.Label17)
+        Me.Controls.Add(Me.Label18)
+        Me.Controls.Add(Me.Label19)
+        Me.Controls.Add(Me.Label20)
+        Me.Controls.Add(Me.Label21)
+        Me.Controls.Add(Me.Label22)
+        Me.Controls.Add(Me.Label23)
+        Me.Controls.Add(Me.Label24)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Inserir_Hardware"
+        Me.Name = "Inserir_Hardware_desk"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Inserir_Hardware"
-        CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.caixaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Text = "Inserir_Hardware Desktop"
         CType(Me.fonteqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.motherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel8, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel9, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel10, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.discoqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel12, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.opticqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel2, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.RadLabel2.ResumeLayout(False)
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.redeqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadLabel13, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RadButton1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.caixaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -815,7 +702,6 @@ Partial Class Inserir_Hardware
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents caixaqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents fonteqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents motherqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents processadorqtdbox As System.Windows.Forms.NumericUpDown
@@ -841,21 +727,7 @@ Partial Class Inserir_Hardware
     Friend WithEvents leitorpreçobox As System.Windows.Forms.TextBox
     Friend WithEvents otherpreçobox As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Private WithEvents RadLabel1 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel4 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel5 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel6 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel7 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel8 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel9 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel10 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel11 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel12 As Telerik.WinControls.UI.RadLabel
     Private WithEvents RadLabel2 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel3 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadLabel13 As Telerik.WinControls.UI.RadLabel
-    Private WithEvents RadButton5 As Telerik.WinControls.UI.RadButton
-    Private WithEvents RadButton1 As Telerik.WinControls.UI.RadButton
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
@@ -867,4 +739,19 @@ Partial Class Inserir_Hardware
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents caixaqtdbox As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Label17 As System.Windows.Forms.Label
+    Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents Label19 As System.Windows.Forms.Label
+    Friend WithEvents Label20 As System.Windows.Forms.Label
+    Friend WithEvents Label21 As System.Windows.Forms.Label
+    Friend WithEvents Label22 As System.Windows.Forms.Label
+    Friend WithEvents Label23 As System.Windows.Forms.Label
+    Friend WithEvents Label24 As System.Windows.Forms.Label
+    Friend WithEvents Label25 As System.Windows.Forms.Label
+    Friend WithEvents Label26 As System.Windows.Forms.Label
+    Friend WithEvents certobutton As System.Windows.Forms.Button
+    Friend WithEvents exitbutton As System.Windows.Forms.Button
 End Class

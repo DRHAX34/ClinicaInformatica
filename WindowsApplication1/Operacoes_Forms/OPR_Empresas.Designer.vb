@@ -28,9 +28,9 @@ Partial Class OPR_Empresas
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.logobox = New System.Windows.Forms.PictureBox()
-        Me.editbutton = New System.Windows.Forms.Button()
+        Me.savebutton = New System.Windows.Forms.Button()
         Me.restartbutton = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.exitbutton = New System.Windows.Forms.Button()
         Me.logobutton = New System.Windows.Forms.Button()
         Me.sitebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.emailbox = New ClinicaInformatica.WaterMarkTextBox()
@@ -95,14 +95,13 @@ Partial Class OPR_Empresas
         Me.logobox.TabIndex = 59
         Me.logobox.TabStop = False
         '
-        'editbutton
+        'savebutton
         '
-        Me.editbutton.Location = New System.Drawing.Point(36, 417)
-        Me.editbutton.Name = "editbutton"
-        Me.editbutton.Size = New System.Drawing.Size(113, 44)
-        Me.editbutton.TabIndex = 71
-        Me.editbutton.Text = "Editar"
-        Me.editbutton.UseVisualStyleBackColor = True
+        Me.savebutton.Location = New System.Drawing.Point(36, 417)
+        Me.savebutton.Name = "savebutton"
+        Me.savebutton.Size = New System.Drawing.Size(113, 44)
+        Me.savebutton.TabIndex = 71
+        Me.savebutton.UseVisualStyleBackColor = True
         '
         'restartbutton
         '
@@ -110,17 +109,15 @@ Partial Class OPR_Empresas
         Me.restartbutton.Name = "restartbutton"
         Me.restartbutton.Size = New System.Drawing.Size(113, 44)
         Me.restartbutton.TabIndex = 72
-        Me.restartbutton.Text = "Reiniciar"
         Me.restartbutton.UseVisualStyleBackColor = True
         '
-        'Button3
+        'exitbutton
         '
-        Me.Button3.Location = New System.Drawing.Point(534, 420)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(113, 44)
-        Me.Button3.TabIndex = 73
-        Me.Button3.Text = "Sair"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.exitbutton.Location = New System.Drawing.Point(534, 420)
+        Me.exitbutton.Name = "exitbutton"
+        Me.exitbutton.Size = New System.Drawing.Size(113, 44)
+        Me.exitbutton.TabIndex = 73
+        Me.exitbutton.UseVisualStyleBackColor = True
         '
         'logobutton
         '
@@ -360,9 +357,9 @@ Partial Class OPR_Empresas
         Me.Controls.Add(Me.moradalabel)
         Me.Controls.Add(Me.nomelabel)
         Me.Controls.Add(Me.logobutton)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.restartbutton)
-        Me.Controls.Add(Me.editbutton)
+        Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.caminhobox)
         Me.Controls.Add(Me.logobox)
@@ -383,9 +380,9 @@ Partial Class OPR_Empresas
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
-    Friend WithEvents editbutton As System.Windows.Forms.Button
+    Friend WithEvents savebutton As System.Windows.Forms.Button
     Friend WithEvents restartbutton As System.Windows.Forms.Button
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents logobutton As System.Windows.Forms.Button
     Friend WithEvents sitebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents emailbox As ClinicaInformatica.WaterMarkTextBox

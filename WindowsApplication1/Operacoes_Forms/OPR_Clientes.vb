@@ -13,6 +13,11 @@
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
         If modo = True Then
             restartbutton.Image = restartimagebutton
+            If Workspace.admin = True Then
+                componentesbutton.Enabled = False
+            Else
+                componentesbutton.Enabled = True
+            End If
         Else
             restartbutton.Image = limparimagebutton
         End If
@@ -63,6 +68,7 @@
             RadioButton2.Checked = True
             numalunobox.Hide()
             turmabox.Hide()
+            componentesbutton.Enabled = False
         End If
 
 
@@ -121,14 +127,19 @@
                     End If
                     codpostalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
                     MsgBox("Inserido com sucesso")
-                    If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
-                        Dim opr_componente As New OPR_Artigos
-                        opr_componente.modo = False
-                        opr_componente.n_cliente = BLL.Clientes.carregar_max(True)
-                        opr_componente.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_componente.Show()
-                        Me.Close()
+                    If Workspace.admin = False Then
+                        If MsgBox("Deseja inserir um componente associado a este cliente?", vbYesNo, "Adicionar Componente") = vbYes Then
+                            Dim opr_componente As New OPR_Artigos
+                            opr_componente.modo = False
+                            opr_componente.n_cliente = BLL.Clientes.carregar_max(True)
+                            opr_componente.MdiParent = Workspace
+                            Workspace.m_ChildFormNumber += 1
+                            opr_componente.Show()
+                            Me.Close()
+                        Else
+                            Workspace.clientesmenu.PerformClick()
+                            Me.Close()
+                        End If
                     Else
                         Workspace.clientesmenu.PerformClick()
                         Me.Close()

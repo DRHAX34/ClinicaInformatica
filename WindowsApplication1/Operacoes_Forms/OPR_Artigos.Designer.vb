@@ -36,13 +36,13 @@ Partial Class OPR_Artigos
         Me.modelobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.numseriebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.observaçoesbox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.tipo_componentebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.nomeclientelabel = New System.Windows.Forms.Label()
         Me.restartbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.reparaçoesbutton = New System.Windows.Forms.Button()
         Me.savebutton = New System.Windows.Forms.Button()
+        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -157,16 +157,6 @@ Partial Class OPR_Artigos
         Me.observaçoesbox.WaterMarkColor = System.Drawing.Color.Gray
         Me.observaçoesbox.WaterMarkText = "Obrigatório"
         '
-        'tipo_componentebox
-        '
-        Me.tipo_componentebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.tipo_componentebox.Location = New System.Drawing.Point(308, 134)
-        Me.tipo_componentebox.Name = "tipo_componentebox"
-        Me.tipo_componentebox.Size = New System.Drawing.Size(178, 25)
-        Me.tipo_componentebox.TabIndex = 72
-        Me.tipo_componentebox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.tipo_componentebox.WaterMarkText = "Obrigatório"
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -220,18 +210,28 @@ Partial Class OPR_Artigos
         Me.savebutton.TabIndex = 95
         Me.savebutton.UseVisualStyleBackColor = True
         '
+        'ComboBox1
+        '
+        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBox1.FormattingEnabled = True
+        Me.ComboBox1.Items.AddRange(New Object() {"Portátil", "Fixo"})
+        Me.ComboBox1.Location = New System.Drawing.Point(311, 136)
+        Me.ComboBox1.Name = "ComboBox1"
+        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
+        Me.ComboBox1.TabIndex = 99
+        '
         'OPR_Artigos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(523, 411)
+        Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.reparaçoesbutton)
         Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.nomeclientelabel)
-        Me.Controls.Add(Me.tipo_componentebox)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.observaçoesbox)
         Me.Controls.Add(Me.numseriebox)
@@ -266,11 +266,11 @@ Partial Class OPR_Artigos
     Friend WithEvents modelobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents numseriebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents observaçoesbox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents tipo_componentebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
     Friend WithEvents restartbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents reparaçoesbutton As System.Windows.Forms.Button
     Friend WithEvents savebutton As System.Windows.Forms.Button
+    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
 End Class

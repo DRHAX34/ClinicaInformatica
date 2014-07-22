@@ -335,7 +335,7 @@ Partial Class Passo2
         '
         Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.emailbox.Location = New System.Drawing.Point(25, 302)
-        Me.emailbox.MaxLength = 9
+        Me.emailbox.MaxLength = 50
         Me.emailbox.Name = "emailbox"
         Me.emailbox.Size = New System.Drawing.Size(184, 27)
         Me.emailbox.TabIndex = 87
@@ -346,7 +346,7 @@ Partial Class Passo2
         '
         Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.sitebox.Location = New System.Drawing.Point(26, 355)
-        Me.sitebox.MaxLength = 9
+        Me.sitebox.MaxLength = 50
         Me.sitebox.Name = "sitebox"
         Me.sitebox.Size = New System.Drawing.Size(183, 27)
         Me.sitebox.TabIndex = 88

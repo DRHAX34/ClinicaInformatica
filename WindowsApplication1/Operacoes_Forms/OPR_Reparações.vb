@@ -213,7 +213,7 @@
         Me.Close()
     End Sub
     Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles insert_hardware.Click
-        Dim select_hardware As New Inserir_Hardware
+        Dim select_hardware As New Inserir_Hardware_desk
         select_hardware.MdiParent = Workspace
         If Workspace.hardware_support.Columns.Count <> 0 Then
             If Workspace.hardware_support.Rows.Count <> 0 Then

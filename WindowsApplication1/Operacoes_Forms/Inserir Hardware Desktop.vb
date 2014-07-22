@@ -1,7 +1,11 @@
-﻿Public Class Inserir_Hardware
+﻿Public Class Inserir_Hardware_desk
     Public modo As Boolean
     Private Sub Inserir_Hardware_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.AcceptButton = RadButton5
+        Dim certoimagebutton As New Bitmap((My.Resources._1405695721_Select), certobutton.Height, certobutton.Height)
+        certobutton.Image = certoimagebutton
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        exitbutton.Image = exitimagebutton
+        Me.AcceptButton = certobutton
         If modo = False Then
             Workspace.hardware_support = New DataTable
         Else
@@ -33,7 +37,7 @@
         End If
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
         Dim h(2) As Object
         If Workspace.hardware_support.Columns.Count <> 3 Then
             Workspace.hardware_support.Columns.Add("Tipo")
@@ -133,8 +137,8 @@
     'End Sub
 
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
-            Me.Close()
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
+        Me.Close()
     End Sub
 
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs)
@@ -234,7 +238,7 @@
         End Try
     End Sub
 
-    Private Sub RadLabel1_Click(sender As Object, e As EventArgs) Handles RadLabel1.Click
+    Private Sub RadLabel1_Click(sender As Object, e As EventArgs)
 
     End Sub
 
@@ -358,5 +362,9 @@
             End If
         Catch
         End Try
+    End Sub
+
+    Private Sub RadLabel7_Click(sender As Object, e As EventArgs)
+
     End Sub
 End Class

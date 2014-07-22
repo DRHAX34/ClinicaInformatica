@@ -53,7 +53,6 @@
             Dim check_marca As String = ""
             Dim check_modelo As String = ""
             Dim check_observaçoes As String = ""
-            Dim check_componente As String = tipo_componentebox.Text
             Try
                 check_numcliente = n_cliente
                 check_numcliente.Trim()
@@ -63,12 +62,11 @@
                 check_modelo.Trim()
                 check_observaçoes = observaçoesbox.Text
                 check_observaçoes.Trim()
-                check_componente.Trim()
             Catch
             End Try
             Try
                 If Not (check_numcliente = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
-                    BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
+                    BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.SelectedItem)
                     Me.Close()
                 Else
                     MsgBox("Introduza todos os dados!")
@@ -77,26 +75,20 @@
                 MsgBox("Ocorreu um erro: " & ex.Message)
             End Try
         Else
-            Dim check_numcliente As String = ""
             Dim check_marca As String = ""
             Dim check_modelo As String = ""
             Dim check_observaçoes As String = ""
-            Dim check_tipo As String = ""
             Try
-                check_numcliente = n_cliente
-                check_numcliente.Trim()
                 check_marca = marcabox.Text
                 check_marca.Trim()
                 check_modelo = modelobox.Text
                 check_modelo.Trim()
                 check_observaçoes = observaçoesbox.Text
                 check_observaçoes.Trim()
-                check_tipo = tipo_componentebox.Text
-                check_tipo.Trim()
             Catch
             End Try
             Try
-                If Not check_tipo = "" And Not check_numcliente = "" And Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
+                If Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
                     BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, tipo_componentebox.Text)
                     MsgBox("Inserido com sucesso")
                     If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then

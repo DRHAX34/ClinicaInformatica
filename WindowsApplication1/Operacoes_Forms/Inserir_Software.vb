@@ -1,7 +1,11 @@
 ﻿Public Class Inserir_Software
     Public modo As Boolean
     Private Sub Inserir_software_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.AcceptButton = RadButton5
+        Dim certoimagebutton As New Bitmap((My.Resources._1405695721_Select), certobutton.Height, certobutton.Height)
+        certobutton.Image = certoimagebutton
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        exitbutton.Image = exitimagebutton
+        Me.AcceptButton = certobutton
         If modo = False Then
             Workspace.software_support = New DataTable
         Else
@@ -15,7 +19,7 @@
             otherpreçobox.Text = Workspace.hardware_support.Rows(6).Item("Preço")
         End If
     End Sub
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles RadButton5.Click
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
         If Workspace.software_support.Columns.Count <> 2 Then
             Workspace.software_support.Columns.Add("Tipo")
             Workspace.software_support.Columns.Add("Preço")
@@ -45,7 +49,7 @@
         Me.Close()
     End Sub
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles RadButton1.Click
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
     'Public Sub NumberFormat(ByVal Text As TextBox)
