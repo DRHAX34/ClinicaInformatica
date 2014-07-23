@@ -185,24 +185,8 @@ Public Class Workspace
             MsgBox("Já tem a janela dos Clientes aberta!")
         End If
     End Sub
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs) Handles terminarsessao.Click
-        If MsgBox("Tem a certeza que quer terminar sessão?", vbYesNo, "Terminar Sessão") = vbYes Then
-            For Each ChildForm As Form In Me.MdiChildren
-                ChildForm.Close()
-            Next
-            Dim LoginForm1 As New LoginForm
-            StatusStrip.Hide()
-            MenuStrip.Hide()
-            Label1.Hide()
-            Label2.Hide()
-            companylogo.Hide()
-            LoginForm1.MdiParent = Me
-            LoginForm1.Show()
-            m_ChildFormNumber += 1
-            Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
-            Me.MaximizeBox = False
-            'terminarsessaobutton.Hide()
-        End If
+    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
+
     End Sub
 
     Private Sub tecremovidos_Click(sender As Object, e As EventArgs)
@@ -247,18 +231,16 @@ Public Class Workspace
         'DAL.Connection.Dispose()
         Dim sql_caminho, sqlnome As String
         SaveFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
+        SaveFileDialog1.FileName = ""
         SaveFileDialog1.ShowDialog()
-        Dim backup As New FileInfo(SaveFileDialog1.FileName)
-        sql_caminho = backup.DirectoryName
-        sqlnome = backup.Name + backup.Extension
+        sql_caminho = SaveFileDialog1.FileName
         Try
             If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 If System.IO.File.Exists(sql_caminho) = True Then
                     System.IO.File.Delete(sql_caminho)
                 End If
                 'System.IO.File.Copy("|DataDirectory|\Resources\BD-C.I.mdf", sql_caminho)
-                'DAL.BackUpDB(sql_caminho, sqlnome)
-                MsgBox("Backup feito com êxito! Nota: O programa ficará um pouco lento ao abrir uma Tabela por um curto período de tempo.", vbOKOnly, "Êxito!")
+                DAL.BackUpDB(sql_caminho)
             End If
         Catch ex As Exception
             MsgBox("Erro ao fazer o backup: " & ex.Message, vbOKOnly, "Erro ao fazer Backup!")
@@ -266,18 +248,18 @@ Public Class Workspace
     End Sub
 
     Private Sub RestauroDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestauroDeDadosToolStripMenuItem.Click
-        If MsgBox("O programa terá que ser reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
+        If MsgBox("O programa será reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
             'DAL.Connection.Close()
             'DAL.Connection.Dispose()
             'Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
             Dim sql_caminho As String
             OpenFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
+            OpenFileDialog1.FileName = ""
             OpenFileDialog1.ShowDialog()
             sql_caminho = OpenFileDialog1.FileName
             If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 Try
-                    'DAL.RestoreDB(sql_caminho)
-                    MsgBox("Backup restaurado com êxito!")
+                    DAL.RestoreDB(sql_caminho)
                     Application.Restart()
                 Catch ex As Exception
                     MsgBox("Erro ao Restaurar Cópia: " & ex.Message, vbOKOnly, "Erro ao fazer Backup!")
@@ -387,6 +369,30 @@ Public Class Workspace
             End Try
         Else
             MsgBox("Já tem a janela dos Técnicos abertas!")
+        End If
+    End Sub
+
+    Private Sub UtilizadoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UtilizadoresToolStripMenuItem.Click
+        If MsgBox("Tem a certeza que quer terminar sessão?", vbYesNo, "Terminar Sessão") = vbYes Then
+            For Each ChildForm As Form In Me.MdiChildren
+                ChildForm.Close()
+            Next
+            Try
+                DAL.CreateConnection()
+            Catch
+            End Try
+            Dim LoginForm1 As New LoginForm
+            StatusStrip.Hide()
+            MenuStrip.Hide()
+            Label1.Hide()
+            Label2.Hide()
+            companylogo.Hide()
+            LoginForm1.MdiParent = Me
+            LoginForm1.Show()
+            m_ChildFormNumber += 1
+            Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
+            Me.MaximizeBox = False
+            'terminarsessaobutton.Hide()
         End If
     End Sub
 End Class

@@ -43,6 +43,7 @@ Partial Class OPR_Artigos
         Me.reparaçoesbutton = New System.Windows.Forms.Button()
         Me.savebutton = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.lockbutton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -220,12 +221,21 @@ Partial Class OPR_Artigos
         Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
         Me.ComboBox1.TabIndex = 99
         '
+        'lockbutton
+        '
+        Me.lockbutton.Location = New System.Drawing.Point(447, 12)
+        Me.lockbutton.Name = "lockbutton"
+        Me.lockbutton.Size = New System.Drawing.Size(64, 60)
+        Me.lockbutton.TabIndex = 100
+        Me.lockbutton.UseVisualStyleBackColor = True
+        '
         'OPR_Artigos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(523, 411)
+        Me.Controls.Add(Me.lockbutton)
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.exitbutton)
@@ -273,4 +283,5 @@ Partial Class OPR_Artigos
     Friend WithEvents reparaçoesbutton As System.Windows.Forms.Button
     Friend WithEvents savebutton As System.Windows.Forms.Button
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents lockbutton As System.Windows.Forms.Button
 End Class

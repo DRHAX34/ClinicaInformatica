@@ -27,8 +27,6 @@ Partial Class LoginForm
         Me.loginbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.buttonhelp = New System.Windows.Forms.Button()
-        Me.Companybox = New System.Windows.Forms.ComboBox()
-        Me.Companylabel = New System.Windows.Forms.Label()
         Me.Titlelabel2 = New System.Windows.Forms.Label()
         Me.Titlelabel1 = New System.Windows.Forms.Label()
         Me.datalabel = New System.Windows.Forms.Label()
@@ -62,7 +60,7 @@ Partial Class LoginForm
         '
         'loginbutton
         '
-        Me.loginbutton.Location = New System.Drawing.Point(466, 283)
+        Me.loginbutton.Location = New System.Drawing.Point(466, 232)
         Me.loginbutton.Name = "loginbutton"
         Me.loginbutton.Size = New System.Drawing.Size(58, 60)
         Me.loginbutton.TabIndex = 5
@@ -70,7 +68,7 @@ Partial Class LoginForm
         '
         'exitbutton
         '
-        Me.exitbutton.Location = New System.Drawing.Point(402, 283)
+        Me.exitbutton.Location = New System.Drawing.Point(402, 232)
         Me.exitbutton.Name = "exitbutton"
         Me.exitbutton.Size = New System.Drawing.Size(58, 60)
         Me.exitbutton.TabIndex = 6
@@ -78,32 +76,11 @@ Partial Class LoginForm
         '
         'buttonhelp
         '
-        Me.buttonhelp.Location = New System.Drawing.Point(12, 283)
+        Me.buttonhelp.Location = New System.Drawing.Point(12, 232)
         Me.buttonhelp.Name = "buttonhelp"
         Me.buttonhelp.Size = New System.Drawing.Size(58, 60)
         Me.buttonhelp.TabIndex = 7
         Me.buttonhelp.UseVisualStyleBackColor = True
-        '
-        'Companybox
-        '
-        Me.Companybox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.Companybox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.Companybox.FormattingEnabled = True
-        Me.Companybox.Items.AddRange(New Object() {"Português", "English", "Français", "Español"})
-        Me.Companybox.Location = New System.Drawing.Point(12, 244)
-        Me.Companybox.Name = "Companybox"
-        Me.Companybox.Size = New System.Drawing.Size(213, 25)
-        Me.Companybox.TabIndex = 11
-        '
-        'Companylabel
-        '
-        Me.Companylabel.AutoSize = True
-        Me.Companylabel.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.Companylabel.Location = New System.Drawing.Point(8, 224)
-        Me.Companylabel.Name = "Companylabel"
-        Me.Companylabel.Size = New System.Drawing.Size(62, 17)
-        Me.Companylabel.TabIndex = 10
-        Me.Companylabel.Text = "Empresa:"
         '
         'Titlelabel2
         '
@@ -178,14 +155,12 @@ Partial Class LoginForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(536, 355)
+        Me.ClientSize = New System.Drawing.Size(536, 307)
         Me.Controls.Add(Me.RadClock1)
         Me.Controls.Add(Me.datalabel)
         Me.Controls.Add(Me.Titlelabel1)
         Me.Controls.Add(Me.Titlelabel2)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Companybox)
-        Me.Controls.Add(Me.Companylabel)
         Me.Controls.Add(Me.buttonhelp)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.loginbutton)
@@ -212,8 +187,6 @@ Partial Class LoginForm
     Friend WithEvents loginbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents buttonhelp As System.Windows.Forms.Button
-    Friend WithEvents Companybox As System.Windows.Forms.ComboBox
-    Friend WithEvents Companylabel As System.Windows.Forms.Label
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Titlelabel2 As System.Windows.Forms.Label
     Friend WithEvents Titlelabel1 As System.Windows.Forms.Label

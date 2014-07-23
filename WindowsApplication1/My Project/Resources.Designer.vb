@@ -173,6 +173,46 @@ Namespace My.Resources
         '''<summary>
         '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property _1406134201_MB__LOCK() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_1406134201_MB__LOCK", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1406134201_MB__UNLOCK() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_1406134201_MB__UNLOCK", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1406140864_logout() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("1406140864_logout", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property _1406149495_System_Restore() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("_1406149495_System_Restore", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property _32x32() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("32x32", resourceCulture)

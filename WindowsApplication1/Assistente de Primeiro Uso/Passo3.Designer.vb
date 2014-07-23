@@ -171,6 +171,7 @@ Partial Class Passo3
         Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.respostabox.Location = New System.Drawing.Point(427, 244)
         Me.respostabox.Name = "respostabox"
+        Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.respostabox.Size = New System.Drawing.Size(233, 27)
         Me.respostabox.TabIndex = 45
         Me.respostabox.WaterMarkColor = System.Drawing.Color.DimGray

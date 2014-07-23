@@ -37,6 +37,7 @@ Partial Class Recuperação_pass
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -105,6 +106,7 @@ Partial Class Recuperação_pass
         Me.resposta_segur.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.resposta_segur.Location = New System.Drawing.Point(107, 70)
         Me.resposta_segur.Name = "resposta_segur"
+        Me.resposta_segur.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.resposta_segur.Size = New System.Drawing.Size(183, 27)
         Me.resposta_segur.TabIndex = 51
         Me.resposta_segur.WaterMarkColor = System.Drawing.Color.DimGray
@@ -143,9 +145,9 @@ Partial Class Recuperação_pass
         'seguintebutton
         '
         Me.seguintebutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.seguintebutton.Location = New System.Drawing.Point(682, 324)
+        Me.seguintebutton.Location = New System.Drawing.Point(682, 335)
         Me.seguintebutton.Name = "seguintebutton"
-        Me.seguintebutton.Size = New System.Drawing.Size(153, 56)
+        Me.seguintebutton.Size = New System.Drawing.Size(153, 45)
         Me.seguintebutton.TabIndex = 55
         Me.seguintebutton.Text = "Seguinte"
         Me.seguintebutton.UseVisualStyleBackColor = True
@@ -186,11 +188,22 @@ Partial Class Recuperação_pass
         Me.Label7.Text = "Resposta"
         Me.Label7.Visible = False
         '
+        'Button3
+        '
+        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button3.Location = New System.Drawing.Point(523, 335)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(153, 45)
+        Me.Button3.TabIndex = 59
+        Me.Button3.Text = "Cancelar"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Recuperação_pass
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(847, 392)
+        Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.GroupBox1)
@@ -226,4 +239,5 @@ Partial Class Recuperação_pass
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 End Class

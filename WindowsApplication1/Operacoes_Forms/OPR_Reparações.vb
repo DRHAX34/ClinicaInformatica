@@ -6,15 +6,16 @@
     Public read_only As Boolean
     Public check As Boolean = True
     Public cliente As Integer
+    Public tipo_artigo As String
     Private Sub OPR_Reparações_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height, savebutton.Height)
+        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         savebutton.Image = saveimagebutton
-        Dim reportimagebutton As New Bitmap((My.Resources._1405976976_distributor_report), reportbutton.Height, reportbutton.Height)
+        Dim reportimagebutton As New Bitmap((My.Resources._1405976976_distributor_report), reportbutton.Height - 1, reportbutton.Height - 1)
         reportbutton.Image = reportimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
         exitbutton.Image = exitimagebutton
-        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
+        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         If Workspace.Aluno = True Then
             Panel1.Hide()
         Else
@@ -80,16 +81,16 @@
         End If
         Dim artigo As DataTable = BLL.Artigos.carregar_dados_numartigo(artigos, True)
         nomeclientelabel.Text = artigo.Rows(0).Item("Marca").ToString + " " + artigo.Rows(0).Item("Modelo").ToString()
+        tipo_artigo = artigo.Rows(0).Item("Tipo_Artigo").ToString()
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
         If modo = False Then
-            Dim check_componente As Boolean = False
             Dim check_descrição As String = descriçaobox.Text
             Try
                 check_descrição.Trim()
             Catch
             End Try
-            If Not check_componente = False And Not check_descrição = "" Then
+            If Not check_descrição = "" Then
                 Try
                     BLL.Reparacoes.inserir(artigos, descriçaobox.Text, dateinicio.Value)
                     folha_repar = New folha_repar
@@ -106,7 +107,6 @@
                 MsgBox("Verifique se inseriu o número de Artigo, a data inicial ou a descrição da avaria!", vbOK, "Erro!")
             End If
         Else
-            Dim check_componente As Boolean = False
             Dim check_descrição As String = descriçaobox.Text
             Dim check_data As Boolean = False
             Dim temporeal As TimeSpan
@@ -130,7 +130,7 @@
             If BLL.Participacoes.return_all <> 0 Then
                 BLL.Participacoes.remover_part(0, reparaçao_data.Rows.Item(0).Item("NºReparação").ToString())
             End If
-            If Not check_componente = False And Not check_descrição = "" And Not check_data = False Then
+            If Not check_descrição = "" And Not check_data = False Then
                 Try
                     BLL.Reparacoes.alterar_datafim(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), artigos, temporeal.TotalHours.ToString, descriçaobox.Text, dateinicio.Value, datefim.Value, preçobox.Text)
                     If Workspace.hardware_support.Columns.Count <> 0 Then
@@ -213,18 +213,34 @@
         Me.Close()
     End Sub
     Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles insert_hardware.Click
-        Dim select_hardware As New Inserir_Hardware_desk
-        select_hardware.MdiParent = Workspace
-        If Workspace.hardware_support.Columns.Count <> 0 Then
-            If Workspace.hardware_support.Rows.Count <> 0 Then
-                select_hardware.modo = True
+        If tipo_artigo = "Fixo" Then
+            Dim select_hardware As New Inserir_Hardware_desk
+            select_hardware.MdiParent = Workspace
+            If Workspace.hardware_support.Columns.Count <> 0 Then
+                If Workspace.hardware_support.Rows.Count <> 0 Then
+                    select_hardware.modo = True
+                Else
+                    select_hardware.modo = False
+                End If
             Else
                 select_hardware.modo = False
             End If
+            select_hardware.Show()
         Else
-            select_hardware.modo = False
+            Dim select_hardware As New Inserir_Hardware_port
+            select_hardware.MdiParent = Workspace
+            If Workspace.hardware_support.Columns.Count <> 0 Then
+                If Workspace.hardware_support.Rows.Count <> 0 Then
+                    select_hardware.modo = True
+                Else
+                    select_hardware.modo = False
+                End If
+            Else
+                select_hardware.modo = False
+            End If
+            select_hardware.Show()
         End If
-        select_hardware.Show()
+        
     End Sub
     Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles insert_software.Click
         Dim select_software As New Inserir_Software

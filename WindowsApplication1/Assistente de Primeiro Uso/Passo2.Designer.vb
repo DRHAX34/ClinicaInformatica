@@ -42,8 +42,6 @@ Partial Class Passo2
         Me.localidadebox = New ClinicaInformatica.WaterMarkTextBox()
         Me.cod_postalbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
         Me.nifbox = New ClinicaInformatica.WaterMarkTextBox()
-        Me.simcheck = New System.Windows.Forms.RadioButton()
-        Me.naocheck = New System.Windows.Forms.RadioButton()
         Me.limparbutton = New System.Windows.Forms.Button()
         Me.logobox = New System.Windows.Forms.PictureBox()
         Me.emaillabel = New System.Windows.Forms.Label()
@@ -53,6 +51,8 @@ Partial Class Passo2
         Me.contactofixbox = New ClinicaInformatica.MaskedWaterMarkTextBox()
         Me.emailbox = New ClinicaInformatica.WaterMarkTextBox()
         Me.sitebox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.naocheck = New System.Windows.Forms.RadioButton()
+        Me.simcheck = New System.Windows.Forms.RadioButton()
         CType(Me.logobox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -235,30 +235,6 @@ Partial Class Passo2
         Me.nifbox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.nifbox.WaterMarkText = "NIF"
         '
-        'simcheck
-        '
-        Me.simcheck.AutoSize = True
-        Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.simcheck.Location = New System.Drawing.Point(224, 304)
-        Me.simcheck.Name = "simcheck"
-        Me.simcheck.Size = New System.Drawing.Size(47, 21)
-        Me.simcheck.TabIndex = 44
-        Me.simcheck.TabStop = True
-        Me.simcheck.Text = "Sim"
-        Me.simcheck.UseVisualStyleBackColor = True
-        '
-        'naocheck
-        '
-        Me.naocheck.AutoSize = True
-        Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
-        Me.naocheck.Location = New System.Drawing.Point(277, 304)
-        Me.naocheck.Name = "naocheck"
-        Me.naocheck.Size = New System.Drawing.Size(51, 21)
-        Me.naocheck.TabIndex = 45
-        Me.naocheck.TabStop = True
-        Me.naocheck.Text = "Não"
-        Me.naocheck.UseVisualStyleBackColor = True
-        '
         'limparbutton
         '
         Me.limparbutton.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -321,12 +297,12 @@ Partial Class Passo2
         'contactofixbox
         '
         Me.contactofixbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.contactofixbox.Location = New System.Drawing.Point(224, 250)
+        Me.contactofixbox.Location = New System.Drawing.Point(224, 249)
         Me.contactofixbox.Mask = "+0000000000000"
         Me.contactofixbox.Name = "contactofixbox"
         Me.contactofixbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.contactofixbox.Size = New System.Drawing.Size(110, 27)
-        Me.contactofixbox.TabIndex = 86
+        Me.contactofixbox.TabIndex = 89
         Me.contactofixbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contactofixbox.WaterMarkColor = System.Drawing.Color.Gray
         Me.contactofixbox.WaterMarkText = "Contacto Fixo"
@@ -334,30 +310,56 @@ Partial Class Passo2
         'emailbox
         '
         Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.emailbox.Location = New System.Drawing.Point(25, 302)
+        Me.emailbox.Location = New System.Drawing.Point(25, 301)
         Me.emailbox.MaxLength = 50
         Me.emailbox.Name = "emailbox"
         Me.emailbox.Size = New System.Drawing.Size(184, 27)
-        Me.emailbox.TabIndex = 87
+        Me.emailbox.TabIndex = 90
         Me.emailbox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.emailbox.WaterMarkText = "Email"
         '
         'sitebox
         '
         Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
-        Me.sitebox.Location = New System.Drawing.Point(26, 355)
+        Me.sitebox.Location = New System.Drawing.Point(24, 355)
         Me.sitebox.MaxLength = 50
         Me.sitebox.Name = "sitebox"
         Me.sitebox.Size = New System.Drawing.Size(183, 27)
-        Me.sitebox.TabIndex = 88
+        Me.sitebox.TabIndex = 91
         Me.sitebox.WaterMarkColor = System.Drawing.Color.DimGray
         Me.sitebox.WaterMarkText = "Website"
+        '
+        'naocheck
+        '
+        Me.naocheck.AutoSize = True
+        Me.naocheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.naocheck.Location = New System.Drawing.Point(277, 307)
+        Me.naocheck.Name = "naocheck"
+        Me.naocheck.Size = New System.Drawing.Size(51, 21)
+        Me.naocheck.TabIndex = 93
+        Me.naocheck.TabStop = True
+        Me.naocheck.Text = "Não"
+        Me.naocheck.UseVisualStyleBackColor = True
+        '
+        'simcheck
+        '
+        Me.simcheck.AutoSize = True
+        Me.simcheck.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.simcheck.Location = New System.Drawing.Point(224, 307)
+        Me.simcheck.Name = "simcheck"
+        Me.simcheck.Size = New System.Drawing.Size(47, 21)
+        Me.simcheck.TabIndex = 92
+        Me.simcheck.TabStop = True
+        Me.simcheck.Text = "Sim"
+        Me.simcheck.UseVisualStyleBackColor = True
         '
         'Passo2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 468)
+        Me.Controls.Add(Me.naocheck)
+        Me.Controls.Add(Me.simcheck)
         Me.Controls.Add(Me.sitebox)
         Me.Controls.Add(Me.emailbox)
         Me.Controls.Add(Me.contactofixbox)
@@ -365,8 +367,6 @@ Partial Class Passo2
         Me.Controls.Add(Me.contactofixlabel)
         Me.Controls.Add(Me.sitelabel)
         Me.Controls.Add(Me.emaillabel)
-        Me.Controls.Add(Me.naocheck)
-        Me.Controls.Add(Me.simcheck)
         Me.Controls.Add(Me.nifbox)
         Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.localidadebox)
@@ -417,8 +417,6 @@ Partial Class Passo2
     Friend WithEvents localidadebox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents cod_postalbox As ClinicaInformatica.MaskedWaterMarkTextBox
     Friend WithEvents nifbox As ClinicaInformatica.WaterMarkTextBox
-    Friend WithEvents simcheck As System.Windows.Forms.RadioButton
-    Friend WithEvents naocheck As System.Windows.Forms.RadioButton
     Friend WithEvents emaillabel As System.Windows.Forms.Label
     Friend WithEvents sitelabel As System.Windows.Forms.Label
     Friend WithEvents contactofixlabel As System.Windows.Forms.Label
@@ -426,4 +424,6 @@ Partial Class Passo2
     Friend WithEvents contactofixbox As ClinicaInformatica.MaskedWaterMarkTextBox
     Friend WithEvents emailbox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents sitebox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents naocheck As System.Windows.Forms.RadioButton
+    Friend WithEvents simcheck As System.Windows.Forms.RadioButton
 End Class

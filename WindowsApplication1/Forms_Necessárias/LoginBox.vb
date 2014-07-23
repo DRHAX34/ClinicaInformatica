@@ -1,17 +1,11 @@
 ﻿Public Class LoginForm
     Public user As Integer
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim p As New ArrayList
-        p = BLL.Login.Carregar_empresas
-        Companybox.DataSource = p
         'Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
-        If Not Companybox.Items.Count = Nothing Then
-            Companybox.SelectedIndex = 0
-        End If
-        Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width, loginbutton.Height)
-        Dim sair As New Bitmap(My.Resources.Sair, exitbutton.Width, exitbutton.Height)
+        Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width - 2, loginbutton.Height - 2)
+        Dim sair As New Bitmap(My.Resources.Sair, exitbutton.Width - 2, exitbutton.Height - 2)
         'Dim button As New Bitmap(My.Resources.Sair, sairbutton.Width, sairbutton.Height)
-        Dim Ajuda As New Bitmap(My.Resources.Ajuda, buttonhelp.Width, buttonhelp.Height)
+        Dim Ajuda As New Bitmap(My.Resources.Ajuda, buttonhelp.Width - 2, buttonhelp.Height - 2)
         loginbutton.Image = login
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda
@@ -39,11 +33,7 @@
     Private Sub loginbutton_Click(sender As Object, e As EventArgs) Handles loginbutton.Click
         Dim n_empresa As Integer
         Dim check As Boolean = False
-        If Companybox.Items.Count <> 0 Then
-            n_empresa = BLL.Login.return_n_empresa(Companybox.SelectedItem.ToString)
-        Else
-            n_empresa = 0
-        End If
+        n_empresa = BLL.Login.return_n_empresa(Nothing)
         Dim password As String = Passwordbox.Text
         Dim wrapper As New Simple3Des("ODASONSNIAJCNDICAOSJDCNSNCASNDNCJNSAKJCBNKJSBDNJCBASKJDBKJASBKJCBSAKDBCHJBJK")
         Dim passencript As String = wrapper.EncryptData(password)
@@ -79,7 +69,7 @@
             If BLL.Login.verificar_aluno(n_empresa) = True Then
                 Workspace.Aluno = True
             End If
-            Workspace.companyname1 = Companybox.Text
+            Workspace.companyname1 = BLL.Admin_only.Empresas.carregar_dados_numempresa(n_empresa, True).Rows(0).Item("Nome").ToString
             BLL.n_empresa = n_empresa
             Workspace.login_load()
             Workspace.FormBorderStyle = Windows.Forms.FormBorderStyle.Sizable

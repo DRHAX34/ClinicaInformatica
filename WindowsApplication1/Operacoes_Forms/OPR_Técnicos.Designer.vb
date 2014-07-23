@@ -59,6 +59,7 @@ Partial Class OPR_Técnicos
         Me.savebutton = New System.Windows.Forms.Button()
         Me.reparaçoesefetuadasbutton = New System.Windows.Forms.Button()
         Me.logobutton = New System.Windows.Forms.Button()
+        Me.lockbutton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.imagembox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -423,12 +424,21 @@ Partial Class OPR_Técnicos
         Me.logobutton.Text = "..."
         Me.logobutton.UseVisualStyleBackColor = True
         '
+        'lockbutton
+        '
+        Me.lockbutton.Location = New System.Drawing.Point(536, 33)
+        Me.lockbutton.Name = "lockbutton"
+        Me.lockbutton.Size = New System.Drawing.Size(64, 60)
+        Me.lockbutton.TabIndex = 110
+        Me.lockbutton.UseVisualStyleBackColor = True
+        '
         'OPR_Técnicos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(810, 476)
+        Me.Controls.Add(Me.lockbutton)
         Me.Controls.Add(Me.logobutton)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.GroupBox1)
@@ -503,4 +513,5 @@ Partial Class OPR_Técnicos
     Friend WithEvents savebutton As System.Windows.Forms.Button
     Friend WithEvents reparaçoesefetuadasbutton As System.Windows.Forms.Button
     Friend WithEvents logobutton As System.Windows.Forms.Button
+    Friend WithEvents lockbutton As System.Windows.Forms.Button
 End Class

@@ -51,6 +51,7 @@ Partial Class OPR_Clientes
         Me.componentesbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.restartbutton = New System.Windows.Forms.Button()
+        Me.lockbutton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -339,6 +340,14 @@ Partial Class OPR_Clientes
         Me.restartbutton.TabIndex = 94
         Me.restartbutton.UseVisualStyleBackColor = True
         '
+        'lockbutton
+        '
+        Me.lockbutton.Location = New System.Drawing.Point(547, 12)
+        Me.lockbutton.Name = "lockbutton"
+        Me.lockbutton.Size = New System.Drawing.Size(64, 60)
+        Me.lockbutton.TabIndex = 95
+        Me.lockbutton.UseVisualStyleBackColor = True
+        '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
@@ -355,6 +364,7 @@ Partial Class OPR_Clientes
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(637, 420)
+        Me.Controls.Add(Me.lockbutton)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.componentesbutton)
@@ -423,4 +433,5 @@ Partial Class OPR_Clientes
     Friend WithEvents componentesbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents restartbutton As System.Windows.Forms.Button
+    Friend WithEvents lockbutton As System.Windows.Forms.Button
 End Class

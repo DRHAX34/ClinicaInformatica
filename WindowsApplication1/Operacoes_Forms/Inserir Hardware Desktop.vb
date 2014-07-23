@@ -9,9 +9,7 @@
         If modo = False Then
             Workspace.hardware_support = New DataTable
         Else
-            caixaqtdbox.Value = Workspace.hardware_support.Rows(0).Item("Qtd")
             caixapreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
-            motherqtdbox.Value = Workspace.hardware_support.Rows(1).Item("Qtd")
             motherpreçobox.Text = Workspace.hardware_support.Rows(1).Item("Preço")
             coolerqtdbox.Value = Workspace.hardware_support.Rows(2).Item("Qtd")
             coolerpreçobox.Text = Workspace.hardware_support.Rows(2).Item("Preço")
@@ -21,9 +19,7 @@
             opticpreçobox.Text = Workspace.hardware_support.Rows(4).Item("Preço")
             redeqtdbox.Value = Workspace.hardware_support.Rows(5).Item("Qtd")
             redepreçobox.Text = Workspace.hardware_support.Rows(5).Item("Preço")
-            fonteqtdbox.Value = Workspace.hardware_support.Rows(6).Item("Qtd")
             fontepreçobox.Text = Workspace.hardware_support.Rows(6).Item("Preço")
-            processadorqtdbox.Value = Workspace.hardware_support.Rows(7).Item("Qtd")
             processadorpreçobox.Text = Workspace.hardware_support.Rows(7).Item("Preço")
             memoriaqtdbox.Value = Workspace.hardware_support.Rows(8).Item("Qtd")
             memóriapreçobox.Text = Workspace.hardware_support.Rows(8).Item("Preço")
@@ -37,7 +33,7 @@
         End If
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles certobutton.Click
         Dim h(2) As Object
         If Workspace.hardware_support.Columns.Count <> 3 Then
             Workspace.hardware_support.Columns.Add("Tipo")
@@ -45,11 +41,19 @@
             Workspace.hardware_support.Columns.Add("Preço")
         End If
         h(0) = "Caixa"
-        h(1) = caixaqtdbox.Value
+        If caixapreçobox.Text <> "" Then
+            h(1) = 1
+        Else
+            h(1) = 0
+        End If
         h(2) = (caixapreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         h(0) = "Motherboard"
-        h(1) = motherqtdbox.Value
+        If motherpreçobox.Text <> "" Then
+            h(1) = 1
+        Else
+            h(1) = 0
+        End If
         h(2) = (motherpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         h(0) = "Cooler"
@@ -69,11 +73,19 @@
         h(2) = (redepreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         h(0) = ("Fonte")
-        h(1) = (fonteqtdbox.Value)
+        If fontepreçobox.Text <> "" Then
+            h(1) = 1
+        Else
+            h(1) = 0
+        End If
         h(2) = (fontepreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         h(0) = ("Processador")
-        h(1) = (processadorqtdbox.Value)
+        If processadorpreçobox.Text <> "" Then
+            h(1) = 1
+        Else
+            h(1) = 0
+        End If
         h(2) = (processadorpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         h(0) = ("Memória")
@@ -95,51 +107,49 @@
         Me.Close()
     End Sub
 
-    'Public Sub NumberFormat(ByVal Text As TextBox)
-    '    Dim temptext As TextBox = Text
-    '    If Len(temptext.Text) > 0 Then
-    '        'estou a por estes comentários para te explicar como funcionam estes códigos.
-    '        'tira o simbolo do Euro 
+        'Public Sub NumberFormat(ByVal Text As TextBox)
+        '    Dim temptext As TextBox = Text
+        '    If Len(temptext.Text) > 0 Then
+        '        'estou a por estes comentários para te explicar como funcionam estes códigos.
+        '        'tira o simbolo do Euro 
 
-    '        If temptext.Text.StartsWith("€") Then
-    '            temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
-    '        End If
-    '        'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
-    '        'se não houver decimal, adiciona automáticamente
+        '        If temptext.Text.StartsWith("€") Then
+        '            temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
+        '        End If
+        '        'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
+        '        'se não houver decimal, adiciona automáticamente
 
-    '        If temptext.Text.Contains(".") Then
-    '        Else
-    '            If temptext.TextLength > 1 Then
-    '                Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
-    '                Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
-    '                temptext.Text = CDec(tempstr & "." & tempstrlast2)
-    '            Else
-    '                temptext.Text = ".0" & temptext.Text
-    '            End If
-    '        End If
+        '        If temptext.Text.Contains(".") Then
+        '        Else
+        '            If temptext.TextLength > 1 Then
+        '                Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
+        '                Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
+        '                temptext.Text = CDec(tempstr & "." & tempstrlast2)
+        '            Else
+        '                temptext.Text = ".0" & temptext.Text
+        '            End If
+        '        End If
 
-    '        ' alterar isto de 0 para -1 dá o valor decimal 
+        '        ' alterar isto de 0 para -1 dá o valor decimal 
 
-    '        temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
-    '        Dim x As Integer = temptext.Selectionstart.ToString
-    '        If x = 0 Then
-    '            temptext.Selectionstart = Len(temptext.Text)
-    '            temptext.SelectionLength = 0
-    '        Else
-    '            temptext.Selectionstart = x
-    '            temptext.SelectionLength = 0
-    '        End If
-    '    End If
+        '        temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
+        '        Dim x As Integer = temptext.Selectionstart.ToString
+        '        If x = 0 Then
+        '            temptext.Selectionstart = Len(temptext.Text)
+        '            temptext.SelectionLength = 0
+        '        Else
+        '            temptext.Selectionstart = x
+        '            temptext.SelectionLength = 0
+        '        End If
+        '    End If
 
-    '    'Adiciona o simbolo €
+        '    'Adiciona o simbolo €
 
-    '    Text.Text = temptext.Text & "€"
-    'End Sub
+        '    Text.Text = temptext.Text & "€"
+        'End Sub
 
 
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
-        Me.Close()
-    End Sub
+
 
     Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs)
         'NumberFormat(caixapreçobox)
@@ -366,5 +376,9 @@
 
     Private Sub RadLabel7_Click(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+        Me.Close()
     End Sub
 End Class

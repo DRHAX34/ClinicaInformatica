@@ -26,6 +26,8 @@ Public Class Passo1
     End Sub
 
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim restauroimage As New Bitmap(My.Resources._1406149495_System_Restore, restorebutton.Height - 5, restorebutton.Height - 5)
+        restorebutton.Image = restauroimage
         If Colorization.OsSupportsAero Then SetBackColor(Colorization.GetDwmColorization)
         Timer1.Start()
         Me.MinimizeBox = False
@@ -50,6 +52,7 @@ Public Class Passo1
         End If
         Label1.ForeColor = colorization.Inversecolor
         Label2.ForeColor = colorization.Inversecolor
+        Label3.ForeColor = colorization.Inversecolor
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs)
@@ -77,6 +80,26 @@ Public Class Passo1
     End Sub
 
     
+    Private Sub restorebutton_Click(sender As Object, e As EventArgs) Handles restorebutton.Click
+        If MsgBox("O programa será reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
+            'DAL.Connection.Close()
+            'DAL.Connection.Dispose()
+            'Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
+            Dim sql_caminho As String
+            OpenFileDialog1.Filter = "Base-de-Dados Clínica Informática | *.CIDB"
+            OpenFileDialog1.FileName = ""
+            OpenFileDialog1.ShowDialog()
+            sql_caminho = OpenFileDialog1.FileName
+            If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
+                Try
+                    DAL.RestoreDB(sql_caminho)
+                    Application.Restart()
+                Catch ex As Exception
+                    MsgBox("Erro ao Restaurar Cópia: " & ex.Message, vbOKOnly, "Erro ao fazer Backup!")
+                End Try
+            End If
+        End If
+    End Sub
 End Class
 
 Public Class Colorization

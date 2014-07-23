@@ -448,6 +448,10 @@
     <None Include="Resources\1405973024_file_delete.png" />
     <None Include="Resources\1405973067_file_search.png" />
     <None Include="Resources\1405976976_distributor-report.png" />
+    <None Include="Resources\1406134201_MB__LOCK.png" />
+    <None Include="Resources\1406134201_MB__UNLOCK.png" />
+    <None Include="Resources\1406140864_logout.png" />
+    <None Include="Resources\1406149495_System_Restore.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

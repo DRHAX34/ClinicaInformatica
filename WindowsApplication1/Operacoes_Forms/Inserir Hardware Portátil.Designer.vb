@@ -28,11 +28,6 @@ Partial Class Inserir_Hardware_port
         Me.Label25 = New System.Windows.Forms.Label()
         Me.discoqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.memoriaqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.processadorqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.carregadorqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.opticqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.vgaqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.coolerqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.lcdqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -58,7 +53,6 @@ Partial Class Inserir_Hardware_port
         Me.coolerpreçobox = New System.Windows.Forms.TextBox()
         Me.motherpreçobox = New System.Windows.Forms.TextBox()
         Me.lcdpreçobox = New System.Windows.Forms.TextBox()
-        Me.touchpadqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.otherqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.otherdescriçaobox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -76,32 +70,26 @@ Partial Class Inserir_Hardware_port
         Me.Label23 = New System.Windows.Forms.Label()
         Me.Label24 = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        Me.motherqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.tecladopreçobox = New System.Windows.Forms.TextBox()
         Me.usbpreçobox = New System.Windows.Forms.TextBox()
-        Me.tecladoqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.usbqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.Label30 = New System.Windows.Forms.Label()
+        Me.vgaqtdbox = New System.Windows.Forms.NumericUpDown()
+        Me.coolerqtdbox = New System.Windows.Forms.NumericUpDown()
         CType(Me.discoqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.carregadorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.opticqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.lcdqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.touchpadqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RadLabel2.SuspendLayout()
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.motherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tecladoqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.usbqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'exitbutton
@@ -155,51 +143,6 @@ Partial Class Inserir_Hardware_port
         Me.memoriaqtdbox.Name = "memoriaqtdbox"
         Me.memoriaqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.memoriaqtdbox.TabIndex = 220
-        '
-        'processadorqtdbox
-        '
-        Me.processadorqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.processadorqtdbox.Location = New System.Drawing.Point(619, 160)
-        Me.processadorqtdbox.Name = "processadorqtdbox"
-        Me.processadorqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.processadorqtdbox.TabIndex = 221
-        Me.processadorqtdbox.Visible = False
-        '
-        'carregadorqtdbox
-        '
-        Me.carregadorqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.carregadorqtdbox.Location = New System.Drawing.Point(619, 122)
-        Me.carregadorqtdbox.Name = "carregadorqtdbox"
-        Me.carregadorqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.carregadorqtdbox.TabIndex = 225
-        Me.carregadorqtdbox.Visible = False
-        '
-        'opticqtdbox
-        '
-        Me.opticqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.opticqtdbox.Location = New System.Drawing.Point(216, 271)
-        Me.opticqtdbox.Name = "opticqtdbox"
-        Me.opticqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.opticqtdbox.TabIndex = 222
-        Me.opticqtdbox.Visible = False
-        '
-        'vgaqtdbox
-        '
-        Me.vgaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.vgaqtdbox.Location = New System.Drawing.Point(216, 233)
-        Me.vgaqtdbox.Name = "vgaqtdbox"
-        Me.vgaqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.vgaqtdbox.TabIndex = 223
-        Me.vgaqtdbox.Visible = False
-        '
-        'coolerqtdbox
-        '
-        Me.coolerqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.coolerqtdbox.Location = New System.Drawing.Point(216, 195)
-        Me.coolerqtdbox.Name = "coolerqtdbox"
-        Me.coolerqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.coolerqtdbox.TabIndex = 226
-        Me.coolerqtdbox.Visible = False
         '
         'lcdqtdbox
         '
@@ -438,15 +381,6 @@ Partial Class Inserir_Hardware_port
         Me.lcdpreçobox.TabIndex = 233
         Me.lcdpreçobox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'touchpadqtdbox
-        '
-        Me.touchpadqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.touchpadqtdbox.Location = New System.Drawing.Point(216, 312)
-        Me.touchpadqtdbox.Name = "touchpadqtdbox"
-        Me.touchpadqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.touchpadqtdbox.TabIndex = 227
-        Me.touchpadqtdbox.Visible = False
-        '
         'otherqtdbox
         '
         Me.otherqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -495,7 +429,7 @@ Partial Class Inserir_Hardware_port
         '
         '
         '
-        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(367, 266, 313, 33)
+        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(367, 266, 100, 18)
         Me.RadLabel2.Size = New System.Drawing.Size(313, 33)
         Me.RadLabel2.TabIndex = 217
         Me.RadLabel2.Text = "Leitor de Cartões.............................."
@@ -619,15 +553,6 @@ Partial Class Inserir_Hardware_port
         Me.PictureBox1.TabIndex = 218
         Me.PictureBox1.TabStop = False
         '
-        'motherqtdbox
-        '
-        Me.motherqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.motherqtdbox.Location = New System.Drawing.Point(216, 155)
-        Me.motherqtdbox.Name = "motherqtdbox"
-        Me.motherqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.motherqtdbox.TabIndex = 224
-        Me.motherqtdbox.Visible = False
-        '
         'Label27
         '
         Me.Label27.AutoSize = True
@@ -666,15 +591,6 @@ Partial Class Inserir_Hardware_port
         Me.usbpreçobox.TabIndex = 274
         Me.usbpreçobox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'tecladoqtdbox
-        '
-        Me.tecladoqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tecladoqtdbox.Location = New System.Drawing.Point(216, 349)
-        Me.tecladoqtdbox.Name = "tecladoqtdbox"
-        Me.tecladoqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.tecladoqtdbox.TabIndex = 275
-        Me.tecladoqtdbox.Visible = False
-        '
         'usbqtdbox
         '
         Me.usbqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -704,15 +620,32 @@ Partial Class Inserir_Hardware_port
         Me.Label30.TabIndex = 278
         Me.Label30.Text = "€"
         '
+        'vgaqtdbox
+        '
+        Me.vgaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.vgaqtdbox.Location = New System.Drawing.Point(216, 233)
+        Me.vgaqtdbox.Name = "vgaqtdbox"
+        Me.vgaqtdbox.Size = New System.Drawing.Size(43, 29)
+        Me.vgaqtdbox.TabIndex = 223
+        Me.vgaqtdbox.Visible = False
+        '
+        'coolerqtdbox
+        '
+        Me.coolerqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.coolerqtdbox.Location = New System.Drawing.Point(216, 195)
+        Me.coolerqtdbox.Name = "coolerqtdbox"
+        Me.coolerqtdbox.Size = New System.Drawing.Size(43, 29)
+        Me.coolerqtdbox.TabIndex = 226
+        Me.coolerqtdbox.Visible = False
+        '
         'Inserir_Hardware_port
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(797, 426)
+        Me.ClientSize = New System.Drawing.Size(797, 436)
         Me.Controls.Add(Me.Label30)
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.usbqtdbox)
-        Me.Controls.Add(Me.tecladoqtdbox)
         Me.Controls.Add(Me.usbpreçobox)
         Me.Controls.Add(Me.tecladopreçobox)
         Me.Controls.Add(Me.Label28)
@@ -722,12 +655,8 @@ Partial Class Inserir_Hardware_port
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.discoqtdbox)
         Me.Controls.Add(Me.memoriaqtdbox)
-        Me.Controls.Add(Me.processadorqtdbox)
-        Me.Controls.Add(Me.carregadorqtdbox)
-        Me.Controls.Add(Me.opticqtdbox)
         Me.Controls.Add(Me.vgaqtdbox)
         Me.Controls.Add(Me.coolerqtdbox)
-        Me.Controls.Add(Me.motherqtdbox)
         Me.Controls.Add(Me.lcdqtdbox)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
@@ -753,7 +682,6 @@ Partial Class Inserir_Hardware_port
         Me.Controls.Add(Me.coolerpreçobox)
         Me.Controls.Add(Me.motherpreçobox)
         Me.Controls.Add(Me.lcdpreçobox)
-        Me.Controls.Add(Me.touchpadqtdbox)
         Me.Controls.Add(Me.otherqtdbox)
         Me.Controls.Add(Me.otherdescriçaobox)
         Me.Controls.Add(Me.Label2)
@@ -776,21 +704,15 @@ Partial Class Inserir_Hardware_port
         Me.Text = "Inserir_Hardware Portátil"
         CType(Me.discoqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.carregadorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.opticqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.lcdqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.touchpadqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RadLabel2.ResumeLayout(False)
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.motherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tecladoqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.usbqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -801,11 +723,6 @@ Partial Class Inserir_Hardware_port
     Friend WithEvents Label25 As System.Windows.Forms.Label
     Friend WithEvents discoqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents memoriaqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents processadorqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents carregadorqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents opticqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents vgaqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents coolerqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents lcdqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label13 As System.Windows.Forms.Label
@@ -831,7 +748,6 @@ Partial Class Inserir_Hardware_port
     Friend WithEvents coolerpreçobox As System.Windows.Forms.TextBox
     Friend WithEvents motherpreçobox As System.Windows.Forms.TextBox
     Friend WithEvents lcdpreçobox As System.Windows.Forms.TextBox
-    Friend WithEvents touchpadqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents otherqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents otherdescriçaobox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -849,13 +765,13 @@ Partial Class Inserir_Hardware_port
     Friend WithEvents Label22 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents motherqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents tecladopreçobox As System.Windows.Forms.TextBox
     Friend WithEvents usbpreçobox As System.Windows.Forms.TextBox
-    Friend WithEvents tecladoqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents usbqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label29 As System.Windows.Forms.Label
     Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents vgaqtdbox As System.Windows.Forms.NumericUpDown
+    Friend WithEvents coolerqtdbox As System.Windows.Forms.NumericUpDown
 End Class

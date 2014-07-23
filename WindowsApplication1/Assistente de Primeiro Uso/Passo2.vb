@@ -124,7 +124,7 @@ Public Class Passo2
         OpenFileDialog1.FileName = ""
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
-        If img_caminho <> "OpenFileDialog1" Then
+        If img_caminho <> "OpenFileDialog1" And img_caminho <> "" Then
             Try
                 logo = Image.FromFile(img_caminho)
                 logobox.Image = logo

@@ -6,12 +6,12 @@
     Public removidos As Boolean
     
     Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height, savebutton.Height)
+        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         savebutton.Image = saveimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
         exitbutton.Image = exitimagebutton
-        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
+        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         naocheck.Checked = True
         logobox.Enabled = False
         If modo = True Then

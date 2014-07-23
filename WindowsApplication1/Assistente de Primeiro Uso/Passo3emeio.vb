@@ -194,11 +194,11 @@ Public Class Passo3emeio
         OpenFileDialog1.FileName = ""
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
-        caminhobox.Text = img_caminho
-        If img_caminho <> "OpenFileDialog1" Then
+        If img_caminho <> "OpenFileDialog1" And img_caminho <> "" Then
             Try
                 image_tec = Image.FromFile(img_caminho)
                 imagembox.Image = image_tec
+                caminhobox.Text = img_caminho
             Catch ex As Exception
                 MsgBox("Erro ao importar a imagem: " & ex.Message)
             End Try

@@ -40,13 +40,13 @@
         End Select
     End Sub
     Private Sub ViewForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim newimagebutton As New Bitmap((My.Resources._1405624626_Add), newbutton.Height, newbutton.Height)
+        Dim newimagebutton As New Bitmap((My.Resources._1405624626_Add), newbutton.Height - 5, newbutton.Height - 5)
         newbutton.Image = newimagebutton
-        Dim delimagebutton As New Bitmap((My.Resources._1405973024_file_delete), delbutton.Height, delbutton.Height)
+        Dim delimagebutton As New Bitmap((My.Resources._1405973024_file_delete), delbutton.Height - 5, delbutton.Height - 5)
         delbutton.Image = delimagebutton
-        Dim findimagebutton As New Bitmap((My.Resources._1405973067_file_search), findbutton.Height, findbutton.Height)
+        Dim findimagebutton As New Bitmap((My.Resources._1405973067_file_search), findbutton.Height - 5, findbutton.Height - 5)
         findbutton.Image = findimagebutton
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 5, exitbutton.Height - 5)
         exitbutton.Image = exitimagebutton
 
         'Se não metermos .Enabled=false ele reverte para o default, que é true
@@ -54,10 +54,8 @@
         Me.Show()
         showdata.DataSource = data_table
         If removidos = True Then
-            delbutton.Text = "Restaurar"
             newbutton.Enabled = False
         Else
-            delbutton.Text = "Eliminar"
             newbutton.Enabled = True
         End If
         GroupBox1.Hide()
@@ -255,12 +253,10 @@
                     Case "Técnicos"
                         If removidos = True Then
                             BLL.Tecnicos.restaurar(string_data)
-                            BLL.Admin_only.Login.restore_login(string_data)
                             MsgBox("Restaurado com sucesso!")
                             showdata.DataSource = BLL.Tecnicos.carregar(False)
                         Else
                             BLL.Tecnicos.apagar(string_data)
-                            BLL.Admin_only.Login.remove_login(string_data)
                             MsgBox("Removido com sucesso!")
                             showdata.DataSource = BLL.Tecnicos.carregar(True)
                         End If
@@ -286,10 +282,24 @@
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         Try
             Dim string_data As String = TextBox1.Text
-            showdata.DataSource = BLL.Artigos.procura_dados(string_data, True)
+            Select Case tabela
+                Case "Clientes"
+                    If Workspace.Aluno = True Then
+                        showdata.DataSource = BLL.Clientes.procura_dados_alunos(string_data, Not (removidos))
+                    Else
+                        showdata.DataSource = BLL.Clientes.procura_dados(string_data, Not (removidos))
+                    End If
+                Case "Artigos"
+                    showdata.DataSource = BLL.Artigos.procura_dados(string_data, n_cliente, Not (removidos))
+                Case "Reparações"
+                    showdata.DataSource = BLL.Reparacoes.procura_dados(string_data, artigo, Not (removidos))
+                Case "Técnicos"
+                    showdata.DataSource = BLL.Tecnicos.procura_dados(string_data, Not (removidos))
+            End Select
+
         Catch ex As Exception
             MsgBox(ex.Message, vbOKOnly, "Erro!")
-            End Try
+        End Try
             'Try
             '    If RadioButton1.Checked = True Then
             '        Select Case tabela

@@ -17,7 +17,8 @@
                         MsgBox("Introduza um nome de utilizador válido!", vbOKOnly, "Erro!")
                     End If
                 Catch ex As Exception
-                    MsgBox("Erro ao devolver da Base-de-Dados: " & ex.Message)
+                    MsgBox("Utilizador Inválido", vbOKOnly, "Erro!")
+                    int = 0
                 End Try
             Case 1
                 If resposta_segur.Text = arrayl.Item(1) Then
@@ -32,5 +33,9 @@
             Case 2
                 Me.Close()
         End Select
+    End Sub
+
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
+        Me.Close()
     End Sub
 End Class

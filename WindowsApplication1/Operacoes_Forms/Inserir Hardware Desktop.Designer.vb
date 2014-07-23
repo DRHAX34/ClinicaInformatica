@@ -23,9 +23,6 @@ Partial Class Inserir_Hardware_desk
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Inserir_Hardware_desk))
-        Me.fonteqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.motherqtdbox = New System.Windows.Forms.NumericUpDown()
-        Me.processadorqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.coolerqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.memoriaqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.vgaqtdbox = New System.Windows.Forms.NumericUpDown()
@@ -65,7 +62,6 @@ Partial Class Inserir_Hardware_desk
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.Label16 = New System.Windows.Forms.Label()
-        Me.caixaqtdbox = New System.Windows.Forms.NumericUpDown()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
         Me.Label19 = New System.Windows.Forms.Label()
@@ -79,9 +75,6 @@ Partial Class Inserir_Hardware_desk
         Me.certobutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
-        CType(Me.fonteqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.motherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -92,36 +85,8 @@ Partial Class Inserir_Hardware_desk
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.redeqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.caixaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'fonteqtdbox
-        '
-        Me.fonteqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.fonteqtdbox.Location = New System.Drawing.Point(627, 120)
-        Me.fonteqtdbox.Name = "fonteqtdbox"
-        Me.fonteqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.fonteqtdbox.TabIndex = 86
-        Me.fonteqtdbox.Visible = False
-        '
-        'motherqtdbox
-        '
-        Me.motherqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.motherqtdbox.Location = New System.Drawing.Point(224, 153)
-        Me.motherqtdbox.Name = "motherqtdbox"
-        Me.motherqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.motherqtdbox.TabIndex = 85
-        Me.motherqtdbox.Visible = False
-        '
-        'processadorqtdbox
-        '
-        Me.processadorqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.processadorqtdbox.Location = New System.Drawing.Point(627, 158)
-        Me.processadorqtdbox.Name = "processadorqtdbox"
-        Me.processadorqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.processadorqtdbox.TabIndex = 85
-        Me.processadorqtdbox.Visible = False
         '
         'coolerqtdbox
         '
@@ -173,7 +138,7 @@ Partial Class Inserir_Hardware_desk
         '
         '
         '
-        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(375, 264, 313, 33)
+        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(375, 264, 100, 18)
         Me.RadLabel2.Size = New System.Drawing.Size(313, 33)
         Me.RadLabel2.TabIndex = 12
         Me.RadLabel2.Text = "Leitor de Cartões.............................."
@@ -480,15 +445,6 @@ Partial Class Inserir_Hardware_desk
         Me.Label16.TabIndex = 204
         Me.Label16.Text = "Motherboard......................."
         '
-        'caixaqtdbox
-        '
-        Me.caixaqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.caixaqtdbox.Location = New System.Drawing.Point(224, 115)
-        Me.caixaqtdbox.Name = "caixaqtdbox"
-        Me.caixaqtdbox.Size = New System.Drawing.Size(43, 29)
-        Me.caixaqtdbox.TabIndex = 84
-        Me.caixaqtdbox.Visible = False
-        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -626,13 +582,9 @@ Partial Class Inserir_Hardware_desk
         Me.Controls.Add(Me.Label25)
         Me.Controls.Add(Me.discoqtdbox)
         Me.Controls.Add(Me.memoriaqtdbox)
-        Me.Controls.Add(Me.processadorqtdbox)
-        Me.Controls.Add(Me.fonteqtdbox)
         Me.Controls.Add(Me.opticqtdbox)
         Me.Controls.Add(Me.vgaqtdbox)
         Me.Controls.Add(Me.coolerqtdbox)
-        Me.Controls.Add(Me.motherqtdbox)
-        Me.Controls.Add(Me.caixaqtdbox)
         Me.Controls.Add(Me.Label14)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.Label12)
@@ -679,9 +631,6 @@ Partial Class Inserir_Hardware_desk
         Me.Name = "Inserir_Hardware_desk"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inserir_Hardware Desktop"
-        CType(Me.fonteqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.motherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -692,7 +641,6 @@ Partial Class Inserir_Hardware_desk
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.redeqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.caixaqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -702,9 +650,6 @@ Partial Class Inserir_Hardware_desk
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents fonteqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents motherqtdbox As System.Windows.Forms.NumericUpDown
-    Friend WithEvents processadorqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents coolerqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents memoriaqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents vgaqtdbox As System.Windows.Forms.NumericUpDown
@@ -741,7 +686,6 @@ Partial Class Inserir_Hardware_desk
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
-    Friend WithEvents caixaqtdbox As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
     Friend WithEvents Label19 As System.Windows.Forms.Label

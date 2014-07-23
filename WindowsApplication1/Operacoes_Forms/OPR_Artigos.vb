@@ -3,15 +3,17 @@
     Public modo As Boolean
     Public removidos As Boolean
     Public n_cliente As String
+    Public lock As Boolean = False
     Private Sub OPR_Artigos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height, savebutton.Height)
+        ComboBox1.SelectedIndex = 0
+        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         savebutton.Image = saveimagebutton
-        Dim reparaçoesimagebutton As New Bitmap((My.Resources.oie_2417311E0OBPz25), reparaçoesbutton.Height, reparaçoesbutton.Height)
+        Dim reparaçoesimagebutton As New Bitmap((My.Resources.oie_2417311E0OBPz25), reparaçoesbutton.Height - 1, reparaçoesbutton.Height - 1)
         reparaçoesbutton.Image = reparaçoesimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
         exitbutton.Image = exitimagebutton
-        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
+        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         Try
             If modo = True Then
                 restartbutton.Image = restartimagebutton
@@ -20,8 +22,12 @@
                 modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
                 observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
+                lockbutton.PerformClick()
+                reparaçoesbutton.Enabled = True
             Else
+                lockbutton.Hide()
                 restartbutton.Image = limparimagebutton
+                reparaçoesbutton.Enabled = False
             End If
             nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente, True).Rows(0).Item("Nome").ToString()
         Catch ex As Exception
@@ -146,5 +152,29 @@
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
+    End Sub
+
+    Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
+        Dim imageunlockbutton As New Bitmap(My.Resources._1406134201_MB__UNLOCK, lockbutton.Height - 5, lockbutton.Width - 5)
+        Dim imagelockbutton As New Bitmap(My.Resources._1406134201_MB__LOCK, lockbutton.Height - 5, lockbutton.Width - 5)
+        If lock = False Then
+            lock = True
+            lockbutton.Image = imageunlockbutton
+            marcabox.Enabled = False
+            modelobox.Enabled = False
+            numseriebox.Enabled = False
+            observaçoesbox.Enabled = False
+            ComboBox1.Enabled = False
+            savebutton.Enabled = False
+        Else
+            lock = False
+            lockbutton.Image = imagelockbutton
+            marcabox.Enabled = True
+            modelobox.Enabled = True
+            numseriebox.Enabled = True
+            observaçoesbox.Enabled = True
+            ComboBox1.Enabled = True
+            savebutton.Enabled = True
+        End If
     End Sub
 End Class

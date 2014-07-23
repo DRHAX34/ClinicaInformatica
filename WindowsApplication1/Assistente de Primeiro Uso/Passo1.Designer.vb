@@ -28,6 +28,9 @@ Partial Class Passo1
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.restorebutton = New System.Windows.Forms.Button()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.SuspendLayout()
         '
         'Button2
@@ -74,11 +77,35 @@ Partial Class Passo1
         '
         Me.Timer1.Interval = 1
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(20, 179)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(389, 20)
+        Me.Label3.TabIndex = 16
+        Me.Label3.Text = "Caso tenha uma Cópia de Segurança, escolha esta opção:"
+        '
+        'restorebutton
+        '
+        Me.restorebutton.Location = New System.Drawing.Point(24, 202)
+        Me.restorebutton.Name = "restorebutton"
+        Me.restorebutton.Size = New System.Drawing.Size(89, 70)
+        Me.restorebutton.TabIndex = 17
+        Me.restorebutton.UseVisualStyleBackColor = True
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
         'Passo1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 468)
+        Me.Controls.Add(Me.restorebutton)
+        Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
@@ -95,4 +122,7 @@ Partial Class Passo1
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents restorebutton As System.Windows.Forms.Button
+    Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
 End Class

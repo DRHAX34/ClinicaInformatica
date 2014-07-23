@@ -1,16 +1,19 @@
 ﻿Public Class OPR_Clientes
     Public cliente_data As New DataTable
     Public modo, removidos As Boolean
+    Public lock As Boolean = False
 
     Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height, savebutton.Height)
+        Dim lockimagebutton As New Bitmap(My.Resources._1406134201_MB__LOCK, lockbutton.Height - 1, lockbutton.Width - 1)
+        lockbutton.Image = lockimagebutton
+        Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         savebutton.Image = saveimagebutton
-        Dim componentesimagebutton As New Bitmap((My.Resources.oie_30101754Hz7aSVUe), componentesbutton.Height, componentesbutton.Height)
+        Dim componentesimagebutton As New Bitmap((My.Resources.oie_30101754Hz7aSVUe), componentesbutton.Height - 1, componentesbutton.Height - 1)
         componentesbutton.Image = componentesimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
         exitbutton.Image = exitimagebutton
-        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
+        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         If modo = True Then
             restartbutton.Image = restartimagebutton
             If Workspace.admin = True Then
@@ -19,6 +22,7 @@
                 componentesbutton.Enabled = True
             End If
         Else
+            componentesbutton.Enabled = False
             restartbutton.Image = limparimagebutton
         End If
         Me.AcceptButton = savebutton
@@ -62,7 +66,9 @@
             Catch ex As Exception
                 MsgBox("Erro ao carregar os dados: " & ex.Message)
             End Try
+            lockbutton.PerformClick()
         Else
+            lockbutton.Hide()
             cmovelbox.Text = "+351"
             cfixobox.Text = "+351"
             RadioButton2.Checked = True
@@ -103,16 +109,16 @@
                 check_morada = moradabox.Text
                 check_morada.Trim()
                 If codpostalbox.Text.Count < 7 Then
-                    check_codpostal = False
-                Else
                     check_codpostal = True
+                Else
+                    check_codpostal = False
                 End If
                 check_localidade = localidadebox.Text
                 check_localidade.Trim()
-                If cmovelbox.Text.Count < 9 Then
-                    check_contactom = False
-                Else
+                If cmovelbox.Text.Count < 9 Or cfixobox.Text.Count < 9 Then
                     check_contactom = True
+                Else
+                    check_contactom = False
                 End If
             Catch ex As Exception
                 MsgBox("Preencha todos os dados marcados como obrigatórios!")
@@ -187,24 +193,20 @@
                     If Workspace.Aluno = False Then
                         If removidos = True Then
                             BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
                             Workspace.clientesmenu.PerformClick()
                             Me.Close()
                         Else
                             BLL.Clientes.alterar(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
                             Workspace.clientesmenu.PerformClick()
                             Me.Close()
                         End If
                     Else
                         If removidos = True Then
                             BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, False, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
                             Workspace.clientesmenu.PerformClick()
                             Me.Close()
                         Else
                             BLL.Clientes.alterar_aluno(numalunobox.Text, turmabox.Text, cliente_data.Rows.Item(0).Item("NºCliente").ToString(), localidadebox.Text, nifbox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
-                            MsgBox("Editado com sucesso")
                             Workspace.clientesmenu.PerformClick()
                             Me.Close()
                         End If
@@ -333,5 +335,43 @@
         artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), True)
         artigosview.removidos = False
         artigosview.Show()
+    End Sub
+
+    Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
+        Dim imageunlockbutton As New Bitmap(My.Resources._1406134201_MB__UNLOCK, lockbutton.Height - 1, lockbutton.Width - 1)
+        Dim imagelockbutton As New Bitmap(My.Resources._1406134201_MB__LOCK, lockbutton.Height - 1, lockbutton.Width - 1)
+        If lock = False Then
+            lock = True
+            lockbutton.Image = imageunlockbutton
+            nomebox.Enabled = False
+            moradabox.Enabled = False
+            nifbox.Enabled = False
+            emailbox.Enabled = False
+            codpostalbox.Enabled = False
+            localidadebox.Enabled = False
+            numalunobox.Enabled = False
+            turmabox.Enabled = False
+            cmovelbox.Enabled = False
+            cfixobox.Enabled = False
+            RadioButton1.Enabled = False
+            RadioButton2.Enabled = False
+            savebutton.Enabled = False
+        Else
+            lock = False
+            lockbutton.Image = imagelockbutton
+            nomebox.Enabled = True
+            moradabox.Enabled = True
+            nifbox.Enabled = True
+            emailbox.Enabled = True
+            codpostalbox.Enabled = True
+            localidadebox.Enabled = True
+            numalunobox.Enabled = True
+            turmabox.Enabled = True
+            cmovelbox.Enabled = True
+            cfixobox.Enabled = True
+            RadioButton1.Enabled = True
+            RadioButton2.Enabled = True
+            savebutton.Enabled = True
+        End If
     End Sub
 End Class

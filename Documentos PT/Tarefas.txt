@@ -6,20 +6,20 @@ feito! - fazer uma revisão à BLL e torná-la mais pequena,optimizada e simples.
 feito! - Remover o botão Empresas
 feito! - Eliminar botões desnecessários que estão desativados na form dos clientes.
 feito! - substituir datagridview pelo original se pudermos.
+feito! - Reduzir o .NET Framework para 4 dado que o professor quer que este programa suporte o Windows XP
 
 feito(em teste)! - Depois de gravar uma nova avaria, mostrar a folha da reparação.
 
 falta relatório - Quando clicar no botão "Gravar" abrir o relatório final que é exactamente igual à 2ºFolha do primeiro mas com tudo preenchido.
 falta relatório - Juntar os dois relatórios (de entrega e efetuada) após gravar uma nova reparação.
 
-em andamento - Mover as reparações e artigos para os clientes (aquilo que falámos com o professor)
+em teste - Mover as reparações e artigos para os clientes (aquilo que falámos com o professor)
 
 Mostrar informações da empresa ao carregar no logo da empresa do ecrã principal.
 Remover selecionar empresa da LoginForm.
 Remover a messagebox após clicarmos em "Gravar" e abrir de imediato o relatório.
 Nome do técnico que aparece na folha da reparação é o técnico com sessão iniciada na altura.
 No relatório adicionar o nome dos técnicos participantes na parte Escolar do programa
-Reduzir o .NET Framework para 4 dado que o professor quer que este programa suporte o Windows XP
 adicionar um if caso a combobox do OPR_Artigos caso esteja selecionado ou "Portátil" ou "Fixo"
 
 
@@ -42,8 +42,6 @@ feito! - Caso seja portátil, remover as labels Caixa, Placa de rede e adicionar 
 feito! - Tirar a Quantidade no Hardware do Portátil excepto Memória e Discos.
 feito! - Rever permissões de Administrador, pode adicionar clientes, mas não pode adicionar nem reparações nem artigos...
 feito! - Remover do relatório, manual, apresentação, etc as funcionalidades das multi-empresas.
-
-
 
 atualizar o manual aplicação (apenas quando o programa estiver acabado)
 
