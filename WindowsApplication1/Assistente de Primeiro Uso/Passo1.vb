@@ -81,7 +81,6 @@ Public Class Passo1
 
     
     Private Sub restorebutton_Click(sender As Object, e As EventArgs) Handles restorebutton.Click
-        If MsgBox("O programa será reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
             'DAL.Connection.Close()
             'DAL.Connection.Dispose()
             'Console.RunCommandCom("/F /IM sqlservr.exe", "", True)
@@ -93,12 +92,12 @@ Public Class Passo1
             If sql_caminho <> "OpenFileDialog1" And sql_caminho <> "" Then
                 Try
                     DAL.RestoreDB(sql_caminho)
-                    Application.Restart()
+                SplashAway.Show()
+                Workspace.Close()
                 Catch ex As Exception
                     MsgBox("Erro ao Restaurar Cópia: " & ex.Message, vbOKOnly, "Erro ao fazer Backup!")
                 End Try
             End If
-        End If
     End Sub
 End Class
 

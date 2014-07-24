@@ -102,29 +102,33 @@
             Dim check_morada As String = ""
             Dim check_codpostal As Boolean = False
             Dim check_localidade As String = ""
-            Dim check_contactom As Boolean = False
+            Dim check_contacto As Boolean = False
             Try
                 check_nome = nomebox.Text
                 check_nome.Trim()
                 check_morada = moradabox.Text
                 check_morada.Trim()
                 If codpostalbox.Text.Count < 7 Then
-                    check_codpostal = True
-                Else
                     check_codpostal = False
+                Else
+                    check_codpostal = True
                 End If
                 check_localidade = localidadebox.Text
                 check_localidade.Trim()
-                If cmovelbox.Text.Count < 9 Or cfixobox.Text.Count < 9 Then
-                    check_contactom = True
+                If cmovelbox.Text.Count < 9 Then
+                    If cfixobox.Text.Count < 9 Then
+                        check_contacto = False
+                    Else
+                        check_contacto = True
+                    End If
                 Else
-                    check_contactom = False
+                    check_contacto = True
                 End If
             Catch ex As Exception
                 MsgBox("Preencha todos os dados marcados como obrigatórios!")
             End Try
             Try
-                If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_localidade = "" And Not check_contactom = False Then
+                If Not check_nome = "" And Not check_morada = "" And Not check_codpostal = False And Not check_localidade = "" And Not check_contacto = False Then
                     codpostalbox.TextMaskFormat = MaskFormat.IncludeLiterals
                     If Workspace.Aluno = False Then
                         BLL.Clientes.inserir(nifbox.Text, localidadebox.Text, nomebox.Text, moradabox.Text, codpostalbox.Text, emailbox.Text, True, cmovelbox.Text, cfixobox.Text)
@@ -180,7 +184,7 @@
                 End If
                 check_localidade = localidadebox.Text
                 check_localidade.Trim()
-                If cmovelbox.Text.Count < 9 Then
+                If cmovelbox.Text.Count < 9 Or cfixobox.Text.Count < 9 Then
                     check_contactom = False
                 Else
                     check_contactom = True

@@ -7,6 +7,27 @@
         exitbutton.Image = exitimagebutton
         Me.AcceptButton = certobutton
         If modo = False Then
+            caixapreçobox.Text = "0"
+            motherpreçobox.Text = "0"
+            coolerqtdbox.Value = "0"
+            coolerpreçobox.Text = "0"
+            vgaqtdbox.Value = "0"
+            vgapreçobox.Text = "0"
+            opticqtdbox.Value = "0"
+            opticpreçobox.Text = "0"
+            redeqtdbox.Value = "0"
+            redepreçobox.Text = "0"
+            fontepreçobox.Text = "0"
+            processadorpreçobox.Text = "0"
+            memoriaqtdbox.Value = "0"
+            memóriapreçobox.Text = "0"
+            discoqtdbox.Value = "0"
+            discopreçobox.Text = "0"
+            leitorqtdbox.Value = "0"
+            leitorpreçobox.Text = "0"
+            otherqtdbox.Value = "0"
+            otherpreçobox.Text = "0"
+            otherdescriçaobox.Text = ""
             Workspace.hardware_support = New DataTable
         Else
             caixapreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
@@ -380,5 +401,9 @@
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
+    End Sub
+
+    Private Sub caixapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
+
     End Sub
 End Class

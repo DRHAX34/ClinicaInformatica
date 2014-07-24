@@ -15,7 +15,7 @@
     '    MyBase.WndProc(m)
     'End Sub
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
-        showdata.Width = Me.Width - 50
+        showdata.Width = Me.Width - 45
         showdata.Height = Me.Height - 150
         exitbutton.Location = New Point((Me.Width - (707 - 593)), (Me.Height - (436 - 329)))
         delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (436 - 329)))
@@ -86,6 +86,7 @@
                 Dim opr_reparacoes As New OPR_Reparações
                 opr_reparacoes.modo = False
                 opr_reparacoes.artigos = artigo
+                opr_reparacoes.cliente = n_cliente
                 opr_reparacoes.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
                 opr_reparacoes.Show()
@@ -142,6 +143,7 @@
                         opr_artigos.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
                         opr_artigos.modo = True
+                        opr_artigos.n_cliente = n_cliente
                         If removidos = True Then
                             opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, False)
                             opr_artigos.removidos = True
@@ -156,6 +158,8 @@
                         opr_reparacoes.MdiParent = Workspace
                         Workspace.m_ChildFormNumber += 1
                         opr_reparacoes.modo = True
+                        opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
+                        opr_reparacoes.cliente = n_cliente
                         Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
                         Workspace.software_support = BLL.Software.return_software(string_data)
                         Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
@@ -294,7 +298,11 @@
                 Case "Reparações"
                     showdata.DataSource = BLL.Reparacoes.procura_dados(string_data, artigo, Not (removidos))
                 Case "Técnicos"
-                    showdata.DataSource = BLL.Tecnicos.procura_dados(string_data, Not (removidos))
+                    If Workspace.Aluno = False Then
+                        showdata.DataSource = BLL.Tecnicos.procura_dados(string_data, Not (removidos))
+                    Else
+                        showdata.DataSource = BLL.Tecnicos.Alunos.procura_dados(string_data, Not (removidos))
+                    End If
             End Select
 
         Catch ex As Exception
@@ -436,42 +444,42 @@
             Case "Clientes"
                 If CheckBox1.Checked = True Then
                     If Workspace.Aluno = True Then
-                        data_table = BLL.Clientes.carregar_alunos(False)
+                        showdata.DataSource = BLL.Clientes.carregar_alunos(False)
                     Else
-                        data_table = BLL.Clientes.carregar(False)
+                        showdata.DataSource = BLL.Clientes.carregar(False)
                     End If
                     removidos = True
                 Else
                     If Workspace.Aluno = True Then
-                        data_table = BLL.Clientes.carregar_alunos(True)
+                        showdata.DataSource = BLL.Clientes.carregar_alunos(True)
                     Else
-                        data_table = BLL.Clientes.carregar(True)
+                        showdata.DataSource = BLL.Clientes.carregar(True)
                     End If
                     removidos = False
                 End If
                 
             Case "Artigos"
                 If CheckBox1.Checked = True Then
-                    data_table = BLL.Artigos.carregar_dados_numcliente(n_cliente, False)
+                    showdata.DataSource = BLL.Artigos.carregar_dados_numcliente(n_cliente, False)
                     removidos = True
                 Else
-                    data_table = BLL.Artigos.carregar_dados_numcliente(n_cliente, True)
+                    showdata.DataSource = BLL.Artigos.carregar_dados_numcliente(n_cliente, True)
                     removidos = False
                 End If
             Case "Reparações"
                 If CheckBox1.Checked = True Then
-                    data_table = BLL.Reparacoes.carregar_dados_numartigo(artigo, False)
+                    showdata.DataSource = BLL.Reparacoes.carregar_dados_numartigo(artigo, False)
                     removidos = True
                 Else
-                    data_table = BLL.Reparacoes.carregar_dados_numartigo(artigo, False)
+                    showdata.DataSource = BLL.Reparacoes.carregar_dados_numartigo(artigo, False)
                     removidos = False
                 End If
             Case "Técnicos"
                 If CheckBox1.Checked = True Then
-                    data_table = BLL.Tecnicos.carregar(False)
+                    showdata.DataSource = BLL.Tecnicos.carregar(False)
                     removidos = True
                 Else
-                    data_table = BLL.Tecnicos.carregar(True)
+                    showdata.DataSource = BLL.Tecnicos.carregar(True)
                     removidos = False
                 End If
         End Select
@@ -481,4 +489,5 @@
             newbutton.Enabled = True
         End If
     End Sub
+
 End Class

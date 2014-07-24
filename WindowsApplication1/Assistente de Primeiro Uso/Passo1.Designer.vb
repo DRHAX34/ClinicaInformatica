@@ -80,10 +80,10 @@ Partial Class Passo1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(20, 179)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(389, 20)
+        Me.Label3.Size = New System.Drawing.Size(404, 20)
         Me.Label3.TabIndex = 16
         Me.Label3.Text = "Caso tenha uma Cópia de Segurança, escolha esta opção:"
         '

@@ -55,6 +55,7 @@
                 Workspace.clientesmenu.Enabled = True
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.tecnicosmenu.Visible = False
+                Workspace.EmpresasToolStripMenuItem.Visible = False
                 Workspace.admin = False
                 tipo = "Utilizador Padrão"
                 Workspace.tecnico = BLL.Admin_only.Login.carregar_dados_codutilizador(user, True).Rows(0).Item("N_Técnico").ToString

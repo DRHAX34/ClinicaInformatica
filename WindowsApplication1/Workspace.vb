@@ -149,7 +149,7 @@ Public Class Workspace
                 LoginForm.Show()
             End If
         End If
-                    Me.DoubleBuffered = True
+        Me.DoubleBuffered = True
     End Sub
     Private Sub form_closing(ByVal sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim check As Boolean = False
@@ -248,7 +248,7 @@ Public Class Workspace
     End Sub
 
     Private Sub RestauroDeDadosToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RestauroDeDadosToolStripMenuItem.Click
-        If MsgBox("O programa será reiniciado, continuar?", vbYesNo, "Aviso!") = vbYes Then
+        If MsgBox("O programa será reiniciado e todos os dados existentes serão sobrescritos, continuar?", vbYesNo, "Aviso!") = vbYes Then
             'DAL.Connection.Close()
             'DAL.Connection.Dispose()
             'Console.RunCommandCom("/F /IM sqlservr.exe", "", True)

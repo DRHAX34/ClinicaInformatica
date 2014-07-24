@@ -41,9 +41,12 @@ Public Class OPR_Técnicos
                 localidadebox.Text = tecnico_data.Rows.Item(0).Item("Localidade").ToString()
                 cod_postalbox.Text = tecnico_data.Rows.Item(0).Item("Cod_Postal").ToString()
                 nomeutilizadorbox.Text = tecnico_data.Rows.Item(0).Item("Nome_util").ToString()
-                Dim mStream As MemoryStream = New MemoryStream(CByte(tecnico_data.Rows.Item(0).Item("Fotografia")))
+                Dim imagestream As Byte() = tecnico_data.Rows.Item(0).Item("Fotografia")
+                Dim mStream As MemoryStream = New MemoryStream(imagestream)
                 Dim img As Image = Image.FromStream(mStream)
                 image_tec = img
+                imagembox.Image = image_tec
+                caminhobox.Text = "<Não Alterado>"
                 lockbutton.PerformClick()
                 reparaçoesefetuadasbutton.Enabled = True
             Catch ex As Exception
@@ -70,9 +73,9 @@ Public Class OPR_Técnicos
         OpenFileDialog1.FileName = ""
         OpenFileDialog1.ShowDialog()
         img_caminho = OpenFileDialog1.FileName
-        caminhobox.Text = img_caminho
         If img_caminho <> "OpenFileDialog1" And img_caminho <> "" Then
             Try
+                caminhobox.Text = img_caminho
                 image_tec = Image.FromFile(img_caminho)
                 imagembox.Image = image_tec
             Catch ex As Exception
@@ -135,7 +138,6 @@ Public Class OPR_Técnicos
             Dim check_alunos As String = ""
             Dim check_turma As String = ""
             Dim check_codpostal As Boolean = False
-            Dim check_image As String = ""
             Try
                 check_nomutil = nomeutilizadorbox.Text
                 check_nomutil.Trim()
@@ -160,26 +162,33 @@ Public Class OPR_Técnicos
                 check_nome = nomebox.Text
                 check_nome.Trim()
                 check_localidade = localidadebox.Text
-                check_alunos = numalunobox.Text
-                check_alunos.Trim()
-                check_turma = turmabox.Text
-                check_turma.Trim()
-                check_image = caminhobox.Text
-                check_image.Trim()
-                If contactom_box.Text.Length >= 9 Or contacto_fbox.Text.Length >= 9 Then
+                If Workspace.Aluno = True Then
+                    check_alunos = numalunobox.Text
+                    check_alunos.Trim()
+                    check_turma = turmabox.Text
+                    check_turma.Trim()
+                Else
+                    check_alunos = "N/A"
+                    check_turma = "N/A"
+                End If
+                If contactom_box.Text.Length >= 9 Then
+                    check_contacto = True
+                ElseIf contacto_fbox.Text.Length >= 9 Then
                     check_contacto = True
                 End If
                 cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
-                If cod_postalbox.Text.Length = 8 Then
+                If cod_postalbox.Text.Length > 7 Then
                     check_codpostal = True
                 End If
             Catch ex As Exception
 
             End Try
-            If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+            If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
                 Try
                     If BLL.Tecnicos.check_exist(nomebox.Text) = 1 Then
                         MsgBox("Este técnico já existe!")
+                    ElseIf BLL.Login.check_exist(nomeutilizadorbox.Text) = True Then
+                        MsgBox("Este utilizador já existe!")
                     Else
                         BLL.Tecnicos.inserir(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec)
                         Dim password As String = passwordbox.Text
@@ -227,19 +236,25 @@ Public Class OPR_Técnicos
                 check_pergunta.Trim()
                 check_resposta = respostabox.Text
                 check_resposta.Trim()
-
                 check_nome = nomebox.Text
                 check_nome.Trim()
                 check_localidade = localidadebox.Text
-                check_alunos = numalunobox.Text
-                check_alunos.Trim()
-                check_turma = turmabox.Text
-                check_turma.Trim()
-                If contactom_box.Text.Length >= 9 Or contacto_fbox.Text.Length >= 9 Then
+                If Workspace.Aluno = True Then
+                    check_alunos = numalunobox.Text
+                    check_alunos.Trim()
+                    check_turma = turmabox.Text
+                    check_turma.Trim()
+                Else
+                    check_alunos = "N/A"
+                    check_turma = "N/A"
+                End If
+                If contactom_box.Text.Length >= 9 Then
+                    check_contacto = True
+                ElseIf contacto_fbox.Text.Length >= 9 Then
                     check_contacto = True
                 End If
                 cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
-                If cod_postalbox.Text.Length = 8 Then
+                If cod_postalbox.Text.Length > 7 Then
                     check_codpostal = True
                 End If
             Catch ex As Exception
@@ -257,6 +272,8 @@ Public Class OPR_Técnicos
                 Catch ex As Exception
                     MsgBox("Erro ao inserir: " & ex.Message)
                 End Try
+            Else
+                MsgBox("Verifique todos os dados!", vbOKOnly, "Erro!")
             End If
         End If
 
@@ -321,6 +338,7 @@ Public Class OPR_Técnicos
             perguntabox.Enabled = False
             respostabox.Enabled = False
             savebutton.Enabled = False
+            caminhobox.Enabled = False
         Else
             lock = False
             lockbutton.Image = imagelockbutton
@@ -338,6 +356,7 @@ Public Class OPR_Técnicos
             perguntabox.Enabled = True
             respostabox.Enabled = True
             savebutton.Enabled = True
+            caminhobox.Enabled = False
         End If
     End Sub
 
@@ -347,7 +366,7 @@ Public Class OPR_Técnicos
             Workspace.check_reparacoes = True
             repararview.Text = "Reparações"
             repararview.tabela = "Reparações"
-            repararview.MdiParent = Me
+            repararview.MdiParent = Workspace
             Workspace.m_ChildFormNumber += 1
             repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(tecnico_data.Rows.Item(0).Item("NºTécnico").ToString(), True)
             repararview.removidos = False

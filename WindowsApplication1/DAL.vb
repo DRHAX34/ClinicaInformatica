@@ -12,8 +12,9 @@ Public Class DAL
             Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Resources\BD-C.I.mdf;Integrated Security=True")
             Return 0
         Catch ex As Exception
+            SplashAway.Timer1.Stop()
             MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            Workspace.Close()
+            SplashAway.Close()
             Return -1
         End Try
     End Function
@@ -116,7 +117,6 @@ Public Class DAL
             Return Result
         Catch ex As Exception
             MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            Workspace.Close()
             Return Nothing
         Finally
             cmdSQL.Dispose()

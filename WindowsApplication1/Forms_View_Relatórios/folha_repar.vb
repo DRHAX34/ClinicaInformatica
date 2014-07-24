@@ -3,6 +3,12 @@
     Public artigodata As New DataTable
     Public n_repar As Integer
     Private Sub folha_repar_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Participações'. Você pode movê-la ou removê-la conforme necessário.
+        Me.ParticipaçõesTableAdapter.Fill(Me.SQLToReportConnection.Participações, n_repar)
+        'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Hardware'. Você pode movê-la ou removê-la conforme necessário.
+        Me.HardwareTableAdapter.Fill(Me.SQLToReportConnection.Hardware, n_repar)
+        'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Software'. Você pode movê-la ou removê-la conforme necessário.
+        Me.SoftwareTableAdapter.Fill(Me.SQLToReportConnection.Software, n_repar)
         'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Artigos'. Você pode movê-la ou removê-la conforme necessário.
         Me.ArtigosTableAdapter.Fill(Me.SQLToReportConnection.Artigos, artigodata.Rows(0).Item("NºArtigo").ToString())
         'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Clientes'. Você pode movê-la ou removê-la conforme necessário.

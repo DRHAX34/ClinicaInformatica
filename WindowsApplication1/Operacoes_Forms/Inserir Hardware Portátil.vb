@@ -7,6 +7,28 @@
         exitbutton.Image = exitimagebutton
         Me.AcceptButton = certobutton
         If modo = False Then
+            lcdpreçobox.Text = "0"
+            motherpreçobox.Text = "0"
+            coolerqtdbox.Value = "0"
+            coolerpreçobox.Text = "0"
+            vgaqtdbox.Value = "0"
+            vgapreçobox.Text = "0"
+            opticpreçobox.Text = "0"
+            touchpadpreçobox.Text = "0"
+            tecladopreçobox.Text = "0"
+            usbqtdbox.Text = "0"
+            usbpreçobox.Text = "0"
+            carregadorpreçobox.Text = "0"
+            processadorpreçobox.Text = "0"
+            memoriaqtdbox.Value = "0"
+            memóriapreçobox.Text = "0"
+            discoqtdbox.Value = "0"
+            discopreçobox.Text = "0"
+            leitorqtdbox.Value = "0"
+            leitorpreçobox.Text = "0"
+            otherqtdbox.Value = "0"
+            otherpreçobox.Text = "0"
+            otherdescriçaobox.Text = ""
             Workspace.hardware_support = New DataTable
         Else
             lcdpreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
@@ -74,7 +96,7 @@
         h(2) = (opticpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         h(0) = ("Touchpad")
-        If touchpadpreçobox.Text <> 0 Then
+        If touchpadpreçobox.Text <> "" Then
             h(1) = 1
         Else
             h(1) = 0
@@ -126,5 +148,9 @@
         h(2) = (otherpreçobox.Text)
         Workspace.hardware_support.Rows.Add(h)
         Me.Close()
+    End Sub
+
+    Private Sub lcdpreçobox_TextChanged(sender As Object, e As EventArgs) Handles lcdpreçobox.TextChanged
+
     End Sub
 End Class

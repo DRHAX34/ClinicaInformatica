@@ -33,7 +33,6 @@
             If reparaçao_data.Rows.Item(0).Item("DFRepar").ToString() <> "" Then
                 datefim.Value = reparaçao_data.Rows.Item(0).Item("DFRepar").ToString
             Else
-                restartbutton.Image = limparimagebutton
                 datefim.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString
             End If
             datefim.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
@@ -42,13 +41,21 @@
                 If Workspace.hardware_support.Rows.Count <> 0 Then
                     checkbox1.Checked = True
                     insert_hardware.Enabled = True
+                Else
+                    insert_hardware.Enabled = False
                 End If
+            Else
+                insert_hardware.Enabled = False
             End If
             If Workspace.software_support.Columns.Count <> 0 Then
                 If Workspace.software_support.Rows.Count <> 0 Then
                     CheckBox2.Checked = True
                     insert_software.Enabled = True
+                Else
+                    insert_software.Enabled = False
                 End If
+            Else
+                insert_software.Enabled = False
             End If
             showdata.DataSource = Workspace.tecnicos_support
             datefim.Enabled = True
@@ -58,7 +65,9 @@
             descriçaobox.Enabled = True
             checkbox1.Enabled = True
             CheckBox2.Enabled = True
+            reportbutton.Enabled = True
         Else
+            restartbutton.Image = limparimagebutton
             dateinicio.MinDate = Today
             datefim.MinDate = Today
             datefim.Enabled = False
@@ -69,7 +78,7 @@
             insert_software.Enabled = False
             insert_tecnicos.Enabled = False
             showdata.Enabled = False
-
+            reportbutton.Enabled = False
             descriçaobox.Enabled = True
         End If
         If Workspace.Aluno = True Then
@@ -85,6 +94,99 @@
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
         If modo = False Then
+            If tipo_artigo = "Portátil" Then
+                Dim h(2) As Object
+                If Workspace.hardware_support.Columns.Count <> 3 Then
+                    Workspace.hardware_support.Columns.Add("Tipo")
+                    Workspace.hardware_support.Columns.Add("Qtd")
+                    Workspace.hardware_support.Columns.Add("Preço")
+                End If
+                h(0) = "LCD"
+                h(1) = ("")
+                h(2) = ("")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "Motherboard"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "Cooler"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "VGA"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "Unidade Óptica"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Touchpad")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Teclado")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "USB"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Carregador A/C")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Processador")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Memória")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Disco")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Leitor de Cartões")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Outro:")
+                h(1) = ("")
+                h(2) = ("")
+                Workspace.hardware_support.Rows.Add(h)
+            Else
+                Dim h(2) As Object
+                If Workspace.hardware_support.Columns.Count <> 3 Then
+                    Workspace.hardware_support.Columns.Add("Tipo")
+                    Workspace.hardware_support.Columns.Add("Qtd")
+                    Workspace.hardware_support.Columns.Add("Preço")
+                End If
+                h(0) = "Caixa"
+                h(1) = ""
+                h(2) = ""
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "Motherboard"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "Cooler"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "VGA"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = "Unidade Óptica"
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Placa de Rede")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Fonte")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Processador")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Memória")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Disco")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Leitor de Cartões")
+                Workspace.hardware_support.Rows.Add(h)
+                h(0) = ("Outro:")
+                Workspace.hardware_support.Rows.Add(h)
+            End If
+            If Workspace.software_support.Columns.Count = 0 Then
+                Workspace.software_support.Columns.Add("Tipo")
+                Workspace.software_support.Columns.Add("Preço")
+            End If
+            Dim s(1) As Object
+            s(0) = ("Instalação S.O")
+            s(1) = ""
+            Workspace.software_support.Rows.Add(s)
+            s(0) = ("Recuperação S.O")
+            Workspace.software_support.Rows.Add(s)
+            s(0) = ("Remoção Spyware")
+            Workspace.software_support.Rows.Add(s)
+            s(0) = ("Remoção Vírus")
+            Workspace.software_support.Rows.Add(s)
+            s(0) = ("Remoção Cód. S.O")
+            Workspace.software_support.Rows.Add(s)
+            s(0) = ("Limpeza")
+            Workspace.software_support.Rows.Add(s)
+            s(0) = ("Outro:")
+            Workspace.software_support.Rows.Add(s)
             Dim check_descrição As String = descriçaobox.Text
             Try
                 check_descrição.Trim()
@@ -93,7 +195,20 @@
             If Not check_descrição = "" Then
                 Try
                     BLL.Reparacoes.inserir(artigos, descriçaobox.Text, dateinicio.Value)
-                    folha_repar = New folha_repar
+                    If Workspace.hardware_support.Columns.Count <> 0 Then
+                        If Workspace.hardware_support.Rows.Count <> 0 Then
+                            For i = 0 To Workspace.hardware_support.Rows.Count - 1
+                                BLL.Hardware.adicionar_hardware(BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação"), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço").ToString, Workspace.hardware_support.Rows(i).Item("Qtd").ToString)
+                            Next
+                        End If
+                    End If
+                    If Workspace.software_support.Columns.Count <> 0 Then
+                        If Workspace.software_support.Rows.Count <> 0 Then
+                            For i = 0 To Workspace.software_support.Rows.Count - 1
+                                BLL.Software.adicionar_software(BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação"), Workspace.hardware_support.Rows(i).Item("Tipo").ToString(), Workspace.hardware_support.Rows(i).Item("Preço"))
+                            Next
+                        End If
+                    End If
                     folha_repar.MdiParent = Workspace
                     folha_repar.n_repar = BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação").ToString()
                     folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
@@ -284,7 +399,17 @@
         End Try
     End Sub
     Private Sub preçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles preçobox.KeyPress
+        Dim check As Boolean = False
+        Dim count As Integer = 0
         Try
+            For i = 0 To preçobox.Text.Length() - 1
+                If preçobox.Text.Chars(i) = "." And check = False Then
+                    check = True
+                End If
+                If check = True Then
+                    count += 1
+                End If
+            Next
             If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
                 If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
                     e.Handled = True
@@ -292,22 +417,20 @@
             End If
         Catch
         End Try
-        Dim check As Boolean = False
-        Dim count As Integer = 0
-        For i = 0 To preçobox.Text.Length() - 1
-            If preçobox.Text.Chars(i) = "." And check = False Then
-                check = True
-            End If
-            If check = True Then
-                count += 1
-            End If
-        Next
-        If count = 2 Then
+        If count = 3 And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
             e.Handled = True
         End If
     End Sub
 
     Private Sub Timer2_Tick(sender As Object, e As EventArgs)
 
+    End Sub
+
+    Private Sub reportbutton_Click(sender As Object, e As EventArgs) Handles reportbutton.Click
+        folha_repar.MdiParent = Workspace
+        folha_repar.n_repar = BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação").ToString()
+        folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
+        folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString, True)
+        folha_repar.Show()
     End Sub
 End Class

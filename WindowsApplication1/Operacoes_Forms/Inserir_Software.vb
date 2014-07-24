@@ -7,6 +7,14 @@
         exitbutton.Image = exitimagebutton
         Me.AcceptButton = certobutton
         If modo = False Then
+            caixapreçobox.Text = "0"
+            motherpreçobox.Text = "0"
+            coolerpreçobox.Text = "0"
+            vgapreçobox.Text = "0"
+            opticpreçobox.Text = "0"
+            redepreçobox.Text = "0"
+            otherdescriçaobox.Text = "0"
+            otherpreçobox.Text = "0"
             Workspace.software_support = New DataTable
         Else
             caixapreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
@@ -19,7 +27,7 @@
             otherpreçobox.Text = Workspace.hardware_support.Rows(6).Item("Preço")
         End If
     End Sub
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs)
+    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles certobutton.Click
         If Workspace.software_support.Columns.Count <> 2 Then
             Workspace.software_support.Columns.Add("Tipo")
             Workspace.software_support.Columns.Add("Preço")
@@ -194,7 +202,7 @@
         End Try
     End Sub
 
-    Private Sub caixapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
-
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+        Me.Close()
     End Sub
 End Class

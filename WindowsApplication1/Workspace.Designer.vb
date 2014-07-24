@@ -30,12 +30,6 @@ Partial Class Workspace
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
-        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.companylogo = New System.Windows.Forms.PictureBox()
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.tecnicosmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -46,6 +40,12 @@ Partial Class Workspace
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.companylogo = New System.Windows.Forms.PictureBox()
         Me.StatusStrip.SuspendLayout()
         Me.MenuStrip.SuspendLayout()
         CType(Me.companylogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -84,6 +84,84 @@ Partial Class Workspace
         Me.MenuStrip.Size = New System.Drawing.Size(1102, 62)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
+        '
+        'clientesmenu
+        '
+        Me.clientesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.clientesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
+        Me.clientesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.clientesmenu.Name = "clientesmenu"
+        Me.clientesmenu.Size = New System.Drawing.Size(117, 58)
+        Me.clientesmenu.Text = "Clientes"
+        '
+        'tecnicosmenu
+        '
+        Me.tecnicosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
+        Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.tecnicosmenu.Name = "tecnicosmenu"
+        Me.tecnicosmenu.Size = New System.Drawing.Size(121, 58)
+        Me.tecnicosmenu.Text = "Técnicos"
+        '
+        'EmpresasToolStripMenuItem
+        '
+        Me.EmpresasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackupDeDadosToolStripMenuItem, Me.RestauroDeDadosToolStripMenuItem})
+        Me.EmpresasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.EmpresasToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent1
+        Me.EmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
+        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(127, 58)
+        Me.EmpresasToolStripMenuItem.Text = "Utilitários"
+        '
+        'BackupDeDadosToolStripMenuItem
+        '
+        Me.BackupDeDadosToolStripMenuItem.Name = "BackupDeDadosToolStripMenuItem"
+        Me.BackupDeDadosToolStripMenuItem.Size = New System.Drawing.Size(266, 22)
+        Me.BackupDeDadosToolStripMenuItem.Text = "Criar uma Cópia de Segurança"
+        '
+        'RestauroDeDadosToolStripMenuItem
+        '
+        Me.RestauroDeDadosToolStripMenuItem.Name = "RestauroDeDadosToolStripMenuItem"
+        Me.RestauroDeDadosToolStripMenuItem.Size = New System.Drawing.Size(266, 22)
+        Me.RestauroDeDadosToolStripMenuItem.Text = "Restaurar uma Cópia de Segurança"
+        '
+        'HelpMenu
+        '
+        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
+        Me.HelpMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.HelpMenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent
+        Me.HelpMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.HelpMenu.Name = "HelpMenu"
+        Me.HelpMenu.Size = New System.Drawing.Size(104, 58)
+        Me.HelpMenu.Text = "Ajuda"
+        '
+        'IndexToolStripMenuItem
+        '
+        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
+        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
+        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.IndexToolStripMenuItem.Text = "Manual de Utilizador"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(185, 6)
+        '
+        'AboutToolStripMenuItem
+        '
+        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
+        Me.AboutToolStripMenuItem.Text = "&Sobre ..."
+        '
+        'UtilizadoresToolStripMenuItem
+        '
+        Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources._1406140864_logout
+        Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
+        Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(164, 58)
+        Me.UtilizadoresToolStripMenuItem.Text = "Terminar Sessão"
         '
         'Statuscheck
         '
@@ -127,84 +205,6 @@ Partial Class Workspace
         Me.companylogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.companylogo.TabIndex = 54
         Me.companylogo.TabStop = False
-        '
-        'clientesmenu
-        '
-        Me.clientesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.clientesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
-        Me.clientesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.clientesmenu.Name = "clientesmenu"
-        Me.clientesmenu.Size = New System.Drawing.Size(117, 58)
-        Me.clientesmenu.Text = "Clientes"
-        '
-        'tecnicosmenu
-        '
-        Me.tecnicosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
-        Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.tecnicosmenu.Name = "tecnicosmenu"
-        Me.tecnicosmenu.Size = New System.Drawing.Size(121, 58)
-        Me.tecnicosmenu.Text = "Técnicos"
-        '
-        'EmpresasToolStripMenuItem
-        '
-        Me.EmpresasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackupDeDadosToolStripMenuItem, Me.RestauroDeDadosToolStripMenuItem})
-        Me.EmpresasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.EmpresasToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent1
-        Me.EmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
-        Me.EmpresasToolStripMenuItem.Size = New System.Drawing.Size(127, 58)
-        Me.EmpresasToolStripMenuItem.Text = "Utilitários"
-        '
-        'BackupDeDadosToolStripMenuItem
-        '
-        Me.BackupDeDadosToolStripMenuItem.Name = "BackupDeDadosToolStripMenuItem"
-        Me.BackupDeDadosToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.BackupDeDadosToolStripMenuItem.Text = "Backup de Dados"
-        '
-        'RestauroDeDadosToolStripMenuItem
-        '
-        Me.RestauroDeDadosToolStripMenuItem.Name = "RestauroDeDadosToolStripMenuItem"
-        Me.RestauroDeDadosToolStripMenuItem.Size = New System.Drawing.Size(178, 22)
-        Me.RestauroDeDadosToolStripMenuItem.Text = "Restauro de Dados"
-        '
-        'HelpMenu
-        '
-        Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
-        Me.HelpMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
-        Me.HelpMenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent
-        Me.HelpMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.HelpMenu.Name = "HelpMenu"
-        Me.HelpMenu.Size = New System.Drawing.Size(104, 58)
-        Me.HelpMenu.Text = "Ajuda"
-        '
-        'IndexToolStripMenuItem
-        '
-        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
-        Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
-        Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.IndexToolStripMenuItem.Text = "Manual de Utilizador"
-        '
-        'ToolStripSeparator8
-        '
-        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(185, 6)
-        '
-        'AboutToolStripMenuItem
-        '
-        Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
-        Me.AboutToolStripMenuItem.Text = "&Sobre ..."
-        '
-        'UtilizadoresToolStripMenuItem
-        '
-        Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources._1406140864_logout
-        Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
-        Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(164, 58)
-        Me.UtilizadoresToolStripMenuItem.Text = "Terminar Sessão"
         '
         'Workspace
         '

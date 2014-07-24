@@ -118,6 +118,7 @@
                             Dim opr_reparações As New OPR_Reparações
                             opr_reparações.MdiParent = Workspace
                             opr_reparações.modo = False
+                            opr_reparações.cliente = n_cliente
                             opr_reparações.artigos = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString()
                             'opr_reparações. = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString
                             opr_reparações.Show()
@@ -143,8 +144,10 @@
         Workspace.check_reparacoes = True
         repararview.Text = "Reparações"
         repararview.tabela = "Reparações"
-        repararview.MdiParent = Me
+        repararview.MdiParent = Workspace
+        repararview.n_cliente = n_cliente
         Workspace.m_ChildFormNumber += 1
+        repararview.artigo = dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString()
         repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), True)
         repararview.removidos = False
         repararview.Show()

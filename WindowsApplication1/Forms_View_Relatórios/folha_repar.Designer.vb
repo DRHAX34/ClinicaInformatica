@@ -27,6 +27,9 @@ Partial Class folha_repar
         Dim ReportDataSource2 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource3 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource4 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(folha_repar))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.SQLToReportConnection = New ClinicaInformatica.SQLToReportConnection()
@@ -38,11 +41,20 @@ Partial Class folha_repar
         Me.EmpresasTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.EmpresasTableAdapter()
         Me.ReparaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReparaçõesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ReparaçõesTableAdapter()
+        Me.ParticipaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParticipaçõesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ParticipaçõesTableAdapter()
+        Me.HardwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HardwareTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.HardwareTableAdapter()
+        Me.SoftwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SoftwareTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.SoftwareTableAdapter()
         CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ArtigosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ParticipaçõesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.HardwareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SoftwareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ReportViewer1
@@ -56,10 +68,19 @@ Partial Class folha_repar
         ReportDataSource3.Value = Me.EmpresasBindingSource
         ReportDataSource4.Name = "Reparações"
         ReportDataSource4.Value = Me.ReparaçõesBindingSource
+        ReportDataSource5.Name = "Participações"
+        ReportDataSource5.Value = Me.ParticipaçõesBindingSource
+        ReportDataSource6.Name = "Hardware"
+        ReportDataSource6.Value = Me.HardwareBindingSource
+        ReportDataSource7.Name = "Software"
+        ReportDataSource7.Value = Me.SoftwareBindingSource
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource2)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource3)
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource4)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource5)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource6)
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource7)
         Me.ReportViewer1.LocalReport.ReportEmbeddedResource = "ClinicaInformatica.Report5.rdlc"
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
@@ -107,6 +128,33 @@ Partial Class folha_repar
         '
         Me.ReparaçõesTableAdapter.ClearBeforeFill = True
         '
+        'ParticipaçõesBindingSource
+        '
+        Me.ParticipaçõesBindingSource.DataMember = "Participações"
+        Me.ParticipaçõesBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'ParticipaçõesTableAdapter
+        '
+        Me.ParticipaçõesTableAdapter.ClearBeforeFill = True
+        '
+        'HardwareBindingSource
+        '
+        Me.HardwareBindingSource.DataMember = "Hardware"
+        Me.HardwareBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'HardwareTableAdapter
+        '
+        Me.HardwareTableAdapter.ClearBeforeFill = True
+        '
+        'SoftwareBindingSource
+        '
+        Me.SoftwareBindingSource.DataMember = "Software"
+        Me.SoftwareBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'SoftwareTableAdapter
+        '
+        Me.SoftwareTableAdapter.ClearBeforeFill = True
+        '
         'folha_repar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -123,6 +171,9 @@ Partial Class folha_repar
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ParticipaçõesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.HardwareBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SoftwareBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -132,8 +183,14 @@ Partial Class folha_repar
     Friend WithEvents ClientesBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents EmpresasBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ReparaçõesBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents ParticipaçõesBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents HardwareBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents SoftwareBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ArtigosTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.ArtigosTableAdapter
     Friend WithEvents ClientesTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.ClientesTableAdapter
     Friend WithEvents EmpresasTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.EmpresasTableAdapter
     Friend WithEvents ReparaçõesTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.ReparaçõesTableAdapter
+    Friend WithEvents ParticipaçõesTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.ParticipaçõesTableAdapter
+    Friend WithEvents HardwareTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.HardwareTableAdapter
+    Friend WithEvents SoftwareTableAdapter As ClinicaInformatica.SQLToReportConnectionTableAdapters.SoftwareTableAdapter
 End Class
