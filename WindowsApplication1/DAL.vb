@@ -146,20 +146,27 @@ Public Class DAL
         End Try
     End Sub
     Shared Sub RestoreDB(ByVal restorefile As String)
+        Dim resCmd As SqlCommand
+        Dim databaseloc As String = DAL.ExecuteScalar("select physical_name from sys.database_files", Nothing)
+        Dim databaselogloc As String = ""
+        For i = 0 To databaseloc.Length - 5
+            databaselogloc += databaseloc.Chars(i)
+        Next
+        databaselogloc = databaselogloc + "_log.ldf"
+        Dim dbname As String = DAL.ExecuteScalar("SELECT DB_NAME() AS DataBaseName", Nothing)
         Try
-            Dim resCmd As SqlCommand
-            Dim dbname As String = DAL.ExecuteScalar("SELECT DB_NAME() AS DataBaseName", Nothing)
-            Dim strResSQLsentencia As String = "RESTORE DATABASE [" & dbname & "] FROM DISK = '" & restorefile & "'"
-            connection.Open()
-            resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET OFFLINE WITH ROLLBACK IMMEDIATE", connection)
+            Dim strResSQLsentencia As String = "RESTORE DATABASE [" & dbname & "] FROM DISK = '" & restorefile & "' WITH MOVE 'ClinicaInformatica' TO '" & databaseloc & "' , MOVE 'ClinicaInformatica_log' TO '" & databaselogloc & "' , REPLACE"
+            Connection.Open()
+            resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET OFFLINE WITH ROLLBACK IMMEDIATE", Connection)
             resCmd.ExecuteNonQuery()
             resCmd = New SqlCommand(strResSQLsentencia, Connection)
             resCmd.ExecuteNonQuery()
             resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET ONLINE", Connection)
             resCmd.ExecuteNonQuery()
-            connection.Close()
+            Connection.Close()
             MsgBox("Backup restaurado com êxito!")
         Catch ex As Exception
+            resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET ONLINE", Connection)
             MsgBox("Não foi possível restaurar! " & ex.Message, vbOKOnly)
         Finally
             If Connection.State = ConnectionState.Open Then
@@ -169,7 +176,11 @@ Public Class DAL
         End Try
 
     End Sub
-
+    Shared Function return_logical_files()
+        Dim resCmd As SqlCommand
+        resCmd = New SqlCommand("RESTORE FILELISTONLY FROM DISK = 'C:\Users\Emanuel\OneDrive\Documentos\backup.CIDB'", Connection)
+        Return resCmd.ExecuteScalar()
+    End Function
 
 
     'Shared Sub store_pic_Sql(ByVal img As Image, ByVal id As Integer)
