@@ -36,7 +36,7 @@ Public Class Passo1
         MaximizeBox = False
         Me.WindowState = FormWindowState.Minimized
         Me.WindowState = FormWindowState.Maximized
-
+        Label4.Text = DAL.ExecuteScalar("select name from sys.database_files where type = 1", Nothing)
     End Sub
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
         SetBackColor(e.Colorization)

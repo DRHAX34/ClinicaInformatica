@@ -102,8 +102,6 @@ Public Class Workspace
         Label2.Location = New Point((Me.Width - Label2.Size.Width - 25), (Me.Height - (506 - 446)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
-        DAL.CloseConnection()
-        DAL.TerminateConnection()
     End Sub
     
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
