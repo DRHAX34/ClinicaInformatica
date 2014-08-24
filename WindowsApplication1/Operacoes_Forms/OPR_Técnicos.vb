@@ -368,9 +368,10 @@ Public Class OPR_Técnicos
             repararview.tabela = "Reparações"
             repararview.MdiParent = Workspace
             Workspace.m_ChildFormNumber += 1
-            repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(tecnico_data.Rows.Item(0).Item("NºTécnico").ToString(), True)
             repararview.removidos = False
             repararview.Show()
+            repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(tecnico_data.Rows.Item(0).Item("NºTécnico").ToString(), True)
+            repararview.showdata.DataSource = repararview.data_table
             repararview.newbutton.Enabled = False
             repararview.delbutton.Enabled = False
         Catch ex As Exception

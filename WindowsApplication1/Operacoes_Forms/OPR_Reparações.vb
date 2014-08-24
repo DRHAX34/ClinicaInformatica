@@ -209,6 +209,7 @@
                             Next
                         End If
                     End If
+                    BLL.Participacoes.adicionar_part(CInt(Workspace.tecnico), CInt(BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count).Item(0).ToString), BLL.Tecnicos.carregar_dados(Workspace.tecnico, True).Rows(0).Item("Nome").ToString)
                     folha_repar.MdiParent = Workspace
                     folha_repar.n_repar = BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação").ToString()
                     folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
