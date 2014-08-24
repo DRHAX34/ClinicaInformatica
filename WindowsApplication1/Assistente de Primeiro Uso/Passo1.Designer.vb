@@ -31,7 +31,6 @@ Partial Class Passo1
         Me.Label3 = New System.Windows.Forms.Label()
         Me.restorebutton = New System.Windows.Forms.Button()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'Button2
@@ -100,21 +99,11 @@ Partial Class Passo1
         '
         Me.OpenFileDialog1.FileName = "OpenFileDialog1"
         '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(21, 295)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(39, 13)
-        Me.Label4.TabIndex = 18
-        Me.Label4.Text = "Label4"
-        '
         'Passo1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(849, 468)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.restorebutton)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label1)
@@ -136,5 +125,4 @@ Partial Class Passo1
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents restorebutton As System.Windows.Forms.Button
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class
