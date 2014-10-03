@@ -1,6 +1,6 @@
 ﻿Public Class OPR_Reparações
     Public reparaçao_data As New DataTable
-    Public artigos As String
+    Public artigos As Integer
     Public modo As Boolean
     Public removidos As Boolean
     Public read_only As Boolean
@@ -102,8 +102,8 @@
                     Workspace.hardware_support.Columns.Add("Preço")
                 End If
                 h(0) = "LCD"
-                h(1) = ("")
-                h(2) = ("")
+                h(1) = 0
+                h(2) = 0.0
                 Workspace.hardware_support.Rows.Add(h)
                 h(0) = "Motherboard"
                 Workspace.hardware_support.Rows.Add(h)
@@ -130,8 +130,8 @@
                 h(0) = ("Leitor de Cartões")
                 Workspace.hardware_support.Rows.Add(h)
                 h(0) = ("Outro:")
-                h(1) = ("")
-                h(2) = ("")
+                h(1) = 0
+                h(2) = 0.0
                 Workspace.hardware_support.Rows.Add(h)
             Else
                 Dim h(2) As Object
@@ -141,8 +141,8 @@
                     Workspace.hardware_support.Columns.Add("Preço")
                 End If
                 h(0) = "Caixa"
-                h(1) = ""
-                h(2) = ""
+                h(1) = 0
+                h(2) = 0.0
                 Workspace.hardware_support.Rows.Add(h)
                 h(0) = "Motherboard"
                 Workspace.hardware_support.Rows.Add(h)
@@ -173,7 +173,7 @@
             End If
             Dim s(1) As Object
             s(0) = ("Instalação S.O")
-            s(1) = ""
+            s(1) = 0.0
             Workspace.software_support.Rows.Add(s)
             s(0) = ("Recuperação S.O")
             Workspace.software_support.Rows.Add(s)
@@ -209,7 +209,7 @@
                             Next
                         End If
                     End If
-                    BLL.Participacoes.adicionar_part(CInt(Workspace.tecnico), CInt(BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count).Item(0).ToString), BLL.Tecnicos.carregar_dados(Workspace.tecnico, True).Rows(0).Item("Nome").ToString)
+                    BLL.Participacoes.adicionar_part(CInt(Workspace.tecnico), CInt(BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item(0).ToString), BLL.Tecnicos.carregar_dados(Workspace.tecnico, True).Rows(0).Item("Nome").ToString)
                     folha_repar.MdiParent = Workspace
                     folha_repar.n_repar = BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação").ToString()
                     folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
@@ -429,9 +429,9 @@
 
     Private Sub reportbutton_Click(sender As Object, e As EventArgs) Handles reportbutton.Click
         folha_repar.MdiParent = Workspace
-        folha_repar.n_repar = BLL.Reparacoes.carregar(True).Rows(BLL.Reparacoes.carregar(True).Rows.Count - 1).Item("NºReparação").ToString()
+        folha_repar.n_repar = reparaçao_data.Rows(0).Item(0).ToString()
         folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
-        folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString, True)
+        folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
         folha_repar.Show()
     End Sub
 End Class

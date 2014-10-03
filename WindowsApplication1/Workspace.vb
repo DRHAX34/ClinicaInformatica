@@ -393,4 +393,11 @@ Public Class Workspace
             'terminarsessaobutton.Hide()
         End If
     End Sub
+
+    Private Sub companylogo_Click(sender As Object, e As EventArgs) Handles companylogo.Click
+        Dim empresa_edit As New OPR_Empresas
+        empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
+        empresa_edit.MdiParent = Me
+        empresa_edit.Show()
+    End Sub
 End Class

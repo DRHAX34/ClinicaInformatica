@@ -79,6 +79,7 @@ Public Class Passo2
         Dim check_localidade As String = ""
         Dim check_logo As String = ""
         Dim check_contacto As String = ""
+        cod_postalbox.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
             Try
                 check_nome = nomebox.Text
                 check_morada = moradabox.Text
@@ -87,11 +88,11 @@ Public Class Passo2
                 Else
                     check_nif = False
                 End If
-                If cod_postalbox.Text.Length = 7 Then
-                    check_codpostal = True
-                Else
-                    check_codpostal = False
-                End If
+            If cod_postalbox.Text.Length = 8 Then
+                check_codpostal = True
+            Else
+                check_codpostal = False
+            End If
                 check_localidade = localidadebox.Text
                 check_logo = caminhobox.Text
                 check_nome.Trim()

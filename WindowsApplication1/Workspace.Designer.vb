@@ -26,7 +26,6 @@ Partial Class Workspace
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Workspace))
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
@@ -46,27 +45,22 @@ Partial Class Workspace
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.companylogo = New System.Windows.Forms.PictureBox()
-        Me.StatusStrip.SuspendLayout()
-        Me.MenuStrip.SuspendLayout()
-        CType(Me.companylogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.StatusStrip.SuspendLayout
+        Me.MenuStrip.SuspendLayout
+        CType(Me.companylogo,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'StatusStrip
         '
-        Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191,Byte),Integer), CType(CType(219,Byte),Integer), CType(CType(255,Byte),Integer))
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 446)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 448)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(1102, 22)
-        Me.StatusStrip.SizingGrip = False
+        Me.StatusStrip.SizingGrip = false
         Me.StatusStrip.TabIndex = 7
         Me.StatusStrip.Text = "StatusStrip"
-        '
-        'ToolStripStatusLabel1
-        '
-        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
-        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
-        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
         'ToolStripStatusLabel
         '
@@ -76,7 +70,7 @@ Partial Class Workspace
         '
         'MenuStrip
         '
-        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191,Byte),Integer), CType(CType(219,Byte),Integer), CType(CType(255,Byte),Integer))
         Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesmenu, Me.tecnicosmenu, Me.EmpresasToolStripMenuItem, Me.HelpMenu, Me.UtilizadoresToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.tecnicosmenu
@@ -87,7 +81,7 @@ Partial Class Workspace
         '
         'clientesmenu
         '
-        Me.clientesmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.clientesmenu.Font = New System.Drawing.Font("Segoe UI", 9!, System.Drawing.FontStyle.Bold)
         Me.clientesmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101554lClK1zzf
         Me.clientesmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.clientesmenu.Name = "clientesmenu"
@@ -96,7 +90,7 @@ Partial Class Workspace
         '
         'tecnicosmenu
         '
-        Me.tecnicosmenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.tecnicosmenu.Font = New System.Drawing.Font("Segoe UI", 9!, System.Drawing.FontStyle.Bold)
         Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
         Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tecnicosmenu.Name = "tecnicosmenu"
@@ -106,7 +100,7 @@ Partial Class Workspace
         'EmpresasToolStripMenuItem
         '
         Me.EmpresasToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BackupDeDadosToolStripMenuItem, Me.RestauroDeDadosToolStripMenuItem})
-        Me.EmpresasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.EmpresasToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9!, System.Drawing.FontStyle.Bold)
         Me.EmpresasToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent1
         Me.EmpresasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.EmpresasToolStripMenuItem.Name = "EmpresasToolStripMenuItem"
@@ -128,7 +122,7 @@ Partial Class Workspace
         'HelpMenu
         '
         Me.HelpMenu.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.IndexToolStripMenuItem, Me.ToolStripSeparator8, Me.AboutToolStripMenuItem})
-        Me.HelpMenu.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.HelpMenu.Font = New System.Drawing.Font("Segoe UI", 9!, System.Drawing.FontStyle.Bold)
         Me.HelpMenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_transparent
         Me.HelpMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.HelpMenu.Name = "HelpMenu"
@@ -137,7 +131,7 @@ Partial Class Workspace
         '
         'IndexToolStripMenuItem
         '
-        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.IndexToolStripMenuItem.Image = CType(resources.GetObject("IndexToolStripMenuItem.Image"),System.Drawing.Image)
         Me.IndexToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Black
         Me.IndexToolStripMenuItem.Name = "IndexToolStripMenuItem"
         Me.IndexToolStripMenuItem.Size = New System.Drawing.Size(188, 22)
@@ -156,7 +150,7 @@ Partial Class Workspace
         '
         'UtilizadoresToolStripMenuItem
         '
-        Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UtilizadoresToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.UtilizadoresToolStripMenuItem.Image = Global.ClinicaInformatica.My.Resources.Resources._1406140864_logout
         Me.UtilizadoresToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
@@ -165,7 +159,7 @@ Partial Class Workspace
         '
         'Statuscheck
         '
-        Me.Statuscheck.Enabled = True
+        Me.Statuscheck.Enabled = true
         Me.Statuscheck.Interval = 5
         '
         'OpenFileDialog1
@@ -174,8 +168,8 @@ Partial Class Workspace
         '
         'Label1
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.AutoSize = true
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.Label1.Location = New System.Drawing.Point(956, 9)
         Me.Label1.Name = "Label1"
         Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -186,8 +180,8 @@ Partial Class Workspace
         '
         'Label2
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.AutoSize = true
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
         Me.Label2.Location = New System.Drawing.Point(1032, 446)
         Me.Label2.Name = "Label2"
         Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -204,37 +198,43 @@ Partial Class Workspace
         Me.companylogo.Size = New System.Drawing.Size(69, 62)
         Me.companylogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.companylogo.TabIndex = 54
-        Me.companylogo.TabStop = False
+        Me.companylogo.TabStop = false
+        '
+        'ToolStripStatusLabel1
+        '
+        Me.ToolStripStatusLabel1.Name = "ToolStripStatusLabel1"
+        Me.ToolStripStatusLabel1.Size = New System.Drawing.Size(121, 17)
+        Me.ToolStripStatusLabel1.Text = "ToolStripStatusLabel1"
         '
         'Workspace
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191,Byte),Integer), CType(CType(219,Byte),Integer), CType(CType(255,Byte),Integer))
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(1102, 468)
+        Me.ClientSize = New System.Drawing.Size(1102, 470)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.companylogo)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip)
         Me.Controls.Add(Me.StatusStrip)
-        Me.DoubleBuffered = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.IsMdiContainer = True
+        Me.DoubleBuffered = true
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
+        Me.IsMdiContainer = true
         Me.MainMenuStrip = Me.MenuStrip
         Me.MinimumSize = New System.Drawing.Size(863, 506)
         Me.Name = "Workspace"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Clínica Informática"
-        Me.StatusStrip.ResumeLayout(False)
-        Me.StatusStrip.PerformLayout()
-        Me.MenuStrip.ResumeLayout(False)
-        Me.MenuStrip.PerformLayout()
-        CType(Me.companylogo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
-        Me.PerformLayout()
+        Me.StatusStrip.ResumeLayout(false)
+        Me.StatusStrip.PerformLayout
+        Me.MenuStrip.ResumeLayout(false)
+        Me.MenuStrip.PerformLayout
+        CType(Me.companylogo,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
+        Me.PerformLayout
 
-    End Sub
+End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
     Friend WithEvents ToolStripStatusLabel As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents StatusStrip As System.Windows.Forms.StatusStrip
@@ -250,11 +250,11 @@ Partial Class Workspace
     Friend WithEvents Statuscheck As System.Windows.Forms.Timer
     Friend WithEvents SaveFileDialog1 As System.Windows.Forms.SaveFileDialog
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
-    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents companylogo As System.Windows.Forms.PictureBox
     Friend WithEvents BackupDeDadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RestauroDeDadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
 
 End Class

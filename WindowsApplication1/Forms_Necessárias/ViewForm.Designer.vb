@@ -67,9 +67,9 @@ Partial Class ViewForm
         '
         Me.showdata.AllowUserToAddRows = False
         Me.showdata.AllowUserToDeleteRows = False
-        Me.showdata.AllowUserToOrderColumns = True
+        Me.showdata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.showdata.BackgroundColor = System.Drawing.SystemColors.ControlLight
-        Me.showdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.showdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.showdata.Location = New System.Drawing.Point(12, 12)
         Me.showdata.Name = "showdata"
         Me.showdata.ReadOnly = True
@@ -115,7 +115,7 @@ Partial Class ViewForm
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(691, 398)
+        Me.ClientSize = New System.Drawing.Size(1005, 506)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.findbutton)
         Me.Controls.Add(Me.delbutton)

@@ -58,7 +58,7 @@ Public NotInheritable Class SplashAway
                 ProgressBar1.Value = 93
                 Workspace.cache_empresas = BLL.Login.Carregar_empresas
                 ProgressBar1.Value = 98
-                Workspace.cache_users = BLL.Admin_only.Login.carregar_users
+                Workspace.cache_users = BLL.Admin_only.Login.carregar_JustAnotherParams
                 ProgressBar1.Value = 100
                 Workspace.Show()
                 Me.Close()
