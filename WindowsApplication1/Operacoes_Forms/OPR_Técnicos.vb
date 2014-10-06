@@ -138,12 +138,16 @@ Public Class OPR_Técnicos
             Dim check_alunos As String = ""
             Dim check_turma As String = ""
             Dim check_codpostal As Boolean = False
+            Dim check_caminho As String = caminhobox.Text
             Try
                 check_nomutil = nomeutilizadorbox.Text
                 check_nomutil.Trim()
             Catch ex As Exception
                 check_nomutil = ""
             End Try
+            If caminhobox.Text = "" Then
+                image_tec = My.Resources.nopicture_02
+            End If
             If passwordbox.Text = verifbox.Text Then
                 Try
                     check_pass = passwordbox.Text

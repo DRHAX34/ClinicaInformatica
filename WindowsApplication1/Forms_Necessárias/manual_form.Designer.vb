@@ -45,7 +45,7 @@ Partial Class manual_form
         Me.RadPdfViewerNavigator1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.RadPdfViewerNavigator1.Location = New System.Drawing.Point(0, 0)
         Me.RadPdfViewerNavigator1.Name = "RadPdfViewerNavigator1"
-        Me.RadPdfViewerNavigator1.Size = New System.Drawing.Size(565, 34)
+        Me.RadPdfViewerNavigator1.Size = New System.Drawing.Size(860, 34)
         Me.RadPdfViewerNavigator1.TabIndex = 1
         Me.RadPdfViewerNavigator1.Text = "RadPdfViewerNavigator1"
         Me.RadPdfViewerNavigator1.ThemeName = "Windows8"
@@ -54,14 +54,14 @@ Partial Class manual_form
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(565, 335)
+        Me.ClientSize = New System.Drawing.Size(860, 413)
         Me.Controls.Add(Me.RadPdfViewerNavigator1)
         Me.Controls.Add(Me.RadPdfViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "manual_form"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "manual_form"
+        Me.Text = "Manual de Instruções"
         CType(Me.RadPdfViewer1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadPdfViewerNavigator1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

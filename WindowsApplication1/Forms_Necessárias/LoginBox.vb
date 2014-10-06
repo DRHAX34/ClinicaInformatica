@@ -3,9 +3,12 @@
     Private Sub LoginForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Me.Text = Application.ProductName & " Versão: " & Application.ProductVersion
         Dim login As New Bitmap(My.Resources.Entrar, loginbutton.Width - 2, loginbutton.Height - 2)
-        Dim sair As New Bitmap(My.Resources.Sair, exitbutton.Width - 2, exitbutton.Height - 2)
+        login.MakeTransparent(Color.White)
+        Dim sair As New Bitmap(My.Resources._1406140864_logout, exitbutton.Width - 2, exitbutton.Height - 2)
+        sair.MakeTransparent(Color.White)
         'Dim button As New Bitmap(My.Resources.Sair, sairbutton.Width, sairbutton.Height)
         Dim Ajuda As New Bitmap(My.Resources.Ajuda, buttonhelp.Width - 2, buttonhelp.Height - 2)
+        Ajuda.MakeTransparent(Color.White)
         loginbutton.Image = login
         exitbutton.Image = sair
         buttonhelp.Image = Ajuda

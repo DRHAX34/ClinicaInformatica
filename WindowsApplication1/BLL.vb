@@ -127,9 +127,9 @@ Public Class BLL
                 p.Add(New SqlParameter("@n_empresa", n_empresa))
                 p.Add(New SqlParameter("@ativo", ativo))
                 If n_empresa = "" Then
-                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos,Email,Site,Contacto_F FROM Empresas where Ativo=@ativo", p)
+                    Return DAL.ExecuteQueryDT("SELECT * FROM Empresas where Ativo=@ativo", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºEmpresa,Nome,Morada,NIF,Cod_Postal,Localidade,Alunos,Email,Site,Contacto_F FROM Empresas where NºEmpresa=@n_empresa AND Ativo=@ativo", p)
+                    Return DAL.ExecuteQueryDT("SELECT * FROM Empresas where NºEmpresa=@n_empresa AND Ativo=@ativo", p)
                 End If
             End Function
             Shared Sub inserir(ByVal alunos As Boolean, ByVal Nome As String, ByVal Morada As String, ByVal NIF As String, ByVal Cod_Postal As String, ByVal Localidade As String, ByVal Logo As Image, ByVal Email As String, ByVal Site As String, ByVal Contacto_Fix As String, ByVal Ativo As Boolean)
@@ -168,11 +168,12 @@ Public Class BLL
                 p.Add(img_save)
                 p.Add(New SqlParameter("@Ativo", ativo))
                 Try
-                    DAL.ExecuteNonQuery("Update Empresas set Nome = @Nome, Norada = @Morada, NIF= @NIF, Cod_Postal= @Cod_Postal, Localidade= @Localidade, Logo= @Logo, Email= @Email, Site= @Site, Contacto_F= @Contacto_F, Ativo= @Ativo where NºEmpresa=@NºEmpresa", p)
+                    DAL.ExecuteNonQuery("Update Empresas set Nome = @Nome, Morada = @Morada, NIF= @NIF, Cod_Postal= @Cod_Postal, Localidade= @Localidade, Logo= @Logo, Email= @Email, Site= @Site, Contacto_F= @Contacto_F, Ativo= @Ativo", p)
                 Catch e As Exception
                     MsgBox("Erro ao editar os dados: " & e.Message)
                 Finally
-                    MsgBox("Empresa editada com sucesso")
+                    MsgBox("Empresa editada com sucesso!", MsgBoxStyle.OkOnly, "Sucesso!")
+                    Workspace.empresa_edit.Close()
                 End Try
             End Sub
         End Class
@@ -948,17 +949,17 @@ Public Class BLL
             p.Add(New SqlParameter("@tipo", tipo))
             p.Add(New SqlParameter("@preço", preço))
             p.Add(New SqlParameter("@qtd", qtd))
-            DAL.ExecuteNonQuery("Insert into Hardware(NºReparação,Tipo,preço,qtd) values (@n_reparacao,@tipo,@preço,@qtd)", p)
+            DAL.ExecuteNonQuery("Insert into Hardware(N_Reparação,Tipo,preço,qtd) values (@n_reparacao,@tipo,@preço,@qtd)", p)
         End Sub
         Shared Function return_hardware(ByVal n_reparacao As String) As DataTable
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteQueryDT("Select Tipo,Qtd,Preço FROM Hardware where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteQueryDT("Select Tipo,Qtd,Preço FROM Hardware where N_Reparação=@NºReparação", p)
         End Function
         Shared Function delete_hardware(ByVal n_reparacao As String) As String
             Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteNonQuery("Delete from Hardware where NºReparação=@NºReparação", p)
+            p.Add(New SqlParameter("@n_reparação", n_reparacao))
+            Return DAL.ExecuteNonQuery("Delete from Hardware where N_Reparação=@n_reparação", p)
         End Function
         Shared Function return_all()
             Return DAL.ExecuteScalar("SELECT Count(NºHardware) FROM Hardware", Nothing)
@@ -970,20 +971,20 @@ Public Class BLL
             p.Add(New SqlParameter("@n_reparacao", n_reparacao))
             p.Add(New SqlParameter("@tipo", tipo))
             p.Add(New SqlParameter("@preço", preço))
-            DAL.ExecuteNonQuery("Insert into Software(NºReparação,Tipo,preço) values (@n_reparacao,@tipo,@preço)", p)
+            DAL.ExecuteNonQuery("Insert into Software(N_Reparação,Tipo,preço) values (@n_reparacao,@tipo,@preço)", p)
         End Sub
         Shared Function return_software(ByVal n_reparacao As String) As DataTable
             Dim p As New ArrayList
-            p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteQueryDT("Select Tipo, Preço FROM Software where NºReparação=@NºReparação", p)
+            p.Add(New SqlParameter("@n_reparação", n_reparacao))
+            Return DAL.ExecuteQueryDT("Select Tipo, Preço FROM Software where N_Reparação=@n_reparação", p)
         End Function
         Shared Function delete_software(ByVal n_reparacao As String) As String
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", n_reparacao))
-            Return DAL.ExecuteNonQuery("Delete from Software where NºReparação=@NºReparação", p)
+            Return DAL.ExecuteNonQuery("Delete from Software where N_Reparação=@NºReparação", p)
         End Function
         Shared Function return_all()
-            Return DAL.ExecuteScalar("SELECT Count(NºSoftware) FROM Software", Nothing)
+            Return DAL.ExecuteScalar("SELECT Count(N_Software) FROM Software", Nothing)
         End Function
     End Class
 End Class

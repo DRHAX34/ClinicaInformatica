@@ -37,34 +37,14 @@
             End If
             datefim.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()
-            If Workspace.hardware_support.Columns.Count <> 0 Then
-                If Workspace.hardware_support.Rows.Count <> 0 Then
-                    checkbox1.Checked = True
-                    insert_hardware.Enabled = True
-                Else
-                    insert_hardware.Enabled = False
-                End If
-            Else
-                insert_hardware.Enabled = False
-            End If
-            If Workspace.software_support.Columns.Count <> 0 Then
-                If Workspace.software_support.Rows.Count <> 0 Then
-                    CheckBox2.Checked = True
-                    insert_software.Enabled = True
-                Else
-                    insert_software.Enabled = False
-                End If
-            Else
-                insert_software.Enabled = False
-            End If
             showdata.DataSource = Workspace.tecnicos_support
             datefim.Enabled = True
             insert_tecnicos.Enabled = True
             check = False
             preçobox.Enabled = True
             descriçaobox.Enabled = True
-            checkbox1.Enabled = True
-            CheckBox2.Enabled = True
+            insert_hardware.Enabled = True
+            insert_software.Enabled = True
             reportbutton.Enabled = True
         Else
             restartbutton.Image = limparimagebutton
@@ -73,8 +53,6 @@
             datefim.Enabled = False
             preçobox.Enabled = False
             insert_hardware.Enabled = False
-            checkbox1.Enabled = False
-            CheckBox2.Enabled = False
             insert_software.Enabled = False
             insert_tecnicos.Enabled = False
             showdata.Enabled = False
@@ -226,13 +204,7 @@
             Dim check_descrição As String = descriçaobox.Text
             Dim check_data As Boolean = False
             Dim temporeal As TimeSpan
-            If datefim.Value = dateinicio.Value Then
-                check_data = False
-                temporeal = New TimeSpan
-            Else
-                temporeal = datefim.Value.Subtract(dateinicio.Value)
-                check_data = True
-            End If
+            check_data = True
             Try
                 check_descrição.Trim()
             Catch
@@ -273,8 +245,13 @@
                             Next
                         End If
                     End If
-                    MsgBox("Reparação Editada com sucesso!")
-                    '-----INSERIR CÓDIGO AQUI------"
+                    If MsgBox("Reparação Editada com sucesso! Deseja mostrar o Relatório da Reparação?", MsgBoxStyle.YesNo, "Sucesso!") = vbYes Then
+                        folha_repar.MdiParent = Workspace
+                        folha_repar.n_repar = reparaçao_data.Rows(0).Item(0).ToString()
+                        folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
+                        folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
+                        folha_repar.Show()
+                    End If
                     Me.Close()
                     check = False
                 Catch ex As Exception
@@ -295,7 +272,6 @@
             tecnicosform.Show()
             tecnicosform.newbutton.Hide()
             tecnicosform.delbutton.Hide()
-            tecnicosform.findbutton.Hide()
         Else
             Dim add_tecnicos As New Adicionar_tecnicos
             add_tecnicos.MdiParent = Workspace
@@ -380,15 +356,7 @@
         End If
     End Sub
     Private Sub datefim_ValueChanged(sender As Object, e As EventArgs) Handles datefim.ValueChanged
-        Dim temporeal As TimeSpan
-        temporeal = datefim.Value.Subtract(dateinicio.Value)
-        tempo_real.Text = temporeal.TotalHours & " Horas"
-    End Sub
-    Private Sub checkbox1_click(sender As Object, e As EventArgs) Handles CheckBox1.Click
-        insert_hardware.Enabled = CheckBox1.Checked
-    End Sub
-    Private Sub checkbox2_click(sender As Object, e As EventArgs) Handles CheckBox2.Click
-        insert_software.Enabled = CheckBox2.Checked
+
     End Sub
     Private Sub Timer4_Tick(sender As Object, e As EventArgs) Handles Timer4.Tick
         Try

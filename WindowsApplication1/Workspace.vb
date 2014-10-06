@@ -8,6 +8,7 @@ Public Class Workspace
     Public config3 As New Passo3
     Public config3_5 As New Passo3emeio
     Public config4 As New Passo4
+    Public empresa_edit As New OPR_Empresas
     Public varias_empresas As Boolean
     Public cache_empresas As ArrayList
     Public cache_users, cache_users2 As DataTable
@@ -395,7 +396,7 @@ Public Class Workspace
     End Sub
 
     Private Sub companylogo_Click(sender As Object, e As EventArgs) Handles companylogo.Click
-        Dim empresa_edit As New OPR_Empresas
+        empresa_edit = New OPR_Empresas
         empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
         empresa_edit.MdiParent = Me
         empresa_edit.Show()

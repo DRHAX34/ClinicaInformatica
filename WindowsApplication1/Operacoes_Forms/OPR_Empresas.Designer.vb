@@ -61,9 +61,9 @@ Partial Class OPR_Empresas
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(112, 23)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(304, 86)
+        Me.Label6.Size = New System.Drawing.Size(277, 86)
         Me.Label6.TabIndex = 20
-        Me.Label6.Text = "Empresas"
+        Me.Label6.Text = "Empresa"
         '
         'caminhobox
         '
@@ -132,13 +132,12 @@ Partial Class OPR_Empresas
         '
         Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.sitebox.Location = New System.Drawing.Point(35, 359)
-        Me.sitebox.MaxLength = 9
+        Me.sitebox.MaxLength = 359
         Me.sitebox.Name = "sitebox"
         Me.sitebox.Size = New System.Drawing.Size(183, 27)
         Me.sitebox.TabIndex = 104
-        Me.sitebox.Text = "Website"
         Me.sitebox.WaterMarkColor = System.Drawing.Color.DimGray
-        Me.sitebox.WaterMarkText = "Site"
+        Me.sitebox.WaterMarkText = "Website"
         '
         'emailbox
         '

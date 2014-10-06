@@ -196,12 +196,6 @@
     <Compile Include="Forms_Necessárias\manual_form.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms_Necessárias\otheroptions.Designer.vb">
-      <DependentUpon>otheroptions.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Forms_Necessárias\otheroptions.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Operacoes_Forms\Inserir Hardware Portátil.Designer.vb">
       <DependentUpon>Inserir Hardware Portátil.vb</DependentUpon>
     </Compile>
@@ -339,9 +333,6 @@
     <EmbeddedResource Include="Forms_Necessárias\manual_form.resx">
       <DependentUpon>manual_form.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms_Necessárias\otheroptions.resx">
-      <DependentUpon>otheroptions.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms_Necessárias\Recuperação_pass.resx">
       <DependentUpon>Recuperação_pass.vb</DependentUpon>
     </EmbeddedResource>
@@ -437,6 +428,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone programa.ico" />
+    <None Include="Resources\icon lg devices.png" />
+    <None Include="Resources\unlock.png" />
+    <None Include="Resources\nopicture_02.jpg" />
     <None Include="Resources\oie_transparent1.png" />
     <None Include="Resources\gg.png" />
     <None Include="Resources\1404425892_Microprocessor.png" />
@@ -458,6 +452,8 @@
     <None Include="Resources\1406134201_MB__UNLOCK.png" />
     <None Include="Resources\1406140864_logout.png" />
     <None Include="Resources\1406149495_System_Restore.png" />
+    <None Include="Resources\1412287869_17-128.png" />
+    <None Include="Resources\1412642544_698841-icon-114-lock-128.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -30,7 +30,6 @@ Partial Class OPR_Artigos
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.marcabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.modelobox = New ClinicaInformatica.WaterMarkTextBox()
@@ -44,6 +43,7 @@ Partial Class OPR_Artigos
         Me.savebutton = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.lockbutton = New System.Windows.Forms.Button()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,7 +61,7 @@ Partial Class OPR_Artigos
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Segoe UI", 48.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(96, 9)
+        Me.Label6.Location = New System.Drawing.Point(127, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(241, 86)
         Me.Label6.TabIndex = 46
@@ -106,16 +106,6 @@ Partial Class OPR_Artigos
         Me.Label4.Size = New System.Drawing.Size(80, 25)
         Me.Label4.TabIndex = 36
         Me.Label4.Text = "NºSérie"
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_30101754Hz7aSVUe
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 9)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
-        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PictureBox1.TabIndex = 66
-        Me.PictureBox1.TabStop = False
         '
         'marcabox
         '
@@ -228,6 +218,16 @@ Partial Class OPR_Artigos
         Me.lockbutton.Size = New System.Drawing.Size(64, 60)
         Me.lockbutton.TabIndex = 100
         Me.lockbutton.UseVisualStyleBackColor = True
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources.icon_lg_devices
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 9)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(115, 86)
+        Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PictureBox1.TabIndex = 66
+        Me.PictureBox1.TabStop = False
         '
         'OPR_Artigos
         '

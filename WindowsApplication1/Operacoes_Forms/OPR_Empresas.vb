@@ -11,16 +11,34 @@
         Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
         Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
         exitbutton.Image = exitimagebutton
-        Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         naocheck.Checked = True
         logobox.Enabled = False
+        modo = True
         If modo = True Then
             restartbutton.Image = restartimagebutton
-        Else
-            restartbutton.Image = limparimagebutton
-
         End If
+        Try
+            nomebox.Text = empresa_data.Rows(0).Item("Nome").ToString()
+            moradabox.Text = empresa_data.Rows(0).Item("Morada").ToString()
+            nifbox.Text = empresa_data.Rows(0).Item("NIF").ToString()
+            cod_postalbox.Text = empresa_data.Rows(0).Item("Cod_Postal").ToString()
+            localidadebox.Text = empresa_data.Rows(0).Item("Localidade").ToString()
+            caminhobox.Text = "<Não Alterado>"
+            logobox.Image = BLL.Admin_only.Empresas.return_pic()
+            logo = BLL.Admin_only.Empresas.return_pic()
+            If empresa_data.Rows(0).Item("Alunos").ToString() = True Then
+                simcheck.Checked = True
+                naocheck.Checked = False
+            Else
+                simcheck.Checked = False
+                naocheck.Checked = True
+            End If
+            emailbox.Text = empresa_data.Rows(0).Item("Email").ToString()
+            sitebox.Text = empresa_data.Rows(0).Item("Site").ToString()
+            contactofixbox.Text = empresa_data.Rows(0).Item("Contacto_F").ToString()
+        Catch ex As Exception
 
+        End Try
     End Sub
 
     Private Sub RadioButton1_CheckedChanged(sender As Object, e As EventArgs)
@@ -32,51 +50,7 @@
         naocheck.Checked = True
         simcheck.Checked = False
     End Sub
-    Private Sub RadButton1_Click(sender As Object, e As EventArgs)
-        Dim check_nome As String = ""
-        Dim check_morada As String = ""
-        Dim check_nif As Boolean = True
-        Dim check_codpostal As Boolean = True
-        Dim check_localidade As String = ""
-        Dim checklogo As Boolean = False
-        Try
-            check_nome = nomebox.Text
-            check_nome.Trim()
-            check_morada = moradabox.Text
-            check_morada.Trim()
-            If nifbox.Text < 9 Then
-                check_nif = False
-            Else
-                check_nif = True
-            End If
-            If cod_postalbox.Text < 7 Then
-                check_codpostal = False
-            Else
-                check_codpostal = True
-            End If
-            check_localidade = localidadebox.Text
-            check_localidade.Trim()
-            If caminhobox.Text <> "" Then
-                checklogo = True
-            Else
-                checklogo = False
-            End If
-        Catch
-        End Try
-        If simcheck.Checked = True Or naocheck.Checked = True Then
-            If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
-                Try
-                    BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, emailbox.Text, sitebox.Text, contactofixbox.Text, True)
-                Catch ex As Exception
-                    MsgBox("Ocorreu um erro: " & ex.Message)
-                End Try
-            Else
-                MsgBox("Preencha todos os dados!")
-            End If
-        Else
-            MsgBox("Indique se a Empresa tem alunos ou não!")
-        End If
-    End Sub
+    
 
     
 
@@ -110,35 +84,28 @@
     End Sub
 
     Private Sub RadButton3_Click(sender As Object, e As EventArgs) Handles restartbutton.Click
-        If modo = True Then
             Try
-                nomebox.Text = empresa_data.Rows.Item(0).Item("Nome").ToString()
-                moradabox.Text = empresa_data.Rows.Item(0).Item("Morada").ToString()
-                localidadebox.Text = empresa_data.Rows.Item(0).Item("Localidade").ToString()
-                nifbox.Text = empresa_data.Rows.Item(0).Item("NIF").ToString()
-                cod_postalbox.Text = empresa_data.Rows.Item(0).Item("Cod_Postal").ToString()
-                If empresa_data.Rows.Item(0).Item("Alunos") = True Then
-                    simcheck.Checked = True
-                    naocheck.Checked = False
-                Else
-                    naocheck.Checked = True
-                    simcheck.Checked = False
-                End If
+                nomebox.Text = empresa_data.Rows(0).Item("Nome").ToString()
+                moradabox.Text = empresa_data.Rows(0).Item("Morada").ToString()
+                nifbox.Text = empresa_data.Rows(0).Item("NIF").ToString()
+                cod_postalbox.Text = empresa_data.Rows(0).Item("Cod_Postal").ToString()
+                localidadebox.Text = empresa_data.Rows(0).Item("Localidade").ToString()
                 caminhobox.Text = "<Não Alterado>"
-                logo = BLL.Admin_only.Empresas.return_pic()
-                logobox.Image = logo
+            logobox.Image = BLL.Admin_only.Empresas.return_pic()
+            logo = BLL.Admin_only.Empresas.return_pic()
+            If empresa_data.Rows(0).Item("Alunos").ToString() = True Then
+                simcheck.Checked = True
+                naocheck.Checked = False
+            Else
+                simcheck.Checked = False
+                naocheck.Checked = True
+            End If
+                emailbox.Text = empresa_data.Rows(0).Item("Email").ToString()
+                sitebox.Text = empresa_data.Rows(0).Item("Site").ToString()
+                contactofixbox.Text = empresa_data.Rows(0).Item("Contacto_F").ToString()
             Catch ex As Exception
                 MsgBox("Erro: " & ex.Message)
             End Try
-        Else
-            nomebox.Text = ""
-            moradabox.Text = ""
-            localidadebox.Text = ""
-            nifbox.Text = ""
-            cod_postalbox.Text = ""
-            simcheck.Checked = False
-            naocheck.Checked = True
-        End If
     End Sub
 
     Private Sub nifbox_onlynums(sender As Object, e As KeyPressEventArgs)
@@ -149,5 +116,57 @@
             End If
         Catch
         End Try
+    End Sub
+
+    Private Sub savebutton_Click(sender As Object, e As EventArgs) Handles savebutton.Click
+        Dim check_nome As String = ""
+        Dim check_morada As String = ""
+        Dim check_nif As Boolean = True
+        Dim check_codpostal As Boolean = True
+        Dim check_localidade As String = ""
+        Dim checklogo As Boolean = False
+        Try
+            check_nome = nomebox.Text
+            check_nome.Trim()
+            check_morada = moradabox.Text
+            check_morada.Trim()
+            If nifbox.Text < 9 Then
+                check_nif = False
+            Else
+                check_nif = True
+            End If
+            cod_postalbox.TextMaskFormat = MaskFormat.IncludePromptAndLiterals
+            If cod_postalbox.Text < 8 Then
+                check_codpostal = False
+            Else
+                check_codpostal = True
+            End If
+            check_localidade = localidadebox.Text
+            check_localidade.Trim()
+            If caminhobox.Text <> "" Then
+                checklogo = True
+            Else
+                checklogo = False
+            End If
+        Catch
+        End Try
+        If simcheck.Checked = True Or naocheck.Checked = True Then
+            If Not (check_nome = "" And check_morada = "" And check_nif = False And check_localidade = "" And check_codpostal = False And checklogo = False) Then
+                Try
+                    BLL.Admin_only.Empresas.alterar(empresa_data.Rows.Item(0).Item("NºEmpresa").ToString(), nomebox.Text, moradabox.Text, nifbox.Text, cod_postalbox.Text, localidadebox.Text, logo, emailbox.Text, sitebox.Text, contactofixbox.Text, True)
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+                    cod_postalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
+                End Try
+            Else
+                MsgBox("Preencha todos os dados!")
+            End If
+        Else
+            MsgBox("Indique se a Empresa tem alunos ou não!")
+        End If
+    End Sub
+
+    Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+        Me.Close()
     End Sub
 End Class

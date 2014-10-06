@@ -4,16 +4,22 @@
     Public lock As Boolean = False
 
     Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim lockimagebutton As New Bitmap(My.Resources._1406134201_MB__LOCK, lockbutton.Height - 1, lockbutton.Width - 1)
+        Dim lockimagebutton As New Bitmap(My.Resources.lock, lockbutton.Height - 1, lockbutton.Width - 1)
+        lockimagebutton.MakeTransparent(Color.White)
         lockbutton.Image = lockimagebutton
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
+        saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
-        Dim componentesimagebutton As New Bitmap((My.Resources.oie_30101754Hz7aSVUe), componentesbutton.Height - 1, componentesbutton.Height - 1)
+        Dim componentesimagebutton As New Bitmap((My.Resources.icon_lg_devices), componentesbutton.Height - 1, componentesbutton.Height - 1)
+        componentesimagebutton.MakeTransparent(Color.White)
         componentesbutton.Image = componentesimagebutton
         Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        restartimagebutton.MakeTransparent(Color.White)
         Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
+        exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
+        limparimagebutton.MakeTransparent(Color.White)
         If modo = True Then
             restartbutton.Image = restartimagebutton
             If Workspace.admin = True Then
@@ -342,8 +348,8 @@
     End Sub
 
     Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
-        Dim imageunlockbutton As New Bitmap(My.Resources._1406134201_MB__UNLOCK, lockbutton.Height - 1, lockbutton.Width - 1)
-        Dim imagelockbutton As New Bitmap(My.Resources._1406134201_MB__LOCK, lockbutton.Height - 1, lockbutton.Width - 1)
+        Dim imageunlockbutton As New Bitmap(My.Resources.unlock, lockbutton.Height - 1, lockbutton.Width - 1)
+        Dim imagelockbutton As New Bitmap(My.Resources.lock, lockbutton.Height - 1, lockbutton.Width - 1)
         If lock = False Then
             lock = True
             lockbutton.Image = imageunlockbutton

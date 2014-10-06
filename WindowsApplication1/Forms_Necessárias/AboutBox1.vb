@@ -13,6 +13,9 @@
         ' TODO: Personalize o assembly da aplicação no painel "Application" das propriedades do projeto 
         '    (abaixo do menu"Project").
         Me.versaolabel.Text = String.Format("Versão {0}", My.Application.Info.Version.ToString)
+        Dim logo As Bitmap = PictureBox1.Image
+        logo.MakeTransparent(Color.White)
+        PictureBox1.Image = logo
     End Sub
     Private Sub closewhenlostfocus(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Me.lostfocus
         Me.Close()

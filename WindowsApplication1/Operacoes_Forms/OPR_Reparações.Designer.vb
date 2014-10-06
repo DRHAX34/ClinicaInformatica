@@ -25,8 +25,6 @@ Partial Class OPR_Reparações
         Me.components = New System.ComponentModel.Container()
         Me.descriçaobox = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
-        Me.checkbox1 = New System.Windows.Forms.CheckBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -41,8 +39,6 @@ Partial Class OPR_Reparações
         Me.clientelabel = New System.Windows.Forms.Label()
         Me.Windows8Theme1 = New Telerik.WinControls.Themes.Windows8Theme()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.tempo_real = New System.Windows.Forms.Label()
         Me.Timer3 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer4 = New System.Windows.Forms.Timer(Me.components)
         Me.preçobox = New System.Windows.Forms.TextBox()
@@ -55,6 +51,8 @@ Partial Class OPR_Reparações
         Me.insert_tecnicos = New System.Windows.Forms.Button()
         Me.showdata = New System.Windows.Forms.DataGridView()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,26 +77,6 @@ Partial Class OPR_Reparações
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
         Me.Label8.Text = "Descrição da Avaria"
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(232, 33)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(111, 29)
-        Me.CheckBox2.TabIndex = 54
-        Me.CheckBox2.Text = "Software"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
-        'checkbox1
-        '
-        Me.checkbox1.AutoSize = True
-        Me.checkbox1.Location = New System.Drawing.Point(6, 33)
-        Me.checkbox1.Name = "checkbox1"
-        Me.checkbox1.Size = New System.Drawing.Size(119, 29)
-        Me.checkbox1.TabIndex = 53
-        Me.checkbox1.Text = "Hardware"
-        Me.checkbox1.UseVisualStyleBackColor = True
         '
         'Label7
         '
@@ -158,10 +136,10 @@ Partial Class OPR_Reparações
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label5)
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.insert_software)
         Me.GroupBox1.Controls.Add(Me.insert_hardware)
-        Me.GroupBox1.Controls.Add(Me.checkbox1)
-        Me.GroupBox1.Controls.Add(Me.CheckBox2)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
         Me.GroupBox1.Location = New System.Drawing.Point(49, 174)
         Me.GroupBox1.Name = "GroupBox1"
@@ -229,25 +207,6 @@ Partial Class OPR_Reparações
         Me.Label2.Size = New System.Drawing.Size(63, 25)
         Me.Label2.TabIndex = 73
         Me.Label2.Text = "Preço"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(553, 66)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(241, 25)
-        Me.Label4.TabIndex = 76
-        Me.Label4.Text = "Tempo Real da Reparação"
-        '
-        'tempo_real
-        '
-        Me.tempo_real.AutoSize = True
-        Me.tempo_real.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tempo_real.Location = New System.Drawing.Point(553, 93)
-        Me.tempo_real.Name = "tempo_real"
-        Me.tempo_real.Size = New System.Drawing.Size(0, 25)
-        Me.tempo_real.TabIndex = 77
         '
         'Timer3
         '
@@ -351,6 +310,24 @@ Partial Class OPR_Reparações
         Me.Label3.TabIndex = 105
         Me.Label3.Text = "€"
         '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(10, 29)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(100, 25)
+        Me.Label4.TabIndex = 57
+        Me.Label4.Text = "Hardware"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Location = New System.Drawing.Point(250, 29)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(92, 25)
+        Me.Label5.TabIndex = 58
+        Me.Label5.Text = "Software"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -367,8 +344,6 @@ Partial Class OPR_Reparações
         Me.Controls.Add(Me.reportbutton)
         Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.preçobox)
-        Me.Controls.Add(Me.tempo_real)
-        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.GroupBox1)
@@ -398,8 +373,6 @@ Partial Class OPR_Reparações
     End Sub
     Friend WithEvents descriçaobox As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents CheckBox2 As System.Windows.Forms.CheckBox
-    Friend WithEvents checkbox1 As System.Windows.Forms.CheckBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -410,8 +383,6 @@ Partial Class OPR_Reparações
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents Windows8Theme1 As Telerik.WinControls.Themes.Windows8Theme
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents tempo_real As System.Windows.Forms.Label
     Friend WithEvents Timer3 As System.Windows.Forms.Timer
     Friend WithEvents Timer4 As System.Windows.Forms.Timer
     Friend WithEvents preçobox As System.Windows.Forms.TextBox
@@ -428,4 +399,6 @@ Partial Class OPR_Reparações
     Friend WithEvents insert_tecnicos As System.Windows.Forms.Button
     Friend WithEvents showdata As System.Windows.Forms.DataGridView
     Friend WithEvents Label3 As System.Windows.Forms.Label
+    Friend WithEvents Label5 As System.Windows.Forms.Label
+    Friend WithEvents Label4 As System.Windows.Forms.Label
 End Class

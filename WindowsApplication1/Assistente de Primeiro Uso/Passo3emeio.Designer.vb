@@ -365,7 +365,7 @@ Partial Class Passo3emeio
         Me.contactom_box.TabIndex = 125
         Me.contactom_box.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contactom_box.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contactom_box.WaterMarkText = "Obrigatório"
+        Me.contactom_box.WaterMarkText = ""
         '
         'contacto_fbox
         '

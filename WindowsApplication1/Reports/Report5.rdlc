@@ -263,7 +263,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>9.18734cm</Top>
-        <Left>4.99745cm</Left>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>1.99729cm</Width>
         <ZIndex>8</ZIndex>
@@ -293,7 +293,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
         <Top>9.96373cm</Top>
-        <Left>4.99745cm</Left>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>9</ZIndex>
@@ -322,8 +322,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>10.74011cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>10.70484cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>10</ZIndex>
@@ -352,8 +352,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>11.5165cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>11.44595cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>11</ZIndex>
@@ -382,8 +382,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>12.29289cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>12.18706cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>3.16146cm</Width>
         <ZIndex>12</ZIndex>
@@ -413,8 +413,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>13.06928cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>12.92817cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>13</ZIndex>
@@ -443,8 +443,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>13.84567cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>13.66929cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>14</ZIndex>
@@ -473,8 +473,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>14.62206cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>14.4104cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>15</ZIndex>
@@ -503,8 +503,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>15.39845cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>15.15151cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>16</ZIndex>
@@ -533,8 +533,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>16.17484cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>15.89262cm</Top>
+        <Left>5.14224cm</Left>
         <Height>0.70583cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>17</ZIndex>
@@ -563,46 +563,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>17.05706cm</Top>
-        <Left>4.99745cm</Left>
+        <Top>16.73956cm</Top>
+        <Left>5.14224cm</Left>
         <Height>1.5525cm</Height>
         <Width>5.51625cm</Width>
         <ZIndex>18</ZIndex>
-        <Style>
-          <Border>
-            <Style>Solid</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox19">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Atenção:
-● Só poderá levantar o artigo mediante a apresentação desta folha.
-● A Interdiscount não se responsabiliza pelos dados contidos no disco rígido, também
-não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.</Value>
-                <Style>
-                  <TextDecoration>Underline</TextDecoration>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>18.78595cm</Top>
-        <Left>0.96332cm</Left>
-        <Height>1.84354cm</Height>
-        <Width>14.96939cm</Width>
-        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -629,11 +594,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>20.80587cm</Top>
+        <Top>21.38478cm</Top>
         <Left>11.81259cm</Left>
         <Height>0.6cm</Height>
         <Width>4.12012cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -651,7 +616,7 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Assinatura</Value>
+                <Value>Assinatura do Técnico</Value>
                 <MarkupType>HTML</MarkupType>
                 <Style>
                   <FontSize>12pt</FontSize>
@@ -665,11 +630,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>21.58226cm</Top>
-        <Left>11.81259cm</Left>
+        <Top>22.16117cm</Top>
+        <Left>11.20405cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.12012cm</Width>
-        <ZIndex>21</ZIndex>
+        <Width>5.00853cm</Width>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -681,11 +646,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>22.76117cm</Top>
+        <Top>23.34008cm</Top>
         <Left>11.53266cm</Left>
         <Height>0cm</Height>
         <Width>4.40005cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -697,11 +662,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
         <Value>=First(Fields!Logo.Value, "Empresas")</Value>
         <MIMEType>image/png</MIMEType>
         <Sizing>FitProportional</Sizing>
-        <Top>23.55962cm</Top>
-        <Left>1.61082cm</Left>
+        <Top>24.6185cm</Top>
+        <Left>1.61076cm</Left>
         <Height>2.76999cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -718,7 +683,7 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
                 <Value>Folha de Reparação</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>20pt</FontSize>
+                  <FontSize>15pt</FontSize>
                 </Style>
               </TextRun>
             </TextRuns>
@@ -728,11 +693,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>30.56405cm</Top>
-        <Left>3.06063cm</Left>
-        <Height>1.11222cm</Height>
-        <Width>11.20478cm</Width>
-        <ZIndex>24</ZIndex>
+        <Top>31.35835cm</Top>
+        <Left>1.61077cm</Left>
+        <Height>0.90055cm</Height>
+        <Width>14.32194cm</Width>
+        <ZIndex>23</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -763,11 +728,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>26.36489cm</Top>
-        <Left>1.61081cm</Left>
+        <Top>27.42377cm</Top>
+        <Left>1.61075cm</Left>
         <Height>1.02277cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>24</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -795,11 +760,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>27.42294cm</Top>
-        <Left>1.61081cm</Left>
+        <Top>28.48182cm</Top>
+        <Left>1.61075cm</Left>
         <Height>0.50299cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>26</ZIndex>
+        <ZIndex>25</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -827,11 +792,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>27.9612cm</Top>
-        <Left>1.61083cm</Left>
+        <Top>29.02008cm</Top>
+        <Left>1.61077cm</Left>
         <Height>0.49417cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>27</ZIndex>
+        <ZIndex>26</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -859,11 +824,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>28.49064cm</Top>
-        <Left>1.61083cm</Left>
+        <Top>29.54952cm</Top>
+        <Left>1.61077cm</Left>
         <Height>0.54708cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>28</ZIndex>
+        <ZIndex>27</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -891,11 +856,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>29.07301cm</Top>
-        <Left>1.61081cm</Left>
+        <Top>30.13189cm</Top>
+        <Left>1.61075cm</Left>
         <Height>0.52062cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>29</ZIndex>
+        <ZIndex>28</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -923,11 +888,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>29.62891cm</Top>
-        <Left>1.6108cm</Left>
+        <Top>30.68779cm</Top>
+        <Left>1.61074cm</Left>
         <Height>0.49417cm</Height>
         <Width>5.88665cm</Width>
-        <ZIndex>30</ZIndex>
+        <ZIndex>29</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -953,11 +918,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>31.85266cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>32.40001cm</Top>
+        <Left>3.06057cm</Left>
         <Height>0.6cm</Height>
         <Width>1.99729cm</Width>
-        <ZIndex>31</ZIndex>
+        <ZIndex>30</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -983,11 +948,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>32.62905cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>33.10585cm</Top>
+        <Left>3.06057cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>32</ZIndex>
+        <ZIndex>31</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1013,11 +978,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>33.40543cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>33.84696cm</Top>
+        <Left>3.06057cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>33</ZIndex>
+        <ZIndex>32</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1043,11 +1008,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>34.18182cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>34.58807cm</Top>
+        <Left>3.06057cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>34</ZIndex>
+        <ZIndex>33</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1073,11 +1038,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>34.95821cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>35.32918cm</Top>
+        <Left>3.06057cm</Left>
         <Height>0.6cm</Height>
         <Width>3.16146cm</Width>
-        <ZIndex>35</ZIndex>
+        <ZIndex>34</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1104,11 +1069,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>35.7346cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>36.07029cm</Top>
+        <Left>3.06057cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>36</ZIndex>
+        <ZIndex>35</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1134,11 +1099,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>36.51099cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>32.40001cm</Top>
+        <Left>10.41646cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>37</ZIndex>
+        <ZIndex>36</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1164,11 +1129,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>37.28738cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>33.14112cm</Top>
+        <Left>10.41646cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>38</ZIndex>
+        <ZIndex>37</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1194,11 +1159,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>38.06377cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>33.88224cm</Top>
+        <Left>10.41646cm</Left>
         <Height>0.6cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>39</ZIndex>
+        <ZIndex>38</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1224,11 +1189,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>38.84017cm</Top>
-        <Left>5.14224cm</Left>
+        <Top>34.62335cm</Top>
+        <Left>10.41646cm</Left>
         <Height>0.70583cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>40</ZIndex>
+        <ZIndex>39</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1254,11 +1219,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>39.72239cm</Top>
-        <Left>5.14224cm</Left>
-        <Height>1.5525cm</Height>
+        <Top>35.47029cm</Top>
+        <Left>10.41646cm</Left>
+        <Height>1.2cm</Height>
         <Width>5.51625cm</Width>
-        <ZIndex>41</ZIndex>
+        <ZIndex>40</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1277,9 +1242,7 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
             <TextRuns>
               <TextRun>
                 <Value>Atenção:
-● Só poderá levantar o artigo mediante a apresentação desta folha.
-● A Interdiscount não se responsabiliza pelos dados contidos no disco rígido, também
-não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.</Value>
+</Value>
                 <Style>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -1287,13 +1250,27 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
             </TextRuns>
             <Style />
           </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>● Só poderá levantar o artigo mediante a apresentação desta folha.
+● A Interdiscount não se responsabiliza pelos dados contidos no disco rígido, também
+não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.</Value>
+                <Style>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <ListLevel>1</ListLevel>
+            <Style />
+          </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>41.69504cm</Top>
-        <Left>1.10811cm</Left>
-        <Height>1.84354cm</Height>
+        <Top>38.52321cm</Top>
+        <Left>1.24319cm</Left>
+        <Height>1.92292cm</Height>
         <Width>14.96939cm</Width>
-        <ZIndex>42</ZIndex>
+        <ZIndex>41</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -1320,11 +1297,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>43.71497cm</Top>
-        <Left>11.95738cm</Left>
+        <Top>40.62252cm</Top>
+        <Left>12.09246cm</Left>
         <Height>0.6cm</Height>
         <Width>4.12012cm</Width>
-        <ZIndex>43</ZIndex>
+        <ZIndex>42</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1342,7 +1319,7 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Assinatura</Value>
+                <Value>Assinatura do Cliente</Value>
                 <MarkupType>HTML</MarkupType>
                 <Style>
                   <FontSize>12pt</FontSize>
@@ -1356,11 +1333,11 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>44.49136cm</Top>
-        <Left>11.95738cm</Left>
+        <Top>41.36363cm</Top>
+        <Left>11.81259cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.12012cm</Width>
-        <ZIndex>44</ZIndex>
+        <Width>4.86374cm</Width>
+        <ZIndex>43</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1372,19 +1349,802 @@ não nos responsabilizamos pelo material após 30 dias da reparação ter sido e
         </Style>
       </Textbox>
       <Line Name="Line2">
-        <Top>45.67027cm</Top>
-        <Left>11.81259cm</Left>
+        <Top>42.57782cm</Top>
+        <Left>11.94767cm</Left>
         <Height>0cm</Height>
         <Width>4.40005cm</Width>
-        <ZIndex>45</ZIndex>
+        <ZIndex>44</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
           </Border>
         </Style>
       </Line>
+      <Textbox Name="Textbox43">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>NºReparação:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>9.18734cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.24036cm</Width>
+        <ZIndex>45</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox44">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Nome:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>9.96373cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>46</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox45">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Morada:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>10.70484cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>47</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox46">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Atenção:
+</Value>
+                <Style>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>● Só poderá levantar o artigo mediante a apresentação desta folha.
+● A Interdiscount não se responsabiliza pelos dados contidos no disco rígido, também
+não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.</Value>
+                <Style>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <ListLevel>1</ListLevel>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox8</rd:DefaultName>
+        <Top>19.05617cm</Top>
+        <Left>1.04029cm</Left>
+        <Height>1.92292cm</Height>
+        <Width>14.96939cm</Width>
+        <ZIndex>48</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox47">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cód. Postal:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>11.44594cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.05001cm</Width>
+        <ZIndex>49</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox48">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Contacto:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>12.18706cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>50</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox49">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Tipo Artigo:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>12.92817cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>51</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox50">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Marca:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>13.66929cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>52</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox51">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Modelo:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>14.4104cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>53</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox52">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>NºSérie:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>15.15151cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>54</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox53">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Avaria:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>15.9279cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.90522cm</Width>
+        <ZIndex>55</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox54">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Observações:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox43</rd:DefaultName>
+        <Top>16.70429cm</Top>
+        <Left>2.91584cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.24036cm</Width>
+        <ZIndex>56</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>4.73132cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.93014cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.80326cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.54708cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox55">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>HARDWARE</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox55</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox57">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Qtd.</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox57</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox59">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Preço</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox59</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.57354cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Tipo">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Tipo.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Tipo</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Qtd">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Qtd.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Qtd</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Preço">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Preço.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Preço</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Detalhes" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Hardware</DataSetName>
+        <Top>36.96766cm</Top>
+        <Left>1.24319cm</Left>
+        <Height>1.12062cm</Height>
+        <Width>7.46472cm</Width>
+        <ZIndex>57</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix2">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>4.73132cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>1.80326cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.54708cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox61">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>SOFTWARE</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox55</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox63">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Preço</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox59</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.57354cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox64">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Tipo.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox56</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox66">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Preço.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox60</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Detalhes2" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Software</DataSetName>
+        <Top>36.96767cm</Top>
+        <Left>9.3893cm</Left>
+        <Height>1.12062cm</Height>
+        <Width>6.53458cm</Width>
+        <ZIndex>58</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
     </ReportItems>
-    <Height>18.41917in</Height>
+    <Height>16.85667in</Height>
     <Style />
   </Body>
   <Width>6.71259in</Width>

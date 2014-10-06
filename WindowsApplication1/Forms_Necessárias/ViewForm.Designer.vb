@@ -23,12 +23,11 @@ Partial Class ViewForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ViewForm))
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtProcurar = New System.Windows.Forms.TextBox()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.showdata = New System.Windows.Forms.DataGridView()
         Me.newbutton = New System.Windows.Forms.Button()
         Me.delbutton = New System.Windows.Forms.Button()
-        Me.findbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.showdata, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -36,7 +35,7 @@ Partial Class ViewForm
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtProcurar)
         Me.GroupBox1.Location = New System.Drawing.Point(230, 329)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(232, 57)
@@ -44,13 +43,13 @@ Partial Class ViewForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Localizar"
         '
-        'TextBox1
+        'txtProcurar
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 8.25!)
-        Me.TextBox1.Location = New System.Drawing.Point(6, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(217, 22)
-        Me.TextBox1.TabIndex = 2
+        Me.txtProcurar.Font = New System.Drawing.Font("Segoe UI", 8.25!)
+        Me.txtProcurar.Location = New System.Drawing.Point(6, 19)
+        Me.txtProcurar.Name = "txtProcurar"
+        Me.txtProcurar.Size = New System.Drawing.Size(217, 22)
+        Me.txtProcurar.TabIndex = 2
         '
         'CheckBox1
         '
@@ -94,14 +93,6 @@ Partial Class ViewForm
         Me.delbutton.TabIndex = 14
         Me.delbutton.UseVisualStyleBackColor = True
         '
-        'findbutton
-        '
-        Me.findbutton.Location = New System.Drawing.Point(501, 329)
-        Me.findbutton.Name = "findbutton"
-        Me.findbutton.Size = New System.Drawing.Size(86, 47)
-        Me.findbutton.TabIndex = 15
-        Me.findbutton.UseVisualStyleBackColor = True
-        '
         'exitbutton
         '
         Me.exitbutton.Location = New System.Drawing.Point(593, 329)
@@ -117,7 +108,6 @@ Partial Class ViewForm
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(1005, 506)
         Me.Controls.Add(Me.exitbutton)
-        Me.Controls.Add(Me.findbutton)
         Me.Controls.Add(Me.delbutton)
         Me.Controls.Add(Me.newbutton)
         Me.Controls.Add(Me.showdata)
@@ -137,12 +127,11 @@ Partial Class ViewForm
 
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtProcurar As System.Windows.Forms.TextBox
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents showdata As System.Windows.Forms.DataGridView
     Friend WithEvents newbutton As System.Windows.Forms.Button
     Private components As System.ComponentModel.IContainer
     Friend WithEvents delbutton As System.Windows.Forms.Button
-    Friend WithEvents findbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
 End Class

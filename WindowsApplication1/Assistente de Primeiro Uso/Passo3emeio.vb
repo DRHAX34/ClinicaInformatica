@@ -94,8 +94,7 @@ Public Class Passo3emeio
         Dim check_pergunta As String = ""
         Dim check_resposta As String = ""
         Dim check_nome As String = ""
-        Dim check_cmovel As Boolean = False
-        Dim check_cfixo As Boolean = False
+        Dim check_contacto As Boolean = False
         Dim check_localidade As String = ""
         Dim check_alunos As String = ""
         Dim check_turma As String = ""
@@ -136,14 +135,17 @@ Public Class Passo3emeio
                 check_turma = "N/A"
             End If
             If contactom_box.Text.Length >= 9 Then
-                check_cmovel = True
-            End If
-            If contacto_fbox.Text.Length >= 9 Then
-                check_cfixo = True
+                check_contacto = True
+            ElseIf contacto_fbox.Text.Length >= 9 Then
+                check_contacto = True
             End If
             cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
             If cod_postalbox.Text.Length = 8 Then
                 check_codpostal = True
+            End If
+            If caminhobox.Text = "" Then
+                check_image = "N/D"
+                image_tec = My.Resources.nopicture_02
             End If
             check_image = caminhobox.Text
             check_image.Trim()
@@ -151,7 +153,7 @@ Public Class Passo3emeio
 
         End Try
         Dim n_empresa As Integer
-        If Not check_nome = "" And Not check_nomutil = "" And Not check_cfixo = False And Not check_cmovel = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
                 If BLL.Login.check_exist(nomeutilizadorbox.Text) = True Then
                     MsgBox("O Técnico não pode ter o mesmo nome que o Administrador!", vbOKOnly, "Erro!")
