@@ -59,8 +59,6 @@ Partial Public Class SQLToReportConnection
     
     Private relationFK_Reparações_Empresas As Global.System.Data.DataRelation
     
-    Private relationFK_Software_Reparações As Global.System.Data.DataRelation
-    
     Private relationFK_Técnicos_Empresas As Global.System.Data.DataRelation
     
     Private relationFK_TipoAluno_Cliente As Global.System.Data.DataRelation
@@ -68,6 +66,8 @@ Partial Public Class SQLToReportConnection
     Private relationFK_Utilizadores_Técnicos As Global.System.Data.DataRelation
     
     Private relationFK_Participações_Reparações As Global.System.Data.DataRelation
+    
+    Private relationFK_Software_Reparações As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -441,11 +441,11 @@ Partial Public Class SQLToReportConnection
         Me.relationFK_Participações_Técnicos = Me.Relations("FK_Participações_Técnicos")
         Me.relationFK_Reparações_Artigos = Me.Relations("FK_Reparações_Artigos")
         Me.relationFK_Reparações_Empresas = Me.Relations("FK_Reparações_Empresas")
-        Me.relationFK_Software_Reparações = Me.Relations("FK_Software_Reparações")
         Me.relationFK_Técnicos_Empresas = Me.Relations("FK_Técnicos_Empresas")
         Me.relationFK_TipoAluno_Cliente = Me.Relations("FK_TipoAluno_Cliente")
         Me.relationFK_Utilizadores_Técnicos = Me.Relations("FK_Utilizadores_Técnicos")
         Me.relationFK_Participações_Reparações = Me.Relations("FK_Participações_Reparações")
+        Me.relationFK_Software_Reparações = Me.Relations("FK_Software_Reparações")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -482,7 +482,7 @@ Partial Public Class SQLToReportConnection
         Me.Relations.Add(Me.relationFK_Artigos_Empresas)
         Me.relationFK_Clientes_Empresas = New Global.System.Data.DataRelation("FK_Clientes_Empresas", New Global.System.Data.DataColumn() {Me.tableEmpresas.NºEmpresaColumn}, New Global.System.Data.DataColumn() {Me.tableClientes.NºEmpresaColumn}, false)
         Me.Relations.Add(Me.relationFK_Clientes_Empresas)
-        Me.relationFK_Hardware_Reparações = New Global.System.Data.DataRelation("FK_Hardware_Reparações", New Global.System.Data.DataColumn() {Me.tableReparações.NºReparaçãoColumn}, New Global.System.Data.DataColumn() {Me.tableHardware.NºReparaçãoColumn}, false)
+        Me.relationFK_Hardware_Reparações = New Global.System.Data.DataRelation("FK_Hardware_Reparações", New Global.System.Data.DataColumn() {Me.tableReparações.NºReparaçãoColumn}, New Global.System.Data.DataColumn() {Me.tableHardware.N_ReparaçãoColumn}, false)
         Me.Relations.Add(Me.relationFK_Hardware_Reparações)
         Me.relationFK_Participações_Técnicos = New Global.System.Data.DataRelation("FK_Participações_Técnicos", New Global.System.Data.DataColumn() {Me.tableTécnicos.NºTécnicoColumn}, New Global.System.Data.DataColumn() {Me.tableParticipações.NºTécnicoColumn}, false)
         Me.Relations.Add(Me.relationFK_Participações_Técnicos)
@@ -490,8 +490,6 @@ Partial Public Class SQLToReportConnection
         Me.Relations.Add(Me.relationFK_Reparações_Artigos)
         Me.relationFK_Reparações_Empresas = New Global.System.Data.DataRelation("FK_Reparações_Empresas", New Global.System.Data.DataColumn() {Me.tableEmpresas.NºEmpresaColumn}, New Global.System.Data.DataColumn() {Me.tableReparações.NºEmpresaColumn}, false)
         Me.Relations.Add(Me.relationFK_Reparações_Empresas)
-        Me.relationFK_Software_Reparações = New Global.System.Data.DataRelation("FK_Software_Reparações", New Global.System.Data.DataColumn() {Me.tableReparações.NºReparaçãoColumn}, New Global.System.Data.DataColumn() {Me.tableSoftware.NºReparaçãoColumn}, false)
-        Me.Relations.Add(Me.relationFK_Software_Reparações)
         Me.relationFK_Técnicos_Empresas = New Global.System.Data.DataRelation("FK_Técnicos_Empresas", New Global.System.Data.DataColumn() {Me.tableEmpresas.NºEmpresaColumn}, New Global.System.Data.DataColumn() {Me.tableTécnicos.NºEmpresaColumn}, false)
         Me.Relations.Add(Me.relationFK_Técnicos_Empresas)
         Me.relationFK_TipoAluno_Cliente = New Global.System.Data.DataRelation("FK_TipoAluno_Cliente", New Global.System.Data.DataColumn() {Me.tableClientes.NºClienteColumn}, New Global.System.Data.DataColumn() {Me.tableTipoAluno.N_ClienteColumn}, false)
@@ -500,6 +498,8 @@ Partial Public Class SQLToReportConnection
         Me.Relations.Add(Me.relationFK_Utilizadores_Técnicos)
         Me.relationFK_Participações_Reparações = New Global.System.Data.DataRelation("FK_Participações_Reparações", New Global.System.Data.DataColumn() {Me.tableReparações.NºReparaçãoColumn}, New Global.System.Data.DataColumn() {Me.tableParticipações.N_ReparaçãoColumn}, false)
         Me.Relations.Add(Me.relationFK_Participações_Reparações)
+        Me.relationFK_Software_Reparações = New Global.System.Data.DataRelation("FK_Software_Reparações", New Global.System.Data.DataColumn() {Me.tableReparações.NºReparaçãoColumn}, New Global.System.Data.DataColumn() {Me.tableSoftware.N_ReparaçãoColumn}, false)
+        Me.Relations.Add(Me.relationFK_Software_Reparações)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1879,13 +1879,13 @@ Partial Public Class SQLToReportConnection
         
         Private columnNºHardware As Global.System.Data.DataColumn
         
-        Private columnNºReparação As Global.System.Data.DataColumn
-        
-        Private columnQtd As Global.System.Data.DataColumn
+        Private columnN_Reparação As Global.System.Data.DataColumn
         
         Private columnTipo As Global.System.Data.DataColumn
         
         Private columnPreço As Global.System.Data.DataColumn
+        
+        Private columnQtd As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1932,17 +1932,9 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NºReparaçãoColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property N_ReparaçãoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnNºReparação
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property QtdColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnQtd
+                Return Me.columnN_Reparação
             End Get
         End Property
         
@@ -1959,6 +1951,14 @@ Partial Public Class SQLToReportConnection
         Public ReadOnly Property PreçoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnPreço
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property QtdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnQtd
             End Get
         End Property
         
@@ -1999,9 +1999,9 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddHardwareRow(ByVal parentReparaçõesRowByFK_Hardware_Reparações As ReparaçõesRow, ByVal Qtd As Integer, ByVal Tipo As String, ByVal Preço As Double) As HardwareRow
+        Public Overloads Function AddHardwareRow(ByVal parentReparaçõesRowByFK_Hardware_Reparações As ReparaçõesRow, ByVal Tipo As String, ByVal Preço As Double, ByVal Qtd As String) As HardwareRow
             Dim rowHardwareRow As HardwareRow = CType(Me.NewRow,HardwareRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Qtd, Tipo, Preço}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Tipo, Preço, Qtd}
             If (Not (parentReparaçõesRowByFK_Hardware_Reparações) Is Nothing) Then
                 columnValuesArray(1) = parentReparaçõesRowByFK_Hardware_Reparações(0)
             End If
@@ -2034,10 +2034,10 @@ Partial Public Class SQLToReportConnection
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnNºHardware = MyBase.Columns("NºHardware")
-            Me.columnNºReparação = MyBase.Columns("NºReparação")
-            Me.columnQtd = MyBase.Columns("Qtd")
+            Me.columnN_Reparação = MyBase.Columns("N_Reparação")
             Me.columnTipo = MyBase.Columns("Tipo")
             Me.columnPreço = MyBase.Columns("Preço")
+            Me.columnQtd = MyBase.Columns("Qtd")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2045,14 +2045,14 @@ Partial Public Class SQLToReportConnection
         Private Sub InitClass()
             Me.columnNºHardware = New Global.System.Data.DataColumn("NºHardware", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNºHardware)
-            Me.columnNºReparação = New Global.System.Data.DataColumn("NºReparação", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNºReparação)
-            Me.columnQtd = New Global.System.Data.DataColumn("Qtd", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnQtd)
+            Me.columnN_Reparação = New Global.System.Data.DataColumn("N_Reparação", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnN_Reparação)
             Me.columnTipo = New Global.System.Data.DataColumn("Tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTipo)
             Me.columnPreço = New Global.System.Data.DataColumn("Preço", GetType(Double), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPreço)
+            Me.columnQtd = New Global.System.Data.DataColumn("Qtd", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnQtd)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNºHardware}, true))
             Me.columnNºHardware.AutoIncrement = true
             Me.columnNºHardware.AutoIncrementSeed = -1
@@ -2060,10 +2060,11 @@ Partial Public Class SQLToReportConnection
             Me.columnNºHardware.AllowDBNull = false
             Me.columnNºHardware.ReadOnly = true
             Me.columnNºHardware.Unique = true
-            Me.columnNºReparação.AllowDBNull = false
-            Me.columnQtd.AllowDBNull = false
+            Me.columnN_Reparação.AllowDBNull = false
             Me.columnTipo.AllowDBNull = false
             Me.columnTipo.MaxLength = 20
+            Me.columnQtd.AllowDBNull = false
+            Me.columnQtd.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2898,11 +2899,11 @@ Partial Public Class SQLToReportConnection
         
         Private columnNºSoftware As Global.System.Data.DataColumn
         
-        Private columnNºReparação As Global.System.Data.DataColumn
-        
         Private columnTipo As Global.System.Data.DataColumn
         
         Private columnPreço As Global.System.Data.DataColumn
+        
+        Private columnN_Reparação As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -2949,14 +2950,6 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property NºReparaçãoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnNºReparação
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property TipoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnTipo
@@ -2968,6 +2961,14 @@ Partial Public Class SQLToReportConnection
         Public ReadOnly Property PreçoColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnPreço
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property N_ReparaçãoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnN_Reparação
             End Get
         End Property
         
@@ -3008,11 +3009,11 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddSoftwareRow(ByVal parentReparaçõesRowByFK_Software_Reparações As ReparaçõesRow, ByVal Tipo As String, ByVal Preço As String) As SoftwareRow
+        Public Overloads Function AddSoftwareRow(ByVal Tipo As String, ByVal Preço As String, ByVal parentReparaçõesRowByFK_Software_Reparações As ReparaçõesRow) As SoftwareRow
             Dim rowSoftwareRow As SoftwareRow = CType(Me.NewRow,SoftwareRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, Tipo, Preço}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Tipo, Preço, Nothing}
             If (Not (parentReparaçõesRowByFK_Software_Reparações) Is Nothing) Then
-                columnValuesArray(1) = parentReparaçõesRowByFK_Software_Reparações(0)
+                columnValuesArray(3) = parentReparaçõesRowByFK_Software_Reparações(0)
             End If
             rowSoftwareRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowSoftwareRow)
@@ -3043,9 +3044,9 @@ Partial Public Class SQLToReportConnection
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
             Me.columnNºSoftware = MyBase.Columns("NºSoftware")
-            Me.columnNºReparação = MyBase.Columns("NºReparação")
             Me.columnTipo = MyBase.Columns("Tipo")
             Me.columnPreço = MyBase.Columns("Preço")
+            Me.columnN_Reparação = MyBase.Columns("N_Reparação")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3053,12 +3054,12 @@ Partial Public Class SQLToReportConnection
         Private Sub InitClass()
             Me.columnNºSoftware = New Global.System.Data.DataColumn("NºSoftware", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNºSoftware)
-            Me.columnNºReparação = New Global.System.Data.DataColumn("NºReparação", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnNºReparação)
             Me.columnTipo = New Global.System.Data.DataColumn("Tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnTipo)
             Me.columnPreço = New Global.System.Data.DataColumn("Preço", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnPreço)
+            Me.columnN_Reparação = New Global.System.Data.DataColumn("N_Reparação", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnN_Reparação)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnNºSoftware}, true))
             Me.columnNºSoftware.AutoIncrement = true
             Me.columnNºSoftware.AutoIncrementSeed = -1
@@ -3066,10 +3067,10 @@ Partial Public Class SQLToReportConnection
             Me.columnNºSoftware.AllowDBNull = false
             Me.columnNºSoftware.ReadOnly = true
             Me.columnNºSoftware.Unique = true
-            Me.columnNºReparação.AllowDBNull = false
             Me.columnTipo.AllowDBNull = false
             Me.columnTipo.MaxLength = 50
             Me.columnPreço.MaxLength = 10
+            Me.columnN_Reparação.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4990,23 +4991,12 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NºReparação() As Integer
+        Public Property N_Reparação() As Integer
             Get
-                Return CType(Me(Me.tableHardware.NºReparaçãoColumn),Integer)
+                Return CType(Me(Me.tableHardware.N_ReparaçãoColumn),Integer)
             End Get
             Set
-                Me(Me.tableHardware.NºReparaçãoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property Qtd() As Integer
-            Get
-                Return CType(Me(Me.tableHardware.QtdColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableHardware.QtdColumn) = value
+                Me(Me.tableHardware.N_ReparaçãoColumn) = value
             End Set
         End Property
         
@@ -5033,6 +5023,17 @@ Partial Public Class SQLToReportConnection
             End Get
             Set
                 Me(Me.tableHardware.PreçoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property Qtd() As String
+            Get
+                Return CType(Me(Me.tableHardware.QtdColumn),String)
+            End Get
+            Set
+                Me(Me.tableHardware.QtdColumn) = value
             End Set
         End Property
         
@@ -5354,21 +5355,21 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function GetSoftwareRows() As SoftwareRow()
-            If (Me.Table.ChildRelations("FK_Software_Reparações") Is Nothing) Then
-                Return New SoftwareRow(-1) {}
-            Else
-                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Software_Reparações")),SoftwareRow())
-            End If
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function GetParticipaçõesRows() As ParticipaçõesRow()
             If (Me.Table.ChildRelations("FK_Participações_Reparações") Is Nothing) Then
                 Return New ParticipaçõesRow(-1) {}
             Else
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Participações_Reparações")),ParticipaçõesRow())
+            End If
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetSoftwareRows() As SoftwareRow()
+            If (Me.Table.ChildRelations("FK_Software_Reparações") Is Nothing) Then
+                Return New SoftwareRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("FK_Software_Reparações")),SoftwareRow())
             End If
         End Function
     End Class
@@ -5401,17 +5402,6 @@ Partial Public Class SQLToReportConnection
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property NºReparação() As Integer
-            Get
-                Return CType(Me(Me.tableSoftware.NºReparaçãoColumn),Integer)
-            End Get
-            Set
-                Me(Me.tableSoftware.NºReparaçãoColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property Tipo() As String
             Get
                 Return CType(Me(Me.tableSoftware.TipoColumn),String)
@@ -5433,6 +5423,17 @@ Partial Public Class SQLToReportConnection
             End Get
             Set
                 Me(Me.tableSoftware.PreçoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property N_Reparação() As Integer
+            Get
+                Return CType(Me(Me.tableSoftware.N_ReparaçãoColumn),Integer)
+            End Get
+            Set
+                Me(Me.tableSoftware.N_ReparaçãoColumn) = value
             End Set
         End Property
         
@@ -8178,50 +8179,51 @@ Namespace SQLToReportConnectionTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Hardware"
             tableMapping.ColumnMappings.Add("NºHardware", "NºHardware")
-            tableMapping.ColumnMappings.Add("NºReparação", "NºReparação")
-            tableMapping.ColumnMappings.Add("Qtd", "Qtd")
+            tableMapping.ColumnMappings.Add("NºReparação", "N_Reparação")
             tableMapping.ColumnMappings.Add("Tipo", "Tipo")
             tableMapping.ColumnMappings.Add("Preço", "Preço")
+            tableMapping.ColumnMappings.Add("N_Reparação", "N_Reparação")
+            tableMapping.ColumnMappings.Add("Qtd", "Qtd")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Hardware] WHERE (([NºHardware] = @Original_NºHardware) AND ([N"& _ 
-                "ºReparação] = @Original_NºReparação) AND ([Qtd] = @Original_Qtd) AND ([Tipo] = @"& _ 
+                "_Reparação] = @Original_N_Reparação) AND ([Qtd] = @Original_Qtd) AND ([Tipo] = @"& _ 
                 "Original_Tipo) AND ((@IsNull_Preço = 1 AND [Preço] IS NULL) OR ([Preço] = @Origi"& _ 
                 "nal_Preço)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºHardware", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºHardware", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qtd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qtd", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Preço", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Preço", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Hardware] ([NºReparação], [Qtd], [Tipo], [Preço]) VALUES (@NºR"& _ 
-                "eparação, @Qtd, @Tipo, @Preço);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºHardware, NºReparação, Qtd, Tipo, Preç"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Hardware] ([N_Reparação], [Qtd], [Tipo], [Preço]) VALUES (@N_R"& _ 
+                "eparação, @Qtd, @Tipo, @Preço);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºHardware, N_Reparação, Qtd, Tipo, Preç"& _ 
                 "o FROM Hardware WHERE (NºHardware = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Preço", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Hardware] SET [NºReparação] = @NºReparação, [Qtd] = @Qtd, [Tipo] = "& _ 
-                "@Tipo, [Preço] = @Preço WHERE (([NºHardware] = @Original_NºHardware) AND ([NºRep"& _ 
-                "aração] = @Original_NºReparação) AND ([Qtd] = @Original_Qtd) AND ([Tipo] = @Orig"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Hardware] SET [N_Reparação] = @N_Reparação, [Qtd] = @Qtd, [Tipo] = "& _ 
+                "@Tipo, [Preço] = @Preço WHERE (([NºHardware] = @Original_NºHardware) AND ([N_Rep"& _ 
+                "aração] = @Original_N_Reparação) AND ([Qtd] = @Original_Qtd) AND ([Tipo] = @Orig"& _ 
                 "inal_Tipo) AND ((@IsNull_Preço = 1 AND [Preço] IS NULL) OR ([Preço] = @Original_"& _ 
-                "Preço)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºHardware, NºReparação, Qtd, Tipo, Preço FROM Hardware WHERE "& _ 
+                "Preço)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºHardware, N_Reparação, Qtd, Tipo, Preço FROM Hardware WHERE "& _ 
                 "(NºHardware = @NºHardware)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Qtd", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Preço", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºHardware", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºHardware", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qtd", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Qtd", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Qtd", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Preço", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Preço", Global.System.Data.SqlDbType.Float, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -8241,10 +8243,10 @@ Namespace SQLToReportConnectionTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT NºHardware, NºReparação, Qtd, Tipo, Preço FROM dbo.Hardware where NºRepara"& _ 
+            Me._commandCollection(0).CommandText = "SELECT NºHardware, N_Reparação, Qtd, Tipo, Preço FROM dbo.Hardware where N_Repara"& _ 
                 "ção=@n_reparacao"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@n_reparacao", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@n_reparacao", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8305,10 +8307,14 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_NºHardware As Integer, ByVal Original_NºReparação As Integer, ByVal Original_Qtd As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As Global.System.Nullable(Of Double)) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_NºHardware As Integer, ByVal Original_N_Reparação As Integer, ByVal Original_Qtd As String, ByVal Original_Tipo As String, ByVal Original_Preço As Global.System.Nullable(Of Double)) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_NºHardware,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_NºReparação,Integer)
-            Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Qtd,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_N_Reparação,Integer)
+            If (Original_Qtd Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Qtd")
+            Else
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_Qtd,String)
+            End If
             If (Original_Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Tipo")
             Else
@@ -8340,9 +8346,13 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal NºReparação As Integer, ByVal Qtd As Integer, ByVal Tipo As String, ByVal Preço As Global.System.Nullable(Of Double)) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(NºReparação,Integer)
-            Me.Adapter.InsertCommand.Parameters(1).Value = CType(Qtd,Integer)
+        Public Overloads Overridable Function Insert(ByVal N_Reparação As Integer, ByVal Qtd As String, ByVal Tipo As String, ByVal Preço As Global.System.Nullable(Of Double)) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(N_Reparação,Integer)
+            If (Qtd Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Qtd")
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(Qtd,String)
+            End If
             If (Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Tipo")
             Else
@@ -8372,9 +8382,13 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NºReparação As Integer, ByVal Qtd As Integer, ByVal Tipo As String, ByVal Preço As Global.System.Nullable(Of Double), ByVal Original_NºHardware As Integer, ByVal Original_NºReparação As Integer, ByVal Original_Qtd As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As Global.System.Nullable(Of Double), ByVal NºHardware As Integer) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(NºReparação,Integer)
-            Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Qtd,Integer)
+        Public Overloads Overridable Function Update(ByVal N_Reparação As Integer, ByVal Qtd As String, ByVal Tipo As String, ByVal Preço As Global.System.Nullable(Of Double), ByVal Original_NºHardware As Integer, ByVal Original_N_Reparação As Integer, ByVal Original_Qtd As String, ByVal Original_Tipo As String, ByVal Original_Preço As Global.System.Nullable(Of Double), ByVal NºHardware As Integer) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(N_Reparação,Integer)
+            If (Qtd Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Qtd")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(Qtd,String)
+            End If
             If (Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Tipo")
             Else
@@ -8386,8 +8400,12 @@ Namespace SQLToReportConnectionTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(3).Value = Global.System.DBNull.Value
             End If
             Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_NºHardware,Integer)
-            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_NºReparação,Integer)
-            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Qtd,Integer)
+            Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_N_Reparação,Integer)
+            If (Original_Qtd Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Original_Qtd")
+            Else
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Qtd,String)
+            End If
             If (Original_Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Tipo")
             Else
@@ -8420,8 +8438,8 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NºReparação As Integer, ByVal Qtd As Integer, ByVal Tipo As String, ByVal Preço As Global.System.Nullable(Of Double), ByVal Original_NºHardware As Integer, ByVal Original_NºReparação As Integer, ByVal Original_Qtd As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As Global.System.Nullable(Of Double)) As Integer
-            Return Me.Update(NºReparação, Qtd, Tipo, Preço, Original_NºHardware, Original_NºReparação, Original_Qtd, Original_Tipo, Original_Preço, Original_NºHardware)
+        Public Overloads Overridable Function Update(ByVal N_Reparação As Integer, ByVal Qtd As String, ByVal Tipo As String, ByVal Preço As Global.System.Nullable(Of Double), ByVal Original_NºHardware As Integer, ByVal Original_N_Reparação As Integer, ByVal Original_Qtd As String, ByVal Original_Tipo As String, ByVal Original_Preço As Global.System.Nullable(Of Double)) As Integer
+            Return Me.Update(N_Reparação, Qtd, Tipo, Preço, Original_NºHardware, Original_N_Reparação, Original_Qtd, Original_Tipo, Original_Preço, Original_NºHardware)
         End Function
     End Class
     
@@ -9354,43 +9372,43 @@ Namespace SQLToReportConnectionTableAdapters
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "Software"
             tableMapping.ColumnMappings.Add("NºSoftware", "NºSoftware")
-            tableMapping.ColumnMappings.Add("NºReparação", "NºReparação")
             tableMapping.ColumnMappings.Add("Tipo", "Tipo")
             tableMapping.ColumnMappings.Add("Preço", "Preço")
+            tableMapping.ColumnMappings.Add("N_Reparação", "N_Reparação")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
             Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Software] WHERE (([NºSoftware] = @Original_NºSoftware) AND ([N"& _ 
-                "ºReparação] = @Original_NºReparação) AND ([Tipo] = @Original_Tipo) AND ((@IsNull"& _ 
+                "_Reparação] = @Original_N_Reparação) AND ([Tipo] = @Original_Tipo) AND ((@IsNull"& _ 
                 "_Preço = 1 AND [Preço] IS NULL) OR ([Preço] = @Original_Preço)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºSoftware", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºSoftware", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Preço", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Preço", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Software] ([NºReparação], [Tipo], [Preço]) VALUES (@NºReparaçã"& _ 
-                "o, @Tipo, @Preço);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºSoftware, NºReparação, Tipo, Preço FROM Software WH"& _ 
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Software] ([N_Reparação], [Tipo], [Preço]) VALUES (@N_Reparaçã"& _ 
+                "o, @Tipo, @Preço);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºSoftware, N_Reparação, Tipo, Preço FROM Software WH"& _ 
                 "ERE (NºSoftware = SCOPE_IDENTITY())"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Preço", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Software] SET [NºReparação] = @NºReparação, [Tipo] = @Tipo, [Preço]"& _ 
-                " = @Preço WHERE (([NºSoftware] = @Original_NºSoftware) AND ([NºReparação] = @Ori"& _ 
-                "ginal_NºReparação) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_Preço = 1 AND [Pr"& _ 
-                "eço] IS NULL) OR ([Preço] = @Original_Preço)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºSoftware, NºReparação,"& _ 
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Software] SET [N_Reparação] = @N_Reparação, [Tipo] = @Tipo, [Preço]"& _ 
+                " = @Preço WHERE (([NºSoftware] = @Original_NºSoftware) AND ([N_Reparação] = @Ori"& _ 
+                "ginal_N_Reparação) AND ([Tipo] = @Original_Tipo) AND ((@IsNull_Preço = 1 AND [Pr"& _ 
+                "eço] IS NULL) OR ([Preço] = @Original_Preço)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT NºSoftware, N_Reparação,"& _ 
                 " Tipo, Preço FROM Software WHERE (NºSoftware = @NºSoftware)"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Preço", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºSoftware", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºSoftware", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_NºReparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_N_Reparação", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Tipo", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Tipo", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Preço", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Preço", Global.System.Data.SqlDbType.NVarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Preço", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -9410,10 +9428,10 @@ Namespace SQLToReportConnectionTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT NºSoftware, NºReparação, Tipo, Preço FROM dbo.Software where NºReparação=@"& _ 
+            Me._commandCollection(0).CommandText = "SELECT NºSoftware, N_Reparação, Tipo, Preço FROM dbo.Software where N_Reparação=@"& _ 
                 "n_reparacao"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@n_reparacao", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "NºReparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@n_reparacao", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "N_Reparação", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -9474,9 +9492,9 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_NºSoftware As Integer, ByVal Original_NºReparação As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_NºSoftware As Integer, ByVal Original_N_Reparação As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_NºSoftware,Integer)
-            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_NºReparação,Integer)
+            Me.Adapter.DeleteCommand.Parameters(1).Value = CType(Original_N_Reparação,Integer)
             If (Original_Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Tipo")
             Else
@@ -9508,8 +9526,8 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal NºReparação As Integer, ByVal Tipo As String, ByVal Preço As String) As Integer
-            Me.Adapter.InsertCommand.Parameters(0).Value = CType(NºReparação,Integer)
+        Public Overloads Overridable Function Insert(ByVal N_Reparação As Integer, ByVal Tipo As String, ByVal Preço As String) As Integer
+            Me.Adapter.InsertCommand.Parameters(0).Value = CType(N_Reparação,Integer)
             If (Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Tipo")
             Else
@@ -9539,8 +9557,8 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NºReparação As Integer, ByVal Tipo As String, ByVal Preço As String, ByVal Original_NºSoftware As Integer, ByVal Original_NºReparação As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As String, ByVal NºSoftware As Integer) As Integer
-            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(NºReparação,Integer)
+        Public Overloads Overridable Function Update(ByVal N_Reparação As Integer, ByVal Tipo As String, ByVal Preço As String, ByVal Original_NºSoftware As Integer, ByVal Original_N_Reparação As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As String, ByVal NºSoftware As Integer) As Integer
+            Me.Adapter.UpdateCommand.Parameters(0).Value = CType(N_Reparação,Integer)
             If (Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Tipo")
             Else
@@ -9552,7 +9570,7 @@ Namespace SQLToReportConnectionTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Preço,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_NºSoftware,Integer)
-            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_NºReparação,Integer)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_N_Reparação,Integer)
             If (Original_Tipo Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("Original_Tipo")
             Else
@@ -9585,8 +9603,8 @@ Namespace SQLToReportConnectionTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal NºReparação As Integer, ByVal Tipo As String, ByVal Preço As String, ByVal Original_NºSoftware As Integer, ByVal Original_NºReparação As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As String) As Integer
-            Return Me.Update(NºReparação, Tipo, Preço, Original_NºSoftware, Original_NºReparação, Original_Tipo, Original_Preço, Original_NºSoftware)
+        Public Overloads Overridable Function Update(ByVal N_Reparação As Integer, ByVal Tipo As String, ByVal Preço As String, ByVal Original_NºSoftware As Integer, ByVal Original_N_Reparação As Integer, ByVal Original_Tipo As String, ByVal Original_Preço As String) As Integer
+            Return Me.Update(N_Reparação, Tipo, Preço, Original_NºSoftware, Original_N_Reparação, Original_Tipo, Original_Preço, Original_NºSoftware)
         End Function
     End Class
     

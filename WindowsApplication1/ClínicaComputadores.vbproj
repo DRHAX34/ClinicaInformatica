@@ -196,12 +196,6 @@
     <Compile Include="Forms_Necessárias\manual_form.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacoes_Forms\Inserir Hardware Portátil.Designer.vb">
-      <DependentUpon>Inserir Hardware Portátil.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Operacoes_Forms\Inserir Hardware Portátil.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Operacoes_Forms\Inserir Hardware Desktop.Designer.vb">
       <DependentUpon>Inserir Hardware Desktop.vb</DependentUpon>
     </Compile>
@@ -341,9 +335,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\Inserir Hardware Desktop.resx">
       <DependentUpon>Inserir Hardware Desktop.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Operacoes_Forms\Inserir Hardware Portátil.resx">
-      <DependentUpon>Inserir Hardware Portátil.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\Inserir_Software.resx">
       <DependentUpon>Inserir_Software.vb</DependentUpon>

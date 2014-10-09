@@ -13,7 +13,8 @@
         Dim reportimagebutton As New Bitmap((My.Resources._1405976976_distributor_report), reportbutton.Height - 1, reportbutton.Height - 1)
         reportbutton.Image = reportimagebutton
         Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
+        exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         If Workspace.Aluno = True Then
@@ -72,46 +73,6 @@
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
         If modo = False Then
-            If tipo_artigo = "Portátil" Then
-                Dim h(2) As Object
-                If Workspace.hardware_support.Columns.Count <> 3 Then
-                    Workspace.hardware_support.Columns.Add("Tipo")
-                    Workspace.hardware_support.Columns.Add("Qtd")
-                    Workspace.hardware_support.Columns.Add("Preço")
-                End If
-                h(0) = "LCD"
-                h(1) = 0
-                h(2) = 0.0
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = "Motherboard"
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = "Cooler"
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = "VGA"
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = "Unidade Óptica"
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Touchpad")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Teclado")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = "USB"
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Carregador A/C")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Processador")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Memória")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Disco")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Leitor de Cartões")
-                Workspace.hardware_support.Rows.Add(h)
-                h(0) = ("Outro:")
-                h(1) = 0
-                h(2) = 0.0
-                Workspace.hardware_support.Rows.Add(h)
-            Else
                 Dim h(2) As Object
                 If Workspace.hardware_support.Columns.Count <> 3 Then
                     Workspace.hardware_support.Columns.Add("Tipo")
@@ -144,7 +105,6 @@
                 Workspace.hardware_support.Rows.Add(h)
                 h(0) = ("Outro:")
                 Workspace.hardware_support.Rows.Add(h)
-            End If
             If Workspace.software_support.Columns.Count = 0 Then
                 Workspace.software_support.Columns.Add("Tipo")
                 Workspace.software_support.Columns.Add("Preço")
@@ -305,34 +265,18 @@
         Me.Close()
     End Sub
     Private Sub RadButton8_Click(sender As Object, e As EventArgs) Handles insert_hardware.Click
-        If tipo_artigo = "Fixo" Then
-            Dim select_hardware As New Inserir_Hardware_desk
-            select_hardware.MdiParent = Workspace
+        Workspace.select_hardware = New Inserir_Hardware_desk
+        Workspace.select_hardware.MdiParent = Workspace
             If Workspace.hardware_support.Columns.Count <> 0 Then
                 If Workspace.hardware_support.Rows.Count <> 0 Then
-                    select_hardware.modo = True
+                Workspace.select_hardware.modo = True
                 Else
-                    select_hardware.modo = False
+                Workspace.select_hardware.modo = False
                 End If
             Else
-                select_hardware.modo = False
+            Workspace.select_hardware.modo = False
             End If
-            select_hardware.Show()
-        Else
-            Dim select_hardware As New Inserir_Hardware_port
-            select_hardware.MdiParent = Workspace
-            If Workspace.hardware_support.Columns.Count <> 0 Then
-                If Workspace.hardware_support.Rows.Count <> 0 Then
-                    select_hardware.modo = True
-                Else
-                    select_hardware.modo = False
-                End If
-            Else
-                select_hardware.modo = False
-            End If
-            select_hardware.Show()
-        End If
-        
+        Workspace.select_hardware.Show()
     End Sub
     Private Sub RadButton9_Click(sender As Object, e As EventArgs) Handles insert_software.Click
         Dim select_software As New Inserir_Software

@@ -24,6 +24,7 @@ Public Class Workspace
     Public string_pass, pass_string As String
     Public erros As Boolean
     Public preço As String
+    Public select_hardware As New Inserir_Hardware_desk
     Public check_bd, check_clientes, check_artigos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
     Public Sub New()
         InitializeComponent()
