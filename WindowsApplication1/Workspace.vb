@@ -4,6 +4,8 @@ Imports System.IO.Compression
 
 
 Public Class Workspace
+    Public artigosview As New ViewForm
+    Public repararview As New ViewForm
     Public config2 As New Passo2
     Public config3 As New Passo3
     Public config3_5 As New Passo3emeio
@@ -105,7 +107,7 @@ Public Class Workspace
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
     End Sub
-    
+
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = False
         Me.AutoSize = False
@@ -210,7 +212,7 @@ Public Class Workspace
         End If
     End Sub
 
-    
+
     Private Sub Statuscheck_Tick(sender As Object, e As EventArgs) Handles Statuscheck.Tick
         If erros = True Then
             ToolStripStatusLabel1.Text = "Ocorreram Erros no Programa"
@@ -268,7 +270,7 @@ Public Class Workspace
         End If
     End Sub
 
-    
+
     Private Sub IndexToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IndexToolStripMenuItem.Click
         manual_form.MdiParent = Me
         manual_form.Show()

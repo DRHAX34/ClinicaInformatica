@@ -7,13 +7,18 @@
     Private Sub OPR_Artigos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.SelectedIndex = 0
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
+        saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
         Dim reparaçoesimagebutton As New Bitmap((My.Resources.oie_2417311E0OBPz25), reparaçoesbutton.Height - 1, reparaçoesbutton.Height - 1)
+        reparaçoesimagebutton.MakeTransparent(Color.White)
         reparaçoesbutton.Image = reparaçoesimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
+        restartimagebutton.MakeTransparent(Color.White)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
+        exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
+        limparimagebutton.MakeTransparent(Color.White)
         Try
             If modo = True Then
                 restartbutton.Image = restartimagebutton
@@ -140,17 +145,7 @@
     End Sub
 
     Private Sub reparaçoesbutton_Click(sender As Object, e As EventArgs) Handles reparaçoesbutton.Click
-        Dim repararview As New ViewForm
-        Workspace.check_reparacoes = True
-        repararview.Text = "Reparações"
-        repararview.tabela = "Reparações"
-        repararview.MdiParent = Workspace
-        repararview.n_cliente = n_cliente
-        Workspace.m_ChildFormNumber += 1
-        repararview.artigo = dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString()
-        repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), True)
-        repararview.removidos = False
-        repararview.Show()
+
     End Sub
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
@@ -158,8 +153,8 @@
     End Sub
 
     Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
-        Dim imageunlockbutton As New Bitmap(My.Resources._1406134201_MB__UNLOCK, lockbutton.Height - 5, lockbutton.Width - 5)
-        Dim imagelockbutton As New Bitmap(My.Resources._1406134201_MB__LOCK, lockbutton.Height - 5, lockbutton.Width - 5)
+        Dim imageunlockbutton As New Bitmap(My.Resources.unlock, lockbutton.Height - 5, lockbutton.Width - 5)
+        Dim imagelockbutton As New Bitmap(My.Resources.lock, lockbutton.Height - 5, lockbutton.Width - 5)
         If lock = False Then
             lock = True
             lockbutton.Image = imageunlockbutton

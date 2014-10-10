@@ -296,7 +296,11 @@ Public Class BLL
                 Dim backup As String = query
                 query = "%" & backup & "%"
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where (NºCliente like @query or NºAluno like @query or NIF like @query or nºturma like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                If DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where (NºCliente like @query or NºAluno like @query or NIF like @query or nºturma like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p).Rows.Count = 0 Then
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where (nome like @query OR Morada like @query or email like @query or localidade like @query or cod_postal like @query or contacto_m like @query or contacto_f like @query or nºturma like @query) AND Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                Else
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,Localidade,Cod_Postal,Email,NIF,Contacto_M,Contacto_F,NºAluno,NºTurma FROM Clientes INNER JOIN TipoAluno ON Clientes.NºCliente=TipoAluno.N_Cliente where (NºCliente like @query or NºAluno like @query or NIF like @query or nºturma like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                End If
             Else
                 Dim backup As String = query
                 query = "%" & backup & "%"
@@ -374,7 +378,11 @@ Public Class BLL
                 Dim backup As String = query
                 query = "%" & backup & "%"
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where (NºCliente like @query or NIF like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                If DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where (NºCliente like @query or NIF like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p).Rows.Count = 0 Then
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where (nome like @query OR Morada like @query or email like @query or localidade like @query or cod_postal like @query or contacto_m like @query or contacto_f like @query) AND Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                Else
+                    Return DAL.ExecuteQueryDT("SELECT NºCliente,Nome,Morada,NIF,Localidade,Cod_Postal,Email,Contacto_M,Contacto_F FROM Clientes where (NºCliente like @query or NIF like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                End If
             Else
                 Dim backup As String = query
                 query = "%" & backup & "%"
@@ -473,7 +481,11 @@ Public Class BLL
                 Dim backup As String = query
                 query = "%" + backup + "%"
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (NºArtigo like @query) and NºCliente=@n_cliente", p)
+                If DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (NºArtigo like @query) and NºCliente=@n_cliente", p).Rows.Count = 0 Then
+                    Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (Marca like @query OR Modelo like @query OR NºSérie like @query OR Observações like @query OR Tipo_Artigo like @query) and NºCliente=@n_cliente", p)
+                Else
+                    Return DAL.ExecuteQueryDT("SELECT NºArtigo,NºCliente,Marca,Modelo,NºSérie,Observações,Tipo_Artigo FROM Artigos where Ativo=@ativo AND NºEmpresa=@n_empresa AND (NºArtigo like @query) and NºCliente=@n_cliente", p)
+                End If
             Else
                 Dim backup As String = query
                 query = "%" + backup + "%"
@@ -574,6 +586,7 @@ Public Class BLL
             p.Add(New SqlParameter("@n_tecnico", tecnico))
             If IsNumeric(query) = True Then
                 Dim backup As String = query
+                Dim result As New DataTable
                 query = "%" & backup & "%"
                 p.Add(New SqlParameter("@query", query))
                 Dim check As Boolean = False
@@ -583,21 +596,21 @@ Public Class BLL
                     End If
                 Next
                 If check = True Then
-                    Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço from Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where (Preço like @query) and NºEmpresa=@n_empresa and Ativo=@ativo AND NºTécnico=@n_tecnico", p)
+                    result = DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço from Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where (Preço like @query) and NºEmpresa=@n_empresa and Ativo=@ativo AND NºTécnico=@n_tecnico", p)
                 Else
-                    Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where (NºReparação like @query or NºArtigo like @query) and NºEmpresa=@n_empresa AND Ativo=@ativo AND NºTécnico=@n_tecnico", p)
+                    result = DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where (NºReparação like @query or NºArtigo like @query) and NºEmpresa=@n_empresa AND Ativo=@ativo AND NºTécnico=@n_tecnico", p)
                 End If
-            ElseIf IsDate(query) = True Then
-                Dim backup As String = query
-                query = "%" & backup & "%"
-                p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where (DIRepar like @query OR DFRepar like @query) and NºEmpresa=@n_empresa AND Ativo=@ativo AND NºTécnico=@n_tecnico", p)
+                If result.Rows.Count = 0 Then
+                    Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where DIRepar like @query OR DFRepar like @query OR DescAvaria like @query AND NºEmpresa=@n_empresa AND NºTécnico=@n_tecnico AND Ativo=@ativo", p)
+                Else
+                    Return result
+                End If
             Else
                 Dim backup As String = query
                 query = "%" & backup & "%"
                 p.Add(New SqlParameter("@query", query))
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where DescAvaria like @query AND NºEmpresa=@n_empresa AND NºTécnico=@n_tecnico AND Ativo=@ativo", p)
+                Return DAL.ExecuteQueryDT("SELECT NºReparação,NºArtigo,TemporealReparação,DescAvaria,DIRepar,DFRepar,Preço From Reparações INNER JOIN Participações on Reparações.NºReparação=Participações.N_Reparação where DIRepar like @query OR DFRepar like @query OR DescAvaria like @query AND NºEmpresa=@n_empresa AND NºTécnico=@n_tecnico AND Ativo=@ativo", p)
             End If
         End Function
         Shared Function carregar(ByRef ativo As Boolean) As DataTable
@@ -830,11 +843,17 @@ Public Class BLL
             Dim p As New ArrayList
             p.Add(New SqlParameter("@ativo", ativo))
             p.Add(New SqlParameter("@n_empresa", n_empresa))
+            Dim result As New DataTable
             If IsNumeric(query) = True Then
                 Dim backup As String = query
                 query = "%" & backup & "%"
                 p.Add(New SqlParameter("@query", query))
-                Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where (NºTécnico like @query or Contacto_m like @query or contacto_f like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                result = DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where (NºTécnico like @query or Contacto_m like @query or contacto_f like @query) and Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                If result.Rows.Count = 0 Then
+                    Return DAL.ExecuteQueryDT("SELECT NºTécnico,Nome,Contacto_M,Contacto_F,Localidade,Cod_Postal FROM Técnicos where (Nome like @query or Localidade like @query or Contacto_m like @query or contacto_f like @query or cod_postal like @query) AND Ativo=@ativo AND NºEmpresa=@n_empresa", p)
+                Else
+                    Return result
+                End If
             Else
                 Dim backup As String = query
                 query = "%" & backup & "%"

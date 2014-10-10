@@ -48,7 +48,6 @@ Partial Class OPR_Clientes
         Me.turmabox = New ClinicaInformatica.WaterMarkTextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.savebutton = New System.Windows.Forms.Button()
-        Me.componentesbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.restartbutton = New System.Windows.Forms.Button()
         Me.lockbutton = New System.Windows.Forms.Button()
@@ -234,7 +233,7 @@ Partial Class OPR_Clientes
         '
         Me.cmovelbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.cmovelbox.Location = New System.Drawing.Point(162, 284)
-        Me.cmovelbox.Mask = "+0000000000000"
+        Me.cmovelbox.Mask = "000-000-000"
         Me.cmovelbox.Name = "cmovelbox"
         Me.cmovelbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.cmovelbox.Size = New System.Drawing.Size(110, 22)
@@ -247,7 +246,7 @@ Partial Class OPR_Clientes
         '
         Me.cfixobox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.cfixobox.Location = New System.Drawing.Point(162, 319)
-        Me.cfixobox.Mask = "+0000000000000"
+        Me.cfixobox.Mask = "000-000-000"
         Me.cfixobox.Name = "cfixobox"
         Me.cfixobox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.cfixobox.Size = New System.Drawing.Size(110, 22)
@@ -316,14 +315,6 @@ Partial Class OPR_Clientes
         Me.savebutton.TabIndex = 91
         Me.savebutton.UseVisualStyleBackColor = True
         '
-        'componentesbutton
-        '
-        Me.componentesbutton.Location = New System.Drawing.Point(162, 367)
-        Me.componentesbutton.Name = "componentesbutton"
-        Me.componentesbutton.Size = New System.Drawing.Size(126, 41)
-        Me.componentesbutton.TabIndex = 92
-        Me.componentesbutton.UseVisualStyleBackColor = True
-        '
         'exitbutton
         '
         Me.exitbutton.Location = New System.Drawing.Point(485, 367)
@@ -367,7 +358,6 @@ Partial Class OPR_Clientes
         Me.Controls.Add(Me.lockbutton)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.exitbutton)
-        Me.Controls.Add(Me.componentesbutton)
         Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.turmabox)
@@ -430,7 +420,6 @@ Partial Class OPR_Clientes
     Friend WithEvents turmabox As ClinicaInformatica.WaterMarkTextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents savebutton As System.Windows.Forms.Button
-    Friend WithEvents componentesbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents restartbutton As System.Windows.Forms.Button
     Friend WithEvents lockbutton As System.Windows.Forms.Button

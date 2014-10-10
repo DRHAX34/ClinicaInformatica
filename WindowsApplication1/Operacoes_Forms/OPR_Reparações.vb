@@ -12,7 +12,7 @@
         savebutton.Image = saveimagebutton
         Dim reportimagebutton As New Bitmap((My.Resources._1405976976_distributor_report), reportbutton.Height - 1, reportbutton.Height - 1)
         reportbutton.Image = reportimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
         Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
         exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton

@@ -1,5 +1,7 @@
 ﻿Public Class Inserir_Hardware_desk
     Public modo As Boolean
+    Public reparaçao_data As New DataTable
+    Public artigos As Integer
     Private Sub Inserir_Hardware_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim certoimagebutton As New Bitmap((My.Resources._1405695721_Select), certobutton.Height, certobutton.Height)
         certobutton.Image = certoimagebutton
@@ -54,78 +56,21 @@
         End If
     End Sub
 
-    Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles certobutton.Click
-        Dim h(2) As Object
-        If Workspace.hardware_support.Columns.Count <> 3 Then
-            Workspace.hardware_support.Columns.Add("Tipo")
-            Workspace.hardware_support.Columns.Add("Qtd")
-            Workspace.hardware_support.Columns.Add("Preço")
-        End If
-        h(0) = "Caixa"
-        If caixapreçobox.Text <> "" Then
-            h(1) = 1
-        Else
-            h(1) = 0
-        End If
-        h(2) = (caixapreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = "Motherboard"
-        If motherpreçobox.Text <> "" Then
-            h(1) = 1
-        Else
-            h(1) = 0
-        End If
-        h(2) = (motherpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = "Cooler"
-        h(1) = coolerqtdbox.Value
-        h(2) = (coolerpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = "VGA"
-        h(1) = vgaqtdbox.Value
-        h(2) = (vgapreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = "Unidade Óptica"
-        h(1) = (opticqtdbox.Value)
-        h(2) = (opticpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = ("Placa de Rede")
-        h(1) = (redeqtdbox.Value)
-        h(2) = (redepreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = ("Fonte")
-        If fontepreçobox.Text <> "" Then
-            h(1) = 1
-        Else
-            h(1) = 0
-        End If
-        h(2) = (fontepreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = ("Processador")
-        If processadorpreçobox.Text <> "" Then
-            h(1) = 1
-        Else
-            h(1) = 0
-        End If
-        h(2) = (processadorpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = ("Memória")
-        h(1) = (memoriaqtdbox.Value)
-        h(2) = (memóriapreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = ("Disco")
-        h(1) = (discoqtdbox.Value)
-        h(2) = (discopreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = ("Leitor de Cartões")
-        h(1) = (leitorqtdbox.Value)
-        h(2) = (leitorpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        h(0) = (otherdescriçaobox.Text)
-        h(1) = (otherqtdbox.Value)
-        h(2) = (otherpreçobox.Text)
-        Workspace.hardware_support.Rows.Add(h)
-        Me.Close()
+    Private Sub certobutton_Click(sender As Object, e As EventArgs) Handles certobutton.Click
+        Try
+            If caixapreçobox.Text <> "" Then
+                BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), "Caixa", caixapreçobox.Text, 1)
+            Else
+                BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), "Caixa", caixapreçobox.Text, 0)
+            End If
+            If motherpreçobox.Text <> "" Then
+                BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), "Motherboard", motherpreçobox.Text, 1)
+            Else
+                BLL.Hardware.adicionar_hardware(reparaçao_data.Rows.Item(0).Item("NºReparação").ToString(), "Motherboard", motherpreçobox.Text, 0)
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
         'Public Sub NumberFormat(ByVal Text As TextBox)
@@ -404,6 +349,10 @@
     End Sub
 
     Private Sub caixapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles caixapreçobox.TextChanged
+
+    End Sub
+
+    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
 
     End Sub
 End Class

@@ -12,11 +12,13 @@ Public Class OPR_Técnicos
         savebutton.Image = saveimagebutton
         Dim reparaçoesefetuadasimagebutton As New Bitmap((My.Resources.oie_2417311E0OBPz25), reparaçoesefetuadasbutton.Height, reparaçoesefetuadasbutton.Height)
         reparaçoesefetuadasbutton.Image = reparaçoesefetuadasimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height, restartbutton.Height)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
+        restartimagebutton.MakeTransparent(Color.White)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height, exitbutton.Height)
+        exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height, restartbutton.Height)
-
+        limparimagebutton.MakeTransparent(Color.White)
         If Workspace.Aluno = True Then
             numalunobox.Show()
             numalunolabel.Show()
@@ -129,7 +131,6 @@ Public Class OPR_Técnicos
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
         If modo = False Then
             Dim check_nomutil As String = ""
-            Dim check_pass As String = ""
             Dim check_pergunta As String = ""
             Dim check_resposta As String = ""
             Dim check_nome As String = ""
@@ -148,16 +149,6 @@ Public Class OPR_Técnicos
             If caminhobox.Text = "" Then
                 image_tec = My.Resources.nopicture_02
             End If
-            If passwordbox.Text = verifbox.Text Then
-                Try
-                    check_pass = passwordbox.Text
-                    check_pass.Trim()
-                Catch ex As Exception
-                    check_pass = ""
-                End Try
-            Else
-                check_pass = ""
-            End If
             Try
                 check_pergunta = perguntabox.Text
                 check_pergunta.Trim()
@@ -175,9 +166,9 @@ Public Class OPR_Técnicos
                     check_alunos = "N/A"
                     check_turma = "N/A"
                 End If
-                If contactom_box.Text.Length >= 9 Then
+                If contactom_box.Text.Length >= 11 Then
                     check_contacto = True
-                ElseIf contacto_fbox.Text.Length >= 9 Then
+                ElseIf contacto_fbox.Text.Length >= 11 Then
                     check_contacto = True
                 End If
                 cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
@@ -187,7 +178,7 @@ Public Class OPR_Técnicos
             Catch ex As Exception
 
             End Try
-            If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+            If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pergunta = "" And Not check_resposta = "" Then
                 Try
                     If BLL.Tecnicos.check_exist(nomebox.Text) = 1 Then
                         MsgBox("Este técnico já existe!")
@@ -366,18 +357,7 @@ Public Class OPR_Técnicos
 
     Private Sub reparaçoesefetuadasbutton_Click(sender As Object, e As EventArgs) Handles reparaçoesefetuadasbutton.Click
         Try
-            Dim repararview As New ViewForm
-            Workspace.check_reparacoes = True
-            repararview.Text = "Reparações"
-            repararview.tabela = "Reparações"
-            repararview.MdiParent = Workspace
-            Workspace.m_ChildFormNumber += 1
-            repararview.removidos = False
-            repararview.Show()
-            repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(tecnico_data.Rows.Item(0).Item("NºTécnico").ToString(), True)
-            repararview.showdata.DataSource = repararview.data_table
-            repararview.newbutton.Enabled = False
-            repararview.delbutton.Enabled = False
+            
         Catch ex As Exception
             MsgBox("Erro ao carregar: " & ex.Message, vbOKOnly, "Erro!")
         End Try

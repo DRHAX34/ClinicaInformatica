@@ -67,7 +67,7 @@ Partial Class Inserir_Software
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.ClinicaInformatica.My.Resources.Resources._1404442634_Software
-        Me.PictureBox1.Location = New System.Drawing.Point(23, 17)
+        Me.PictureBox1.Location = New System.Drawing.Point(23, -5)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(88, 86)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -301,7 +301,7 @@ Partial Class Inserir_Software
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 48.0!)
-        Me.Label17.Location = New System.Drawing.Point(117, 17)
+        Me.Label17.Location = New System.Drawing.Point(117, -5)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(285, 86)
         Me.Label17.TabIndex = 207

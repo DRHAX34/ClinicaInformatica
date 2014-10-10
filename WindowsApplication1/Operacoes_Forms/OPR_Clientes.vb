@@ -10,25 +10,16 @@
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
-        Dim componentesimagebutton As New Bitmap((My.Resources.icon_lg_devices), componentesbutton.Height - 1, componentesbutton.Height - 1)
-        componentesimagebutton.MakeTransparent(Color.White)
-        componentesbutton.Image = componentesimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
         restartimagebutton.MakeTransparent(Color.White)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
         exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         limparimagebutton.MakeTransparent(Color.White)
         If modo = True Then
             restartbutton.Image = restartimagebutton
-            If Workspace.admin = True Then
-                componentesbutton.Enabled = False
-            Else
-                componentesbutton.Enabled = True
-            End If
         Else
-            componentesbutton.Enabled = False
             restartbutton.Image = limparimagebutton
         End If
         Me.AcceptButton = savebutton
@@ -75,12 +66,9 @@
             lockbutton.PerformClick()
         Else
             lockbutton.Hide()
-            cmovelbox.Text = "+351"
-            cfixobox.Text = "+351"
             RadioButton2.Checked = True
             numalunobox.Hide()
             turmabox.Hide()
-            componentesbutton.Enabled = False
         End If
 
 
@@ -121,8 +109,8 @@
                 End If
                 check_localidade = localidadebox.Text
                 check_localidade.Trim()
-                If cmovelbox.Text.Count < 9 Then
-                    If cfixobox.Text.Count < 9 Then
+                If cmovelbox.Text.Count < 11 Then
+                    If cfixobox.Text.Count < 11 Then
                         check_contacto = False
                     Else
                         check_contacto = True
@@ -299,7 +287,6 @@
     End Sub
     Private Sub contactom_onlynums(sender As Object, e As KeyPressEventArgs) Handles cmovelbox.KeyPress
         Try
-
             If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
                 e.Handled = True
             End If
@@ -332,21 +319,6 @@
     Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.Click
         cfixobox.Select(0, cfixobox.Text.Length + 1)
     End Sub
-
-    
-    Private Sub componentesbutton_Click(sender As Object, e As EventArgs) Handles componentesbutton.Click
-        Dim artigosview As New ViewForm
-        Workspace.check_artigos = True
-        artigosview.Text = "Artigos do Cliente"
-        artigosview.tabela = "Artigos"
-        artigosview.MdiParent = Workspace
-        Workspace.m_ChildFormNumber += 1
-        artigosview.n_cliente = cliente_data.Rows(0).Item("NºCliente").ToString()
-        artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(cliente_data.Rows.Item(0).Item("NºCliente").ToString(), True)
-        artigosview.removidos = False
-        artigosview.Show()
-    End Sub
-
     Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
         Dim imageunlockbutton As New Bitmap(My.Resources.unlock, lockbutton.Height - 1, lockbutton.Width - 1)
         Dim imagelockbutton As New Bitmap(My.Resources.lock, lockbutton.Height - 1, lockbutton.Width - 1)
@@ -384,4 +356,5 @@
             savebutton.Enabled = True
         End If
     End Sub
+
 End Class

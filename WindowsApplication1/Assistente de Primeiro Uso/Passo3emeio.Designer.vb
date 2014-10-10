@@ -358,7 +358,7 @@ Partial Class Passo3emeio
         '
         Me.contactom_box.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.contactom_box.Location = New System.Drawing.Point(82, 195)
-        Me.contactom_box.Mask = "+0000000000000"
+        Me.contactom_box.Mask = "000-000-000"
         Me.contactom_box.Name = "contactom_box"
         Me.contactom_box.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.contactom_box.Size = New System.Drawing.Size(148, 22)
@@ -371,7 +371,7 @@ Partial Class Passo3emeio
         '
         Me.contacto_fbox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.contacto_fbox.Location = New System.Drawing.Point(241, 195)
-        Me.contacto_fbox.Mask = "+0000000000000"
+        Me.contacto_fbox.Mask = "000-000-000"
         Me.contacto_fbox.Name = "contacto_fbox"
         Me.contacto_fbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.contacto_fbox.Size = New System.Drawing.Size(131, 22)

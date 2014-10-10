@@ -8,8 +8,10 @@
     Private Sub OPR_Empresas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         savebutton.Image = saveimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 1, restartbutton.Height - 1)
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height - 1, exitbutton.Height - 1)
+        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
+        restartimagebutton.MakeTransparent(Color.White)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
+        exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         naocheck.Checked = True
         logobox.Enabled = False

@@ -43,8 +43,6 @@ Public Class Passo3emeio
             turmabox.Hide()
             turmalabel.Hide()
         End If
-        contacto_fbox.Text = "+351"
-        contactom_box.Text = "+351"
     End Sub
 
     Private Sub Form1_ColourizationChanged(ByVal sender As Object, ByVal e As ColorizationChangedEventArgs) Handles Me.ColourizationChanged
@@ -90,7 +88,6 @@ Public Class Passo3emeio
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
         Dim check_empresa As String = ""
         Dim check_nomutil As String = ""
-        Dim check_pass As String = ""
         Dim check_pergunta As String = ""
         Dim check_resposta As String = ""
         Dim check_nome As String = ""
@@ -99,23 +96,15 @@ Public Class Passo3emeio
         Dim check_alunos As String = ""
         Dim check_turma As String = ""
         Dim check_codpostal As Boolean = False
-        Dim check_image As String = ""
+        If caminhobox.Text = "" Then
+            image_tec = My.Resources.nopicture_02
+        End If
         Try
             check_nomutil = nomeutilizadorbox.Text
             check_nomutil.Trim()
         Catch ex As Exception
             check_nomutil = ""
         End Try
-        If passwordbox.Text = verifbox.Text Then
-            Try
-                check_pass = passwordbox.Text
-                check_pass.Trim()
-            Catch ex As Exception
-                check_pass = ""
-            End Try
-        Else
-            check_pass = ""
-        End If
         Try
             check_pergunta = perguntabox.Text
             check_pergunta.Trim()
@@ -134,26 +123,20 @@ Public Class Passo3emeio
                 check_alunos = 0
                 check_turma = "N/A"
             End If
-            If contactom_box.Text.Length >= 9 Then
+            If contactom_box.Text.Length = 11 Then
                 check_contacto = True
-            ElseIf contacto_fbox.Text.Length >= 9 Then
+            ElseIf contacto_fbox.Text.Length = 11 Then
                 check_contacto = True
             End If
             cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
             If cod_postalbox.Text.Length = 8 Then
                 check_codpostal = True
             End If
-            If caminhobox.Text = "" Then
-                check_image = "N/D"
-                image_tec = My.Resources.nopicture_02
-            End If
-            check_image = caminhobox.Text
-            check_image.Trim()
         Catch ex As Exception
 
         End Try
         Dim n_empresa As Integer
-        If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_image = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+        If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pergunta = "" And Not check_resposta = "" Then
             Try
                 If BLL.Login.check_exist(nomeutilizadorbox.Text) = True Then
                     MsgBox("O Técnico não pode ter o mesmo nome que o Administrador!", vbOKOnly, "Erro!")
