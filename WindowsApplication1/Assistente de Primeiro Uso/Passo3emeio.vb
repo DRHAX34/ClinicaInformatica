@@ -123,9 +123,9 @@ Public Class Passo3emeio
                 check_alunos = 0
                 check_turma = "N/A"
             End If
-            If contactom_box.Text.Length = 11 Then
+            If contactom_box.Text.Length = 9 Then
                 check_contacto = True
-            ElseIf contacto_fbox.Text.Length = 11 Then
+            ElseIf contacto_fbox.Text.Length = 9 Then
                 check_contacto = True
             End If
             cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals

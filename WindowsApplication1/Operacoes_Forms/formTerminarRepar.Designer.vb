@@ -102,14 +102,15 @@ Partial Class Inserir_Hardware_desk
         Me.RadLabel1 = New Telerik.WinControls.UI.RadLabel()
         Me.NumericUpDown1 = New System.Windows.Forms.NumericUpDown()
         Me.Label43 = New System.Windows.Forms.Label()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
+        Me.txtPreço = New System.Windows.Forms.TextBox()
+        Me.processadorqtdbox = New System.Windows.Forms.NumericUpDown()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.coolerqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.memoriaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vgaqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.discoqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.opticqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RadLabel2, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.RadLabel2.SuspendLayout()
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.redeqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -117,6 +118,7 @@ Partial Class Inserir_Hardware_desk
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.RadLabel1.SuspendLayout()
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'coolerqtdbox
@@ -162,14 +164,13 @@ Partial Class Inserir_Hardware_desk
         'RadLabel2
         '
         Me.RadLabel2.BackColor = System.Drawing.Color.Transparent
-        Me.RadLabel2.Controls.Add(Me.leitorqtdbox)
         Me.RadLabel2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
         Me.RadLabel2.Location = New System.Drawing.Point(331, 256)
         Me.RadLabel2.Name = "RadLabel2"
         '
         '
         '
-        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(375, 264, 100, 18)
+        Me.RadLabel2.RootElement.ControlBounds = New System.Drawing.Rectangle(331, 256, 100, 18)
         Me.RadLabel2.Size = New System.Drawing.Size(239, 25)
         Me.RadLabel2.TabIndex = 12
         Me.RadLabel2.Text = "Leitor de Cartões.............................."
@@ -177,7 +178,7 @@ Partial Class Inserir_Hardware_desk
         'leitorqtdbox
         '
         Me.leitorqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.leitorqtdbox.Location = New System.Drawing.Point(252, 1)
+        Me.leitorqtdbox.Location = New System.Drawing.Point(520, 248)
         Me.leitorqtdbox.Name = "leitorqtdbox"
         Me.leitorqtdbox.Size = New System.Drawing.Size(43, 29)
         Me.leitorqtdbox.TabIndex = 85
@@ -840,12 +841,12 @@ Partial Class Inserir_Hardware_desk
         Me.RadLabel1.BackColor = System.Drawing.Color.Transparent
         Me.RadLabel1.Controls.Add(Me.NumericUpDown1)
         Me.RadLabel1.Font = New System.Drawing.Font("Segoe UI", 15.0!)
-        Me.RadLabel1.Location = New System.Drawing.Point(594, 370)
+        Me.RadLabel1.Location = New System.Drawing.Point(463, 370)
         Me.RadLabel1.Name = "RadLabel1"
         '
         '
         '
-        Me.RadLabel1.RootElement.ControlBounds = New System.Drawing.Rectangle(331, 256, 100, 18)
+        Me.RadLabel1.RootElement.ControlBounds = New System.Drawing.Rectangle(594, 370, 100, 18)
         Me.RadLabel1.Size = New System.Drawing.Size(193, 31)
         Me.RadLabel1.TabIndex = 241
         Me.RadLabel1.Text = "Total..............................."
@@ -862,29 +863,49 @@ Partial Class Inserir_Hardware_desk
         '
         Me.Label43.AutoSize = True
         Me.Label43.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label43.Location = New System.Drawing.Point(807, 373)
+        Me.Label43.Location = New System.Drawing.Point(676, 373)
         Me.Label43.Name = "Label43"
         Me.Label43.Size = New System.Drawing.Size(19, 21)
         Me.Label43.TabIndex = 243
         Me.Label43.Text = "€"
         '
-        'TextBox8
+        'txtPreço
         '
-        Me.TextBox8.Font = New System.Drawing.Font("Segoe UI", 12.0!)
-        Me.TextBox8.Location = New System.Drawing.Point(721, 370)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(80, 29)
-        Me.TextBox8.TabIndex = 242
-        Me.TextBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.txtPreço.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.txtPreço.Location = New System.Drawing.Point(590, 370)
+        Me.txtPreço.Name = "txtPreço"
+        Me.txtPreço.Size = New System.Drawing.Size(80, 29)
+        Me.txtPreço.TabIndex = 242
+        Me.txtPreço.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'processadorqtdbox
+        '
+        Me.processadorqtdbox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.processadorqtdbox.Location = New System.Drawing.Point(521, 142)
+        Me.processadorqtdbox.Name = "processadorqtdbox"
+        Me.processadorqtdbox.Size = New System.Drawing.Size(43, 29)
+        Me.processadorqtdbox.TabIndex = 244
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(701, 370)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(90, 29)
+        Me.Button1.TabIndex = 245
+        Me.Button1.Text = "Repor"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'Inserir_Hardware_desk
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1040, 426)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.leitorqtdbox)
+        Me.Controls.Add(Me.processadorqtdbox)
         Me.Controls.Add(Me.Label43)
         Me.Controls.Add(Me.Label27)
-        Me.Controls.Add(Me.TextBox8)
+        Me.Controls.Add(Me.txtPreço)
         Me.Controls.Add(Me.Label28)
         Me.Controls.Add(Me.Label29)
         Me.Controls.Add(Me.Label30)
@@ -970,7 +991,6 @@ Partial Class Inserir_Hardware_desk
         CType(Me.discoqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.opticqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RadLabel2, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.RadLabel2.ResumeLayout(False)
         CType(Me.leitorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.redeqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.otherqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
@@ -978,6 +998,7 @@ Partial Class Inserir_Hardware_desk
         CType(Me.RadLabel1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.RadLabel1.ResumeLayout(False)
         CType(Me.NumericUpDown1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.processadorqtdbox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1061,5 +1082,7 @@ Partial Class Inserir_Hardware_desk
     Private WithEvents RadLabel1 As Telerik.WinControls.UI.RadLabel
     Friend WithEvents NumericUpDown1 As System.Windows.Forms.NumericUpDown
     Friend WithEvents Label43 As System.Windows.Forms.Label
-    Friend WithEvents TextBox8 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPreço As System.Windows.Forms.TextBox
+    Friend WithEvents processadorqtdbox As System.Windows.Forms.NumericUpDown
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

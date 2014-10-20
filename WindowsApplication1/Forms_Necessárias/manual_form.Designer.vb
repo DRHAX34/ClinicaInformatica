@@ -58,7 +58,6 @@ Partial Class manual_form
         Me.Controls.Add(Me.RadPdfViewerNavigator1)
         Me.Controls.Add(Me.RadPdfViewer1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
         Me.Name = "manual_form"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Manual de Instruções"

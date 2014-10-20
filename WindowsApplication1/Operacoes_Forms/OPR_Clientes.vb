@@ -109,8 +109,8 @@
                 End If
                 check_localidade = localidadebox.Text
                 check_localidade.Trim()
-                If cmovelbox.Text.Count < 11 Then
-                    If cfixobox.Text.Count < 11 Then
+                If cmovelbox.Text.Count < 9 Then
+                    If cfixobox.Text.Count < 9 Then
                         check_contacto = False
                     Else
                         check_contacto = True

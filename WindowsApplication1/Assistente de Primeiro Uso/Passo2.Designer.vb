@@ -298,7 +298,7 @@ Partial Class Passo2
         '
         Me.contactofixbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.contactofixbox.Location = New System.Drawing.Point(224, 249)
-        Me.contactofixbox.Mask = "+0000000000000"
+        Me.contactofixbox.Mask = "000-000-000"
         Me.contactofixbox.Name = "contactofixbox"
         Me.contactofixbox.PromptChar = Global.Microsoft.VisualBasic.ChrW(32)
         Me.contactofixbox.Size = New System.Drawing.Size(110, 27)

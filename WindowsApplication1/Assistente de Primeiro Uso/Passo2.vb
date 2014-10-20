@@ -33,7 +33,6 @@ Public Class Passo2
         caminhobox.Enabled = False
         simcheck.Checked = False
         naocheck.Checked = True
-        contactofixbox.Text = "+351"
         Me.AcceptButton = seguintebutton
     End Sub
 

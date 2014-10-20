@@ -63,8 +63,6 @@ Public Class OPR_Técnicos
             respostabox.Text = tecnico_data.Rows.Item(0).Item("Resposta_S")
         Else
             restartbutton.Image = limparimagebutton
-            contacto_fbox.Text = "+351"
-            contactom_box.Text = "+351"
             lockbutton.Hide()
             reparaçoesefetuadasbutton.Hide()
         End If
@@ -166,9 +164,9 @@ Public Class OPR_Técnicos
                     check_alunos = "N/A"
                     check_turma = "N/A"
                 End If
-                If contactom_box.Text.Length >= 11 Then
+                If contactom_box.Text.Length >= 9 Then
                     check_contacto = True
-                ElseIf contacto_fbox.Text.Length >= 11 Then
+                ElseIf contacto_fbox.Text.Length >= 9 Then
                     check_contacto = True
                 End If
                 cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals

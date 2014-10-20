@@ -16,12 +16,16 @@
     'End Sub
     Private Sub resizing(sender As Object, e As EventArgs) Handles Me.Resize
         showdata.Width = Me.Width - 45
-        showdata.Height = Me.Height - 150
+        showdata.Height = Me.Height - 200
         exitbutton.Location = New Point((Me.Width - (707 - 593)), (Me.Height - (436 - 329)))
         delbutton.Location = New Point((delbutton.Location.X), (Me.Height - (436 - 329)))
         newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (436 - 329)))
         GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (436 - 329)))
+        Label1.Location = New Point(((Me.Width / 2) - (Label1.Width / 2)), 9)
     End Sub
+    Private Declare Sub mouse_event Lib "user32" (ByVal dwFlags As Integer, _
+      ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, _
+      ByVal dwExtraInfo As Integer)
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
         Select Case tabela
             Case "Clientes"
@@ -39,15 +43,30 @@
         End Select
     End Sub
     Private Sub ViewForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim newimagebutton As New Bitmap((My.Resources._1405624626_Add), newbutton.Height - 5, newbutton.Height - 5)
+        Me.KeyPreview = True
+        showdata.ContextMenuStrip = menuContexto
+        Select Case tabela
+            Case "Clientes"
+                primeiroMenuItem.Text = "Mostrar Artigos"
+            Case "Artigos"
+                primeiroMenuItem.Text = "Mostrar Reparações"
+            Case "Empresas"
+                primeiroMenuItem.Text = "Mostrar Técnicos"
+            Case "Reparações"
+                primeiroMenuItem.Visible = False
+            Case "Técnicos"
+                primeiroMenuItem.Text = "Mostrar Reparações"
+        End Select
+        Dim newimagebutton As New Bitmap((My.Resources._1405624626_Add), newbutton.Height - 8, newbutton.Height - 8)
         newimagebutton.MakeTransparent(Color.White)
         newbutton.Image = newimagebutton
-        Dim delimagebutton As New Bitmap((My.Resources._1405973024_file_delete), delbutton.Height - 5, delbutton.Height - 5)
+        Dim delimagebutton As New Bitmap((My.Resources._1405973024_file_delete), delbutton.Height - 8, delbutton.Height - 8)
         delimagebutton.MakeTransparent(Color.White)
         delbutton.Image = delimagebutton
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair_alternative), exitbutton.Height - 8, exitbutton.Height - 8)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 8, exitbutton.Height - 8)
         exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
+        Label1.Location = New Point(((Me.Width / 2) - (Label1.Width / 2)), 9)
 
         'Se não metermos .Enabled=false ele reverte para o default, que é true
         'Código de Teste:
@@ -118,17 +137,20 @@
                     Workspace.check_artigos = True
                     Workspace.artigosview.Text = "Artigos do Cliente"
                     Workspace.artigosview.tabela = "Artigos"
+                    Workspace.artigosview.Label1.Text = "Artigos do Cliente: " & BLL.Clientes.carregar_dados_numcliente(string_data, True).Rows(0).Item("Nome")
                     Workspace.artigosview.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
                     Workspace.artigosview.n_cliente = string_data
                     Workspace.artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(string_data, True)
                     Workspace.artigosview.removidos = False
                     Workspace.artigosview.Show()
+                    Me.Close()
                 Case "Artigos"
                     Workspace.repararview = New ViewForm
                     Workspace.check_reparacoes = True
                     Workspace.repararview.Text = "Reparações"
                     Workspace.repararview.tabela = "Reparações"
+                    Workspace.repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
                     Workspace.repararview.MdiParent = Workspace
                     Workspace.repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
                     Workspace.m_ChildFormNumber += 1
@@ -136,30 +158,67 @@
                     Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(string_data, True)
                     Workspace.repararview.removidos = False
                     Workspace.repararview.Show()
+                    Me.Close()
                 Case "Reparações"
-                    Dim opr_reparacoes As New OPR_Reparações
-                    opr_reparacoes.MdiParent = Workspace
-                    Workspace.m_ChildFormNumber += 1
-                    opr_reparacoes.modo = True
-                    opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
-                    opr_reparacoes.cliente = n_cliente
-                    Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
-                    Workspace.software_support = BLL.Software.return_software(string_data)
-                    Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
-                    If removidos = True Then
-                        opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
-                        opr_reparacoes.removidos = True
-                        opr_reparacoes.Show()
+                    If BLL.Reparacoes.checkReparacao(string_data) = False Then
+                        If MsgBox("Deseja finalizar esta Reparação?", MsgBoxStyle.YesNo, "Finalizar Reparação") = vbYes Then
+                            Dim opr_reparacoes As New Inserir_Hardware_desk
+                            opr_reparacoes.MdiParent = Workspace
+                            Workspace.m_ChildFormNumber += 1
+                            opr_reparacoes.modo = False
+                            opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
+                            Workspace.hardware_support = New DataTable
+                            Workspace.software_support = New DataTable
+                            Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
+                            If removidos = True Then
+                                opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
+                                opr_reparacoes.Show()
+                            Else
+                                opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
+                                opr_reparacoes.Show()
+                            End If
+                            Me.Close()
+                        ElseIf MsgBox("Deseja mostrar o Relatório desta Reparação?", MsgBoxStyle.YesNo, "Mostrar Relatório") = vbYes Then
+                            folha_repar.MdiParent = Workspace
+                            folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
+                            folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
+                            folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
+                            folha_repar.Show()
+                            Me.Close()
+                        End If
                     Else
-                        opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
-                        opr_reparacoes.removidos = False
-                        opr_reparacoes.Show()
+                        If MsgBox("Deseja mostrar o Relatório desta Reparação?", MsgBoxStyle.YesNo, "Mostrar Relatório") = vbYes Then
+                            folha_repar.MdiParent = Workspace
+                            folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
+                            folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
+                            folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
+                            folha_repar.Show()
+                            Me.Close()
+                        ElseIf MsgBox("Deseja editar esta Reparação?", MsgBoxStyle.YesNo, "Mostrar Relatório") = vbYes Then
+                            Dim opr_reparacoes As New Inserir_Hardware_desk
+                            opr_reparacoes.MdiParent = Workspace
+                            Workspace.m_ChildFormNumber += 1
+                            opr_reparacoes.modo = True
+                            opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
+                            Workspace.hardware_support = New DataTable
+                            Workspace.software_support = New DataTable
+                            Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
+                            If removidos = True Then
+                                opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
+                                opr_reparacoes.Show()
+                            Else
+                                opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
+                                opr_reparacoes.Show()
+                            End If
+                            Me.Close()
+                        End If
                     End If
                 Case "Técnicos"
                     Workspace.repararview = New ViewForm
                     Workspace.check_reparacoes = True
                     Workspace.repararview.Text = "Reparações"
                     Workspace.repararview.tabela = "Reparações"
+                    Workspace.repararview.Label1.Text = "Reparações do técnico: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Nome").Value.ToString()
                     Workspace.repararview.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
                     Workspace.repararview.removidos = False
@@ -168,114 +227,12 @@
                     Workspace.repararview.showdata.DataSource = Workspace.repararview.data_table
                     Workspace.repararview.newbutton.Enabled = False
                     Workspace.repararview.delbutton.Enabled = False
+                    Me.Close()
             End Select
         Catch i As Exception
             MsgBox("Ocorreu um erro: " & i.Message, MsgBoxStyle.Exclamation, "Erro!")
         End Try
 
-    End Sub
-    Private Sub showdata_othermouseclick(sender As Object, e As MouseEventArgs) Handles showdata.MouseDown
-        If e.Button = Windows.Forms.MouseButtons.Right Then
-            Try
-                Dim string_data As String
-                string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
-                Try
-                    Select Case tabela
-                        Case "Clientes"
-                            Dim opr_clientes As New OPR_Clientes
-                            opr_clientes.MdiParent = Workspace
-                            Workspace.m_ChildFormNumber += 1
-                            opr_clientes.modo = True
-                            If removidos = True Then
-                                If Workspace.Aluno = True Then
-                                    opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data, False)
-                                    opr_clientes.removidos = True
-                                    opr_clientes.Show()
-                                Else
-                                    opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data, False)
-                                    opr_clientes.removidos = True
-                                    opr_clientes.Show()
-                                End If
-                            Else
-                                If Workspace.Aluno = True Then
-                                    opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data, True)
-                                    opr_clientes.removidos = False
-                                    opr_clientes.Show()
-                                Else
-                                    opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data, True)
-                                    opr_clientes.removidos = False
-                                    opr_clientes.Show()
-                                End If
-                            End If
-                        Case "Artigos"
-                            Dim opr_artigos As New OPR_Artigos
-                            opr_artigos.MdiParent = Workspace
-                            Workspace.m_ChildFormNumber += 1
-                            opr_artigos.modo = True
-                            opr_artigos.n_cliente = n_cliente
-                            If removidos = True Then
-                                opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, False)
-                                opr_artigos.removidos = True
-                                opr_artigos.Show()
-                            Else
-                                opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, True)
-                                opr_artigos.removidos = False
-                                opr_artigos.Show()
-                            End If
-                        Case "Reparações"
-                            Dim opr_reparacoes As New OPR_Reparações
-                            opr_reparacoes.MdiParent = Workspace
-                            Workspace.m_ChildFormNumber += 1
-                            opr_reparacoes.modo = True
-                            opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
-                            opr_reparacoes.cliente = n_cliente
-                            Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
-                            Workspace.software_support = BLL.Software.return_software(string_data)
-                            Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
-                            If removidos = True Then
-                                opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
-                                opr_reparacoes.removidos = True
-                                opr_reparacoes.Show()
-                            Else
-                                opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
-                                opr_reparacoes.removidos = False
-                                opr_reparacoes.Show()
-                            End If
-                        Case "Técnicos"
-                            Dim opr_tecnicos As New OPR_Técnicos
-                            opr_tecnicos.MdiParent = Workspace
-                            Workspace.m_ChildFormNumber += 1
-                            opr_tecnicos.modo = True
-                            If Workspace.Aluno = True Then
-                                If removidos = True Then
-                                    opr_tecnicos.tecnico_data = BLL.Tecnicos.Alunos.carregar_dados(string_data, False)
-                                    opr_tecnicos.removidos = True
-                                    opr_tecnicos.Show()
-                                Else
-                                    opr_tecnicos.tecnico_data = BLL.Tecnicos.Alunos.carregar_dados(string_data, True)
-                                    opr_tecnicos.removidos = False
-                                    opr_tecnicos.Show()
-                                End If
-                            Else
-                                If removidos = True Then
-                                    opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados(string_data, False)
-                                    opr_tecnicos.removidos = True
-                                    opr_tecnicos.Show()
-                                Else
-                                    opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados(string_data, True)
-                                    opr_tecnicos.removidos = False
-                                    opr_tecnicos.Show()
-                                End If
-                            End If
-                    End Select
-                    Me.Close()
-                Catch ex As Exception
-                    MsgBox("Erro ao Editar: " & ex.Message)
-                End Try
-            Catch
-                MsgBox("Selecione algo na tabela primeiro!")
-            End Try
-        End If
     End Sub
 
 
@@ -558,5 +515,186 @@
         Else
             newbutton.Enabled = True
         End If
+    End Sub
+
+    Private Sub EditarMenuItem1_Click(sender As Object, e As EventArgs) Handles EditarMenuItem1.Click
+        Try
+            Dim string_data As String
+            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+            Try
+                Select Case tabela
+                    Case "Clientes"
+                        Dim opr_clientes As New OPR_Clientes
+                        opr_clientes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_clientes.modo = True
+                        If removidos = True Then
+                            If Workspace.Aluno = True Then
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data, False)
+                                opr_clientes.removidos = True
+                                opr_clientes.Show()
+                            Else
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data, False)
+                                opr_clientes.removidos = True
+                                opr_clientes.Show()
+                            End If
+                        Else
+                            If Workspace.Aluno = True Then
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente_alunos(string_data, True)
+                                opr_clientes.removidos = False
+                                opr_clientes.Show()
+                            Else
+                                opr_clientes.cliente_data = BLL.Clientes.carregar_dados_numcliente(string_data, True)
+                                opr_clientes.removidos = False
+                                opr_clientes.Show()
+                            End If
+                        End If
+                    Case "Artigos"
+                        Dim opr_artigos As New OPR_Artigos
+                        opr_artigos.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_artigos.modo = True
+                        opr_artigos.n_cliente = n_cliente
+                        If removidos = True Then
+                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, False)
+                            opr_artigos.removidos = True
+                            opr_artigos.Show()
+                        Else
+                            opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, True)
+                            opr_artigos.removidos = False
+                            opr_artigos.Show()
+                        End If
+                    Case "Reparações"
+                        Dim opr_reparacoes As New OPR_Reparações
+                        opr_reparacoes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_reparacoes.modo = True
+                        opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
+                        opr_reparacoes.cliente = n_cliente
+                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
+                        Workspace.software_support = BLL.Software.return_software(string_data)
+                        Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
+                        If removidos = True Then
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
+                            opr_reparacoes.removidos = True
+                            opr_reparacoes.Show()
+                        Else
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
+                            opr_reparacoes.removidos = False
+                            opr_reparacoes.Show()
+                        End If
+                    Case "Técnicos"
+                        Dim opr_tecnicos As New OPR_Técnicos
+                        opr_tecnicos.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_tecnicos.modo = True
+                        If Workspace.Aluno = True Then
+                            If removidos = True Then
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.Alunos.carregar_dados(string_data, False)
+                                opr_tecnicos.removidos = True
+                                opr_tecnicos.Show()
+                            Else
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.Alunos.carregar_dados(string_data, True)
+                                opr_tecnicos.removidos = False
+                                opr_tecnicos.Show()
+                            End If
+                        Else
+                            If removidos = True Then
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados(string_data, False)
+                                opr_tecnicos.removidos = True
+                                opr_tecnicos.Show()
+                            Else
+                                opr_tecnicos.tecnico_data = BLL.Tecnicos.carregar_dados(string_data, True)
+                                opr_tecnicos.removidos = False
+                                opr_tecnicos.Show()
+                            End If
+                        End If
+                End Select
+                Me.Close()
+            Catch ex As Exception
+                MsgBox("Erro ao Editar: " & ex.Message)
+            End Try
+        Catch
+            MsgBox("Selecione algo na tabela primeiro!")
+        End Try
+    End Sub
+
+    Private Sub primeiroMenuItem_Click(sender As Object, e As EventArgs) Handles primeiroMenuItem.Click
+        Try
+            Dim string_data As String
+            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+            Select Case tabela
+                Case "Clientes"
+                    Workspace.artigosview = New ViewForm
+                    Workspace.check_artigos = True
+                    Workspace.artigosview.Text = "Artigos do Cliente"
+                    Workspace.artigosview.tabela = "Artigos"
+                    Workspace.artigosview.Label1.Text = "Artigos do Cliente: " & BLL.Clientes.carregar_dados_numcliente(string_data, True).Rows(0).Item("Nome")
+                    Workspace.artigosview.MdiParent = Workspace
+                    Workspace.m_ChildFormNumber += 1
+                    Workspace.artigosview.n_cliente = string_data
+                    Workspace.artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(string_data, True)
+                    Workspace.artigosview.removidos = False
+                    Workspace.artigosview.Show()
+                    Me.Close()
+                Case "Artigos"
+                    Workspace.repararview = New ViewForm
+                    Workspace.check_reparacoes = True
+                    Workspace.repararview.Text = "Reparações"
+                    Workspace.repararview.tabela = "Reparações"
+                    Workspace.repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
+                    Workspace.repararview.MdiParent = Workspace
+                    Workspace.repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
+                    Workspace.m_ChildFormNumber += 1
+                    Workspace.repararview.artigo = Workspace.artigosview.n_cliente = string_data
+                    Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(string_data, True)
+                    Workspace.repararview.removidos = False
+                    Workspace.repararview.Show()
+                    Me.Close()
+                Case "Reparações"
+                    If MsgBox("Deseja finalizar esta encomenda?", MsgBoxStyle.YesNo, "Finalizar encomenda") = vbYes Then
+                        Dim opr_reparacoes As New Inserir_Hardware_desk
+                        opr_reparacoes.MdiParent = Workspace
+                        Workspace.m_ChildFormNumber += 1
+                        opr_reparacoes.modo = True
+                        opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
+                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
+                        Workspace.software_support = BLL.Software.return_software(string_data)
+                        Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
+                        If removidos = True Then
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
+                            opr_reparacoes.Show()
+                        Else
+                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
+                            opr_reparacoes.Show()
+                        End If
+                        Me.Close()
+                    ElseIf MsgBox("Deseja mostrar o Relatório desta encomenda?", MsgBoxStyle.YesNo, "Mostrar Relatório") Then
+                        folha_repar.MdiParent = Workspace
+                        folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
+                        folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
+                        folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
+                        folha_repar.Show()
+                        Me.Close()
+                    End If
+                Case "Técnicos"
+                    Workspace.repararview = New ViewForm
+                    Workspace.check_reparacoes = True
+                    Workspace.repararview.Text = "Reparações"
+                    Workspace.repararview.tabela = "Reparações"
+                    Workspace.repararview.Label1.Text = "Reparações do técnico: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Nome").Value.ToString()
+                    Workspace.repararview.MdiParent = Workspace
+                    Workspace.m_ChildFormNumber += 1
+                    Workspace.repararview.removidos = False
+                    Workspace.repararview.Show()
+                    Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(string_data, True)
+                    Workspace.repararview.showdata.DataSource = Workspace.repararview.data_table
+                    Workspace.repararview.newbutton.Enabled = False
+                    Workspace.repararview.delbutton.Enabled = False
+                    Me.Close()
+            End Select
+        Catch i As Exception
+            MsgBox("Ocorreu um erro: " & i.Message, MsgBoxStyle.Exclamation, "Erro!")
+        End Try
     End Sub
 End Class

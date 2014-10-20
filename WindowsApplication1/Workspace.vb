@@ -6,6 +6,7 @@ Imports System.IO.Compression
 Public Class Workspace
     Public artigosview As New ViewForm
     Public repararview As New ViewForm
+    Public clientesview As New ViewForm
     Public config2 As New Passo2
     Public config3 As New Passo3
     Public config3_5 As New Passo3emeio
@@ -25,6 +26,7 @@ Public Class Workspace
     Public software_support As New DataTable
     Public string_pass, pass_string As String
     Public erros As Boolean
+    Public closingAll As Boolean
     Public preço As String
     Public select_hardware As New Inserir_Hardware_desk
     Public check_bd, check_clientes, check_artigos, check_reparacoes, check_tecnicos, check_utilizadores, check_empresas, check_select, check_add As Boolean
@@ -170,10 +172,11 @@ Public Class Workspace
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
         If check_clientes = False Then
-            Dim clientesview As New ViewForm
+            clientesview = New ViewForm
             check_clientes = True
             clientesview.Text = "Clientes"
             clientesview.tabela = "Clientes"
+            clientesview.Label1.Text = "Clientes"
             clientesview.MdiParent = Me
             m_ChildFormNumber += 1
             If Aluno = True Then
@@ -218,6 +221,29 @@ Public Class Workspace
             ToolStripStatusLabel1.Text = "Ocorreram Erros no Programa"
         Else
             ToolStripStatusLabel1.Text = "O programa está a decorrer normalmente!"
+        End If
+        Dim check, check2 As Boolean
+        check = False
+        check2 = False
+        For Each Form As Windows.Forms.Form In MdiChildren
+            check = True
+            If Form.WindowState = FormWindowState.Maximized Then
+                check2 = True
+            ElseIf Form.Text = "Início de Sessão - Clínica Informática" Then
+                check2 = True
+            End If
+        Next
+        If check = True Then
+            FecharTodasAsJanelasToolStripMenuItem.Enabled = True
+        Else
+            FecharTodasAsJanelasToolStripMenuItem.Enabled = False
+        End If
+        If check2 = True Then
+            companylogo.Visible = False
+            Label1.Visible = False
+        Else
+            companylogo.Visible = True
+            Label1.Visible = True
         End If
     End Sub
 
@@ -360,6 +386,7 @@ Public Class Workspace
                 check_tecnicos = True
                 tecnicoview.Text = "Técnicos"
                 tecnicoview.tabela = "Técnicos"
+                tecnicoview.Label1.Text = "Técnicos"
                 tecnicoview.MdiParent = Me
                 m_ChildFormNumber += 1
                 tecnicoview.data_table = BLL.Tecnicos.carregar(True)
@@ -375,6 +402,17 @@ Public Class Workspace
     End Sub
 
     Private Sub UtilizadoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UtilizadoresToolStripMenuItem.Click
+        
+    End Sub
+
+    Private Sub companylogo_Click(sender As Object, e As EventArgs) Handles companylogo.Click
+        empresa_edit = New OPR_Empresas
+        empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
+        empresa_edit.MdiParent = Me
+        empresa_edit.Show()
+    End Sub
+
+    Private Sub TerminarSessãoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TerminarSessãoToolStripMenuItem.Click
         If MsgBox("Tem a certeza que quer terminar sessão?", vbYesNo, "Terminar Sessão") = vbYes Then
             For Each ChildForm As Form In Me.MdiChildren
                 ChildForm.Close()
@@ -398,10 +436,24 @@ Public Class Workspace
         End If
     End Sub
 
-    Private Sub companylogo_Click(sender As Object, e As EventArgs) Handles companylogo.Click
-        empresa_edit = New OPR_Empresas
-        empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
-        empresa_edit.MdiParent = Me
-        empresa_edit.Show()
+    Private Sub SairDoProgramaToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SairDoProgramaToolStripMenuItem.Click
+        If MsgBox("Tem a certeza que quer sair do programa?", vbYesNo, "Terminar Sessão") = vbYes Then
+            For Each ChildForm As Form In Me.MdiChildren
+                ChildForm.Close()
+            Next
+            m_ChildFormNumber += 1
+            Me.FormBorderStyle = Windows.Forms.FormBorderStyle.FixedSingle
+            Me.MaximizeBox = False
+            'terminarsessaobutton.Hide()
+            Me.Close()
+        End If
+    End Sub
+
+    Private Sub FecharTodasAsJanelasToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FecharTodasAsJanelasToolStripMenuItem.Click
+        If MsgBox("Quer fechar todas as janelas?", MsgBoxStyle.YesNo, "Fechar todas as Janelas") = vbYes Then
+            For Each Form As Windows.Forms.Form In MdiChildren
+                Form.Close()
+            Next
+        End If
     End Sub
 End Class

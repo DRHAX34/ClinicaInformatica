@@ -19,6 +19,9 @@
         exitbutton.Image = exitimagebutton
         Dim limparimagebutton As New Bitmap((My.Resources._32x32), restartbutton.Height - 1, restartbutton.Height - 1)
         limparimagebutton.MakeTransparent(Color.White)
+        Dim pictureboximage As New Bitmap(My.Resources.icon_lg_devices)
+        pictureboximage.MakeTransparent(Color.White)
+        PictureBox1.Image = pictureboximage
         Try
             If modo = True Then
                 restartbutton.Image = restartimagebutton
