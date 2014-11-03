@@ -846,7 +846,7 @@ Partial Class Inserir_Hardware_desk
         '
         '
         '
-        Me.RadLabel1.RootElement.ControlBounds = New System.Drawing.Rectangle(594, 370, 100, 18)
+        Me.RadLabel1.RootElement.ControlBounds = New System.Drawing.Rectangle(463, 370, 100, 18)
         Me.RadLabel1.Size = New System.Drawing.Size(193, 31)
         Me.RadLabel1.TabIndex = 241
         Me.RadLabel1.Text = "Total..............................."

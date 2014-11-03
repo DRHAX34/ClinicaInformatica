@@ -6,6 +6,10 @@ Partial Class SQLToReportConnection
         Private Sub ReparaçõesDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging
         End Sub
 
+        Private Sub ReparaçõesDataTable_ReparaçõesRowChanging(sender As Object, e As ReparaçõesRowChangeEvent) Handles Me.ReparaçõesRowChanging
+
+        End Sub
+
     End Class
 
     Partial Class HardwareDataTable

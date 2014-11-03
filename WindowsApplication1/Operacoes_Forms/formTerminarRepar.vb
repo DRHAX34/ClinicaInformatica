@@ -2,36 +2,43 @@
     Public modo As Boolean
     Public reparaçao_data As New DataTable
     Public artigos As Integer
+    Private check As Boolean
     Private Sub Inserir_Hardware_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim certoimagebutton As New Bitmap((My.Resources._1405695721_Select), certobutton.Height, certobutton.Height)
         certoimagebutton.MakeTransparent(Color.White)
         certobutton.Image = certoimagebutton
-        Dim exitimagebutton As New Bitmap((My.Resources.Sair), exitbutton.Height, exitbutton.Height)
+        Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height, exitbutton.Height)
         exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
-        Me.AcceptButton = certobutton
         If modo = False Then
-            caixapreçobox.Text = "0.00"
-            motherpreçobox.Text = "0.00"
+            caixapreçobox.Text = "0,00"
+            motherpreçobox.Text = "0,00"
             coolerqtdbox.Value = "0"
-            coolerpreçobox.Text = "0.00"
+            coolerpreçobox.Text = "0,00"
             vgaqtdbox.Value = "0"
-            vgapreçobox.Text = "0.00"
+            vgapreçobox.Text = "0,00"
             opticqtdbox.Value = "0"
-            opticpreçobox.Text = "0.00"
+            opticpreçobox.Text = "0,00"
             redeqtdbox.Value = "0"
-            redepreçobox.Text = "0.00"
-            fontepreçobox.Text = "0.00"
-            processadorpreçobox.Text = "0.00"
+            redepreçobox.Text = "0,00"
+            fontepreçobox.Text = "0,00"
+            processadorpreçobox.Text = "0,00"
             memoriaqtdbox.Value = "0"
-            memóriapreçobox.Text = "0.00"
+            memóriapreçobox.Text = "0,00"
             discoqtdbox.Value = "0"
-            discopreçobox.Text = "0.00"
+            discopreçobox.Text = "0,00"
             leitorqtdbox.Value = "0"
-            leitorpreçobox.Text = "0.00"
+            leitorpreçobox.Text = "0,00"
             otherqtdbox.Value = "0"
-            otherpreçobox.Text = "0.00"
+            otherpreçobox.Text = "0,00"
             otherdescriçaobox.Text = ""
+            txtInstOS.Text = "0,00"
+            txtCodSO.Text = "0,00"
+            txtLimpeza.Text = "0,00"
+            txtVirus.Text = "0,00"
+            txtSpyware.Text = "0,00"
+            txtOtherSO.Text = "0,00"
+            txtRecSO.Text = "0,00"
             Workspace.hardware_support = New DataTable
         Else
             caixapreçobox.Text = Workspace.hardware_support.Rows(0).Item("Preço")
@@ -55,6 +62,14 @@
             otherqtdbox.Value = Workspace.hardware_support.Rows(11).Item("Qtd")
             otherpreçobox.Text = Workspace.hardware_support.Rows(11).Item("Preço")
             otherdescriçaobox.Text = Workspace.hardware_support.Rows(11).Item("Tipo")
+            txtInstOS.Text = Workspace.software_support.Rows(0).Item("Preço")
+            txtRecSO.Text = Workspace.software_support.Rows(1).Item("Preço")
+            txtSpyware.Text = Workspace.software_support.Rows(2).Item("Preço")
+            txtVirus.Text = Workspace.software_support.Rows(3).Item("Preço")
+            txtCodSO.Text = Workspace.software_support.Rows(4).Item("Preço")
+            txtLimpeza.Text = Workspace.software_support.Rows(5).Item("Preço")
+            txtDescricaoSO.Text = Workspace.software_support.Rows(6).Item("Tipo")
+            txtOtherSO.Text = Workspace.software_support.Rows(6).Item("Preço")
         End If
     End Sub
 
@@ -178,12 +193,12 @@
                     Next
                 End If
             End If
-            BLL.Reparacoes.terminarReparacao(reparaçao_data.Rows(0).Item("NºReparação"), Today.Date, txtPreço.Text)
-            folha_repar.MdiParent = Workspace
-            folha_repar.n_repar = reparaçao_data.Rows(0).Item(0).ToString()
-            folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
-            folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
-            folha_repar.Show()
+                BLL.Reparacoes.terminarReparacao(reparaçao_data.Rows(0).Item("NºReparação"), Today.Date, txtPreço.Text)
+                folha_repar.MdiParent = Workspace
+                folha_repar.n_repar = reparaçao_data.Rows(0).Item(0).ToString()
+                folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(artigos, True)
+                folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
+                folha_repar.Show()
         Else
             If Workspace.hardware_support.Columns.Count <> 0 Then
                 If Workspace.hardware_support.Rows.Count <> 0 Then
@@ -206,159 +221,20 @@
             folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
             folha_repar.Show()
         End If
+        Me.Close()
     End Sub
-
-        'Public Sub NumberFormat(ByVal Text As TextBox)
-        '    Dim temptext As TextBox = Text
-        '    If Len(temptext.Text) > 0 Then
-        '        'estou a por estes comentários para te explicar como funcionam estes códigos.
-        '        'tira o simbolo do Euro 
-
-        '        If temptext.Text.StartsWith("€") Then
-        '            temptext.Text = temptext.Text.Substring(1, temptext.TextLength - 1)
-        '        End If
-        '        'esta parte adiciona o decimal por isso se o utilizador introduzir 1234 é equivalente a 12.34 
-        '        'se não houver decimal, adiciona automáticamente
-
-        '        If temptext.Text.Contains(".") Then
-        '        Else
-        '            If temptext.TextLength > 1 Then
-        '                Dim tempstr As String = temptext.Text.Substring(0, temptext.TextLength - 2)
-        '                Dim tempstrlast2 As String = temptext.Text.Substring(temptext.TextLength - 2, 2)
-        '                temptext.Text = CDec(tempstr & "." & tempstrlast2)
-        '            Else
-        '                temptext.Text = ".0" & temptext.Text
-        '            End If
-        '        End If
-
-        '        ' alterar isto de 0 para -1 dá o valor decimal 
-
-        '        temptext.Text = FormatNumber(CDbl(temptext.Text), -1)
-        '        Dim x As Integer = temptext.Selectionstart.ToString
-        '        If x = 0 Then
-        '            temptext.Selectionstart = Len(temptext.Text)
-        '            temptext.SelectionLength = 0
-        '        Else
-        '            temptext.Selectionstart = x
-        '            temptext.SelectionLength = 0
-        '        End If
-        '    End If
-
-        '    'Adiciona o simbolo €
-
-        '    Text.Text = temptext.Text & "€"
-        'End Sub
-
-
-
-
-    Private Sub caixapreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(caixapreçobox)
-        'Try
-        '    caixapreçoivalabel.Text = CDec(caixapreçobox.Text) + ((CDec(caixapreçobox.Text) * 23) / 100)
-        'Catch
-        'End Try
-    End Sub
-
-    Private Sub motherpreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(motherpreçobox)
-        'Try
-        '    motherpreçoivalabel.Text = CDec(motherpreçobox.Text) + ((CDec(motherpreçobox.Text) * 23) / 100)
-        'Catch
-        'End Try
-    End Sub
-
-    Private Sub coolerpreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(coolerpreçobox)
-        Try
-            'coolerpreçoivalabel.Text = CDec(coolerpreçobox.Text) + ((CDec(coolerpreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub VGApreçobox_TextChanged(sender As Object, e As EventArgs)
-        ''NumberFormat(VGApreçobox)
-        Try
-            'vgapreçoivalabel.Text = CDec(vgapreçobox.Text) + ((CDec(vgapreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub opticpreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(opticpreçobox)
-        Try
-            ''opticpreçoivalabel.Text = CDec(opticpreçobox.Text) + ((CDec(opticpreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub redepreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(redepreçobox)
-        Try
-            'redepreçoivalabel.Text = CDec(redepreçobox.Text) + ((CDec(redepreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub fontepreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(fontepreçobox)
-        Try
-            'fontepreçoivalabel.Text = CDec(fontepreçobox.Text) + ((CDec(fontepreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub processadorpreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(processadorpreçobox)
-        Try
-            'processadorpreçoivalabel.Text = CDec(processadorpreçobox.Text) + ((CDec(processadorpreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub memóriapreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(memóriapreçobox)
-        Try
-            'memoriapreçoivalabel.Text = CDec(memóriapreçobox.Text) + ((CDec(memóriapreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub discopreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(discopreçobox)
-        Try
-            'discopreçoivalabel.Text = CDec(discopreçobox.Text) + ((CDec(discopreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub leitorpreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(leitorpreçobox)
-        Try
-            'leitorpreçoivalabel.Text = CDec(leitorpreçobox.Text) + ((CDec(leitorpreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub otherpreçobox_TextChanged(sender As Object, e As EventArgs)
-        'NumberFormat(otherpreçobox)
-        Try
-
-            'otherpreçoivalabel.Text = CDec(otherpreçobox.Text) + ((CDec(otherpreçobox.Text) * 23) / 100)
-        Catch
-        End Try
-    End Sub
-
-    Private Sub RadLabel1_Click(sender As Object, e As EventArgs)
-
-    End Sub
-
 
     Private Sub caixapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles caixapreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If caixapreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -366,9 +242,15 @@
     End Sub
     Private Sub motherpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles motherpreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If motherpreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -376,9 +258,15 @@
     End Sub
     Private Sub coolerpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles coolerpreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If coolerpreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -386,9 +274,15 @@
     End Sub
     Private Sub vgapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles vgapreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If vgapreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -396,9 +290,15 @@
     End Sub
     Private Sub opticpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles opticpreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If opticpreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -406,9 +306,15 @@
     End Sub
     Private Sub redepreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles redepreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If redepreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -416,9 +322,15 @@
     End Sub
     Private Sub fontepreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles fontepreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If fontepreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -426,9 +338,15 @@
     End Sub
     Private Sub processadorpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles processadorpreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If processadorpreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -436,9 +354,15 @@
     End Sub
     Private Sub memoriapreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles memóriapreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If memóriapreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -446,9 +370,15 @@
     End Sub
     Private Sub discopreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles discopreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If discopreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -456,9 +386,15 @@
     End Sub
     Private Sub leitorpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles leitorpreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If leitorpreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
@@ -466,357 +402,689 @@
     End Sub
     Private Sub otherpreçobox_onlynums(sender As Object, e As KeyPressEventArgs) Handles otherpreçobox.KeyPress
         Try
-            If e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
-                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Or (InStr(sender.text, ".") > 0 And e.KeyChar = Microsoft.VisualBasic.Chr(46)) Then
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
                     e.Handled = True
+                End If
+            Else
+                If otherpreçobox.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
                 End If
             End If
         Catch
         End Try
     End Sub
-
-    Private Sub RadLabel7_Click(sender As Object, e As EventArgs)
-
+    Private Sub txtInstOS_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtInstOS.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtInstOS.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtRecOS_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtRecSO.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtRecSO.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtLimpeza_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtLimpeza.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtLimpeza.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtVirus_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtVirus.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtVirus.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtSpyware_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtSpyware.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtSpyware.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtCodOS_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtCodSO.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtCodSO.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtOtherSO_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtOtherSO.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtOtherSO.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
+    End Sub
+    Private Sub txtPreço_onlynums(sender As Object, e As KeyPressEventArgs) Handles txtPreço.KeyPress
+        Try
+            If e.KeyChar <> Microsoft.VisualBasic.Chr(44) And e.KeyChar <> Microsoft.VisualBasic.Chr(46) Then
+                If System.Char.IsDigit(e.KeyChar) = False And e.KeyChar <> Microsoft.VisualBasic.Chr(8) Then
+                    e.Handled = True
+                End If
+            Else
+                If txtPreço.Text.Contains(",") Then
+                    e.Handled = True
+                Else
+                    e.KeyChar = ","
+                End If
+            End If
+        Catch
+        End Try
     End Sub
 
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
     End Sub
 
-    Private Sub caixapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles caixapreçobox.LostFocus
-        Try
-            caixapreçobox.Text = caixapreçobox.Text.Replace(",", ".")
-            caixapreçobox.Text = FormatCurrency(caixapreçobox.Text, 2)
+    Private Sub caixapreçobox_gotfocus(sender As Object, e As EventArgs) Handles caixapreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub caixapreçobox_LostFocus(sender As Object, e As EventArgs) Handles caixapreçobox.LostFocus
+        If check = False Then
             Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                caixapreçobox.Text = caixapreçobox.Text.Replace(".", ",")
+                caixapreçobox.Text = FormatCurrency(caixapreçobox.Text, 2)
+                caixapreçobox.Text = caixapreçobox.Text.Trim("€")
+                caixapreçobox.Text = caixapreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                caixapreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            caixapreçobox.Focus()
-        End Try
-        
-    End Sub
-
-    Private Sub Label20_Click(sender As Object, e As EventArgs) Handles Label20.Click
+        End If
 
     End Sub
-
-    Private Sub motherpreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles motherpreçobox.LostFocus
+    Private Sub txtpreçobox_lostfocus(sender As Object, e As EventArgs) Handles txtPreço.LostFocus
         Try
-            motherpreçobox.Text = motherpreçobox.Text.Replace(",", ".")
-            motherpreçobox.Text = FormatCurrency(motherpreçobox.Text, 2)
+            txtPreço.Text = txtPreço.Text.Replace(".", ",")
+            txtPreço.Text = FormatCurrency(txtPreço.Text, 2)
+            txtPreço.Text = txtPreço.Text.Trim("€")
+            txtPreço.Text = txtPreço.Text.Trim()
+        Catch
+            MsgBox("Erro no preço final", MsgBoxStyle.OkOnly, "Erro!")
+        End Try
+    End Sub
+    Private Sub motherpreçobox_gotfocus(sender As Object, e As EventArgs) Handles motherpreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub motherpreçobox_LostFocus(sender As Object, e As EventArgs) Handles motherpreçobox.LostFocus
+        If check = False Then
             Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            motherpreçobox.Focus()
-        End Try
-    End Sub
+                motherpreçobox.Text = motherpreçobox.Text.Replace(".", ",")
+                motherpreçobox.Text = FormatCurrency(motherpreçobox.Text, 2)
+                motherpreçobox.Text = motherpreçobox.Text.Trim("€")
+                motherpreçobox.Text = motherpreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
 
-    Private Sub coolerpreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles coolerpreçobox.LostFocus
-        Try
-            If coolerpreçobox.Text <> "0" And coolerpreçobox.Text <> "0.00" And coolerpreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If coolerqtdbox.Value = 0 Then
-                    coolerqtdbox.Value = 1
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                motherpreçobox.Text = "0,00"
+            End Try
+        End If
+
+    End Sub
+    Private Sub coolerpreçobox_gotfocus(sender As Object, e As EventArgs) Handles coolerpreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub coolerpreçobox_LostFocus(sender As Object, e As EventArgs) Handles coolerpreçobox.LostFocus
+        If check = False Then
+            Try
+                If coolerpreçobox.Text <> "0" And coolerpreçobox.Text <> "0,00" And coolerpreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If coolerqtdbox.Value = 0 Then
+                        coolerqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            coolerpreçobox.Text = coolerpreçobox.Text.Replace(",", ".")
-            coolerpreçobox.Text = FormatCurrency(coolerpreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                coolerpreçobox.Text = coolerpreçobox.Text.Replace(".", ",")
+                coolerpreçobox.Text = FormatCurrency(coolerpreçobox.Text, 2)
+                coolerpreçobox.Text = coolerpreçobox.Text.Trim("€")
+                coolerpreçobox.Text = coolerpreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                coolerpreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            coolerpreçobox.Focus()
-        End Try
+        End If
 
     End Sub
-
-    Private Sub vgapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles vgapreçobox.LostFocus
-        Try
-            If vgapreçobox.Text <> "0" And vgapreçobox.Text <> "0.00" And vgapreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If vgaqtdbox.Value = 0 Then
-                    vgaqtdbox.Value = 1
+    Private Sub vgapreçobox_gotfocus(sender As Object, e As EventArgs) Handles vgapreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub vgapreçobox_LostFocus(sender As Object, e As EventArgs) Handles vgapreçobox.LostFocus
+        If check = False Then
+            Try
+                If vgapreçobox.Text <> "0" And vgapreçobox.Text <> "0,00" And vgapreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If vgaqtdbox.Value = 0 Then
+                        vgaqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            vgapreçobox.Text = vgapreçobox.Text.Replace(",", ".")
-            vgapreçobox.Text = FormatCurrency(vgapreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            vgapreçobox.Focus()
-        End Try
-    End Sub
+                vgapreçobox.Text = vgapreçobox.Text.Replace(".", ",")
+                vgapreçobox.Text = FormatCurrency(vgapreçobox.Text, 2)
+                vgapreçobox.Text = vgapreçobox.Text.Trim("€")
+                vgapreçobox.Text = vgapreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
 
-    Private Sub opticpreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles opticpreçobox.LostFocus
-        Try
-            If opticpreçobox.Text <> "0" And opticpreçobox.Text <> "0.00" And opticpreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If opticqtdbox.Value = 0 Then
-                    opticqtdbox.Value = 1
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                vgapreçobox.Text = "0,00"
+            End Try
+        End If
+
+    End Sub
+    Private Sub opticpreçobox_gotfocus(sender As Object, e As EventArgs) Handles opticpreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub opticpreçobox_LostFocus(sender As Object, e As EventArgs) Handles opticpreçobox.LostFocus
+        If check = False Then
+            Try
+                If opticpreçobox.Text <> "0" And opticpreçobox.Text <> "0,00" And opticpreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If opticqtdbox.Value = 0 Then
+                        opticqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            opticpreçobox.Text = opticpreçobox.Text.Replace(",", ".")
-            opticpreçobox.Text = FormatCurrency(opticpreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                opticpreçobox.Text = opticpreçobox.Text.Replace(".", ",")
+                opticpreçobox.Text = FormatCurrency(opticpreçobox.Text, 2)
+                opticpreçobox.Text = opticpreçobox.Text.Trim("€")
+                opticpreçobox.Text = opticpreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                opticpreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            opticpreçobox.Focus()
-        End Try
+        End If
+
     End Sub
 
-    Private Sub redepreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles redepreçobox.LostFocus
-        Try
-            If redepreçobox.Text <> "0" And redepreçobox.Text <> "0.00" And redepreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If redeqtdbox.Value = 0 Then
-                    redeqtdbox.Value = 1
+    Private Sub redepreçobox_gotfocus(sender As Object, e As EventArgs) Handles redepreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub redepreçobox_LostFocus(sender As Object, e As EventArgs) Handles redepreçobox.LostFocus
+        If check = False Then
+            Try
+                If redepreçobox.Text <> "0" And redepreçobox.Text <> "0,00" And redepreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If redeqtdbox.Value = 0 Then
+                        redeqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            redepreçobox.Text = redepreçobox.Text.Replace(",", ".")
-            redepreçobox.Text = FormatCurrency(redepreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                redepreçobox.Text = redepreçobox.Text.Replace(".", ",")
+                redepreçobox.Text = FormatCurrency(redepreçobox.Text, 2)
+                redepreçobox.Text = redepreçobox.Text.Trim("€")
+                redepreçobox.Text = redepreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                redepreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            redepreçobox.Focus()
-        End Try
+        End If
+
+    End Sub
+    Private Sub fontepreçobox_gotfocus(sender As Object, e As EventArgs) Handles fontepreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub fontepreçobox_LostFocus(sender As Object, e As EventArgs) Handles fontepreçobox.LostFocus
+        If check = False Then
+            Try
+                fontepreçobox.Text = fontepreçobox.Text.Replace(".", ",")
+                fontepreçobox.Text = FormatCurrency(fontepreçobox.Text, 2)
+                fontepreçobox.Text = fontepreçobox.Text.Trim("€")
+                fontepreçobox.Text = fontepreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                fontepreçobox.Text = "0,00"
+            End Try
+        End If
+
     End Sub
 
-    Private Sub fontepreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles fontepreçobox.LostFocus
-        Try
-            fontepreçobox.Text = fontepreçobox.Text.Replace(",", ".")
-            fontepreçobox.Text = FormatCurrency(fontepreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            fontepreçobox.Focus()
-        End Try
+    Private Sub processadorpreçobox_gotfocus(sender As Object, e As EventArgs) Handles processadorpreçobox.GotFocus
+        check = False
     End Sub
-
-    Private Sub processadorpreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles processadorpreçobox.LostFocus
-        Try
-            If processadorpreçobox.Text <> "0" And processadorpreçobox.Text <> "0.00" And processadorpreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If processadorqtdbox.Value = 0 Then
-                    processadorqtdbox.Value = 1
+    Private Sub processadorpreçobox_LostFocus(sender As Object, e As EventArgs) Handles processadorpreçobox.LostFocus
+        If check = False Then
+            Try
+                If processadorpreçobox.Text <> "0" And processadorpreçobox.Text <> "0,00" And processadorpreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If processadorqtdbox.Value = 0 Then
+                        processadorqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            processadorpreçobox.Text = processadorpreçobox.Text.Replace(",", ".")
-            processadorpreçobox.Text = FormatCurrency(processadorpreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                processadorpreçobox.Text = processadorpreçobox.Text.Replace(".", ",")
+                processadorpreçobox.Text = FormatCurrency(processadorpreçobox.Text, 2)
+                processadorpreçobox.Text = processadorpreçobox.Text.Trim("€")
+                processadorpreçobox.Text = processadorpreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                processadorpreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            processadorpreçobox.Focus()
-        End Try
+        End If
+
     End Sub
 
-    Private Sub memóriapreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles memóriapreçobox.LostFocus
-        Try
-            If memóriapreçobox.Text <> "0" And memóriapreçobox.Text <> "0.00" And memóriapreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If memoriaqtdbox.Value = 0 Then
-                    memoriaqtdbox.Value = 1
+    Private Sub memoriapreçobox_gotfocus(sender As Object, e As EventArgs) Handles memóriapreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub memoriapreçobox_LostFocus(sender As Object, e As EventArgs) Handles memóriapreçobox.LostFocus
+        If check = False Then
+            Try
+                If memóriapreçobox.Text <> "0" And memóriapreçobox.Text <> "0,00" And memóriapreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If memoriaqtdbox.Value = 0 Then
+                        memoriaqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            memóriapreçobox.Text = memóriapreçobox.Text.Replace(",", ".")
-            memóriapreçobox.Text = FormatCurrency(memóriapreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                memóriapreçobox.Text = memóriapreçobox.Text.Replace(".", ",")
+                memóriapreçobox.Text = FormatCurrency(memóriapreçobox.Text, 2)
+                memóriapreçobox.Text = memóriapreçobox.Text.Trim("€")
+                memóriapreçobox.Text = memóriapreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                memóriapreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            memóriapreçobox.Focus()
-        End Try
+        End If
+
     End Sub
 
-    Private Sub discopreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles discopreçobox.LostFocus
-        Try
-            If discopreçobox.Text <> "0" And discopreçobox.Text <> "0.00" And discopreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If discoqtdbox.Value = 0 Then
-                    discoqtdbox.Value = 1
+    Private Sub discopreçobox_gotfocus(sender As Object, e As EventArgs) Handles discopreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub discopreçobox_LostFocus(sender As Object, e As EventArgs) Handles discopreçobox.LostFocus
+        If check = False Then
+            Try
+                If discopreçobox.Text <> "0" And discopreçobox.Text <> "0,00" And discopreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If discoqtdbox.Value = 0 Then
+                        discoqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            discopreçobox.Text = discopreçobox.Text.Replace(",", ".")
-            discopreçobox.Text = FormatCurrency(discopreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            discopreçobox.Focus()
-        End Try
-    End Sub
+                discopreçobox.Text = discopreçobox.Text.Replace(".", ",")
+                discopreçobox.Text = FormatCurrency(discopreçobox.Text, 2)
+                discopreçobox.Text = discopreçobox.Text.Trim("€")
+                discopreçobox.Text = discopreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
 
-    Private Sub leitorpreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles leitorpreçobox.LostFocus
-        Try
-            If leitorpreçobox.Text <> "0" And leitorpreçobox.Text <> "0.00" And leitorpreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If leitorqtdbox.Value = 0 Then
-                    leitorqtdbox.Value = 1
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                discopreçobox.Text = "0,00"
+            End Try
+        End If
+
+    End Sub
+    Private Sub leitorpreçobox_gotfocus(sender As Object, e As EventArgs) Handles leitorpreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub leitorpreçobox_LostFocus(sender As Object, e As EventArgs) Handles leitorpreçobox.LostFocus
+        If check = False Then
+            Try
+                If leitorpreçobox.Text <> "0" And leitorpreçobox.Text <> "0,00" And leitorpreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If leitorqtdbox.Value = 0 Then
+                        leitorqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            leitorpreçobox.Text = leitorpreçobox.Text.Replace(",", ".")
-            leitorpreçobox.Text = FormatCurrency(leitorpreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            leitorpreçobox.Focus()
-        End Try
-    End Sub
+                leitorpreçobox.Text = leitorpreçobox.Text.Replace(".", ",")
+                leitorpreçobox.Text = FormatCurrency(leitorpreçobox.Text, 2)
+                leitorpreçobox.Text = leitorpreçobox.Text.Trim("€")
+                leitorpreçobox.Text = leitorpreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
 
-    Private Sub otherpreçobox_TextChanged_1(sender As Object, e As EventArgs) Handles otherpreçobox.LostFocus
-        Try
-            If otherpreçobox.Text <> "0" And otherpreçobox.Text <> "0.00" And otherpreçobox.Text <> FormatCurrency("0.00", 2) Then
-                If otherqtdbox.Value = 0 Then
-                    otherqtdbox.Value = 1
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                leitorpreçobox.Text = "0,00"
+            End Try
+        End If
+
+    End Sub
+    Private Sub otherpreçobox_gotfocus(sender As Object, e As EventArgs) Handles otherpreçobox.GotFocus
+        check = False
+    End Sub
+    Private Sub otherpreçobox_LostFocus(sender As Object, e As EventArgs) Handles otherpreçobox.LostFocus
+        If check = False Then
+            Try
+                If otherpreçobox.Text <> "0" And otherpreçobox.Text <> "0,00" And otherpreçobox.Text <> FormatCurrency("0,00", 2).Trim("€").Trim() Then
+                    If otherqtdbox.Value = 0 Then
+                        otherqtdbox.Value = 1
+                    End If
                 End If
-            End If
-            otherpreçobox.Text = otherpreçobox.Text.Replace(",", ".")
-            otherpreçobox.Text = FormatCurrency(otherpreçobox.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                otherpreçobox.Text = otherpreçobox.Text.Replace(".", ",")
+                otherpreçobox.Text = FormatCurrency(otherpreçobox.Text, 2)
+                otherpreçobox.Text = otherpreçobox.Text.Trim("€")
+                otherpreçobox.Text = otherpreçobox.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                otherpreçobox.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            otherpreçobox.Focus()
-        End Try
+        End If
+
     End Sub
 
-    Private Sub txtInstOS_TextChanged(sender As Object, e As EventArgs) Handles txtInstOS.LostFocus
-        Try
-            txtInstOS.Text = txtInstOS.Text.Replace(",", ".")
-            txtInstOS.Text = FormatCurrency(txtInstOS.Text, 2)
+    Private Sub txtInstSO_gotfocus(sender As Object, e As EventArgs) Handles txtInstOS.GotFocus
+        check = False
+    End Sub
+    Private Sub txtInstSO_LostFocus(sender As Object, e As EventArgs) Handles txtInstOS.LostFocus
+        If check = False Then
             Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                txtInstOS.Text = txtInstOS.Text.Replace(".", ",")
+                txtInstOS.Text = FormatCurrency(txtInstOS.Text, 2)
+                txtInstOS.Text = txtInstOS.Text.Trim("€")
+                txtInstOS.Text = txtInstOS.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtInstOS.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtInstOS.Focus()
-        End Try
+        End If
+
     End Sub
 
-    Private Sub txtRecSO_TextChanged(sender As Object, e As EventArgs) Handles txtRecSO.LostFocus
-        Try
-            txtRecSO.Text = txtRecSO.Text.Replace(",", ".")
-            txtRecSO.Text = FormatCurrency(txtRecSO.Text, 2)
+    Private Sub txtRecSO_gotfocus(sender As Object, e As EventArgs) Handles txtRecSO.GotFocus
+        check = False
+    End Sub
+    Private Sub txtRecSO_LostFocus(sender As Object, e As EventArgs) Handles txtRecSO.LostFocus
+        If check = False Then
             Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                txtRecSO.Text = txtRecSO.Text.Replace(".", ",")
+                txtRecSO.Text = FormatCurrency(txtRecSO.Text, 2)
+                txtRecSO.Text = txtRecSO.Text.Trim("€")
+                txtRecSO.Text = txtRecSO.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtRecSO.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtRecSO.Focus()
-        End Try
+        End If
+
     End Sub
 
-    Private Sub txtSpyware_TextChanged(sender As Object, e As EventArgs) Handles txtSpyware.LostFocus
-        Try
-            txtSpyware.Text = txtSpyware.Text.Replace(",", ".")
-            txtSpyware.Text = FormatCurrency(txtSpyware.Text, 2)
+    Private Sub txtSpyware_gotfocus(sender As Object, e As EventArgs) Handles txtSpyware.GotFocus
+        check = False
+    End Sub
+    Private Sub txtSpyware_LostFocus(sender As Object, e As EventArgs) Handles txtSpyware.LostFocus
+        If check = False Then
             Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                txtSpyware.Text = txtSpyware.Text.Replace(".", ",")
+                txtSpyware.Text = FormatCurrency(txtSpyware.Text, 2)
+                txtSpyware.Text = txtSpyware.Text.Trim("€")
+                txtSpyware.Text = txtSpyware.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtSpyware.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtSpyware.Focus()
-        End Try
+        End If
+
+    End Sub
+    Private Sub txtVirus_gotfocus(sender As Object, e As EventArgs) Handles txtVirus.GotFocus
+        check = False
+    End Sub
+    Private Sub txtVirus_LostFocus(sender As Object, e As EventArgs) Handles txtVirus.LostFocus
+        If check = False Then
+            Try
+                txtVirus.Text = txtVirus.Text.Replace(".", ",")
+                txtVirus.Text = FormatCurrency(txtVirus.Text, 2)
+                txtVirus.Text = txtVirus.Text.Trim("€")
+                txtVirus.Text = txtVirus.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtVirus.Text = "0,00"
+            End Try
+        End If
+
+    End Sub
+    Private Sub txtCodSO_gotfocus(sender As Object, e As EventArgs) Handles txtCodSO.GotFocus
+        check = False
+    End Sub
+    Private Sub txtCodSO_LostFocus(sender As Object, e As EventArgs) Handles txtCodSO.LostFocus
+        If check = False Then
+            Try
+                txtCodSO.Text = txtCodSO.Text.Replace(".", ",")
+                txtCodSO.Text = FormatCurrency(txtCodSO.Text, 2)
+                txtCodSO.Text = txtCodSO.Text.Trim("€")
+                txtCodSO.Text = txtCodSO.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtCodSO.Text = "0,00"
+            End Try
+        End If
+
+    End Sub
+    Private Sub txtLimpeza_gotfocus(sender As Object, e As EventArgs) Handles txtLimpeza.GotFocus
+        check = False
+    End Sub
+    Private Sub txtLimpeza_LostFocus(sender As Object, e As EventArgs) Handles txtLimpeza.LostFocus
+        If check = False Then
+            Try
+                txtLimpeza.Text = txtLimpeza.Text.Replace(".", ",")
+                txtLimpeza.Text = FormatCurrency(txtLimpeza.Text, 2)
+                txtLimpeza.Text = txtLimpeza.Text.Trim("€")
+                txtLimpeza.Text = txtLimpeza.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
+
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtLimpeza.Text = "0,00"
+            End Try
+        End If
+
     End Sub
 
-    Private Sub txtVirus_TextChanged(sender As Object, e As EventArgs) Handles txtVirus.LostFocus
-        Try
-            txtVirus.Text = txtVirus.Text.Replace(",", ".")
-            txtVirus.Text = FormatCurrency(txtVirus.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtVirus.Focus()
-        End Try
+    Private Sub txtOtherSO_gotfocus(sender As Object, e As EventArgs) Handles txtOtherSO.GotFocus
+        check = False
     End Sub
-
-    Private Sub txtCodSO_TextChanged(sender As Object, e As EventArgs) Handles txtCodSO.LostFocus
-        Try
-            txtCodSO.Text = txtCodSO.Text.Replace(",", ".")
-            txtCodSO.Text = FormatCurrency(txtCodSO.Text, 2)
+    Private Sub txtOtherSO_LostFocus(sender As Object, e As EventArgs) Handles txtOtherSO.LostFocus
+        If check = False Then
             Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtCodSO.Focus()
-        End Try
-    End Sub
+                txtOtherSO.Text = txtOtherSO.Text.Replace(".", ",")
+                txtOtherSO.Text = FormatCurrency(txtOtherSO.Text, 2)
+                txtOtherSO.Text = txtOtherSO.Text.Trim("€")
+                txtOtherSO.Text = txtOtherSO.Text.Trim()
+                Try
+                    txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
+                Catch ex As Exception
+                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+                    check = True
+                End Try
 
-    Private Sub txtLimpeza_TextChanged(sender As Object, e As EventArgs) Handles txtLimpeza.LostFocus
-        Try
-            txtLimpeza.Text = txtLimpeza.Text.Replace(",", ".")
-            txtLimpeza.Text = FormatCurrency(txtLimpeza.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+            Catch
+                MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
+                check = True
+                txtOtherSO.Text = "0,00"
             End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtLimpeza.Focus()
-        End Try
-    End Sub
-
-    Private Sub txtOtherSO_TextChanged(sender As Object, e As EventArgs) Handles txtOtherSO.LostFocus
-        Try
-            txtOtherSO.Text = txtOtherSO.Text.Replace(",", ".")
-            txtOtherSO.Text = FormatCurrency(txtOtherSO.Text, 2)
-            Try
-                txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
-            Catch ex As Exception
-                MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
-            End Try
-        Catch
-            MsgBox("Insira um valor válido!", MsgBoxStyle.OkOnly, "Valor Inválido!")
-            txtOtherSO.Focus()
-        End Try
+        End If
 
     End Sub
 
@@ -826,5 +1094,41 @@
         Catch ex As Exception
             MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
         End Try
+    End Sub
+
+    Private Sub coolerqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles coolerqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub vgaqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles vgaqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub opticqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles opticqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub redeqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles redeqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub processadorqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles processadorqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub memoriaqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles memoriaqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub discoqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles discoqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub leitorqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles leitorqtdbox.ValueChanged
+        Button1.PerformClick()
+    End Sub
+
+    Private Sub otherqtdbox_ValueChanged(sender As Object, e As EventArgs) Handles otherqtdbox.ValueChanged
+        Button1.PerformClick()
     End Sub
 End Class

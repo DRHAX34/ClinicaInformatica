@@ -2,6 +2,8 @@
     Public dispositivo_data As New DataTable
     Public modo As Boolean
     Public removidos As Boolean
+    Public backup As String
+    Public check As Boolean = False
     Public n_cliente As String
     Public lock As Boolean = False
     Private Sub OPR_Artigos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -9,10 +11,7 @@
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
-        Dim reparaçoesimagebutton As New Bitmap((My.Resources.oie_2417311E0OBPz25), reparaçoesbutton.Height - 1, reparaçoesbutton.Height - 1)
-        reparaçoesimagebutton.MakeTransparent(Color.White)
-        reparaçoesbutton.Image = reparaçoesimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
+        Dim restartimagebutton As New Bitmap((My.Resources.Refresh_black_512), restartbutton.Height - 6, restartbutton.Height - 6)
         restartimagebutton.MakeTransparent(Color.White)
         Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
         exitimagebutton.MakeTransparent(Color.White)
@@ -31,11 +30,9 @@
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
                 observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
                 lockbutton.PerformClick()
-                reparaçoesbutton.Enabled = True
             Else
                 lockbutton.Hide()
                 restartbutton.Image = limparimagebutton
-                reparaçoesbutton.Enabled = False
             End If
             nomeclientelabel.Text = BLL.Clientes.carregar_dados_numcliente(n_cliente, True).Rows(0).Item("Nome").ToString()
         Catch ex As Exception
@@ -81,6 +78,7 @@
             Try
                 If Not (check_numcliente = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
                     BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.SelectedItem)
+                    check = True
                     Me.Close()
                 Else
                     MsgBox("Introduza todos os dados!")
@@ -123,6 +121,7 @@
                                 Me.Close()
                             End If
                         Else
+                            check = True
                             Dim opr_reparações As New OPR_Reparações
                             opr_reparações.MdiParent = Workspace
                             opr_reparações.modo = False
@@ -147,11 +146,20 @@
 
     End Sub
 
-    Private Sub reparaçoesbutton_Click(sender As Object, e As EventArgs) Handles reparaçoesbutton.Click
+    Private Sub reparaçoesbutton_Click(sender As Object, e As EventArgs)
 
     End Sub
-
+    Private Sub onclose_form(sender As Object, e As EventArgs) Handles Me.FormClosed
+        If check = False Then
+            For Each Form As Windows.Forms.Form In Workspace.MdiChildren
+                If Form.Text = backup Then
+                    Form.Show()
+                End If
+            Next
+        End If
+    End Sub
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
+
         Me.Close()
     End Sub
 

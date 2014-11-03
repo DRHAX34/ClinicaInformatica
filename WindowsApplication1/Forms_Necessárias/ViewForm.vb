@@ -4,6 +4,8 @@
     Public removidos As Boolean
     Public n_cliente As String
     Public artigo As String
+    Public check As Boolean = False
+    Public backup As String
     Dim timer As Integer
     'Protected Overrides Sub WndProc(ByRef m As Message)
     '    If (m.Msg = &H112) AndAlso (m.WParam.ToInt32() = &HF010) Then
@@ -32,10 +34,20 @@
                 Workspace.check_clientes = False
             Case "Artigos"
                 Workspace.check_artigos = False
+                If check = False Then
+                    Workspace.clientesview.Show()
+                End If
             Case "Empresas"
                 Workspace.check_empresas = False
             Case "Reparações"
                 Workspace.check_reparacoes = False
+                If check = False Then
+                    For Each Form As Windows.Forms.Form In Workspace.MdiChildren
+                        If Form.Text = backup Then
+                            Form.Show()
+                        End If
+                    Next
+                End If
             Case "Técnicos"
                 Workspace.check_tecnicos = False
             Case "Utilizadores"
@@ -53,7 +65,7 @@
             Case "Empresas"
                 primeiroMenuItem.Text = "Mostrar Técnicos"
             Case "Reparações"
-                primeiroMenuItem.Visible = False
+                primeiroMenuItem.Text = "Mostrar Relatório"
             Case "Técnicos"
                 primeiroMenuItem.Text = "Mostrar Reparações"
         End Select
@@ -102,7 +114,9 @@
                 opr_artigos.n_cliente = n_cliente
                 opr_artigos.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
+                opr_artigos.backup = Label1.Text
                 opr_artigos.Show()
+                Me.Hide()
             Case "Reparações"
                 Dim opr_reparacoes As New OPR_Reparações
                 opr_reparacoes.modo = False
@@ -110,7 +124,9 @@
                 opr_reparacoes.cliente = n_cliente
                 opr_reparacoes.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
+                opr_reparacoes.backup = Label1.Text
                 opr_reparacoes.Show()
+                Me.Hide()
             Case "Técnicos"
                 Dim opr_tecnicos As New OPR_Técnicos
                 opr_tecnicos.modo = False
@@ -133,32 +149,33 @@
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
             Select Case tabela
                 Case "Clientes"
-                    Workspace.artigosview = New ViewForm
+                    Dim artigosview As New ViewForm
                     Workspace.check_artigos = True
-                    Workspace.artigosview.Text = "Artigos do Cliente"
-                    Workspace.artigosview.tabela = "Artigos"
-                    Workspace.artigosview.Label1.Text = "Artigos do Cliente: " & BLL.Clientes.carregar_dados_numcliente(string_data, True).Rows(0).Item("Nome")
-                    Workspace.artigosview.MdiParent = Workspace
+                    artigosview.tabela = "Artigos"
+                    artigosview.Label1.Text = "Artigos do Cliente: " & BLL.Clientes.carregar_dados_numcliente(string_data, True).Rows(0).Item("Nome")
+                    artigosview.Text = artigosview.Label1.Text
+                    artigosview.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
-                    Workspace.artigosview.n_cliente = string_data
-                    Workspace.artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(string_data, True)
-                    Workspace.artigosview.removidos = False
-                    Workspace.artigosview.Show()
-                    Me.Close()
+                    artigosview.n_cliente = string_data
+                    artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(string_data, True)
+                    artigosview.removidos = False
+                    artigosview.Show()
+                    Me.Hide()
                 Case "Artigos"
-                    Workspace.repararview = New ViewForm
+                    Dim repararview As New ViewForm
                     Workspace.check_reparacoes = True
-                    Workspace.repararview.Text = "Reparações"
-                    Workspace.repararview.tabela = "Reparações"
-                    Workspace.repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
-                    Workspace.repararview.MdiParent = Workspace
-                    Workspace.repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
+                    repararview.tabela = "Reparações"
+                    repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
+                    repararview.Text = repararview.Label1.Text
+                    repararview.MdiParent = Workspace
+                    repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
                     Workspace.m_ChildFormNumber += 1
-                    Workspace.repararview.artigo = Workspace.artigosview.n_cliente = string_data
-                    Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(string_data, True)
-                    Workspace.repararview.removidos = False
-                    Workspace.repararview.Show()
-                    Me.Close()
+                    repararview.artigo = string_data
+                    repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(string_data, True)
+                    repararview.removidos = False
+                    repararview.backup = Label1.Text
+                    repararview.Show()
+                    Me.Hide()
                 Case "Reparações"
                     If BLL.Reparacoes.checkReparacao(string_data) = False Then
                         If MsgBox("Deseja finalizar esta Reparação?", MsgBoxStyle.YesNo, "Finalizar Reparação") = vbYes Then
@@ -177,31 +194,18 @@
                                 opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
                                 opr_reparacoes.Show()
                             End If
-                            Me.Close()
-                        ElseIf MsgBox("Deseja mostrar o Relatório desta Reparação?", MsgBoxStyle.YesNo, "Mostrar Relatório") = vbYes Then
-                            folha_repar.MdiParent = Workspace
-                            folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
-                            folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
-                            folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
-                            folha_repar.Show()
+                            check = True
                             Me.Close()
                         End If
                     Else
-                        If MsgBox("Deseja mostrar o Relatório desta Reparação?", MsgBoxStyle.YesNo, "Mostrar Relatório") = vbYes Then
-                            folha_repar.MdiParent = Workspace
-                            folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
-                            folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
-                            folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
-                            folha_repar.Show()
-                            Me.Close()
-                        ElseIf MsgBox("Deseja editar esta Reparação?", MsgBoxStyle.YesNo, "Mostrar Relatório") = vbYes Then
+                        If MsgBox("Deseja editar esta Reparação?", MsgBoxStyle.YesNo, "Editar Reparação") = vbYes Then
                             Dim opr_reparacoes As New Inserir_Hardware_desk
                             opr_reparacoes.MdiParent = Workspace
                             Workspace.m_ChildFormNumber += 1
                             opr_reparacoes.modo = True
                             opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
-                            Workspace.hardware_support = New DataTable
-                            Workspace.software_support = New DataTable
+                            Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
+                            Workspace.software_support = BLL.Software.return_software(string_data)
                             Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
                             If removidos = True Then
                                 opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
@@ -210,23 +214,24 @@
                                 opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
                                 opr_reparacoes.Show()
                             End If
+                            check = True
                             Me.Close()
                         End If
                     End If
                 Case "Técnicos"
-                    Workspace.repararview = New ViewForm
+                    Dim repararview As New ViewForm
                     Workspace.check_reparacoes = True
-                    Workspace.repararview.Text = "Reparações"
-                    Workspace.repararview.tabela = "Reparações"
-                    Workspace.repararview.Label1.Text = "Reparações do técnico: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Nome").Value.ToString()
-                    Workspace.repararview.MdiParent = Workspace
+                    repararview.tabela = "Reparações"
+                    repararview.Label1.Text = "Reparações do técnico: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Nome").Value.ToString()
+                    repararview.Text = repararview.Label1.Text
+                    repararview.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
-                    Workspace.repararview.removidos = False
-                    Workspace.repararview.Show()
-                    Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(string_data, True)
-                    Workspace.repararview.showdata.DataSource = Workspace.repararview.data_table
-                    Workspace.repararview.newbutton.Enabled = False
-                    Workspace.repararview.delbutton.Enabled = False
+                    repararview.removidos = False
+                    repararview.Show()
+                    repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(string_data, True)
+                    repararview.showdata.DataSource = Workspace.repararview.data_table
+                    repararview.newbutton.Enabled = False
+                    repararview.delbutton.Enabled = False
                     Me.Close()
             End Select
         Catch i As Exception
@@ -555,6 +560,7 @@
                         Workspace.m_ChildFormNumber += 1
                         opr_artigos.modo = True
                         opr_artigos.n_cliente = n_cliente
+                        opr_artigos.backup = Label1.Text
                         If removidos = True Then
                             opr_artigos.dispositivo_data = BLL.Artigos.carregar_dados_numartigo(string_data, False)
                             opr_artigos.removidos = True
@@ -564,6 +570,7 @@
                             opr_artigos.removidos = False
                             opr_artigos.Show()
                         End If
+                        Me.Hide()
                     Case "Reparações"
                         Dim opr_reparacoes As New OPR_Reparações
                         opr_reparacoes.MdiParent = Workspace
@@ -583,6 +590,7 @@
                             opr_reparacoes.removidos = False
                             opr_reparacoes.Show()
                         End If
+                        Me.Hide()
                     Case "Técnicos"
                         Dim opr_tecnicos As New OPR_Técnicos
                         opr_tecnicos.MdiParent = Workspace
@@ -609,8 +617,9 @@
                                 opr_tecnicos.Show()
                             End If
                         End If
+                        Me.Close()
                 End Select
-                Me.Close()
+
             Catch ex As Exception
                 MsgBox("Erro ao Editar: " & ex.Message)
             End Try
@@ -625,72 +634,55 @@
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
             Select Case tabela
                 Case "Clientes"
-                    Workspace.artigosview = New ViewForm
+                    Dim artigosview As New ViewForm
                     Workspace.check_artigos = True
-                    Workspace.artigosview.Text = "Artigos do Cliente"
-                    Workspace.artigosview.tabela = "Artigos"
-                    Workspace.artigosview.Label1.Text = "Artigos do Cliente: " & BLL.Clientes.carregar_dados_numcliente(string_data, True).Rows(0).Item("Nome")
-                    Workspace.artigosview.MdiParent = Workspace
+                    artigosview.tabela = "Artigos"
+                    artigosview.Label1.Text = "Artigos do Cliente: " & BLL.Clientes.carregar_dados_numcliente(string_data, True).Rows(0).Item("Nome")
+                    artigosview.Text = artigosview.Label1.Text
+                    artigosview.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
-                    Workspace.artigosview.n_cliente = string_data
-                    Workspace.artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(string_data, True)
-                    Workspace.artigosview.removidos = False
-                    Workspace.artigosview.Show()
-                    Me.Close()
+                    artigosview.n_cliente = string_data
+                    artigosview.data_table = BLL.Artigos.carregar_dados_numcliente(string_data, True)
+                    artigosview.removidos = False
+                    artigosview.Show()
+                    Me.Hide()
                 Case "Artigos"
-                    Workspace.repararview = New ViewForm
+                    Dim repararview As New ViewForm
                     Workspace.check_reparacoes = True
-                    Workspace.repararview.Text = "Reparações"
-                    Workspace.repararview.tabela = "Reparações"
-                    Workspace.repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
-                    Workspace.repararview.MdiParent = Workspace
-                    Workspace.repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
+                    repararview.tabela = "Reparações"
+                    repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
+                    repararview.Text = repararview.Label1.Text
+                    repararview.MdiParent = Workspace
+                    repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
                     Workspace.m_ChildFormNumber += 1
-                    Workspace.repararview.artigo = Workspace.artigosview.n_cliente = string_data
-                    Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(string_data, True)
-                    Workspace.repararview.removidos = False
-                    Workspace.repararview.Show()
-                    Me.Close()
+                    repararview.artigo = string_data
+                    repararview.data_table = BLL.Reparacoes.carregar_dados_numartigo(string_data, True)
+                    repararview.removidos = False
+                    repararview.backup = Label1.Text
+                    repararview.Show()
+                    Me.Hide()
                 Case "Reparações"
-                    If MsgBox("Deseja finalizar esta encomenda?", MsgBoxStyle.YesNo, "Finalizar encomenda") = vbYes Then
-                        Dim opr_reparacoes As New Inserir_Hardware_desk
-                        opr_reparacoes.MdiParent = Workspace
-                        Workspace.m_ChildFormNumber += 1
-                        opr_reparacoes.modo = True
-                        opr_reparacoes.artigos = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºArtigo").Value.ToString()
-                        Workspace.hardware_support = BLL.Hardware.return_hardware(string_data)
-                        Workspace.software_support = BLL.Software.return_software(string_data)
-                        Workspace.tecnicos_support = BLL.Participacoes.procurar_part(string_data)
-                        If removidos = True Then
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, False)
-                            opr_reparacoes.Show()
-                        Else
-                            opr_reparacoes.reparaçao_data = BLL.Reparacoes.carregar_dados_numreparação(string_data, True)
-                            opr_reparacoes.Show()
-                        End If
-                        Me.Close()
-                    ElseIf MsgBox("Deseja mostrar o Relatório desta encomenda?", MsgBoxStyle.YesNo, "Mostrar Relatório") Then
                         folha_repar.MdiParent = Workspace
                         folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
                         folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
                         folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
-                        folha_repar.Show()
+                    folha_repar.Show()
+                    check = True
                         Me.Close()
-                    End If
                 Case "Técnicos"
-                    Workspace.repararview = New ViewForm
+                    Dim repararview As New ViewForm
                     Workspace.check_reparacoes = True
-                    Workspace.repararview.Text = "Reparações"
-                    Workspace.repararview.tabela = "Reparações"
-                    Workspace.repararview.Label1.Text = "Reparações do técnico: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Nome").Value.ToString()
-                    Workspace.repararview.MdiParent = Workspace
+                    repararview.tabela = "Reparações"
+                    repararview.Label1.Text = "Reparações do técnico: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Nome").Value.ToString()
+                    repararview.Text = repararview.Label1.Text
+                    repararview.MdiParent = Workspace
                     Workspace.m_ChildFormNumber += 1
-                    Workspace.repararview.removidos = False
-                    Workspace.repararview.Show()
-                    Workspace.repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(string_data, True)
-                    Workspace.repararview.showdata.DataSource = Workspace.repararview.data_table
-                    Workspace.repararview.newbutton.Enabled = False
-                    Workspace.repararview.delbutton.Enabled = False
+                    repararview.removidos = False
+                    repararview.Show()
+                    repararview.data_table = BLL.Reparacoes.carregar_dados_numtecnico(string_data, True)
+                    repararview.showdata.DataSource = Workspace.repararview.data_table
+                    repararview.newbutton.Enabled = False
+                    repararview.delbutton.Enabled = False
                     Me.Close()
             End Select
         Catch i As Exception

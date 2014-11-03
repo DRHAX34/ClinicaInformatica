@@ -149,7 +149,7 @@ Partial Class ViewForm
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(707, 303)
+        Me.MinimumSize = New System.Drawing.Size(621, 303)
         Me.Name = "ViewForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Generic Form"

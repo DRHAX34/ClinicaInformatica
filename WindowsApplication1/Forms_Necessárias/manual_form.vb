@@ -7,6 +7,7 @@
 
     Private Sub manual_form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         RadPdfViewerNavigator1.OpenButton.Enabled = False
+        MaximizeBox = True
         If Not System.IO.Directory.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Manual_instr") Then
             System.IO.Directory.CreateDirectory(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Manual_instr")
         End If

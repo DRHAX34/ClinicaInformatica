@@ -8,6 +8,21 @@ Public Class BLL
     Public Class Tipo_Artigo
         Shared Sub inserir_novotipo(ByRef tipo As String)
             Dim p As New ArrayList
+            p.Add(New SqlParameter("@tipo", tipo))
+            DAL.ExecuteNonQuery("Insert into Tipos_Artigo(Nome) VALUES (@tipo)", p)
+        End Sub
+        Shared Sub remover()
+            DAL.ExecuteNonQuery("DELETE FROM Tipos_Artigo", Nothing)
+        End Sub
+        Shared Function Return_tudo()
+            Return DAL.ExecuteQuery("Select Nome from Tipos_Artigo", Nothing)
+        End Function
+    End Class
+    Public Class textReport
+        Shared Sub editar(ByRef text As String)
+            Dim p As New ArrayList
+            p.Add(New SqlParameter("@texto", text))
+            DAL.ExecuteNonQuery("Update Empresas set textReport=@texto where NºEmpresa=1", p)
         End Sub
     End Class
     Public Class Admin_only
@@ -724,7 +739,7 @@ Public Class BLL
             Dim p As New ArrayList
             p.Add(New SqlParameter("@NºReparação", NºReparação))
             p.Add(New SqlParameter("@Preço", Preço))
-            DAL.ExecuteNonQuery("Update Reparações set NºArtigo = @NºArtigo, Preço = @Preço, Terminada=1 where NºReparação=@NºReparação", p)
+            DAL.ExecuteNonQuery("Update Reparações set Preço = @Preço, Terminada=1 where NºReparação=@NºReparação", p)
         End Sub
         Shared Sub alterarReparacao(ByVal NºReparação As Integer, ByVal DescAvaria As String, ByVal DIRepar As DateTime)
             Dim p As New ArrayList
@@ -736,7 +751,7 @@ Public Class BLL
         Shared Function checkReparacao(ByVal nReparacao As Integer) As Boolean
             Dim p As New ArrayList
             p.Add(New SqlParameter("@nReparacao", nReparacao))
-            Return DAL.ExecuteScalar("Select Terminada from Reparações", p)
+            Return DAL.ExecuteScalar("Select Terminada from Reparações where NºReparação=@nReparacao", p)
         End Function
         Shared Function apagar(ByVal id As Integer, ByVal modo As Integer) As String
             Dim p As New ArrayList

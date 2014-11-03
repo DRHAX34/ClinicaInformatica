@@ -7,6 +7,7 @@ Public Class Workspace
     Public artigosview As New ViewForm
     Public repararview As New ViewForm
     Public clientesview As New ViewForm
+    Public reportview As New txtRelatorio_Form
     Public config2 As New Passo2
     Public config3 As New Passo3
     Public config3_5 As New Passo3emeio
@@ -171,7 +172,7 @@ Public Class Workspace
         Workspace.Label1.Text = Workspace.companyname1
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
-        If check_clientes = False Then
+        If check_clientes = False Or clientesview.Visible = False Then
             clientesview = New ViewForm
             check_clientes = True
             clientesview.Text = "Clientes"
@@ -406,10 +407,12 @@ Public Class Workspace
     End Sub
 
     Private Sub companylogo_Click(sender As Object, e As EventArgs) Handles companylogo.Click
-        empresa_edit = New OPR_Empresas
-        empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
-        empresa_edit.MdiParent = Me
-        empresa_edit.Show()
+        If admin = True Then
+            empresa_edit = New OPR_Empresas
+            empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
+            empresa_edit.MdiParent = Me
+            empresa_edit.Show()
+        End If
     End Sub
 
     Private Sub TerminarSessãoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TerminarSessãoToolStripMenuItem.Click
@@ -455,5 +458,19 @@ Public Class Workspace
                 Form.Close()
             Next
         End If
+    End Sub
+
+    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
+        If admin = True Then
+            empresa_edit = New OPR_Empresas
+            empresa_edit.empresa_data = BLL.Admin_only.Empresas.carregar_dados_numempresa(1, True)
+            empresa_edit.MdiParent = Me
+            empresa_edit.Show()
+        End If
+    End Sub
+
+    Private Sub TextoResponsabilidadeRelatroioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TextoResponsabilidadeRelatroioToolStripMenuItem.Click
+        reportview = New txtRelatorio_Form
+        reportview.Show()
     End Sub
 End Class

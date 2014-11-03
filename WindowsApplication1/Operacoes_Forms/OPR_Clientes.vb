@@ -4,13 +4,13 @@
     Public lock As Boolean = False
 
     Private Sub OPR_Clientes_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim lockimagebutton As New Bitmap(My.Resources.lock, lockbutton.Height - 1, lockbutton.Width - 1)
+        Dim lockimagebutton As New Bitmap(My.Resources.lock, lockbutton.Height - 5, lockbutton.Width - 5)
         lockimagebutton.MakeTransparent(Color.White)
         lockbutton.Image = lockimagebutton
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
+        Dim restartimagebutton As New Bitmap((My.Resources.Refresh_black_512), restartbutton.Height - 6, restartbutton.Height - 6)
         restartimagebutton.MakeTransparent(Color.White)
         Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height - 1, exitbutton.Height - 1)
         exitimagebutton.MakeTransparent(Color.White)

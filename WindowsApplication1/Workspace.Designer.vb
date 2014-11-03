@@ -30,8 +30,17 @@ Partial Class Workspace
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.companylogo = New System.Windows.Forms.PictureBox()
         Me.clientesmenu = New System.Windows.Forms.ToolStripMenuItem()
         Me.tecnicosmenu = New System.Windows.Forms.ToolStripMenuItem()
+        Me.opsEmpresa = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TextoResponsabilidadeRelatroioToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.TiposDeArtigoToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.EmpresasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BackupDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RestauroDeDadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,12 +49,6 @@ Partial Class Workspace
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UtilizadoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Statuscheck = New System.Windows.Forms.Timer(Me.components)
-        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
-        Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.companylogo = New System.Windows.Forms.PictureBox()
         Me.FecharTodasAsJanelasToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TerminarSessãoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SairDoProgramaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -80,13 +83,56 @@ Partial Class Workspace
         'MenuStrip
         '
         Me.MenuStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesmenu, Me.tecnicosmenu, Me.EmpresasToolStripMenuItem, Me.HelpMenu, Me.UtilizadoresToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.clientesmenu, Me.tecnicosmenu, Me.opsEmpresa, Me.EmpresasToolStripMenuItem, Me.HelpMenu, Me.UtilizadoresToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.MdiWindowListItem = Me.tecnicosmenu
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(1102, 62)
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
+        '
+        'Statuscheck
+        '
+        Me.Statuscheck.Enabled = True
+        Me.Statuscheck.Interval = 5
+        '
+        'OpenFileDialog1
+        '
+        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(957, 9)
+        Me.Label1.Name = "Label1"
+        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Label1.Size = New System.Drawing.Size(70, 25)
+        Me.Label1.TabIndex = 51
+        Me.Label1.Text = "Label1"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(1032, 446)
+        Me.Label2.Name = "Label2"
+        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.Label2.Size = New System.Drawing.Size(60, 21)
+        Me.Label2.TabIndex = 56
+        Me.Label2.Text = "Label2"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
+        'companylogo
+        '
+        Me.companylogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.companylogo.Location = New System.Drawing.Point(1033, 0)
+        Me.companylogo.Name = "companylogo"
+        Me.companylogo.Size = New System.Drawing.Size(69, 62)
+        Me.companylogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.companylogo.TabIndex = 54
+        Me.companylogo.TabStop = False
         '
         'clientesmenu
         '
@@ -103,8 +149,30 @@ Partial Class Workspace
         Me.tecnicosmenu.Image = Global.ClinicaInformatica.My.Resources.Resources.oie_301011418NFe0o9M1
         Me.tecnicosmenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
         Me.tecnicosmenu.Name = "tecnicosmenu"
-        Me.tecnicosmenu.Size = New System.Drawing.Size(121, 58)
+        Me.tecnicosmenu.Size = New System.Drawing.Size(120, 58)
         Me.tecnicosmenu.Text = "Técnicos"
+        '
+        'opsEmpresa
+        '
+        Me.opsEmpresa.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.TextoResponsabilidadeRelatroioToolStripMenuItem, Me.TiposDeArtigoToolStripMenuItem1})
+        Me.opsEmpresa.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold)
+        Me.opsEmpresa.Image = Global.ClinicaInformatica.My.Resources.Resources._1415059477_gear_01_128
+        Me.opsEmpresa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
+        Me.opsEmpresa.Name = "opsEmpresa"
+        Me.opsEmpresa.Size = New System.Drawing.Size(188, 58)
+        Me.opsEmpresa.Text = "Opções do Programa"
+        '
+        'TextoResponsabilidadeRelatroioToolStripMenuItem
+        '
+        Me.TextoResponsabilidadeRelatroioToolStripMenuItem.Name = "TextoResponsabilidadeRelatroioToolStripMenuItem"
+        Me.TextoResponsabilidadeRelatroioToolStripMenuItem.Size = New System.Drawing.Size(226, 22)
+        Me.TextoResponsabilidadeRelatroioToolStripMenuItem.Text = "Texto Folha Entrega Cliente"
+        '
+        'TiposDeArtigoToolStripMenuItem1
+        '
+        Me.TiposDeArtigoToolStripMenuItem1.Name = "TiposDeArtigoToolStripMenuItem1"
+        Me.TiposDeArtigoToolStripMenuItem1.Size = New System.Drawing.Size(226, 22)
+        Me.TiposDeArtigoToolStripMenuItem1.Text = "Tipos de Artigo"
         '
         'EmpresasToolStripMenuItem
         '
@@ -166,49 +234,6 @@ Partial Class Workspace
         Me.UtilizadoresToolStripMenuItem.Name = "UtilizadoresToolStripMenuItem"
         Me.UtilizadoresToolStripMenuItem.Size = New System.Drawing.Size(170, 58)
         Me.UtilizadoresToolStripMenuItem.Text = "Opções da Sessão"
-        '
-        'Statuscheck
-        '
-        Me.Statuscheck.Enabled = True
-        Me.Statuscheck.Interval = 5
-        '
-        'OpenFileDialog1
-        '
-        Me.OpenFileDialog1.FileName = "OpenFileDialog1"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(957, 9)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label1.Size = New System.Drawing.Size(70, 25)
-        Me.Label1.TabIndex = 51
-        Me.Label1.Text = "Label1"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1032, 446)
-        Me.Label2.Name = "Label2"
-        Me.Label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label2.Size = New System.Drawing.Size(60, 21)
-        Me.Label2.TabIndex = 56
-        Me.Label2.Text = "Label2"
-        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'companylogo
-        '
-        Me.companylogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.companylogo.Location = New System.Drawing.Point(1033, 0)
-        Me.companylogo.Name = "companylogo"
-        Me.companylogo.Size = New System.Drawing.Size(69, 62)
-        Me.companylogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.companylogo.TabIndex = 54
-        Me.companylogo.TabStop = False
         '
         'FecharTodasAsJanelasToolStripMenuItem
         '
@@ -281,5 +306,8 @@ End Sub
     Friend WithEvents FecharTodasAsJanelasToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TerminarSessãoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SairDoProgramaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents opsEmpresa As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TextoResponsabilidadeRelatroioToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TiposDeArtigoToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
 
 End Class

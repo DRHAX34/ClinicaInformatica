@@ -12,7 +12,7 @@ Public Class OPR_Técnicos
         savebutton.Image = saveimagebutton
         Dim reparaçoesefetuadasimagebutton As New Bitmap((My.Resources.oie_2417311E0OBPz25), reparaçoesefetuadasbutton.Height, reparaçoesefetuadasbutton.Height)
         reparaçoesefetuadasbutton.Image = reparaçoesefetuadasimagebutton
-        Dim restartimagebutton As New Bitmap((My.Resources._1405624497_MB__reload), restartbutton.Height - 5, restartbutton.Height - 5)
+        Dim restartimagebutton As New Bitmap((My.Resources.Refresh_black_512), restartbutton.Height - 6, restartbutton.Height - 6)
         restartimagebutton.MakeTransparent(Color.White)
         Dim exitimagebutton As New Bitmap((My.Resources._1406140864_logout), exitbutton.Height, exitbutton.Height)
         exitimagebutton.MakeTransparent(Color.White)
@@ -148,10 +148,17 @@ Public Class OPR_Técnicos
                 image_tec = My.Resources.nopicture_02
             End If
             Try
-                check_pergunta = perguntabox.Text
-                check_pergunta.Trim()
-                check_resposta = respostabox.Text
-                check_resposta.Trim()
+                If passwordbox.Text <> "" Then
+                    If passwordbox.Text = verifbox.Text Then
+                        check_pergunta = perguntabox.Text
+                        check_pergunta.Trim()
+                        check_resposta = respostabox.Text
+                        check_resposta.Trim()
+                    End If
+                Else
+                    check_pergunta = "N/A"
+                    check_resposta = "N/A"
+                End If
                 check_nome = nomebox.Text
                 check_nome.Trim()
                 check_localidade = localidadebox.Text
@@ -195,7 +202,7 @@ Public Class OPR_Técnicos
                     MsgBox("Erro ao inserir: " & ex.Message)
                 End Try
             Else
-                MsgBox("Insira todos os dados!", vbOKOnly, "Erro!")
+                MsgBox("Verifique todos os dados!", vbOKOnly, "Erro!")
             End If
         Else
             Dim check_nomutil As String = ""
@@ -225,10 +232,17 @@ Public Class OPR_Técnicos
                 check_pass = ""
             End If
             Try
-                check_pergunta = perguntabox.Text
-                check_pergunta.Trim()
-                check_resposta = respostabox.Text
-                check_resposta.Trim()
+                If passwordbox.Text <> "" Then
+                    If passwordbox.Text = verifbox.Text Then
+                        check_pergunta = perguntabox.Text
+                        check_pergunta.Trim()
+                        check_resposta = respostabox.Text
+                        check_resposta.Trim()
+                    End If
+                Else
+                    check_pergunta = "N/A"
+                    check_resposta = "N/A"
+                End If
                 check_nome = nomebox.Text
                 check_nome.Trim()
                 check_localidade = localidadebox.Text

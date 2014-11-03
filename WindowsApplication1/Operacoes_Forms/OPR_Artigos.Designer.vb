@@ -39,7 +39,6 @@ Partial Class OPR_Artigos
         Me.nomeclientelabel = New System.Windows.Forms.Label()
         Me.restartbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
-        Me.reparaçoesbutton = New System.Windows.Forms.Button()
         Me.savebutton = New System.Windows.Forms.Button()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.lockbutton = New System.Windows.Forms.Button()
@@ -53,7 +52,7 @@ Partial Class OPR_Artigos
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(34, 222)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(123, 25)
+        Me.Label8.Size = New System.Drawing.Size(124, 25)
         Me.Label8.TabIndex = 56
         Me.Label8.Text = "Observações"
         '
@@ -154,7 +153,7 @@ Partial Class OPR_Artigos
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(303, 106)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(141, 25)
+        Me.Label5.Size = New System.Drawing.Size(142, 25)
         Me.Label5.TabIndex = 71
         Me.Label5.Text = "Tipo de Artigo"
         '
@@ -184,14 +183,6 @@ Partial Class OPR_Artigos
         Me.exitbutton.Size = New System.Drawing.Size(97, 41)
         Me.exitbutton.TabIndex = 97
         Me.exitbutton.UseVisualStyleBackColor = True
-        '
-        'reparaçoesbutton
-        '
-        Me.reparaçoesbutton.Location = New System.Drawing.Point(113, 358)
-        Me.reparaçoesbutton.Name = "reparaçoesbutton"
-        Me.reparaçoesbutton.Size = New System.Drawing.Size(97, 41)
-        Me.reparaçoesbutton.TabIndex = 96
-        Me.reparaçoesbutton.UseVisualStyleBackColor = True
         '
         'savebutton
         '
@@ -239,7 +230,6 @@ Partial Class OPR_Artigos
         Me.Controls.Add(Me.ComboBox1)
         Me.Controls.Add(Me.restartbutton)
         Me.Controls.Add(Me.exitbutton)
-        Me.Controls.Add(Me.reparaçoesbutton)
         Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.nomeclientelabel)
         Me.Controls.Add(Me.Label5)
@@ -280,7 +270,6 @@ Partial Class OPR_Artigos
     Friend WithEvents nomeclientelabel As System.Windows.Forms.Label
     Friend WithEvents restartbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
-    Friend WithEvents reparaçoesbutton As System.Windows.Forms.Button
     Friend WithEvents savebutton As System.Windows.Forms.Button
     Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
     Friend WithEvents lockbutton As System.Windows.Forms.Button

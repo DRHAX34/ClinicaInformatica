@@ -54,10 +54,12 @@
                 Workspace.clientesmenu.Enabled = False
                 Workspace.EmpresasToolStripMenuItem.Visible = True
                 tipo = "Administrador"
+                Workspace.opsEmpresa.Visible = True
             Else
                 Workspace.clientesmenu.Enabled = True
                 Workspace.UtilizadoresToolStripMenuItem.Visible = True
                 Workspace.tecnicosmenu.Visible = False
+                Workspace.opsEmpresa.Visible = False
                 Workspace.EmpresasToolStripMenuItem.Visible = False
                 Workspace.admin = False
                 tipo = "Utilizador Padrão"

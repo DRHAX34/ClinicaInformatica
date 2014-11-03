@@ -196,22 +196,28 @@
     <Compile Include="Forms_Necessárias\manual_form.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms_Necessárias\txtRelatorio_Form.Designer.vb">
+      <DependentUpon>txtRelatorio_Form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Forms_Necessárias\txtRelatorio_Form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Operacoes_Forms\formTerminarRepar.Designer.vb">
       <DependentUpon>formTerminarRepar.vb</DependentUpon>
     </Compile>
     <Compile Include="Operacoes_Forms\formTerminarRepar.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Operacoes_Forms\Inserir_Software.Designer.vb">
-      <DependentUpon>Inserir_Software.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Operacoes_Forms\Inserir_Software.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Forms_View_Relatórios\folha_repar.Designer.vb">
       <DependentUpon>folha_repar.vb</DependentUpon>
     </Compile>
     <Compile Include="Forms_View_Relatórios\folha_repar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Operacoes_Forms\tiposArtigos.Designer.vb">
+      <DependentUpon>tiposArtigos.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Operacoes_Forms\tiposArtigos.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SQLToReportConnection.Designer.vb">
@@ -330,20 +336,23 @@
     <EmbeddedResource Include="Forms_Necessárias\Recuperação_pass.resx">
       <DependentUpon>Recuperação_pass.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms_Necessárias\txtRelatorio_Form.resx">
+      <DependentUpon>txtRelatorio_Form.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\Adicionar_tecnicos.resx">
       <DependentUpon>Adicionar_tecnicos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\formTerminarRepar.resx">
       <DependentUpon>formTerminarRepar.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Operacoes_Forms\Inserir_Software.resx">
-      <DependentUpon>Inserir_Software.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Operacoes_Forms\OPR_Empresas.resx">
       <DependentUpon>OPR_Empresas.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms_View_Relatórios\folha_repar.resx">
       <DependentUpon>folha_repar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Operacoes_Forms\tiposArtigos.resx">
+      <DependentUpon>tiposArtigos.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Report5.rdlc" />
     <EmbeddedResource Include="SplashAway.resx">
@@ -419,6 +428,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone programa.ico" />
+    <None Include="Resources\Refresh_black-512.png" />
     <None Include="Resources\icon lg devices.png" />
     <None Include="Resources\unlock.png" />
     <None Include="Resources\nopicture_02.jpg" />
@@ -445,6 +455,7 @@
     <None Include="Resources\1406149495_System_Restore.png" />
     <None Include="Resources\1412287869_17-128.png" />
     <None Include="Resources\1412642544_698841-icon-114-lock-128.png" />
+    <None Include="Resources\1415059477_gear-01-128.png" />
     <Content Include="Resources\BD-C.I.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

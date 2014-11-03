@@ -31,71 +31,31 @@ Partial Class folha_repar
         Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(folha_repar))
-        Me.ArtigosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SQLToReportConnection = New ClinicaInformatica.SQLToReportConnection()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ReparaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ParticipaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.HardwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SoftwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
+        Me.SQLToReportConnection = New ClinicaInformatica.SQLToReportConnection()
+        Me.ArtigosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ArtigosTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ArtigosTableAdapter()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ClientesTableAdapter()
+        Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmpresasTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.EmpresasTableAdapter()
+        Me.ReparaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReparaçõesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ReparaçõesTableAdapter()
+        Me.ParticipaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParticipaçõesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ParticipaçõesTableAdapter()
+        Me.HardwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HardwareTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.HardwareTableAdapter()
+        Me.SoftwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SoftwareTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.SoftwareTableAdapter()
-        CType(Me.ArtigosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ParticipaçõesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.HardwareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SoftwareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.SuspendLayout()
-        '
-        'ArtigosBindingSource
-        '
-        Me.ArtigosBindingSource.DataMember = "Artigos"
-        Me.ArtigosBindingSource.DataSource = Me.SQLToReportConnection
-        '
-        'SQLToReportConnection
-        '
-        Me.SQLToReportConnection.DataSetName = "SQLToReportConnection"
-        Me.SQLToReportConnection.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.SQLToReportConnection
-        '
-        'EmpresasBindingSource
-        '
-        Me.EmpresasBindingSource.DataMember = "Empresas"
-        Me.EmpresasBindingSource.DataSource = Me.SQLToReportConnection
-        '
-        'ReparaçõesBindingSource
-        '
-        Me.ReparaçõesBindingSource.DataMember = "Reparações"
-        Me.ReparaçõesBindingSource.DataSource = Me.SQLToReportConnection
-        '
-        'ParticipaçõesBindingSource
-        '
-        Me.ParticipaçõesBindingSource.DataMember = "Participações"
-        Me.ParticipaçõesBindingSource.DataSource = Me.SQLToReportConnection
-        '
-        'HardwareBindingSource
-        '
-        Me.HardwareBindingSource.DataMember = "Hardware"
-        Me.HardwareBindingSource.DataSource = Me.SQLToReportConnection
-        '
-        'SoftwareBindingSource
-        '
-        Me.SoftwareBindingSource.DataMember = "Software"
-        Me.SoftwareBindingSource.DataSource = Me.SQLToReportConnection
+        CType(Me.SQLToReportConnection,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ArtigosBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ClientesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.EmpresasBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ReparaçõesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.ParticipaçõesBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.HardwareBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        CType(Me.SoftwareBindingSource,System.ComponentModel.ISupportInitialize).BeginInit
+        Me.SuspendLayout
         '
         'ReportViewer1
         '
@@ -127,56 +87,95 @@ Partial Class folha_repar
         Me.ReportViewer1.Size = New System.Drawing.Size(939, 504)
         Me.ReportViewer1.TabIndex = 0
         '
+        'SQLToReportConnection
+        '
+        Me.SQLToReportConnection.DataSetName = "SQLToReportConnection"
+        Me.SQLToReportConnection.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ArtigosBindingSource
+        '
+        Me.ArtigosBindingSource.DataMember = "Artigos"
+        Me.ArtigosBindingSource.DataSource = Me.SQLToReportConnection
+        '
         'ArtigosTableAdapter
         '
-        Me.ArtigosTableAdapter.ClearBeforeFill = True
+        Me.ArtigosTableAdapter.ClearBeforeFill = true
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.SQLToReportConnection
         '
         'ClientesTableAdapter
         '
-        Me.ClientesTableAdapter.ClearBeforeFill = True
+        Me.ClientesTableAdapter.ClearBeforeFill = true
+        '
+        'EmpresasBindingSource
+        '
+        Me.EmpresasBindingSource.DataMember = "Empresas"
+        Me.EmpresasBindingSource.DataSource = Me.SQLToReportConnection
         '
         'EmpresasTableAdapter
         '
-        Me.EmpresasTableAdapter.ClearBeforeFill = True
+        Me.EmpresasTableAdapter.ClearBeforeFill = true
+        '
+        'ReparaçõesBindingSource
+        '
+        Me.ReparaçõesBindingSource.DataMember = "Reparações"
+        Me.ReparaçõesBindingSource.DataSource = Me.SQLToReportConnection
         '
         'ReparaçõesTableAdapter
         '
-        Me.ReparaçõesTableAdapter.ClearBeforeFill = True
+        Me.ReparaçõesTableAdapter.ClearBeforeFill = true
+        '
+        'ParticipaçõesBindingSource
+        '
+        Me.ParticipaçõesBindingSource.DataMember = "Participações"
+        Me.ParticipaçõesBindingSource.DataSource = Me.SQLToReportConnection
         '
         'ParticipaçõesTableAdapter
         '
-        Me.ParticipaçõesTableAdapter.ClearBeforeFill = True
+        Me.ParticipaçõesTableAdapter.ClearBeforeFill = true
+        '
+        'HardwareBindingSource
+        '
+        Me.HardwareBindingSource.DataMember = "Hardware"
+        Me.HardwareBindingSource.DataSource = Me.SQLToReportConnection
         '
         'HardwareTableAdapter
         '
-        Me.HardwareTableAdapter.ClearBeforeFill = True
+        Me.HardwareTableAdapter.ClearBeforeFill = true
+        '
+        'SoftwareBindingSource
+        '
+        Me.SoftwareBindingSource.DataMember = "Software"
+        Me.SoftwareBindingSource.DataSource = Me.SQLToReportConnection
         '
         'SoftwareTableAdapter
         '
-        Me.SoftwareTableAdapter.ClearBeforeFill = True
+        Me.SoftwareTableAdapter.ClearBeforeFill = true
         '
         'folha_repar
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(939, 504)
         Me.Controls.Add(Me.ReportViewer1)
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximizeBox = False
+        Me.Icon = CType(resources.GetObject("$this.Icon"),System.Drawing.Icon)
         Me.Name = "folha_repar"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Folha de Reparação - Entrega ao Cliente"
-        CType(Me.ArtigosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ParticipaçõesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.HardwareBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SoftwareBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.ResumeLayout(False)
+        CType(Me.SQLToReportConnection,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ArtigosBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ClientesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.EmpresasBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ReparaçõesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.ParticipaçõesBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.HardwareBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        CType(Me.SoftwareBindingSource,System.ComponentModel.ISupportInitialize).EndInit
+        Me.ResumeLayout(false)
 
-    End Sub
+End Sub
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
     Friend WithEvents ArtigosBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SQLToReportConnection As ClinicaInformatica.SQLToReportConnection

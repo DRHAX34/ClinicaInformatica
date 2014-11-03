@@ -106,11 +106,17 @@ Public Class Passo3emeio
             check_nomutil = ""
         End Try
         Try
-            check_pergunta = perguntabox.Text
-            check_pergunta.Trim()
-            check_resposta = respostabox.Text
-            check_resposta.Trim()
-
+            If passwordbox.Text <> "" Then
+                If passwordbox.Text = verifbox.Text Then
+                    check_pergunta = perguntabox.Text
+                    check_pergunta.Trim()
+                    check_resposta = respostabox.Text
+                    check_resposta.Trim()
+                End If
+            Else
+                check_pergunta = "N/A"
+                check_resposta = "N/A"
+            End If
             check_nome = nomebox.Text
             check_nome.Trim()
             check_localidade = localidadebox.Text
@@ -155,7 +161,7 @@ Public Class Passo3emeio
                 MsgBox("Erro ao inserir: " & ex.Message)
             End Try
         Else
-            MsgBox("Insira todos os dados!", vbOKOnly, "Erro!")
+            MsgBox("Verifique os dados!", vbOKOnly, "Erro!")
         End If
     End Sub
 
