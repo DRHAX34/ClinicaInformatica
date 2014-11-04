@@ -132,7 +132,7 @@ Partial Class OPR_Empresas
         '
         Me.sitebox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.sitebox.Location = New System.Drawing.Point(35, 359)
-        Me.sitebox.MaxLength = 359
+        Me.sitebox.MaxLength = 255
         Me.sitebox.Name = "sitebox"
         Me.sitebox.Size = New System.Drawing.Size(183, 27)
         Me.sitebox.TabIndex = 104
@@ -143,7 +143,7 @@ Partial Class OPR_Empresas
         '
         Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.emailbox.Location = New System.Drawing.Point(35, 304)
-        Me.emailbox.MaxLength = 9
+        Me.emailbox.MaxLength = 100
         Me.emailbox.Name = "emailbox"
         Me.emailbox.Size = New System.Drawing.Size(184, 27)
         Me.emailbox.TabIndex = 103
@@ -224,6 +224,7 @@ Partial Class OPR_Empresas
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.localidadebox.Location = New System.Drawing.Point(35, 193)
+        Me.localidadebox.MaxLength = 100
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(119, 27)
         Me.localidadebox.TabIndex = 96
@@ -234,6 +235,7 @@ Partial Class OPR_Empresas
         '
         Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.moradabox.Location = New System.Drawing.Point(235, 140)
+        Me.moradabox.MaxLength = 150
         Me.moradabox.Name = "moradabox"
         Me.moradabox.Size = New System.Drawing.Size(183, 27)
         Me.moradabox.TabIndex = 95
@@ -244,6 +246,7 @@ Partial Class OPR_Empresas
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nomebox.Location = New System.Drawing.Point(36, 140)
+        Me.nomebox.MaxLength = 150
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 94

@@ -186,6 +186,7 @@ Partial Class Passo2
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nomebox.Location = New System.Drawing.Point(25, 138)
+        Me.nomebox.MaxLength = 150
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 39
@@ -196,6 +197,7 @@ Partial Class Passo2
         '
         Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.moradabox.Location = New System.Drawing.Point(224, 138)
+        Me.moradabox.MaxLength = 150
         Me.moradabox.Name = "moradabox"
         Me.moradabox.Size = New System.Drawing.Size(183, 27)
         Me.moradabox.TabIndex = 40
@@ -206,6 +208,7 @@ Partial Class Passo2
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.localidadebox.Location = New System.Drawing.Point(24, 191)
+        Me.localidadebox.MaxLength = 100
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(119, 27)
         Me.localidadebox.TabIndex = 41

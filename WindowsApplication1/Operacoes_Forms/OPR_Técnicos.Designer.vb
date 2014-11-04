@@ -81,7 +81,7 @@ Partial Class OPR_Técnicos
         Me.turmalabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.turmalabel.Location = New System.Drawing.Point(371, 122)
         Me.turmalabel.Name = "turmalabel"
-        Me.turmalabel.Size = New System.Drawing.Size(70, 25)
+        Me.turmalabel.Size = New System.Drawing.Size(69, 25)
         Me.turmalabel.TabIndex = 43
         Me.turmalabel.Text = "Turma"
         '
@@ -145,7 +145,7 @@ Partial Class OPR_Técnicos
         Me.cod_postallabel.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold)
         Me.cod_postallabel.Location = New System.Drawing.Point(464, 177)
         Me.cod_postallabel.Name = "cod_postallabel"
-        Me.cod_postallabel.Size = New System.Drawing.Size(136, 25)
+        Me.cod_postallabel.Size = New System.Drawing.Size(135, 25)
         Me.cod_postallabel.TabIndex = 63
         Me.cod_postallabel.Text = "Código Postal"
         '
@@ -208,6 +208,7 @@ Partial Class OPR_Técnicos
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.nomebox.Location = New System.Drawing.Point(38, 152)
+        Me.nomebox.MaxLength = 100
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(204, 22)
         Me.nomebox.TabIndex = 87
@@ -238,6 +239,7 @@ Partial Class OPR_Técnicos
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 8.25!)
         Me.localidadebox.Location = New System.Drawing.Point(339, 205)
+        Me.localidadebox.MaxLength = 100
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(119, 22)
         Me.localidadebox.TabIndex = 90
@@ -292,6 +294,7 @@ Partial Class OPR_Técnicos
         '
         Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.respostabox.Location = New System.Drawing.Point(400, 114)
+        Me.respostabox.MaxLength = 100
         Me.respostabox.Name = "respostabox"
         Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.respostabox.Size = New System.Drawing.Size(208, 27)
@@ -303,6 +306,7 @@ Partial Class OPR_Técnicos
         '
         Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.perguntabox.Location = New System.Drawing.Point(105, 114)
+        Me.perguntabox.MaxLength = 100
         Me.perguntabox.Name = "perguntabox"
         Me.perguntabox.Size = New System.Drawing.Size(267, 27)
         Me.perguntabox.TabIndex = 103
@@ -312,6 +316,7 @@ Partial Class OPR_Técnicos
         'verifbox
         '
         Me.verifbox.Location = New System.Drawing.Point(447, 55)
+        Me.verifbox.MaxLength = 20
         Me.verifbox.Name = "verifbox"
         Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.verifbox.Size = New System.Drawing.Size(155, 33)
@@ -320,6 +325,7 @@ Partial Class OPR_Técnicos
         'passwordbox
         '
         Me.passwordbox.Location = New System.Drawing.Point(250, 55)
+        Me.passwordbox.MaxLength = 20
         Me.passwordbox.Name = "passwordbox"
         Me.passwordbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.passwordbox.Size = New System.Drawing.Size(155, 33)
@@ -328,6 +334,7 @@ Partial Class OPR_Técnicos
         'nomeutilizadorbox
         '
         Me.nomeutilizadorbox.Location = New System.Drawing.Point(52, 55)
+        Me.nomeutilizadorbox.MaxLength = 20
         Me.nomeutilizadorbox.Name = "nomeutilizadorbox"
         Me.nomeutilizadorbox.Size = New System.Drawing.Size(155, 33)
         Me.nomeutilizadorbox.TabIndex = 100

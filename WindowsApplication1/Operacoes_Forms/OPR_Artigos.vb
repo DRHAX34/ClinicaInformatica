@@ -8,6 +8,7 @@
     Public lock As Boolean = False
     Private Sub OPR_Artigos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.SelectedIndex = 0
+        ComboBox1.DataSource = BLL.Tipo_Artigo.Return_tudo
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
@@ -29,6 +30,7 @@
                 modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
                 observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
+                ComboBox1.Text = dispositivo_data.Rows.Item(0).Item("Tipo_Artigo").ToString()
                 lockbutton.PerformClick()
             Else
                 lockbutton.Hide()

@@ -46,6 +46,7 @@ Partial Class OPR_Reparações
         '
         Me.descriçaobox.Enabled = False
         Me.descriçaobox.Location = New System.Drawing.Point(27, 259)
+        Me.descriçaobox.MaxLength = 255
         Me.descriçaobox.Multiline = True
         Me.descriçaobox.Name = "descriçaobox"
         Me.descriçaobox.Size = New System.Drawing.Size(473, 117)

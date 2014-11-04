@@ -206,7 +206,6 @@ Public Class OPR_Técnicos
             End If
         Else
             Dim check_nomutil As String = ""
-            Dim check_pass As String = ""
             Dim check_pergunta As String = ""
             Dim check_resposta As String = ""
             Dim check_nome As String = ""
@@ -221,16 +220,6 @@ Public Class OPR_Técnicos
             Catch ex As Exception
                 check_nomutil = ""
             End Try
-            If passwordbox.Text = verifbox.Text Then
-                Try
-                    check_pass = passwordbox.Text
-                    check_pass.Trim()
-                Catch ex As Exception
-                    check_pass = ""
-                End Try
-            Else
-                check_pass = ""
-            End If
             Try
                 If passwordbox.Text <> "" Then
                     If passwordbox.Text = verifbox.Text Then
@@ -266,7 +255,7 @@ Public Class OPR_Técnicos
                 End If
             Catch ex As Exception
             End Try
-            If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pass = "" And Not check_pergunta = "" And Not check_resposta = "" Then
+            If Not check_nome = "" And Not check_nomutil = "" And Not check_contacto = False And Not check_alunos = "" And Not check_turma = "" And Not check_localidade = "" And Not check_codpostal = False And Not check_pergunta = "" And Not check_resposta = "" Then
                 Try
                     BLL.Tecnicos.alterar(localidadebox.Text, cod_postalbox.Text, contactom_box.Text, contacto_fbox.Text, nomebox.Text, image_tec, tecnico_data.Rows(0).Item("NºTécnico").ToString)
                     Dim password As String = passwordbox.Text

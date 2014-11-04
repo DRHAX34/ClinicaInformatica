@@ -110,6 +110,7 @@ Partial Class OPR_Artigos
         '
         Me.marcabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.marcabox.Location = New System.Drawing.Point(39, 188)
+        Me.marcabox.MaxLength = 15
         Me.marcabox.Name = "marcabox"
         Me.marcabox.Size = New System.Drawing.Size(88, 25)
         Me.marcabox.TabIndex = 67
@@ -120,6 +121,7 @@ Partial Class OPR_Artigos
         '
         Me.modelobox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.modelobox.Location = New System.Drawing.Point(142, 188)
+        Me.modelobox.MaxLength = 25
         Me.modelobox.Name = "modelobox"
         Me.modelobox.Size = New System.Drawing.Size(151, 25)
         Me.modelobox.TabIndex = 68
@@ -130,6 +132,7 @@ Partial Class OPR_Artigos
         '
         Me.numseriebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.numseriebox.Location = New System.Drawing.Point(308, 188)
+        Me.numseriebox.MaxLength = 30
         Me.numseriebox.Name = "numseriebox"
         Me.numseriebox.Size = New System.Drawing.Size(178, 25)
         Me.numseriebox.TabIndex = 69
@@ -140,6 +143,7 @@ Partial Class OPR_Artigos
         '
         Me.observaçoesbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.observaçoesbox.Location = New System.Drawing.Point(39, 250)
+        Me.observaçoesbox.MaxLength = 255
         Me.observaçoesbox.Multiline = True
         Me.observaçoesbox.Name = "observaçoesbox"
         Me.observaçoesbox.Size = New System.Drawing.Size(447, 98)

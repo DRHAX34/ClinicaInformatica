@@ -33,6 +33,7 @@ Partial Class tiposArtigos
         '
         'btnFechar
         '
+        Me.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnFechar.Location = New System.Drawing.Point(183, 322)
         Me.btnFechar.Name = "btnFechar"
         Me.btnFechar.Size = New System.Drawing.Size(74, 55)
@@ -70,6 +71,7 @@ Partial Class tiposArtigos
         '
         Me.txtTipo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTipo.Location = New System.Drawing.Point(16, 262)
+        Me.txtTipo.MaxLength = 15
         Me.txtTipo.Name = "txtTipo"
         Me.txtTipo.Size = New System.Drawing.Size(193, 25)
         Me.txtTipo.TabIndex = 6
@@ -96,8 +98,10 @@ Partial Class tiposArtigos
         '
         'tiposArtigos
         '
+        Me.AcceptButton = Me.btnOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnFechar
         Me.ClientSize = New System.Drawing.Size(347, 389)
         Me.Controls.Add(Me.btnRemover)
         Me.Controls.Add(Me.btnInserir)
@@ -106,6 +110,9 @@ Partial Class tiposArtigos
         Me.Controls.Add(Me.listTipos)
         Me.Controls.Add(Me.btnFechar)
         Me.Controls.Add(Me.btnOK)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "tiposArtigos"
         Me.Text = "tiposArtigos"
         Me.ResumeLayout(False)

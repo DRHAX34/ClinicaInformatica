@@ -38,6 +38,7 @@ Partial Class txtRelatorio_Form
         '
         'btnFechar
         '
+        Me.btnFechar.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnFechar.Location = New System.Drawing.Point(617, 145)
         Me.btnFechar.Name = "btnFechar"
         Me.btnFechar.Size = New System.Drawing.Size(73, 52)
@@ -66,13 +67,18 @@ Partial Class txtRelatorio_Form
         '
         'txtRelatorio_Form
         '
+        Me.AcceptButton = Me.btnOK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.CancelButton = Me.btnFechar
         Me.ClientSize = New System.Drawing.Size(780, 207)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.txtReport)
         Me.Controls.Add(Me.btnFechar)
         Me.Controls.Add(Me.btnOK)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "txtRelatorio_Form"
         Me.Text = "Texto Folha do Cliente"
         Me.ResumeLayout(False)

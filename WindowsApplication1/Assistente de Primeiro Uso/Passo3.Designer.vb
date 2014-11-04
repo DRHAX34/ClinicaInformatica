@@ -128,6 +128,7 @@ Partial Class Passo3
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.nomebox.Location = New System.Drawing.Point(187, 191)
+        Me.nomebox.MaxLength = 20
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(183, 27)
         Me.nomebox.TabIndex = 41
@@ -138,6 +139,7 @@ Partial Class Passo3
         '
         Me.passbox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.passbox.Location = New System.Drawing.Point(187, 244)
+        Me.passbox.MaxLength = 20
         Me.passbox.Name = "passbox"
         Me.passbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.passbox.Size = New System.Drawing.Size(183, 27)
@@ -149,6 +151,7 @@ Partial Class Passo3
         '
         Me.verifbox.Font = New System.Drawing.Font("Segoe UI", 11.25!)
         Me.verifbox.Location = New System.Drawing.Point(187, 297)
+        Me.verifbox.MaxLength = 20
         Me.verifbox.Name = "verifbox"
         Me.verifbox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.verifbox.Size = New System.Drawing.Size(183, 27)
@@ -160,6 +163,7 @@ Partial Class Passo3
         '
         Me.perguntabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.perguntabox.Location = New System.Drawing.Point(427, 191)
+        Me.perguntabox.MaxLength = 100
         Me.perguntabox.Name = "perguntabox"
         Me.perguntabox.Size = New System.Drawing.Size(233, 27)
         Me.perguntabox.TabIndex = 44
@@ -170,6 +174,7 @@ Partial Class Passo3
         '
         Me.respostabox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.respostabox.Location = New System.Drawing.Point(427, 244)
+        Me.respostabox.MaxLength = 100
         Me.respostabox.Name = "respostabox"
         Me.respostabox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(9679)
         Me.respostabox.Size = New System.Drawing.Size(233, 27)

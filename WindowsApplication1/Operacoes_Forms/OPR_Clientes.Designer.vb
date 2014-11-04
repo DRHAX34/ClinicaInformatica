@@ -61,7 +61,7 @@ Partial Class OPR_Clientes
         Me.Label4.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(360, 211)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(136, 25)
+        Me.Label4.Size = New System.Drawing.Size(135, 25)
         Me.Label4.TabIndex = 3
         Me.Label4.Text = "Código Postal"
         '
@@ -169,6 +169,7 @@ Partial Class OPR_Clientes
         '
         Me.nomebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.nomebox.Location = New System.Drawing.Point(113, 132)
+        Me.nomebox.MaxLength = 100
         Me.nomebox.Name = "nomebox"
         Me.nomebox.Size = New System.Drawing.Size(220, 25)
         Me.nomebox.TabIndex = 78
@@ -179,6 +180,7 @@ Partial Class OPR_Clientes
         '
         Me.moradabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.moradabox.Location = New System.Drawing.Point(113, 169)
+        Me.moradabox.MaxLength = 200
         Me.moradabox.Name = "moradabox"
         Me.moradabox.Size = New System.Drawing.Size(220, 25)
         Me.moradabox.TabIndex = 79
@@ -200,6 +202,7 @@ Partial Class OPR_Clientes
         '
         Me.emailbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.emailbox.Location = New System.Drawing.Point(425, 132)
+        Me.emailbox.MaxLength = 100
         Me.emailbox.Name = "emailbox"
         Me.emailbox.Size = New System.Drawing.Size(186, 25)
         Me.emailbox.TabIndex = 81
@@ -210,6 +213,7 @@ Partial Class OPR_Clientes
         '
         Me.localidadebox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
         Me.localidadebox.Location = New System.Drawing.Point(473, 172)
+        Me.localidadebox.MaxLength = 100
         Me.localidadebox.Name = "localidadebox"
         Me.localidadebox.Size = New System.Drawing.Size(138, 25)
         Me.localidadebox.TabIndex = 82
@@ -240,7 +244,7 @@ Partial Class OPR_Clientes
         Me.cmovelbox.TabIndex = 84
         Me.cmovelbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.cmovelbox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cmovelbox.WaterMarkText = "Obrigatório"
+        Me.cmovelbox.WaterMarkText = "Um dos dois"
         '
         'cfixobox
         '
@@ -253,7 +257,7 @@ Partial Class OPR_Clientes
         Me.cfixobox.TabIndex = 85
         Me.cfixobox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.cfixobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.cfixobox.WaterMarkText = ""
+        Me.cfixobox.WaterMarkText = "é obrigatório"
         '
         'RadioButton1
         '

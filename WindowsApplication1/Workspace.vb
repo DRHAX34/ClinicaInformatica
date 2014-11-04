@@ -7,6 +7,7 @@ Public Class Workspace
     Public artigosview As New ViewForm
     Public repararview As New ViewForm
     Public clientesview As New ViewForm
+    Public tipoview As New tiposArtigos
     Public reportview As New txtRelatorio_Form
     Public config2 As New Passo2
     Public config3 As New Passo3
@@ -471,6 +472,13 @@ Public Class Workspace
 
     Private Sub TextoResponsabilidadeRelatroioToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TextoResponsabilidadeRelatroioToolStripMenuItem.Click
         reportview = New txtRelatorio_Form
+        reportview.MdiParent = Me
         reportview.Show()
+    End Sub
+
+    Private Sub TiposDeArtigoToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles TiposDeArtigoToolStripMenuItem1.Click
+        tipoview = New tiposArtigos
+        tipoview.MdiParent = Me
+        tipoview.Show()
     End Sub
 End Class
