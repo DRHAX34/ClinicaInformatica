@@ -106,6 +106,9 @@ Partial Class OPR_Artigos
         Me.Label4.TabIndex = 36
         Me.Label4.Text = "NºSérie"
         '
+        'Timer1
+        '
+        '
         'marcabox
         '
         Me.marcabox.Font = New System.Drawing.Font("Segoe UI", 9.75!)

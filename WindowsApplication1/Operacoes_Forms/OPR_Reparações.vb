@@ -46,6 +46,8 @@
         End If
     End Sub
     Private Sub RadButton5_Click(sender As Object, e As EventArgs) Handles savebutton.Click
+        Workspace.hardware_support = New DataTable
+        Workspace.software_support = New DataTable
         If modo = False Then
             Dim h(2) As Object
             If Workspace.hardware_support.Columns.Count <> 3 Then

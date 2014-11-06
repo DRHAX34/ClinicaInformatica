@@ -35,7 +35,7 @@ Public Class Workspace
     Public Sub New()
         InitializeComponent()
         WindowState = FormWindowState.Maximized
-        Dim mdi As New MdiClientWithoutScrollBars(Me)
+        'Dim mdi As New MdiClientWithoutScrollBars(Me)
     End Sub
     'Private Sub OpenFile(ByVal sender As Object, ByVal e As EventArgs) Handles OpenToolStripMenuItem.Click
     '    Dim OpenFileDialog As New OpenFileDialog
@@ -175,7 +175,6 @@ Public Class Workspace
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
         If check_clientes = False Or clientesview.Visible = False Then
             clientesview = New ViewForm
-            check_clientes = True
             clientesview.Text = "Clientes"
             clientesview.tabela = "Clientes"
             clientesview.Label1.Text = "Clientes"
@@ -480,5 +479,15 @@ Public Class Workspace
         tipoview = New tiposArtigos
         tipoview.MdiParent = Me
         tipoview.Show()
+    End Sub
+
+    Private Sub InserirContactosToolStripMenuItem_Click(sender As Object, e As EventArgs)
+        DAL2.CreateConnection()
+        Dim portdb As New DataTable
+        portdb = DAL2.ExecuteQueryDT("Select * from Clientes", Nothing)
+        For i = 0 To portdb.Rows.Count - 1
+            BLL.Clientes.inserir("", portdb.Rows(i).Item("Localidade").ToString, portdb.Rows(i).Item("Nome").ToString, portdb.Rows(i).Item("Morada").ToString, portdb.Rows(i).Item("Cod_Postal").ToString, "", True, portdb.Rows(i).Item("Contacto_M").ToString, portdb.Rows(i).Item("Contacto_F").ToString)
+        Next
+        MsgBox("Feito!")
     End Sub
 End Class

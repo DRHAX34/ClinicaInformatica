@@ -57,7 +57,6 @@ Partial Class OPR_Técnicos
         Me.restartbutton = New System.Windows.Forms.Button()
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.savebutton = New System.Windows.Forms.Button()
-        Me.reparaçoesefetuadasbutton = New System.Windows.Forms.Button()
         Me.logobutton = New System.Windows.Forms.Button()
         Me.lockbutton = New System.Windows.Forms.Button()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -189,7 +188,7 @@ Partial Class OPR_Técnicos
         Me.contactom_box.TabIndex = 85
         Me.contactom_box.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contactom_box.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contactom_box.WaterMarkText = "Obrigatório"
+        Me.contactom_box.WaterMarkText = "Um dos dois"
         '
         'contacto_fbox
         '
@@ -202,7 +201,7 @@ Partial Class OPR_Técnicos
         Me.contacto_fbox.TabIndex = 86
         Me.contacto_fbox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals
         Me.contacto_fbox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.contacto_fbox.WaterMarkText = ""
+        Me.contacto_fbox.WaterMarkText = "é obrigatório"
         '
         'nomebox
         '
@@ -413,14 +412,6 @@ Partial Class OPR_Técnicos
         Me.savebutton.TabIndex = 105
         Me.savebutton.UseVisualStyleBackColor = True
         '
-        'reparaçoesefetuadasbutton
-        '
-        Me.reparaçoesefetuadasbutton.Location = New System.Drawing.Point(160, 419)
-        Me.reparaçoesefetuadasbutton.Name = "reparaçoesefetuadasbutton"
-        Me.reparaçoesefetuadasbutton.Size = New System.Drawing.Size(97, 41)
-        Me.reparaçoesefetuadasbutton.TabIndex = 106
-        Me.reparaçoesefetuadasbutton.UseVisualStyleBackColor = True
-        '
         'logobutton
         '
         Me.logobutton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -451,7 +442,6 @@ Partial Class OPR_Técnicos
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.exitbutton)
         Me.Controls.Add(Me.caminhobox)
-        Me.Controls.Add(Me.reparaçoesefetuadasbutton)
         Me.Controls.Add(Me.savebutton)
         Me.Controls.Add(Me.cod_postalbox)
         Me.Controls.Add(Me.localidadebox)
@@ -518,7 +508,6 @@ Partial Class OPR_Técnicos
     Friend WithEvents restartbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents savebutton As System.Windows.Forms.Button
-    Friend WithEvents reparaçoesefetuadasbutton As System.Windows.Forms.Button
     Friend WithEvents logobutton As System.Windows.Forms.Button
     Friend WithEvents lockbutton As System.Windows.Forms.Button
 End Class

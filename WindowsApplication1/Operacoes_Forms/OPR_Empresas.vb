@@ -167,7 +167,13 @@
             MsgBox("Indique se a Empresa tem alunos ou não!")
         End If
     End Sub
-
+    Private Sub codpostalbox_TextChanged(sender As Object, e As EventArgs) Handles cod_postalbox.Click
+        cod_postalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
+        If cod_postalbox.Text.Length = 0 Then
+            cod_postalbox.Select(0, 0)
+        End If
+        cod_postalbox.TextMaskFormat = MaskFormat.IncludeLiterals
+    End Sub
     Private Sub exitbutton_Click(sender As Object, e As EventArgs) Handles exitbutton.Click
         Me.Close()
     End Sub

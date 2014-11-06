@@ -343,6 +343,16 @@ Namespace My.Resources
         '''<summary>
         '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property fundoclinica_splash() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("fundoclinica_splash", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Procura um recurso localizado do tipo System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property gg() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("gg", resourceCulture)

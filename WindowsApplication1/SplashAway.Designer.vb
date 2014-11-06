@@ -36,9 +36,9 @@ Partial Class SplashAway
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label1.Location = New System.Drawing.Point(268, 88)
+        Me.Label1.Location = New System.Drawing.Point(446, 92)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(257, 31)
+        Me.Label1.Size = New System.Drawing.Size(258, 31)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "F.E.Coding Produções"
         '
@@ -46,11 +46,11 @@ Partial Class SplashAway
         '
         Me.versaolabel.AutoSize = True
         Me.versaolabel.BackColor = System.Drawing.Color.Transparent
-        Me.versaolabel.Font = New System.Drawing.Font("Times New Roman", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.versaolabel.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.versaolabel.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.versaolabel.Location = New System.Drawing.Point(303, 345)
+        Me.versaolabel.Location = New System.Drawing.Point(12, 267)
         Me.versaolabel.Name = "versaolabel"
-        Me.versaolabel.Size = New System.Drawing.Size(83, 31)
+        Me.versaolabel.Size = New System.Drawing.Size(49, 19)
         Me.versaolabel.TabIndex = 1
         Me.versaolabel.Text = "versao"
         '
@@ -58,17 +58,17 @@ Partial Class SplashAway
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Times New Roman", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(577, 372)
+        Me.Label2.Location = New System.Drawing.Point(613, 271)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(172, 19)
+        Me.Label2.Size = New System.Drawing.Size(136, 15)
         Me.Label2.TabIndex = 5
         Me.Label2.Text = "Imagem por Tiago Almeida"
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(274, 295)
+        Me.ProgressBar1.Location = New System.Drawing.Point(453, 172)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(251, 28)
         Me.ProgressBar1.TabIndex = 6
@@ -81,14 +81,15 @@ Partial Class SplashAway
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundoclinica
+        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundoclinica_splash
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(761, 400)
+        Me.ClientSize = New System.Drawing.Size(761, 295)
         Me.ControlBox = False
         Me.Controls.Add(Me.ProgressBar1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.versaolabel)
         Me.Controls.Add(Me.Label1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False

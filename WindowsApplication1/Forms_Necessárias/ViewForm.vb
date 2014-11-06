@@ -80,11 +80,10 @@
         exitimagebutton.MakeTransparent(Color.White)
         exitbutton.Image = exitimagebutton
         Label1.Location = New Point(((Me.Width / 2) - (Label1.Width / 2)), 9)
-
-        'Se não metermos .Enabled=false ele reverte para o default, que é true
-        'Código de Teste:
-        Me.Show()
-        showdata.DataSource = data_table
+        Dim dataview As New DataView(data_table)
+        showdata.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.EnableResizing
+        showdata.RowHeadersVisible = False
+        showdata.DataSource = dataview
         If removidos = True Then
             newbutton.Enabled = False
         Else
@@ -146,6 +145,7 @@
 
     Private Sub showdata_doubleclick(sender As Object, e As EventArgs) Handles showdata.DoubleClick
         Try
+            Me.WindowState = FormWindowState.Normal
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
             Select Case tabela
@@ -534,6 +534,7 @@
 
     Private Sub EditarMenuItem1_Click(sender As Object, e As EventArgs) Handles EditarMenuItem1.Click
         Try
+            Me.WindowState = FormWindowState.Normal
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
             Try
@@ -640,6 +641,7 @@
 
     Private Sub primeiroMenuItem_Click(sender As Object, e As EventArgs) Handles primeiroMenuItem.Click
         Try
+            Me.WindowState = FormWindowState.Normal
             Dim string_data As String
             string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
             Select Case tabela
@@ -672,13 +674,13 @@
                     repararview.Show()
                     Me.Hide()
                 Case "Reparações"
-                        folha_repar.MdiParent = Workspace
-                        folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
-                        folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
-                        folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
+                    folha_repar.MdiParent = Workspace
+                    folha_repar.n_repar = data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºReparação").ToString()
+                    folha_repar.artigodata = BLL.Artigos.carregar_dados_numartigo(data_table.Rows(showdata.CurrentCell.RowIndex).Item("NºArtigo").ToString(), True)
+                    folha_repar.cliente_data = BLL.Clientes.carregar_dados_numcliente(folha_repar.artigodata.Rows(0).Item("NºCliente").ToString(), True)
                     folha_repar.Show()
                     check = True
-                        Me.Close()
+                    Me.Close()
                 Case "Técnicos"
                     Dim repararview As New ViewForm
                     Workspace.check_reparacoes = True

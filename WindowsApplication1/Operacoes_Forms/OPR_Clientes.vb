@@ -313,11 +313,15 @@
     End Sub
 
     Private Sub cmovelbox_TextChanged(sender As Object, e As EventArgs) Handles cmovelbox.Click
-        cmovelbox.Select(0, cmovelbox.Text.Length + 1)
+        If cmovelbox.Text.Length = 0 Then
+            cmovelbox.Select(0, 0)
+        End If
     End Sub
 
     Private Sub cfixobox_TextChanged(sender As Object, e As EventArgs) Handles cfixobox.Click
-        cfixobox.Select(0, cfixobox.Text.Length + 1)
+        If cmovelbox.Text.Length = 0 Then
+            cfixobox.Select(0, 0)
+        End If
     End Sub
     Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
         Dim imageunlockbutton As New Bitmap(My.Resources.unlock, lockbutton.Height - 1, lockbutton.Width - 1)
@@ -356,5 +360,11 @@
             savebutton.Enabled = True
         End If
     End Sub
-
+    Private Sub codpostalbox_TextChanged(sender As Object, e As EventArgs) Handles codpostalbox.Click
+        codpostalbox.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals
+        If codpostalbox.Text.Length = 0 Then
+            codpostalbox.Select(0, 0)
+        End If
+        codpostalbox.TextMaskFormat = MaskFormat.IncludeLiterals
+    End Sub
 End Class

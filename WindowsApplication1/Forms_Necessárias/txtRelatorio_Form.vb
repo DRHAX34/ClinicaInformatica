@@ -20,12 +20,12 @@
 
     End Sub
 
-    Private Sub txtReport_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtReport.KeyPress
+    Private Sub txtReport_KeyPress(sender As Object, e As KeyEventArgs) Handles txtReport.KeyDown
         Try
-            If e.KeyChar = Microsoft.VisualBasic.Chr(10) Then
+            If e.KeyCode = Keys.Return Or e.KeyCode = Keys.Enter Then
                 Dim count As Integer = 0
                 For i = 0 To txtReport.Text.Length - 1
-                    If txtReport.Text.Chars(i) = Chr(10) Then
+                    If txtReport.Text.Chars(i) = Chr(13) Or txtReport.Text.Chars(i) = Chr(10) Then
                         count += 1
                     End If
                 Next
@@ -35,5 +35,9 @@
             End If
         Catch
         End Try
+    End Sub
+
+    Private Sub btnFechar_Click(sender As Object, e As EventArgs) Handles btnFechar.Click
+        Me.Close()
     End Sub
 End Class

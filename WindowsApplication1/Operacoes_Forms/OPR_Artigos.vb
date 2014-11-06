@@ -167,7 +167,9 @@
 
     Private Sub lockbutton_Click(sender As Object, e As EventArgs) Handles lockbutton.Click
         Dim imageunlockbutton As New Bitmap(My.Resources.unlock, lockbutton.Height - 5, lockbutton.Width - 5)
+        imageunlockbutton.MakeTransparent(Color.White)
         Dim imagelockbutton As New Bitmap(My.Resources.lock, lockbutton.Height - 5, lockbutton.Width - 5)
+        imagelockbutton.MakeTransparent(Color.White)
         If lock = False Then
             lock = True
             lockbutton.Image = imageunlockbutton
@@ -192,4 +194,6 @@
     Private Sub Label6_Click(sender As Object, e As EventArgs) Handles Label6.Click
 
     End Sub
+
+    
 End Class

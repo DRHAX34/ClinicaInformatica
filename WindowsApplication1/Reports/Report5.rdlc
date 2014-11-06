@@ -819,7 +819,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIf(First(Fields!textReport.Value, "Empresas")="","Atenção:" + Chr(10) + "● Só poderá levantar o artigo mediante a apresentação desta folha." + Chr(10) + "● A "+ First(Fields!Nome.Value, "Empresas") + "não se responsabiliza pelos dados contidos no disco rígido, também" + Chr(10) + "não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.",First(Fields!textReport.Value, "Empresas"))</Value>
+                <Value>=IIf(First(Fields!textReport.Value, "Empresas")="","Atenção:" + Chr(10) + "● Só poderá levantar o artigo mediante a apresentação desta folha." + Chr(10) + "● A "+ First(Fields!Nome.Value, "Empresas") + " não se responsabiliza pelos dados contidos no disco rígido, também" + Chr(10) + "não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.",First(Fields!textReport.Value, "Empresas"))</Value>
                 <Style>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>
@@ -1026,7 +1026,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=IIf(First(Fields!textReport.Value, "Empresas")="","Atenção:" + Chr(10) + "● Só poderá levantar o artigo mediante a apresentação desta folha." + Chr(10) + "● A "+ First(Fields!Nome.Value, "Empresas") + "não se responsabiliza pelos dados contidos no disco rígido, também" + Chr(10) + "não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.",First(Fields!textReport.Value, "Empresas"))</Value>
+                <Value>=IIf(First(Fields!textReport.Value, "Empresas")="","Atenção:" + Chr(10) + "● Só poderá levantar o artigo mediante a apresentação desta folha." + Chr(10) + "● A "+ First(Fields!Nome.Value, "Empresas") + " não se responsabiliza pelos dados contidos no disco rígido, também" + Chr(10) + "não nos responsabilizamos pelo material após 30 dias da reparação ter sido efectuada.",First(Fields!textReport.Value, "Empresas"))</Value>
                 <Style>
                   <TextDecoration>Underline</TextDecoration>
                 </Style>

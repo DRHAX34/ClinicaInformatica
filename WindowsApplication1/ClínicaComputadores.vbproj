@@ -15,7 +15,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <PublishUrl>C:\Users\Emanuel Vitorino\Desktop\</PublishUrl>
+    <PublishUrl>C:\Users\Emanuel\Desktop\GestaoClinik\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,9 +25,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>17</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ProductName>Gestão Clínica Informática</ProductName>
+    <PublisherName>Emanuel Vitorino</PublisherName>
+    <SuiteName>Clinica Informatica</SuiteName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>3.2.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -147,6 +151,7 @@
     <Compile Include="CustomControl1.vb">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="DAL2.vb" />
     <Compile Include="Forms_Necessárias\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>
@@ -428,6 +433,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="icone programa.ico" />
+    <None Include="Resources\fundoclinica_splash.png" />
     <None Include="Resources\Refresh_black-512.png" />
     <None Include="Resources\icon lg devices.png" />
     <None Include="Resources\unlock.png" />
@@ -485,6 +491,11 @@
       <ProductName>Microsoft .NET Framework 4.5 %28x86 e x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
@@ -494,6 +505,11 @@
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.ReportViewer.11.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Report Viewer 2012 Runtime</ProductName>
+      <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
       <Visible>False</Visible>
