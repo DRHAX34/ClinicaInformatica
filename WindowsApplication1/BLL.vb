@@ -24,6 +24,9 @@ Public Class BLL
             p.Add(New SqlParameter("@texto", text))
             DAL.ExecuteNonQuery("Update Empresas set textReport=@texto where NºEmpresa=1", p)
         End Sub
+        Shared Function return_text()
+            Return DAL.ExecuteScalar("Select textReport from Empresas where NºEmpresa=1", Nothing)
+        End Function
     End Class
     Public Class Admin_only
         Public Class Login

@@ -91,6 +91,7 @@
             Workspace.companylogo.BringToFront()
             Workspace.user = user
             Me.Close()
+            Workspace.clientesmenu.PerformClick()
         End If
 
     End Sub

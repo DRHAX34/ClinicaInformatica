@@ -248,68 +248,68 @@
 
 
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
-        GroupBox1.Hide()
-        Try
-            Dim string_data As String
-            string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+        If MsgBox("Deseja eliminar o Registo?", MsgBoxStyle.YesNo, "Eliminar") = vbYes Then
             Try
-                Select Case tabela
-                    Case "Clientes"
-                        If removidos = True Then
-                            BLL.Clientes.reativar_cliente(string_data)
-                            MsgBox("Restaurado com sucesso!")
-                            If Workspace.Aluno = True Then
-                                showdata.DataSource = BLL.Clientes.carregar_alunos(False)
+                Dim string_data As String
+                string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()
+                Try
+                    Select Case tabela
+                        Case "Clientes"
+                            If removidos = True Then
+                                BLL.Clientes.reativar_cliente(string_data)
+                                MsgBox("Restaurado com sucesso!")
+                                If Workspace.Aluno = True Then
+                                    showdata.DataSource = BLL.Clientes.carregar_alunos(False)
+                                Else
+                                    showdata.DataSource = BLL.Clientes.carregar(False)
+                                End If
                             Else
-                                showdata.DataSource = BLL.Clientes.carregar(False)
+                                BLL.Clientes.apagar(string_data)
+                                MsgBox("Eliminado com sucesso!")
+                                If Workspace.Aluno = True Then
+                                    showdata.DataSource = BLL.Clientes.carregar_alunos(True)
+                                Else
+                                    showdata.DataSource = BLL.Clientes.carregar(True)
+                                End If
                             End If
-                        Else
-                            BLL.Clientes.apagar(string_data)
-                            MsgBox("Eliminado com sucesso!")
-                            If Workspace.Aluno = True Then
-                                showdata.DataSource = BLL.Clientes.carregar_alunos(True)
+                        Case "Artigos"
+                            If removidos = True Then
+                                BLL.Artigos.restaurar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
+                                MsgBox("Restaurado com sucesso!")
+                                showdata.DataSource = BLL.Artigos.carregar_dados_numcliente(data_table.Rows(0).Item("NºCliente"), False)
                             Else
-                                showdata.DataSource = BLL.Clientes.carregar(True)
+                                BLL.Artigos.apagar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
+                                MsgBox("Removido com sucesso!")
+                                showdata.DataSource = BLL.Artigos.carregar_dados_numcliente(data_table.Rows(0).Item("NºCliente"), True)
                             End If
-                        End If
-                    Case "Artigos"
-                        If removidos = True Then
-                            BLL.Artigos.restaurar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
-                            MsgBox("Restaurado com sucesso!")
-                            showdata.DataSource = BLL.Artigos.carregar(False)
-                        Else
-                            BLL.Artigos.apagar(string_data, showdata.Rows(showdata.CurrentCell.RowIndex).Cells(1).Value.ToString())
-                            MsgBox("Removido com sucesso!")
-                            showdata.DataSource = BLL.Artigos.carregar(True)
-                        End If
-                    Case "Reparações"
-                        If removidos = True Then
-                            BLL.Reparacoes.restaurar(string_data, 1)
-                            MsgBox("Restaurado com sucesso!")
-                            showdata.DataSource = BLL.Reparacoes.carregar(False)
-                        Else
-                            BLL.Reparacoes.apagar(string_data, 1)
-                            MsgBox("Removido com sucesso!")
-                            showdata.DataSource = BLL.Reparacoes.carregar(True)
-                        End If
-                    Case "Técnicos"
-                        If removidos = True Then
-                            BLL.Tecnicos.restaurar(string_data)
-                            MsgBox("Restaurado com sucesso!")
-                            showdata.DataSource = BLL.Tecnicos.carregar(False)
-                        Else
-                            BLL.Tecnicos.apagar(string_data)
-                            MsgBox("Removido com sucesso!")
-                            showdata.DataSource = BLL.Tecnicos.carregar(True)
-                        End If
-                End Select
-            Catch ex As Exception
-                MsgBox("Ocorreu um erro: " & ex.Message)
+                        Case "Reparações"
+                            If removidos = True Then
+                                BLL.Reparacoes.restaurar(string_data, 1)
+                                MsgBox("Restaurado com sucesso!")
+                                showdata.DataSource = BLL.Reparacoes.carregar_dados_numartigo(data_table.Rows(0).Item("NºArtigo"), False)
+                            Else
+                                BLL.Reparacoes.apagar(string_data, 1)
+                                MsgBox("Removido com sucesso!")
+                                showdata.DataSource = BLL.Reparacoes.carregar_dados_numartigo(data_table.Rows(0).Item("NºArtigo"), True)
+                            End If
+                        Case "Técnicos"
+                            If removidos = True Then
+                                BLL.Tecnicos.restaurar(string_data)
+                                MsgBox("Restaurado com sucesso!")
+                                showdata.DataSource = BLL.Tecnicos.carregar(False)
+                            Else
+                                BLL.Tecnicos.apagar(string_data)
+                                MsgBox("Removido com sucesso!")
+                                showdata.DataSource = BLL.Tecnicos.carregar(True)
+                            End If
+                    End Select
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+                End Try
+            Catch
+                MsgBox("Selecione algo na tabela primeiro!")
             End Try
-        Catch
-            MsgBox("Selecione algo na tabela primeiro!")
-        End Try
-
+        End If
     End Sub
     Private Sub findbutton_Click(sender As Object, e As EventArgs)
         GroupBox1.Show()

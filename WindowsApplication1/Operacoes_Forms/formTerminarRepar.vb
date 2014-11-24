@@ -98,12 +98,16 @@
         h(0) = "Caixa"
         If CDbl(caixapreçobox.Text) <> 0.0 Then
             h(1) = 1
+        Else
+            h(1) = 0
         End If
         h(2) = caixapreçobox.Text
         Workspace.hardware_support.Rows.Add(h)
         h(0) = "Motherboard"
         If CDbl(motherpreçobox.Text) <> 0.0 Then
             h(1) = 1
+        Else
+            h(1) = 0
         End If
         h(2) = motherpreçobox.Text
         Workspace.hardware_support.Rows.Add(h)
@@ -126,6 +130,8 @@
         h(0) = ("Fonte")
         If CDbl(fontepreçobox.Text) <> 0.0 Then
             h(1) = 1
+        Else
+            h(1) = 0
         End If
         h(2) = fontepreçobox.Text
         Workspace.hardware_support.Rows.Add(h)
