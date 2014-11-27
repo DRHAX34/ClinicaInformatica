@@ -151,7 +151,6 @@
     <Compile Include="CustomControl1.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="DAL2.vb" />
     <Compile Include="Forms_Necessárias\AboutBox1.Designer.vb">
       <DependentUpon>AboutBox1.vb</DependentUpon>
     </Compile>

@@ -26,6 +26,12 @@
         GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (436 - 329)))
         Label1.Location = New Point(((Me.Width / 2) - (Label1.Width / 2)), 9)
     End Sub
+    Private Sub resizebeginning(sender As Object, e As EventArgs) Handles Me.ResizeBegin
+        Workspace.SuspendLayout()
+    End Sub
+    Private Sub resizeending(sender As Object, e As EventArgs) Handles Me.ResizeEnd
+        Workspace.ResumeLayout()
+    End Sub
     Private Declare Sub mouse_event Lib "user32" (ByVal dwFlags As Integer, _
       ByVal dx As Integer, ByVal dy As Integer, ByVal cButtons As Integer, _
       ByVal dwExtraInfo As Integer)

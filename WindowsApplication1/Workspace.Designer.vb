@@ -61,7 +61,7 @@ Partial Class Workspace
         '
         Me.StatusStrip.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1})
-        Me.StatusStrip.Location = New System.Drawing.Point(0, 448)
+        Me.StatusStrip.Location = New System.Drawing.Point(0, 453)
         Me.StatusStrip.Name = "StatusStrip"
         Me.StatusStrip.Size = New System.Drawing.Size(1102, 22)
         Me.StatusStrip.SizingGrip = False
@@ -258,8 +258,9 @@ Partial Class Workspace
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(191, Byte), Integer), CType(CType(219, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.BackgroundImage = Global.ClinicaInformatica.My.Resources.Resources.fundo_MDI
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.ClientSize = New System.Drawing.Size(1102, 470)
+        Me.ClientSize = New System.Drawing.Size(1102, 475)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.companylogo)
         Me.Controls.Add(Me.Label1)

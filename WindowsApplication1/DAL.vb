@@ -44,8 +44,7 @@ Public Class DAL
             OpenConnection()
             Return cmdSQL.ExecuteScalar
         Catch ex As Exception
-            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            Workspace.Close()
+            'Inserir codigo debugger aqui
             Return -1
         Finally
             cmdSQL.Dispose()
@@ -63,8 +62,7 @@ Public Class DAL
             OpenConnection()
             Return CInt(cmdSQL.ExecuteNonQuery)
         Catch ex As Exception
-            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            Workspace.Close()
+            'Inserir codigo debugger aqui
             Return -1
         Finally
             CloseConnection()
@@ -91,8 +89,7 @@ Public Class DAL
             End While
             Return Result
         Catch ex As Exception
-            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            Workspace.Close()
+            'Inserir codigo debugger aqui
             Return Nothing
         Finally
             cmdSQL.Dispose()
@@ -116,7 +113,7 @@ Public Class DAL
             cmdSQL.Fill(Result)
             Return Result
         Catch ex As Exception
-            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
+            'Inserir codigo debugger aqui
             Return Nothing
         Finally
             cmdSQL.Dispose()
@@ -167,6 +164,8 @@ Public Class DAL
             MsgBox("Backup restaurado com êxito!")
         Catch ex As Exception
             resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET ONLINE", Connection)
+            resCmd.ExecuteNonQuery()
+            Connection.Close()
             MsgBox("Não foi possível restaurar! " & ex.Message, vbOKOnly)
         Finally
             If Connection.State = ConnectionState.Open Then

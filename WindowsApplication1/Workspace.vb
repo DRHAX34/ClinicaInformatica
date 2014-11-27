@@ -107,11 +107,10 @@ Public Class Workspace
         'terminarsessaobutton.Location = New Point((Me.Width - (1035 - 908)), 12)
         Label1.Location = New Point((Me.Width - (1035 - (956 - (Label1.Size.Width) - (5)))), 15)
         companylogo.Location = New Point((Me.Width - (1118 - 1032)), 0)
-        Label2.Location = New Point((Me.Width - Label2.Size.Width - 25), (Me.Height - (506 - 446)))
+        Label2.Location = New Point((Me.Width - Label2.Size.Width - 25), (Me.Height - (506 - 453)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
     End Sub
-
     Private Sub Workspace_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.AutoScroll = False
         Me.AutoSize = False
@@ -155,7 +154,6 @@ Public Class Workspace
                 LoginForm.Show()
             End If
         End If
-        Me.DoubleBuffered = True
     End Sub
     Private Sub form_closing(ByVal sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         Dim check As Boolean = False
@@ -481,13 +479,5 @@ Public Class Workspace
         tipoview.Show()
     End Sub
 
-    Private Sub InserirContactosToolStripMenuItem_Click(sender As Object, e As EventArgs)
-        DAL2.CreateConnection()
-        Dim portdb As New DataTable
-        portdb = DAL2.ExecuteQueryDT("Select * from Clientes", Nothing)
-        For i = 0 To portdb.Rows.Count - 1
-            BLL.Clientes.inserir("", portdb.Rows(i).Item("Localidade").ToString, portdb.Rows(i).Item("Nome").ToString, portdb.Rows(i).Item("Morada").ToString, portdb.Rows(i).Item("Cod_Postal").ToString, "", True, portdb.Rows(i).Item("Contacto_M").ToString, portdb.Rows(i).Item("Contacto_F").ToString)
-        Next
-        MsgBox("Feito!")
-    End Sub
+    
 End Class
