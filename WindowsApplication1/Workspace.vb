@@ -116,6 +116,9 @@ Public Class Workspace
         Me.AutoSize = False
         companylogo.Hide()
         Label2.Hide()
+        Dim estado As Integer = DAL.CreateConnection()
+        cache_users = BLL.Admin_only.Login.carregar_JustAnotherParams
+        cache_empresas = BLL.Login.Carregar_empresas
         If cache_users.Rows.Count = 0 Then
             If cache_empresas.Count = 0 Then
                 Me.WindowState = FormWindowState.Normal
@@ -401,7 +404,7 @@ Public Class Workspace
     End Sub
 
     Private Sub UtilizadoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UtilizadoresToolStripMenuItem.Click
-        
+
     End Sub
 
     Private Sub companylogo_Click(sender As Object, e As EventArgs) Handles companylogo.Click
@@ -479,5 +482,5 @@ Public Class Workspace
         tipoview.Show()
     End Sub
 
-    
+
 End Class

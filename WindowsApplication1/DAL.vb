@@ -7,16 +7,9 @@ Imports System.IO
 Public Class DAL
     Public Shared Connection As SqlConnection = Nothing
     Shared Function CreateConnection() As Integer
-        Try
             'Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=" & Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf" & ";Integrated Security=True;Connect Timeout=30")
             Connection = New SqlConnection("Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\Resources\BD-C.I.mdf;Integrated Security=True")
             Return 0
-        Catch ex As Exception
-            SplashAway.Timer1.Stop()
-            MessageBox.Show("Erro na base-de-dados: " & ex.Message)
-            SplashAway.Close()
-            Return -1
-        End Try
     End Function
     Shared Sub OpenConnection()
         If Connection.State <> ConnectionState.Open Then
@@ -113,7 +106,8 @@ Public Class DAL
             cmdSQL.Fill(Result)
             Return Result
         Catch ex As Exception
-            'Inserir codigo debugger aqui
+            MsgBox("Erro ao conectar à base-de-dados: " & ex.Message)
+            Application.Exit()
             Return Nothing
         Finally
             cmdSQL.Dispose()

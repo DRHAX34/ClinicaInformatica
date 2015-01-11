@@ -6,12 +6,17 @@ Public NotInheritable Class SplashAway
     '  no Designer de Projeto ("Propriedades" dentro do menu "Projetos").
 
     Private Sub load_form()
+        Me.Refresh()
         ProgressBar1.Value = 5
+        ProgressBar1.Refresh()
         Workspace.Label1.Hide()
         ProgressBar1.Value = 10
+        ProgressBar1.Refresh()
         ProgressBar1.Value = 15
+        ProgressBar1.Refresh()
         Workspace.check_bd = False
         ProgressBar1.Value = 20
+        ProgressBar1.Refresh()
         'If Not System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\BD\BD-C.I.mdf") Then
         '    unzip()
         '    ProgressBar1.Value = 25
@@ -29,39 +34,51 @@ Public NotInheritable Class SplashAway
         End Try
         Workspace.check_bd = True
         ProgressBar1.Value = 25
+        ProgressBar1.Refresh()
         'End If
         ProgressBar1.Value = 30
+        ProgressBar1.Refresh()
         If Workspace.check_bd = True Then
             Try
                 ProgressBar1.Value = 40
+                ProgressBar1.Refresh()
                 Workspace.Text = "Gestão Clínica Informática "
                 ProgressBar1.Value = 45
+                ProgressBar1.Refresh()
                 Workspace.MenuStrip.Hide()
                 ProgressBar1.Value = 50
+                ProgressBar1.Refresh()
                 Workspace.BackgroundImageLayout = ImageLayout.Stretch
                 ProgressBar1.Value = 55
+                ProgressBar1.Refresh()
                 Workspace.StatusStrip.Hide()
                 ProgressBar1.Value = 65
+                ProgressBar1.Refresh()
                 'terminarsessaobutton.Hide()
-                Dim estado As Integer = DAL.CreateConnection()
                 ProgressBar1.Value = 70
+                ProgressBar1.Refresh()
                 LoginForm.MdiParent = Workspace
                 ProgressBar1.Value = 75
+                ProgressBar1.Refresh()
                 Workspace.m_ChildFormNumber += 1
                 ProgressBar1.Value = 80
+                ProgressBar1.Refresh()
                 Workspace.FormBorderStyle = 1
                 ProgressBar1.Value = 85
+                ProgressBar1.Refresh()
                 If System.IO.File.Exists(Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg") Then
                     Workspace.varias_empresas = File.ReadAllText((Environment.GetEnvironmentVariable("APPDATA") & "\Clínica Informática\Config\config.cfg"))
                 End If
                 ProgressBar1.Value = 90
+                ProgressBar1.Refresh()
                 ProgressBar1.Value = 93
-                Workspace.cache_empresas = BLL.Login.Carregar_empresas
+                ProgressBar1.Refresh()
+                'Workspace.
                 ProgressBar1.Value = 98
-                Workspace.cache_users = BLL.Admin_only.Login.carregar_JustAnotherParams
+                ProgressBar1.Refresh()
+                'Workspace.
                 ProgressBar1.Value = 100
-                Workspace.Show()
-                Me.Close()
+                ProgressBar1.Refresh()
                 Timer1.Stop()
             Catch ex As Exception
                 Timer1.Stop()
@@ -69,6 +86,10 @@ Public NotInheritable Class SplashAway
                     check = True
                     MsgBox("Erro no programa: " & ex.Message, vbOKOnly, "Erro!")
                 End If
+                Me.Close()
+            Finally
+                Threading.Thread.Sleep(1000)
+                Workspace.Show()
                 Me.Close()
             End Try
         Else
