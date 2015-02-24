@@ -9,6 +9,7 @@
     Private Sub OPR_Artigos_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         ComboBox1.SelectedIndex = 0
         ComboBox1.DataSource = BLL.Tipo_Artigo.Return_tudo
+        ComboBox1.Text = ""
         Dim saveimagebutton As New Bitmap((My.Resources._1405624185_floppy), savebutton.Height - 1, savebutton.Height - 1)
         saveimagebutton.MakeTransparent(Color.White)
         savebutton.Image = saveimagebutton
@@ -89,61 +90,65 @@
                 MsgBox("Ocorreu um erro: " & ex.Message)
             End Try
         Else
-            Dim check_marca As String = ""
-            Dim check_modelo As String = ""
-            Dim check_observaçoes As String = ""
-            Try
-                check_marca = marcabox.Text
-                check_marca.Trim()
-                check_modelo = modelobox.Text
-                check_modelo.Trim()
-                check_observaçoes = observaçoesbox.Text
-                check_observaçoes.Trim()
-            Catch
-            End Try
-            Try
-                If Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
-                    BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.Text)
-                    MsgBox("Inserido com sucesso")
-                    If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then
-                        If BLL.Tecnicos.carregar(True).Rows.Count = 0 Then
-                            If Workspace.admin = True Then
-                                If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
-                                    Dim opr_tecnicos As New OPR_Técnicos
-                                    opr_tecnicos.MdiParent = Workspace
-                                    opr_tecnicos.modo = False
-                                    opr_tecnicos.Show()
-                                    Me.Close()
+            If (ComboBox1.Text = "") Then
+                Dim check_marca As String = ""
+                Dim check_modelo As String = ""
+                Dim check_observaçoes As String = ""
+                Try
+                    check_marca = marcabox.Text
+                    check_marca.Trim()
+                    check_modelo = modelobox.Text
+                    check_modelo.Trim()
+                    check_observaçoes = observaçoesbox.Text
+                    check_observaçoes.Trim()
+                Catch
+                End Try
+                Try
+                    If Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
+                        BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.Text)
+                        MsgBox("Inserido com sucesso")
+                        If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then
+                            If BLL.Tecnicos.carregar(True).Rows.Count = 0 Then
+                                If Workspace.admin = True Then
+                                    If MsgBox("Não tem nenhum técnico inserido no programa, deseja inserir algum técnico?", vbYesNo, "Sem técnicos!") = vbYes Then
+                                        Dim opr_tecnicos As New OPR_Técnicos
+                                        opr_tecnicos.MdiParent = Workspace
+                                        opr_tecnicos.modo = False
+                                        opr_tecnicos.Show()
+                                        Me.Close()
+                                    Else
+                                        MsgBox("Não poderá criar nenhuma reparação sem inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                                        Me.Close()
+                                    End If
                                 Else
-                                    MsgBox("Não poderá criar nenhuma reparação sem inserir pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                                    MsgBox("Não existem Técnicos no programa, tem que pedir ao seu Administrador que adicione pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
                                     Me.Close()
                                 End If
                             Else
-                                MsgBox("Não existem Técnicos no programa, tem que pedir ao seu Administrador que adicione pelo menos um técnico!", vbOKOnly, "Sem Técnicos!")
+                                check = True
+                                Dim opr_reparações As New OPR_Reparações
+                                opr_reparações.MdiParent = Workspace
+                                opr_reparações.modo = False
+                                opr_reparações.cliente = n_cliente
+                                opr_reparações.artigos = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString()
+                                'opr_reparações. = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString
+                                opr_reparações.Show()
                                 Me.Close()
                             End If
+
                         Else
-                            check = True
-                            Dim opr_reparações As New OPR_Reparações
-                            opr_reparações.MdiParent = Workspace
-                            opr_reparações.modo = False
-                            opr_reparações.cliente = n_cliente
-                            opr_reparações.artigos = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString()
-                            'opr_reparações. = BLL.Artigos.carregar(True).Rows(BLL.Artigos.carregar(True).Rows.Count - 1).Item("NºArtigo").ToString
-                            opr_reparações.Show()
                             Me.Close()
                         End If
 
                     Else
-                        Me.Close()
+                        MsgBox("Introduza todos os dados!")
                     End If
-
-                Else
-                    MsgBox("Introduza todos os dados!")
-                End If
-            Catch ex As Exception
-                MsgBox("Ocorreu um erro: " & ex.Message)
-            End Try
+                Catch ex As Exception
+                    MsgBox("Ocorreu um erro: " & ex.Message)
+                End Try
+            Else
+                MsgBox("Introduza todos os dados!")
+            End If
         End If
 
     End Sub
@@ -195,5 +200,5 @@
 
     End Sub
 
-    
+
 End Class

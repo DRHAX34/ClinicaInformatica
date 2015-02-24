@@ -100,7 +100,7 @@ Public NotInheritable Class SplashAway
 
 
     Private Sub SplashAway_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        versaolabel.Text = "Versão: " & Application.ProductVersion
+        'versaolabel.Text = "Versão: " & Application.ProductVersion
         Timer1.Start()
     End Sub
 
@@ -113,7 +113,7 @@ Public NotInheritable Class SplashAway
 
     End Sub
 
-    Private Sub versaolabel_Click(sender As Object, e As EventArgs) Handles versaolabel.Click
+    Private Sub versaolabel_Click(sender As Object, e As EventArgs)
 
     End Sub
 End Class
