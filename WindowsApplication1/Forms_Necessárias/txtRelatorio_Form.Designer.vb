@@ -30,6 +30,14 @@ Partial Class txtRelatorio_Form
         Dim ReportDataSource5 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource6 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
         Dim ReportDataSource7 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
+        Me.ArtigosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SQLToReportConnection = New ClinicaInformatica.SQLToReportConnection()
+        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ReparaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ParticipaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.HardwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SoftwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.btnOK = New System.Windows.Forms.Button()
         Me.btnFechar = New System.Windows.Forms.Button()
         Me.txtReport = New System.Windows.Forms.TextBox()
@@ -37,23 +45,15 @@ Partial Class txtRelatorio_Form
         Me.btnPreVisualizar = New System.Windows.Forms.Button()
         Me.btnRepor = New System.Windows.Forms.Button()
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me.SQLToReportConnection = New ClinicaInformatica.SQLToReportConnection()
-        Me.ArtigosBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ArtigosTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ArtigosTableAdapter()
-        Me.ClientesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ClientesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ClientesTableAdapter()
-        Me.EmpresasBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.EmpresasTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.EmpresasTableAdapter()
-        Me.ReparaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ReparaçõesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ReparaçõesTableAdapter()
-        Me.ParticipaçõesBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ParticipaçõesTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.ParticipaçõesTableAdapter()
-        Me.HardwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.HardwareTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.HardwareTableAdapter()
-        Me.SoftwareBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SoftwareTableAdapter = New ClinicaInformatica.SQLToReportConnectionTableAdapters.SoftwareTableAdapter()
-        CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ArtigosBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -61,6 +61,46 @@ Partial Class txtRelatorio_Form
         CType(Me.HardwareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SoftwareBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'ArtigosBindingSource
+        '
+        Me.ArtigosBindingSource.DataMember = "Artigos"
+        Me.ArtigosBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'SQLToReportConnection
+        '
+        Me.SQLToReportConnection.DataSetName = "SQLToReportConnection"
+        Me.SQLToReportConnection.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'ClientesBindingSource
+        '
+        Me.ClientesBindingSource.DataMember = "Clientes"
+        Me.ClientesBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'EmpresasBindingSource
+        '
+        Me.EmpresasBindingSource.DataMember = "Empresas"
+        Me.EmpresasBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'ReparaçõesBindingSource
+        '
+        Me.ReparaçõesBindingSource.DataMember = "Reparações"
+        Me.ReparaçõesBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'ParticipaçõesBindingSource
+        '
+        Me.ParticipaçõesBindingSource.DataMember = "Participações"
+        Me.ParticipaçõesBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'HardwareBindingSource
+        '
+        Me.HardwareBindingSource.DataMember = "Hardware"
+        Me.HardwareBindingSource.DataSource = Me.SQLToReportConnection
+        '
+        'SoftwareBindingSource
+        '
+        Me.SoftwareBindingSource.DataMember = "Software"
+        Me.SoftwareBindingSource.DataSource = Me.SQLToReportConnection
         '
         'btnOK
         '
@@ -146,69 +186,29 @@ Partial Class txtRelatorio_Form
         Me.ReportViewer1.Size = New System.Drawing.Size(756, 271)
         Me.ReportViewer1.TabIndex = 6
         '
-        'SQLToReportConnection
-        '
-        Me.SQLToReportConnection.DataSetName = "SQLToReportConnection"
-        Me.SQLToReportConnection.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ArtigosBindingSource
-        '
-        Me.ArtigosBindingSource.DataMember = "Artigos"
-        Me.ArtigosBindingSource.DataSource = Me.SQLToReportConnection
-        '
         'ArtigosTableAdapter
         '
         Me.ArtigosTableAdapter.ClearBeforeFill = True
-        '
-        'ClientesBindingSource
-        '
-        Me.ClientesBindingSource.DataMember = "Clientes"
-        Me.ClientesBindingSource.DataSource = Me.SQLToReportConnection
         '
         'ClientesTableAdapter
         '
         Me.ClientesTableAdapter.ClearBeforeFill = True
         '
-        'EmpresasBindingSource
-        '
-        Me.EmpresasBindingSource.DataMember = "Empresas"
-        Me.EmpresasBindingSource.DataSource = Me.SQLToReportConnection
-        '
         'EmpresasTableAdapter
         '
         Me.EmpresasTableAdapter.ClearBeforeFill = True
-        '
-        'ReparaçõesBindingSource
-        '
-        Me.ReparaçõesBindingSource.DataMember = "Reparações"
-        Me.ReparaçõesBindingSource.DataSource = Me.SQLToReportConnection
         '
         'ReparaçõesTableAdapter
         '
         Me.ReparaçõesTableAdapter.ClearBeforeFill = True
         '
-        'ParticipaçõesBindingSource
-        '
-        Me.ParticipaçõesBindingSource.DataMember = "Participações"
-        Me.ParticipaçõesBindingSource.DataSource = Me.SQLToReportConnection
-        '
         'ParticipaçõesTableAdapter
         '
         Me.ParticipaçõesTableAdapter.ClearBeforeFill = True
         '
-        'HardwareBindingSource
-        '
-        Me.HardwareBindingSource.DataMember = "Hardware"
-        Me.HardwareBindingSource.DataSource = Me.SQLToReportConnection
-        '
         'HardwareTableAdapter
         '
         Me.HardwareTableAdapter.ClearBeforeFill = True
-        '
-        'SoftwareBindingSource
-        '
-        Me.SoftwareBindingSource.DataMember = "Software"
-        Me.SoftwareBindingSource.DataSource = Me.SQLToReportConnection
         '
         'SoftwareTableAdapter
         '
@@ -232,8 +232,8 @@ Partial Class txtRelatorio_Form
         Me.MinimizeBox = False
         Me.Name = "txtRelatorio_Form"
         Me.Text = "Texto Folha do Cliente"
-        CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ArtigosBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SQLToReportConnection, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ClientesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmpresasBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ReparaçõesBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

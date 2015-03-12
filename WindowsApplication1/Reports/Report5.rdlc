@@ -344,7 +344,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Observações.Value, "Artigos")</Value>
+                <Value>=First(Fields!Observações.Value, "Reparações")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -789,7 +789,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=First(Fields!Observações.Value, "Artigos")</Value>
+                <Value>=First(Fields!Observações.Value, "Reparações")</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -2591,10 +2591,6 @@
           <DataField>NºSérie</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Observações">
-          <DataField>Observações</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
         <Field Name="Tipo_Artigo">
           <DataField>Tipo_Artigo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -2610,7 +2606,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
         <rd:TableName>Artigos</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -2670,7 +2666,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
         <rd:TableName>Clientes</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -2738,11 +2734,111 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
         <rd:TableName>Empresas</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>EmpresasTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Participações">
+      <Query>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NºParticipação">
+          <DataField>NºParticipação</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="NºTécnico">
+          <DataField>NºTécnico</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Nome">
+          <DataField>Nome</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="N_Reparação">
+          <DataField>N_Reparação</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:TableName>Participações</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>ParticipaçõesTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Hardware">
+      <Query>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NºHardware">
+          <DataField>NºHardware</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="N_Reparação">
+          <DataField>NºReparação</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Tipo">
+          <DataField>Tipo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Qtd">
+          <DataField>Qtd</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Preço">
+          <DataField>Preço</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:TableName>Hardware</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>HardwareTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="Software">
+      <Query>
+        <DataSourceName>SQLToReportConnection</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="NºSoftware">
+          <DataField>NºSoftware</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="Tipo">
+          <DataField>Tipo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Preço">
+          <DataField>Preço</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="N_Reparação">
+          <DataField>N_Reparação</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:TableName>Software</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>SoftwareTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="Reparações">
@@ -2791,114 +2887,18 @@
           <DataField>Preço</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="Observações">
+          <DataField>Observações</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
+        <rd:SchemaPath>D:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
         <rd:TableName>Reparações</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>ReparaçõesTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Participações">
-      <Query>
-        <DataSourceName>SQLToReportConnection</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="NºParticipação">
-          <DataField>NºParticipação</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="NºTécnico">
-          <DataField>NºTécnico</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Nome">
-          <DataField>Nome</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="N_Reparação">
-          <DataField>N_Reparação</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
-        <rd:TableName>Participações</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ParticipaçõesTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Hardware">
-      <Query>
-        <DataSourceName>SQLToReportConnection</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="NºHardware">
-          <DataField>NºHardware</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="N_Reparação">
-          <DataField>NºReparação</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Tipo">
-          <DataField>Tipo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Qtd">
-          <DataField>Qtd</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Preço">
-          <DataField>Preço</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
-        <rd:TableName>Hardware</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>HardwareTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="Software">
-      <Query>
-        <DataSourceName>SQLToReportConnection</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
-        <Field Name="NºSoftware">
-          <DataField>NºSoftware</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-        <Field Name="Tipo">
-          <DataField>Tipo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Preço">
-          <DataField>Preço</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="N_Reparação">
-          <DataField>N_Reparação</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>SQLToReportConnection</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Emanuel\Documents\GitHub\ClinicaInformatica\WindowsApplication1\SQLToReportConnection.xsd</rd:SchemaPath>
-        <rd:TableName>Software</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>SoftwareTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

@@ -1,6 +1,7 @@
 ﻿Public Class txtRelatorio_Form
     Dim backup_text As String
     Private Sub txtRelatorio_Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Artigos'. Você pode movê-la ou removê-la conforme necessário.
         Me.ArtigosTableAdapter.Fill(Me.SQLToReportConnection.Artigos, 1)
         'TODO: esta linha de código carrega dados na tabela 'SQLToReportConnection.Clientes'. Você pode movê-la ou removê-la conforme necessário.
@@ -61,6 +62,8 @@
     End Sub
 
     Private Sub btnFechar_Click(sender As Object, e As EventArgs) Handles btnFechar.Click
+        txtReport.Text = backup_text
+        BLL.textReport.editar(txtReport.Text)
         Me.Close()
     End Sub
 
@@ -76,5 +79,9 @@
         Catch ex As Exception
             MsgBox("Erro!!" & ex.Message)
         End Try
+    End Sub
+
+    Private Sub ReportViewer1_Load(sender As Object, e As EventArgs) Handles ReportViewer1.Load
+
     End Sub
 End Class

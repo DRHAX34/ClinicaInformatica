@@ -88,6 +88,7 @@ Public NotInheritable Class SplashAway
                 End If
                 Me.Close()
             Finally
+                ProgressBar1.Refresh()
                 Threading.Thread.Sleep(1000)
                 Workspace.Show()
                 Me.Close()
@@ -105,8 +106,8 @@ Public NotInheritable Class SplashAway
     End Sub
 
     Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
-        load_form()
         Timer1.Stop()
+        load_form()
     End Sub
 
     Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click

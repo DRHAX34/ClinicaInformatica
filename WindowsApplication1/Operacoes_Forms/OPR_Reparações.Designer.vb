@@ -39,24 +39,26 @@ Partial Class OPR_Reparações
         Me.exitbutton = New System.Windows.Forms.Button()
         Me.savebutton = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
+        Me.observaçoesbox = New ClinicaInformatica.WaterMarkTextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'descriçaobox
         '
         Me.descriçaobox.Enabled = False
-        Me.descriçaobox.Location = New System.Drawing.Point(27, 259)
+        Me.descriçaobox.Location = New System.Drawing.Point(30, 357)
         Me.descriçaobox.MaxLength = 255
         Me.descriçaobox.Multiline = True
         Me.descriçaobox.Name = "descriçaobox"
-        Me.descriçaobox.Size = New System.Drawing.Size(473, 117)
+        Me.descriçaobox.Size = New System.Drawing.Size(473, 79)
         Me.descriçaobox.TabIndex = 58
         '
         'Label8
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(171, 231)
+        Me.Label8.Location = New System.Drawing.Point(174, 329)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(185, 25)
         Me.Label8.TabIndex = 56
@@ -142,7 +144,7 @@ Partial Class OPR_Reparações
         '
         'restartbutton
         '
-        Me.restartbutton.Location = New System.Drawing.Point(299, 401)
+        Me.restartbutton.Location = New System.Drawing.Point(302, 461)
         Me.restartbutton.Name = "restartbutton"
         Me.restartbutton.Size = New System.Drawing.Size(97, 41)
         Me.restartbutton.TabIndex = 102
@@ -150,7 +152,7 @@ Partial Class OPR_Reparações
         '
         'exitbutton
         '
-        Me.exitbutton.Location = New System.Drawing.Point(403, 401)
+        Me.exitbutton.Location = New System.Drawing.Point(406, 461)
         Me.exitbutton.Name = "exitbutton"
         Me.exitbutton.Size = New System.Drawing.Size(97, 41)
         Me.exitbutton.TabIndex = 101
@@ -158,7 +160,7 @@ Partial Class OPR_Reparações
         '
         'savebutton
         '
-        Me.savebutton.Location = New System.Drawing.Point(27, 401)
+        Me.savebutton.Location = New System.Drawing.Point(30, 461)
         Me.savebutton.Name = "savebutton"
         Me.savebutton.Size = New System.Drawing.Size(97, 41)
         Me.savebutton.TabIndex = 99
@@ -174,12 +176,36 @@ Partial Class OPR_Reparações
         Me.PictureBox1.TabIndex = 66
         Me.PictureBox1.TabStop = False
         '
+        'observaçoesbox
+        '
+        Me.observaçoesbox.Font = New System.Drawing.Font("Segoe UI", 9.75!)
+        Me.observaçoesbox.Location = New System.Drawing.Point(30, 255)
+        Me.observaçoesbox.MaxLength = 255
+        Me.observaçoesbox.Multiline = True
+        Me.observaçoesbox.Name = "observaçoesbox"
+        Me.observaçoesbox.Size = New System.Drawing.Size(470, 71)
+        Me.observaçoesbox.TabIndex = 104
+        Me.observaçoesbox.WaterMarkColor = System.Drawing.Color.Gray
+        Me.observaçoesbox.WaterMarkText = ""
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(194, 222)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(124, 25)
+        Me.Label2.TabIndex = 103
+        Me.Label2.Text = "Observações"
+        '
         'OPR_Reparações
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(529, 454)
+        Me.ClientSize = New System.Drawing.Size(529, 518)
+        Me.Controls.Add(Me.observaçoesbox)
+        Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.clienteshow)
         Me.Controls.Add(Me.clientelabel)
         Me.Controls.Add(Me.restartbutton)
@@ -220,4 +246,6 @@ Partial Class OPR_Reparações
     Friend WithEvents restartbutton As System.Windows.Forms.Button
     Friend WithEvents exitbutton As System.Windows.Forms.Button
     Friend WithEvents savebutton As System.Windows.Forms.Button
+    Friend WithEvents observaçoesbox As ClinicaInformatica.WaterMarkTextBox
+    Friend WithEvents Label2 As System.Windows.Forms.Label
 End Class

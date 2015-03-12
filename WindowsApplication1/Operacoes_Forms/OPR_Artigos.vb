@@ -30,7 +30,6 @@
                 marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
                 modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
-                observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
                 ComboBox1.Text = dispositivo_data.Rows.Item(0).Item("Tipo_Artigo").ToString()
                 lockbutton.PerformClick()
             Else
@@ -49,12 +48,10 @@
                 marcabox.Text = dispositivo_data.Rows.Item(0).Item("Marca").ToString()
                 modelobox.Text = dispositivo_data.Rows.Item(0).Item("Modelo").ToString()
                 numseriebox.Text = dispositivo_data.Rows.Item(0).Item("NºSérie").ToString()
-                observaçoesbox.Text = dispositivo_data.Rows.Item(0).Item("Observações").ToString()
             Else
                 marcabox.Text = ""
                 modelobox.Text = ""
                 numseriebox.Text = ""
-                observaçoesbox.Text = ""
             End If
         Catch ex As Exception
             MsgBox("Erro ao restaurar os dados: " & ex.Message)
@@ -66,7 +63,6 @@
             Dim check_numcliente As String = ""
             Dim check_marca As String = ""
             Dim check_modelo As String = ""
-            Dim check_observaçoes As String = ""
             Try
                 check_numcliente = n_cliente
                 check_numcliente.Trim()
@@ -74,13 +70,11 @@
                 check_marca.Trim()
                 check_modelo = modelobox.Text
                 check_modelo.Trim()
-                check_observaçoes = observaçoesbox.Text
-                check_observaçoes.Trim()
             Catch
             End Try
             Try
-                If Not (check_numcliente = "" And check_marca = "" And check_modelo = "" And check_observaçoes = "") Then
-                    BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.SelectedItem)
+                If Not (check_numcliente = "" And check_marca = "" And check_modelo = "") Then
+                    BLL.Artigos.alterar(dispositivo_data.Rows.Item(0).Item("NºArtigo").ToString(), n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, ComboBox1.SelectedItem)
                     check = True
                     Me.Close()
                 Else
@@ -90,22 +84,18 @@
                 MsgBox("Ocorreu um erro: " & ex.Message)
             End Try
         Else
-            If (ComboBox1.Text = "") Then
                 Dim check_marca As String = ""
                 Dim check_modelo As String = ""
-                Dim check_observaçoes As String = ""
                 Try
                     check_marca = marcabox.Text
                     check_marca.Trim()
                     check_modelo = modelobox.Text
                     check_modelo.Trim()
-                    check_observaçoes = observaçoesbox.Text
-                    check_observaçoes.Trim()
                 Catch
                 End Try
                 Try
-                    If Not check_marca = "" And Not check_modelo = "" And Not check_observaçoes = "" Then
-                        BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, observaçoesbox.Text, ComboBox1.Text)
+                    If Not check_marca = "" And Not check_modelo = "" Then
+                        BLL.Artigos.inserir(n_cliente, marcabox.Text, modelobox.Text, numseriebox.Text, ComboBox1.Text)
                         MsgBox("Inserido com sucesso")
                         If MsgBox("Deseja inserir uma reparação para este Artigo?", vbYesNo, "Novo Artigo") = vbYes Then
                             If BLL.Tecnicos.carregar(True).Rows.Count = 0 Then
@@ -145,10 +135,7 @@
                     End If
                 Catch ex As Exception
                     MsgBox("Ocorreu um erro: " & ex.Message)
-                End Try
-            Else
-                MsgBox("Introduza todos os dados!")
-            End If
+            End Try
         End If
 
     End Sub
@@ -181,7 +168,6 @@
             marcabox.Enabled = False
             modelobox.Enabled = False
             numseriebox.Enabled = False
-            observaçoesbox.Enabled = False
             ComboBox1.Enabled = False
             savebutton.Enabled = False
         Else
@@ -190,7 +176,6 @@
             marcabox.Enabled = True
             modelobox.Enabled = True
             numseriebox.Enabled = True
-            observaçoesbox.Enabled = True
             ComboBox1.Enabled = True
             savebutton.Enabled = True
         End If

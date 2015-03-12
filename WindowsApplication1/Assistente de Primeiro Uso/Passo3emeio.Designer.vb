@@ -224,7 +224,7 @@ Partial Class Passo3emeio
         Me.caminhobox.Size = New System.Drawing.Size(102, 22)
         Me.caminhobox.TabIndex = 116
         Me.caminhobox.WaterMarkColor = System.Drawing.Color.Gray
-        Me.caminhobox.WaterMarkText = "Obrigatório"
+        Me.caminhobox.WaterMarkText = ""
         '
         'Label4
         '
@@ -235,6 +235,7 @@ Partial Class Passo3emeio
         Me.Label4.Size = New System.Drawing.Size(229, 13)
         Me.Label4.TabIndex = 108
         Me.Label4.Text = "Não se esqueça de inserir o indicativo do país!"
+        Me.Label4.Visible = False
         '
         'Localidadelabel
         '

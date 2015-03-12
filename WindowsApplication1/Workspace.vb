@@ -107,7 +107,7 @@ Public Class Workspace
         'terminarsessaobutton.Location = New Point((Me.Width - (1035 - 908)), 12)
         Label1.Location = New Point((Me.Width - (1035 - (956 - (Label1.Size.Width) - (5)))), 15)
         companylogo.Location = New Point((Me.Width - (1118 - 1032)), 0)
-        Label2.Location = New Point((Me.Width - Label2.Size.Width - 25), (Me.Height - (506 - 453)))
+        Label2.Location = New Point((Me.Width - Label2.Size.Width - 25), (Me.Height - (506 - 444)))
     End Sub
     Private Sub onclose(sender As Object, e As EventArgs) Handles Me.FormClosing
     End Sub
@@ -174,7 +174,7 @@ Public Class Workspace
         Workspace.Label1.Text = Workspace.companyname1
     End Sub
     Private Sub clientesmenu_Click(sender As Object, e As EventArgs) Handles clientesmenu.Click
-        If check_clientes = False Or clientesview.Visible = False Then
+        If check_clientes = False And clientesview.Visible = False Then
             clientesview = New ViewForm
             clientesview.Text = "Clientes"
             clientesview.tabela = "Clientes"
@@ -190,6 +190,7 @@ Public Class Workspace
             clientesview.Show()
         Else
             MsgBox("Já tem a janela dos Clientes aberta!")
+            clientesview.WindowState = FormWindowState.Normal
         End If
     End Sub
     Private Sub RadButton1_Click(sender As Object, e As EventArgs)

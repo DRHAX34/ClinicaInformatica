@@ -102,13 +102,15 @@
             s(0) = ("Outro:")
             Workspace.software_support.Rows.Add(s)
             Dim check_descrição As String = descriçaobox.Text
+            Dim check_obs As String = observaçoesbox.Text
             Try
                 check_descrição.Trim()
+                check_obs.Trim()
             Catch
             End Try
-            If Not check_descrição = "" Then
+            If (Not check_descrição = "") And (Not check_obs = "") Then
                 Try
-                    BLL.Reparacoes.inserir(artigos, descriçaobox.Text, dateinicio.Value)
+                    BLL.Reparacoes.inserir(artigos, descriçaobox.Text, observaçoesbox.Text, dateinicio.Value)
                     If Workspace.hardware_support.Columns.Count <> 0 Then
                         If Workspace.hardware_support.Rows.Count <> 0 Then
                             For i = 0 To Workspace.hardware_support.Rows.Count - 1
@@ -135,19 +137,21 @@
                     MsgBox("Erro ao inserir: " & ex.Message)
                 End Try
             Else
-                MsgBox("Verifique se inseriu o número de Artigo, a data inicial ou a descrição da avaria!", vbOK, "Erro!")
+                MsgBox("Verifique se inseriu o número de Artigo, a data inicial, as observações ou a descrição da avaria!", vbOK, "Erro!")
             End If
         Else
             Dim check_descrição As String = descriçaobox.Text
             Dim check_data As Boolean = False
+            Dim check_obs As String = observaçoesbox.Text
             check_data = True
             Try
                 check_descrição.Trim()
+                check_obs.Trim()
             Catch
             End Try
-            If Not check_descrição = "" And Not check_data = False Then
+            If (Not check_descrição = "") And (Not check_data = False) And (Not check_obs = "") Then
                 Try
-                    BLL.Reparacoes.alterarReparacao(reparaçao_data.Rows(0).Item(0).ToString(), descriçaobox.Text, dateinicio.Value)
+                    BLL.Reparacoes.alterarReparacao(reparaçao_data.Rows(0).Item(0).ToString(), descriçaobox.Text, observaçoesbox.Text, dateinicio.Value)
                     If MsgBox("Reparação Editada com sucesso! Deseja mostrar o Relatório da Reparação?", MsgBoxStyle.YesNo, "Sucesso!") = vbYes Then
                         folha_repar.MdiParent = Workspace
                         folha_repar.n_repar = reparaçao_data.Rows(0).Item(0).ToString()

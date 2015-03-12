@@ -1,6 +1,14 @@
 ﻿
 
 Partial Class SQLToReportConnection
+    Partial Class ArtigosDataTable
+
+        Private Sub ArtigosDataTable_ArtigosRowChanging(sender As Object, e As ArtigosRowChangeEvent) Handles Me.ArtigosRowChanging
+
+        End Sub
+
+    End Class
+
     Partial Class ReparaçõesDataTable
 
         Private Sub ReparaçõesDataTable_ColumnChanging(sender As Object, e As DataColumnChangeEventArgs) Handles Me.ColumnChanging

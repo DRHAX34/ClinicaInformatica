@@ -25,6 +25,7 @@
         newbutton.Location = New Point((newbutton.Location.X), (Me.Height - (436 - 329)))
         GroupBox1.Location = New Point((Me.Width / 2 - 114), (Me.Height - (436 - 329)))
         Label1.Location = New Point(((Me.Width / 2) - (Label1.Width / 2)), 9)
+        CheckBox1.Location = New Point((GroupBox1.Location.X + GroupBox1.Size.Width + 20), GroupBox1.Location.Y + ((GroupBox1.Size.Height / 2) - 5))
     End Sub
     Private Sub resizebeginning(sender As Object, e As EventArgs) Handles Me.ResizeBegin
         Workspace.SuspendLayout()
@@ -254,7 +255,13 @@
 
 
     Private Sub delbutton_Click(sender As Object, e As EventArgs) Handles delbutton.Click
-        If MsgBox("Deseja eliminar o Registo?", MsgBoxStyle.YesNo, "Eliminar") = vbYes Then
+        Dim msg As String
+        If removidos = True Then
+            msg = "Deseja restaurar o Registo?"
+        Else
+            msg = "Deseja eliminar o Registo?"
+        End If
+        If MsgBox(msg, MsgBoxStyle.YesNo, "Eliminar") = vbYes Then
             Try
                 Dim string_data As String
                 string_data = showdata.Rows(showdata.CurrentCell.RowIndex).Cells(0).Value.ToString()

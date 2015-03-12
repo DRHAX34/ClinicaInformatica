@@ -181,6 +181,7 @@ Partial Class Passo2
         Me.alunoslabel.Size = New System.Drawing.Size(94, 20)
         Me.alunoslabel.TabIndex = 36
         Me.alunoslabel.Text = "Tem Alunos?"
+        Me.alunoslabel.Visible = False
         '
         'nomebox
         '
@@ -343,6 +344,7 @@ Partial Class Passo2
         Me.naocheck.TabStop = True
         Me.naocheck.Text = "Não"
         Me.naocheck.UseVisualStyleBackColor = True
+        Me.naocheck.Visible = False
         '
         'simcheck
         '
@@ -355,6 +357,7 @@ Partial Class Passo2
         Me.simcheck.TabStop = True
         Me.simcheck.Text = "Sim"
         Me.simcheck.UseVisualStyleBackColor = True
+        Me.simcheck.Visible = False
         '
         'Passo2
         '

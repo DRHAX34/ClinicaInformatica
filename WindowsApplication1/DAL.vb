@@ -155,7 +155,7 @@ Public Class DAL
             resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET ONLINE", Connection)
             resCmd.ExecuteNonQuery()
             Connection.Close()
-            MsgBox("Backup restaurado com êxito!")
+            MsgBox("Backup restaurado com êxito!", MsgBoxStyle.OkOnly, "Restauro Backup")
         Catch ex As Exception
             resCmd = New SqlCommand("ALTER DATABASE [" & dbname & "] SET ONLINE", Connection)
             resCmd.ExecuteNonQuery()

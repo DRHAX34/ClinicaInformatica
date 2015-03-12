@@ -70,6 +70,7 @@
             txtLimpeza.Text = Workspace.software_support.Rows(5).Item("Preço")
             txtDescricaoSO.Text = Workspace.software_support.Rows(6).Item("Tipo")
             txtOtherSO.Text = Workspace.software_support.Rows(6).Item("Preço")
+            txtPreço.Text = reparaçao_data.Rows(0).Item("Preço")
         End If
     End Sub
 
@@ -568,7 +569,6 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
                     check = True
                 End Try
 
@@ -603,7 +603,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -633,7 +633,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -663,7 +663,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -693,7 +693,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -724,7 +724,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -749,7 +749,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -780,7 +780,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -811,7 +811,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -842,7 +842,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -872,7 +872,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -902,7 +902,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -928,7 +928,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -954,7 +954,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -980,7 +980,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -1005,7 +1005,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -1030,7 +1030,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -1055,7 +1055,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -1081,7 +1081,7 @@
                 Try
                     txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
                 Catch ex As Exception
-                    MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
                     check = True
                 End Try
 
@@ -1098,7 +1098,7 @@
         Try
             txtPreço.Text = CDec(caixapreçobox.Text) + CDec(motherpreçobox.Text) + (coolerqtdbox.Value * CDec(coolerpreçobox.Text)) + (vgaqtdbox.Value * CDec(vgapreçobox.Text)) + (opticqtdbox.Value * CDec(opticpreçobox.Text)) + (redeqtdbox.Value * CDec(redepreçobox.Text)) + CDec(fontepreçobox.Text) + (processadorqtdbox.Value * CDec(processadorpreçobox.Text)) + (discoqtdbox.Value * CDec(discopreçobox.Text)) + (memoriaqtdbox.Value * CDec(memóriapreçobox.Text)) + (leitorqtdbox.Value * CDec(leitorpreçobox.Text)) + (otherqtdbox.Value * CDec(otherpreçobox.Text)) + CDec(txtInstOS.Text) + CDec(txtRecSO.Text) + CDec(txtLimpeza.Text) + CDec(txtCodSO.Text) + CDec(txtSpyware.Text) + CDec(txtVirus.Text) + CDec(txtOtherSO.Text)
         Catch ex As Exception
-            MsgBox("Erro ao gerar preço final", MsgBoxStyle.OkOnly, "Erro!")
+
         End Try
     End Sub
 
