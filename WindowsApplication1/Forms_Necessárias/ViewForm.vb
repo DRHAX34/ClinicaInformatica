@@ -115,6 +115,7 @@
                 opr_clientes.MdiParent = Workspace
                 Workspace.m_ChildFormNumber += 1
                 opr_clientes.Show()
+                Me.Close()
             Case "Artigos"
                 Dim opr_artigos As New OPR_Artigos
                 opr_artigos.modo = False
@@ -174,6 +175,9 @@
                     Workspace.check_reparacoes = True
                     repararview.tabela = "Reparações"
                     repararview.Label1.Text = "Reparações do Artigo: " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Marca").Value.ToString() & " " & showdata.Rows(showdata.CurrentCell.RowIndex).Cells("Modelo").Value.ToString() & " do cliente: " & BLL.Clientes.carregar_dados_numcliente(showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString(), True).Rows(0).Item("Nome")
+                    If (repararview.Label1.Text.Length > 20) Then
+                        repararview.Label1.Font = New Font("Segoe UI", 18, FontStyle.Bold)
+                    End If
                     repararview.Text = repararview.Label1.Text
                     repararview.MdiParent = Workspace
                     repararview.n_cliente = showdata.Rows(showdata.CurrentCell.RowIndex).Cells("NºCliente").Value.ToString()
@@ -578,6 +582,7 @@
                                 opr_clientes.Show()
                             End If
                         End If
+                        Me.Close()
                     Case "Artigos"
                         Dim opr_artigos As New OPR_Artigos
                         opr_artigos.MdiParent = Workspace
@@ -641,7 +646,7 @@
                                 opr_tecnicos.Show()
                             End If
                         End If
-                        Me.Close()
+                        Me.Hide()
                 End Select
 
             Catch ex As Exception

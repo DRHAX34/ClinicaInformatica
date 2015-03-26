@@ -25,6 +25,7 @@
             dateinicio.Value = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             dateinicio.MinDate = reparaçao_data.Rows.Item(0).Item("DIRepar").ToString()
             descriçaobox.Text = reparaçao_data.Rows.Item(0).Item("DescAvaria").ToString()
+            observaçoesbox.Text = reparaçao_data.Rows.Item(0).Item("Observações").ToString()
             check = False
             descriçaobox.Enabled = True
         Else
@@ -160,6 +161,11 @@
                         folha_repar.Show()
                     End If
                     Me.Close()
+                    For Each Form As ViewForm In Workspace.MdiChildren
+                        If (Form.tabela = "Reparações") Then
+                            Form.Show()
+                        End If
+                    Next
                     check = False
                 Catch ex As Exception
                     MsgBox("Erro ao inserir: " & ex.Message)
